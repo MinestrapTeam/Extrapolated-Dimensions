@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import clashsoft.mods.moredimensions.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.lib.MDMEntityProperties;
 import clashsoft.mods.moredimensions.magic.StaffData;
 import clashsoft.mods.moredimensions.magic.StaffType;
 import clashsoft.mods.moredimensions.magic.spell.Spell;
@@ -101,7 +101,7 @@ public class ItemStaff extends Item
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		StaffData sd = StaffData.getStaffData(par1ItemStack);
-		POCEntityProperties props = POCEntityProperties.getEntityProperties(par3EntityPlayer);
+		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(par3EntityPlayer);
 		
 		if (!sd.getStaffType().isChargeable())
 			for (Spell s : sd.getSpells())
@@ -116,7 +116,7 @@ public class ItemStaff extends Item
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
 	{
 		StaffData sd = StaffData.getStaffData(par1ItemStack);
-		POCEntityProperties props = POCEntityProperties.getEntityProperties(par3EntityPlayer);
+		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(par3EntityPlayer);
 		
 		if (sd.getStaffType().isChargeable())
 		{

@@ -6,7 +6,7 @@ import clashsoft.clashsoftapi.util.CSLang;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.common.CommonProxy;
 import clashsoft.mods.moredimensions.item.*;
-import clashsoft.mods.moredimensions.lib.POCCreativeTab;
+import clashsoft.mods.moredimensions.lib.MDMCreativeTab;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.block.Block;
@@ -17,8 +17,8 @@ import net.minecraftforge.common.EnumHelper;
 @Addon(modName = "MoreDimensionsMod", addonName = "Items")
 public class MDMItems
 {
-	public static CreativeTabs		PoCTab			= new POCCreativeTab("PoCTab");
-	public static CreativeTabs		AlchemyTab		= new POCCreativeTab("ElixirTab");
+	public static CreativeTabs		PoCTab			= new MDMCreativeTab("PoCTab");
+	public static CreativeTabs		AlchemyTab		= new MDMCreativeTab("ElixirTab");
 	
 	public static EnumToolMaterial	HEAVENWOODt		= EnumToolMaterial.WOOD;
 	public static EnumToolMaterial	HEAVENSTONEt	= EnumHelper.addToolMaterial("HEAVENSTONE", 1, 128, 4.5F, 2, 15);

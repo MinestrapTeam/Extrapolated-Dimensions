@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item;
 
-import clashsoft.mods.moredimensions.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.lib.MDMEntityProperties;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -23,7 +23,7 @@ public class ItemManaStar extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
-		POCEntityProperties.getEntityProperties(par3EntityPlayer).addMana(2.5F);
+		MDMEntityProperties.getEntityProperties(par3EntityPlayer).addMana(2.5F);
 		if (!par3EntityPlayer.capabilities.isCreativeMode)
 			par1ItemStack.stackSize--;
 		return par1ItemStack;

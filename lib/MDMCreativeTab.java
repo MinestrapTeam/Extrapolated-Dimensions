@@ -7,9 +7,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
-public class POCCreativeTab extends CreativeTabs
+public class MDMCreativeTab extends CreativeTabs
 {
-	public POCCreativeTab(String label)
+	public MDMCreativeTab(String label)
 	{
 		super(label);
 		// this.setBackgroundImageName("pocbg.png");

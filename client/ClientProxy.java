@@ -15,7 +15,7 @@ import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
 import clashsoft.mods.moredimensions.common.CommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
-import clashsoft.mods.moredimensions.lib.POCTickHandler;
+import clashsoft.mods.moredimensions.lib.MDMTickHandler;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 import clashsoft.mods.moredimensions.tileentity.render.RenderAlchemyTube;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -50,7 +50,7 @@ public class ClientProxy extends CommonProxy
 		
 		//FIXME
 		
-		TickRegistry.registerTickHandler(new POCTickHandler(), Side.CLIENT);
+		TickRegistry.registerTickHandler(new MDMTickHandler(), Side.CLIENT);
 		
 		bowRenderer = new RenderPOCBows();
 		

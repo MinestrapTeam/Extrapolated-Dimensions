@@ -18,7 +18,7 @@ import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
-public class POCEntityProperties implements IExtendedEntityProperties
+public class MDMEntityProperties implements IExtendedEntityProperties
 {
 	public static final String		IDENTIFIER			= "POCEntityProperties";
 	public static final String		CHANNEL				= "POCEPC";
@@ -46,14 +46,14 @@ public class POCEntityProperties implements IExtendedEntityProperties
 	
 	protected float					sharingLevel		= 0F;
 	
-	private POCEntityProperties(final EntityLivingBase entity)
+	private MDMEntityProperties(final EntityLivingBase entity)
 	{
 		this.entity = entity;
 	}
 	
-	public static POCEntityProperties create(EntityLivingBase entity)
+	public static MDMEntityProperties create(EntityLivingBase entity)
 	{
-		return new POCEntityProperties(entity);
+		return new MDMEntityProperties(entity);
 	}
 	
 	public void onPropertyChanged()
@@ -66,28 +66,28 @@ public class POCEntityProperties implements IExtendedEntityProperties
 	 * Setters
 	 */
 	
-	public POCEntityProperties setMana(float mana)
+	public MDMEntityProperties setMana(float mana)
 	{
 		this.mana = mana;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setAdditionalHearts(float additionalHearts)
+	public MDMEntityProperties setAdditionalHearts(float additionalHearts)
 	{
 		this.additionalHearts = additionalHearts;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setMeleeLevel(float meleeLevel)
+	public MDMEntityProperties setMeleeLevel(float meleeLevel)
 	{
 		this.meleeLevel = meleeLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setDefenceLevel(float defenceLevel)
+	public MDMEntityProperties setDefenceLevel(float defenceLevel)
 	{
 		this.defenceLevel = defenceLevel;
 		
@@ -95,91 +95,91 @@ public class POCEntityProperties implements IExtendedEntityProperties
 		return this;
 	}
 	
-	public POCEntityProperties setMagicLevel(float magicLevel)
+	public MDMEntityProperties setMagicLevel(float magicLevel)
 	{
 		this.magicLevel = magicLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setRangedLevel(float rangedLevel)
+	public MDMEntityProperties setRangedLevel(float rangedLevel)
 	{
 		this.rangedLevel = rangedLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setDiggingLevel(float level)
+	public MDMEntityProperties setDiggingLevel(float level)
 	{
 		this.diggingLevel = level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setMiningLevel(float miningLevel)
+	public MDMEntityProperties setMiningLevel(float miningLevel)
 	{
 		this.miningLevel = miningLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setSmithingLevel(float smithingLevel)
+	public MDMEntityProperties setSmithingLevel(float smithingLevel)
 	{
 		this.smithingLevel = smithingLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setFishingLevel(float fishingLevel)
+	public MDMEntityProperties setFishingLevel(float fishingLevel)
 	{
 		this.fishingLevel = fishingLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setCookingLevel(float cookingLevel)
+	public MDMEntityProperties setCookingLevel(float cookingLevel)
 	{
 		this.cookingLevel = cookingLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setWoodCuttingLevel(float woodCuttingLevel)
+	public MDMEntityProperties setWoodCuttingLevel(float woodCuttingLevel)
 	{
 		this.woodCuttingLevel = woodCuttingLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setHerbloreLevel(float herbloreLevel)
+	public MDMEntityProperties setHerbloreLevel(float herbloreLevel)
 	{
 		this.herbloreLevel = herbloreLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setThievingLevel(float thievingLevel)
+	public MDMEntityProperties setThievingLevel(float thievingLevel)
 	{
 		this.thievingLevel = thievingLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setSlayerLevel(float level)
+	public MDMEntityProperties setSlayerLevel(float level)
 	{
 		this.slayerLevel = level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setFarmingLevel(float farmingLevel)
+	public MDMEntityProperties setFarmingLevel(float farmingLevel)
 	{
 		this.farmingLevel = farmingLevel;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties setSharingLevel(float sharingLevel)
+	public MDMEntityProperties setSharingLevel(float sharingLevel)
 	{
 		this.sharingLevel = sharingLevel;
 		onPropertyChanged();
@@ -279,112 +279,112 @@ public class POCEntityProperties implements IExtendedEntityProperties
 	 * Increasing methods
 	 */
 	
-	public POCEntityProperties addMana(float mana)
+	public MDMEntityProperties addMana(float mana)
 	{
 		this.mana += mana;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addMeleeLevel(float level)
+	public MDMEntityProperties addMeleeLevel(float level)
 	{
 		this.meleeLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addDefenceLevel(float level)
+	public MDMEntityProperties addDefenceLevel(float level)
 	{
 		this.defenceLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addMagicLevel(float level)
+	public MDMEntityProperties addMagicLevel(float level)
 	{
 		this.magicLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addRangedLevel(float level)
+	public MDMEntityProperties addRangedLevel(float level)
 	{
 		this.rangedLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addDiggingLevel(float level)
+	public MDMEntityProperties addDiggingLevel(float level)
 	{
 		this.diggingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addMiningLevel(float level)
+	public MDMEntityProperties addMiningLevel(float level)
 	{
 		this.miningLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addSmithingLevel(float level)
+	public MDMEntityProperties addSmithingLevel(float level)
 	{
 		this.smithingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addFishingLevel(float level)
+	public MDMEntityProperties addFishingLevel(float level)
 	{
 		this.fishingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addCookingLevel(float level)
+	public MDMEntityProperties addCookingLevel(float level)
 	{
 		this.cookingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addWoodCuttingLevel(float level)
+	public MDMEntityProperties addWoodCuttingLevel(float level)
 	{
 		this.woodCuttingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addHerbloreLevel(float level)
+	public MDMEntityProperties addHerbloreLevel(float level)
 	{
 		this.herbloreLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addThievingLevel(float level)
+	public MDMEntityProperties addThievingLevel(float level)
 	{
 		this.thievingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addSlayerLevel(float level)
+	public MDMEntityProperties addSlayerLevel(float level)
 	{
 		this.slayerLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addFarmingLevel(float level)
+	public MDMEntityProperties addFarmingLevel(float level)
 	{
 		this.farmingLevel += level;
 		onPropertyChanged();
 		return this;
 	}
 	
-	public POCEntityProperties addSharingLevel(float level)
+	public MDMEntityProperties addSharingLevel(float level)
 	{
 		this.sharingLevel += level;
 		onPropertyChanged();
@@ -401,25 +401,25 @@ public class POCEntityProperties implements IExtendedEntityProperties
 		
 	}
 	
-	public static POCEntityProperties getEntityProperties(EntityLivingBase living)
+	public static MDMEntityProperties getEntityProperties(EntityLivingBase living)
 	{
-		POCEntityProperties props = getEntityProperties_(living);
+		MDMEntityProperties props = getEntityProperties_(living);
 		return props == null ? setEntityProperties(living, create(living)) : props;
 	}
 	
-	protected static POCEntityProperties getEntityProperties_(EntityLivingBase living)
+	protected static MDMEntityProperties getEntityProperties_(EntityLivingBase living)
 	{
-		return (POCEntityProperties) living.getExtendedProperties(IDENTIFIER);
+		return (MDMEntityProperties) living.getExtendedProperties(IDENTIFIER);
 	}
 	
-	public static POCEntityProperties setByPacket(EntityLivingBase living, Packet250CustomPayload packet)
+	public static MDMEntityProperties setByPacket(EntityLivingBase living, Packet250CustomPayload packet)
 	{
 		return setEntityProperties(living, create(living).readFromPacket(packet));
 	}
 	
-	public static POCEntityProperties setEntityProperties(EntityLivingBase living, POCEntityProperties properties)
+	public static MDMEntityProperties setEntityProperties(EntityLivingBase living, MDMEntityProperties properties)
 	{
-		POCEntityProperties props = (POCEntityProperties) living.getExtendedProperties(IDENTIFIER);
+		MDMEntityProperties props = (MDMEntityProperties) living.getExtendedProperties(IDENTIFIER);
 		if (props == null)
 		{
 			props = create(living);
@@ -430,7 +430,7 @@ public class POCEntityProperties implements IExtendedEntityProperties
 		return props;
 	}
 	
-	public static void copy(POCEntityProperties source, POCEntityProperties dest)
+	public static void copy(MDMEntityProperties source, MDMEntityProperties dest)
 	{
 		dest.mana = source.mana;
 		dest.additionalHearts = source.additionalHearts;
@@ -498,7 +498,7 @@ public class POCEntityProperties implements IExtendedEntityProperties
 		return packet;
 	}
 	
-	public POCEntityProperties readFromPacket(Packet250CustomPayload packet)
+	public MDMEntityProperties readFromPacket(Packet250CustomPayload packet)
 	{
 		DataInputStream dis = new DataInputStream(new ByteArrayInputStream(packet.data));
 		try

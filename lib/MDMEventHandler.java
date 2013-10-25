@@ -24,7 +24,7 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
-public class POCEvents
+public class MDMEventHandler
 {
 	/** Used to make the sapling grow the tree **/
 	@ForgeSubscribe
@@ -39,39 +39,39 @@ public class POCEvents
 	@ForgeSubscribe
 	public void onEntityAttacked(AttackEntityEvent event)
 	{
-		POCEntityProperties.getEntityProperties(event.entityPlayer).addMeleeLevel(0.005F);
+		MDMEntityProperties.getEntityProperties(event.entityPlayer).addMeleeLevel(0.005F);
 	}
 	
 	@ForgeSubscribe
 	public void onEntityDeath(LivingDeathEvent event)
 	{
 		if (event.source.getSourceOfDamage() instanceof EntityPlayer)
-			POCEntityProperties.getEntityProperties((EntityPlayer) event.source.getSourceOfDamage()).addSlayerLevel(0.01F);
+			MDMEntityProperties.getEntityProperties((EntityPlayer) event.source.getSourceOfDamage()).addSlayerLevel(0.01F);
 	}
 	
 	@ForgeSubscribe
 	public void onEntityHurt(LivingHurtEvent event)
 	{
 		if (event.entityLiving instanceof EntityPlayer)
-			POCEntityProperties.getEntityProperties(event.entityLiving).addDefenceLevel(0.01F);
+			MDMEntityProperties.getEntityProperties(event.entityLiving).addDefenceLevel(0.01F);
 	}
 	
 	@ForgeSubscribe
 	public void onArrowShot(ArrowLooseEvent event)
 	{
-		POCEntityProperties.getEntityProperties(event.entityPlayer).addRangedLevel(0.05F);
+		MDMEntityProperties.getEntityProperties(event.entityPlayer).addRangedLevel(0.05F);
 	}
 	
 	@ForgeSubscribe
 	public void onHoeUsed(UseHoeEvent event)
 	{
-		POCEntityProperties.getEntityProperties(event.entityPlayer).addFarmingLevel(0.001F);
+		MDMEntityProperties.getEntityProperties(event.entityPlayer).addFarmingLevel(0.001F);
 	}
 	
 	@ForgeSubscribe
 	public void onItemTossed(ItemTossEvent event)
 	{
-		POCEntityProperties.getEntityProperties(event.player).addSharingLevel(0.001F);
+		MDMEntityProperties.getEntityProperties(event.player).addSharingLevel(0.001F);
 	}
 	
 	@ForgeSubscribe
@@ -79,7 +79,7 @@ public class POCEvents
 	{
 		if (event.harvester != null)
 		{
-			POCEntityProperties props = POCEntityProperties.getEntityProperties(event.harvester);
+			MDMEntityProperties props = MDMEntityProperties.getEntityProperties(event.harvester);
 			Block block = event.block;
 			
 			if (block == Block.stone)
@@ -122,8 +122,8 @@ public class POCEvents
 	{
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER && event.entity instanceof EntityPlayer)
 		{
-			POCEntityProperties props = POCEntityProperties.create((EntityLivingBase) event.entity);
-			POCEntityProperties.setEntityProperties((EntityPlayer) event.entity, props);
+			MDMEntityProperties props = MDMEntityProperties.create((EntityLivingBase) event.entity);
+			MDMEntityProperties.setEntityProperties((EntityPlayer) event.entity, props);
 		}
 	}
 	
@@ -133,7 +133,7 @@ public class POCEvents
 		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER && event.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) event.entity;
-			POCEntityProperties props = POCEntityProperties.getEntityProperties(player);
+			MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
 			props.sync(player);
 		}
 	}

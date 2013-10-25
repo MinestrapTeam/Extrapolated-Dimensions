@@ -8,7 +8,7 @@ import cpw.mods.fml.common.TickType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 
-public class POCTickHandler implements ITickHandler
+public class MDMTickHandler implements ITickHandler
 {
 	
 	@Override

@@ -5,8 +5,8 @@ import java.util.Random;
 import clashsoft.clashsoftapi.util.CSUpdate;
 import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.CommonProxy;
-import clashsoft.mods.moredimensions.lib.POCEvents;
-import clashsoft.mods.moredimensions.lib.POCPacketHandler;
+import clashsoft.mods.moredimensions.lib.MDMEventHandler;
+import clashsoft.mods.moredimensions.lib.MDMPacketHandler;
 import clashsoft.mods.moredimensions.world.gen.HeavenGenBuildings;
 import clashsoft.mods.moredimensions.world.gen.WorldGenTreesMoreDimensions;
 import cpw.mods.fml.common.Mod;
@@ -34,7 +34,8 @@ public class MoreDimensionsMod
 	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.ClientProxy", serverSide = "clashsoft.mods.moredimensions.common.CommonProxy")
 	public static CommonProxy		proxy;
 	
-	public static POCPacketHandler	packetHandler;
+	public static MDMPacketHandler	packetHandler;
+	public static MDMEventHandler	eventHandler;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -46,9 +47,11 @@ public class MoreDimensionsMod
 	public void init(FMLInitializationEvent event)
 	{
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
-		MinecraftForge.EVENT_BUS.register(new POCEvents());
 		
-		packetHandler = new POCPacketHandler();
+		eventHandler = new MDMEventHandler();
+		MinecraftForge.EVENT_BUS.register(eventHandler);
+		
+		packetHandler = new MDMPacketHandler();
 		packetHandler.registerChannels();
 		
 		MDMObjects.load();

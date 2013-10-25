@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.client.gui;
 
 import org.lwjgl.input.Keyboard;
 
-import clashsoft.mods.moredimensions.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.lib.MDMEntityProperties;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -54,7 +54,7 @@ public class GuiPOCIngame extends GuiIngameForge
 			int left = width / 2 + 91;
 			int top = height - 49 - (mc.thePlayer.isInsideOfMaterial(Material.water) ? 10 : 0);
 			
-			float mana = POCEntityProperties.getEntityProperties(mc.thePlayer).getMana();
+			float mana = MDMEntityProperties.getEntityProperties(mc.thePlayer).getMana();
 			
 			int color = 5592575;
 			String text = "" + mana;
@@ -74,7 +74,7 @@ public class GuiPOCIngame extends GuiIngameForge
 	{
 		if (Keyboard.isKeyDown(Keyboard.KEY_I))
 		{
-			POCEntityProperties props = POCEntityProperties.getEntityProperties(mc.thePlayer);
+			MDMEntityProperties props = MDMEntityProperties.getEntityProperties(mc.thePlayer);
 			int i1 = 11;
 			int i = -i1 + 2;
 			
