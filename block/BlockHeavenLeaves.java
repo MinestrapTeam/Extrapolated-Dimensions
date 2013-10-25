@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -280,7 +280,7 @@ public class BlockHeavenLeaves extends BlockLeavesBase implements IShearable
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return MDMHeaven.heavenSapling.blockID;
+		return MDMBlocks.heavenSapling.blockID;
 	}
 	
 	/**

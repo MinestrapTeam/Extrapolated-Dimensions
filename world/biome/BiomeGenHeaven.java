@@ -1,9 +1,12 @@
 package clashsoft.mods.moredimensions.world.biome;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.WorldGenTreesMoreDimensions;
 
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 
@@ -27,9 +30,9 @@ public class BiomeGenHeaven extends BiomeGenBase
 		
 		spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
-		this.topBlock = (byte) MDMHeaven.heavenGrass.blockID;
-		this.fillerBlock = (byte) MDMHeaven.groundBlocks.blockID;
-		this.worldGeneratorTrees = new WorldGenTreesMoreDimensions(true, 6, MDMHeaven.heavenLog.blockID, MDMHeaven.heavenLeaves.blockID, 0, 0, false);
+		this.topBlock = (byte) MDMBlocks.heavenGrass.blockID;
+		this.fillerBlock = (byte) MDMBlocks.groundBlocks.blockID;
+		this.worldGeneratorTrees = new WorldGenTreesMoreDimensions(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 		
 		setColor(0xffffff);
 		setBiomeName("Heaven");

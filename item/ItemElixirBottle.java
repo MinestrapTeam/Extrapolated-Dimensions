@@ -32,13 +32,13 @@ public class ItemElixirBottle extends ItemGlassBottle2
 	 */
 	public Icon getIconFromDamage(int par1)
 	{
-		return MDMItems.Elixir.bottles[par1];
+		return MDMItems.elixir.bottles[par1];
 	}
 	
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		MDMItems.Elixir.addInformation(new ItemStack(this, 1, par1ItemStack.getItemDamage() * 4), par2EntityPlayer, par3List, par4);
+		MDMItems.elixir.addInformation(new ItemStack(this, 1, par1ItemStack.getItemDamage() * 4), par2EntityPlayer, par3List, par4);
 	}
 	
 	/**
@@ -80,12 +80,12 @@ public class ItemElixirBottle extends ItemGlassBottle2
 					
 					if (par1ItemStack.stackSize <= 0)
 					{
-						return new ItemStack(MDMItems.Elixir, 1, damage);
+						return new ItemStack(MDMItems.elixir, 1, damage);
 					}
 					
-					if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(MDMItems.Elixir, 1, damage)))
+					if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(MDMItems.elixir, 1, damage)))
 					{
-						par3EntityPlayer.dropPlayerItem(new ItemStack(MDMItems.Elixir, 1, damage));
+						par3EntityPlayer.dropPlayerItem(new ItemStack(MDMItems.elixir, 1, damage));
 					}
 				}
 			}

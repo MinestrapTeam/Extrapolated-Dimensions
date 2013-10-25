@@ -5,7 +5,7 @@ import static net.minecraftforge.common.EnumPlantType.*;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.CustomBlock;
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -43,7 +43,7 @@ public class BlockHeavenPlant extends CustomBlock implements IPlantable
 	 */
 	protected boolean canThisPlantGrowOnThisBlockID(int par1)
 	{
-		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMHeaven.groundBlocks.blockID || par1 == MDMHeaven.heavenGrass.blockID;
+		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.groundBlocks.blockID || par1 == MDMBlocks.heavenGrass.blockID;
 	}
 	
 	/**

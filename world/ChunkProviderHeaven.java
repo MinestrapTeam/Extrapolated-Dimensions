@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.world.biome.BiomeGenHeaven;
 
@@ -184,7 +184,7 @@ public class ChunkProviderHeaven implements IChunkProvider
 									
 									if (d15 > 0.0D)
 									{
-										j3 = MDMHeaven.stoneBlocks.blockID;
+										j3 = MDMBlocks.stoneBlocks.blockID;
 									}
 									
 									abyte0[k2] = (byte) j3;
@@ -229,7 +229,7 @@ public class ChunkProviderHeaven implements IChunkProvider
 				byte byte1 = biomegenbase.fillerBlock;
 				worldObj.getClass();
 				
-				byte stone = (byte) MDMHeaven.stoneBlocks.blockID;
+				byte stone = (byte) MDMBlocks.stoneBlocks.blockID;
 				if (byte0 < 0)
 				{
 					byte0 = (byte) (byte0 + 0);

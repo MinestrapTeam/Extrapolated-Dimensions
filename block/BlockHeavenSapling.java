@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.WorldGenTreesMoreDimensions;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -56,7 +56,7 @@ public class BlockHeavenSapling extends BlockHeavenPlant
 		int var9 = 0;
 		boolean var10 = false;
 		
-		var7 = new WorldGenTreesMoreDimensions(true, 5, MDMHeaven.heavenLog.blockID, MDMHeaven.heavenLeaves.blockID, 0, 0, false);
+		var7 = new WorldGenTreesMoreDimensions(true, 5, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 		
 		if (var10)
 		{

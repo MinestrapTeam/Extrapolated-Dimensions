@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -141,11 +141,11 @@ public class BlockHeavenCompressor extends Block
 		
 		if (par0)
 		{
-			par1World.setBlock(par2, par3, par4, MDMHeaven.compressor.blockID);
+			par1World.setBlock(par2, par3, par4, MDMBlocks.compressor.blockID);
 		}
 		else
 		{
-			par1World.setBlock(par2, par3, par4, MDMHeaven.compressor.blockID);
+			par1World.setBlock(par2, par3, par4, MDMBlocks.compressor.blockID);
 		}
 		
 		keepFurnaceInventory = false;

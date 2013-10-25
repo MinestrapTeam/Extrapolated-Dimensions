@@ -1,6 +1,5 @@
 package clashsoft.mods.moredimensions.entity;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -23,7 +22,6 @@ public class EntityScider extends EntityMob
 	public EntityScider(World par1World, double par2, double par3, double par4)
 	{
 		super(par1World);
-		this.entityId = MDMHeaven.SCIDER_ID;
 		this.posX = par2;
 		this.newPosX = this.posX;
 		this.posY = par3;

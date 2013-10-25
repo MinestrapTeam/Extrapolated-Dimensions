@@ -1,5 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
+import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
 import clashsoft.mods.moredimensions.dreams.dim.WorldProviderNightmares;
 import clashsoft.mods.moredimensions.world.WorldProviderHeaven;
@@ -11,6 +12,7 @@ import clashsoft.mods.moredimensions.world.dim.WorldProviderPOC;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
+@Addon(modName = "MoreDimensionsMod", addonName = "World")
 public class MDMWorld
 {
 	public static BiomeGenBase	PlainsOfInsanityBiome;
@@ -19,7 +21,7 @@ public class MDMWorld
 	public static int			HEAVEN_ID		= DimensionManager.getNextFreeDimId();
 	public static int			HEAVEN_BIOME_ID	= 30;
 	
-	public void load()
+	public static void load()
 	{
 		// -- Biomes --
 		PlainsOfInsanityBiome = new BiomePlainsOfInsanity(150).setBiomeName("Plains Of Insanity");

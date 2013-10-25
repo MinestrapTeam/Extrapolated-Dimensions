@@ -3,8 +3,7 @@ package clashsoft.mods.moredimensions;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.util.CSUpdate;
-import clashsoft.mods.moredimensions.addons.MDMConfig;
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.CommonProxy;
 import clashsoft.mods.moredimensions.lib.POCEvents;
 import clashsoft.mods.moredimensions.lib.POCPacketHandler;
@@ -52,6 +51,12 @@ public class MoreDimensionsMod
 		packetHandler = new POCPacketHandler();
 		packetHandler.registerChannels();
 		
+		MDMObjects.load();
+		MDMEntitys.load();
+		MDMRecipes.load();
+		MDMWorld.load();
+		MDMLocalizations.load();
+		
 		proxy.registerRenderers();
 		proxy.registerEntityRenderers();
 		proxy.registerClientEvents();
@@ -65,7 +70,7 @@ public class MoreDimensionsMod
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new WorldGenTreesMoreDimensions(true, 6, MDMHeaven.heavenLog.blockID, MDMHeaven.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+			(new WorldGenTreesMoreDimensions(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
 		for (int i = 0; i < 5; i++)
 		{

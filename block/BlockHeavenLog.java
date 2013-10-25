@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
@@ -40,7 +40,7 @@ public class BlockHeavenLog extends Block
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return MDMHeaven.heavenLog.blockID;
+		return MDMBlocks.heavenLog.blockID;
 	}
 	
 	/**

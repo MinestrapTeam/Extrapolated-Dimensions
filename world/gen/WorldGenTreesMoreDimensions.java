@@ -2,12 +2,12 @@ package clashsoft.mods.moredimensions.world.gen;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 
 public class WorldGenTreesMoreDimensions extends WorldGenTrees
 {
@@ -75,7 +75,7 @@ public class WorldGenTreesMoreDimensions extends WorldGenTrees
 							
 							Block block = Block.blocksList[var12];
 							
-							if (var12 != 0 && !block.isLeaves(par1World, var10, var8, var11) && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && !(var12 == MDMHeaven.groundBlocks.blockID && var12_1 == 0) && var12 != MDMHeaven.heavenGrass.blockID && !block.isWood(par1World, var10, var8, var11))
+							if (var12 != 0 && !block.isLeaves(par1World, var10, var8, var11) && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && !(var12 == MDMBlocks.groundBlocks.blockID && var12_1 == 0) && var12 != MDMBlocks.heavenGrass.blockID && !block.isWood(par1World, var10, var8, var11))
 							{
 								var7 = false;
 							}
@@ -97,9 +97,9 @@ public class WorldGenTreesMoreDimensions extends WorldGenTrees
 				var8 = par1World.getBlockId(par3, par4 - 1, par5);
 				int var8_1 = par1World.getBlockMetadata(par3, par4 - 1, par5);
 				
-				if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID || var8 == MDMHeaven.heavenGrass.blockID || (var8 == MDMHeaven.groundBlocks.blockID && var8_1 == 0)) && par4 < 256 - var6 - 1)
+				if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID || var8 == MDMBlocks.heavenGrass.blockID || (var8 == MDMBlocks.groundBlocks.blockID && var8_1 == 0)) && par4 < 256 - var6 - 1)
 				{
-					this.setBlock(par1World, par3, par4 - 1, par5, MDMHeaven.groundBlocks.blockID);
+					this.setBlock(par1World, par3, par4 - 1, par5, MDMBlocks.groundBlocks.blockID);
 					var9 = 3;
 					byte var18 = 0;
 					int var13;

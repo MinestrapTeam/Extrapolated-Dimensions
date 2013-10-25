@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,7 +16,7 @@ public class ItemFlamingSword extends ItemSword
 	
 	public ItemFlamingSword(int par1)
 	{
-		super(par1, MDMHeaven.FLAMING);
+		super(par1, MDMItems.FLAMING);
 		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 	

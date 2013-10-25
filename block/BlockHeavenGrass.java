@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -75,7 +75,7 @@ public class BlockHeavenGrass extends Block
 		{
 			if (par1World.getBlockLightValue(par2, par3 + 1, par4) < 4 && Block.lightOpacity[par1World.getBlockId(par2, par3 + 1, par4)] > 2)
 			{
-				par1World.setBlock(par2, par3, par4, MDMHeaven.groundBlocks.blockID);
+				par1World.setBlock(par2, par3, par4, MDMBlocks.groundBlocks.blockID);
 			}
 			else if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
 			{
@@ -86,9 +86,9 @@ public class BlockHeavenGrass extends Block
 					int var9 = par4 + par5Random.nextInt(3) - 1;
 					int var10 = par1World.getBlockId(var7, var8 + 1, var9);
 					
-					if (par1World.getBlockId(var7, var8, var9) == MDMHeaven.groundBlocks.blockID && par1World.getBlockMetadata(var7, var8, var9) == 0 && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
+					if (par1World.getBlockId(var7, var8, var9) == MDMBlocks.groundBlocks.blockID && par1World.getBlockMetadata(var7, var8, var9) == 0 && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
 					{
-						par1World.setBlock(var7, var8, var9, MDMHeaven.heavenGrass.blockID);
+						par1World.setBlock(var7, var8, var9, MDMBlocks.heavenGrass.blockID);
 					}
 				}
 			}
@@ -101,6 +101,6 @@ public class BlockHeavenGrass extends Block
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return MDMHeaven.groundBlocks.idDropped(0, par2Random, par3);
+		return MDMBlocks.groundBlocks.idDropped(0, par2Random, par3);
 	}
 }

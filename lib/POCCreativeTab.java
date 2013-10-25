@@ -20,11 +20,11 @@ public class POCCreativeTab extends CreativeTabs
 	{
 		if (this.equals(MDMItems.PoCTab))
 		{
-			return new ItemStack(MDMItems.Tome);
+			return new ItemStack(MDMItems.tome);
 		}
 		else
 		{
-			return new ItemStack(MDMItems.Elixir, 1, 23);
+			return new ItemStack(MDMItems.elixir, 1, 23);
 		}
 	}
 	

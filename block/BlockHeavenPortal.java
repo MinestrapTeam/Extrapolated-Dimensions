@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.world.TeleporterHeaven;
 import cpw.mods.fml.relauncher.Side;
@@ -165,7 +165,7 @@ public class BlockHeavenPortal extends BlockBreakable
 			{
 				for (i1 = 0; i1 < 3; ++i1)
 				{
-					par1World.setBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l, MDMHeaven.heavenPortal.blockID, 0, 2);
+					par1World.setBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l, MDMBlocks.heavenPortal.blockID, 0, 2);
 				}
 			}
 			return true;

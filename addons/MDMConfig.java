@@ -25,7 +25,6 @@ public class MDMConfig
 	public static int	Elixir_ID				= 10010;
 	public static int	ElixirBottle_ID			= 10011;
 	
-	// Other IDs because they are used in the chunk provider
 	public static int	ChaosStone_ID			= 180;
 	public static int	AlteredDirt_ID			= 181;
 	public static int	AlteredGrass_ID			= 182;

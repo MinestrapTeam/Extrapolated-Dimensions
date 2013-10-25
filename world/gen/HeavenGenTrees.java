@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.gen;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.Direction;
@@ -76,7 +76,7 @@ public class HeavenGenTrees extends WorldGenTrees
 							
 							Block block = Block.blocksList[var12];
 							
-							if (var12 != 0 && !block.isLeaves(par1World, var10, var8, var11) && var12 != MDMHeaven.heavenGrass.blockID && (var12 != MDMHeaven.groundBlocks.blockID && var12_1 == 0) && !block.isWood(par1World, var10, var8, var11))
+							if (var12 != 0 && !block.isLeaves(par1World, var10, var8, var11) && var12 != MDMBlocks.heavenGrass.blockID && (var12 != MDMBlocks.groundBlocks.blockID && var12_1 == 0) && !block.isWood(par1World, var10, var8, var11))
 							{
 								var7 = false;
 							}
@@ -97,7 +97,7 @@ public class HeavenGenTrees extends WorldGenTrees
 			{
 				var8 = par1World.getBlockId(par3, par4 - 1, par5);
 				
-				if ((var8 == MDMHeaven.heavenGrass.blockID || (var8 == MDMHeaven.groundBlocks.blockID && par1World.getBlockMetadata(par3, par4 - 1, par5) == 0)) && par4 < 256 - var6 - 1)
+				if ((var8 == MDMBlocks.heavenGrass.blockID || (var8 == MDMBlocks.groundBlocks.blockID && par1World.getBlockMetadata(par3, par4 - 1, par5) == 0)) && par4 < 256 - var6 - 1)
 				{
 					this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
 					var9 = 3;
@@ -123,7 +123,7 @@ public class HeavenGenTrees extends WorldGenTrees
 								
 								if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && (block == null || block.canBeReplacedByLeaves(par1World, var14, var11, var16)))
 								{
-									this.setBlockAndMetadata(par1World, var14, var11, var16, MDMHeaven.heavenLeaves.blockID, this.metaLeaves);
+									this.setBlockAndMetadata(par1World, var14, var11, var16, MDMBlocks.heavenLeaves.blockID, this.metaLeaves);
 								}
 							}
 						}
@@ -137,7 +137,7 @@ public class HeavenGenTrees extends WorldGenTrees
 						
 						if (var12 == 0 || block == null || block.isLeaves(par1World, par3, par4 + var11, par5))
 						{
-							this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, MDMHeaven.heavenLog.blockID, this.metaWood);
+							this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, MDMBlocks.heavenLog.blockID, this.metaWood);
 							
 							if (this.vinesGrow && var11 > 0)
 							{

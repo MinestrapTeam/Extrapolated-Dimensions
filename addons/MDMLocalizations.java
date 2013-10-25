@@ -1,11 +1,17 @@
 package clashsoft.mods.moredimensions.addons;
 
+import clashsoft.clashsoftapi.util.addons.Addon;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+@Addon(modName = "MoreDimensionsMod", addonName = "Localizations")
 public class MDMLocalizations
 {
-	public static void addLocalizations()
+	public static void load()
 	{
+		// -- Paradise of Chaos
+		
+		// - Items -
+		
 		LanguageRegistry.instance().addStringLocalization("itemGroup.PoCTab", "en_US", "Paradise of Chaos");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.PoCTab", "de_DE", "Paradies des Chaos");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.ElixirTab", "en_US", "Elixirs");
@@ -24,5 +30,16 @@ public class MDMLocalizations
 		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.0", "de_DE", "Eckig");
 		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.1", "en_US", "Triangular");
 		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.1", "de_DE", "Dreieckig");
+		
+		// - Entitys -
+		
+		LanguageRegistry.instance().addStringLocalization("entity.POCBossLich.name", "Lich");
+		
+		// -- Heaven --
+		
+		// - Entitys --
+		
+		LanguageRegistry.instance().addStringLocalization("entity.Scider.name", "Scider");
+
 	}
 }
