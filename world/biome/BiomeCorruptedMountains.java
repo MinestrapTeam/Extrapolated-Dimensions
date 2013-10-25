@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.world.gen.WorldGenMagicOakTree;
+import clashsoft.mods.moredimensions.world.gen.poc.WorldGenMagicOakTree;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 

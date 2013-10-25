@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.magic;
 import java.util.LinkedList;
 import java.util.List;
 
-import clashsoft.mods.moredimensions.magic.spell.Spell;
+import clashsoft.mods.moredimensions.magic.spells.Spell;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

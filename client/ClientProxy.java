@@ -12,18 +12,18 @@ import net.minecraftforge.common.MinecraftForge;
 import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
-import clashsoft.mods.moredimensions.common.CommonProxy;
+import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTube;
+import clashsoft.mods.moredimensions.common.MDMProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
 import clashsoft.mods.moredimensions.handlers.MDMTickHandler;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
-import clashsoft.mods.moredimensions.tileentity.render.RenderAlchemyTube;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-public class ClientProxy extends CommonProxy
+public class ClientProxy extends MDMProxy
 {
 	public RenderPOCBows	bowRenderer;
 	
@@ -77,7 +77,7 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void registerClientEvents()
 	{
-		MinecraftForge.EVENT_BUS.register(new POCClientEvents());
+		MinecraftForge.EVENT_BUS.register(new MDMClientEventHandler());
 	}
 	
 	public void installSound(String filename)

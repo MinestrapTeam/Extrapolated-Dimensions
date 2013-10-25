@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.biome;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.world.gen.WorldGenTreesMoreDimensions;
+import clashsoft.mods.moredimensions.world.gen.poc.WorldGenTreesMoreDimensions;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;

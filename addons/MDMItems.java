@@ -1,12 +1,16 @@
 package clashsoft.mods.moredimensions.addons;
 
+import clashsoft.clashsoftapi.CustomCreativeTab;
 import clashsoft.clashsoftapi.util.CSCrafting;
 import clashsoft.clashsoftapi.util.CSItems;
 import clashsoft.clashsoftapi.util.CSLang;
 import clashsoft.clashsoftapi.util.addons.Addon;
-import clashsoft.mods.moredimensions.common.CommonProxy;
-import clashsoft.mods.moredimensions.handlers.MDMCreativeTab;
-import clashsoft.mods.moredimensions.item.*;
+import clashsoft.mods.moredimensions.common.MDMProxy;
+import clashsoft.mods.moredimensions.item.heaven.*;
+import clashsoft.mods.moredimensions.item.poc.ItemElixir;
+import clashsoft.mods.moredimensions.item.poc.ItemElixirBottle;
+import clashsoft.mods.moredimensions.item.poc.ItemStaff;
+import clashsoft.mods.moredimensions.item.poc.ItemTome;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.block.Block;
@@ -17,8 +21,8 @@ import net.minecraftforge.common.EnumHelper;
 @Addon(modName = "MoreDimensionsMod", addonName = "Items")
 public class MDMItems
 {
-	public static CreativeTabs		PoCTab			= new MDMCreativeTab("PoCTab");
-	public static CreativeTabs		AlchemyTab		= new MDMCreativeTab("ElixirTab");
+	public static CreativeTabs		PoCTab			= new CustomCreativeTab("PoCTab");
+	public static CreativeTabs		AlchemyTab		= new CustomCreativeTab("ElixirTab");
 	
 	public static EnumToolMaterial	HEAVENWOODt		= EnumToolMaterial.WOOD;
 	public static EnumToolMaterial	HEAVENSTONEt	= EnumHelper.addToolMaterial("HEAVENSTONE", 1, 128, 4.5F, 2, 15);
@@ -99,7 +103,7 @@ public class MDMItems
 	{
 		// -- Paradise of Chaos --
 		
-		tome = (ItemTome) new ItemTome(MDMConfig.Tome_ID).setUnlocalizedName("Tome").setCreativeTab(MDMItems.PoCTab);
+		tome = (ItemTome) new ItemTome(MDMConfig.tomeID).setUnlocalizedName("Tome").setCreativeTab(MDMItems.PoCTab);
 		staves = (ItemStaff) new ItemStaff(MDMConfig.Staves_ID).setUnlocalizedName("Staves").setCreativeTab(PoCTab);
 		manaStar = (ItemManaStar) new ItemManaStar(MDMConfig.ManaStar_ID).setUnlocalizedName("ManaStar").setCreativeTab(PoCTab);
 		shannaraSword = (ItemSword) new ItemSword(MDMConfig.ShannaraSword_ID, MDMItems.magic).setUnlocalizedName("ShannaraSword").setTextureName("shannarasword").setCreativeTab(PoCTab);
@@ -125,10 +129,10 @@ public class MDMItems
 		sywoxitePick = (new ItemPickaxe(26012, SYWOXITEt)).setUnlocalizedName("sywoxitePickaxe");
 		sywoxiteAxe = (new ItemAxe(26013, SYWOXITEt)).setUnlocalizedName("sywoxiteAxe");
 		sywoxiteHoe = (new ItemHoe(26014, SYWOXITEt)).setUnlocalizedName("sywoxiteHoe");
-		sywoxiteHelmet = (new ItemArmor(26015, SYWOXITEa, CommonProxy.sywoxite, 0)).setUnlocalizedName("sywoxiteHelmet");
-		sywoxiteChestplate = (new ItemArmor(26016, SYWOXITEa, CommonProxy.sywoxite, 1)).setUnlocalizedName("sywoxiteChestplate");
-		sywoxiteLeggings = (new ItemArmor(26017, SYWOXITEa, CommonProxy.sywoxite, 2)).setUnlocalizedName("sywoxiteLeggings");
-		sywoxiteBoots = (new ItemArmor(26018, SYWOXITEa, CommonProxy.sywoxite, 3)).setUnlocalizedName("sywoxiteBoots");
+		sywoxiteHelmet = (new ItemArmor(26015, SYWOXITEa, MDMProxy.sywoxite, 0)).setUnlocalizedName("sywoxiteHelmet");
+		sywoxiteChestplate = (new ItemArmor(26016, SYWOXITEa, MDMProxy.sywoxite, 1)).setUnlocalizedName("sywoxiteChestplate");
+		sywoxiteLeggings = (new ItemArmor(26017, SYWOXITEa, MDMProxy.sywoxite, 2)).setUnlocalizedName("sywoxiteLeggings");
+		sywoxiteBoots = (new ItemArmor(26018, SYWOXITEa, MDMProxy.sywoxite, 3)).setUnlocalizedName("sywoxiteBoots");
 		
 		clashiumSword = (new ItemSword(26019, CLASHIUMt)).setUnlocalizedName("clashiumSword");
 		clashiumShovel = (new ItemSpade(26020, CLASHIUMt)).setUnlocalizedName("clashiumShovel");

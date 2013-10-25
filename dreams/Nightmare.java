@@ -1,8 +1,8 @@
 package clashsoft.mods.moredimensions.dreams;
 
 import clashsoft.mods.moredimensions.addons.MDMConfig;
-import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
-import clashsoft.mods.moredimensions.dreams.dim.WorldProviderNightmares;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderNightmares;
 
 
 public class Nightmare extends Dream

@@ -1,8 +1,8 @@
 package clashsoft.mods.moredimensions.dreams;
 
 import clashsoft.mods.moredimensions.addons.MDMConfig;
-import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
 import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

@@ -1,13 +1,13 @@
 package clashsoft.mods.moredimensions.addons;
 
 import clashsoft.clashsoftapi.util.addons.Addon;
-import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
-import clashsoft.mods.moredimensions.dreams.dim.WorldProviderNightmares;
-import clashsoft.mods.moredimensions.world.WorldProviderHeaven;
 import clashsoft.mods.moredimensions.world.biome.BiomeCorruptedMountains;
 import clashsoft.mods.moredimensions.world.biome.BiomeDesertOfDryness;
 import clashsoft.mods.moredimensions.world.biome.BiomePlainsOfInsanity;
-import clashsoft.mods.moredimensions.world.dim.WorldProviderPOC;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderHeaven;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderNightmares;
+import clashsoft.mods.moredimensions.world.providers.WorldProviderPOC;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;

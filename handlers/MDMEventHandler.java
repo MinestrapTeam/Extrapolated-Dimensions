@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.handlers;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.api.IMinableBlock;
+import clashsoft.mods.moredimensions.block.IMinableBlock;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;

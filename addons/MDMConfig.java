@@ -13,7 +13,7 @@ public class MDMConfig
 	public static int	DREAMS_DIMENSION_ID		= 5;
 	public static int	NIGHTMARES_DIMENSION_ID	= 6;
 	
-	public static int	Tome_ID					= 10001;
+	public static int	tomeID					= 10001;
 	public static int	Staves_ID				= 10002;
 	public static int	ManaStar_ID				= 10003;
 	public static int	LifeHeart_ID			= 10004;
@@ -50,7 +50,7 @@ public class MDMConfig
 		DREAMS_DIMENSION_ID = config.get("Dimension IDs", "Dream Dimension ID", 5).getInt();
 		NIGHTMARES_DIMENSION_ID = config.get("Dimension IDs", "Nightmare Dimension ID", 6).getInt();
 		
-		Tome_ID = config.getItem("Tome ID", 10001).getInt();
+		tomeID = config.getItem("Tome ID", 10001).getInt();
 		Staves_ID = config.getItem("Staves ID", 10002).getInt();
 		ManaStar_ID = config.getItem("Mana Star ID", 10003).getInt();
 		ShannaraSword_ID = config.getItem("Shannara Sword ID", 10005).getInt();

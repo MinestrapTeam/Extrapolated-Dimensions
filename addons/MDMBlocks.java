@@ -3,7 +3,8 @@ package clashsoft.mods.moredimensions.addons;
 import clashsoft.clashsoftapi.CustomBlock;
 import clashsoft.clashsoftapi.ItemCustomBlock;
 import clashsoft.clashsoftapi.util.addons.Addon;
-import clashsoft.mods.moredimensions.block.*;
+import clashsoft.mods.moredimensions.block.heaven.*;
+import clashsoft.mods.moredimensions.block.poc.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -70,9 +71,11 @@ public class MDMBlocks
 		WillowLeaves = (BlockWillowLeaves) new BlockWillowLeaves(MDMConfig.WillowLeaves_ID).setUnlocalizedName("WillowLeaves").setCreativeTab(MDMItems.PoCTab).setStepSound(Block.soundGrassFootstep);
 		WillowSapling = (BlockWillowSapling) new BlockWillowSapling(MDMConfig.WillowSapling_ID, 0).setUnlocalizedName("WillowSapling").setTextureName("WillowSapling").setCreativeTab(MDMItems.PoCTab).setHardness(0.0F).setStepSound(Block.soundGrassFootstep);
 		
-		Block.blocksList[Block.lavaStill.blockID] = ActivatorLava = (BlockPOCActivatorLava) new BlockPOCActivatorLava(Block.lavaStill.blockID).setHardness(100.0F).setLightValue(1.0F).setUnlocalizedName("lava").setTextureName("lava_still");
+		Block.blocksList[Block.lavaStill.blockID] = null;
+		ActivatorLava = (BlockPOCActivatorLava) new BlockPOCActivatorLava(Block.lavaStill.blockID).setHardness(100.0F).setLightValue(1.0F).setUnlocalizedName("lava").setTextureName("lava_still");
 		
-		Block.blocksList[Block.bed.blockID] = DreamBed = (BlockPOCDreamBed) new BlockPOCDreamBed(Block.bed.blockID).setHardness(0.2F).setUnlocalizedName("bed").setTextureName("bed");
+		Block.blocksList[Block.bed.blockID] = null;
+		DreamBed = (BlockPOCDreamBed) new BlockPOCDreamBed(Block.bed.blockID).setHardness(0.2F).setUnlocalizedName("bed").setTextureName("bed");
 		
 		AlchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(MDMConfig.AlchemyTube_ID).setUnlocalizedName("AlchemyTube").setTextureName("AlchemyTube").setCreativeTab(MDMItems.AlchemyTab);
 		

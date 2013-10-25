@@ -3,8 +3,8 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.world.gen.HeavenGenMinable;
-import clashsoft.mods.moredimensions.world.gen.WorldGenTreesMoreDimensions;
+import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
+import clashsoft.mods.moredimensions.world.gen.poc.WorldGenTreesMoreDimensions;
 
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;

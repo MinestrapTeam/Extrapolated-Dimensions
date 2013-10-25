@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.magic;
 
-import clashsoft.mods.moredimensions.magic.spell.Spell;
+import clashsoft.mods.moredimensions.magic.spells.Spell;
 
 public class StaffType
 {
