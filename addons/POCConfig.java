@@ -2,11 +2,8 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.io.File;
 
-import com.chaosdev.paradiseofchaos.lib.POCModPart;
-
 import net.minecraftforge.common.Configuration;
 
-@POCModPart(modPartId = "Config")
 public class POCConfig
 {
 	public static int	POC_DIMENSION_ID		= 4;

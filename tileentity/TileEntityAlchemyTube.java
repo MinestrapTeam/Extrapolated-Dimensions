@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.tileentity;
+package clashsoft.mods.moredimensions.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
 

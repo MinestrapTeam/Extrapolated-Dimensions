@@ -1,9 +1,7 @@
-package com.chaosdev.paradiseofchaos.lib;
+package clashsoft.mods.moredimensions.lib;
 
 import clashsoft.mods.moredimensions.addons.POCBlocks;
-
-import com.chaosdev.paradiseofchaos.api.IMinableBlock;
-
+import clashsoft.mods.moredimensions.api.IMinableBlock;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 
@@ -14,8 +12,8 @@ import net.minecraft.block.BlockOre;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;

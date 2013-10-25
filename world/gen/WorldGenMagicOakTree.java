@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.world;
+package clashsoft.mods.moredimensions.world.gen;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ import net.minecraftforge.common.ForgeDirection;
 import clashsoft.mods.moredimensions.addons.POCBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class MagicOakTree extends WorldGenerator implements IWorldGenerator
+public class WorldGenMagicOakTree extends WorldGenerator implements IWorldGenerator
 {
 	/** The minimum height of a generated tree. */
 	private final int	minTreeHeight;
@@ -20,12 +20,12 @@ public class MagicOakTree extends WorldGenerator implements IWorldGenerator
 	/** The metadata value of the leaves to use in tree generation. */
 	private final int	metaLeaves;
 	
-	public MagicOakTree(boolean par1)
+	public WorldGenMagicOakTree(boolean par1)
 	{
 		this(par1, 8, 0, 0, false);
 	}
 	
-	public MagicOakTree(boolean par1, int par2, int par3, int par4, boolean par5)
+	public WorldGenMagicOakTree(boolean par1, int par2, int par3, int par4, boolean par5)
 	{
 		super(par1);
 		this.minTreeHeight = par2;
@@ -164,7 +164,7 @@ public class MagicOakTree extends WorldGenerator implements IWorldGenerator
 			int zCoord = chunkZ + random.nextInt(16);
 			
 			/** Custom WorldGenTutorialTree block **/
-			(new MagicOakTree(false, 9, 0, 0, false)).generate(world, random, xCoord, yCoord, zCoord);
+			(new WorldGenMagicOakTree(false, 9, 0, 0, false)).generate(world, random, xCoord, yCoord, zCoord);
 		}
 	}
 }

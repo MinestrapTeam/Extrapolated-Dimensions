@@ -1,9 +1,9 @@
-package com.chaosdev.paradiseofchaos.dreams.dim;
+package clashsoft.mods.moredimensions.dreams.dim;
+
+import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-
-import com.chaosdev.paradiseofchaos.dreams.dreamtypes.DreamType;
 
 public class GenLayerBiomesDreams extends GenLayer
 {

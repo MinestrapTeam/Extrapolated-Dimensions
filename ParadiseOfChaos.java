@@ -1,18 +1,18 @@
-package com.chaosdev.paradiseofchaos;
+package clashsoft.mods.moredimensions;
 
 import clashsoft.mods.moredimensions.addons.*;
-
-import com.chaosdev.paradiseofchaos.addons.*;
-import com.chaosdev.paradiseofchaos.common.CommonProxy;
-import com.chaosdev.paradiseofchaos.dreams.dim.WorldProviderDreams;
-import com.chaosdev.paradiseofchaos.dreams.dim.WorldProviderNightmares;
-import com.chaosdev.paradiseofchaos.entity.boss.EntityLich;
-import com.chaosdev.paradiseofchaos.lib.*;
-import com.chaosdev.paradiseofchaos.world.biome.BiomeCorruptedMountains;
-import com.chaosdev.paradiseofchaos.world.biome.BiomeDesertOfDryness;
-import com.chaosdev.paradiseofchaos.world.biome.BiomePlainsOfInsanity;
-import com.chaosdev.paradiseofchaos.world.dim.WorldProviderPOC;
-
+import clashsoft.mods.moredimensions.common.CommonProxy;
+import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
+import clashsoft.mods.moredimensions.dreams.dim.WorldProviderNightmares;
+import clashsoft.mods.moredimensions.entity.boss.EntityLich;
+import clashsoft.mods.moredimensions.lib.POCConstants;
+import clashsoft.mods.moredimensions.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.lib.POCEvents;
+import clashsoft.mods.moredimensions.lib.POCPacketHandler;
+import clashsoft.mods.moredimensions.world.biome.BiomeCorruptedMountains;
+import clashsoft.mods.moredimensions.world.biome.BiomeDesertOfDryness;
+import clashsoft.mods.moredimensions.world.biome.BiomePlainsOfInsanity;
+import clashsoft.mods.moredimensions.world.dim.WorldProviderPOC;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -32,7 +32,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = POCConstants.MOD_ID, name = POCConstants.MOD_NAME, version = POCConstants.VERSION)
 @NetworkMod(channels = { POCConstants.CHANNEL_NAME, POCEntityProperties.CHANNEL }, serverSideRequired = false, clientSideRequired = true, packetHandler = POCPacketHandler.class)
-@POCModPart(modPartId = "POCMain")
 public class ParadiseOfChaos
 {
 	@Instance(POCConstants.MOD_ID)

@@ -1,11 +1,11 @@
-package com.chaosdev.paradiseofchaos.lib;
-
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
+package clashsoft.mods.moredimensions.lib;
 
 import clashsoft.mods.moredimensions.addons.POCItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 
 public class POCCreativeTab extends CreativeTabs
 {

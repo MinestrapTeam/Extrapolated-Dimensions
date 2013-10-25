@@ -1,8 +1,8 @@
-package com.chaosdev.paradiseofchaos.client.gui;
+package clashsoft.mods.moredimensions.client.gui;
 
 import org.lwjgl.input.Keyboard;
 
-import com.chaosdev.paradiseofchaos.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.lib.POCEntityProperties;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;

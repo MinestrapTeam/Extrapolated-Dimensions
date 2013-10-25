@@ -2,10 +2,13 @@ package clashsoft.mods.moredimensions.item;
 
 import java.util.List;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-import cpw.mods.fml.relauncher.*;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class ItemHeavenPortalActivator extends Item
 {

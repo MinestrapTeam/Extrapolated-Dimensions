@@ -2,15 +2,14 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
+import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.world.gen.WorldGenMagicOakTree;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.TerrainGen;
-
-import clashsoft.mods.moredimensions.addons.POCBlocks;
-
-import com.chaosdev.paradiseofchaos.world.MagicOakTree;
 
 public class BlockMagicOakSapling extends BlockFlower
 {
@@ -69,7 +68,7 @@ public class BlockMagicOakSapling extends BlockFlower
 		{
 			par1World.setBlock(par2, par3, par4, 0, 0, 4);
 		}
-		if (!(new MagicOakTree(true)).generate(par1World, par5Random, par2 + i1, par3, par4 + j1))
+		if (!(new WorldGenMagicOakTree(true)).generate(par1World, par5Random, par2 + i1, par3, par4 + j1))
 		{
 			if (flag)
 			{

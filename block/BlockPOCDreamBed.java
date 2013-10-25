@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Iterator;
 
-import com.chaosdev.paradiseofchaos.dreams.DreamHelper;
+import clashsoft.mods.moredimensions.dreams.DreamHelper;
 
 import net.minecraft.block.BlockBed;
 import net.minecraft.entity.Entity;

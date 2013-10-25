@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.world.dim;
+package clashsoft.mods.moredimensions.world.dim;
 
 import clashsoft.mods.moredimensions.addons.POCConfig;
 import cpw.mods.fml.relauncher.Side;

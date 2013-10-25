@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.magic.spell;
+package clashsoft.mods.moredimensions.magic.spell;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

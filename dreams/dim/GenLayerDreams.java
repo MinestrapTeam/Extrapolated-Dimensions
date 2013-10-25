@@ -1,6 +1,6 @@
-package com.chaosdev.paradiseofchaos.dreams.dim;
+package clashsoft.mods.moredimensions.dreams.dim;
 
-import com.chaosdev.paradiseofchaos.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.GenLayer;

@@ -4,17 +4,17 @@ import static net.minecraftforge.common.EnumPlantType.*;
 
 import java.util.Random;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
-import net.minecraft.creativetab.*;
+import clashsoft.clashsoftapi.CustomBlock;
+import clashsoft.mods.moredimensions.addons.MDMHeaven;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
-
-import clashsoft.clashsoftapi.CustomBlock;
-import clashsoft.mods.moredimensions.addons.MDMHeaven;
 
 public class BlockHeavenPlant extends CustomBlock implements IPlantable
 {

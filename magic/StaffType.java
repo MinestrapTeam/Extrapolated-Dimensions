@@ -1,6 +1,6 @@
-package com.chaosdev.paradiseofchaos.magic;
+package clashsoft.mods.moredimensions.magic;
 
-import com.chaosdev.paradiseofchaos.magic.spell.Spell;
+import clashsoft.mods.moredimensions.magic.spell.Spell;
 
 public class StaffType
 {

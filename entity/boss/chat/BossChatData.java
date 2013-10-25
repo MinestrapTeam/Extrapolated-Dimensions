@@ -1,14 +1,14 @@
-package com.chaosdev.paradiseofchaos.entity.boss.chat;
+package clashsoft.mods.moredimensions.entity.boss.chat;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
-
-import com.chaosdev.paradiseofchaos.entity.boss.IPOCBoss;
 
 public class BossChatData
 {

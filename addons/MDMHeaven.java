@@ -8,7 +8,6 @@ import clashsoft.clashsoftapi.util.CSItems;
 import clashsoft.clashsoftapi.util.CSLang;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.block.*;
-import clashsoft.mods.moredimensions.client.ClientProxy;
 import clashsoft.mods.moredimensions.common.CommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.item.*;
@@ -212,8 +211,6 @@ public class MDMHeaven
 			CSLang.addLocalizationUS(soul.getUnlocalizedName() + "." + i, "Soul of " + ItemHeavenSoul.soulNames[i]);
 		}
 		
-		// Load the renderer(s) in ClientProxy.
-		ClientProxy.registerRenderInformation();
 		// Setting Localization/Name of entity.
 		LanguageRegistry.instance().addStringLocalization("entity.Scider.name", "en_US", "Scider");
 		// Registers the entities.

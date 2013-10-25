@@ -1,10 +1,10 @@
-package com.chaosdev.paradiseofchaos.entity.boss;
+package clashsoft.mods.moredimensions.entity.boss;
+
+import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData;
+import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser.EnumOutputAction;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-
-import com.chaosdev.paradiseofchaos.entity.boss.chat.BossChatData;
-import com.chaosdev.paradiseofchaos.entity.boss.chat.PlayerInputParser.EnumOutputAction;
 
 public interface IPOCBoss
 {

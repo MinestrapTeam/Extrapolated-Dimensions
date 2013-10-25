@@ -1,9 +1,7 @@
 package clashsoft.mods.moredimensions.addons;
 
-import com.chaosdev.paradiseofchaos.item.*;
-import com.chaosdev.paradiseofchaos.lib.POCCreativeTab;
-import com.chaosdev.paradiseofchaos.lib.POCModPart;
-
+import clashsoft.mods.moredimensions.item.*;
+import clashsoft.mods.moredimensions.lib.POCCreativeTab;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.EnumHelper;
 
-@POCModPart(modPartId = "Items")
 public class POCItems
 {
 	public static CreativeTabs		PoCTab		= new POCCreativeTab("PoCTab");

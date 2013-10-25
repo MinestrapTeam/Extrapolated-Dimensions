@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.magic.spell;
+package clashsoft.mods.moredimensions.magic.spell;
 
 import java.util.HashMap;
 import java.util.LinkedList;

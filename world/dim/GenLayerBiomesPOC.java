@@ -1,10 +1,10 @@
-package com.chaosdev.paradiseofchaos.world.dim;
+package clashsoft.mods.moredimensions.world.dim;
+
+import clashsoft.mods.moredimensions.ParadiseOfChaos;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-
-import com.chaosdev.paradiseofchaos.ParadiseOfChaos;
 
 public class GenLayerBiomesPOC extends GenLayer
 {

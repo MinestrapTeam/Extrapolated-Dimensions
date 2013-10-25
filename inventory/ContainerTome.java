@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.inventory;
+package clashsoft.mods.moredimensions.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;

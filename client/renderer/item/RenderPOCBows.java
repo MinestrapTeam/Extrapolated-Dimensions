@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.client.renderer.item;
+package clashsoft.mods.moredimensions.client.renderer.item;
 
 import org.lwjgl.opengl.GL11;
 

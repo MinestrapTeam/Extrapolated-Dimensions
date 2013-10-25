@@ -1,9 +1,9 @@
-package com.chaosdev.paradiseofchaos.entity.boss.chat;
+package clashsoft.mods.moredimensions.entity.boss.chat;
+
+import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
-
-import com.chaosdev.paradiseofchaos.entity.boss.IPOCBoss;
 
 public class BossChatContainer extends Container
 {

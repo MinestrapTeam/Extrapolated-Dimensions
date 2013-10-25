@@ -1,8 +1,12 @@
-package com.chaosdev.paradiseofchaos.world.dim;
+package clashsoft.mods.moredimensions.world.dim;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import clashsoft.mods.moredimensions.ParadiseOfChaos;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
@@ -12,11 +16,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-
-import com.chaosdev.paradiseofchaos.ParadiseOfChaos;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldChunkManagerPOC extends WorldChunkManager
 {

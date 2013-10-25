@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.entity.boss.chat;
+package clashsoft.mods.moredimensions.entity.boss.chat;
 
 public class PlayerInputParser
 {

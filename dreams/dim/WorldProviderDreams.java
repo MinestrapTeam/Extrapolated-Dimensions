@@ -1,4 +1,9 @@
-package com.chaosdev.paradiseofchaos.dreams.dim;
+package clashsoft.mods.moredimensions.dreams.dim;
+
+import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
@@ -6,13 +11,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
-
-import clashsoft.mods.moredimensions.addons.POCConfig;
-
-import com.chaosdev.paradiseofchaos.dreams.dreamtypes.DreamType;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderDreams extends WorldProvider
 {

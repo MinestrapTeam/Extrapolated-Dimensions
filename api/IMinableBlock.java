@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.api;
+package clashsoft.mods.moredimensions.api;
 
 public interface IMinableBlock
 {

@@ -2,6 +2,12 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
+import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.world.dim.TeleporterPOC;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -11,14 +17,6 @@ import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import clashsoft.mods.moredimensions.addons.POCBlocks;
-import clashsoft.mods.moredimensions.addons.POCConfig;
-
-import com.chaosdev.paradiseofchaos.world.dim.TeleporterPOC;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPOCPortal extends BlockBreakable
 {

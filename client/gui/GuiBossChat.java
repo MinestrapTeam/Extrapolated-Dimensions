@@ -1,21 +1,21 @@
-package com.chaosdev.paradiseofchaos.client.gui;
+package clashsoft.mods.moredimensions.client.gui;
+
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
+import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
+import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData.BossChatEntry;
+import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.StatCollector;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-
-import com.chaosdev.paradiseofchaos.entity.boss.IPOCBoss;
-import com.chaosdev.paradiseofchaos.entity.boss.chat.BossChatData.BossChatEntry;
-import com.chaosdev.paradiseofchaos.entity.boss.chat.PlayerInputParser;
-
 public class GuiBossChat extends GuiScreen
 {
 	public EntityPlayer											thePlayer;
-	public com.chaosdev.paradiseofchaos.entity.boss.IPOCBoss	theBoss;
+	public IPOCBoss	theBoss;
 	
 	private GuiTextField										playerInput;
 	

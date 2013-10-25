@@ -1,8 +1,8 @@
-package com.chaosdev.paradiseofchaos.dreams.dreamtypes;
+package clashsoft.mods.moredimensions.dreams.dreamtypes;
 
 import java.util.Random;
 
-import com.chaosdev.paradiseofchaos.dreams.EnumDreamType;
+import clashsoft.mods.moredimensions.dreams.EnumDreamType;
 
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;

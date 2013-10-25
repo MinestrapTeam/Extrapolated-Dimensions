@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.world.biome;
+package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 

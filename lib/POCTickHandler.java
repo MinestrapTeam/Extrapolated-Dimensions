@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.lib;
+package clashsoft.mods.moredimensions.lib;
 
 import java.util.EnumSet;
 

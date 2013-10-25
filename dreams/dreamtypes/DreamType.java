@@ -1,12 +1,8 @@
-package com.chaosdev.paradiseofchaos.dreams.dreamtypes;
+package clashsoft.mods.moredimensions.dreams.dreamtypes;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
-import com.chaosdev.paradiseofchaos.dreams.EnumDreamType;
+import clashsoft.mods.moredimensions.dreams.EnumDreamType;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

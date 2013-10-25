@@ -1,12 +1,12 @@
-package com.chaosdev.paradiseofchaos.magic;
+package clashsoft.mods.moredimensions.magic;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import clashsoft.mods.moredimensions.magic.spell.Spell;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-
-import com.chaosdev.paradiseofchaos.magic.spell.Spell;
 
 public class StaffData
 {

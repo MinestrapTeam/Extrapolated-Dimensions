@@ -1,6 +1,10 @@
-package com.chaosdev.paradiseofchaos.item;
+package clashsoft.mods.moredimensions.item;
 
 import java.util.List;
+
+import clashsoft.mods.moredimensions.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.common.CommonProxy;
+import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,11 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-
-import com.chaosdev.paradiseofchaos.common.CommonProxy;
-import com.chaosdev.paradiseofchaos.ParadiseOfChaos;
-
-import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 public class ItemTome extends Item
 {

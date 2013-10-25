@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.tileentity.render;
+package clashsoft.mods.moredimensions.tileentity.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

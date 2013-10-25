@@ -1,15 +1,14 @@
-package com.chaosdev.paradiseofchaos.client.renderer.entity;
+package clashsoft.mods.moredimensions.client.renderer.entity;
+
+import clashsoft.mods.moredimensions.client.model.ModelLich;
+import clashsoft.mods.moredimensions.entity.boss.EntityLich;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-
-import com.chaosdev.paradiseofchaos.client.model.ModelLich;
-import com.chaosdev.paradiseofchaos.entity.boss.EntityLich;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderLich extends RenderBiped

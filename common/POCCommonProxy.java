@@ -1,16 +1,15 @@
-package com.chaosdev.paradiseofchaos.common;
+package clashsoft.mods.moredimensions.common;
 
-import com.chaosdev.paradiseofchaos.client.gui.GuiTome;
-import com.chaosdev.paradiseofchaos.entity.boss.IPOCBoss;
-import com.chaosdev.paradiseofchaos.entity.boss.chat.BossChatContainer;
-import com.chaosdev.paradiseofchaos.inventory.ContainerTome;
-
+import clashsoft.mods.moredimensions.client.gui.GuiTome;
+import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
+import clashsoft.mods.moredimensions.entity.boss.chat.BossChatContainer;
+import clashsoft.mods.moredimensions.inventory.ContainerTome;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class CommonProxy implements IGuiHandler
+public class POCCommonProxy implements IGuiHandler
 {
 	public static int	BOSS_CHAT_GUIID	= 20;
 	public static int	TOME_GUIID		= 21;

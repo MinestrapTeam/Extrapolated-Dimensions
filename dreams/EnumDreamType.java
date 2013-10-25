@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.dreams;
+package clashsoft.mods.moredimensions.dreams;
 
 public enum EnumDreamType
 {

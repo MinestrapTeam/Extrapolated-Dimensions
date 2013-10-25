@@ -1,13 +1,10 @@
-package com.chaosdev.paradiseofchaos.dreams;
+package clashsoft.mods.moredimensions.dreams;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public interface IDream
-{
-	public static final EnumDreamType	DREAM		= EnumDreamType.DREAM;
-	public static final EnumDreamType	NIGHTMARE	= EnumDreamType.NIGHTMARE;
-	
+{	
 	public void setPlayer(EntityPlayer player);
 	
 	public void setPlayerBedPos(World world, int x, int y, int z);

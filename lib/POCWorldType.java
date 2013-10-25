@@ -1,9 +1,9 @@
-package com.chaosdev.paradiseofchaos.lib;
+package clashsoft.mods.moredimensions.lib;
+
+import clashsoft.mods.moredimensions.ParadiseOfChaos;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import com.chaosdev.paradiseofchaos.ParadiseOfChaos;
 
 public class POCWorldType extends WorldType
 {

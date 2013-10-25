@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.item;
+package clashsoft.mods.moredimensions.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;

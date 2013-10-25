@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.client.model;
+package clashsoft.mods.moredimensions.client.model;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

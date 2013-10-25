@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.lib;
+package clashsoft.mods.moredimensions.lib;
 
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;

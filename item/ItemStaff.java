@@ -1,14 +1,14 @@
-package com.chaosdev.paradiseofchaos.item;
+package clashsoft.mods.moredimensions.item;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.chaosdev.paradiseofchaos.lib.POCEntityProperties;
-import com.chaosdev.paradiseofchaos.magic.StaffData;
-import com.chaosdev.paradiseofchaos.magic.StaffType;
-import com.chaosdev.paradiseofchaos.magic.spell.Spell;
+import clashsoft.mods.moredimensions.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.magic.StaffData;
+import clashsoft.mods.moredimensions.magic.StaffType;
+import clashsoft.mods.moredimensions.magic.spell.Spell;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;

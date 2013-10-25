@@ -1,9 +1,10 @@
 package clashsoft.mods.moredimensions.alchemy;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import clashsoft.brewingapi.brewing.Brewing;
 import clashsoft.brewingapi.brewing.BrewingBase;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 
 public class ElixirBrewing extends Brewing
 {

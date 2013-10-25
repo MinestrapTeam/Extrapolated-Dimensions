@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.dreams;
+package clashsoft.mods.moredimensions.dreams;
 
 import java.util.Random;
 

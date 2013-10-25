@@ -3,10 +3,6 @@ package clashsoft.mods.moredimensions.addons;
 import clashsoft.clashsoftapi.CustomBlock;
 import clashsoft.clashsoftapi.ItemCustomBlock;
 import clashsoft.mods.moredimensions.block.*;
-
-import com.chaosdev.paradiseofchaos.block.*;
-import com.chaosdev.paradiseofchaos.lib.POCModPart;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -15,7 +11,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 
-@POCModPart(modPartId = "Blocks")
 public class POCBlocks
 {
 	public static Block					ChaosStone;

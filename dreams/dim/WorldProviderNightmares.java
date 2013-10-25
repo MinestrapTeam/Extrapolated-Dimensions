@@ -1,11 +1,10 @@
-package com.chaosdev.paradiseofchaos.dreams.dim;
+package clashsoft.mods.moredimensions.dreams.dim;
+
+import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-
-import clashsoft.mods.moredimensions.addons.POCConfig;
-
-import com.chaosdev.paradiseofchaos.dreams.dreamtypes.DreamType;
 
 public class WorldProviderNightmares extends WorldProviderDreams
 {

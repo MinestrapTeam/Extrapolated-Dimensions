@@ -1,14 +1,11 @@
 package clashsoft.mods.moredimensions.addons;
 
-import com.chaosdev.paradiseofchaos.lib.POCModPart;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-@POCModPart(modPartId = "Recipes")
 public class POCRecipes
 {
 	public static void addRecipes()

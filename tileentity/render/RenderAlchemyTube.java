@@ -1,15 +1,14 @@
-package com.chaosdev.paradiseofchaos.tileentity.render;
+package clashsoft.mods.moredimensions.tileentity.render;
+
+import org.lwjgl.opengl.GL11;
+
+import clashsoft.mods.moredimensions.block.BlockAlchemyTube;
+import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import clashsoft.mods.moredimensions.block.BlockAlchemyTube;
-
-import com.chaosdev.paradiseofchaos.tileentity.TileEntityAlchemyTube;
 
 public class RenderAlchemyTube extends TileEntitySpecialRenderer
 {

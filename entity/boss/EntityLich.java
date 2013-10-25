@@ -1,10 +1,9 @@
-package com.chaosdev.paradiseofchaos.entity.boss;
+package clashsoft.mods.moredimensions.entity.boss;
 
-import com.chaosdev.paradiseofchaos.common.CommonProxy;
-import com.chaosdev.paradiseofchaos.ParadiseOfChaos;
-import com.chaosdev.paradiseofchaos.entity.boss.chat.BossChatData;
-import com.chaosdev.paradiseofchaos.entity.boss.chat.PlayerInputParser.EnumOutputAction;
-
+import clashsoft.mods.moredimensions.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.common.CommonProxy;
+import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData;
+import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser.EnumOutputAction;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 import net.minecraft.entity.Entity;

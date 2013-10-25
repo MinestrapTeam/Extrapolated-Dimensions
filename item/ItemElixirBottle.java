@@ -1,9 +1,11 @@
-package com.chaosdev.paradiseofchaos.item;
+package clashsoft.mods.moredimensions.item;
 
 import java.util.List;
 
 import clashsoft.brewingapi.item.ItemGlassBottle2;
 import clashsoft.mods.moredimensions.addons.POCItems;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,9 +15,6 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemElixirBottle extends ItemGlassBottle2
 {

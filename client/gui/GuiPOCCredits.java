@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.client.gui;
+package clashsoft.mods.moredimensions.client.gui;
 
 import java.util.ArrayList;
 import java.util.List;

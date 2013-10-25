@@ -1,7 +1,12 @@
-package com.chaosdev.paradiseofchaos.item;
+package clashsoft.mods.moredimensions.item;
 
 import java.util.List;
 
+import clashsoft.brewingapi.brewing.Brewing;
+import clashsoft.brewingapi.brewing.BrewingBase;
+import clashsoft.brewingapi.item.ItemPotion2;
+import clashsoft.clashsoftapi.util.CSUtil;
+import clashsoft.mods.moredimensions.addons.POCItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -14,12 +19,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
-
-import clashsoft.brewingapi.brewing.Brewing;
-import clashsoft.brewingapi.brewing.BrewingBase;
-import clashsoft.brewingapi.item.ItemPotion2;
-import clashsoft.clashsoftapi.util.CSUtil;
-import clashsoft.mods.moredimensions.addons.POCItems;
 
 public class ItemElixir extends ItemPotion2
 {

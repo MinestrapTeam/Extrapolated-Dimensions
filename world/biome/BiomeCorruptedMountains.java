@@ -1,14 +1,14 @@
-package com.chaosdev.paradiseofchaos.world.biome;
+package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import com.chaosdev.paradiseofchaos.world.MagicOakTree;
+import clashsoft.mods.moredimensions.world.gen.WorldGenMagicOakTree;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeCorruptedMountains extends BiomePlainsOfInsanity
 {
-	public MagicOakTree	worldGenMagicTree;
+	public WorldGenMagicOakTree	worldGenMagicTree;
 	
 	public BiomeCorruptedMountains(int par1)
 	{
@@ -18,7 +18,7 @@ public class BiomeCorruptedMountains extends BiomePlainsOfInsanity
 		this.setDisableRain();
 		this.theBiomeDecorator.treesPerChunk = 1;
 		// this.spawnableMonsterList.add(new EntityDragon);
-		worldGenMagicTree = new MagicOakTree(false);
+		worldGenMagicTree = new WorldGenMagicOakTree(false);
 	}
 	
 	/**

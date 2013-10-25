@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.world;
+package clashsoft.mods.moredimensions.world.gen;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
 
-public class WillowTree extends WorldGenerator
+public class WorldGenWillowTree extends WorldGenerator
 {
 	/**
 	 * Contains three sets of two values that provide complimentary indices for
@@ -51,7 +51,7 @@ public class WillowTree extends WorldGenerator
 	/** Contains a list of a points at which to generate groups of leaves. */
 	int[][]				leafNodes;
 	
-	public WillowTree(boolean par1)
+	public WorldGenWillowTree(boolean par1)
 	{
 		super(par1);
 	}

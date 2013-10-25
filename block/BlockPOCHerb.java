@@ -4,6 +4,9 @@ import static net.minecraftforge.common.EnumPlantType.Plains;
 
 import java.util.Random;
 
+import clashsoft.mods.moredimensions.addons.POCBlocks;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -15,9 +18,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
-
-import clashsoft.mods.moredimensions.addons.POCBlocks;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockPOCHerb extends BlockFlower implements IPlantable
 {

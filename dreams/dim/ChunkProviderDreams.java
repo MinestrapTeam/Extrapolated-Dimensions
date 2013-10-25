@@ -1,7 +1,9 @@
-package com.chaosdev.paradiseofchaos.dreams.dim;
+package clashsoft.mods.moredimensions.dreams.dim;
 
 import java.util.List;
 import java.util.Random;
+
+import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
@@ -21,8 +23,6 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
-
-import com.chaosdev.paradiseofchaos.dreams.dreamtypes.DreamType;
 
 public class ChunkProviderDreams implements IChunkProvider
 {

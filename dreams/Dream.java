@@ -1,9 +1,8 @@
-package com.chaosdev.paradiseofchaos.dreams;
+package clashsoft.mods.moredimensions.dreams;
 
 import clashsoft.mods.moredimensions.addons.POCConfig;
-
-import com.chaosdev.paradiseofchaos.dreams.dim.WorldProviderDreams;
-import com.chaosdev.paradiseofchaos.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
+import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -51,7 +50,7 @@ public class Dream implements IDream
 	@Override
 	public EnumDreamType getDreamType()
 	{
-		return DREAM;
+		return EnumDreamType.DREAM;
 	}
 	
 	@Override

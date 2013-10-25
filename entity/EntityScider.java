@@ -1,6 +1,8 @@
 package clashsoft.mods.moredimensions.entity;
 
 import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -10,8 +12,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.*;
 
 public class EntityScider extends EntityMob
 {

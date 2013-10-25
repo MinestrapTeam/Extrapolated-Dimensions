@@ -1,4 +1,4 @@
-package com.chaosdev.paradiseofchaos.world.dim;
+package clashsoft.mods.moredimensions.world.dim;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.GenLayer;

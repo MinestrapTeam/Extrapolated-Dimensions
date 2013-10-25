@@ -1,6 +1,6 @@
-package com.chaosdev.paradiseofchaos.item;
+package clashsoft.mods.moredimensions.item;
 
-import com.chaosdev.paradiseofchaos.lib.POCEntityProperties;
+import clashsoft.mods.moredimensions.lib.POCEntityProperties;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

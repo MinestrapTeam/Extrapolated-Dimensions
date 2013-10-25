@@ -2,10 +2,9 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.List;
 
-import com.chaosdev.paradiseofchaos.tileentity.TileEntityAlchemyTube;
-
 import clashsoft.clashsoftapi.util.CSWorld;
 import clashsoft.mods.moredimensions.alchemy.ITubeConnector;
+import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

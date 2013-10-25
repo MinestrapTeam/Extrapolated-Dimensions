@@ -1,9 +1,9 @@
-package com.chaosdev.paradiseofchaos.dreams;
+package clashsoft.mods.moredimensions.dreams;
 
 import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
+import clashsoft.mods.moredimensions.dreams.dim.WorldProviderNightmares;
 
-import com.chaosdev.paradiseofchaos.dreams.dim.WorldProviderDreams;
-import com.chaosdev.paradiseofchaos.dreams.dim.WorldProviderNightmares;
 
 public class Nightmare extends Dream
 {
@@ -16,7 +16,7 @@ public class Nightmare extends Dream
 	@Override
 	public EnumDreamType getDreamType()
 	{
-		return NIGHTMARE;
+		return EnumDreamType.NIGHTMARE;
 	}
 	
 	@Override

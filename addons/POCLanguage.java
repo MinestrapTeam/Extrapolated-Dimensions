@@ -1,10 +1,7 @@
 package clashsoft.mods.moredimensions.addons;
 
-import com.chaosdev.paradiseofchaos.lib.POCModPart;
-
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@POCModPart(modPartId = "Language")
 public class POCLanguage
 {
 	public static void addLocalizations()
