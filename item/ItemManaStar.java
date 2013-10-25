@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item;
 
-import clashsoft.mods.moredimensions.lib.MDMEntityProperties;
+import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

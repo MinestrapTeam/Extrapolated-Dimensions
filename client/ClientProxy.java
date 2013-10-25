@@ -15,7 +15,7 @@ import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
 import clashsoft.mods.moredimensions.common.CommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
-import clashsoft.mods.moredimensions.lib.MDMTickHandler;
+import clashsoft.mods.moredimensions.handlers.MDMTickHandler;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 import clashsoft.mods.moredimensions.tileentity.render.RenderAlchemyTube;
 import cpw.mods.fml.client.registry.ClientRegistry;

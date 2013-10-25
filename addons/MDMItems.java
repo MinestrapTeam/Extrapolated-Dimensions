@@ -5,8 +5,8 @@ import clashsoft.clashsoftapi.util.CSItems;
 import clashsoft.clashsoftapi.util.CSLang;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.common.CommonProxy;
+import clashsoft.mods.moredimensions.handlers.MDMCreativeTab;
 import clashsoft.mods.moredimensions.item.*;
-import clashsoft.mods.moredimensions.lib.MDMCreativeTab;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.block.Block;

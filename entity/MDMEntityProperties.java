@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.lib;
+package clashsoft.mods.moredimensions.entity;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

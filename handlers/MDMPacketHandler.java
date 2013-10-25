@@ -1,5 +1,6 @@
-package clashsoft.mods.moredimensions.lib;
+package clashsoft.mods.moredimensions.handlers;
 
+import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.Player;

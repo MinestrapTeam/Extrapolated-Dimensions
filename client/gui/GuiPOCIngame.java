@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.client.gui;
 
 import org.lwjgl.input.Keyboard;
 
-import clashsoft.mods.moredimensions.lib.MDMEntityProperties;
+import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;

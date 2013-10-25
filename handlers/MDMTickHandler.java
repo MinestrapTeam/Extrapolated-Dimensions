@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.lib;
+package clashsoft.mods.moredimensions.handlers;
 
 import java.util.EnumSet;
 

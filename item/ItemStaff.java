@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import clashsoft.mods.moredimensions.lib.MDMEntityProperties;
+import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import clashsoft.mods.moredimensions.magic.StaffData;
 import clashsoft.mods.moredimensions.magic.StaffType;
 import clashsoft.mods.moredimensions.magic.spell.Spell;
