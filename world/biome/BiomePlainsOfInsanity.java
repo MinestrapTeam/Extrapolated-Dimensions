@@ -17,8 +17,8 @@ public class BiomePlainsOfInsanity extends BiomeGenBase
 		this.maxHeight = 0.5F;
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();
-		this.topBlock = ((byte) MDMBlocks.AlteredGrass.blockID);
-		this.fillerBlock = ((byte) MDMBlocks.AlteredDirt.blockID);
+		this.topBlock = ((byte) MDMBlocks.alteredGrass.blockID);
+		this.fillerBlock = ((byte) MDMBlocks.alteredDirt.blockID);
 		
 		this.waterColorMultiplier = 0xE42D17;
 	}

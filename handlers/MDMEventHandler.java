@@ -31,9 +31,9 @@ public class MDMEventHandler
 	@ForgeSubscribe
 	public void bonemealUsed(BonemealEvent event)
 	{
-		if (event.world.getBlockId(event.X, event.Y, event.Z) == MDMBlocks.MagicOakSapling.blockID)
+		if (event.world.getBlockId(event.X, event.Y, event.Z) == MDMBlocks.magicOakSapling.blockID)
 		{
-			MDMBlocks.MagicOakSapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			MDMBlocks.magicOakSapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 		}
 	}
 	

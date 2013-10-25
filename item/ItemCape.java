@@ -35,7 +35,7 @@ public class ItemCape extends CustomItem
 	{
 		int metadata = itemStack.getItemDamage();
 		if (metadata == 4)
-			player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 1));
+			player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 2, 0));
 		else
 			DevCapes.getInstance().addUser(player.username, iconNames[metadata]);
 	}

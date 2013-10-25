@@ -14,32 +14,32 @@ public class MDMConfig
 	public static int	NIGHTMARES_DIMENSION_ID	= 6;
 	
 	public static int	tomeID					= 10001;
-	public static int	Staves_ID				= 10002;
-	public static int	ManaStar_ID				= 10003;
-	public static int	LifeHeart_ID			= 10004;
-	public static int	ShannaraSword_ID		= 10005;
-	public static int	MagicShovel_ID			= 10006;
-	public static int	MagicPickaxe_ID			= 10007;
-	public static int	MagicAxe_ID				= 10008;
-	public static int	MagicHoe_ID				= 10009;
-	public static int	Elixir_ID				= 10010;
-	public static int	ElixirBottle_ID			= 10011;
+	public static int	stavesID				= 10002;
+	public static int	manaStarID				= 10003;
+	public static int	lifeHeartID			= 10004;
+	public static int	shannaraSwordID		= 10005;
+	public static int	magicShovelID			= 10006;
+	public static int	magicPickaxeID			= 10007;
+	public static int	magicAxeID				= 10008;
+	public static int	magicHoeID				= 10009;
+	public static int	elixirID				= 10010;
+	public static int	elixirBottleID			= 10011;
 	
-	public static int	ChaosStone_ID			= 180;
-	public static int	AlteredDirt_ID			= 181;
-	public static int	AlteredGrass_ID			= 182;
+	public static int	chaosStoneID			= 180;
+	public static int	alteredDirtID			= 181;
+	public static int	alteredGrassID			= 182;
 	public static int	Safflower_ID			= 1003;
 	public static int	MagicOakLog_ID			= 1004;
 	public static int	MagicOakLeaves_ID		= 1005;
-	public static int	MagicOakSapling_ID		= 1006;
-	public static int	PortalFrame_ID			= 1007;
-	public static int	Portal_ID				= 1008;
-	public static int	AlchemyTube_ID			= 1009;
-	public static int	Ores1_ID				= 1010;
-	public static int	Ores2_ID				= 1011;
-	public static int	WillowLog_ID			= 1028;
-	public static int	WillowLeaves_ID			= 1029;
-	public static int	WillowSapling_ID		= 1030;
+	public static int	magicOakSaplingID		= 1006;
+	public static int	portalFrameID			= 1007;
+	public static int	portalID				= 1008;
+	public static int	alchemyTubeID			= 1009;
+	public static int	ores1ID				= 1010;
+	public static int	ores2ID				= 1011;
+	public static int	willowLogID			= 1028;
+	public static int	willowLeavesID			= 1029;
+	public static int	willowSaplingID		= 1030;
 	
 	public static void loadConfig(File configFile)
 	{
@@ -51,11 +51,11 @@ public class MDMConfig
 		NIGHTMARES_DIMENSION_ID = config.get("Dimension IDs", "Nightmare Dimension ID", 6).getInt();
 		
 		tomeID = config.getItem("Tome ID", 10001).getInt();
-		Staves_ID = config.getItem("Staves ID", 10002).getInt();
-		ManaStar_ID = config.getItem("Mana Star ID", 10003).getInt();
-		ShannaraSword_ID = config.getItem("Shannara Sword ID", 10005).getInt();
-		Elixir_ID = config.getItem("Elixir ID", 10010).getInt();
-		ElixirBottle_ID = config.getItem("Elixir Bottle ID", 10011).getInt();
+		stavesID = config.getItem("Staves ID", 10002).getInt();
+		manaStarID = config.getItem("Mana Star ID", 10003).getInt();
+		shannaraSwordID = config.getItem("Shannara Sword ID", 10005).getInt();
+		elixirID = config.getItem("Elixir ID", 10010).getInt();
+		elixirBottleID = config.getItem("Elixir Bottle ID", 10011).getInt();
 		
 		// ChaosStone_ID = config.getBlock("ChaosStone ID", 180).getInt();
 		// AlteredDirt_ID = config.getBlock("Altered Dirt ID", 181).getInt();
@@ -63,12 +63,12 @@ public class MDMConfig
 		Safflower_ID = config.getBlock("Saf Flower ID", 1003).getInt();
 		MagicOakLog_ID = config.getBlock("Magic Oak Log ID", 1004).getInt();
 		MagicOakLeaves_ID = config.getBlock("Magic Oak Leaves ID", 1005).getInt();
-		MagicOakSapling_ID = config.getBlock("Magic Oak Sapling ID", 1006).getInt();
-		Ores1_ID = config.getBlock("Ores ID", 1010).getInt();
-		Ores2_ID = config.getBlock("Ores 2 ID", 1011).getInt();
-		WillowLog_ID = config.getBlock("Willow Log ID", 1028).getInt();
-		WillowLeaves_ID = config.getBlock("WillowLeaves_ID", 1029).getInt();
-		WillowSapling_ID = config.getBlock("WillowSapling_ID", 1030).getInt();
+		magicOakSaplingID = config.getBlock("Magic Oak Sapling ID", 1006).getInt();
+		ores1ID = config.getBlock("Ores ID", 1010).getInt();
+		ores2ID = config.getBlock("Ores 2 ID", 1011).getInt();
+		willowLogID = config.getBlock("Willow Log ID", 1028).getInt();
+		willowLeavesID = config.getBlock("WillowLeaves_ID", 1029).getInt();
+		willowSaplingID = config.getBlock("WillowSapling_ID", 1030).getInt();
 		
 		config.save();
 	}

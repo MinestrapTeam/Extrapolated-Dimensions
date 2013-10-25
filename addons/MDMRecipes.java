@@ -15,7 +15,7 @@ public class MDMRecipes
 	{
 		// -- Paradise of Chaos --
 		
-		GameRegistry.addRecipe(new ItemStack(MDMBlocks.PortalFrame), new Object[] { "nnn", "ndn", "nnn", 'n', Block.blockLapis, 'd', Item.diamond });
+		GameRegistry.addRecipe(new ItemStack(MDMBlocks.POCPortalFrame), new Object[] { "nnn", "ndn", "nnn", 'n', Block.blockLapis, 'd', Item.diamond });
 		
 		GameRegistry.addRecipe(new ItemStack(MDMItems.elixirBottle, 6, 0), new Object[] { " n ", "n n", "nnn", 'n', Block.thinGlass });
 		GameRegistry.addRecipe(new ItemStack(MDMItems.elixirBottle, 4, 1), new Object[] { " n ", " n ", "nnn", 'n', Block.thinGlass });
@@ -23,5 +23,6 @@ public class MDMRecipes
 		// -- Heaven --
 		
 		CSCrafting.addShapelessCrafting(new ItemStack(MDMBlocks.woodBlocks, 4, 0), MDMBlocks.heavenLog);
+		CSCrafting.addSmelting(new ItemStack(MDMBlocks.stoneBlocks, 1, 6), new ItemStack(MDMItems.holyiumIngot), 2F);
 	}
 }

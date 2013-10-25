@@ -27,7 +27,7 @@ public class BlockHeavenPillar extends Block
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		this.blockIcon = par1IconRegister.registerIcon("pillar_side");
-		this.blockIcon = par1IconRegister.registerIcon("pillar_top");
+		this.topIcon = par1IconRegister.registerIcon("pillar_top");
 	}
 	
 	@Override

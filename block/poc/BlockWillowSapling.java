@@ -100,6 +100,6 @@ public class BlockWillowSapling extends BlockFlower
 	protected boolean canThisPlantGrowOnThisBlockID(int par1)
 	{
 		/** Change this to your custom grass **/
-		return par1 == MDMBlocks.AlteredDirt.blockID || par1 == MDMBlocks.AlteredGrass.blockID || par1 == Block.dirt.blockID || par1 == Block.grass.blockID;
+		return par1 == MDMBlocks.alteredDirt.blockID || par1 == MDMBlocks.alteredGrass.blockID || par1 == Block.dirt.blockID || par1 == Block.grass.blockID;
 	}
 }

@@ -120,7 +120,7 @@ public class ChunkProviderPOC implements IChunkProvider
 									 * Main filler block fill's all the
 									 * underground, replaces block stone
 									 **/
-									par3ArrayOfByte[j2 += short1] = (byte) MDMBlocks.ChaosStone.blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) MDMBlocks.chaosStone.blockID;
 								}
 								else if (k1 * 8 + l1 < b2)
 								{
@@ -177,7 +177,7 @@ public class ChunkProviderPOC implements IChunkProvider
 						 * Main filler block fill's all the underground,
 						 * replaces block stone
 						 **/
-						else if (var18 != MDMBlocks.ChaosStone.blockID)
+						else if (var18 != MDMBlocks.chaosStone.blockID)
 						{
 							if (var13 == -1)
 							{
@@ -186,7 +186,7 @@ public class ChunkProviderPOC implements IChunkProvider
 									var14 = 0;
 									
 									/** change to custom dirt **/
-									var15 = (byte) MDMBlocks.AlteredDirt.blockID;//
+									var15 = (byte) MDMBlocks.alteredDirt.blockID;//
 								}
 								else if ((var16 >= var5 - 4) && (var16 <= var5 + 1))
 								{

@@ -1,7 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
 import clashsoft.clashsoftapi.CustomCreativeTab;
-import clashsoft.clashsoftapi.util.CSCrafting;
 import clashsoft.clashsoftapi.util.CSItems;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
@@ -105,11 +104,11 @@ public class MDMItems
 		// -- Paradise of Chaos --
 		
 		tome = (ItemTome) new ItemTome(MDMConfig.tomeID).setUnlocalizedName("Tome").setCreativeTab(MDMItems.PoCTab);
-		staves = (ItemStaff) new ItemStaff(MDMConfig.Staves_ID).setUnlocalizedName("Staves").setCreativeTab(PoCTab);
-		manaStar = (ItemManaStar) new ItemManaStar(MDMConfig.ManaStar_ID).setUnlocalizedName("ManaStar").setCreativeTab(PoCTab);
-		shannaraSword = (ItemSword) new ItemSword(MDMConfig.ShannaraSword_ID, MDMItems.toolMagic).setUnlocalizedName("ShannaraSword").setTextureName("shannarasword").setCreativeTab(PoCTab);
-		elixir = (ItemElixir) new ItemElixir(MDMConfig.Elixir_ID).setUnlocalizedName("elixir");
-		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(MDMConfig.ElixirBottle_ID).setUnlocalizedName("elixirbottle");
+		staves = (ItemStaff) new ItemStaff(MDMConfig.stavesID).setUnlocalizedName("Staves").setCreativeTab(PoCTab);
+		manaStar = (ItemManaStar) new ItemManaStar(MDMConfig.manaStarID).setUnlocalizedName("ManaStar").setCreativeTab(PoCTab);
+		shannaraSword = (ItemSword) new ItemSword(MDMConfig.shannaraSwordID, MDMItems.toolMagic).setUnlocalizedName("ShannaraSword").setTextureName("shannarasword").setCreativeTab(PoCTab);
+		elixir = (ItemElixir) new ItemElixir(MDMConfig.elixirID).setUnlocalizedName("elixir");
+		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(MDMConfig.elixirBottleID).setUnlocalizedName("elixirbottle");
 		
 		// -- Heaven --
 		
@@ -231,7 +230,6 @@ public class MDMItems
 		CSItems.addItemWithRecipe(sywoxiteShard, "Sywoxite Shard", 9, new Object[] { "X", Character.valueOf('X'), new ItemStack(MDMBlocks.stoneBlocks, 1, 7) });
 		CSItems.addItemWithRecipe(clashiumIngot, "Clashium Ingot", 9, new Object[] { "X", Character.valueOf('X'), new ItemStack(MDMBlocks.stoneBlocks, 1, 8) });
 		CSItems.addItemWithRecipe(holyiumIngot, "Holyium Ingot", 9, new Object[] { "X", Character.valueOf('X'), new ItemStack(MDMBlocks.stoneBlocks, 1, 10) });
-		CSCrafting.addSmelting(new ItemStack(MDMBlocks.stoneBlocks, 1, 6), new ItemStack(holyiumIngot), 2F);
 		CSItems.addItemWithRecipe(bluriteDust, "Blurite Dust", 9, new Object[] { "X", Character.valueOf('X'), new ItemStack(MDMBlocks.stoneBlocks, 1, 9) });
 		CSItems.addItemWithRecipe(heavenBow, "Heaven Bow", 1, new Object[] { "s| ", "s |", "s| ", Character.valueOf('s'), Item.silk, Character.valueOf('|'), heavenStick });
 		CSItems.addItemWithRecipe(heavenArrow, "Heaven Arrow", 1, new Object[] { "s", "|", "f", Character.valueOf('s'), sywoxiteShard, Character.valueOf('|'), heavenStick, Character.valueOf('f'), Item.feather });
