@@ -2,8 +2,8 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
-import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import clashsoft.mods.moredimensions.world.dim.TeleporterPOC;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -119,12 +119,12 @@ public class BlockPOCPortal extends BlockBreakable
 		byte b0 = 0;
 		byte b1 = 0;
 		
-		if (par1World.getBlockId(par2 - 1, par3, par4) == POCBlocks.PortalFrame.blockID || par1World.getBlockId(par2 + 1, par3, par4) == POCBlocks.PortalFrame.blockID)
+		if (par1World.getBlockId(par2 - 1, par3, par4) == MDMBlocks.PortalFrame.blockID || par1World.getBlockId(par2 + 1, par3, par4) == MDMBlocks.PortalFrame.blockID)
 		{
 			b0 = 1;
 		}
 		
-		if (par1World.getBlockId(par2, par3, par4 - 1) == POCBlocks.PortalFrame.blockID || par1World.getBlockId(par2, par3, par4 + 1) == POCBlocks.PortalFrame.blockID)
+		if (par1World.getBlockId(par2, par3, par4 - 1) == MDMBlocks.PortalFrame.blockID || par1World.getBlockId(par2, par3, par4 + 1) == MDMBlocks.PortalFrame.blockID)
 		{
 			b1 = 1;
 		}
@@ -157,7 +157,7 @@ public class BlockPOCPortal extends BlockBreakable
 						
 						if (flag)
 						{
-							if (j1 != POCBlocks.PortalFrame.blockID)
+							if (j1 != MDMBlocks.PortalFrame.blockID)
 							{
 								return false;
 							}
@@ -206,7 +206,7 @@ public class BlockPOCPortal extends BlockBreakable
 			;
 		}
 		
-		if (par1World.getBlockId(par2, i1 - 1, par4) != POCBlocks.PortalFrame.blockID)
+		if (par1World.getBlockId(par2, i1 - 1, par4) != MDMBlocks.PortalFrame.blockID)
 		{
 			par1World.setBlockToAir(par2, par3, par4);
 		}
@@ -219,7 +219,7 @@ public class BlockPOCPortal extends BlockBreakable
 				;
 			}
 			
-			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == POCBlocks.PortalFrame.blockID)
+			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == MDMBlocks.PortalFrame.blockID)
 			{
 				boolean flag = par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID;
 				boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) == this.blockID || par1World.getBlockId(par2, par3, par4 + 1) == this.blockID;
@@ -230,7 +230,7 @@ public class BlockPOCPortal extends BlockBreakable
 				}
 				else
 				{
-					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != POCBlocks.PortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != POCBlocks.PortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
+					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.PortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.PortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
 					{
 						par1World.setBlockToAir(par2, par3, par4);
 					}
@@ -291,10 +291,10 @@ public class BlockPOCPortal extends BlockBreakable
 			{
 				thePlayer.timeUntilPortal = 10;
 			}
-			else if (thePlayer.dimension != POCConfig.POC_DIMENSION_ID)
+			else if (thePlayer.dimension != MDMConfig.POC_DIMENSION_ID)
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, POCConfig.POC_DIMENSION_ID, new TeleporterPOC(thePlayer.mcServer.worldServerForDimension(POCConfig.POC_DIMENSION_ID)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMConfig.POC_DIMENSION_ID, new TeleporterPOC(thePlayer.mcServer.worldServerForDimension(MDMConfig.POC_DIMENSION_ID)));
 			}
 			else
 			{

@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.lib;
 
-import clashsoft.mods.moredimensions.addons.POCItems;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,13 +18,13 @@ public class POCCreativeTab extends CreativeTabs
 	@Override
 	public ItemStack getIconItemStack()
 	{
-		if (this.equals(POCItems.PoCTab))
+		if (this.equals(MDMItems.PoCTab))
 		{
-			return new ItemStack(POCItems.Tome);
+			return new ItemStack(MDMItems.Tome);
 		}
 		else
 		{
-			return new ItemStack(POCItems.Elixir, 1, 23);
+			return new ItemStack(MDMItems.Elixir, 1, 23);
 		}
 	}
 	

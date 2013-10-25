@@ -4,7 +4,7 @@ import static net.minecraftforge.common.EnumPlantType.Plains;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.block.Block;
@@ -65,7 +65,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable
 	 */
 	protected boolean canThisGrowOnThisBlockID(int par1)
 	{
-		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == POCBlocks.AlteredDirt.blockID;
+		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.AlteredDirt.blockID;
 	}
 	
 	/**

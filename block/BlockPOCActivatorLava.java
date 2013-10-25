@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.BlockStationary;
 import net.minecraft.block.material.Material;
@@ -42,7 +42,7 @@ public class BlockPOCActivatorLava extends BlockStationary
 		{
 			for (int i = 0; i < 3; i++)
 			{
-				if (POCBlocks.Portal.tryToCreatePortal(par1World, par2, par3 - i, par4))
+				if (MDMBlocks.Portal.tryToCreatePortal(par1World, par2, par3 - i, par4))
 					break;
 			}
 		}

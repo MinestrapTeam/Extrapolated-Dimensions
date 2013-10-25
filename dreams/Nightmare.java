@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.dreams;
 
-import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
 import clashsoft.mods.moredimensions.dreams.dim.WorldProviderNightmares;
 
@@ -24,7 +24,7 @@ public class Nightmare extends Dream
 	{
 		WorldProviderNightmares.nightmareType = this.dream;
 		
-		player.travelToDimension(POCConfig.NIGHTMARES_DIMENSION_ID);
+		player.travelToDimension(MDMConfig.NIGHTMARES_DIMENSION_ID);
 	}
 	
 	@Override

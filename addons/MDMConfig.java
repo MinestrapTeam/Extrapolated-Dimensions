@@ -2,9 +2,12 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.io.File;
 
+import clashsoft.clashsoftapi.util.addons.Addon;
+
 import net.minecraftforge.common.Configuration;
 
-public class POCConfig
+@Addon(modName = "MoreDimensionsMod", addonName = "Config")
+public class MDMConfig
 {
 	public static int	POC_DIMENSION_ID		= 4;
 	public static int	DREAMS_DIMENSION_ID		= 5;

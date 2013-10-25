@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.dim;
 
-import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,7 +18,7 @@ public class WorldProviderPOC extends WorldProvider
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.dimensionId = POCConfig.POC_DIMENSION_ID;
+		this.dimensionId = MDMConfig.POC_DIMENSION_ID;
 		this.worldChunkMgr = new WorldChunkManagerPOC();
 		this.hasNoSky = false;
 	}

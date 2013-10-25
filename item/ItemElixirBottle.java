@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.item;
 import java.util.List;
 
 import clashsoft.brewingapi.item.ItemGlassBottle2;
-import clashsoft.mods.moredimensions.addons.POCItems;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,7 +21,7 @@ public class ItemElixirBottle extends ItemGlassBottle2
 	public ItemElixirBottle(int par1)
 	{
 		super(par1);
-		this.setCreativeTab(POCItems.AlchemyTab);
+		this.setCreativeTab(MDMItems.AlchemyTab);
 		this.setHasSubtypes(true);
 	}
 	
@@ -32,13 +32,13 @@ public class ItemElixirBottle extends ItemGlassBottle2
 	 */
 	public Icon getIconFromDamage(int par1)
 	{
-		return POCItems.Elixir.bottles[par1];
+		return MDMItems.Elixir.bottles[par1];
 	}
 	
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		POCItems.Elixir.addInformation(new ItemStack(this, 1, par1ItemStack.getItemDamage() * 4), par2EntityPlayer, par3List, par4);
+		MDMItems.Elixir.addInformation(new ItemStack(this, 1, par1ItemStack.getItemDamage() * 4), par2EntityPlayer, par3List, par4);
 	}
 	
 	/**
@@ -80,12 +80,12 @@ public class ItemElixirBottle extends ItemGlassBottle2
 					
 					if (par1ItemStack.stackSize <= 0)
 					{
-						return new ItemStack(POCItems.Elixir, 1, damage);
+						return new ItemStack(MDMItems.Elixir, 1, damage);
 					}
 					
-					if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(POCItems.Elixir, 1, damage)))
+					if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(MDMItems.Elixir, 1, damage)))
 					{
-						par3EntityPlayer.dropPlayerItem(new ItemStack(POCItems.Elixir, 1, damage));
+						par3EntityPlayer.dropPlayerItem(new ItemStack(MDMItems.Elixir, 1, damage));
 					}
 				}
 			}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.addons.MDMWorld;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -33,7 +33,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	{
 		this.biomeCache = new BiomeCache(this);
 		this.biomesToSpawnIn = new ArrayList<BiomeGenBase>();
-		this.biomesToSpawnIn.add(ParadiseOfChaos.PlainsOfInsanityBiome);
+		this.biomesToSpawnIn.add(MDMWorld.PlainsOfInsanityBiome);
 		
 		GenLayer[] agenlayer = GenLayerPOC.createWorld(seed, worldtype);
 		this.genBiomes = agenlayer[0];
@@ -63,7 +63,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 		BiomeGenBase biome = this.biomeCache.getBiomeGenAt(x, z);
 		if (biome == null)
 		{
-			return ParadiseOfChaos.PlainsOfInsanityBiome;
+			return MDMWorld.PlainsOfInsanityBiome;
 		}
 		
 		return biome;
@@ -164,7 +164,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 			}
 			else
 			{
-				par1ArrayOfBiomeGenBase[i] = ParadiseOfChaos.PlainsOfInsanityBiome;
+				par1ArrayOfBiomeGenBase[i] = MDMWorld.PlainsOfInsanityBiome;
 			}
 		}
 		
@@ -216,7 +216,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 				else
 				{
 					// Change this to a biome
-					par1ArrayOfBiomeGenBase[i] = ParadiseOfChaos.PlainsOfInsanityBiome;
+					par1ArrayOfBiomeGenBase[i] = MDMWorld.PlainsOfInsanityBiome;
 				}
 			}
 			

@@ -3,9 +3,11 @@ package clashsoft.mods.moredimensions;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.util.CSUpdate;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import clashsoft.mods.moredimensions.addons.MDMHeaven;
 import clashsoft.mods.moredimensions.common.CommonProxy;
-import clashsoft.mods.moredimensions.world.WorldProviderHeaven;
+import clashsoft.mods.moredimensions.lib.POCEvents;
+import clashsoft.mods.moredimensions.lib.POCPacketHandler;
 import clashsoft.mods.moredimensions.world.gen.HeavenGenBuildings;
 import clashsoft.mods.moredimensions.world.gen.WorldGenTreesMoreDimensions;
 import cpw.mods.fml.common.Mod;
@@ -13,17 +15,19 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 import net.minecraft.world.World;
-import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = "MoreDimensionsMod", name = "More Dimensions Mod", version = MoreDimensionsMod.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class MoreDimensionsMod
 {
-	public static final int			REVISION		= 0;
-	public static final String		VERSION			= CSUpdate.CURRENT_VERSION + "-" + REVISION;
+	public static final int			REVISION	= 0;
+	public static final String		VERSION		= CSUpdate.CURRENT_VERSION + "-" + REVISION;
 	
 	@Instance("MoreDimensionsMod")
 	public static MoreDimensionsMod	instance;
@@ -31,22 +35,27 @@ public class MoreDimensionsMod
 	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.ClientProxy", serverSide = "clashsoft.mods.moredimensions.common.CommonProxy")
 	public static CommonProxy		proxy;
 	
-	public static int				HEAVEN_ID		= DimensionManager.getNextFreeDimId();
-	
-	public static int				HEAVEN_BIOME_ID	= 30;
+	public static POCPacketHandler	packetHandler;
 	
 	@EventHandler
-	public void load(FMLInitializationEvent event)
+	public void preInit(FMLPreInitializationEvent event)
 	{
-		MDMHeaven.load();
-		
-		DimensionManager.registerProviderType(HEAVEN_ID, WorldProviderHeaven.class, true);
-		DimensionManager.registerDimension(HEAVEN_ID, HEAVEN_ID);
-		DimensionManager.createProviderFor(HEAVEN_ID);
+		MDMConfig.loadConfig(event.getSuggestedConfigurationFile());
 	}
 	
-	public MoreDimensionsMod()
-	{	
+	@EventHandler
+	public void init(FMLInitializationEvent event)
+	{
+		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		MinecraftForge.EVENT_BUS.register(new POCEvents());
+		
+		packetHandler = new POCPacketHandler();
+		packetHandler.registerChannels();
+		
+		proxy.registerRenderers();
+		proxy.registerEntityRenderers();
+		proxy.registerClientEvents();
+		proxy.postRegisterRenderers();
 	}
 	
 	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)

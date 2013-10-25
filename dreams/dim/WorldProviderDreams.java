@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.dreams.dim;
 
-import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,7 +21,7 @@ public class WorldProviderDreams extends WorldProvider
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.dimensionId = POCConfig.DREAMS_DIMENSION_ID;
+		this.dimensionId = MDMConfig.DREAMS_DIMENSION_ID;
 		this.worldChunkMgr = new WorldChunkManagerDreams(dreamType);
 		this.hasNoSky = false;
 	}

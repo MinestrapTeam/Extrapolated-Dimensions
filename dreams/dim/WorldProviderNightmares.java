@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.dreams.dim;
 
-import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
 import net.minecraft.world.World;
@@ -13,7 +13,7 @@ public class WorldProviderNightmares extends WorldProviderDreams
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.dimensionId = POCConfig.NIGHTMARES_DIMENSION_ID;
+		this.dimensionId = MDMConfig.NIGHTMARES_DIMENSION_ID;
 		this.worldChunkMgr = new WorldChunkManagerDreams(nightmareType);
 		this.hasNoSky = false;
 	}

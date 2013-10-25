@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.lib;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.api.IMinableBlock;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -30,9 +30,9 @@ public class POCEvents
 	@ForgeSubscribe
 	public void bonemealUsed(BonemealEvent event)
 	{
-		if (event.world.getBlockId(event.X, event.Y, event.Z) == POCBlocks.MagicOakSapling.blockID)
+		if (event.world.getBlockId(event.X, event.Y, event.Z) == MDMBlocks.MagicOakSapling.blockID)
 		{
-			POCBlocks.MagicOakSapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			MDMBlocks.MagicOakSapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 		}
 	}
 	

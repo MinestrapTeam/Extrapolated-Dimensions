@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.dreams;
 
-import clashsoft.mods.moredimensions.addons.POCConfig;
+import clashsoft.mods.moredimensions.addons.MDMConfig;
 import clashsoft.mods.moredimensions.dreams.dim.WorldProviderDreams;
 import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 
@@ -64,7 +64,7 @@ public class Dream implements IDream
 	{
 		WorldProviderDreams.dreamType = this.dream;
 		
-		player.travelToDimension(POCConfig.DREAMS_DIMENSION_ID);
+		player.travelToDimension(MDMConfig.DREAMS_DIMENSION_ID);
 	}
 	
 	@Override

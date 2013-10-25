@@ -2,8 +2,8 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.addons.MDMHeaven;
+import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.world.TeleporterHeaven;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -273,10 +273,10 @@ public class BlockHeavenPortal extends BlockBreakable
 			{
 				thePlayer.timeUntilPortal = 10;
 			}
-			else if (thePlayer.dimension != MoreDimensionsMod.HEAVEN_ID)
+			else if (thePlayer.dimension != MDMWorld.HEAVEN_ID)
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MoreDimensionsMod.HEAVEN_ID, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(MoreDimensionsMod.HEAVEN_ID)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMWorld.HEAVEN_ID, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(MDMWorld.HEAVEN_ID)));
 			}
 			else
 			{

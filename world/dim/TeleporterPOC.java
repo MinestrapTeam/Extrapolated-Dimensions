@@ -15,7 +15,7 @@ import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 public class TeleporterPOC extends Teleporter
 {
@@ -120,10 +120,10 @@ public class TeleporterPOC extends Teleporter
 					for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2)
 					{
 						/** change this block **/
-						if (this.worldServerInstance.getBlockId(k1, i2, l1) == POCBlocks.Portal.blockID)
+						if (this.worldServerInstance.getBlockId(k1, i2, l1) == MDMBlocks.Portal.blockID)
 						{
 							/** change this block **/
-							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == POCBlocks.Portal.blockID)
+							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == MDMBlocks.Portal.blockID)
 							{
 								--i2;
 							}
@@ -153,22 +153,22 @@ public class TeleporterPOC extends Teleporter
 			d4 = k + 0.5D;
 			int j2 = -1;
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i - 1, j, k) == POCBlocks.Portal.blockID)
+			if (this.worldServerInstance.getBlockId(i - 1, j, k) == MDMBlocks.Portal.blockID)
 			{
 				j2 = 2;
 			}
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i + 1, j, k) == POCBlocks.Portal.blockID)
+			if (this.worldServerInstance.getBlockId(i + 1, j, k) == MDMBlocks.Portal.blockID)
 			{
 				j2 = 0;
 			}
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i, j, k - 1) == POCBlocks.Portal.blockID)
+			if (this.worldServerInstance.getBlockId(i, j, k - 1) == MDMBlocks.Portal.blockID)
 			{
 				j2 = 3;
 			}
 			/** change this block **/
-			if (this.worldServerInstance.getBlockId(i, j, k + 1) == POCBlocks.Portal.blockID)
+			if (this.worldServerInstance.getBlockId(i, j, k + 1) == MDMBlocks.Portal.blockID)
 			{
 				j2 = 1;
 			}
@@ -422,7 +422,7 @@ public class TeleporterPOC extends Teleporter
 						i4 = j2 + (i3 - 1) * l5 - k2 * k5;
 						flag = l2 < 0;
 						
-						this.worldServerInstance.setBlock(k3, j3, i4, flag ? POCBlocks.PortalFrame.blockID : 0);
+						this.worldServerInstance.setBlock(k3, j3, i4, flag ? MDMBlocks.PortalFrame.blockID : 0);
 					}
 				}
 			}
@@ -438,7 +438,7 @@ public class TeleporterPOC extends Teleporter
 					i4 = j2 + (i3 - 1) * l5;
 					flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
 					
-					this.worldServerInstance.setBlock(k3, j3, i4, flag ? POCBlocks.PortalFrame.blockID : POCBlocks.Portal.blockID, 0, 2);
+					this.worldServerInstance.setBlock(k3, j3, i4, flag ? MDMBlocks.PortalFrame.blockID : MDMBlocks.Portal.blockID, 0, 2);
 				}
 			}
 			for (i3 = 0; i3 < 4; ++i3)

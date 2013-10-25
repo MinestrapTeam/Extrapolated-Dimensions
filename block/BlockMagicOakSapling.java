@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.WorldGenMagicOakTree;
 
 import net.minecraft.block.Block;
@@ -100,6 +100,6 @@ public class BlockMagicOakSapling extends BlockFlower
 	protected boolean canThisPlantGrowOnThisBlockID(int par1)
 	{
 		/** Change this to your custom grass **/
-		return par1 == POCBlocks.AlteredDirt.blockID || par1 == POCBlocks.AlteredGrass.blockID || par1 == Block.dirt.blockID || par1 == Block.grass.blockID;
+		return par1 == MDMBlocks.AlteredDirt.blockID || par1 == MDMBlocks.AlteredGrass.blockID || par1 == Block.dirt.blockID || par1 == Block.grass.blockID;
 	}
 }

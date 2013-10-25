@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.addons;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public class POCLanguage
+public class MDMLocalizations
 {
 	public static void addLocalizations()
 	{

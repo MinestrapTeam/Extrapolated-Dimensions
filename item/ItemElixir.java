@@ -6,7 +6,7 @@ import clashsoft.brewingapi.brewing.Brewing;
 import clashsoft.brewingapi.brewing.BrewingBase;
 import clashsoft.brewingapi.item.ItemPotion2;
 import clashsoft.clashsoftapi.util.CSUtil;
-import clashsoft.mods.moredimensions.addons.POCItems;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -36,7 +36,7 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public CreativeTabs[] getCreativeTabs()
 	{
-		return new CreativeTabs[] { POCItems.AlchemyTab, CreativeTabs.tabAllSearch };
+		return new CreativeTabs[] { MDMItems.AlchemyTab, CreativeTabs.tabAllSearch };
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -180,7 +180,7 @@ public class ItemElixir extends ItemPotion2
 	 */
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
-		if (par2CreativeTabs == POCItems.AlchemyTab || par2CreativeTabs == CreativeTabs.tabAllSearch)
+		if (par2CreativeTabs == MDMItems.AlchemyTab || par2CreativeTabs == CreativeTabs.tabAllSearch)
 		{
 			for (int i = 0; i < BOTTLE_TYPES; i++)
 			{

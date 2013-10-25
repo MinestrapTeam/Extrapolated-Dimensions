@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.biome;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -17,8 +17,8 @@ public class BiomePlainsOfInsanity extends BiomeGenBase
 		this.maxHeight = 0.5F;
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();
-		this.topBlock = ((byte) POCBlocks.AlteredGrass.blockID);
-		this.fillerBlock = ((byte) POCBlocks.AlteredDirt.blockID);
+		this.topBlock = ((byte) MDMBlocks.AlteredGrass.blockID);
+		this.fillerBlock = ((byte) MDMBlocks.AlteredDirt.blockID);
 		
 		this.waterColorMultiplier = 0xE42D17;
 	}

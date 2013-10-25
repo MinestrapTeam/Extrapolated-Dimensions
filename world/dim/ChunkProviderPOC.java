@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.dim;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
@@ -120,7 +120,7 @@ public class ChunkProviderPOC implements IChunkProvider
 									 * Main filler block fill's all the
 									 * underground, replaces block stone
 									 **/
-									par3ArrayOfByte[j2 += short1] = (byte) POCBlocks.ChaosStone.blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) MDMBlocks.ChaosStone.blockID;
 								}
 								else if (k1 * 8 + l1 < b2)
 								{
@@ -177,7 +177,7 @@ public class ChunkProviderPOC implements IChunkProvider
 						 * Main filler block fill's all the underground,
 						 * replaces block stone
 						 **/
-						else if (var18 != POCBlocks.ChaosStone.blockID)
+						else if (var18 != MDMBlocks.ChaosStone.blockID)
 						{
 							if (var13 == -1)
 							{
@@ -186,7 +186,7 @@ public class ChunkProviderPOC implements IChunkProvider
 									var14 = 0;
 									
 									/** change to custom dirt **/
-									var15 = (byte) POCBlocks.AlteredDirt.blockID;//
+									var15 = (byte) MDMBlocks.AlteredDirt.blockID;//
 								}
 								else if ((var16 >= var5 - 4) && (var16 <= var5 + 1))
 								{

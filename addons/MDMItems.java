@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.EnumHelper;
 
-public class POCItems
+public class MDMItems
 {
 	public static CreativeTabs		PoCTab		= new POCCreativeTab("PoCTab");
 	public static CreativeTabs		AlchemyTab	= new POCCreativeTab("ElixirTab");
@@ -27,29 +27,29 @@ public class POCItems
 	public static void loadItems()
 	{
 		// Tome
-		POCItems.Tome = (ItemTome) new ItemTome(POCConfig.Tome_ID).setUnlocalizedName("Tome").setCreativeTab(POCItems.PoCTab);
+		MDMItems.Tome = (ItemTome) new ItemTome(MDMConfig.Tome_ID).setUnlocalizedName("Tome").setCreativeTab(MDMItems.PoCTab);
 		
 		// Staff
-		POCItems.Staves = (ItemStaff) new ItemStaff(POCConfig.Staves_ID).setUnlocalizedName("Staves").setCreativeTab(PoCTab);
+		MDMItems.Staves = (ItemStaff) new ItemStaff(MDMConfig.Staves_ID).setUnlocalizedName("Staves").setCreativeTab(PoCTab);
 		
 		// Mana Star
-		POCItems.ManaStar = (ItemManaStar) new ItemManaStar(POCConfig.ManaStar_ID).setUnlocalizedName("ManaStar").setCreativeTab(PoCTab);
+		MDMItems.ManaStar = (ItemManaStar) new ItemManaStar(MDMConfig.ManaStar_ID).setUnlocalizedName("ManaStar").setCreativeTab(PoCTab);
 		
 		// The Sword of Shannara
-		POCItems.ShannaraSword = (ItemSword) new ItemSword(POCConfig.ShannaraSword_ID, POCItems.magic).setUnlocalizedName("ShannaraSword").setTextureName("shannarasword").setCreativeTab(PoCTab);
+		MDMItems.ShannaraSword = (ItemSword) new ItemSword(MDMConfig.ShannaraSword_ID, MDMItems.magic).setUnlocalizedName("ShannaraSword").setTextureName("shannarasword").setCreativeTab(PoCTab);
 		
 		// Elixir
-		POCItems.Elixir = (ItemElixir) new ItemElixir(POCConfig.Elixir_ID).setUnlocalizedName("elixir");
+		MDMItems.Elixir = (ItemElixir) new ItemElixir(MDMConfig.Elixir_ID).setUnlocalizedName("elixir");
 		
 		// Elixir Bottle
-		POCItems.ElixirBottle = (ItemElixirBottle) new ItemElixirBottle(POCConfig.ElixirBottle_ID).setUnlocalizedName("elixirbottle");
+		MDMItems.ElixirBottle = (ItemElixirBottle) new ItemElixirBottle(MDMConfig.ElixirBottle_ID).setUnlocalizedName("elixirbottle");
 		
-		addItem(POCItems.Tome, "\u00a7bTome", "\u00a7bBuch");
-		addItem(POCItems.ManaStar, "Mana Star", "Manastern");
-		addItem(POCItems.Tome, "\u00a7bTome");
-		addItem(POCItems.ShannaraSword, "The Sword of Shannara");
-		addItem(POCItems.Elixir, "Elixir");
-		addItem(POCItems.ElixirBottle, "Elixir Bottle", "Elixirflasche");
+		addItem(MDMItems.Tome, "\u00a7bTome", "\u00a7bBuch");
+		addItem(MDMItems.ManaStar, "Mana Star", "Manastern");
+		addItem(MDMItems.Tome, "\u00a7bTome");
+		addItem(MDMItems.ShannaraSword, "The Sword of Shannara");
+		addItem(MDMItems.Elixir, "Elixir", "Elixier");
+		addItem(MDMItems.ElixirBottle, "Elixir Bottle", "Elixierflasche");
 	}
 	
 	public static void addItem(Item item, String en, String de)

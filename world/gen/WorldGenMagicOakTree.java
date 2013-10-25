@@ -8,7 +8,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
 
-import clashsoft.mods.moredimensions.addons.POCBlocks;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenMagicOakTree extends WorldGenerator implements IWorldGenerator
@@ -70,7 +70,7 @@ public class WorldGenMagicOakTree extends WorldGenerator implements IWorldGenera
 							
 							Block block = Block.blocksList[k1];
 							
-							if (k1 != 0 && !block.isLeaves(par1World, l1, i1, j1) && k1 != Block.grass.blockID && k1 != Block.dirt.blockID && k1 != POCBlocks.AlteredGrass.blockID && k1 != POCBlocks.AlteredGrass.blockID && !block.isWood(par1World, l1, i1, j1))
+							if (k1 != 0 && !block.isLeaves(par1World, l1, i1, j1) && k1 != Block.grass.blockID && k1 != Block.dirt.blockID && k1 != MDMBlocks.AlteredGrass.blockID && k1 != MDMBlocks.AlteredGrass.blockID && !block.isWood(par1World, l1, i1, j1))
 							{
 								flag = false;
 							}
@@ -91,7 +91,7 @@ public class WorldGenMagicOakTree extends WorldGenerator implements IWorldGenera
 			{
 				i1 = par1World.getBlockId(par3, par4 - 1, par5);
 				Block soil = Block.blocksList[i1];
-				boolean isSoil = (soil != null && soil.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, POCBlocks.MagicOakSapling));
+				boolean isSoil = (soil != null && soil.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, MDMBlocks.MagicOakSapling));
 				
 				if (isSoil && par4 < 256 - l - 1)
 				{
@@ -122,7 +122,7 @@ public class WorldGenMagicOakTree extends WorldGenerator implements IWorldGenera
 									
 									if (block == null || block.canBeReplacedByLeaves(par1World, j2, j1, l2))
 									{
-										this.setBlockAndMetadata(par1World, j2, j1, l2, POCBlocks.MagicOakLeaves.blockID, this.metaLeaves);
+										this.setBlockAndMetadata(par1World, j2, j1, l2, MDMBlocks.MagicOakLeaves.blockID, this.metaLeaves);
 									}
 								}
 							}
@@ -137,7 +137,7 @@ public class WorldGenMagicOakTree extends WorldGenerator implements IWorldGenera
 						
 						if (k1 == 0 || block == null || block.isLeaves(par1World, par3, par4 + j1, par5))
 						{
-							this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, POCBlocks.MagicOakLog.blockID, this.metaWood);
+							this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, MDMBlocks.MagicOakLog.blockID, this.metaWood);
 						}
 					}
 					return true;

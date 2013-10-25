@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.dim;
 
-import clashsoft.mods.moredimensions.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.addons.MDMWorld;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
@@ -8,7 +8,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerBiomesPOC extends GenLayer
 {
-	protected BiomeGenBase[]	allowedBiomes	= { ParadiseOfChaos.PlainsOfInsanityBiome, ParadiseOfChaos.CorruptedMountainsBiome, ParadiseOfChaos.DesertOfDrynessBiome };
+	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.PlainsOfInsanityBiome, MDMWorld.CorruptedMountainsBiome, MDMWorld.DesertOfDrynessBiome };
 	
 	public GenLayerBiomesPOC(long seed, GenLayer genlayer)
 	{
