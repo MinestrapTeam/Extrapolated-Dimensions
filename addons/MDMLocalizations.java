@@ -1,7 +1,10 @@
 package clashsoft.mods.moredimensions.addons;
 
 import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.mods.moredimensions.item.heaven.ItemHeavenSoul;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+
+import net.minecraft.item.ItemStack;
 
 @Addon(modName = "MoreDimensionsMod", addonName = "Localizations")
 public class MDMLocalizations
@@ -36,6 +39,13 @@ public class MDMLocalizations
 		LanguageRegistry.instance().addStringLocalization("entity.POCBossLich.name", "Lich");
 		
 		// -- Heaven --
+		
+		// - Items -
+		
+		for (int i = 0; i < 16; i++)
+		{
+			LanguageRegistry.addName(new ItemStack(MDMItems.soul, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
+		}
 		
 		// - Entitys --
 		

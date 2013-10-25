@@ -1,10 +1,10 @@
 package clashsoft.mods.moredimensions.handlers;
 
+import clashsoft.clashsoftapi.util.CSUpdate;
+import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.block.IMinableBlock;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.relauncher.Side;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -87,7 +87,7 @@ public class MDMEventHandler
 				props.addMiningLevel(0.001F);
 			else if (block == Block.dirt || block == Block.grass || block == Block.gravel || block == Block.sand)
 				props.addDiggingLevel(0.001F);
-			else if (block== Block.wood)
+			else if (block == Block.wood)
 				props.addWoodCuttingLevel(0.01F);
 			else if (block instanceof BlockCrops)
 				props.addFarmingLevel(0.05F);
@@ -109,7 +109,7 @@ public class MDMEventHandler
 			else if (block instanceof BlockMobSpawner)
 				props.addMiningLevel(0.05F);
 			else if (block instanceof IMinableBlock)
-				props.addMiningLevel(((IMinableBlock)block).getMiningValue(event.blockMetadata));
+				props.addMiningLevel(((IMinableBlock) block).getMiningValue(event.blockMetadata));
 		}
 	}
 	
@@ -121,7 +121,7 @@ public class MDMEventHandler
 	@ForgeSubscribe
 	public void entityConstructing(EntityConstructing event)
 	{
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER && event.entity instanceof EntityPlayer)
+		if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
 		{
 			MDMEntityProperties props = MDMEntityProperties.create((EntityLivingBase) event.entity);
 			MDMEntityProperties.setEntityProperties((EntityPlayer) event.entity, props);
@@ -131,11 +131,16 @@ public class MDMEventHandler
 	@ForgeSubscribe
 	public void entityJoinWorld(EntityJoinWorldEvent event)
 	{
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER && event.entity instanceof EntityPlayer)
+		if (event.entity instanceof EntityPlayer)
 		{
-			EntityPlayer player = (EntityPlayer) event.entity;
-			MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
-			props.sync(player);
+			CSUpdate.doClashsoftUpdateCheck((EntityPlayer) event.entity, "More Dimensions Mod", "mdm", MoreDimensionsMod.VERSION);
+			
+			if (!event.world.isRemote)
+			{
+				EntityPlayer player = (EntityPlayer) event.entity;
+				MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
+				props.sync(player);
+			}
 		}
 	}
 }

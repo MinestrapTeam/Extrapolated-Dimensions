@@ -13,7 +13,7 @@ import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
 import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTube;
-import clashsoft.mods.moredimensions.common.MDMProxy;
+import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
 import clashsoft.mods.moredimensions.handlers.MDMTickHandler;
@@ -23,13 +23,13 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-public class ClientProxy extends MDMProxy
+public class MDMClientProxy extends MDMCommonProxy
 {
 	public RenderPOCBows	bowRenderer;
 	
 	public static int		tubeRenderType;
 
-	public ClientProxy()
+	public MDMClientProxy()
 	{
 		
 	}

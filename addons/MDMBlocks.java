@@ -45,12 +45,11 @@ public class MDMBlocks
 	public static CustomBlock			woodBlocks;
 	public static CustomBlock			groundBlocks;
 	public static CustomBlock			plantBlocks;
-	public static Block					heavenLog;
-	public static Block					heavenGrass;
+	public static BlockHeavenLog		heavenLog;
+	public static BlockHeavenGrass		heavenGrass;
 	public static BlockHeavenLeaves		heavenLeaves;
-	public static Block					heavenSapling;
-	public static Block					heavenPillar;
-	public static Block					compressor;
+	public static BlockHeavenSapling	heavenSapling;
+	public static BlockHeavenPillar		heavenPillar;
 	
 	public static void initialize()
 	{
@@ -85,14 +84,13 @@ public class MDMBlocks
 		woodBlocks = (CustomBlock) new CustomBlock(203, Material.wood, new String[] { "Heavenplanks" }, new String[] { "heavenplanks" }, new CreativeTabs[] { CreativeTabs.tabBlock }).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("heavenWoodBlocks");
 		groundBlocks = (CustomBlock) new CustomBlock(204, Material.ground, new String[] { "Heavendirt" }, new String[] { "heavendirt" }, new CreativeTabs[] { CreativeTabs.tabBlock }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heavenGroundBlocks");
 		plantBlocks = (CustomBlock) new BlockHeavenPlant(205, new String[] { "Blue Flower", "Orange Flower", "Ground Vine", "Round Plant" }, new String[] { "heavenplant_blue", "heavenplant_orange", "heavenplant_vine", "heavenplant_circle" }).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenPlantBlocks");
-		heavenLog = (new BlockHeavenLog(210)).setUnlocalizedName("heavenwood_side").setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
+		heavenLog = (BlockHeavenLog) (new BlockHeavenLog(210)).setUnlocalizedName("heavenwood_side").setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
 		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(200)).setUnlocalizedName("heavenportal").setHardness(-1F).setLightValue(1F);
 		heavenPortalFrame = (new BlockHeavenPortalFrame(201)).setUnlocalizedName("heavenportal_frame").setHardness(2F);
-		heavenGrass = (new BlockHeavenGrass(211)).setUnlocalizedName("heavengrass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
+		heavenGrass = (BlockHeavenGrass) (new BlockHeavenGrass(211)).setUnlocalizedName("heavengrass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
 		heavenLeaves = (BlockHeavenLeaves) (new BlockHeavenLeaves(212)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenleaves");
-		heavenSapling = (new BlockHeavenSapling(213)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavensapling");
-		heavenPillar = (new BlockHeavenPillar(214)).setUnlocalizedName("pillar").setHardness(1.75F);
-		compressor = (new BlockHeavenCompressor(215)).setUnlocalizedName("heavenfurnace_top").setHardness(1.8F);
+		heavenSapling = (BlockHeavenSapling) (new BlockHeavenSapling(213)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavensapling");
+		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(214)).setUnlocalizedName("pillar").setHardness(1.75F);
 	}
 	
 	public static void load()
@@ -132,7 +130,6 @@ public class MDMBlocks
 		addBlock(heavenLeaves, "Heaven Tree Leaves");
 		addBlock(heavenSapling, "Heaven Tree Sapling");
 		addBlock(heavenPillar, "Heaven Pillar");
-		addBlock(compressor, "Compressor");
 	}
 	
 	public static void addBlock(Block block, String name)

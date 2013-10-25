@@ -4,7 +4,7 @@ import java.util.Random;
 
 import clashsoft.clashsoftapi.util.CSUpdate;
 import clashsoft.mods.moredimensions.addons.*;
-import clashsoft.mods.moredimensions.common.MDMProxy;
+import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.handlers.MDMEventHandler;
 import clashsoft.mods.moredimensions.handlers.MDMPacketHandler;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
@@ -31,8 +31,8 @@ public class MoreDimensionsMod
 	@Instance("MoreDimensionsMod")
 	public static MoreDimensionsMod	instance;
 	
-	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.ClientProxy", serverSide = "clashsoft.mods.moredimensions.common.CommonProxy")
-	public static MDMProxy		proxy;
+	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.MDMClientProxy", serverSide = "clashsoft.mods.moredimensions.common.MDMCommonProxy")
+	public static MDMCommonProxy	proxy;
 	
 	public static MDMPacketHandler	packetHandler;
 	public static MDMEventHandler	eventHandler;

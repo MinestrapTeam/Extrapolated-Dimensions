@@ -16,7 +16,7 @@ public class ItemFlamingSword extends ItemSword
 	
 	public ItemFlamingSword(int par1)
 	{
-		super(par1, MDMItems.FLAMING);
+		super(par1, MDMItems.toolFlaming);
 		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 	

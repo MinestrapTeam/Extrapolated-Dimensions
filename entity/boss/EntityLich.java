@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.entity.boss;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.common.MDMProxy;
+import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData;
 import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser.EnumOutputAction;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
@@ -37,7 +37,7 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 			interactingPlayer = par1EntityPlayer;
 		if (interactingPlayer == par1EntityPlayer)
 		{
-			FMLNetworkHandler.openGui(par1EntityPlayer, MoreDimensionsMod.instance, MDMProxy.BOSS_CHAT_GUIID, this.worldObj, this.entityId, 0, 0);
+			FMLNetworkHandler.openGui(par1EntityPlayer, MoreDimensionsMod.instance, MDMCommonProxy.BOSS_CHAT_GUIID, this.worldObj, this.entityId, 0, 0);
 			return true;
 		}
 		return false;

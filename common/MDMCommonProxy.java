@@ -9,7 +9,7 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class MDMProxy implements IGuiHandler
+public class MDMCommonProxy implements IGuiHandler
 {
 	public static int	sywoxite	= 0;
 	
