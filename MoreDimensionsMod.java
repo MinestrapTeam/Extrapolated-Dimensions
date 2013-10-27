@@ -55,7 +55,11 @@ public class MoreDimensionsMod
 		packetHandler = new MDMPacketHandler();
 		packetHandler.registerChannels();
 		
-		MDMObjects.load();
+		MDMBlocks.initialize();
+		MDMItems.initialize();
+		MDMBlocks.load();
+		MDMItems.load();
+		
 		MDMEntitys.load();
 		MDMRecipes.load();
 		MDMWorld.load();

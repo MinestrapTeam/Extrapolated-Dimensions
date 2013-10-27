@@ -20,7 +20,7 @@ public class ItemHeavenPortalActivator extends ItemHeavenMisc
 	
 	public void addInformation(ItemStack stack, List list)
 	{
-		list.add("Used to activate the Heaven Portal");
+		list.add("Activates the portal to heaven");
 	}
 	
 	@Override

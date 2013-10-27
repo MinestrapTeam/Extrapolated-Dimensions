@@ -19,7 +19,7 @@ public class ItemBlurite extends ItemHeavenMisc
 	
 	public void addInformation(ItemStack par1ItemStack, List par2List)
 	{
-		par2List.add("Used to fertilize Heaven Saplings.");
+		par2List.add("Fertilizes Heaven Saplings.");
 	}
 	
 	public boolean tryPlaceIntoWorld(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)

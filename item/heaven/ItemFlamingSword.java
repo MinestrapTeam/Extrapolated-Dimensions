@@ -80,5 +80,4 @@ public class ItemFlamingSword extends ItemSword
 	{
 		return EnumRarity.epic;
 	}
-	
 }

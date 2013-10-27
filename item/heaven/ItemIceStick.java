@@ -4,19 +4,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class ItemIceStick extends Item
+public class ItemIceStick extends ItemHeavenMisc
 {
 	
 	public ItemIceStick(int par1)
 	{
-		super(par1);
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		super(par1, CreativeTabs.tabMaterials);
 		this.setMaxDamage(64);
 	}
 	

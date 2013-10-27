@@ -23,6 +23,6 @@ public class MDMRecipes
 		// -- Heaven --
 		
 		CSCrafting.addShapelessCrafting(new ItemStack(MDMBlocks.woodBlocks, 4, 0), MDMBlocks.heavenLog);
-		CSCrafting.addSmelting(new ItemStack(MDMBlocks.stoneBlocks, 1, 6), new ItemStack(MDMItems.holyiumIngot), 2F);
+		CSCrafting.addSmelting(new ItemStack(MDMBlocks.stoneBlocks, 1, 6), MDMItems.holyiumIngot, 2F);
 	}
 }
