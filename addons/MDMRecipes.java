@@ -23,6 +23,20 @@ public class MDMRecipes
 		// -- Heaven --
 		
 		CSCrafting.addShapelessCrafting(new ItemStack(MDMBlocks.woodBlocks, 4, 0), MDMBlocks.heavenLog);
-		CSCrafting.addSmelting(new ItemStack(MDMBlocks.stoneBlocks, 1, 6), MDMItems.holyiumIngot, 2F);
+		CSCrafting.addSmelting(MDMBlocks.clashiumOre, MDMItems.clashiumIngot, 0.2F);
+		CSCrafting.addSmelting(MDMBlocks.holyiumOre, MDMItems.holyiumIngot, 2F);
+		
+		CSCrafting.addStorageBlock(MDMItems.shrekiteShard, MDMBlocks.shrekiteBlock, 3);
+		CSCrafting.addStorageBlock(MDMItems.clashiumIngot, MDMBlocks.clashiumBlock, 3);
+		CSCrafting.addStorageBlock(MDMItems.holyiumIngot, MDMBlocks.holyiumBlock, 3);
+		CSCrafting.addStorageBlock(MDMItems.bluriteDust, MDMBlocks.bluriteBlock, 3);
+		CSCrafting.addStorageBlock(MDMItems.proAlloy, MDMBlocks.proAlloyBlock, 3);
+		
+		CSCrafting.addShapelessCrafting(MDMItems.shrekiteShard, MDMBlocks.shrekiteBlock);
+		CSCrafting.addShapelessCrafting(MDMItems.clashiumIngot, MDMBlocks.clashiumBlock);
+		CSCrafting.addShapelessCrafting(MDMItems.holyiumIngot, MDMBlocks.holyiumBlock);
+		CSCrafting.addShapelessCrafting(MDMItems.bluriteDust, MDMBlocks.bluriteBlock);
+		CSCrafting.addShapelessCrafting(MDMItems.proAlloy, MDMBlocks.proAlloyBlock); 
+		
 	}
 }

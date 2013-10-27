@@ -5,6 +5,7 @@ import clashsoft.clashsoftapi.CustomItem;
 import clashsoft.clashsoftapi.util.CSItems;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
+import clashsoft.mods.moredimensions.item.ItemBowMDM;
 import clashsoft.mods.moredimensions.item.ItemCape;
 import clashsoft.mods.moredimensions.item.ItemGloves;
 import clashsoft.mods.moredimensions.item.heaven.*;
@@ -69,8 +70,7 @@ public class MDMItems
 	public static Item						proHelmet, proChestplate, proLeggings, proBoots, proGloves;
 	
 	public static CustomItem				materials;
-	public static ItemBlurite				bluriteDust;
-	public static ItemHeavenBow				heavenBow;
+	public static ItemBowMDM				heavenBow;
 	public static ItemHeavenFood			heavenApple;
 	public static ItemLifeHeart				heart;
 	public static ItemFlamingSword			flamingSword;
@@ -81,7 +81,7 @@ public class MDMItems
 	public static ItemHeavenPortalActivator	heavenPortalActivator;
 	public static ItemCape					capes;
 	
-	public static ItemStack					heavenStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy;
+	public static ItemStack					heavenStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
 	
 	public static void initialize()
 	{
@@ -170,7 +170,7 @@ public class MDMItems
 		proBoots = new ItemArmor(MDMConfig.getItem("Pro Boots", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 3).setUnlocalizedName("proBoots").setTextureName("proBoots").setCreativeTab(tabHeavenArmor);
 		proGloves = new ItemGloves(MDMConfig.getItem("Pro Gloves", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro")).setUnlocalizedName("proGloves").setTextureName("proGloves").setCreativeTab(tabHeavenArmor);
 		
-		materials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", itemIndex++), new String[] { "Heaven Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy" }, new String[] { "heavenstick", "heavenarrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_alloy" }).setCreativeTab(tabHeavenMaterials);
+		materials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", itemIndex++), new String[] { "Heaven Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenstick", "heavenarrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_alloy", "blurite_dust" }).setCreativeTab(tabHeavenMaterials);
 		heavenStick = new ItemStack(materials, 1, 0);
 		heavenArrow = new ItemStack(materials, 1, 1);
 		shrekiteShard = new ItemStack(materials, 1, 2);
@@ -178,9 +178,9 @@ public class MDMItems
 		holyiumIngot = new ItemStack(materials, 1, 4);
 		energyOrb = new ItemStack(materials, 1, 5);
 		proAlloy = new ItemStack(materials, 1, 6);
+		bluriteDust = new ItemStack(materials, 1, 7);
 		
-		bluriteDust = (ItemBlurite) (new ItemBlurite(MDMConfig.getItem("Blurite Dust", itemIndex++))).setUnlocalizedName("blurite_dust");
-		heavenBow = (ItemHeavenBow) (new ItemHeavenBow(MDMConfig.getItem("Heaven Bow", itemIndex++))).setUnlocalizedName("heavenbow").setTextureName("heavenbow");
+		heavenBow = (ItemBowMDM) (new ItemBowMDM(MDMConfig.getItem("Heaven Bow", itemIndex++), "heavenbow", heavenArrow)).setUnlocalizedName("heavenbow");
 		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", itemIndex++), 2, 0, false)).setUnlocalizedName("heavenapple");
 		heart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", itemIndex++))).setUnlocalizedName("heart");
 		flamingSword = (ItemFlamingSword) (new ItemFlamingSword(MDMConfig.getItem("Fire Sword", itemIndex++))).setUnlocalizedName("fireSword").setTextureName("fireSword");
@@ -278,7 +278,6 @@ public class MDMItems
 		CSItems.addArmor(proGloves, "Pro Gloves", proAlloy, 4);
 		
 		addItem(heavenPortalActivator, "Heaven Portal Activator");
-		CSItems.addItemWithRecipe(bluriteDust, "Blurite Dust", 9, new Object[] { "X", Character.valueOf('X'), MDMBlocks.bluriteBlock });
 		CSItems.addItemWithRecipe(heavenBow, "Heaven Bow", 1, new Object[] { "s| ", "s |", "s| ", Character.valueOf('s'), Item.silk, Character.valueOf('|'), heavenStick });
 		addItem(heavenApple, "Heaven Apple");
 		addItem(heart, "Life Heart");

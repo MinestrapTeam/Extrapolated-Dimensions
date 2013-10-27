@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.biome;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.world.gen.poc.WorldGenTreesMoreDimensions;
+import clashsoft.mods.moredimensions.world.gen.poc.MDMGenTrees;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -32,7 +32,7 @@ public class BiomeHeaven extends BiomeGenBase
 		
 		this.topBlock = (byte) MDMBlocks.heavenGrass.blockID;
 		this.fillerBlock = (byte) MDMBlocks.groundBlocks.blockID;
-		this.worldGeneratorTrees = new WorldGenTreesMoreDimensions(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
+		this.worldGeneratorTrees = new MDMGenTrees(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 		
 		setColor(0xffffff);
 		setBiomeName("Heaven");

@@ -8,7 +8,7 @@ import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.handlers.MDMEventHandler;
 import clashsoft.mods.moredimensions.handlers.MDMPacketHandler;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
-import clashsoft.mods.moredimensions.world.gen.poc.WorldGenTreesMoreDimensions;
+import clashsoft.mods.moredimensions.world.gen.poc.MDMGenTrees;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -85,7 +85,7 @@ public class MoreDimensionsMod
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new WorldGenTreesMoreDimensions(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+			(new MDMGenTrees(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
 		for (int i = 0; i < 5; i++)
 		{

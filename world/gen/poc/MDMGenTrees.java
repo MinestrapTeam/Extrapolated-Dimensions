@@ -9,7 +9,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 
-public class WorldGenTreesMoreDimensions extends WorldGenTrees
+public class MDMGenTrees extends WorldGenTrees
 {
 	/** The minimum height of a generated tree. */
 	private final int		minTreeHeight;
@@ -26,7 +26,7 @@ public class WorldGenTreesMoreDimensions extends WorldGenTrees
 	/** The metadata value of the leaves to use in tree generation. */
 	private final int		metaLeaves;
 	
-	public WorldGenTreesMoreDimensions(boolean par1, int par2, int par3, int par4, int par5, int par6, boolean par7)
+	public MDMGenTrees(boolean par1, int par2, int par3, int par4, int par5, int par6, boolean par7)
 	{
 		super(par1);
 		this.minTreeHeight = par2;

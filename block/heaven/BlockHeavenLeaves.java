@@ -15,7 +15,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
@@ -330,7 +329,7 @@ public class BlockHeavenLeaves extends BlockLeavesBase implements IShearable
 			
 			if ((par5 & 3) == 0 && par1World.rand.nextInt(j1) == 0)
 			{
-				this.dropBlockAsItem_do(par1World, par2, par3, par4, new ItemStack(Item.appleRed, 1, 0));
+				this.dropBlockAsItem_do(par1World, par2, par3, par4, new ItemStack(MDMItems.heavenApple, 1, 0));
 			}
 		}
 	}

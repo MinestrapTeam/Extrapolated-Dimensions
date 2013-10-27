@@ -4,7 +4,7 @@ import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
-import clashsoft.mods.moredimensions.world.gen.poc.WorldGenTreesMoreDimensions;
+import clashsoft.mods.moredimensions.world.gen.poc.MDMGenTrees;
 
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -21,7 +21,7 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	private WorldGenerator				clashiumGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 4, 10);
 	private WorldGenerator				bluriteGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 5, 8);
 	private WorldGenerator				holyiumGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 6, 8);
-	private WorldGenerator				treeGen		= new WorldGenTreesMoreDimensions(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
+	private WorldGenerator				treeGen		= new MDMGenTrees(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 	
 	private int							trees		= rand.nextInt(1);
 	
