@@ -3,6 +3,7 @@ package clashsoft.mods.moredimensions.addons;
 import clashsoft.clashsoftapi.CustomBlock;
 import clashsoft.clashsoftapi.ItemCustomBlock;
 import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.mods.moredimensions.block.BlockMDM;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -55,43 +56,31 @@ public class MDMBlocks
 	
 	public static ItemStack				heavenDirt;
 	
-	public static ItemStack				blueFlower;
-	public static ItemStack				orangeFlower;
-	public static ItemStack				vinePlant;
-	public static ItemStack				roundPlant;
+	public static ItemStack				blueFlower, orangeFlower, vinePlant, roundPlant;
 	
-	public static ItemStack				heavenStone;
-	public static ItemStack				heavenCobble;
-	public static ItemStack				heavenCobbleMossy;
-	public static ItemStack				sywoxiteOre;
-	public static ItemStack				clashiumOre;
-	public static ItemStack				bluriteOre;
-	public static ItemStack				holyiumOre;
-	public static ItemStack				sywoxiteBlock;
-	public static ItemStack				clashiumBlock;
-	public static ItemStack				bluriteBlock;
-	public static ItemStack				holyiumBlock;
-	public static ItemStack				proAlloyBlock;
+	public static ItemStack				heavenStone, heavenCobble, heavenCobbleMossy;
+	public static ItemStack				sywoxiteOre, clashiumOre, bluriteOre, holyiumOre;
+	public static ItemStack				sywoxiteBlock, clashiumBlock, bluriteBlock, holyiumBlock, proAlloyBlock;
 	
 	public static void initialize()
 	{
 		// -- Paradise of Chaos Blocks --
 		
-		chaosStone = new Block(MDMConfig.getTerrainBlock("Chaos Stone", 180), Material.rock).setCreativeTab(MDMItems.PoCTab).setHardness(2.2F).setUnlocalizedName("ChaosStone").setTextureName("ChaosStone");
-		alteredDirt = (BlockAlteredDirt) new BlockAlteredDirt(MDMConfig.getTerrainBlock("Altered Dirt", 181), Material.ground).setUnlocalizedName("AlteredDirt").setCreativeTab(MDMItems.PoCTab).setHardness(0.5F).setStepSound(Block.soundGravelFootstep).setTextureName("AlteredDirt");
-		alteredGrass = (BlockAlteredGrass) new BlockAlteredGrass(MDMConfig.getTerrainBlock("Altered Grass", 182), Material.grass).setUnlocalizedName("AlteredGrass").setCreativeTab(MDMItems.PoCTab).setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
+		chaosStone = new Block(MDMConfig.getTerrainBlock("Chaos Stone", 180), Material.rock).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(2.2F).setUnlocalizedName("ChaosStone").setTextureName("ChaosStone");
+		alteredDirt = (BlockAlteredDirt) new BlockAlteredDirt(MDMConfig.getTerrainBlock("Altered Dirt", 181), Material.ground).setUnlocalizedName("AlteredDirt").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.5F).setStepSound(Block.soundGravelFootstep).setTextureName("AlteredDirt");
+		alteredGrass = (BlockAlteredGrass) new BlockAlteredGrass(MDMConfig.getTerrainBlock("Altered Grass", 182), Material.grass).setUnlocalizedName("AlteredGrass").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
 		
-		herbs = ((BlockPOCHerb) new BlockPOCHerb(MDMConfig.getBlock("POC Herbs", 183), new String[] { "Saf Flower" }, new String[] { "Safflower" }).setUnlocalizedName("POCHerb").setCreativeTab(MDMItems.PoCTab).setHardness(0.0F).setStepSound(Block.soundGrassFootstep));
-		magicOakLog = (BlockMagicOakLog) new BlockMagicOakLog(MDMConfig.getBlock("Magic Oak Log", 184)).setUnlocalizedName("MagicOakLog").setCreativeTab(MDMItems.PoCTab).setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
-		magicOakSapling = (BlockMagicOakSapling) new BlockMagicOakSapling(MDMConfig.getBlock("Magic Oak Sapling", 185), 0).setUnlocalizedName("MagicOakSapling").setTextureName("MagicOakSapling").setCreativeTab(MDMItems.PoCTab).setHardness(0.0F).setStepSound(Block.soundGrassFootstep);
-		magicOakLeaves = (BlockMagicOakLeaves) new BlockMagicOakLeaves(MDMConfig.getBlock("Magic Oak Leaves", 186)).setUnlocalizedName("MagicOakLeaves").setCreativeTab(MDMItems.PoCTab).setStepSound(Block.soundGrassFootstep);
-		POCPortalFrame = new BlockPOCPortalFrame(MDMConfig.getBlock("POC Portal Frame", 187)).setCreativeTab(MDMItems.PoCTab).setHardness(4F).setUnlocalizedName("POCPortalFrame").setTextureName("POCPortalFrame");
-		ores1 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 1", 188), Material.rock, new String[] { "Copper Ore", "Tin Ore", "Silver Ore", "Mithril Ore", "Adamanite Ore", "Blurite Ore", "Daeyalt Ore", "Rubium Ore", "Novite Ore", "Bathus Ore", "Marmaros Ore", "Kratonium Ore", "Fractite Ore", "Zephyrium Ore", "Argonite Ore", "Katagon Ore" }, new String[] { "CopperOre", "TinOre", "SilverOre", "MithrilOre", "AdamaniteOre", "BluriteOre", "DaeyaltOre", "RubiumOre", "NoviteOre", "BathusOre", "MarmarosOre", "KratoniumOre", "FractiteOre", "ZephyriumOre", "ArgoniteOre", "KatagonOre" }, new CreativeTabs[] { MDMItems.PoCTab }).setUnlocalizedName("POCOres1");
-		ores2 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 2", 189), Material.rock, new String[] { "Gorgonite Ore", "Promethium Ore" }, new String[] { "GorgoniteOre", "PromethiumOre" }, new CreativeTabs[] { MDMItems.PoCTab }).setUnlocalizedName("POCOres2");
-		POCPortal = (BlockPOCPortal) new BlockPOCPortal(MDMConfig.getBlock("POC Portal", 190)).setCreativeTab(MDMItems.PoCTab).setHardness(-1F).setUnlocalizedName("POCPortal").setTextureName("POCPortal");
-		willowLog = (BlockWillowLog) new BlockWillowLog(MDMConfig.getBlock("Willow Log", 191)).setUnlocalizedName("WillowLog").setCreativeTab(MDMItems.PoCTab).setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
-		willowLeaves = (BlockWillowLeaves) new BlockWillowLeaves(MDMConfig.getBlock("Willow Leaves", 192)).setUnlocalizedName("WillowLeaves").setCreativeTab(MDMItems.PoCTab).setStepSound(Block.soundGrassFootstep);
-		willowSapling = (BlockWillowSapling) new BlockWillowSapling(MDMConfig.getBlock("Willow Sapling", 193), 0).setUnlocalizedName("WillowSapling").setTextureName("WillowSapling").setCreativeTab(MDMItems.PoCTab).setHardness(0.0F).setStepSound(Block.soundGrassFootstep);
+		herbs = ((BlockPOCHerb) new BlockPOCHerb(MDMConfig.getBlock("POC Herbs", 183), new String[] { "Saf Flower" }, new String[] { "Safflower" }).setUnlocalizedName("POCHerb").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.0F).setStepSound(Block.soundGrassFootstep));
+		magicOakLog = (BlockMagicOakLog) new BlockMagicOakLog(MDMConfig.getBlock("Magic Oak Log", 184)).setUnlocalizedName("MagicOakLog").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
+		magicOakSapling = (BlockMagicOakSapling) new BlockMagicOakSapling(MDMConfig.getBlock("Magic Oak Sapling", 185), 0).setUnlocalizedName("MagicOakSapling").setTextureName("MagicOakSapling").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.0F).setStepSound(Block.soundGrassFootstep);
+		magicOakLeaves = (BlockMagicOakLeaves) new BlockMagicOakLeaves(MDMConfig.getBlock("Magic Oak Leaves", 186)).setUnlocalizedName("MagicOakLeaves").setCreativeTab(MDMItems.tabParadiseOfChaos).setStepSound(Block.soundGrassFootstep);
+		POCPortalFrame = new BlockPOCPortalFrame(MDMConfig.getBlock("POC Portal Frame", 187)).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(4F).setUnlocalizedName("POCPortalFrame").setTextureName("POCPortalFrame");
+		ores1 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 1", 188), Material.rock, new String[] { "Copper Ore", "Tin Ore", "Silver Ore", "Mithril Ore", "Adamanite Ore", "Blurite Ore", "Daeyalt Ore", "Rubium Ore", "Novite Ore", "Bathus Ore", "Marmaros Ore", "Kratonium Ore", "Fractite Ore", "Zephyrium Ore", "Argonite Ore", "Katagon Ore" }, new String[] { "CopperOre", "TinOre", "SilverOre", "MithrilOre", "AdamaniteOre", "BluriteOre", "DaeyaltOre", "RubiumOre", "NoviteOre", "BathusOre", "MarmarosOre", "KratoniumOre", "FractiteOre", "ZephyriumOre", "ArgoniteOre", "KatagonOre" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("POCOres1");
+		ores2 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 2", 189), Material.rock, new String[] { "Gorgonite Ore", "Promethium Ore" }, new String[] { "GorgoniteOre", "PromethiumOre" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("POCOres2");
+		POCPortal = (BlockPOCPortal) new BlockPOCPortal(MDMConfig.getBlock("POC Portal", 190)).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(-1F).setUnlocalizedName("POCPortal").setTextureName("POCPortal");
+		willowLog = (BlockWillowLog) new BlockWillowLog(MDMConfig.getBlock("Willow Log", 191)).setUnlocalizedName("WillowLog").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
+		willowLeaves = (BlockWillowLeaves) new BlockWillowLeaves(MDMConfig.getBlock("Willow Leaves", 192)).setUnlocalizedName("WillowLeaves").setCreativeTab(MDMItems.tabParadiseOfChaos).setStepSound(Block.soundGrassFootstep);
+		willowSapling = (BlockWillowSapling) new BlockWillowSapling(MDMConfig.getBlock("Willow Sapling", 193), 0).setUnlocalizedName("WillowSapling").setTextureName("WillowSapling").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.0F).setStepSound(Block.soundGrassFootstep);
 		
 		Block.blocksList[Block.lavaStill.blockID] = null;
 		ActivatorLava = (BlockPOCActivatorLava) new BlockPOCActivatorLava(Block.lavaStill.blockID).setHardness(100.0F).setLightValue(1.0F).setUnlocalizedName("lava").setTextureName("lava_still");
@@ -99,11 +88,11 @@ public class MDMBlocks
 		Block.blocksList[Block.bed.blockID] = null;
 		DreamBed = (BlockPOCDreamBed) new BlockPOCDreamBed(Block.bed.blockID).setHardness(0.2F).setUnlocalizedName("bed").setTextureName("bed");
 		
-		AlchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(MDMConfig.getBlock("Alchemy Tube", 194)).setUnlocalizedName("AlchemyTube").setTextureName("AlchemyTube").setCreativeTab(MDMItems.AlchemyTab);
+		AlchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(MDMConfig.getBlock("Alchemy Tube", 194)).setUnlocalizedName("AlchemyTube").setTextureName("AlchemyTube").setCreativeTab(MDMItems.tabAlchemy);
 		
 		// -- Heaven Blocks --
 		
-		stoneBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Stone Blocks", 202), Material.rock, new String[] { "Heavenstone", "Heaven Cobblestone", "Mossy Heavenstone", "Sywoxite Ore", "Clashium Ore", "Blurite Ore", "Holyium Ore", "Sywoxite Block", "Clashium Block", "Blurite Block", "Holyium Block", "Pro Alloy Block" }, new String[] { "heavenstone", "heavencobble", "heavencobble_mossy", "sywoxite_ore", "clashium_ore", "blurite_ore", "holyium_ore", "sywoxite_block", "clashium_block", "blurite_block", "holyium_block", "pro_alloy_block" }, new CreativeTabs[] { CreativeTabs.tabBlock }).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("heavenStoneBlocks");
+		stoneBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Stone Blocks", 202), Material.rock, new String[] { "Heavenstone", "Heaven Cobblestone", "Mossy Heavenstone", "Sywoxite Ore", "Clashium Ore", "Blurite Ore", "Holyium Ore", "Sywoxite Block", "Clashium Block", "Blurite Block", "Holyium Block", "Pro Alloy Block" }, new String[] { "heavenstone", "heavencobble", "heavencobble_mossy", "sywoxite_ore", "clashium_ore", "blurite_ore", "holyium_ore", "sywoxite_block", "clashium_block", "blurite_block", "holyium_block", "pro_alloy_block" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("heavenStoneBlocks");
 		heavenStone = new ItemStack(stoneBlocks, 1, 0);
 		heavenCobble = new ItemStack(stoneBlocks, 1, 1);
 		heavenCobbleMossy = new ItemStack(stoneBlocks, 1, 2);
@@ -117,10 +106,10 @@ public class MDMBlocks
 		holyiumBlock = new ItemStack(stoneBlocks, 1, 10);
 		proAlloyBlock = new ItemStack(stoneBlocks, 1, 11);
 		
-		woodBlocks = (CustomBlock) new CustomBlock(MDMConfig.getBlock("Heaven Wood Blocks", 203), Material.wood, new String[] { "Heavenplanks" }, new String[] { "heavenplanks" }, new CreativeTabs[] { CreativeTabs.tabBlock }).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("heavenWoodBlocks");
+		woodBlocks = (CustomBlock) new CustomBlock(MDMConfig.getBlock("Heaven Wood Blocks", 203), Material.wood, new String[] { "Heavenplanks" }, new String[] { "heavenplanks" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("heavenWoodBlocks");
 		heavenPlanks = new ItemStack(woodBlocks, 1, 0);
 		
-		groundBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Ground Blocks", 204), Material.ground, new String[] { "Heavendirt" }, new String[] { "heavendirt" }, new CreativeTabs[] { CreativeTabs.tabBlock }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heavenGroundBlocks");
+		groundBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Ground Blocks", 204), Material.ground, new String[] { "Heavendirt" }, new String[] { "heavendirt" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heavenGroundBlocks");
 		heavenDirt = new ItemStack(groundBlocks, 1, 0);
 		
 		plantBlocks = (CustomBlock) new BlockHeavenPlant(MDMConfig.getBlock("Heaven Plant Blocks", 205), new String[] { "Blue Flower", "Orange Flower", "Ground Vine", "Round Plant" }, new String[] { "heavenplant_blue", "heavenplant_orange", "heavenplant_vine", "heavenplant_circle" }).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenPlantBlocks");
@@ -131,7 +120,7 @@ public class MDMBlocks
 		
 		heavenLog = (BlockHeavenLog) (new BlockHeavenLog(MDMConfig.getBlock("Heaven Log", 210))).setUnlocalizedName("heavenwood_side").setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
 		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(MDMConfig.getBlock("Heaven Portal", 200))).setUnlocalizedName("heavenportal").setHardness(-1F).setLightValue(1F);
-		heavenPortalFrame = (new BlockHeavenPortalFrame(MDMConfig.getBlock("Heaven Portal Frame", 201))).setUnlocalizedName("heavenportal_frame").setTextureName("heavenportal_frame").setHardness(2F);
+		heavenPortalFrame = (new BlockMDM(MDMConfig.getBlock("Heaven Portal Frame", 201), Material.rock, MDMItems.tabHeavenBlocks)).setUnlocalizedName("heavenportal_frame").setTextureName("heavenportal_frame").setHardness(2F);
 		heavenGrass = (BlockHeavenGrass) (new BlockHeavenGrass(MDMConfig.getBlock("Heaven Grass", 211))).setUnlocalizedName("heavengrass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
 		heavenLeaves = (BlockHeavenLeaves) (new BlockHeavenLeaves(MDMConfig.getBlock("Heaven Leaves", 212))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenleaves");
 		heavenSapling = (BlockHeavenSapling) (new BlockHeavenSapling(MDMConfig.getBlock("Heaven Sapling", 213))).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavensapling");

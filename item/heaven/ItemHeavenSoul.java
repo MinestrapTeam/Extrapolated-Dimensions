@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.util.CSRandom;
+import clashsoft.mods.moredimensions.item.ItemMDM;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -20,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class ItemHeavenSoul extends ItemHeavenMisc
+public class ItemHeavenSoul extends ItemMDM
 {
 	public static Random			rand		= new Random();
 	

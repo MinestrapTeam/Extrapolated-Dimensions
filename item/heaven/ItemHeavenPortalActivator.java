@@ -2,6 +2,7 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import java.util.List;
 
+import clashsoft.mods.moredimensions.item.ItemMDM;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -9,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 
-public class ItemHeavenPortalActivator extends ItemHeavenMisc
+public class ItemHeavenPortalActivator extends ItemMDM
 {
 	public ItemHeavenPortalActivator(int itemID)
 	{

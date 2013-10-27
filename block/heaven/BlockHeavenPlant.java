@@ -6,6 +6,7 @@ import java.util.Random;
 
 import clashsoft.clashsoftapi.CustomBlock;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,7 +25,7 @@ public class BlockHeavenPlant extends CustomBlock implements IPlantable
 		this.setTickRandomly(true);
 		float var4 = 0.2F;
 		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(MDMItems.tabHeavenBlocks);
 	}
 	
 	/**

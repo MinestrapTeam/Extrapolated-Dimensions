@@ -121,7 +121,7 @@ public class MDMEventHandler
 	@ForgeSubscribe
 	public void entityConstructing(EntityConstructing event)
 	{
-		if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
+		if (event.entity instanceof EntityPlayer && !event.entity.worldObj.isRemote)
 		{
 			MDMEntityProperties props = MDMEntityProperties.create((EntityLivingBase) event.entity);
 			MDMEntityProperties.setEntityProperties((EntityPlayer) event.entity, props);

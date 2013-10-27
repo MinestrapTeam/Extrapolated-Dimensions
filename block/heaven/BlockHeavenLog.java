@@ -3,26 +3,26 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.block.BlockMDM;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockHeavenLog extends Block
+public class BlockHeavenLog extends BlockMDM
 {
 	private Icon	top;
 	private Icon	side;
 	
 	public BlockHeavenLog(int par1)
 	{
-		super(par1, Material.wood);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		super(par1, Material.wood, MDMItems.tabHeavenBlocks);
 	}
 	
 	/**

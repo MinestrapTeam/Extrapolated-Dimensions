@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
+import clashsoft.mods.moredimensions.item.ItemMDM;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -9,7 +11,7 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class ItemIceStick extends ItemHeavenMisc
+public class ItemIceStick extends ItemMDM
 {
 	
 	public ItemIceStick(int par1)

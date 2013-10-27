@@ -3,17 +3,18 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.block.BlockMDM;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockHeavenGrass extends Block
+public class BlockHeavenGrass extends BlockMDM
 {
 	public Icon	top;
 	public Icon	side;
@@ -31,9 +32,8 @@ public class BlockHeavenGrass extends Block
 	 */
 	public BlockHeavenGrass(int par1)
 	{
-		super(par1, Material.grass);
+		super(par1, Material.grass, MDMItems.tabHeavenBlocks);
 		this.setTickRandomly(true);
-		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@Override

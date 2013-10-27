@@ -21,7 +21,7 @@ public class ItemElixirBottle extends ItemGlassBottle2
 	public ItemElixirBottle(int par1)
 	{
 		super(par1);
-		this.setCreativeTab(MDMItems.AlchemyTab);
+		this.setCreativeTab(MDMItems.tabAlchemy);
 		this.setHasSubtypes(true);
 	}
 	

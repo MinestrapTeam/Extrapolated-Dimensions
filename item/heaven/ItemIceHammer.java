@@ -1,10 +1,10 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
@@ -15,7 +15,7 @@ public class ItemIceHammer extends ItemIceStick
 		super(par1);
 		this.maxStackSize = 1;
 		this.setMaxDamage(256);
-		this.setCreativeTab(CreativeTabs.tabCombat);
+		this.setCreativeTab(MDMItems.tabHeavenTools);
 	}
 	
 	@Override

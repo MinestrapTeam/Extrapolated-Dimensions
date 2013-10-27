@@ -36,7 +36,7 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public CreativeTabs[] getCreativeTabs()
 	{
-		return new CreativeTabs[] { MDMItems.AlchemyTab, CreativeTabs.tabAllSearch };
+		return new CreativeTabs[] { MDMItems.tabAlchemy, CreativeTabs.tabAllSearch };
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -180,7 +180,7 @@ public class ItemElixir extends ItemPotion2
 	 */
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
-		if (par2CreativeTabs == MDMItems.AlchemyTab || par2CreativeTabs == CreativeTabs.tabAllSearch)
+		if (par2CreativeTabs == MDMItems.tabAlchemy || par2CreativeTabs == CreativeTabs.tabAllSearch)
 		{
 			for (int i = 0; i < BOTTLE_TYPES; i++)
 			{

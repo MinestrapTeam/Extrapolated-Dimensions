@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.item.heaven;
+package clashsoft.mods.moredimensions.item.poc;
 
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 

@@ -3,18 +3,19 @@ package clashsoft.mods.moredimensions.item.heaven;
 import java.util.List;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import clashsoft.mods.moredimensions.block.heaven.BlockHeavenSapling;
+import clashsoft.mods.moredimensions.item.ItemMDM;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemBlurite extends ItemHeavenMisc
+public class ItemBlurite extends ItemMDM
 {
 	public ItemBlurite(int par1)
 	{
-		super(par1, CreativeTabs.tabMaterials);
+		super(par1, MDMItems.tabHeavenMaterials);
 	}
 	
 	public void addInformation(ItemStack par1ItemStack, List par2List)

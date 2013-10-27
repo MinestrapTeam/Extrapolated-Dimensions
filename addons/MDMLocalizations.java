@@ -11,45 +11,57 @@ public class MDMLocalizations
 {
 	public static void load()
 	{
-		// -- Paradise of Chaos
+		// -- Items --
 		
-		// - Items -
+		addTranslation("itemGroup.POCTab", "Paradise of Chaos");
+		addTranslation("itemGroup.ElixirTab", "Elixirs");
+		addTranslation("itemGroup.HeavenBlocks", "Heaven Blocks");
+		addTranslation("itemGroup.HeavenMaterials", "Heaven Materials");
+		addTranslation("itemGroup.HeavenTools", "Heaven Tools and Weaponry");
+		addTranslation("itemGroup.HeavenArmor", "Heaven Armory");
 		
-		LanguageRegistry.instance().addStringLocalization("itemGroup.PoCTab", "en_US", "Paradise of Chaos");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.PoCTab", "de_DE", "Paradies des Chaos");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.ElixirTab", "en_US", "Elixirs");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.ElixirTab", "de_DE", "Elixiere");
+		// - Paradise of Chaos -
 		
-		LanguageRegistry.instance().addStringLocalization("elixir.prefix.grenade", "en_US", "Throwable");
-		LanguageRegistry.instance().addStringLocalization("elixir.prefix.grenade", "de_DE", "Werfbar");
-		LanguageRegistry.instance().addStringLocalization("elixir.elixirof", "en_US", "Elixir of");
-		LanguageRegistry.instance().addStringLocalization("elixir.elixirof", "de_DE", "Elixier von");
-		LanguageRegistry.instance().addStringLocalization("elixir.empty", "en_US", "Water Elixir Bottle");
-		LanguageRegistry.instance().addStringLocalization("elixir.empty", "de_DE", "Wasserelixierflasche");
-		LanguageRegistry.instance().addStringLocalization("elixir.bottletype", "en_US", "Bottle Type");
-		LanguageRegistry.instance().addStringLocalization("elixir.bottletype", "de_DE", "Flaschentyp");
+		addTranslation("elixir.prefix.grenade", "en_US", "Throwable");
+		addTranslation("elixir.prefix.grenade", "de_DE", "Werfbares");
+		addTranslation("elixir.elixirof", "en_US", "Elixir of");
+		addTranslation("elixir.elixirof", "de_DE", "Elixier von");
+		addTranslation("elixir.empty", "en_US", "Water Elixir Bottle");
+		addTranslation("elixir.empty", "de_DE", "Wasserelixierflasche");
+		addTranslation("elixir.bottletype", "en_US", "Bottle Type");
+		addTranslation("elixir.bottletype", "de_DE", "Flaschentyp");
 		
-		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.0", "en_US", "Square");
-		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.0", "de_DE", "Eckig");
-		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.1", "en_US", "Triangular");
-		LanguageRegistry.instance().addStringLocalization("elixir.bottletype.1", "de_DE", "Dreieckig");
+		addTranslation("elixir.bottletype.0", "en_US", "Square");
+		addTranslation("elixir.bottletype.0", "de_DE", "Eckig");
+		addTranslation("elixir.bottletype.1", "en_US", "Triangular");
+		addTranslation("elixir.bottletype.1", "de_DE", "Dreieckig");
 		
-		// - Entitys -
-		
-		LanguageRegistry.instance().addStringLocalization("entity.POCBossLich.name", "Lich");
-		
-		// -- Heaven --
-		
-		// - Items -
+		// - Heaven -
 		
 		for (int i = 0; i < 16; i++)
 		{
 			LanguageRegistry.addName(new ItemStack(MDMItems.soul, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
 		}
 		
-		// - Entitys --
+		// -- Entitys --
 		
-		LanguageRegistry.instance().addStringLocalization("entity.Scider.name", "Scider");
-
+		// - Paradise of Chaos -
+		
+		addTranslation("entity.POCBossLich.name", "Lich");
+		
+		// - Heaven -
+		
+		addTranslation("entity.Scider.name", "Scider");
+		
+	}
+	
+	public static void addTranslation(String key, String value)
+	{
+		LanguageRegistry.instance().addStringLocalization(key, value);
+	}
+	
+	public static void addTranslation(String key, String lang, String value)
+	{
+		LanguageRegistry.instance().addStringLocalization(key, lang, value);
 	}
 }

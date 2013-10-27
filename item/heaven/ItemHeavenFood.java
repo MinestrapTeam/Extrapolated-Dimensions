@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
+import clashsoft.mods.moredimensions.item.ItemMDM;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -7,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemHeavenFood extends ItemHeavenMisc
+public class ItemHeavenFood extends ItemMDM
 {
 	/** Number of ticks to run while 'EnumAction'ing until result. */
 	public final int		itemUseDuration;

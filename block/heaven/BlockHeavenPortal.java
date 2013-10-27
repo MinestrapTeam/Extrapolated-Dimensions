@@ -3,15 +3,15 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.block.BlockMDM;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterHeaven;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemMonsterPlacer;
@@ -19,16 +19,15 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockHeavenPortal extends BlockBreakable
+public class BlockHeavenPortal extends BlockMDM
 {
 	public BlockHeavenPortal(int par1)
 	{
-		super(par1, "heavenportal", Material.portal, false);
+		super(par1, Material.portal, MDMItems.tabHeavenBlocks);
 		this.setTickRandomly(true);
 		this.setHardness(-1.0F);
 		this.setStepSound(soundGlassFootstep);
 		this.setLightValue(0.75F);
-		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	/**

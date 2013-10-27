@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -35,7 +36,7 @@ public class BlockHeavenLeaves extends BlockLeavesBase implements IShearable
 	{
 		super(par1, Material.leaves, false);
 		this.setTickRandomly(true);
-		this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(MDMItems.tabHeavenBlocks);
 	}
 	
 	@Override
