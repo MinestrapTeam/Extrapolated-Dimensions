@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.world.biome.BiomeGenHeaven;
+import clashsoft.mods.moredimensions.addons.MDMWorld;
 
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -48,7 +48,7 @@ public class WorldChunkManagerHeaven extends WorldChunkManager
 		}
 		
 		Arrays.fill(par1ArrayOfBiomeGenBase, 0, par4 * par5, this.biomeGenerator);
-		Arrays.fill(par1ArrayOfBiomeGenBase, 1, par4 * par5, new BiomeGenHeaven(30));
+		Arrays.fill(par1ArrayOfBiomeGenBase, 1, par4 * par5, MDMWorld.HeavenBiome);
 		return par1ArrayOfBiomeGenBase;
 	}
 	

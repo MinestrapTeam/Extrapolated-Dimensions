@@ -6,7 +6,6 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
-import clashsoft.mods.moredimensions.world.biome.BiomeGenHeaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
@@ -375,7 +374,7 @@ public class ChunkProviderHeaven implements IChunkProvider
 				float var17 = 0.0F;
 				float var18 = 0.0F;
 				byte var19 = 2;
-				BiomeGenBase var20 = new BiomeGenHeaven(MDMWorld.HEAVEN_BIOME_ID);
+				BiomeGenBase var20 = MDMWorld.HeavenBiome;
 				for (int var21 = -var19; var21 <= var19; var21++)
 				{
 					for (int var22 = -var19; var22 <= var19; var22++)

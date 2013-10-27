@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.poc;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.addons.MDMConfig;
+import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterPOC;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -291,10 +291,10 @@ public class BlockPOCPortal extends BlockBreakable
 			{
 				thePlayer.timeUntilPortal = 10;
 			}
-			else if (thePlayer.dimension != MDMConfig.POC_DIMENSION_ID)
+			else if (thePlayer.dimension != MDMWorld.POC_ID)
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMConfig.POC_DIMENSION_ID, new TeleporterPOC(thePlayer.mcServer.worldServerForDimension(MDMConfig.POC_DIMENSION_ID)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMWorld.POC_ID, new TeleporterPOC(thePlayer.mcServer.worldServerForDimension(MDMWorld.POC_ID)));
 			}
 			else
 			{

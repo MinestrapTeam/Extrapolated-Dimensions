@@ -24,7 +24,7 @@ public class Nightmare extends Dream
 	{
 		WorldProviderNightmares.nightmareType = this.dream;
 		
-		player.travelToDimension(MDMConfig.NIGHTMARES_DIMENSION_ID);
+		player.travelToDimension(MDMConfig.getDimension("Nightmare", 11));
 	}
 	
 	@Override

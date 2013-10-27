@@ -10,9 +10,9 @@ import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 
-public class BiomeGenHeaven extends BiomeGenBase
+public class BiomeHeaven extends BiomeGenBase
 {
-	public BiomeGenHeaven(int i)
+	public BiomeHeaven(int i)
 	{
 		super(i);
 		spawnableMonsterList.clear();

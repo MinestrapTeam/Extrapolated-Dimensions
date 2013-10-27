@@ -64,7 +64,7 @@ public class Dream implements IDream
 	{
 		WorldProviderDreams.dreamType = this.dream;
 		
-		player.travelToDimension(MDMConfig.DREAMS_DIMENSION_ID);
+		player.travelToDimension(MDMConfig.getDimension("Dream", 10));
 	}
 	
 	@Override

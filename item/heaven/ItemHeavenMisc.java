@@ -10,4 +10,11 @@ public class ItemHeavenMisc extends Item
 		super(par1);
 		this.setCreativeTab(par2CreativeTabs);
 	}
+	
+	@Override
+	public Item setUnlocalizedName(String par1Str)
+	{
+		this.setTextureName(par1Str);
+		return super.setUnlocalizedName(par1Str);
+	}
 }

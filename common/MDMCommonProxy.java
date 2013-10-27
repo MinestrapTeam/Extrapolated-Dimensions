@@ -1,5 +1,6 @@
 package clashsoft.mods.moredimensions.common;
 
+import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.client.gui.GuiTome;
 import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
 import clashsoft.mods.moredimensions.entity.boss.chat.BossChatContainer;
@@ -11,7 +12,7 @@ import net.minecraft.world.World;
 
 public class MDMCommonProxy implements IGuiHandler
 {
-	public static int	sywoxite	= 0;
+	public static int	shrekite		= 0;
 	
 	public static int	BOSS_CHAT_GUIID	= 20;
 	public static int	TOME_GUIID		= 21;
@@ -42,5 +43,15 @@ public class MDMCommonProxy implements IGuiHandler
 	
 	public void registerClientEvents()
 	{
+	}
+	
+	public static int getArmorIndex(String name)
+	{
+		return MoreDimensionsMod.proxy.getArmor(name);
+	}
+	
+	protected int getArmor(String name)
+	{
+		return 0;
 	}
 }

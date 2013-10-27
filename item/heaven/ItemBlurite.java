@@ -7,16 +7,14 @@ import clashsoft.mods.moredimensions.block.heaven.BlockHeavenSapling;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemBlurite extends Item
+public class ItemBlurite extends ItemHeavenMisc
 {
 	public ItemBlurite(int par1)
 	{
-		super(par1);
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		super(par1, CreativeTabs.tabMaterials);
 	}
 	
 	public void addInformation(ItemStack par1ItemStack, List par2List)

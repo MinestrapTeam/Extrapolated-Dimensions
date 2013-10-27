@@ -286,6 +286,13 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		return this;
 	}
 	
+	public MDMEntityProperties addAdditionalHearts(float additionalHearts)
+	{
+		this.additionalHearts += additionalHearts;
+		onPropertyChanged();
+		return this;
+	}
+	
 	public MDMEntityProperties addMeleeLevel(float level)
 	{
 		this.meleeLevel += level;

@@ -1,22 +1,26 @@
 package clashsoft.mods.moredimensions.item;
 
-import com.jadarstudios.developercapes.DevCapes;
-
 import clashsoft.clashsoftapi.CustomItem;
 
+import com.jadarstudios.developercapes.DevCapes;
+
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class ItemCape extends CustomItem
 {
-	public static final String[] displayNames = { "Blue Cape", "Green Cape", "Red Cape", "Yellow Cape", "Invisibility Cape", "Pro Cape", "Minecon Cape", "Minecon Cape" };
-	public static final String[] iconNames = { "cape_blue", "cape_green", "cape_red", "cape_yellow", "cape_invisibility", "cape_pro", "cape_minecon2011", "cape_minecon2012"};
-	public static final String[] descriptions = { "", "", "", "", "Makes you invisible", "", "Minecon 2011 Cape", "Minecon 2012 Cape"};
+	public static Icon		slotIcon;
+	
+	public static String[]	displayNames	= { "Blue Cape", "Green Cape", "Red Cape", "Yellow Cape", "Invisibility Cape", "Pro Cape", "Minecon Cape", "Minecon Cape" };
+	public static String[]	iconNames		= { "cape_blue", "cape_green", "cape_red", "cape_yellow", "cape_invisibility", "cape_pro", "cape_minecon2011", "cape_minecon2012" };
+	public static String[]	descriptions	= { "", "", "", "", "Makes you invisible", "", "Minecon 2011 Cape", "Minecon 2012 Cape" };
 	
 	public ItemCape(int itemID)
 	{
@@ -25,9 +29,16 @@ public class ItemCape extends CustomItem
 	}
 	
 	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		super.registerIcons(par1IconRegister);
+		slotIcon = par1IconRegister.registerIcon("armorslot_cape");
+	}
+	
+	@Override
 	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity)
 	{
-		return armorType == 1;
+		return armorType == ArmorTypes.CAPE;
 	}
 	
 	@Override

@@ -7,34 +7,31 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemHeavenPortalActivator extends Item
+public class ItemHeavenPortalActivator extends ItemHeavenMisc
 {
-	
-	public ItemHeavenPortalActivator(int par1)
+	public ItemHeavenPortalActivator(int itemID)
 	{
-		super(par1);
+		super(itemID, CreativeTabs.tabTools);
 		this.maxStackSize = 1;
 		this.setMaxDamage(64);
-		this.setCreativeTab(CreativeTabs.tabTools);
 	}
 	
-	public void addInformation(ItemStack par1ItemStack, List par2List)
+	public void addInformation(ItemStack stack, List list)
 	{
-		par2List.add((new StringBuilder()).append("Used to activate the Heaven Portal").toString());
+		list.add("Used to activate the Heaven Portal");
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack stack)
 	{
 		return true;
 	}
 	
 	@Override
-	public EnumRarity getRarity(ItemStack par1ItemStack)
+	public EnumRarity getRarity(ItemStack stack)
 	{
 		return EnumRarity.rare;
 	}

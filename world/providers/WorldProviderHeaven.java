@@ -1,7 +1,6 @@
 package clashsoft.mods.moredimensions.world.providers;
 
 import clashsoft.mods.moredimensions.addons.MDMWorld;
-import clashsoft.mods.moredimensions.world.biome.BiomeGenHeaven;
 import clashsoft.mods.moredimensions.world.providers.chunk.ChunkProviderHeaven;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,8 +20,8 @@ public class WorldProviderHeaven extends WorldProvider
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new WorldChunkManagerHell(new BiomeGenHeaven(MDMWorld.HEAVEN_BIOME_ID), this.dimensionId, this.dimensionId);
 		this.dimensionId = MDMWorld.HEAVEN_ID;
+		this.worldChunkMgr = new WorldChunkManagerHell(MDMWorld.HeavenBiome, this.dimensionId, this.dimensionId);
 		this.hasNoSky = false;
 	}
 	

@@ -3,12 +3,11 @@ package clashsoft.mods.moredimensions.item.heaven;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemHeavenFood extends Item
+public class ItemHeavenFood extends ItemHeavenMisc
 {
 	/** Number of ticks to run while 'EnumAction'ing until result. */
 	public final int		itemUseDuration;
@@ -43,12 +42,11 @@ public class ItemHeavenFood extends Item
 	
 	public ItemHeavenFood(int par1, int par2, float par3, boolean par4)
 	{
-		super(par1);
+		super(par1, CreativeTabs.tabFood);
 		this.itemUseDuration = 32;
 		this.healAmount = par2;
 		this.isWolfsFavoriteMeat = par4;
 		this.saturationModifier = par3;
-		this.setCreativeTab(CreativeTabs.tabFood);
 	}
 	
 	public ItemHeavenFood(int par1, int par2, boolean par3)
