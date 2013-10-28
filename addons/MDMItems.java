@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions.addons;
 
+import java.lang.reflect.Constructor;
+
 import clashsoft.clashsoftapi.CustomCreativeTab;
 import clashsoft.clashsoftapi.CustomItem;
 import clashsoft.clashsoftapi.util.CSItems;
@@ -57,6 +59,8 @@ public class MDMItems
 	
 	// -- Heaven --
 	
+	public static int itemID = 26000;
+	
 	public static Item						heavenStoneSword, heavenStoneShovel, heavenStonePickaxe, heavenStoneAxe, heavenStoneHoe;
 	public static Item						heavenWoodSword, heavenWoodShovel, heavenWoodPickaxe, heavenWoodAxe, heavenWoodHoe;
 	public static Item						shrekiteSword, shrekiteShovel, shrekitePickaxe, shrekiteAxe, shrekiteHoe;
@@ -98,81 +102,79 @@ public class MDMItems
 		
 		// -- Heaven --
 		
-		int itemIndex = 26000;
+		heavenWoodSword = (new ItemSword(MDMConfig.getItem("Heaven Wood Sword", itemID++), toolHeavenwood)).setUnlocalizedName("heavenwoodSword").setTextureName("heavenwoodSword").setCreativeTab(tabHeavenTools);
+		heavenWoodShovel = (new ItemSpade(MDMConfig.getItem("Heaven Wood Shovel", itemID++), toolHeavenwood)).setUnlocalizedName("heavenwoodShovel").setTextureName("heavenwoodShovel").setCreativeTab(tabHeavenTools);
+		heavenWoodPickaxe = (new ItemPickaxe(MDMConfig.getItem("Heaven Wood Pickaxe", itemID++), toolHeavenwood)).setUnlocalizedName("heavenwoodPickaxe").setTextureName("heavenwoodPickaxe").setCreativeTab(tabHeavenTools);
+		heavenWoodAxe = (new ItemAxe(MDMConfig.getItem("Heaven Wood Axe", itemID++), toolHeavenwood)).setUnlocalizedName("heavenwoodAxe").setTextureName("heavenwoodAxe").setCreativeTab(tabHeavenTools);
+		heavenWoodHoe = (new ItemHoe(MDMConfig.getItem("Heaven Wood Hoe", itemID++), toolHeavenwood)).setUnlocalizedName("heavenwoodHoe").setTextureName("heavenwoodHoe").setCreativeTab(tabHeavenTools);
 		
-		heavenWoodSword = (new ItemSword(MDMConfig.getItem("Heaven Wood Sword", itemIndex++), toolHeavenwood)).setUnlocalizedName("heavenwoodSword").setTextureName("heavenwoodSword").setCreativeTab(tabHeavenTools);
-		heavenWoodShovel = (new ItemSpade(MDMConfig.getItem("Heaven Wood Shovel", itemIndex++), toolHeavenwood)).setUnlocalizedName("heavenwoodShovel").setTextureName("heavenwoodShovel").setCreativeTab(tabHeavenTools);
-		heavenWoodPickaxe = (new ItemPickaxe(MDMConfig.getItem("Heaven Wood Pickaxe", itemIndex++), toolHeavenwood)).setUnlocalizedName("heavenwoodPickaxe").setTextureName("heavenwoodPickaxe").setCreativeTab(tabHeavenTools);
-		heavenWoodAxe = (new ItemAxe(MDMConfig.getItem("Heaven Wood Axe", itemIndex++), toolHeavenwood)).setUnlocalizedName("heavenwoodAxe").setTextureName("heavenwoodAxe").setCreativeTab(tabHeavenTools);
-		heavenWoodHoe = (new ItemHoe(MDMConfig.getItem("Heaven Wood Hoe", itemIndex++), toolHeavenwood)).setUnlocalizedName("heavenwoodHoe").setTextureName("heavenwoodHoe").setCreativeTab(tabHeavenTools);
+		heavenStoneSword = (new ItemSword(MDMConfig.getItem("Heaven Stone Sword", itemID++), toolHeavenStone)).setUnlocalizedName("heavenstoneSword").setTextureName("heavenstoneSword").setCreativeTab(tabHeavenTools);
+		heavenStoneShovel = (new ItemSpade(MDMConfig.getItem("Heaven Stone Shovel", itemID++), toolHeavenStone)).setUnlocalizedName("heavenstoneShovel").setTextureName("heavenstoneShovel").setCreativeTab(tabHeavenTools);
+		heavenStonePickaxe = (new ItemPickaxe(MDMConfig.getItem("Heaven Stone Pickaxe", itemID++), toolHeavenStone)).setUnlocalizedName("heavenstonePickaxe").setTextureName("heavenstonePickaxe").setCreativeTab(tabHeavenTools);
+		heavenStoneAxe = (new ItemAxe(MDMConfig.getItem("Heaven Stone Axe", itemID++), toolHeavenStone)).setUnlocalizedName("heavenstoneAxe").setTextureName("heavenstoneAxe").setCreativeTab(tabHeavenTools);
+		heavenStoneHoe = (new ItemHoe(MDMConfig.getItem("Heaven Stone Hoe", itemID++), toolHeavenStone)).setUnlocalizedName("heavenstoneHoe").setTextureName("heavenstoneHoe").setCreativeTab(tabHeavenTools);
 		
-		heavenStoneSword = (new ItemSword(MDMConfig.getItem("Heaven Stone Sword", itemIndex++), toolHeavenStone)).setUnlocalizedName("heavenstoneSword").setTextureName("heavenstoneSword").setCreativeTab(tabHeavenTools);
-		heavenStoneShovel = (new ItemSpade(MDMConfig.getItem("Heaven Stone Shovel", itemIndex++), toolHeavenStone)).setUnlocalizedName("heavenstoneShovel").setTextureName("heavenstoneShovel").setCreativeTab(tabHeavenTools);
-		heavenStonePickaxe = (new ItemPickaxe(MDMConfig.getItem("Heaven Stone Pickaxe", itemIndex++), toolHeavenStone)).setUnlocalizedName("heavenstonePickaxe").setTextureName("heavenstonePickaxe").setCreativeTab(tabHeavenTools);
-		heavenStoneAxe = (new ItemAxe(MDMConfig.getItem("Heaven Stone Axe", itemIndex++), toolHeavenStone)).setUnlocalizedName("heavenstoneAxe").setTextureName("heavenstoneAxe").setCreativeTab(tabHeavenTools);
-		heavenStoneHoe = (new ItemHoe(MDMConfig.getItem("Heaven Stone Hoe", itemIndex++), toolHeavenStone)).setUnlocalizedName("heavenstoneHoe").setTextureName("heavenstoneHoe").setCreativeTab(tabHeavenTools);
+		shrekiteSword = (new ItemSword(MDMConfig.getItem("Shrekite Sword", itemID++), toolShrekite)).setUnlocalizedName("shrekiteSword").setTextureName("shrekiteSword").setCreativeTab(tabHeavenTools);
+		shrekiteShovel = (new ItemSpade(MDMConfig.getItem("Shrekite Shovel", itemID++), toolShrekite)).setUnlocalizedName("shrekiteShovel").setTextureName("shrekiteShovel").setCreativeTab(tabHeavenTools);
+		shrekitePickaxe = (new ItemPickaxe(MDMConfig.getItem("Shrekite Pickaxe", itemID++), toolShrekite)).setUnlocalizedName("shrekitePickaxe").setTextureName("shrekitePickaxe").setCreativeTab(tabHeavenTools);
+		shrekiteAxe = (new ItemAxe(MDMConfig.getItem("Shrekite Axe", itemID++), toolShrekite)).setUnlocalizedName("shrekiteAxe").setTextureName("shrekiteAxe").setCreativeTab(tabHeavenTools);
+		shrekiteHoe = (new ItemHoe(MDMConfig.getItem("Shrekite Hoe", itemID++), toolShrekite)).setUnlocalizedName("shrekiteHoe").setTextureName("shrekiteHoe").setCreativeTab(tabHeavenTools);
 		
-		shrekiteSword = (new ItemSword(MDMConfig.getItem("Shrekite Sword", itemIndex++), toolShrekite)).setUnlocalizedName("shrekiteSword").setTextureName("shrekiteSword").setCreativeTab(tabHeavenTools);
-		shrekiteShovel = (new ItemSpade(MDMConfig.getItem("Shrekite Shovel", itemIndex++), toolShrekite)).setUnlocalizedName("shrekiteShovel").setTextureName("shrekiteShovel").setCreativeTab(tabHeavenTools);
-		shrekitePickaxe = (new ItemPickaxe(MDMConfig.getItem("Shrekite Pickaxe", itemIndex++), toolShrekite)).setUnlocalizedName("shrekitePickaxe").setTextureName("shrekitePickaxe").setCreativeTab(tabHeavenTools);
-		shrekiteAxe = (new ItemAxe(MDMConfig.getItem("Shrekite Axe", itemIndex++), toolShrekite)).setUnlocalizedName("shrekiteAxe").setTextureName("shrekiteAxe").setCreativeTab(tabHeavenTools);
-		shrekiteHoe = (new ItemHoe(MDMConfig.getItem("Shrekite Hoe", itemIndex++), toolShrekite)).setUnlocalizedName("shrekiteHoe").setTextureName("shrekiteHoe").setCreativeTab(tabHeavenTools);
+		clashiumSword = (new ItemSword(MDMConfig.getItem("Clashium Sword", itemID++), toolClashium)).setUnlocalizedName("clashiumSword").setTextureName("clashiumSword").setCreativeTab(tabHeavenTools);
+		clashiumShovel = (new ItemSpade(MDMConfig.getItem("Clashium Shovel", itemID++), toolClashium)).setUnlocalizedName("clashiumShovel").setTextureName("clashiumShovel").setCreativeTab(tabHeavenTools);
+		clashiumPickaxe = (new ItemPickaxe(MDMConfig.getItem("Clashium Pickaxe", itemID++), toolClashium)).setUnlocalizedName("clashiumPickaxe").setTextureName("clashiumPickaxe").setCreativeTab(tabHeavenTools);
+		clashiumAxe = (new ItemAxe(MDMConfig.getItem("Clashium Axe", itemID++), toolClashium)).setUnlocalizedName("clashiumAxe").setTextureName("clashiumAxe").setCreativeTab(tabHeavenTools);
+		clashiumHoe = (new ItemHoe(MDMConfig.getItem("Clashium Hoe", itemID++), toolClashium)).setUnlocalizedName("clashiumHoe").setTextureName("clashiumHoe").setCreativeTab(tabHeavenTools);
 		
-		clashiumSword = (new ItemSword(MDMConfig.getItem("Clashium Sword", itemIndex++), toolClashium)).setUnlocalizedName("clashiumSword").setTextureName("clashiumSword").setCreativeTab(tabHeavenTools);
-		clashiumShovel = (new ItemSpade(MDMConfig.getItem("Clashium Shovel", itemIndex++), toolClashium)).setUnlocalizedName("clashiumShovel").setTextureName("clashiumShovel").setCreativeTab(tabHeavenTools);
-		clashiumPickaxe = (new ItemPickaxe(MDMConfig.getItem("Clashium Pickaxe", itemIndex++), toolClashium)).setUnlocalizedName("clashiumPickaxe").setTextureName("clashiumPickaxe").setCreativeTab(tabHeavenTools);
-		clashiumAxe = (new ItemAxe(MDMConfig.getItem("Clashium Axe", itemIndex++), toolClashium)).setUnlocalizedName("clashiumAxe").setTextureName("clashiumAxe").setCreativeTab(tabHeavenTools);
-		clashiumHoe = (new ItemHoe(MDMConfig.getItem("Clashium Hoe", itemIndex++), toolClashium)).setUnlocalizedName("clashiumHoe").setTextureName("clashiumHoe").setCreativeTab(tabHeavenTools);
+		holyiumSword = (new ItemSword(MDMConfig.getItem("Holyium Sword", itemID++), toolHolyium)).setUnlocalizedName("holyiumSword").setTextureName("holyiumSword").setCreativeTab(tabHeavenTools);
+		holyiumShovel = (new ItemSpade(MDMConfig.getItem("Holyium Shovel", itemID++), toolHolyium)).setUnlocalizedName("holyiumShovel").setTextureName("holyiumShovel").setCreativeTab(tabHeavenTools);
+		holyiumPickaxe = (new ItemPickaxe(MDMConfig.getItem("Holyium Pickaxe", itemID++), toolHolyium)).setUnlocalizedName("holyiumPickaxe").setTextureName("holyiumPickaxe").setCreativeTab(tabHeavenTools);
+		holyiumAxe = (new ItemAxe(MDMConfig.getItem("Holyium Axe", itemID++), toolHolyium)).setUnlocalizedName("holyiumAxe").setTextureName("holyiumAxe").setCreativeTab(tabHeavenTools);
+		holyiumHoe = (new ItemHoe(MDMConfig.getItem("Holyium Hoe", itemID++), toolHolyium)).setUnlocalizedName("holyiumHoe").setTextureName("holyiumHoe").setCreativeTab(tabHeavenTools);
 		
-		holyiumSword = (new ItemSword(MDMConfig.getItem("Holyium Sword", itemIndex++), toolHolyium)).setUnlocalizedName("holyiumSword").setTextureName("holyiumSword").setCreativeTab(tabHeavenTools);
-		holyiumShovel = (new ItemSpade(MDMConfig.getItem("Holyium Shovel", itemIndex++), toolHolyium)).setUnlocalizedName("holyiumShovel").setTextureName("holyiumShovel").setCreativeTab(tabHeavenTools);
-		holyiumPickaxe = (new ItemPickaxe(MDMConfig.getItem("Holyium Pickaxe", itemIndex++), toolHolyium)).setUnlocalizedName("holyiumPickaxe").setTextureName("holyiumPickaxe").setCreativeTab(tabHeavenTools);
-		holyiumAxe = (new ItemAxe(MDMConfig.getItem("Holyium Axe", itemIndex++), toolHolyium)).setUnlocalizedName("holyiumAxe").setTextureName("holyiumAxe").setCreativeTab(tabHeavenTools);
-		holyiumHoe = (new ItemHoe(MDMConfig.getItem("Holyium Hoe", itemIndex++), toolHolyium)).setUnlocalizedName("holyiumHoe").setTextureName("holyiumHoe").setCreativeTab(tabHeavenTools);
+		energySword = (new ItemSword(MDMConfig.getItem("Energy Sword", itemID++), toolEnergy)).setUnlocalizedName("energySword").setTextureName("energySword").setCreativeTab(tabHeavenTools);
+		energyShovel = (new ItemSpade(MDMConfig.getItem("Energy Shovel", itemID++), toolEnergy)).setUnlocalizedName("energyShovel").setTextureName("energyShovel").setCreativeTab(tabHeavenTools);
+		energyPickaxe = (new ItemPickaxe(MDMConfig.getItem("Energy Pickaxe", itemID++), toolEnergy)).setUnlocalizedName("energyPickaxe").setTextureName("energyPickaxe").setCreativeTab(tabHeavenTools);
+		energyAxe = (new ItemAxe(MDMConfig.getItem("Energy Axe", itemID++), toolEnergy)).setUnlocalizedName("energyAxe").setTextureName("energyAxe").setCreativeTab(tabHeavenTools);
+		energyHoe = (new ItemHoe(MDMConfig.getItem("Energy Hoe", itemID++), toolEnergy)).setUnlocalizedName("energyHoe").setTextureName("energyHoe").setCreativeTab(tabHeavenTools);
 		
-		energySword = (new ItemSword(MDMConfig.getItem("Energy Sword", itemIndex++), toolEnergy)).setUnlocalizedName("energySword").setTextureName("energySword").setCreativeTab(tabHeavenTools);
-		energyShovel = (new ItemSpade(MDMConfig.getItem("Energy Shovel", itemIndex++), toolEnergy)).setUnlocalizedName("energyShovel").setTextureName("energyShovel").setCreativeTab(tabHeavenTools);
-		energyPickaxe = (new ItemPickaxe(MDMConfig.getItem("Energy Pickaxe", itemIndex++), toolEnergy)).setUnlocalizedName("energyPickaxe").setTextureName("energyPickaxe").setCreativeTab(tabHeavenTools);
-		energyAxe = (new ItemAxe(MDMConfig.getItem("Energy Axe", itemIndex++), toolEnergy)).setUnlocalizedName("energyAxe").setTextureName("energyAxe").setCreativeTab(tabHeavenTools);
-		energyHoe = (new ItemHoe(MDMConfig.getItem("Energy Hoe", itemIndex++), toolEnergy)).setUnlocalizedName("energyHoe").setTextureName("energyHoe").setCreativeTab(tabHeavenTools);
+		proSword = (new ItemSword(MDMConfig.getItem("Pro Sword", itemID++), toolPro)).setUnlocalizedName("proSword").setTextureName("proSword").setCreativeTab(tabHeavenTools);
+		proShovel = (new ItemSpade(MDMConfig.getItem("Pro Shovel", itemID++), toolPro)).setUnlocalizedName("proShovel").setTextureName("proShovel").setCreativeTab(tabHeavenTools);
+		proPickaxe = (new ItemPickaxe(MDMConfig.getItem("Pro Pickaxe", itemID++), toolPro)).setUnlocalizedName("proPickaxe").setTextureName("proPickaxe").setCreativeTab(tabHeavenTools);
+		proAxe = (new ItemAxe(MDMConfig.getItem("Pro Axe", itemID++), toolPro)).setUnlocalizedName("proAxe").setTextureName("proAxe").setCreativeTab(tabHeavenTools);
+		proHoe = (new ItemHoe(MDMConfig.getItem("Pro Hoe", itemID++), toolPro)).setUnlocalizedName("proHoe").setTextureName("proHoe").setCreativeTab(tabHeavenTools);
 		
-		proSword = (new ItemSword(MDMConfig.getItem("Pro Sword", itemIndex++), toolPro)).setUnlocalizedName("proSword").setTextureName("proSword").setCreativeTab(tabHeavenTools);
-		proShovel = (new ItemSpade(MDMConfig.getItem("Pro Shovel", itemIndex++), toolPro)).setUnlocalizedName("proShovel").setTextureName("proShovel").setCreativeTab(tabHeavenTools);
-		proPickaxe = (new ItemPickaxe(MDMConfig.getItem("Pro Pickaxe", itemIndex++), toolPro)).setUnlocalizedName("proPickaxe").setTextureName("proPickaxe").setCreativeTab(tabHeavenTools);
-		proAxe = (new ItemAxe(MDMConfig.getItem("Pro Axe", itemIndex++), toolPro)).setUnlocalizedName("proAxe").setTextureName("proAxe").setCreativeTab(tabHeavenTools);
-		proHoe = (new ItemHoe(MDMConfig.getItem("Pro Hoe", itemIndex++), toolPro)).setUnlocalizedName("proHoe").setTextureName("proHoe").setCreativeTab(tabHeavenTools);
+		shrekiteHelmet = new ItemArmor(MDMConfig.getItem("Shrekite Helmet", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 0).setUnlocalizedName("shrekiteHelmet").setTextureName("shrekiteHelmet").setCreativeTab(tabHeavenArmor);
+		shrekiteChestplate = new ItemArmor(MDMConfig.getItem("Shrekite Chestplate", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 1).setUnlocalizedName("shrekiteChestplate").setTextureName("shrekiteChestplate").setCreativeTab(tabHeavenArmor);
+		shrekiteLeggings = new ItemArmor(MDMConfig.getItem("Shrekite Leggings", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 2).setUnlocalizedName("shrekiteLeggings").setTextureName("shrekiteLeggings").setCreativeTab(tabHeavenArmor);
+		shrekiteBoots = new ItemArmor(MDMConfig.getItem("Shrekite Boots", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 3).setUnlocalizedName("shrekiteBoots").setTextureName("shrekiteBoots").setCreativeTab(tabHeavenArmor);
+		shrekiteGloves = new ItemGloves(MDMConfig.getItem("Shrekite Gloves", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite")).setUnlocalizedName("shrekiteGloves").setTextureName("shrekiteGloves").setCreativeTab(tabHeavenArmor);
 		
-		shrekiteHelmet = new ItemArmor(MDMConfig.getItem("Shrekite Helmet", itemIndex++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 0).setUnlocalizedName("shrekiteHelmet").setTextureName("shrekiteHelmet").setCreativeTab(tabHeavenArmor);
-		shrekiteChestplate = new ItemArmor(MDMConfig.getItem("Shrekite Chestplate", itemIndex++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 1).setUnlocalizedName("shrekiteChestplate").setTextureName("shrekiteChestplate").setCreativeTab(tabHeavenArmor);
-		shrekiteLeggings = new ItemArmor(MDMConfig.getItem("Shrekite Leggings", itemIndex++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 2).setUnlocalizedName("shrekiteLeggings").setTextureName("shrekiteLeggings").setCreativeTab(tabHeavenArmor);
-		shrekiteBoots = new ItemArmor(MDMConfig.getItem("Shrekite Boots", itemIndex++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 3).setUnlocalizedName("shrekiteBoots").setTextureName("shrekiteBoots").setCreativeTab(tabHeavenArmor);
-		shrekiteGloves = new ItemGloves(MDMConfig.getItem("Shrekite Gloves", itemIndex++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite")).setUnlocalizedName("shrekiteGloves").setTextureName("shrekiteGloves").setCreativeTab(tabHeavenArmor);
+		clashiumHelmet = new ItemArmor(MDMConfig.getItem("Clashium Helmet", itemID++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 0).setUnlocalizedName("clashiumHelmet").setTextureName("clashiumHelmet").setCreativeTab(tabHeavenArmor);
+		clashiumChestplate = new ItemArmor(MDMConfig.getItem("Clashium Chestplate", itemID++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 1).setUnlocalizedName("clashiumChestplate").setTextureName("clashiumChestplate").setCreativeTab(tabHeavenArmor);
+		clashiumLeggings = new ItemArmor(MDMConfig.getItem("Clashium Leggings", itemID++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 2).setUnlocalizedName("clashiumLeggings").setTextureName("clashiumLeggings").setCreativeTab(tabHeavenArmor);
+		clashiumBoots = new ItemArmor(MDMConfig.getItem("Clashium Boots", itemID++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 3).setUnlocalizedName("clashiumBoots").setTextureName("clashiumBoots").setCreativeTab(tabHeavenArmor);
+		clashiumGloves = new ItemGloves(MDMConfig.getItem("Clashium Gloves", itemID++), armorClashium, MDMCommonProxy.getArmorIndex("clashium")).setUnlocalizedName("clashiumGloves").setTextureName("clashiumGloves").setCreativeTab(tabHeavenArmor);
 		
-		clashiumHelmet = new ItemArmor(MDMConfig.getItem("Clashium Helmet", itemIndex++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 0).setUnlocalizedName("clashiumHelmet").setTextureName("clashiumHelmet").setCreativeTab(tabHeavenArmor);
-		clashiumChestplate = new ItemArmor(MDMConfig.getItem("Clashium Chestplate", itemIndex++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 1).setUnlocalizedName("clashiumChestplate").setTextureName("clashiumChestplate").setCreativeTab(tabHeavenArmor);
-		clashiumLeggings = new ItemArmor(MDMConfig.getItem("Clashium Leggings", itemIndex++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 2).setUnlocalizedName("clashiumLeggings").setTextureName("clashiumLeggings").setCreativeTab(tabHeavenArmor);
-		clashiumBoots = new ItemArmor(MDMConfig.getItem("Clashium Boots", itemIndex++), armorClashium, MDMCommonProxy.getArmorIndex("clashium"), 3).setUnlocalizedName("clashiumBoots").setTextureName("clashiumBoots").setCreativeTab(tabHeavenArmor);
-		clashiumGloves = new ItemGloves(MDMConfig.getItem("Clashium Gloves", itemIndex++), armorClashium, MDMCommonProxy.getArmorIndex("clashium")).setUnlocalizedName("clashiumGloves").setTextureName("clashiumGloves").setCreativeTab(tabHeavenArmor);
+		holyiumHelmet = new ItemArmor(MDMConfig.getItem("Holyium Helmet", itemID++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 0).setUnlocalizedName("holyiumHelmet").setTextureName("holyiumHelmet").setCreativeTab(tabHeavenArmor);
+		holyiumChestplate = new ItemArmor(MDMConfig.getItem("Holyium Chestplate", itemID++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 1).setUnlocalizedName("holyiumChestplate").setTextureName("holyiumChestplate").setCreativeTab(tabHeavenArmor);
+		holyiumLeggings = new ItemArmor(MDMConfig.getItem("Holyium Leggings", itemID++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 2).setUnlocalizedName("holyiumLeggings").setTextureName("holyiumLeggings").setCreativeTab(tabHeavenArmor);
+		holyiumBoots = new ItemArmor(MDMConfig.getItem("Holyium Boots", itemID++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 3).setUnlocalizedName("holyiumBoots").setTextureName("holyiumBoots").setCreativeTab(tabHeavenArmor);
+		holyiumGloves = new ItemGloves(MDMConfig.getItem("Holyium Gloves", itemID++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium")).setUnlocalizedName("holyiumGloves").setTextureName("holyiumGloves").setCreativeTab(tabHeavenArmor);
 		
-		holyiumHelmet = new ItemArmor(MDMConfig.getItem("Holyium Helmet", itemIndex++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 0).setUnlocalizedName("holyiumHelmet").setTextureName("holyiumHelmet").setCreativeTab(tabHeavenArmor);
-		holyiumChestplate = new ItemArmor(MDMConfig.getItem("Holyium Chestplate", itemIndex++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 1).setUnlocalizedName("holyiumChestplate").setTextureName("holyiumChestplate").setCreativeTab(tabHeavenArmor);
-		holyiumLeggings = new ItemArmor(MDMConfig.getItem("Holyium Leggings", itemIndex++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 2).setUnlocalizedName("holyiumLeggings").setTextureName("holyiumLeggings").setCreativeTab(tabHeavenArmor);
-		holyiumBoots = new ItemArmor(MDMConfig.getItem("Holyium Boots", itemIndex++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium"), 3).setUnlocalizedName("holyiumBoots").setTextureName("holyiumBoots").setCreativeTab(tabHeavenArmor);
-		holyiumGloves = new ItemGloves(MDMConfig.getItem("Holyium Gloves", itemIndex++), armorHolyium, MDMCommonProxy.getArmorIndex("holyium")).setUnlocalizedName("holyiumGloves").setTextureName("holyiumGloves").setCreativeTab(tabHeavenArmor);
+		energyHelmet = new ItemArmor(MDMConfig.getItem("Energy Helmet", itemID++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 0).setUnlocalizedName("energyHelmet").setTextureName("energyHelmet").setCreativeTab(tabHeavenArmor);
+		energyChestplate = new ItemArmor(MDMConfig.getItem("Energy Chestplate", itemID++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 1).setUnlocalizedName("energyChestplate").setTextureName("energyChestplate").setCreativeTab(tabHeavenArmor);
+		energyLeggings = new ItemArmor(MDMConfig.getItem("Energy Leggings", itemID++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 2).setUnlocalizedName("energyLeggings").setTextureName("energyLeggings").setCreativeTab(tabHeavenArmor);
+		energyBoots = new ItemArmor(MDMConfig.getItem("Energy Boots", itemID++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 3).setUnlocalizedName("energyBoots").setTextureName("energyBoots").setCreativeTab(tabHeavenArmor);
+		energyGloves = new ItemGloves(MDMConfig.getItem("Energy Gloves", itemID++), armorEnergy, MDMCommonProxy.getArmorIndex("energy")).setUnlocalizedName("energyGloves").setTextureName("energyGloves").setCreativeTab(tabHeavenArmor);
 		
-		energyHelmet = new ItemArmor(MDMConfig.getItem("Energy Helmet", itemIndex++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 0).setUnlocalizedName("energyHelmet").setTextureName("energyHelmet").setCreativeTab(tabHeavenArmor);
-		energyChestplate = new ItemArmor(MDMConfig.getItem("Energy Chestplate", itemIndex++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 1).setUnlocalizedName("energyChestplate").setTextureName("energyChestplate").setCreativeTab(tabHeavenArmor);
-		energyLeggings = new ItemArmor(MDMConfig.getItem("Energy Leggings", itemIndex++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 2).setUnlocalizedName("energyLeggings").setTextureName("energyLeggings").setCreativeTab(tabHeavenArmor);
-		energyBoots = new ItemArmor(MDMConfig.getItem("Energy Boots", itemIndex++), armorEnergy, MDMCommonProxy.getArmorIndex("energy"), 3).setUnlocalizedName("energyBoots").setTextureName("energyBoots").setCreativeTab(tabHeavenArmor);
-		energyGloves = new ItemGloves(MDMConfig.getItem("Energy Gloves", itemIndex++), armorEnergy, MDMCommonProxy.getArmorIndex("energy")).setUnlocalizedName("energyGloves").setTextureName("energyGloves").setCreativeTab(tabHeavenArmor);
+		proHelmet = new ItemArmor(MDMConfig.getItem("Pro Helmet", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 0).setUnlocalizedName("proHelmet").setTextureName("proHelmet").setCreativeTab(tabHeavenArmor);
+		proChestplate = new ItemArmor(MDMConfig.getItem("Pro Chestplate", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 1).setUnlocalizedName("proChestplate").setTextureName("proChestplate").setCreativeTab(tabHeavenArmor);
+		proLeggings = new ItemArmor(MDMConfig.getItem("Pro Leggings", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 2).setUnlocalizedName("proLeggings").setTextureName("proLeggings").setCreativeTab(tabHeavenArmor);
+		proBoots = new ItemArmor(MDMConfig.getItem("Pro Boots", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 3).setUnlocalizedName("proBoots").setTextureName("proBoots").setCreativeTab(tabHeavenArmor);
+		proGloves = new ItemGloves(MDMConfig.getItem("Pro Gloves", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro")).setUnlocalizedName("proGloves").setTextureName("proGloves").setCreativeTab(tabHeavenArmor);
 		
-		proHelmet = new ItemArmor(MDMConfig.getItem("Pro Helmet", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 0).setUnlocalizedName("proHelmet").setTextureName("proHelmet").setCreativeTab(tabHeavenArmor);
-		proChestplate = new ItemArmor(MDMConfig.getItem("Pro Chestplate", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 1).setUnlocalizedName("proChestplate").setTextureName("proChestplate").setCreativeTab(tabHeavenArmor);
-		proLeggings = new ItemArmor(MDMConfig.getItem("Pro Leggings", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 2).setUnlocalizedName("proLeggings").setTextureName("proLeggings").setCreativeTab(tabHeavenArmor);
-		proBoots = new ItemArmor(MDMConfig.getItem("Pro Boots", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 3).setUnlocalizedName("proBoots").setTextureName("proBoots").setCreativeTab(tabHeavenArmor);
-		proGloves = new ItemGloves(MDMConfig.getItem("Pro Gloves", itemIndex++), armorPro, MDMCommonProxy.getArmorIndex("pro")).setUnlocalizedName("proGloves").setTextureName("proGloves").setCreativeTab(tabHeavenArmor);
-		
-		materials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", itemIndex++), new String[] { "Heaven Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenstick", "heavenarrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_alloy", "blurite_dust" }).setCreativeTab(tabHeavenMaterials);
+		materials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", itemID++), new String[] { "Heaven Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenstick", "heavenarrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_alloy", "blurite_dust" }).setCreativeTab(tabHeavenMaterials);
 		heavenStick = new ItemStack(materials, 1, 0);
 		heavenArrow = new ItemStack(materials, 1, 1);
 		shrekiteShard = new ItemStack(materials, 1, 2);
@@ -182,17 +184,17 @@ public class MDMItems
 		proAlloy = new ItemStack(materials, 1, 6);
 		bluriteDust = new ItemStack(materials, 1, 7);
 		
-		heavenBow = (ItemBowMDM) (new ItemBowMDM(MDMConfig.getItem("Heaven Bow", itemIndex++), "heavenbow", heavenArrow)).setUnlocalizedName("heavenbow");
-		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", itemIndex++), 2, 0, false)).setUnlocalizedName("heavenapple");
-		heart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", itemIndex++))).setUnlocalizedName("heart");
-		flamingSword = (ItemFlamingSword) (new ItemFlamingSword(MDMConfig.getItem("Fire Sword", itemIndex++))).setUnlocalizedName("fireSword").setTextureName("fireSword");
-		pulsingSword = (ItemPulsingSword) (new ItemPulsingSword(MDMConfig.getItem("Pulsing Sword", itemIndex++))).setUnlocalizedName("pulseSword").setTextureName("pulseSword");
-		icestick = (ItemIceStick) (new ItemIceStick(MDMConfig.getItem("Ice Stick", itemIndex++))).setUnlocalizedName("icestick");
-		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", itemIndex++))).setUnlocalizedName("icehammer");
-		soul = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", itemIndex++))).setUnlocalizedName("soul");
-		capes = (ItemCape) new ItemCape(MDMConfig.getItem("Cape", itemIndex++)).setUnlocalizedName("cape");
+		heavenBow = (ItemBowMDM) (new ItemBowMDM(MDMConfig.getItem("Heaven Bow", itemID++), "heavenbow", heavenArrow)).setUnlocalizedName("heavenbow");
+		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", itemID++), 2, 0, false)).setUnlocalizedName("heavenapple");
+		heart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", itemID++))).setUnlocalizedName("heart");
+		flamingSword = (ItemFlamingSword) (new ItemFlamingSword(MDMConfig.getItem("Fire Sword", itemID++))).setUnlocalizedName("fireSword").setTextureName("fireSword");
+		pulsingSword = (ItemPulsingSword) (new ItemPulsingSword(MDMConfig.getItem("Pulsing Sword", itemID++))).setUnlocalizedName("pulseSword").setTextureName("pulseSword");
+		icestick = (ItemIceStick) (new ItemIceStick(MDMConfig.getItem("Ice Stick", itemID++))).setUnlocalizedName("icestick");
+		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", itemID++))).setUnlocalizedName("icehammer");
+		soul = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", itemID++))).setUnlocalizedName("soul");
+		capes = (ItemCape) new ItemCape(MDMConfig.getItem("Cape", itemID++)).setUnlocalizedName("cape");
 		
-		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(MDMConfig.getItem("Heaven Portal Activator", itemIndex++))).setUnlocalizedName("heavenportalactivator");
+		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(MDMConfig.getItem("Heaven Portal Activator", itemID++))).setUnlocalizedName("heavenportalactivator");
 	}
 	
 	public static void load()
@@ -305,5 +307,39 @@ public class MDMItems
 	public static void addItem(Item item, String name)
 	{
 		addItem(item, name, name);
+	}
+	
+	public static <T extends Item> T addItem(Class<T> type, String name, Object... args)
+	{
+		T item = null;
+		
+		Class[] classes = new Class[args.length + 1];
+		Object[] args2 = new Object[args.length + 1];
+		
+		classes[0] = int.class;
+		args2[0] = MDMConfig.getItem(name, itemID++);
+		for (int i = 1; i < args.length; i++)
+		{
+			args2[i] = args[i];
+			if (args[i] != null)
+				classes[i] = args[i].getClass();
+			else
+				classes[i] = Object.class;
+		}
+		
+		try
+		{
+			Constructor<T> c = type.getConstructor(classes);
+			if (c != null)
+				item = c.newInstance(args);
+		}
+		catch (Exception ex)
+		{
+			return null;
+		}
+		
+		addItem(item, name);
+		
+		return item;
 	}
 }
