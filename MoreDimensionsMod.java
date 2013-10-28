@@ -57,8 +57,11 @@ public class MoreDimensionsMod
 		
 		MDMBlocks.initialize();
 		MDMItems.initialize();
+		MDMTools.initialize();
+		
 		MDMBlocks.load();
 		MDMItems.load();
+		MDMTools.load();
 		
 		MDMEntitys.load();
 		MDMRecipes.load();

@@ -1,11 +1,10 @@
-package clashsoft.mods.moredimensions.item;
+package clashsoft.mods.moredimensions.item.armor;
 
 import clashsoft.mods.moredimensions.client.model.ModelGloves;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumArmorMaterial;
@@ -24,7 +23,6 @@ public class ItemGloves extends ItemArmor
 	public ItemGloves(int par1, EnumArmorMaterial material, int renderIndex)
 	{
 		super(par1, material, renderIndex, 0);
-		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 	
 	@Override

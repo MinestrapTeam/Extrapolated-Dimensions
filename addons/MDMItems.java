@@ -5,11 +5,11 @@ import clashsoft.clashsoftapi.CustomItem;
 import clashsoft.clashsoftapi.util.CSItems;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
-import clashsoft.mods.moredimensions.item.ItemBowMDM;
-import clashsoft.mods.moredimensions.item.ItemCape;
-import clashsoft.mods.moredimensions.item.ItemGloves;
+import clashsoft.mods.moredimensions.item.armor.ItemCape;
+import clashsoft.mods.moredimensions.item.armor.ItemGloves;
 import clashsoft.mods.moredimensions.item.heaven.*;
 import clashsoft.mods.moredimensions.item.poc.*;
+import clashsoft.mods.moredimensions.item.tools.ItemBowMDM;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.block.Block;
@@ -19,6 +19,8 @@ import net.minecraftforge.common.EnumHelper;
 @Addon(modName = "MoreDimensionsMod", addonName = "Items")
 public class MDMItems
 {
+	public static CustomCreativeTab			tabTools			= new CustomCreativeTab("MDMTools");
+	
 	public static CustomCreativeTab			tabParadiseOfChaos	= new CustomCreativeTab("POCTab");
 	public static CustomCreativeTab			tabAlchemy			= new CustomCreativeTab("AlchemyTab");
 	

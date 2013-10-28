@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.item;
+package clashsoft.mods.moredimensions.item.armor;
 
 public class ArmorTypes
 {

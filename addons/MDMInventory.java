@@ -2,9 +2,9 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.util.List;
 
-import clashsoft.mods.moredimensions.item.ArmorTypes;
-import clashsoft.mods.moredimensions.item.ItemCape;
-import clashsoft.mods.moredimensions.item.ItemGloves;
+import clashsoft.mods.moredimensions.item.armor.ArmorTypes;
+import clashsoft.mods.moredimensions.item.armor.ItemCape;
+import clashsoft.mods.moredimensions.item.armor.ItemGloves;
 
 import com.chaosdev.playerinventoryapi.CreativeInventory;
 import com.chaosdev.playerinventoryapi.SurvivalInventory;
