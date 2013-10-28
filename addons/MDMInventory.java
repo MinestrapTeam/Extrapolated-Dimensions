@@ -5,6 +5,7 @@ import java.util.List;
 import clashsoft.mods.moredimensions.item.armor.ArmorTypes;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
 import clashsoft.mods.moredimensions.item.armor.ItemGloves;
+import clashsoft.mods.moredimensions.item.armor.ItemShield;
 
 import com.chaosdev.playerinventoryapi.CreativeInventory;
 import com.chaosdev.playerinventoryapi.SurvivalInventory;
@@ -21,8 +22,7 @@ public class MDMInventory
 	{
 		@Override
 		public void addSlots(List<Slot> list, EntityPlayer player, boolean creative)
-		{
-			
+		{	
 			if (!creative)
 				SurvivalInventory.compactCraftingGrid();
 			
@@ -32,6 +32,7 @@ public class MDMInventory
 			
 			glove.backgroundIcon = ItemGloves.slotIcon;
 			cape.backgroundIcon = ItemCape.slotIcon;
+			shield.backgroundIcon = ItemShield.slotIcon;
 			
 			list.add(glove);
 			list.add(shield);
