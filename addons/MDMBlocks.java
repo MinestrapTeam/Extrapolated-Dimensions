@@ -70,7 +70,7 @@ public class MDMBlocks
 		alteredDirt = (BlockAlteredDirt) new BlockAlteredDirt(MDMConfig.getTerrainBlock("Altered Dirt", 181), Material.ground).setUnlocalizedName("AlteredDirt").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.5F).setStepSound(Block.soundGravelFootstep).setTextureName("AlteredDirt");
 		alteredGrass = (BlockAlteredGrass) new BlockAlteredGrass(MDMConfig.getTerrainBlock("Altered Grass", 182), Material.grass).setUnlocalizedName("AlteredGrass").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
 		
-		herbs = ((BlockPOCHerb) new BlockPOCHerb(MDMConfig.getBlock("POC Herbs", 1000), new String[] { "Saf Flower" }, new String[] { "Safflower" }).setUnlocalizedName("POCHerb").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.0F).setStepSound(Block.soundGrassFootstep));
+		herbs = ((BlockPOCHerb) new BlockPOCHerb(MDMConfig.getBlock("POC Herbs", 1000), new String[] { "Saf Flower" }, new String[] { "safflower" }).setUnlocalizedName("POCHerb").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.0F).setStepSound(Block.soundGrassFootstep));
 		magicOakLog = (BlockMagicOakLog) new BlockMagicOakLog(MDMConfig.getBlock("Magic Oak Log", 1001)).setUnlocalizedName("MagicOakLog").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
 		magicOakSapling = (BlockMagicOakSapling) new BlockMagicOakSapling(MDMConfig.getBlock("Magic Oak Sapling", 1002), 0).setUnlocalizedName("MagicOakSapling").setTextureName("MagicOakSapling").setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(0.0F).setStepSound(Block.soundGrassFootstep);
 		magicOakLeaves = (BlockMagicOakLeaves) new BlockMagicOakLeaves(MDMConfig.getBlock("Magic Oak Leaves", 1003)).setUnlocalizedName("MagicOakLeaves").setCreativeTab(MDMItems.tabParadiseOfChaos).setStepSound(Block.soundGrassFootstep);
@@ -136,6 +136,7 @@ public class MDMBlocks
 		addBlock(alteredDirt, "Altered Dirt");
 		addBlock(alteredGrass, "Altered Grass");
 		addBlock(herbs, "POC Herbs", ItemCustomBlock.class);
+		herbs.addNames();
 		addBlock(magicOakLog, "Magic Oak Log");
 		addBlock(magicOakSapling, "Magic Oak Sapling");
 		addBlock(magicOakLeaves, "Magic Oak Leaves");
