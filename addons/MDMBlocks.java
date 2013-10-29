@@ -109,6 +109,8 @@ public class MDMBlocks
 		groundBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Ground Blocks", 203), Material.ground, new String[] { "Heaven Dirt" }, new String[] { "heavendirt" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heavenGroundBlocks");
 		heavenDirt = new ItemStack(groundBlocks, 1, 0);
 		
+		heavenGrass = (BlockHeavenGrass) (new BlockHeavenGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204))).setUnlocalizedName("heavengrass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
+		
 		woodBlocks = (CustomBlock) new CustomBlock(MDMConfig.getBlock("Heaven Wood Blocks", 1050), Material.wood, new String[] { "Heaven Planks" }, new String[] { "heavenplanks" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("heavenWoodBlocks");
 		heavenPlanks = new ItemStack(woodBlocks, 1, 0);
 		
@@ -121,7 +123,6 @@ public class MDMBlocks
 		heavenLog = (BlockHeavenLog) (new BlockHeavenLog(MDMConfig.getBlock("Heaven Log", 1052))).setUnlocalizedName("heavenwood_side").setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
 		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(MDMConfig.getBlock("Heaven Portal", 1053))).setUnlocalizedName("heavenportal").setHardness(-1F).setLightValue(1F);
 		heavenPortalFrame = (new BlockMDM(MDMConfig.getBlock("Heaven Portal Frame", 1054), Material.rock, MDMItems.tabHeavenBlocks)).setUnlocalizedName("heavenportal_frame").setTextureName("heavenportal_frame").setHardness(2F);
-		heavenGrass = (BlockHeavenGrass) (new BlockHeavenGrass(MDMConfig.getBlock("Heaven Grass", 1055))).setUnlocalizedName("heavengrass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
 		heavenLeaves = (BlockHeavenLeaves) (new BlockHeavenLeaves(MDMConfig.getBlock("Heaven Leaves", 1056))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenleaves");
 		heavenSapling = (BlockHeavenSapling) (new BlockHeavenSapling(MDMConfig.getBlock("Heaven Sapling", 1057))).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavensapling");
 		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(MDMConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setHardness(1.75F);

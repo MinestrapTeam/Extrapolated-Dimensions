@@ -2,6 +2,7 @@ package clashsoft.mods.moredimensions.world.providers.chunk;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -11,160 +12,154 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 	{
 		super(par1World, par2, par4);
 	}
-	
-	public void generateTerrain(int i, int j, byte abyte0[])
+
+	/**
+	 * Generates the shape of the terrain for the chunk though its all stone
+	 * though the water is frozen if the temperature is low enough
+	 */
+	public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte)
 	{
-		byte byte0 = 2;
-		int k = byte0 + 1;
-		int l = 128 / 4 + 1;
-		int i1 = byte0 + 1;
-		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, i * 4 - 2, j * 4 - 2, k + 5, l + 5);
-		this.noiseArray = initializeNoiseField(noiseArray, i * byte0, 0, j * byte0, k, l, i1);
-		
-		label0:
-		for (int j1 = 0; j1 < byte0; j1++)
+		byte b0 = 4;
+		byte b1 = 16;
+		byte b2 = 63;
+		int k = b0 + 1;
+		byte b3 = 17;
+		int l = b0 + 1;
+		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, par1 * 4 - 2, par2 * 4 - 2, k + 5, l + 5);
+		this.noiseArray = this.initializeNoiseField(this.noiseArray, par1 * b0, 0, par2 * b0, k, b3, l);
+		for (int i1 = 0; i1 < b0; ++i1)
 		{
-			int k1 = 0;
-			
-			do
+			for (int j1 = 0; j1 < b0; ++j1)
 			{
-				label1:
+				for (int k1 = 0; k1 < b1; ++k1)
 				{
-					if (k1 >= byte0)
+					double d0 = 0.125D;
+					double d1 = this.noiseArray[((i1 + 0) * l + j1 + 0) * b3 + k1 + 0];
+					double d2 = this.noiseArray[((i1 + 0) * l + j1 + 1) * b3 + k1 + 0];
+					double d3 = this.noiseArray[((i1 + 1) * l + j1 + 0) * b3 + k1 + 0];
+					double d4 = this.noiseArray[((i1 + 1) * l + j1 + 1) * b3 + k1 + 0];
+					double d5 = (this.noiseArray[((i1 + 0) * l + j1 + 0) * b3 + k1 + 1] - d1) * d0;
+					double d6 = (this.noiseArray[((i1 + 0) * l + j1 + 1) * b3 + k1 + 1] - d2) * d0;
+					double d7 = (this.noiseArray[((i1 + 1) * l + j1 + 0) * b3 + k1 + 1] - d3) * d0;
+					double d8 = (this.noiseArray[((i1 + 1) * l + j1 + 1) * b3 + k1 + 1] - d4) * d0;
+					for (int l1 = 0; l1 < 8; ++l1)
 					{
-						continue label0;
-					}
-					
-					int l1 = 0;
-					
-					do
-					{						
-						if (l1 >= 128 / 4)
+						double d9 = 0.25D;
+						double d10 = d1;
+						double d11 = d2;
+						double d12 = (d3 - d1) * d9;
+						double d13 = (d4 - d2) * d9;
+						for (int i2 = 0; i2 < 4; ++i2)
 						{
-							break label1;
-						}
-						
-						double d = 0.25D;
-						double d1 = noiseArray[((j1 + 0) * i1 + (k1 + 0)) * l + (l1 + 0)];
-						double d2 = noiseArray[((j1 + 0) * i1 + (k1 + 1)) * l + (l1 + 0)];
-						double d3 = noiseArray[((j1 + 1) * i1 + (k1 + 0)) * l + (l1 + 0)];
-						double d4 = noiseArray[((j1 + 1) * i1 + (k1 + 1)) * l + (l1 + 0)];
-						double d5 = (noiseArray[((j1 + 0) * i1 + (k1 + 0)) * l + (l1 + 1)] - d1) * d;
-						double d6 = (noiseArray[((j1 + 0) * i1 + (k1 + 1)) * l + (l1 + 1)] - d2) * d;
-						double d7 = (noiseArray[((j1 + 1) * i1 + (k1 + 0)) * l + (l1 + 1)] - d3) * d;
-						double d8 = (noiseArray[((j1 + 1) * i1 + (k1 + 1)) * l + (l1 + 1)] - d4) * d;
-						
-						for (int i2 = 0; i2 < 4; i2++)
-						{
-							double d9 = 0.125D;
-							double d10 = d1;
-							double d11 = d2;
-							double d12 = (d3 - d1) * d9;
-							double d13 = (d4 - d2) * d9;
-							
-							for (int j2 = 0; j2 < 8; j2++)
+							int j2 = i2 + i1 * 4 << 11 | 0 + j1 * 4 << 7 | k1 * 8 + l1;
+							short short1 = 128;
+							j2 -= short1;
+							double d14 = 0.25D;
+							double d15 = (d11 - d10) * d14;
+							double d16 = d10 - d15;
+							for (int k2 = 0; k2 < 4; ++k2)
 							{
-								int k2 = j2 + j1 * 8 << 11 | 0 + k1 * 8 << 7 | l1 * 4 + i2;
-								int l2 = 1 << 7;
-								double d14 = 0.125D;
-								double d15 = d10;
-								double d16 = (d11 - d10) * d14;
-								
-								for (int i3 = 0; i3 < 8; i3++)
+								if ((d16 += d15) > 0.0D)
 								{
-									int j3 = 0;
-									
-									if (d15 > 0.0D)
-									{
-										j3 = MDMBlocks.stoneBlocks.blockID;
-									}
-									
-									abyte0[k2] = (byte) j3;
-									k2 += l2;
-									d15 += d16;
+									par3ArrayOfByte[j2 += short1] = (byte) MDMBlocks.stoneBlocks.blockID;
 								}
-								
-								d10 += d12;
-								d11 += d13;
+								else if (k1 * 8 + l1 < b2)
+								{
+									par3ArrayOfByte[j2 += short1] = (byte) Block.waterStill.blockID;
+								}
+								else
+								{
+									par3ArrayOfByte[j2 += short1] = 0;
+								}
 							}
-							
-							d1 += d5;
-							d2 += d6;
-							d3 += d7;
-							d4 += d8;
+							d10 += d12;
+							d11 += d13;
 						}
-						
-						l1++;
+						d1 += d5;
+						d2 += d6;
+						d3 += d7;
+						d4 += d8;
 					}
-					while (true);
 				}
-				k1++;
 			}
-			while (true);
 		}
 	}
 	
-	public void replaceBlocksForBiome(int i, int j, byte abyte0[], BiomeGenBase abiomegenbase[])
+	public void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase)
 	{
-		double d = 0.03125D;
-		stoneNoise = noiseGen4.generateNoiseOctaves(stoneNoise, i * 16, j * 16, 0, 16, 16, 1, d * 2D, d * 2D, d * 2D);
-		
-		for (int k = 0; k < 16; k++)
+		byte var5 = 63;
+		double var6 = 0.03125D;
+		this.stoneNoise = this.noiseGen4.generateNoiseOctaves(this.stoneNoise, par1 * 16, par2 * 16, 0, 16, 16, 1, var6 * 2.0D, var6 * 2.0D, var6 * 2.0D);
+		for (int var8 = 0; var8 < 16; var8++)
 		{
-			for (int l = 0; l < 16; l++)
+			for (int var9 = 0; var9 < 16; var9++)
 			{
-				BiomeGenBase biomegenbase = abiomegenbase[k + l * 16];
-				int i1 = (int) (stoneNoise[k + l * 16] / 3D + 3D + rand.nextDouble() * 0.25D);
-				int j1 = -1;
-				byte byte0 = biomegenbase.topBlock;
-				byte byte1 = biomegenbase.fillerBlock;
-				worldObj.getClass();
-				
-				byte stone = (byte) MDMBlocks.stoneBlocks.blockID;
-				if (byte0 < 0)
+				BiomeGenBase var10 = par4ArrayOfBiomeGenBase[(var9 + var8 * 16)];
+				float var11 = var10.getFloatTemperature();
+				int var12 = (int) (this.stoneNoise[(var8 + var9 * 16)] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
+				int var13 = -1;
+				byte var14 = var10.topBlock;
+				byte var15 = var10.fillerBlock;
+				for (int var16 = 127; var16 >= 0; var16--)
 				{
-					byte0 = (byte) (byte0 + 0);
-				}
-				if (byte1 < 0)
-				{
-					byte1 = (byte) (byte1 + 0);
-				}
-				if (stone < 0)
-				{
-					stone = (byte) (stone + 0);
-				}
-				for (int k1 = 127; k1 >= 0; k1--)
-				{
-					int l1 = (l * 16 + k) * 128 + k1;
-					byte byte2 = abyte0[l1];
-					if (byte2 == 0)
+					int var17 = (var9 * 16 + var8) * 128 + var16;
+					if (var16 <= 0 + this.rand.nextInt(5))
 					{
-						j1 = -1;
+						par3ArrayOfByte[var17] = ((byte) Block.bedrock.blockID);
 					}
-					else if (byte2 == stone)
+					else
 					{
-						if (j1 == -1)
+						byte var18 = par3ArrayOfByte[var17];
+						if (var18 == 0)
 						{
-							if (i1 <= 0)
-							{
-								byte0 = 0;
-								byte1 = stone;
-							}
-							j1 = i1;
-							if (k1 >= 0)
-							{
-								abyte0[l1] = byte0;
-							}
-							else
-							{
-								abyte0[l1] = byte1;
-							}
-							
+							var13 = -1;
 						}
-						else if (j1 > 0)
+						else if (var18 != MDMBlocks.stoneBlocks.blockID)
 						{
-							j1--;
-							abyte0[l1] = byte1;
+							if (var13 == -1)
+							{
+								if (var12 == 0)
+								{
+									var14 = 0;
+									
+									var15 = (byte) MDMBlocks.groundBlocks.blockID;
+								}
+								else if ((var16 >= var5 - 4) && (var16 <= var5 + 1))
+								{
+									var14 = var10.topBlock;
+									var15 = var10.fillerBlock;
+								}
+								if ((var16 < var5) && (var14 == 0))
+								{
+									if (var11 < 0.15F)
+									{
+										var14 = (byte) Block.ice.blockID;
+									}
+									else
+									{
+										var14 = (byte) Block.waterStill.blockID;
+									}
+								}
+								var13 = var12;
+								if (var16 >= var5 - 1)
+								{
+									par3ArrayOfByte[var17] = var14;
+								}
+								else
+								{
+									par3ArrayOfByte[var17] = var15;
+								}
+							}
+							else if (var13 > 0)
+							{
+								var13--;
+								par3ArrayOfByte[var17] = var15;
+								if ((var13 == 0) && (var15 == Block.sand.blockID))
+								{
+									var13 = this.rand.nextInt(4);
+									var15 = (byte) Block.sandStone.blockID;
+								}
+							}
 						}
 					}
 				}
