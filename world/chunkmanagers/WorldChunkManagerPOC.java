@@ -32,9 +32,10 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	
 	public WorldChunkManagerPOC(long seed, WorldType worldtype)
 	{
+		
 		this.biomeCache = new BiomeCache(this);
 		this.biomesToSpawnIn = new ArrayList<BiomeGenBase>();
-		this.biomesToSpawnIn.add(MDMWorld.PlainsOfInsanityBiome);
+		this.biomesToSpawnIn.add(MDMWorld.biomePOCPlains);
 		
 		GenLayer[] agenlayer = GenLayerPOC.createWorld(seed, worldtype);
 		this.genBiomes = agenlayer[0];
@@ -64,7 +65,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 		BiomeGenBase biome = this.biomeCache.getBiomeGenAt(x, z);
 		if (biome == null)
 		{
-			return MDMWorld.PlainsOfInsanityBiome;
+			return MDMWorld.biomePOCPlains;
 		}
 		
 		return biome;
@@ -165,7 +166,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 			}
 			else
 			{
-				par1ArrayOfBiomeGenBase[i] = MDMWorld.PlainsOfInsanityBiome;
+				par1ArrayOfBiomeGenBase[i] = MDMWorld.biomePOCPlains;
 			}
 		}
 		
@@ -217,7 +218,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 				else
 				{
 					// Change this to a biome
-					par1ArrayOfBiomeGenBase[i] = MDMWorld.PlainsOfInsanityBiome;
+					par1ArrayOfBiomeGenBase[i] = MDMWorld.biomePOCPlains;
 				}
 			}
 			

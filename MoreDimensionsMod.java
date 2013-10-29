@@ -1,14 +1,10 @@
 package clashsoft.mods.moredimensions;
 
-import java.util.Random;
-
 import clashsoft.clashsoftapi.util.CSUpdate;
 import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.handlers.MDMEventHandler;
 import clashsoft.mods.moredimensions.handlers.MDMPacketHandler;
-import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
-import clashsoft.mods.moredimensions.world.gen.poc.MDMGenTrees;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -19,7 +15,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = "MoreDimensionsMod", name = "More Dimensions Mod", version = MoreDimensionsMod.VERSION)
@@ -79,23 +74,5 @@ public class MoreDimensionsMod
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		MDMConfig.saveConfig();
-	}
-	
-	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
-	{
-		for (int i = 0; i < 10; i++)
-		{
-			int randPosX = chunkX + rand.nextInt(16);
-			int randPosY = rand.nextInt(250);
-			int randPosZ = chunkZ + rand.nextInt(16);
-			(new MDMGenTrees(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
-		}
-		for (int i = 0; i < 5; i++)
-		{
-			int randPosX = chunkX + rand.nextInt(16);
-			int randPosY = rand.nextInt(250);
-			int randPosZ = chunkZ + rand.nextInt(16);
-			(new HeavenGenBuildings().new HeavenGenBuilding1()).generate(world, rand, randPosX, randPosZ, randPosY);
-		}
 	}
 }

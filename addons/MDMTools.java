@@ -5,6 +5,7 @@ import clashsoft.mods.moredimensions.item.armor.ItemGloves;
 import clashsoft.mods.moredimensions.item.armor.ItemShield;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemBattleaxe;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemHatchet;
+import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemSaw;
 import clashsoft.mods.moredimensions.item.tools.*;
 import clashsoft.mods.moredimensions.item.tools.ItemSwordMDM.ItemClaws;
 import clashsoft.mods.moredimensions.item.tools.ItemSwordMDM.ItemDagger;
@@ -30,9 +31,11 @@ public class MDMTools
 	public static ItemLongsword	ironLongsword;
 	public static ItemHalberd	ironHalberd;
 	public static ItemSpear		ironSpear;
+	public static ItemHammer	ironHammer;
 	public static ItemHammer	ironWarhammer;
 	public static ItemBattleaxe	ironBattleaxe;
 	public static ItemClaws		ironClaws;
+	public static ItemSaw		ironSaw;
 	
 	public static ItemGloves	ironGloves;
 	public static ItemShield	ironShield;
@@ -52,10 +55,12 @@ public class MDMTools
 		ironLongsword = (ItemLongsword) new ItemLongsword(MDMConfig.getItem("Iron Longsword", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironLongsword").setTextureName("ironLongsword");
 		ironHalberd = (ItemHalberd) new ItemHalberd(MDMConfig.getItem("Iron Halberd", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironHalberd").setTextureName("ironHalberd");
 		ironSpear = (ItemSpear) new ItemSpear(MDMConfig.getItem("Iron Spear", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironSpear").setTextureName("ironSpear");
+		ironHammer = (ItemHammer) new ItemHammer(MDMConfig.getItem("Iron Hammer", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironHammer").setTextureName("ironHammer");
 		ironWarhammer = (ItemHammer) new ItemHammer(MDMConfig.getItem("Iron Warhammer", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironWarhammer").setTextureName("ironWarhammer");
 		ironBattleaxe = (ItemBattleaxe) new ItemBattleaxe(MDMConfig.getItem("Iron Battleaxe", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironBattleaxe").setTextureName("ironBattleaxe");
 		ironClaws = (ItemClaws) new ItemClaws(MDMConfig.getItem("Iron Claws", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironClaws").setTextureName("ironClaws");
-	
+		ironSaw = (ItemSaw) new ItemSaw(MDMConfig.getItem("Iron Saw", itemID++), EnumToolMaterial.IRON).setUnlocalizedName("ironSaw").setTextureName("ironSaw");
+		
 		ironGloves = (ItemGloves) new ItemGloves(MDMConfig.getItem("Iron Gloves", itemID++), EnumArmorMaterial.IRON, 2).setCreativeTab(MDMItems.tabTools).setUnlocalizedName("ironGloves").setTextureName("ironGloves");
 		ironShield = (ItemShield) new ItemShield(MDMConfig.getItem("Iron Shield", itemID++), EnumArmorMaterial.IRON).setCreativeTab(MDMItems.tabTools).setUnlocalizedName("ironShield").setTextureName("ironShield");
 	}
@@ -73,9 +78,11 @@ public class MDMTools
 		addItem(ironLongsword, "Iron Longsword");
 		addItem(ironHalberd, "Iron Halberd");
 		addItem(ironSpear, "Iron Spear");
-		addItem(ironWarhammer, "Iron Hammer");
+		addItem(ironHammer, "Iron Warhammer");
+		addItem(ironWarhammer, "Iron Warhammer");
 		addItem(ironBattleaxe, "Iron Battleaxe");
 		addItem(ironClaws, "Iron Claws");
+		addItem(ironSaw, "Iron Saw");
 		
 		addItem(ironGloves, "Iron Gloves");
 		addItem(ironShield, "Iron Shield");

@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
@@ -59,7 +61,6 @@ public class TeleporterHeaven extends Teleporter
 			int k = MathHelper.floor_double(par1Entity.posZ);
 			byte b0 = 1;
 			byte b1 = 0;
-			
 			for (int l = -2; l <= 2; ++l)
 			{
 				for (int i1 = -2; i1 <= 2; ++i1)
@@ -70,11 +71,12 @@ public class TeleporterHeaven extends Teleporter
 						int l1 = j + j1;
 						int i2 = k + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
-						this.worldServerInstance.setBlock(k1, l1, i2, flag ? Block.obsidian.blockID : 0);
+						
+						/** change this block **/
+						this.worldServerInstance.setBlock(k1, l1, i2, flag ? Block.blockDiamond.blockID : 0);
 					}
 				}
 			}
-			
 			par1Entity.setLocationAndAngles(i, j, k, par1Entity.rotationYaw, 0.0F);
 			par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
 		}
@@ -97,7 +99,6 @@ public class TeleporterHeaven extends Teleporter
 		boolean flag = true;
 		double d4;
 		int k1;
-		
 		if (this.destinationCoordinateCache.containsItem(j1))
 		{
 			PortalPosition portalposition = (PortalPosition) this.destinationCoordinateCache.getValueByKey(j1);
@@ -113,23 +114,21 @@ public class TeleporterHeaven extends Teleporter
 			for (k1 = l - short1; k1 <= l + short1; ++k1)
 			{
 				double d5 = k1 + 0.5D - par1Entity.posX;
-				
 				for (int l1 = i1 - short1; l1 <= i1 + short1; ++l1)
 				{
 					double d6 = l1 + 0.5D - par1Entity.posZ;
-					
 					for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2)
 					{
-						if (this.worldServerInstance.getBlockId(k1, i2, l1) == Block.portal.blockID)
+						/** change this block **/
+						if (this.worldServerInstance.getBlockId(k1, i2, l1) == MDMBlocks.heavenPortal.blockID)
 						{
-							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == Block.portal.blockID)
+							/** change this block **/
+							while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == MDMBlocks.heavenPortal.blockID)
 							{
 								--i2;
 							}
-							
 							d4 = i2 + 0.5D - par1Entity.posY;
 							double d7 = d5 * d5 + d4 * d4 + d6 * d6;
-							
 							if (d3 < 0.0D || d7 < d3)
 							{
 								d3 = d7;
@@ -142,42 +141,38 @@ public class TeleporterHeaven extends Teleporter
 				}
 			}
 		}
-		
 		if (d3 >= 0.0D)
 		{
 			if (flag)
 			{
-				this.destinationCoordinateCache.add(j1, new PortalPosition(this, i, j, k, this.worldServerInstance.getTotalWorldTime()));
+				this.destinationCoordinateCache.add(j1, new MDMPortalPosition(this, i, j, k, this.worldServerInstance.getTotalWorldTime()));
 				this.destinationCoordinateKeys.add(Long.valueOf(j1));
 			}
-			
 			double d8 = i + 0.5D;
 			double d9 = j + 0.5D;
 			d4 = k + 0.5D;
 			int j2 = -1;
-			
-			if (this.worldServerInstance.getBlockId(i - 1, j, k) == Block.portal.blockID)
+			/** change this block **/
+			if (this.worldServerInstance.getBlockId(i - 1, j, k) == MDMBlocks.heavenPortal.blockID)
 			{
 				j2 = 2;
 			}
-			
-			if (this.worldServerInstance.getBlockId(i + 1, j, k) == Block.portal.blockID)
+			/** change this block **/
+			if (this.worldServerInstance.getBlockId(i + 1, j, k) == MDMBlocks.heavenPortal.blockID)
 			{
 				j2 = 0;
 			}
-			
-			if (this.worldServerInstance.getBlockId(i, j, k - 1) == Block.portal.blockID)
+			/** change this block **/
+			if (this.worldServerInstance.getBlockId(i, j, k - 1) == MDMBlocks.heavenPortal.blockID)
 			{
 				j2 = 3;
 			}
-			
-			if (this.worldServerInstance.getBlockId(i, j, k + 1) == Block.portal.blockID)
+			/** change this block **/
+			if (this.worldServerInstance.getBlockId(i, j, k + 1) == MDMBlocks.heavenPortal.blockID)
 			{
 				j2 = 1;
 			}
-			
 			int k2 = par1Entity.getTeleportDirection();
-			
 			if (j2 > -1)
 			{
 				int l2 = Direction.rotateLeft[j2];
@@ -187,7 +182,6 @@ public class TeleporterHeaven extends Teleporter
 				int l3 = Direction.offsetZ[l2];
 				boolean flag1 = !this.worldServerInstance.isAirBlock(i + i3 + k3, j, k + j3 + l3) || !this.worldServerInstance.isAirBlock(i + i3 + k3, j + 1, k + j3 + l3);
 				boolean flag2 = !this.worldServerInstance.isAirBlock(i + i3, j, k + j3) || !this.worldServerInstance.isAirBlock(i + i3, j + 1, k + j3);
-				
 				if (flag1 && flag2)
 				{
 					j2 = Direction.rotateOpposite[j2];
@@ -203,10 +197,8 @@ public class TeleporterHeaven extends Teleporter
 					flag1 = !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j, i4 + j3 + l3) || !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j + 1, i4 + j3 + l3);
 					flag2 = !this.worldServerInstance.isAirBlock(k1 + i3, j, i4 + j3) || !this.worldServerInstance.isAirBlock(k1 + i3, j + 1, i4 + j3);
 				}
-				
 				float f1 = 0.5F;
 				float f2 = 0.5F;
-				
 				if (!flag1 && flag2)
 				{
 					f1 = 1.0F;
@@ -219,14 +211,12 @@ public class TeleporterHeaven extends Teleporter
 				{
 					f2 = 0.0F;
 				}
-				
 				d8 += k3 * f1 + f2 * i3;
 				d4 += l3 * f1 + f2 * j3;
 				float f3 = 0.0F;
 				float f4 = 0.0F;
 				float f5 = 0.0F;
 				float f6 = 0.0F;
-				
 				if (j2 == k2)
 				{
 					f3 = 1.0F;
@@ -247,7 +237,6 @@ public class TeleporterHeaven extends Teleporter
 					f5 = -1.0F;
 					f6 = 1.0F;
 				}
-				
 				double d10 = par1Entity.motionX;
 				double d11 = par1Entity.motionZ;
 				par1Entity.motionX = d10 * f3 + d11 * f6;
@@ -258,7 +247,6 @@ public class TeleporterHeaven extends Teleporter
 			{
 				par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
 			}
-			
 			par1Entity.setLocationAndAngles(d8, d9, d4, par1Entity.rotationYaw, par1Entity.rotationPitch);
 			return true;
 		}
@@ -296,16 +284,13 @@ public class TeleporterHeaven extends Teleporter
 		int k4;
 		double d3;
 		double d4;
-		
 		for (i2 = i - b0; i2 <= i + b0; ++i2)
 		{
 			d1 = i2 + 0.5D - par1Entity.posX;
-			
 			for (j2 = k - b0; j2 <= k + b0; ++j2)
 			{
 				d2 = j2 + 0.5D - par1Entity.posZ;
 				label274:
-				
 				for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2)
 				{
 					if (this.worldServerInstance.isAirBlock(i2, k2, j2))
@@ -314,18 +299,15 @@ public class TeleporterHeaven extends Teleporter
 						{
 							--k2;
 						}
-						
 						for (i3 = l1; i3 < l1 + 4; ++i3)
 						{
 							l2 = i3 % 2;
 							k3 = 1 - l2;
-							
 							if (i3 % 4 >= 2)
 							{
 								l2 = -l2;
 								k3 = -k3;
 							}
-							
 							for (j3 = 0; j3 < 3; ++j3)
 							{
 								for (i4 = 0; i4 < 4; ++i4)
@@ -335,7 +317,6 @@ public class TeleporterHeaven extends Teleporter
 										k4 = i2 + (i4 - 1) * l2 + j3 * k3;
 										j4 = k2 + l3;
 										int l4 = j2 + (i4 - 1) * k3 - j3 * l2;
-										
 										if (l3 < 0 && !this.worldServerInstance.getBlockMaterial(k4, j4, l4).isSolid() || l3 >= 0 && !this.worldServerInstance.isAirBlock(k4, j4, l4))
 										{
 											continue label274;
@@ -343,10 +324,8 @@ public class TeleporterHeaven extends Teleporter
 									}
 								}
 							}
-							
 							d4 = k2 + 0.5D - par1Entity.posY;
 							d3 = d1 * d1 + d4 * d4 + d2 * d2;
-							
 							if (d0 < 0.0D || d3 < d0)
 							{
 								d0 = d3;
@@ -360,18 +339,15 @@ public class TeleporterHeaven extends Teleporter
 				}
 			}
 		}
-		
 		if (d0 < 0.0D)
 		{
 			for (i2 = i - b0; i2 <= i + b0; ++i2)
 			{
 				d1 = i2 + 0.5D - par1Entity.posX;
-				
 				for (j2 = k - b0; j2 <= k + b0; ++j2)
 				{
 					d2 = j2 + 0.5D - par1Entity.posZ;
 					label222:
-					
 					for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2)
 					{
 						if (this.worldServerInstance.isAirBlock(i2, k2, j2))
@@ -380,12 +356,10 @@ public class TeleporterHeaven extends Teleporter
 							{
 								--k2;
 							}
-							
 							for (i3 = l1; i3 < l1 + 2; ++i3)
 							{
 								l2 = i3 % 2;
 								k3 = 1 - l2;
-								
 								for (j3 = 0; j3 < 4; ++j3)
 								{
 									for (i4 = -1; i4 < 4; ++i4)
@@ -393,17 +367,14 @@ public class TeleporterHeaven extends Teleporter
 										l3 = i2 + (j3 - 1) * l2;
 										k4 = k2 + i4;
 										j4 = j2 + (j3 - 1) * k3;
-										
 										if (i4 < 0 && !this.worldServerInstance.getBlockMaterial(l3, k4, j4).isSolid() || i4 >= 0 && !this.worldServerInstance.isAirBlock(l3, k4, j4))
 										{
 											continue label222;
 										}
 									}
 								}
-								
 								d4 = k2 + 0.5D - par1Entity.posY;
 								d3 = d1 * d1 + d4 * d4 + d2 * d2;
-								
 								if (d0 < 0.0D || d3 < d0)
 								{
 									d0 = d3;
@@ -418,35 +389,28 @@ public class TeleporterHeaven extends Teleporter
 				}
 			}
 		}
-		
 		int i5 = l;
 		int j5 = i1;
 		j2 = j1;
 		int k5 = k1 % 2;
 		int l5 = 1 - k5;
-		
 		if (k1 % 4 >= 2)
 		{
 			k5 = -k5;
 			l5 = -l5;
 		}
-		
 		boolean flag;
-		
 		if (d0 < 0.0D)
 		{
 			if (i1 < 70)
 			{
 				i1 = 70;
 			}
-			
 			if (i1 > this.worldServerInstance.getActualHeight() - 10)
 			{
 				i1 = this.worldServerInstance.getActualHeight() - 10;
 			}
-			
 			j5 = i1;
-			
 			for (k2 = -1; k2 <= 1; ++k2)
 			{
 				for (i3 = 1; i3 < 3; ++i3)
@@ -457,12 +421,12 @@ public class TeleporterHeaven extends Teleporter
 						j3 = j5 + l2;
 						i4 = j2 + (i3 - 1) * l5 - k2 * k5;
 						flag = l2 < 0;
-						this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.obsidian.blockID : 0);
+						
+						this.worldServerInstance.setBlock(k3, j3, i4, flag ? MDMBlocks.heavenPortalFrame.blockID : 0);
 					}
 				}
 			}
 		}
-		
 		for (k2 = 0; k2 < 4; ++k2)
 		{
 			for (i3 = 0; i3 < 4; ++i3)
@@ -473,10 +437,10 @@ public class TeleporterHeaven extends Teleporter
 					j3 = j5 + l2;
 					i4 = j2 + (i3 - 1) * l5;
 					flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
-					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.obsidian.blockID : Block.portal.blockID, 0, 2);
+					
+					this.worldServerInstance.setBlock(k3, j3, i4, flag ? MDMBlocks.heavenPortalFrame.blockID : MDMBlocks.heavenPortal.blockID, 0, 2);
 				}
 			}
-			
 			for (i3 = 0; i3 < 4; ++i3)
 			{
 				for (l2 = -1; l2 < 4; ++l2)
@@ -488,7 +452,6 @@ public class TeleporterHeaven extends Teleporter
 				}
 			}
 		}
-		
 		return true;
 	}
 	
@@ -503,12 +466,10 @@ public class TeleporterHeaven extends Teleporter
 		{
 			Iterator iterator = this.destinationCoordinateKeys.iterator();
 			long j = par1 - 600L;
-			
 			while (iterator.hasNext())
 			{
 				Long olong = (Long) iterator.next();
 				PortalPosition portalposition = (PortalPosition) this.destinationCoordinateCache.getValueByKey(olong.longValue());
-				
 				if (portalposition == null || portalposition.lastUpdateTime < j)
 				{
 					iterator.remove();

@@ -1,6 +1,7 @@
 package clashsoft.mods.moredimensions.world.providers;
 
 import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.world.chunkmanagers.WorldChunkManagerHeaven;
 import clashsoft.mods.moredimensions.world.providers.chunk.ChunkProviderHeaven;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,18 +11,17 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldProviderHeaven extends WorldProvider
 {
-	private float[]	colorsSunriseSunset	= new float[4];
+	private final float[]	colorsSunriseSunset	= new float[4];
 	
 	@Override
 	public void registerWorldChunkManager()
 	{
 		this.dimensionId = MDMWorld.HEAVEN_ID;
-		this.worldChunkMgr = new WorldChunkManagerHell(MDMWorld.HeavenBiome, this.dimensionId, this.dimensionId);
+		this.worldChunkMgr = new WorldChunkManagerHeaven();
 		this.hasNoSky = false;
 	}
 	
@@ -95,13 +95,13 @@ public class WorldProviderHeaven extends WorldProvider
 	@Override
 	public boolean canRespawnHere()
 	{
-		return true;
+		return false;
 	}
 	
 	@Override
 	public boolean isSurfaceWorld()
 	{
-		return false;
+		return true;
 	}
 	
 	@Override
@@ -114,7 +114,7 @@ public class WorldProviderHeaven extends WorldProvider
 	@SideOnly(Side.CLIENT)
 	public String getSunTexture()
 	{
-		return "/mod_MoreDimensions/terrain/sun.png";
+		return "/Main:TwinSuns.png";
 	}
 	
 	@Override
@@ -144,11 +144,7 @@ public class WorldProviderHeaven extends WorldProvider
 	@SideOnly(Side.CLIENT)
 	public String getWelcomeMessage()
 	{
-		if ((this instanceof WorldProviderHeaven))
-		{
-			return "Entering Heaven";
-		}
-		return null;
+		return "Entering the Heaven";
 	}
 	
 	@Override
@@ -186,7 +182,7 @@ public class WorldProviderHeaven extends WorldProvider
 			f1 -= 1.0F;
 		}
 		float f2 = f1;
-		f1 = 1.0F - (float) ((Math.cos(f1 * 3.141592653589793D) + 1.0D) / 2.0D);
+		f1 = 1.0F - (float) ((Math.cos(f1 * Math.PI) + 1.0D) / 2.0D);
 		f1 = f2 + (f1 - f2) / 3.0F;
 		return f1;
 	}
@@ -196,7 +192,7 @@ public class WorldProviderHeaven extends WorldProvider
 	public Vec3 getFogColor(float par1, float par2)
 	{
 		int i = 10518688;
-		float f2 = MathHelper.cos(par1 * 3.141593F * 2.0F) * 2.0F + 0.5F;
+		float f2 = (float) (Math.cos(par1 * Math.PI * 2.0F) * 2.0F + 0.5F);
 		if (f2 < 0.0F)
 		{
 			f2 = 0.0F;

@@ -13,6 +13,8 @@ public class MDMLocalizations
 	{
 		// -- Items --
 		
+		// - Creative Tabs -
+		
 		addTranslation("itemGroup.MDMTools", "Advanced Tools");
 		addTranslation("itemGroup.POCTab", "Paradise of Chaos");
 		addTranslation("itemGroup.ElixirTab", "Elixirs");

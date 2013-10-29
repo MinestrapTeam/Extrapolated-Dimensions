@@ -42,4 +42,12 @@ public class ItemAxeMDM extends ItemTool
 			super(par1, 4F, 0.75F, par2EnumToolMaterial);
 		}
 	}
+	
+	public static class ItemSaw extends ItemAxeMDM
+	{
+		public ItemSaw(int par1, EnumToolMaterial par2EnumToolMaterial)
+		{
+			super(par1, 3F, 2F, par2EnumToolMaterial);
+		}
+	}
 }

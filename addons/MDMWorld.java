@@ -1,25 +1,30 @@
 package clashsoft.mods.moredimensions.addons;
 
+import java.util.Random;
+
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.world.biome.BiomeCorruptedMountains;
 import clashsoft.mods.moredimensions.world.biome.BiomeDesertOfDryness;
 import clashsoft.mods.moredimensions.world.biome.BiomeHeaven;
 import clashsoft.mods.moredimensions.world.biome.BiomePlainsOfInsanity;
+import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
+import clashsoft.mods.moredimensions.world.gen.poc.MDMGenTrees;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderHeaven;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderNightmares;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderPOC;
 
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
 @Addon(modName = "MoreDimensionsMod", addonName = "World")
 public class MDMWorld
 {
-	public static BiomeGenBase	HeavenBiome;
-	public static BiomeGenBase	PlainsOfInsanityBiome;
-	public static BiomeGenBase	CorruptedMountainsBiome;
-	public static BiomeGenBase	DesertOfDrynessBiome;
+	public static BiomeGenBase	biomeHeaven;
+	public static BiomeGenBase	biomePOCPlains;
+	public static BiomeGenBase	biomePOCMountains;
+	public static BiomeGenBase	biomePOCDesert;
 	
 	public static int			HEAVEN_ID		= 8;
 	public static int			POC_ID			= 9;
@@ -35,10 +40,10 @@ public class MDMWorld
 		
 		// -- Biomes --
 		
-		HeavenBiome = new BiomeHeaven(MDMConfig.getBiome("Heaven", 149));
-		PlainsOfInsanityBiome = new BiomePlainsOfInsanity(MDMConfig.getBiome("Plains of Insanity", 150)).setBiomeName("Plains Of Insanity");
-		CorruptedMountainsBiome = new BiomeCorruptedMountains(MDMConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("Corrupted Mountains");
-		DesertOfDrynessBiome = new BiomeDesertOfDryness(MDMConfig.getBiome("Desert of Dryness", 152)).setBiomeName("Desert Of Dryness");
+		biomeHeaven = new BiomeHeaven(MDMConfig.getBiome("Heaven", 149));
+		biomePOCPlains = new BiomePlainsOfInsanity(MDMConfig.getBiome("Plains of Insanity", 150)).setBiomeName("POC Plains");
+		biomePOCMountains = new BiomeCorruptedMountains(MDMConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("POC Mountains");
+		biomePOCDesert = new BiomeDesertOfDryness(MDMConfig.getBiome("Desert of Dryness", 152)).setBiomeName("POC Desert");
 		
 		// -- Dimensions --
 		
@@ -54,5 +59,24 @@ public class MDMWorld
 		// Nightmares Dimension
 		DimensionManager.registerProviderType(NIGHTMARES_ID, WorldProviderNightmares.class, true);
 		DimensionManager.registerDimension(NIGHTMARES_ID, NIGHTMARES_ID);
+	}
+	
+
+	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			int randPosX = chunkX + rand.nextInt(16);
+			int randPosY = rand.nextInt(250);
+			int randPosZ = chunkZ + rand.nextInt(16);
+			(new MDMGenTrees(true, 6, MDMBlocks.heavenLog.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			int randPosX = chunkX + rand.nextInt(16);
+			int randPosY = rand.nextInt(250);
+			int randPosZ = chunkZ + rand.nextInt(16);
+			(new HeavenGenBuildings().new HeavenGenBuilding1()).generate(world, rand, randPosX, randPosZ, randPosY);
+		}
 	}
 }

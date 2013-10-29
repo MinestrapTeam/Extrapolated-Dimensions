@@ -3,14 +3,14 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.addons.MDMItems;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
-import clashsoft.mods.moredimensions.block.BlockMDM;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterHeaven;
+import clashsoft.mods.moredimensions.world.teleporters.TeleporterPOC;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -19,15 +19,12 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockHeavenPortal extends BlockMDM
+public class BlockHeavenPortal extends BlockBreakable
 {
 	public BlockHeavenPortal(int par1)
 	{
-		super(par1, Material.portal, MDMItems.tabHeavenBlocks);
+		super(par1, "heavenportal", Material.portal, false);
 		this.setTickRandomly(true);
-		this.setHardness(-1.0F);
-		this.setStepSound(soundGlassFootstep);
-		this.setLightValue(0.75F);
 	}
 	
 	/**
@@ -37,16 +34,20 @@ public class BlockHeavenPortal extends BlockMDM
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		super.updateTick(par1World, par2, par3, par4, par5Random);
+		
 		if (par1World.provider.isSurfaceWorld() && par5Random.nextInt(2000) < par1World.difficultySetting)
 		{
 			int l;
+			
 			for (l = par3; !par1World.doesBlockHaveSolidTopSurface(par2, l, par4) && l > 0; --l)
 			{
 				;
 			}
+			
 			if (l > 0 && !par1World.isBlockNormalCube(par2, l + 1, par4))
 			{
 				Entity entity = ItemMonsterPlacer.spawnCreature(par1World, 57, par2 + 0.5D, l + 1.1D, par4 + 0.5D);
+				
 				if (entity != null)
 				{
 					entity.timeUntilPortal = entity.getPortalCooldown();
@@ -74,6 +75,7 @@ public class BlockHeavenPortal extends BlockMDM
 	{
 		float f;
 		float f1;
+		
 		if (par1IBlockAccess.getBlockId(par2 - 1, par3, par4) != this.blockID && par1IBlockAccess.getBlockId(par2 + 1, par3, par4) != this.blockID)
 		{
 			f = 0.125F;
@@ -89,7 +91,7 @@ public class BlockHeavenPortal extends BlockMDM
 	}
 	
 	/**
-	 * Is this block (a) opaque and (B) a full 1m cube? This determines whether
+	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
 	 * or not to render the shared face of two adjacent blocks and also whether
 	 * the player can attach torches, redstone wire, etc to this block.
 	 */
@@ -117,56 +119,66 @@ public class BlockHeavenPortal extends BlockMDM
 	{
 		byte b0 = 0;
 		byte b1 = 0;
-		if (par1World.getBlockId(par2 - 1, par3, par4) == Block.blockDiamond.blockID || par1World.getBlockId(par2 + 1, par3, par4) == Block.blockDiamond.blockID)
+		
+		if (par1World.getBlockId(par2 - 1, par3, par4) == MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 + 1, par3, par4) == MDMBlocks.heavenPortalFrame.blockID)
 		{
 			b0 = 1;
 		}
-		if (par1World.getBlockId(par2, par3, par4 - 1) == Block.blockDiamond.blockID || par1World.getBlockId(par2, par3, par4 + 1) == Block.blockDiamond.blockID)
+		
+		if (par1World.getBlockId(par2, par3, par4 - 1) == MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2, par3, par4 + 1) == MDMBlocks.heavenPortalFrame.blockID)
 		{
 			b1 = 1;
 		}
+		
 		if (b0 == b1)
 		{
 			return false;
 		}
 		else
 		{
-			if (par1World.getBlockId(par2 - b0, par3, par4 - b1) == 0)
+			if (par1World.isAirBlock(par2 - b0, par3, par4 - b1))
 			{
 				par2 -= b0;
 				par4 -= b1;
 			}
+			
 			int l;
 			int i1;
+			
 			for (l = -1; l <= 2; ++l)
 			{
 				for (i1 = -1; i1 <= 3; ++i1)
 				{
 					boolean flag = l == -1 || l == 2 || i1 == -1 || i1 == 3;
+					
 					if (l != -1 && l != 2 || i1 != -1 && i1 != 3)
 					{
 						int j1 = par1World.getBlockId(par2 + b0 * l, par3 + i1, par4 + b1 * l);
+						boolean isAirBlock = par1World.isAirBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l);
+						
 						if (flag)
 						{
-							if (j1 != Block.blockDiamond.blockID)
+							if (j1 != MDMBlocks.heavenPortalFrame.blockID)
 							{
 								return false;
 							}
 						}
-						else if (j1 != 0 && j1 != Block.fire.blockID) // XXX
+						else if (!isAirBlock && j1 != Block.waterStill.blockID)
 						{
 							return false;
 						}
 					}
 				}
 			}
+			
 			for (l = 0; l < 2; ++l)
 			{
 				for (i1 = 0; i1 < 3; ++i1)
 				{
-					par1World.setBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l, MDMBlocks.heavenPortal.blockID, 0, 2);
+					par1World.setBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l, this.blockID, 0, 2);
 				}
 			}
+			
 			return true;
 		}
 	}
@@ -181,38 +193,45 @@ public class BlockHeavenPortal extends BlockMDM
 	{
 		byte b0 = 0;
 		byte b1 = 1;
+		
 		if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
 		{
 			b0 = 1;
 			b1 = 0;
 		}
+		
 		int i1;
+		
 		for (i1 = par3; par1World.getBlockId(par2, i1 - 1, par4) == this.blockID; --i1)
 		{
 			;
 		}
-		if (par1World.getBlockId(par2, i1 - 1, par4) != Block.blockDiamond.blockID)
+		
+		if (par1World.getBlockId(par2, i1 - 1, par4) != MDMBlocks.heavenPortalFrame.blockID)
 		{
 			par1World.setBlockToAir(par2, par3, par4);
 		}
 		else
 		{
 			int j1;
+			
 			for (j1 = 1; j1 < 4 && par1World.getBlockId(par2, i1 + j1, par4) == this.blockID; ++j1)
 			{
 				;
 			}
-			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == Block.blockDiamond.blockID)
+			
+			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == MDMBlocks.heavenPortalFrame.blockID)
 			{
 				boolean flag = par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID;
 				boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) == this.blockID || par1World.getBlockId(par2, par3, par4 + 1) == this.blockID;
+				
 				if (flag && flag1)
 				{
 					par1World.setBlockToAir(par2, par3, par4);
 				}
 				else
 				{
-					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != Block.blockDiamond.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != Block.blockDiamond.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
+					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.POCPortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
 					{
 						par1World.setBlockToAir(par2, par3, par4);
 					}
@@ -229,7 +248,7 @@ public class BlockHeavenPortal extends BlockMDM
 	@SideOnly(Side.CLIENT)
 	/**
 	 * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
-	 * coordinates. Args: blockAccess, x, y, z, side
+	 * coordinates.  Args: blockAccess, x, y, z, side
 	 */
 	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
 	{
@@ -268,6 +287,7 @@ public class BlockHeavenPortal extends BlockMDM
 		if ((par5Entity.ridingEntity == null) && (par5Entity.riddenByEntity == null) && ((par5Entity instanceof EntityPlayerMP)))
 		{
 			EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
+			
 			if (thePlayer.timeUntilPortal > 0)
 			{
 				thePlayer.timeUntilPortal = 10;
@@ -280,32 +300,34 @@ public class BlockHeavenPortal extends BlockMDM
 			else
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(0)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPOC(thePlayer.mcServer.worldServerForDimension(0)));
 			}
 		}
+		
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
 	/**
 	 * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
 	 */
-	@Override
-	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass()
 	{
 		return 1;
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
 	/**
 	 * A randomly called display update to be able to add particles or other items for display
 	 */
-	@Override
-	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		if (par5Random.nextInt(100) == 0)
 		{
 			par1World.playSound(par2 + 0.5D, par3 + 0.5D, par4 + 0.5D, "portal.portal", 0.5F, par5Random.nextFloat() * 0.4F + 0.8F, false);
 		}
+		
 		for (int l = 0; l < 4; ++l)
 		{
 			double d0 = par2 + par5Random.nextFloat();
@@ -318,6 +340,7 @@ public class BlockHeavenPortal extends BlockMDM
 			d3 = (par5Random.nextFloat() - 0.5D) * 0.5D;
 			d4 = (par5Random.nextFloat() - 0.5D) * 0.5D;
 			d5 = (par5Random.nextFloat() - 0.5D) * 0.5D;
+			
 			if (par1World.getBlockId(par2 - 1, par3, par4) != this.blockID && par1World.getBlockId(par2 + 1, par3, par4) != this.blockID)
 			{
 				d0 = par2 + 0.5D + 0.25D * i1;
@@ -328,15 +351,16 @@ public class BlockHeavenPortal extends BlockMDM
 				d2 = par4 + 0.5D + 0.25D * i1;
 				d5 = par5Random.nextFloat() * 2.0F * i1;
 			}
+			
 			par1World.spawnParticle("portal", d0, d1, d2, d3, d4, d5);
 		}
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
 	/**
 	 * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
 	 */
-	@Override
-	@SideOnly(Side.CLIENT)
 	public int idPicked(World par1World, int par2, int par3, int par4)
 	{
 		return 0;

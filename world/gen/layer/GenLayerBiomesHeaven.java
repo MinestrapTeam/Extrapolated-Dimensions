@@ -6,17 +6,17 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerBiomesPOC extends GenLayer
+public class GenLayerBiomesHeaven extends GenLayer
 {
-	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomePOCPlains, MDMWorld.biomePOCMountains, MDMWorld.biomePOCDesert };
+	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomeHeaven };
 	
-	public GenLayerBiomesPOC(long seed, GenLayer genlayer)
+	public GenLayerBiomesHeaven(long seed, GenLayer genlayer)
 	{
 		super(seed);
 		this.parent = genlayer;
 	}
 	
-	public GenLayerBiomesPOC(long seed)
+	public GenLayerBiomesHeaven(long seed)
 	{
 		super(seed);
 	}
