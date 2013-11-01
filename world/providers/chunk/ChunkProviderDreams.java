@@ -99,14 +99,14 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 			{
 				BiomeGenBase var10 = par4ArrayOfBiomeGenBase[(var9 + var8 * 16)];
 				float var11 = var10.getFloatTemperature();
-				int var12 = (int) (this.stoneNoise[(var8 + var9 * 16)] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
+				int var12 = (int) (this.stoneNoise[(var8 + var9 * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
 				int var13 = -1;
 				byte var14 = var10.topBlock;
 				byte var15 = var10.fillerBlock;
 				for (int var16 = 127; var16 >= 0; var16--)
 				{
 					int var17 = (var9 * 16 + var8) * 128 + var16;
-					if (var16 <= 0 + this.rand.nextInt(5))
+					if (var16 <= 0 + this.random.nextInt(5))
 					{
 						par3ArrayOfByte[var17] = ((byte) dreamType.getBedrockBlock().blockID);
 					}
@@ -163,7 +163,7 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 								par3ArrayOfByte[var17] = var15;
 								if ((var13 == 0) && (var15 == dreamType.getSandBlock().blockID))
 								{
-									var13 = this.rand.nextInt(4);
+									var13 = this.random.nextInt(4);
 									var15 = (byte) dreamType.getSandstoneBlock().blockID;
 								}
 							}
@@ -183,7 +183,7 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 	@Override
 	public Chunk provideChunk(int par1, int par2)
 	{
-		this.rand.setSeed(par1 * 341873128712L + par2 * 132897987541L);
+		this.random.setSeed(par1 * 341873128712L + par2 * 132897987541L);
 		byte[] var3 = new byte[32768];
 		generateTerrain(par1, par2, var3);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);

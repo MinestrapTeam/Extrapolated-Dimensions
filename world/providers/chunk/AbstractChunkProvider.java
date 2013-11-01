@@ -25,46 +25,52 @@ import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
 
 public abstract class AbstractChunkProvider implements IChunkProvider
-{	
-	public final Random					rand;
-	public final NoiseGeneratorOctaves	noiseGen1;
-	public final NoiseGeneratorOctaves	noiseGen2;
-	public final NoiseGeneratorOctaves	noiseGen3;
-	public final NoiseGeneratorOctaves	noiseGen4;
-	public NoiseGeneratorOctaves		noiseGen5;
-	public NoiseGeneratorOctaves		noiseGen6;
-	public NoiseGeneratorOctaves		mobSpawnerNoise;
-	public final World					worldObj;
-	public final boolean				mapFeaturesEnabled;
-	public double[]						noiseArray;
-	public double[]						stoneNoise					= new double[256];
-	public final MapGenBase				caveGenerator				= new MapGenCaves();
-	public final MapGenStronghold		strongholdGenerator			= new MapGenStronghold();
-	public final MapGenVillage			villageGenerator			= new MapGenVillage();
-	public final MapGenMineshaft		mineshaftGenerator			= new MapGenMineshaft();
-	public final MapGenScatteredFeature	scatteredFeatureGenerator	= new MapGenScatteredFeature();
-	public final MapGenBase				ravineGenerator				= new MapGenRavine();
-	public BiomeGenBase[]				biomesForGeneration;
-	public double[]						noise3;
-	public double[]						noise1;
-	public double[]						noise2;
-	public double[]						noise5;
-	public double[]						noise6;
-	public float[]						parabolicField;
-	public int[][]						field_73219_j				= new int[32][32];
+{
+	public final World				worldObj;
+	public final boolean			mapFeaturesEnabled;
+	
+	public final Random				random;
+	
+	public NoiseGeneratorOctaves	noiseGen1;
+	public NoiseGeneratorOctaves	noiseGen2;
+	public NoiseGeneratorOctaves	noiseGen3;
+	public NoiseGeneratorOctaves	noiseGen4;
+	public NoiseGeneratorOctaves	noiseGen5;
+	public NoiseGeneratorOctaves	noiseGen6;
+	public NoiseGeneratorOctaves	mobSpawnerNoise;
+	
+	public double[]					noiseArray;
+	public double[]					stoneNoise					= new double[256];
+	
+	public MapGenBase				caveGenerator				= new MapGenCaves();
+	public MapGenStronghold			strongholdGenerator			= new MapGenStronghold();
+	public MapGenVillage			villageGenerator			= new MapGenVillage();
+	public MapGenMineshaft			mineshaftGenerator			= new MapGenMineshaft();
+	public MapGenScatteredFeature	scatteredFeatureGenerator	= new MapGenScatteredFeature();
+	public MapGenBase				ravineGenerator				= new MapGenRavine();
+	
+	public BiomeGenBase[]			biomesForGeneration;
+	public double[]					noise1;
+	public double[]					noise2;
+	public double[]					noise3;
+	public double[]					noise5;
+	public double[]					noise6;
+	public float[]					parabolicField;
 	
 	public AbstractChunkProvider(World par1World, long par2, boolean par4)
 	{
 		this.worldObj = par1World;
 		this.mapFeaturesEnabled = par4;
-		this.rand = new Random(par2);
-		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.noiseGen3 = new NoiseGeneratorOctaves(this.rand, 8);
-		this.noiseGen4 = new NoiseGeneratorOctaves(this.rand, 4);
-		this.noiseGen5 = new NoiseGeneratorOctaves(this.rand, 10);
-		this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
-		this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
+		
+		this.random = new Random(par2);
+		
+		this.noiseGen1 = new NoiseGeneratorOctaves(this.random, 16);
+		this.noiseGen2 = new NoiseGeneratorOctaves(this.random, 16);
+		this.noiseGen3 = new NoiseGeneratorOctaves(this.random, 8);
+		this.noiseGen4 = new NoiseGeneratorOctaves(this.random, 4);
+		this.noiseGen5 = new NoiseGeneratorOctaves(this.random, 10);
+		this.noiseGen6 = new NoiseGeneratorOctaves(this.random, 16);
+		this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.random, 8);
 	}
 	
 	public abstract void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte);
@@ -80,22 +86,22 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 	@Override
 	public Chunk provideChunk(int par1, int par2)
 	{
-		this.rand.setSeed(par1 * 341873128712L + par2 * 132897987541L);
-		// For some reason this is only 16x16x128.
-		byte[] var3 = new byte[32768];
-		generateTerrain(par1, par2, var3);
+		this.random.setSeed(par1 * worldObj.getSeed() | par2 * worldObj.getSeed() ^ par1 - par2);
+		
+		byte[] storage = new byte[32768];
+		generateTerrain(par1, par2, storage);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		replaceBlocksForBiome(par1, par2, var3, this.biomesForGeneration);
-		this.caveGenerator.generate(this, this.worldObj, par1, par2, var3);
-		this.ravineGenerator.generate(this, this.worldObj, par1, par2, var3);
+		replaceBlocksForBiome(par1, par2, storage, this.biomesForGeneration);
+		this.caveGenerator.generate(this, this.worldObj, par1, par2, storage);
+		this.ravineGenerator.generate(this, this.worldObj, par1, par2, storage);
 		if (this.mapFeaturesEnabled)
 		{
-			this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, var3);
-			this.villageGenerator.generate(this, this.worldObj, par1, par2, var3);
-			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, var3);
-			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, var3);
+			this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, storage);
+			this.villageGenerator.generate(this, this.worldObj, par1, par2, storage);
+			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, storage);
+			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, storage);
 		}
-		Chunk var4 = new Chunk(this.worldObj, var3, par1, par2);
+		Chunk var4 = new Chunk(this.worldObj, storage, par1, par2);
 		byte[] var5 = var4.getBiomeArray();
 		for (int var6 = 0; var6 < var5.length; var6++)
 		{
@@ -242,27 +248,27 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 		int var4 = par2 * 16;
 		int var5 = par3 * 16;
 		BiomeGenBase var6 = this.worldObj.getBiomeGenForCoords(var4 + 16, var5 + 16);
-		this.rand.setSeed(this.worldObj.getSeed());
-		long var7 = this.rand.nextLong() / 2L * 2L + 1L;
-		long var9 = this.rand.nextLong() / 2L * 2L + 1L;
-		this.rand.setSeed(par2 * var7 + par3 * var9 ^ this.worldObj.getSeed());
+		this.random.setSeed(this.worldObj.getSeed());
+		long var7 = this.random.nextLong() / 2L * 2L + 1L;
+		long var9 = this.random.nextLong() / 2L * 2L + 1L;
+		this.random.setSeed(par2 * var7 + par3 * var9 ^ this.worldObj.getSeed());
 		boolean var11 = false;
 		if (this.mapFeaturesEnabled)
 		{
-			this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
-			var11 = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
-			this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
-			this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
+			this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
+			var11 = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
+			this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
+			this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
 		}
-		if ((!var11) && (this.rand.nextInt(4) == 0))
+		if ((!var11) && (this.random.nextInt(4) == 0))
 		{
-			int var12 = var4 + this.rand.nextInt(16) + 8;
-			int var13 = this.rand.nextInt(256);
-			int var14 = var5 + this.rand.nextInt(16) + 8;
-			new WorldGenLakes(Block.waterStill.blockID).generate(this.worldObj, this.rand, var12, var13, var14);
+			int var12 = var4 + this.random.nextInt(16) + 8;
+			int var13 = this.random.nextInt(256);
+			int var14 = var5 + this.random.nextInt(16) + 8;
+			new WorldGenLakes(Block.waterStill.blockID).generate(this.worldObj, this.random, var12, var13, var14);
 		}
-		var6.decorate(this.worldObj, this.rand, var4, var5);
-		SpawnerAnimals.performWorldGenSpawning(this.worldObj, var6, var4 + 8, var5 + 8, 16, 16, this.rand);
+		var6.decorate(this.worldObj, this.random, var4, var5);
+		SpawnerAnimals.performWorldGenSpawning(this.worldObj, var6, var4 + 8, var5 + 8, 16, 16, this.random);
 		var4 += 8;
 		var5 += 8;
 		for (int var12 = 0; var12 < 16; var12++)
@@ -280,7 +286,7 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 				}
 			}
 		}
-		//postPopulate(par1IChunkProvider, par2, par3);
+		// postPopulate(par1IChunkProvider, par2, par3);
 		BlockSand.fallInstantly = false;
 	}
 	

@@ -28,7 +28,7 @@ public class WorldProviderHeaven extends WorldProvider
 	@Override
 	public IChunkProvider createChunkGenerator()
 	{
-		return new ChunkProviderHeaven(this.worldObj, this.worldObj.getSeed(), false);
+		return new ChunkProviderHeaven(this.worldObj, this.worldObj.getSeed());
 	}
 	
 	@Override
@@ -208,5 +208,11 @@ public class WorldProviderHeaven extends WorldProvider
 		f4 *= (f2 * 0.0F + 0.15F);
 		f5 *= (f2 * 0.0F + 0.15F);
 		return this.worldObj.getWorldVec3Pool().getVecFromPool(f3, f4, f5);
+	}
+	
+	@Override
+	public String getSaveFolder()
+	{
+		return "DIM-HEAVEN";
 	}
 }

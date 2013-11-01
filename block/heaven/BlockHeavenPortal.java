@@ -5,7 +5,6 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterHeaven;
-import clashsoft.mods.moredimensions.world.teleporters.TeleporterPOC;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -14,7 +13,6 @@ import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -34,26 +32,6 @@ public class BlockHeavenPortal extends BlockBreakable
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		super.updateTick(par1World, par2, par3, par4, par5Random);
-		
-		if (par1World.provider.isSurfaceWorld() && par5Random.nextInt(2000) < par1World.difficultySetting)
-		{
-			int l;
-			
-			for (l = par3; !par1World.doesBlockHaveSolidTopSurface(par2, l, par4) && l > 0; --l)
-			{
-				;
-			}
-			
-			if (l > 0 && !par1World.isBlockNormalCube(par2, l + 1, par4))
-			{
-				Entity entity = ItemMonsterPlacer.spawnCreature(par1World, 57, par2 + 0.5D, l + 1.1D, par4 + 0.5D);
-				
-				if (entity != null)
-				{
-					entity.timeUntilPortal = entity.getPortalCooldown();
-				}
-			}
-		}
 	}
 	
 	/**
@@ -231,7 +209,7 @@ public class BlockHeavenPortal extends BlockBreakable
 				}
 				else
 				{
-					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.POCPortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
+					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
 					{
 						par1World.setBlockToAir(par2, par3, par4);
 					}
@@ -300,7 +278,7 @@ public class BlockHeavenPortal extends BlockBreakable
 			else
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPOC(thePlayer.mcServer.worldServerForDimension(0)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(0)));
 			}
 		}
 		

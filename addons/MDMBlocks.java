@@ -121,7 +121,7 @@ public class MDMBlocks
 		roundPlant = new ItemStack(plantBlocks, 1, 3);
 		
 		heavenLog = (BlockHeavenLog) (new BlockHeavenLog(MDMConfig.getBlock("Heaven Log", 1052))).setUnlocalizedName("heavenwood_side").setHardness(2.0F).setStepSound(Block.soundWoodFootstep);
-		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(MDMConfig.getBlock("Heaven Portal", 1053))).setUnlocalizedName("heavenportal").setHardness(-1F).setLightValue(1F);
+		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(MDMConfig.getBlock("Heaven Portal", 1053))).setCreativeTab(MDMItems.tabHeavenBlocks).setUnlocalizedName("heavenportal").setHardness(-1F).setLightValue(1F);
 		heavenPortalFrame = (new BlockMDM(MDMConfig.getBlock("Heaven Portal Frame", 1054), Material.rock, MDMItems.tabHeavenBlocks)).setUnlocalizedName("heavenportal_frame").setTextureName("heavenportal_frame").setHardness(2F);
 		heavenLeaves = (BlockHeavenLeaves) (new BlockHeavenLeaves(MDMConfig.getBlock("Heaven Leaves", 1056))).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenleaves");
 		heavenSapling = (BlockHeavenSapling) (new BlockHeavenSapling(MDMConfig.getBlock("Heaven Sapling", 1057))).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavensapling");

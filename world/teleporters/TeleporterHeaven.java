@@ -7,7 +7,6 @@ import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
@@ -72,8 +71,7 @@ public class TeleporterHeaven extends Teleporter
 						int i2 = k + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
 						
-						/** change this block **/
-						this.worldServerInstance.setBlock(k1, l1, i2, flag ? Block.blockDiamond.blockID : 0);
+						this.worldServerInstance.setBlock(k1, l1, i2, flag ? MDMBlocks.heavenPortalFrame.blockID : 0);
 					}
 				}
 			}
@@ -90,15 +88,18 @@ public class TeleporterHeaven extends Teleporter
 	{
 		short short1 = 128;
 		double d3 = -1.0D;
+		
 		int i = 0;
 		int j = 0;
 		int k = 0;
 		int l = MathHelper.floor_double(par1Entity.posX);
 		int i1 = MathHelper.floor_double(par1Entity.posZ);
+		
 		long j1 = ChunkCoordIntPair.chunkXZ2Int(l, i1);
 		boolean flag = true;
 		double d4;
 		int k1;
+		
 		if (this.destinationCoordinateCache.containsItem(j1))
 		{
 			PortalPosition portalposition = (PortalPosition) this.destinationCoordinateCache.getValueByKey(j1);
