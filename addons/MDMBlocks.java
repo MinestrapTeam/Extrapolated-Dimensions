@@ -31,13 +31,14 @@ public class MDMBlocks
 	public static BlockCustomLog		pocLogs;
 	public static BlockCustomSapling	pocSaplings;
 	public static BlockCustomLeaves		pocLeaves;
-	public static Block					POCPortalFrame;
-	public static BlockPOCPortal		POCPortal;
-	public static BlockPOCActivatorLava	ActivatorLava;
-	public static BlockPOCDreamBed		DreamBed;
-	public static BlockAlchemyTube		AlchemyTube;
-	public static CustomBlock			ores1;
-	public static CustomBlock			ores2;
+	public static Block					pocPortalFrame;
+	public static BlockPOCPortal		pocPortal;
+	public static BlockPOCActivatorLava	activatorLava;
+	public static BlockPOCDreamBed		dreamBed;
+	public static BlockAlchemyTube		alchemyTube;
+	public static CustomBlock			pocOres1;
+	public static CustomBlock			pocOres2;
+	public static CustomBlock			pocPlanks;
 	
 	// -- Heaven Blocks --
 	
@@ -77,18 +78,20 @@ public class MDMBlocks
 		pocLeaves = (BlockCustomLeaves) new BlockCustomLeaves(MDMConfig.getBlock("POC Leaves", 1003), new String[] { "Magic Oak Leaves", "Willow Leaves" }, new String[] { "magicoakLeaves", "willowLeaves" }).setUnlocalizedName("pocLeaves").setCreativeTab(MDMItems.tabParadiseOfChaos);
 		pocSaplings = (BlockPOCSapling) new BlockPOCSapling(MDMConfig.getBlock("POC Saplings", 1002), new String[] { "Magic Oak Sapling", "Willow Sapling" }, new String[] { "magicoakSapling", "willowSapling" }).setUnlocalizedName("pocSaplings").setCreativeTab(MDMItems.tabParadiseOfChaos);
 		
-		POCPortalFrame = new BlockPOCPortalFrame(MDMConfig.getBlock("POC Portal Frame", 1004)).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(4F).setUnlocalizedName("POCPortalFrame").setTextureName("POCPortalFrame");
-		ores1 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 1", 1005), Material.rock, new String[] { "Copper Ore", "Tin Ore", "Silver Ore", "Mithril Ore", "Adamanite Ore", "Blurite Ore", "Daeyalt Ore", "Rubium Ore", "Novite Ore", "Bathus Ore", "Marmaros Ore", "Kratonium Ore", "Fractite Ore", "Zephyrium Ore", "Argonite Ore", "Katagon Ore" }, new String[] { "copperOre", "tinOre", "silverOre", "mithrilOre", "adamaniteOre", "bluriteOre", "daeyaltOre", "rubiumOre", "noviteOre", "bathusOre", "marmarosOre", "kratoniumOre", "fractiteOre", "zephyriumOre", "argoniteOre", "katagonOre" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("POCOres1");
-		ores2 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 2", 1006), Material.rock, new String[] { "Gorgonite Ore", "Promethium Ore" }, new String[] { "gorgoniteOre", "promethiumOre" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("POCOres2");
-		POCPortal = (BlockPOCPortal) new BlockPOCPortal(MDMConfig.getBlock("POC Portal", 1007)).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(-1F).setUnlocalizedName("POCPortal").setTextureName("POCPortal");
+		pocPortalFrame = new BlockPOCPortalFrame(MDMConfig.getBlock("POC Portal Frame", 1004)).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(4F).setUnlocalizedName("POCPortalFrame").setTextureName("POCPortalFrame");
+		pocPortal = (BlockPOCPortal) new BlockPOCPortal(MDMConfig.getBlock("POC Portal", 1007)).setCreativeTab(MDMItems.tabParadiseOfChaos).setHardness(-1F).setUnlocalizedName("POCPortal").setTextureName("POCPortal");
+		
+		pocOres1 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 1", 1005), Material.rock, new String[] { "Copper Ore", "Tin Ore", "Silver Ore", "Mithril Ore", "Adamanite Ore", "Blurite Ore", "Daeyalt Ore", "Rubium Ore", "Novite Ore", "Bathus Ore", "Marmaros Ore", "Kratonium Ore", "Fractite Ore", "Zephyrium Ore", "Argonite Ore", "Katagon Ore" }, new String[] { "copperOre", "tinOre", "silverOre", "mithrilOre", "adamaniteOre", "bluriteOre", "daeyaltOre", "rubiumOre", "noviteOre", "bathusOre", "marmarosOre", "kratoniumOre", "fractiteOre", "zephyriumOre", "argoniteOre", "katagonOre" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("POCOres1");
+		pocOres2 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 2", 1006), Material.rock, new String[] { "Gorgonite Ore", "Promethium Ore" }, new String[] { "gorgoniteOre", "promethiumOre" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("POCOres2");
+		pocPlanks = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Wood Blocks", 1007), Material.wood, new String[] { "Magic Oak Planks", "Willow Planks" }, new String[] { "magicoakPlanks", "willowPlanks" }, new CreativeTabs[] { MDMItems.tabParadiseOfChaos }).setUnlocalizedName("pocWoodBlocks").setStepSound(Block.soundWoodFootstep);
 		
 		Block.blocksList[Block.lavaStill.blockID] = null;
-		ActivatorLava = (BlockPOCActivatorLava) new BlockPOCActivatorLava(Block.lavaStill.blockID).setHardness(100.0F).setLightValue(1.0F).setUnlocalizedName("lava").setTextureName("lava_still");
+		activatorLava = (BlockPOCActivatorLava) new BlockPOCActivatorLava(Block.lavaStill.blockID).setHardness(100.0F).setLightValue(1.0F).setUnlocalizedName("lava").setTextureName("lava_still");
 		
 		Block.blocksList[Block.bed.blockID] = null;
-		DreamBed = (BlockPOCDreamBed) new BlockPOCDreamBed(Block.bed.blockID).setHardness(0.2F).setUnlocalizedName("bed").setTextureName("bed");
+		dreamBed = (BlockPOCDreamBed) new BlockPOCDreamBed(Block.bed.blockID).setHardness(0.2F).setUnlocalizedName("bed").setTextureName("bed");
 		
-		AlchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(MDMConfig.getBlock("Alchemy Tube", 1011)).setUnlocalizedName("AlchemyTube").setTextureName("alchemyTube").setCreativeTab(MDMItems.tabAlchemy);
+		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(MDMConfig.getBlock("Alchemy Tube", 1011)).setUnlocalizedName("AlchemyTube").setTextureName("alchemyTube").setCreativeTab(MDMItems.tabAlchemy);
 		
 		// -- Heaven Blocks --
 		
@@ -111,11 +114,11 @@ public class MDMBlocks
 		
 		heavenGrass = (BlockHeavenGrass) (new BlockHeavenGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204))).setUnlocalizedName("heavengrass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
 		
-		woodBlocks = (CustomBlock) new CustomBlock(MDMConfig.getBlock("Heaven Wood Blocks", 1050), Material.wood, new String[] { "Heaven Planks", "Gold Wood Planks" }, new String[] { "heavenwoodPlanks", "goldwoodPlanks" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("heavenWoodBlocks");
+		woodBlocks = (CustomBlock) new CustomBlock(MDMConfig.getBlock("Heaven Wood Blocks", 1050), Material.wood, new String[] { "Heaven Planks", "Gold Wood Planks" }, new String[] { "heavenwoodPlanks", "goldwoodPlanks" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setUnlocalizedName("heavenWoodBlocks").setStepSound(Block.soundWoodFootstep);
 		heavenwoodPlanks = new ItemStack(woodBlocks, 1, 0);
 		goldwoodPlanks = new ItemStack(woodBlocks, 1, 1);
 		
-		plantBlocks = (CustomBlock) new BlockHeavenPlant(MDMConfig.getBlock("Heaven Plant Blocks", 1051), new String[] { "Blue Flower", "Orange Flower", "Ground Vine", "Round Plant" }, new String[] { "heavenplant_blue", "heavenplant_orange", "heavenplant_vine", "heavenplant_circle" }).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("heavenPlantBlocks");
+		plantBlocks = (CustomBlock) new BlockHeavenPlant(MDMConfig.getBlock("Heaven Plant Blocks", 1051), new String[] { "Blue Flower", "Orange Flower", "Ground Vine", "Round Plant" }, new String[] { "heavenplant_blue", "heavenplant_orange", "heavenplant_vine", "heavenplant_circle" }).setUnlocalizedName("heavenPlantBlocks").setStepSound(Block.soundGrassFootstep);
 		blueFlower = new ItemStack(plantBlocks, 1, 0);
 		orangeFlower = new ItemStack(plantBlocks, 1, 1);
 		vinePlant = new ItemStack(plantBlocks, 1, 2);
@@ -142,11 +145,11 @@ public class MDMBlocks
 		addBlock(pocLogs, "pocLogs");
 		addBlock(pocLeaves, "pocLeaves");
 		addBlock(pocSaplings, "pocSaplings");
-		addBlock(POCPortalFrame, "Paradise Of Chaos Portal Frame");
-		addBlock(POCPortal, "Paradise of Chaos Portal");
-		addBlock(AlchemyTube, "Alchemy Tube");
-		addBlock(ores1, "POC Ores 1");
-		addBlock(ores2, "POC Ores 2");
+		addBlock(pocPortalFrame, "Paradise Of Chaos Portal Frame");
+		addBlock(pocPortal, "Paradise of Chaos Portal");
+		addBlock(alchemyTube, "Alchemy Tube");
+		addBlock(pocOres1, "POC Ores 1");
+		addBlock(pocOres2, "POC Ores 2");
 		
 		// -- Heaven --
 		

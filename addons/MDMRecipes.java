@@ -14,7 +14,7 @@ public class MDMRecipes
 	{
 		// -- Paradise of Chaos --
 		
-		CSCrafting.addCrafting(new ItemStack(MDMBlocks.POCPortalFrame), "nnn", "ndn", "nnn", 'n', Block.blockLapis, 'd', Item.diamond);
+		CSCrafting.addCrafting(new ItemStack(MDMBlocks.pocPortalFrame), "nnn", "ndn", "nnn", 'n', Block.blockLapis, 'd', Item.diamond);
 		
 		CSCrafting.addCrafting(new ItemStack(MDMItems.elixirBottle, 6, 0), " n ", "n n", "nnn", 'n', Block.thinGlass);
 		CSCrafting.addCrafting(new ItemStack(MDMItems.elixirBottle, 4, 1), " n ", " n ", "nnn", 'n', Block.thinGlass);

@@ -54,6 +54,7 @@ public class MDMItems
 	public static ItemStaff					staves;
 	public static ItemManaStar				manaStar;
 	public static ItemSword					shannaraSword;
+	
 	public static ItemElixir				elixir;
 	public static ItemElixirBottle			elixirBottle;
 	

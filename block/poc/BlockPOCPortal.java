@@ -119,12 +119,12 @@ public class BlockPOCPortal extends BlockBreakable
 		byte b0 = 0;
 		byte b1 = 0;
 		
-		if (par1World.getBlockId(par2 - 1, par3, par4) == MDMBlocks.POCPortalFrame.blockID || par1World.getBlockId(par2 + 1, par3, par4) == MDMBlocks.POCPortalFrame.blockID)
+		if (par1World.getBlockId(par2 - 1, par3, par4) == MDMBlocks.pocPortalFrame.blockID || par1World.getBlockId(par2 + 1, par3, par4) == MDMBlocks.pocPortalFrame.blockID)
 		{
 			b0 = 1;
 		}
 		
-		if (par1World.getBlockId(par2, par3, par4 - 1) == MDMBlocks.POCPortalFrame.blockID || par1World.getBlockId(par2, par3, par4 + 1) == MDMBlocks.POCPortalFrame.blockID)
+		if (par1World.getBlockId(par2, par3, par4 - 1) == MDMBlocks.pocPortalFrame.blockID || par1World.getBlockId(par2, par3, par4 + 1) == MDMBlocks.pocPortalFrame.blockID)
 		{
 			b1 = 1;
 		}
@@ -157,7 +157,7 @@ public class BlockPOCPortal extends BlockBreakable
 						
 						if (flag)
 						{
-							if (j1 != MDMBlocks.POCPortalFrame.blockID)
+							if (j1 != MDMBlocks.pocPortalFrame.blockID)
 							{
 								return false;
 							}
@@ -206,7 +206,7 @@ public class BlockPOCPortal extends BlockBreakable
 			;
 		}
 		
-		if (par1World.getBlockId(par2, i1 - 1, par4) != MDMBlocks.POCPortalFrame.blockID)
+		if (par1World.getBlockId(par2, i1 - 1, par4) != MDMBlocks.pocPortalFrame.blockID)
 		{
 			par1World.setBlockToAir(par2, par3, par4);
 		}
@@ -219,7 +219,7 @@ public class BlockPOCPortal extends BlockBreakable
 				;
 			}
 			
-			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == MDMBlocks.POCPortalFrame.blockID)
+			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == MDMBlocks.pocPortalFrame.blockID)
 			{
 				boolean flag = par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID;
 				boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) == this.blockID || par1World.getBlockId(par2, par3, par4 + 1) == this.blockID;
@@ -230,7 +230,7 @@ public class BlockPOCPortal extends BlockBreakable
 				}
 				else
 				{
-					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.POCPortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.POCPortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
+					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.pocPortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.pocPortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
 					{
 						par1World.setBlockToAir(par2, par3, par4);
 					}

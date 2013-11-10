@@ -41,7 +41,7 @@ public class BlockPOCActivatorLava extends BlockStationary
 		try
 		{
 			for (int i = 0; i < 3; i++)
-				if (MDMBlocks.POCPortal.tryToCreatePortal(par1World, par2, par3 - i, par4))
+				if (MDMBlocks.pocPortal.tryToCreatePortal(par1World, par2, par3 - i, par4))
 					break;
 		}
 		catch (Exception ex) {}
