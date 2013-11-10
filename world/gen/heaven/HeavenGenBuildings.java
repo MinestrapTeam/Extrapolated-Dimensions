@@ -46,7 +46,7 @@ public class HeavenGenBuildings
 			CSWorld.setCube(world, x + 6, y + 1, z + 1, x + 6, y + 3, z + 5, MDMBlocks.woodBlocks.blockID, 0);
 			CSWorld.setCube(world, x + 1, y + 1, z + 6, x + 5, y + 3, z + 6, MDMBlocks.woodBlocks.blockID, 0);
 			// Floor
-			CSWorld.setCube(world, x + 1, y, z + 1, x + 5, y, z + 5, MDMBlocks.heavenLog.blockID, 0);
+			CSWorld.setCube(world, x + 1, y, z + 1, x + 5, y, z + 5, MDMBlocks.heavenLogs.blockID, 0);
 			// Door
 			CSWorld.setCube(world, x + 3, y + 1, z, x + 3, y + 2, z, 0, 0);
 			// Windows

@@ -2,14 +2,10 @@ package clashsoft.mods.moredimensions.handlers;
 
 import clashsoft.clashsoftapi.util.CSUpdate;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.block.IMinableBlock;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockMobSpawner;
-import net.minecraft.block.BlockOre;
+import net.minecraft.block.*;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -27,14 +23,12 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 public class MDMEventHandler
 {
-	/** Used to make the sapling grow the tree **/
 	@ForgeSubscribe
 	public void bonemealUsed(BonemealEvent event)
 	{
-		if (event.world.getBlockId(event.X, event.Y, event.Z) == MDMBlocks.magicOakSapling.blockID)
-		{
-			MDMBlocks.magicOakSapling.growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-		}
+		int blockID = event.world.getBlockId(event.X, event.Y, event.Z);
+		if (Block.blocksList[blockID] instanceof BlockSapling)
+			((BlockSapling)Block.blocksList[blockID]).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 	}
 	
 	@ForgeSubscribe

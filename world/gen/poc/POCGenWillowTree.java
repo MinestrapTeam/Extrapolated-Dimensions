@@ -2,6 +2,8 @@ package clashsoft.mods.moredimensions.world.gen.poc;
 
 import java.util.Random;
 
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.util.MathHelper;
@@ -9,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
 
-public class WorldGenWillowTree extends WorldGenerator
+public class POCGenWillowTree extends WorldGenerator
 {
 	/**
 	 * Contains three sets of two values that provide complimentary indices for
@@ -51,7 +53,7 @@ public class WorldGenWillowTree extends WorldGenerator
 	/** Contains a list of a points at which to generate groups of leaves. */
 	int[][]				leafNodes;
 	
-	public WorldGenWillowTree(boolean par1)
+	public POCGenWillowTree(boolean par1)
 	{
 		super(par1);
 	}
@@ -143,12 +145,12 @@ public class WorldGenWillowTree extends WorldGenerator
 		System.arraycopy(aint, 0, this.leafNodes, 0, k);
 	}
 	
-	void genTreeLayer(int par1, int par2, int par3, float par4, byte par5, int par6)
+	public void genTreeLayer(int x, int y, int z, float par4, byte par5, int blockID, int metadata)
 	{
 		int i1 = (int) (par4 + 0.618D);
 		byte b1 = otherCoordPairs[par5];
 		byte b2 = otherCoordPairs[par5 + 3];
-		int[] aint = new int[] { par1, par2, par3 };
+		int[] aint = new int[] { x, y, z };
 		int[] aint1 = new int[] { 0, 0, 0 };
 		int j1 = -i1;
 		int k1 = -i1;
@@ -171,13 +173,13 @@ public class WorldGenWillowTree extends WorldGenerator
 					aint1[b2] = aint[b2] + k1;
 					int l1 = this.worldObj.getBlockId(aint1[0], aint1[1], aint1[2]);
 					
-					if (l1 != 0 && l1 != Block.leaves.blockID)
+					if (l1 != 0 && l1 != blockID)
 					{
 						++k1;
 					}
 					else
 					{
-						this.setBlockAndMetadata(this.worldObj, aint1[0], aint1[1], aint1[2], par6, 0);
+						this.setBlockAndMetadata(this.worldObj, aint1[0], aint1[1], aint1[2], blockID, 0);
 						++k1;
 					}
 				}
@@ -234,7 +236,7 @@ public class WorldGenWillowTree extends WorldGenerator
 		for (int i1 = par2 + this.leafDistanceLimit; l < i1; ++l)
 		{
 			float f = this.leafSize(l - par2);
-			this.genTreeLayer(par1, l, par3, f, (byte) 1, Block.leaves.blockID);
+			this.genTreeLayer(par1, l, par3, f, (byte) 1, MDMBlocks.pocLeaves.blockID, 1);
 		}
 	}
 	
@@ -242,7 +244,7 @@ public class WorldGenWillowTree extends WorldGenerator
 	 * Places a line of the specified block ID into the world from the first
 	 * coordinate triplet to the second.
 	 */
-	void placeBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger, int par3)
+	public void placeBlockLine(int[] sourceCoords, int[] destCoords, int blockID, int metadata)
 	{
 		int[] aint2 = new int[] { 0, 0, 0 };
 		byte b0 = 0;
@@ -250,7 +252,7 @@ public class WorldGenWillowTree extends WorldGenerator
 		
 		for (b1 = 0; b0 < 3; ++b0)
 		{
-			aint2[b0] = par2ArrayOfInteger[b0] - par1ArrayOfInteger[b0];
+			aint2[b0] = destCoords[b0] - sourceCoords[b0];
 			
 			if (Math.abs(aint2[b0]) > Math.abs(aint2[b1]))
 			{
@@ -280,27 +282,27 @@ public class WorldGenWillowTree extends WorldGenerator
 			
 			for (int k = aint2[b1] + b4; j != k; j += b4)
 			{
-				aint3[b1] = MathHelper.floor_double(par1ArrayOfInteger[b1] + j + 0.5D);
-				aint3[b2] = MathHelper.floor_double(par1ArrayOfInteger[b2] + j * d0 + 0.5D);
-				aint3[b3] = MathHelper.floor_double(par1ArrayOfInteger[b3] + j * d1 + 0.5D);
-				byte b5 = 0;
-				int l = Math.abs(aint3[0] - par1ArrayOfInteger[0]);
-				int i1 = Math.abs(aint3[2] - par1ArrayOfInteger[2]);
+				aint3[b1] = MathHelper.floor_double(sourceCoords[b1] + j + 0.5D);
+				aint3[b2] = MathHelper.floor_double(sourceCoords[b2] + j * d0 + 0.5D);
+				aint3[b3] = MathHelper.floor_double(sourceCoords[b3] + j * d1 + 0.5D);
+				int b5 = metadata;
+				int l = Math.abs(aint3[0] - sourceCoords[0]);
+				int i1 = Math.abs(aint3[2] - sourceCoords[2]);
 				int j1 = Math.max(l, i1);
 				
 				if (j1 > 0)
 				{
 					if (l == j1)
 					{
-						b5 = 4;
+						b5 |= 4;
 					}
 					else if (i1 == j1)
 					{
-						b5 = 8;
+						b5 |= 8;
 					}
 				}
 				
-				this.setBlockAndMetadata(this.worldObj, aint3[0], aint3[1], aint3[2], par3, b5);
+				this.setBlockAndMetadata(this.worldObj, aint3[0], aint3[1], aint3[2], blockID, b5);
 			}
 		}
 	}
@@ -309,7 +311,7 @@ public class WorldGenWillowTree extends WorldGenerator
 	 * Generates the leaf portion of the tree as specified by the leafNodes
 	 * list.
 	 */
-	void generateLeaves()
+	public void generateLeaves()
 	{
 		int i = 0;
 		
@@ -326,7 +328,7 @@ public class WorldGenWillowTree extends WorldGenerator
 	 * Indicates whether or not a leaf node requires additional wood to be added
 	 * to preserve integrity.
 	 */
-	boolean leafNodeNeedsBase(int par1)
+	public boolean leafNodeNeedsBase(int par1)
 	{
 		return par1 >= this.heightLimit * 0.2D;
 	}
@@ -335,7 +337,7 @@ public class WorldGenWillowTree extends WorldGenerator
 	 * Places the trunk for the big tree that is being generated. Able to
 	 * generate double-sized trunks by changing a field that is always 1 to 2.
 	 */
-	void generateTrunk()
+	public void generateTrunk()
 	{
 		int i = this.basePos[0];
 		int j = this.basePos[1];
@@ -343,19 +345,19 @@ public class WorldGenWillowTree extends WorldGenerator
 		int l = this.basePos[2];
 		int[] aint = new int[] { i, j, l };
 		int[] aint1 = new int[] { i, k, l };
-		this.placeBlockLine(aint, aint1, Block.wood.blockID);
+		this.placeBlockLine(aint, aint1, MDMBlocks.pocLogs.blockID, 1);
 		
 		if (this.trunkSize == 2)
 		{
 			++aint[0];
 			++aint1[0];
-			this.placeBlockLine(aint, aint1, Block.wood.blockID);
+			this.placeBlockLine(aint, aint1, MDMBlocks.pocLogs.blockID, 1);
 			++aint[2];
 			++aint1[2];
-			this.placeBlockLine(aint, aint1, Block.wood.blockID);
+			this.placeBlockLine(aint, aint1, MDMBlocks.pocLogs.blockID, 1);
 			aint[0] += -1;
 			aint1[0] += -1;
-			this.placeBlockLine(aint, aint1, Block.wood.blockID);
+			this.placeBlockLine(aint, aint1, MDMBlocks.pocLogs.blockID, 1);
 		}
 	}
 	
@@ -377,7 +379,7 @@ public class WorldGenWillowTree extends WorldGenerator
 			
 			if (this.leafNodeNeedsBase(k))
 			{
-				this.placeBlockLine(aint, aint2, (byte) Block.wood.blockID);
+				this.placeBlockLine(aint, aint2, MDMBlocks.pocLogs.blockID, 1);
 			}
 		}
 	}
@@ -387,7 +389,7 @@ public class WorldGenWillowTree extends WorldGenerator
 	 * to the second, returning the distance (in blocks) before a non-air,
 	 * non-leaf block is encountered and/or the end is encountered.
 	 */
-	int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger)
+	public int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger)
 	{
 		int[] aint2 = new int[] { 0, 0, 0 };
 		byte b0 = 0;
@@ -435,7 +437,7 @@ public class WorldGenWillowTree extends WorldGenerator
 				aint3[b3] = MathHelper.floor_double(par1ArrayOfInteger[b3] + i * d1);
 				int k = this.worldObj.getBlockId(aint3[0], aint3[1], aint3[2]);
 				
-				if (k != 0 && k != Block.leaves.blockID)
+				if (k != 0 && k != MDMBlocks.pocLeaves.blockID)
 				{
 					break;
 				}

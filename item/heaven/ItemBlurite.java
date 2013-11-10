@@ -30,11 +30,11 @@ public class ItemBlurite extends ItemMDM
 		
 		var11 = par3World.getBlockId(par4, par5, par6);
 		
-		if (var11 == MDMBlocks.heavenSapling.blockID)
+		if (var11 == MDMBlocks.heavenSaplings.blockID)
 		{
 			if (!par3World.isRemote)
 			{
-				((BlockHeavenSapling) MDMBlocks.heavenSapling).growTree(par3World, par4, par5, par6, par3World.rand);
+				((BlockHeavenSapling) MDMBlocks.heavenSaplings).growTree(par3World, par4, par5, par6, par3World.rand);
 				--par1ItemStack.stackSize;
 			}
 			return true;

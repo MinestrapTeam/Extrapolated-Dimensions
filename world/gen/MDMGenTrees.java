@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.world.gen.poc;
+package clashsoft.mods.moredimensions.world.gen;
 
 import java.util.Random;
 
@@ -26,15 +26,25 @@ public class MDMGenTrees extends WorldGenTrees
 	/** The metadata value of the leaves to use in tree generation. */
 	private final int		metaLeaves;
 	
-	public MDMGenTrees(boolean par1, int par2, int par3, int par4, int par5, int par6, boolean par7)
+	public MDMGenTrees(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID)
 	{
-		super(par1);
-		this.minTreeHeight = par2;
-		this.woodId = par3;
-		this.leavesId = par4;
-		this.metaWood = par5;
-		this.metaLeaves = par6;
-		this.vinesGrow = par7;
+		this(blockUpdates, minTreeHeight, woodID, leavesID, 0, 0);
+	}
+	
+	public MDMGenTrees(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID, int woodMetadata, int leavesMetadata)
+	{
+		this(blockUpdates, minTreeHeight, woodID, leavesID, woodMetadata, leavesMetadata, false);
+	}
+	
+	public MDMGenTrees(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID, int woodMetadata, int leavesMetadata, boolean vinesGrow)
+	{
+		super(blockUpdates);
+		this.minTreeHeight = minTreeHeight;
+		this.woodId = woodID;
+		this.leavesId = leavesID;
+		this.metaWood = woodMetadata;
+		this.metaLeaves = leavesMetadata;
+		this.vinesGrow = vinesGrow;
 	}
 	
 	@Override

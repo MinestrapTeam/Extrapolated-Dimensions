@@ -2,13 +2,13 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.world.gen.poc.WorldGenMagicOakTree;
+import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeCorruptedMountains extends BiomePlainsOfInsanity
 {
-	public WorldGenMagicOakTree	worldGenMagicTree;
+	public POCGenMagicOakTree	worldGenMagicTree;
 	
 	public BiomeCorruptedMountains(int par1)
 	{
@@ -18,7 +18,7 @@ public class BiomeCorruptedMountains extends BiomePlainsOfInsanity
 		this.setDisableRain();
 		this.theBiomeDecorator.treesPerChunk = 1;
 		// this.spawnableMonsterList.add(new EntityDragon);
-		worldGenMagicTree = new WorldGenMagicOakTree(false);
+		worldGenMagicTree = new POCGenMagicOakTree(false);
 	}
 	
 	/**

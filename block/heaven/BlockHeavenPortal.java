@@ -21,7 +21,7 @@ public class BlockHeavenPortal extends BlockBreakable
 {
 	public BlockHeavenPortal(int par1)
 	{
-		super(par1, "heavenportal", Material.portal, false);
+		super(par1, "heavenPortal", Material.portal, false);
 		this.setTickRandomly(true);
 	}
 	

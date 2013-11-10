@@ -6,29 +6,23 @@ import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-public class ItemTome extends Item
+public class ItemAlchemyGuide extends Item
 {
-	public ItemTome(int par1)
+	public ItemAlchemyGuide(int par1)
 	{
 		super(par1);
-	}
-	
-	public void updateIcons(IconRegister iconRegister)
-	{
-		itemIcon = iconRegister.registerIcon("main:Tome");
 	}
 	
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		par3List.add(EnumChatFormatting.ITALIC + "Holds all magical Knowledge, or so it seems.");
+		par3List.add(EnumChatFormatting.ITALIC + "Holds all alchemical knowledge, or so it seems.");
 	}
 	
 	@Override

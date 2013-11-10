@@ -64,20 +64,14 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				for (int k1 = 0; k1 < 32; k1++)
 				{
 					double d = 0.25D;
+					
 					double d1 = this.noiseArray1[(((i1 + 0) * l + j1 + 0) * byte1 + k1 + 0)];
-					
 					double d2 = this.noiseArray1[(((i1 + 0) * l + j1 + 1) * byte1 + k1 + 0)];
-					
 					double d3 = this.noiseArray1[(((i1 + 1) * l + j1 + 0) * byte1 + k1 + 0)];
-					
 					double d4 = this.noiseArray1[(((i1 + 1) * l + j1 + 1) * byte1 + k1 + 0)];
-					
 					double d5 = (this.noiseArray1[(((i1 + 0) * l + j1 + 0) * byte1 + k1 + 1)] - d1) * d;
-					
 					double d6 = (this.noiseArray1[(((i1 + 0) * l + j1 + 1) * byte1 + k1 + 1)] - d2) * d;
-					
 					double d7 = (this.noiseArray1[(((i1 + 1) * l + j1 + 0) * byte1 + k1 + 1)] - d3) * d;
-					
 					double d8 = (this.noiseArray1[(((i1 + 1) * l + j1 + 1) * byte1 + k1 + 1)] - d4) * d;
 					
 					for (int l1 = 0; l1 < 4; l1++)

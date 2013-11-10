@@ -22,9 +22,9 @@ public class BlockAlteredGrass extends Block
 	@Override
 	public void registerIcons(IconRegister reg)
 	{
-		this.textures[0] = reg.registerIcon("AlteredGrassBottom");
-		this.textures[1] = reg.registerIcon("AlteredGrassTop");
-		this.blockIcon = reg.registerIcon("AlteredGrassSides");
+		this.textures[0] = reg.registerIcon("alteredGrass_bottom");
+		this.textures[1] = reg.registerIcon("alteredGrass_top");
+		this.blockIcon = reg.registerIcon("alteredGrass_side");
 	}
 	
 	@Override

@@ -31,7 +31,7 @@ public class MDMItems
 	public static CustomCreativeTab			tabHeavenArmor		= new CustomCreativeTab("HeavenArmor");
 	public static CustomCreativeTab			tabHeavenMaterials	= new CustomCreativeTab("HeavenMaterials");
 	
-	public static EnumToolMaterial			toolHeavenwood		= EnumToolMaterial.WOOD;
+	public static EnumToolMaterial			toolHeavenwood		= EnumHelper.addToolMaterial("HEAVENWOOD", 0, 64, 1F, 1F, 14);
 	public static EnumToolMaterial			toolHeavenStone		= EnumHelper.addToolMaterial("HEAVENSTONE", 1, 64, 2F, 2, 12);
 	public static EnumToolMaterial			toolShrekite		= EnumHelper.addToolMaterial("SHREKITE", 1, 128, 3F, 3, 9);
 	public static EnumToolMaterial			toolClashium		= EnumHelper.addToolMaterial("CLASHIUM", 2, 256, 4F, 5, 11);
@@ -50,7 +50,7 @@ public class MDMItems
 	
 	// -- Paradise of Chaos --
 	
-	public static ItemTome					tome;
+	public static ItemAlchemyGuide			alchemyGuide;
 	public static ItemStaff					staves;
 	public static ItemManaStar				manaStar;
 	public static ItemSword					shannaraSword;
@@ -59,7 +59,7 @@ public class MDMItems
 	
 	// -- Heaven --
 	
-	public static int itemID = 26000;
+	public static int						itemID				= 26000;
 	
 	public static Item						heavenStoneSword, heavenStoneShovel, heavenStonePickaxe, heavenStoneAxe, heavenStoneHoe;
 	public static Item						heavenWoodSword, heavenWoodShovel, heavenWoodPickaxe, heavenWoodAxe, heavenWoodHoe;
@@ -68,6 +68,7 @@ public class MDMItems
 	public static Item						holyiumSword, holyiumShovel, holyiumPickaxe, holyiumAxe, holyiumHoe;
 	public static Item						energySword, energyShovel, energyPickaxe, energyAxe, energyHoe;
 	public static Item						proSword, proShovel, proPickaxe, proAxe, proHoe;
+	public static Item						goldWoodSword, goldWoodShovel, goldWoodPickaxe, goldWoodAxe, goldWoodHoe;
 	
 	public static Item						shrekiteHelmet, shrekiteChestplate, shrekiteLeggings, shrekiteBoots, shrekiteGloves;
 	public static Item						clashiumHelmet, clashiumChestplate, clashiumLeggings, clashiumBoots, clashiumGloves;
@@ -87,16 +88,16 @@ public class MDMItems
 	public static ItemHeavenPortalActivator	heavenPortalActivator;
 	public static ItemCape					capes;
 	
-	public static ItemStack					heavenStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
+	public static ItemStack					heavenwoodStick, goldwoodStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
 	
 	public static void initialize()
 	{
 		// -- Paradise of Chaos --
 		
-		tome = (ItemTome) new ItemTome(MDMConfig.getItem("Tome", 25000)).setUnlocalizedName("Tome").setCreativeTab(MDMItems.tabParadiseOfChaos);
-		staves = (ItemStaff) new ItemStaff(MDMConfig.getItem("Staves", 25001)).setUnlocalizedName("Staves").setCreativeTab(tabParadiseOfChaos);
-		manaStar = (ItemManaStar) new ItemManaStar(MDMConfig.getItem("Mana Star", 25002)).setUnlocalizedName("ManaStar").setCreativeTab(tabParadiseOfChaos);
-		shannaraSword = (ItemSword) new ItemSword(MDMConfig.getItem("Shannara Sword", 25003), MDMItems.toolMagic).setUnlocalizedName("ShannaraSword").setTextureName("shannarasword").setCreativeTab(tabParadiseOfChaos);
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(MDMConfig.getItem("Alchemy Guide", 25000)).setUnlocalizedName("alchemyGuide").setCreativeTab(MDMItems.tabParadiseOfChaos);
+		staves = (ItemStaff) new ItemStaff(MDMConfig.getItem("Staves", 25001)).setUnlocalizedName("staves").setCreativeTab(tabParadiseOfChaos);
+		manaStar = (ItemManaStar) new ItemManaStar(MDMConfig.getItem("Mana Star", 25002)).setUnlocalizedName("manastar").setCreativeTab(tabParadiseOfChaos);
+		shannaraSword = (ItemSword) new ItemSword(MDMConfig.getItem("Shannara Sword", 25003), MDMItems.toolMagic).setUnlocalizedName("shannaraSword").setTextureName("shannarasword").setCreativeTab(tabParadiseOfChaos);
 		elixir = (ItemElixir) new ItemElixir(MDMConfig.getItem("Elixir", 25004)).setUnlocalizedName("elixir");
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(MDMConfig.getItem("Elixir Bottle", 25005)).setUnlocalizedName("elixirbottle");
 		
@@ -144,6 +145,12 @@ public class MDMItems
 		proAxe = (new ItemAxe(MDMConfig.getItem("Pro Axe", itemID++), toolPro)).setUnlocalizedName("proAxe").setTextureName("proAxe").setCreativeTab(tabHeavenTools);
 		proHoe = (new ItemHoe(MDMConfig.getItem("Pro Hoe", itemID++), toolPro)).setUnlocalizedName("proHoe").setTextureName("proHoe").setCreativeTab(tabHeavenTools);
 		
+		goldWoodSword = (new ItemSword(MDMConfig.getItem("Gold Wood Sword", itemID++), toolHeavenwood)).setUnlocalizedName("goldwoodSword").setTextureName("goldwoodSword").setCreativeTab(tabHeavenTools);
+		goldWoodShovel = (new ItemSpade(MDMConfig.getItem("Gold Wood Shovel", itemID++), toolHeavenwood)).setUnlocalizedName("goldwoodShovel").setTextureName("goldwoodShovel").setCreativeTab(tabHeavenTools);
+		goldWoodPickaxe = (new ItemPickaxe(MDMConfig.getItem("Gold Wood Pickaxe", itemID++), toolHeavenwood)).setUnlocalizedName("goldwoodPickaxe").setTextureName("goldwoodPickaxe").setCreativeTab(tabHeavenTools);
+		goldWoodAxe = (new ItemAxe(MDMConfig.getItem("Gold Wood Axe", itemID++), toolHeavenwood)).setUnlocalizedName("goldwoodAxe").setTextureName("goldwoodAxe").setCreativeTab(tabHeavenTools);
+		goldWoodHoe = (new ItemHoe(MDMConfig.getItem("Gold Wood Hoe", itemID++), toolHeavenwood)).setUnlocalizedName("goldwoodHoe").setTextureName("goldwoodHoe").setCreativeTab(tabHeavenTools);
+		
 		shrekiteHelmet = new ItemArmor(MDMConfig.getItem("Shrekite Helmet", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 0).setUnlocalizedName("shrekiteHelmet").setTextureName("shrekiteHelmet").setCreativeTab(tabHeavenArmor);
 		shrekiteChestplate = new ItemArmor(MDMConfig.getItem("Shrekite Chestplate", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 1).setUnlocalizedName("shrekiteChestplate").setTextureName("shrekiteChestplate").setCreativeTab(tabHeavenArmor);
 		shrekiteLeggings = new ItemArmor(MDMConfig.getItem("Shrekite Leggings", itemID++), armorShrekite, MDMCommonProxy.getArmorIndex("shrekite"), 2).setUnlocalizedName("shrekiteLeggings").setTextureName("shrekiteLeggings").setCreativeTab(tabHeavenArmor);
@@ -174,23 +181,24 @@ public class MDMItems
 		proBoots = new ItemArmor(MDMConfig.getItem("Pro Boots", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro"), 3).setUnlocalizedName("proBoots").setTextureName("proBoots").setCreativeTab(tabHeavenArmor);
 		proGloves = new ItemGloves(MDMConfig.getItem("Pro Gloves", itemID++), armorPro, MDMCommonProxy.getArmorIndex("pro")).setUnlocalizedName("proGloves").setTextureName("proGloves").setCreativeTab(tabHeavenArmor);
 		
-		materials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", itemID++), new String[] { "Heaven Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenstick", "heavenarrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_alloy", "blurite_dust" }).setCreativeTab(tabHeavenMaterials);
-		heavenStick = new ItemStack(materials, 1, 0);
-		heavenArrow = new ItemStack(materials, 1, 1);
-		shrekiteShard = new ItemStack(materials, 1, 2);
-		clashiumIngot = new ItemStack(materials, 1, 3);
-		holyiumIngot = new ItemStack(materials, 1, 4);
-		energyOrb = new ItemStack(materials, 1, 5);
-		proAlloy = new ItemStack(materials, 1, 6);
-		bluriteDust = new ItemStack(materials, 1, 7);
+		materials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", itemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwoodStick", "goldwoodStick", "heavenArrow", "shrekiteShard", "clashiumIngot", "holyiumIngot", "energyOrb", "proAlloy", "blurite" }).setCreativeTab(tabHeavenMaterials);
+		heavenwoodStick = new ItemStack(materials, 1, 0);
+		goldwoodStick = new ItemStack(materials, 1, 1);
+		heavenArrow = new ItemStack(materials, 1, 2);
+		shrekiteShard = new ItemStack(materials, 1, 3);
+		clashiumIngot = new ItemStack(materials, 1, 4);
+		holyiumIngot = new ItemStack(materials, 1, 5);
+		energyOrb = new ItemStack(materials, 1, 6);
+		proAlloy = new ItemStack(materials, 1, 7);
+		bluriteDust = new ItemStack(materials, 1, 8);
 		
-		heavenBow = (ItemBowMDM) (new ItemBowMDM(MDMConfig.getItem("Heaven Bow", itemID++), "heavenbow", heavenArrow)).setUnlocalizedName("heavenbow");
-		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", itemID++), 2, 0, false)).setUnlocalizedName("heavenapple");
-		heart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", itemID++))).setUnlocalizedName("heart");
+		heavenBow = (ItemBowMDM) (new ItemBowMDM(MDMConfig.getItem("Heaven Bow", itemID++), "heavenbow", heavenArrow)).setUnlocalizedName("heavenwoodBow");
+		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", itemID++), 2, 0, false)).setUnlocalizedName("heavenApple");
+		heart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", itemID++))).setUnlocalizedName("lifeHeart");
 		flamingSword = (ItemFlamingSword) (new ItemFlamingSword(MDMConfig.getItem("Fire Sword", itemID++))).setUnlocalizedName("fireSword").setTextureName("fireSword");
 		pulsingSword = (ItemPulsingSword) (new ItemPulsingSword(MDMConfig.getItem("Pulsing Sword", itemID++))).setUnlocalizedName("pulseSword").setTextureName("pulseSword");
-		icestick = (ItemIceStick) (new ItemIceStick(MDMConfig.getItem("Ice Stick", itemID++))).setUnlocalizedName("icestick");
-		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", itemID++))).setUnlocalizedName("icehammer");
+		icestick = (ItemIceStick) (new ItemIceStick(MDMConfig.getItem("Ice Stick", itemID++))).setUnlocalizedName("iceStick");
+		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", itemID++))).setUnlocalizedName("iceHammer");
 		soul = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", itemID++))).setUnlocalizedName("soul");
 		capes = (ItemCape) new ItemCape(MDMConfig.getItem("Cape", itemID++)).setUnlocalizedName("cape");
 		
@@ -201,7 +209,7 @@ public class MDMItems
 	{
 		// -- Paradise of Chaos --
 		
-		addItem(tome, "\u00a7bTome", "\u00a7bBuch");
+		addItem(alchemyGuide, "Alchemy Guide", "Buch der Alchemie");
 		addItem(manaStar, "Mana Star", "Manastern");
 		addItem(shannaraSword, "The Sword of Shannara");
 		addItem(elixir, "Elixir", "Elixier");
@@ -209,47 +217,53 @@ public class MDMItems
 		
 		// -- Heaven --
 		
-		CSItems.addTool(heavenWoodSword, "Heaven Wood Sword", MDMBlocks.heavenPlanks, 0);
-		CSItems.addTool(heavenWoodShovel, "Heaven Wood Shovel", MDMBlocks.heavenPlanks, 1);
-		CSItems.addTool(heavenWoodPickaxe, "Heaven Wood Pickaxe", MDMBlocks.heavenPlanks, 2);
-		CSItems.addTool(heavenWoodAxe, "Heaven Wood Axe", MDMBlocks.heavenPlanks, 3);
-		CSItems.addTool(heavenWoodHoe, "Heaven Wood Hoe", MDMBlocks.heavenPlanks, 4);
+		CSItems.addTool(heavenWoodSword, "Heaven Wood Sword", MDMBlocks.heavenwoodPlanks, heavenwoodStick, 0);
+		CSItems.addTool(heavenWoodShovel, "Heaven Wood Shovel", MDMBlocks.heavenwoodPlanks, heavenwoodStick, 1);
+		CSItems.addTool(heavenWoodPickaxe, "Heaven Wood Pickaxe", MDMBlocks.heavenwoodPlanks, heavenwoodStick, 2);
+		CSItems.addTool(heavenWoodAxe, "Heaven Wood Axe", MDMBlocks.heavenwoodPlanks, heavenwoodStick, 3);
+		CSItems.addTool(heavenWoodHoe, "Heaven Wood Hoe", MDMBlocks.heavenwoodPlanks, heavenwoodStick, 4);
 		
-		CSItems.addTool(heavenStoneSword, "Heaven Stone Sword", MDMBlocks.heavenCobble, 0);
-		CSItems.addTool(heavenStoneShovel, "Heaven Stone Shovel", MDMBlocks.heavenCobble, 1);
-		CSItems.addTool(heavenStonePickaxe, "Heaven Stone Pickaxe", MDMBlocks.heavenCobble, 2);
-		CSItems.addTool(heavenStoneAxe, "Heaven Stone Axe", MDMBlocks.heavenCobble, 3);
-		CSItems.addTool(heavenStoneHoe, "Heaven Stone Hoe", MDMBlocks.heavenCobble, 4);
+		CSItems.addTool(heavenStoneSword, "Heaven Stone Sword", MDMBlocks.heavenCobble, heavenwoodStick, 0);
+		CSItems.addTool(heavenStoneShovel, "Heaven Stone Shovel", MDMBlocks.heavenCobble, heavenwoodStick, 1);
+		CSItems.addTool(heavenStonePickaxe, "Heaven Stone Pickaxe", MDMBlocks.heavenCobble, heavenwoodStick, 2);
+		CSItems.addTool(heavenStoneAxe, "Heaven Stone Axe", MDMBlocks.heavenCobble, heavenwoodStick, 3);
+		CSItems.addTool(heavenStoneHoe, "Heaven Stone Hoe", MDMBlocks.heavenCobble, heavenwoodStick, 4);
 		
-		CSItems.addTool(shrekiteSword, "Shrekite Sword", shrekiteShard, 0);
-		CSItems.addTool(shrekiteShovel, "Shrekite Shovel", shrekiteShard, 1);
-		CSItems.addTool(shrekitePickaxe, "Shrekite Pickaxe", shrekiteShard, 2);
-		CSItems.addTool(shrekiteAxe, "Shrekite Axe", shrekiteShard, 3);
-		CSItems.addTool(shrekiteHoe, "Shrekite Hoe", shrekiteShard, 4);
+		CSItems.addTool(shrekiteSword, "Shrekite Sword", shrekiteShard, heavenwoodStick, 0);
+		CSItems.addTool(shrekiteShovel, "Shrekite Shovel", shrekiteShard, heavenwoodStick, 1);
+		CSItems.addTool(shrekitePickaxe, "Shrekite Pickaxe", shrekiteShard, heavenwoodStick, 2);
+		CSItems.addTool(shrekiteAxe, "Shrekite Axe", shrekiteShard, heavenwoodStick, 3);
+		CSItems.addTool(shrekiteHoe, "Shrekite Hoe", shrekiteShard, heavenwoodStick, 4);
 		
-		CSItems.addTool(clashiumSword, "Clashium Sword", clashiumIngot, 0);
-		CSItems.addTool(clashiumShovel, "Clashium Shovel", clashiumIngot, 1);
-		CSItems.addTool(clashiumPickaxe, "Clashium Pickaxe", clashiumIngot, 2);
-		CSItems.addTool(clashiumAxe, "Clashium Axe", clashiumIngot, 3);
-		CSItems.addTool(clashiumHoe, "Clashium Hoe", clashiumIngot, 4);
+		CSItems.addTool(clashiumSword, "Clashium Sword", clashiumIngot, heavenwoodStick, 0);
+		CSItems.addTool(clashiumShovel, "Clashium Shovel", clashiumIngot, heavenwoodStick, 1);
+		CSItems.addTool(clashiumPickaxe, "Clashium Pickaxe", clashiumIngot, heavenwoodStick, 2);
+		CSItems.addTool(clashiumAxe, "Clashium Axe", clashiumIngot, heavenwoodStick, 3);
+		CSItems.addTool(clashiumHoe, "Clashium Hoe", clashiumIngot, heavenwoodStick, 4);
 		
-		CSItems.addTool(holyiumSword, "Holyium Sword", holyiumIngot, 0);
-		CSItems.addTool(holyiumShovel, "Holyium Shovel", holyiumIngot, 1);
-		CSItems.addTool(holyiumPickaxe, "Holyium Pickaxe", holyiumIngot, 2);
-		CSItems.addTool(holyiumAxe, "Holyium Axe", holyiumIngot, 3);
-		CSItems.addTool(holyiumHoe, "Holyium Hoe", holyiumIngot, 4);
+		CSItems.addTool(holyiumSword, "Holyium Sword", holyiumIngot, heavenwoodStick, 0);
+		CSItems.addTool(holyiumShovel, "Holyium Shovel", holyiumIngot, heavenwoodStick, 1);
+		CSItems.addTool(holyiumPickaxe, "Holyium Pickaxe", holyiumIngot, heavenwoodStick, 2);
+		CSItems.addTool(holyiumAxe, "Holyium Axe", holyiumIngot, heavenwoodStick, 3);
+		CSItems.addTool(holyiumHoe, "Holyium Hoe", holyiumIngot, heavenwoodStick, 4);
 		
-		CSItems.addTool(energySword, "Energy Sword", energyOrb, 0);
-		CSItems.addTool(energyShovel, "Energy Shovel", energyOrb, 1);
-		CSItems.addTool(energyPickaxe, "Energy Pickaxe", energyOrb, 2);
-		CSItems.addTool(energyAxe, "Energy Axe", energyOrb, 3);
-		CSItems.addTool(energyHoe, "Energy Hoe", energyOrb, 4);
+		CSItems.addTool(energySword, "Energy Sword", energyOrb, heavenwoodStick, 0);
+		CSItems.addTool(energyShovel, "Energy Shovel", energyOrb, heavenwoodStick, 1);
+		CSItems.addTool(energyPickaxe, "Energy Pickaxe", energyOrb, heavenwoodStick, 2);
+		CSItems.addTool(energyAxe, "Energy Axe", energyOrb, heavenwoodStick, 3);
+		CSItems.addTool(energyHoe, "Energy Hoe", energyOrb, heavenwoodStick, 4);
 		
-		CSItems.addTool(proSword, "Pro Sword", proAlloy, 0);
-		CSItems.addTool(proShovel, "Pro Shovel", proAlloy, 1);
-		CSItems.addTool(proPickaxe, "Pro Pickaxe", proAlloy, 2);
-		CSItems.addTool(proAxe, "Pro Axe", proAlloy, 3);
-		CSItems.addTool(proHoe, "Pro Hoe", proAlloy, 4);
+		CSItems.addTool(proSword, "Pro Sword", proAlloy, heavenwoodStick, 0);
+		CSItems.addTool(proShovel, "Pro Shovel", proAlloy, heavenwoodStick, 1);
+		CSItems.addTool(proPickaxe, "Pro Pickaxe", proAlloy, heavenwoodStick, 2);
+		CSItems.addTool(proAxe, "Pro Axe", proAlloy, heavenwoodStick, 3);
+		CSItems.addTool(proHoe, "Pro Hoe", proAlloy, heavenwoodStick, 4);
+		
+		CSItems.addTool(goldWoodSword, "Gold Wood Sword", MDMBlocks.goldwoodPlanks, goldwoodStick, 0);
+		CSItems.addTool(goldWoodShovel, "Gold Wood Shovel", MDMBlocks.goldwoodPlanks, goldwoodStick, 1);
+		CSItems.addTool(goldWoodPickaxe, "Gold Wood Pickaxe", MDMBlocks.goldwoodPlanks, goldwoodStick, 2);
+		CSItems.addTool(goldWoodAxe, "Gold Wood Axe", MDMBlocks.goldwoodPlanks, goldwoodStick, 3);
+		CSItems.addTool(goldWoodHoe, "Gold Wood Hoe", MDMBlocks.goldwoodPlanks, goldwoodStick, 4);
 		
 		CSItems.addArmor(shrekiteHelmet, "Shrekite Helmet", shrekiteShard, 0);
 		CSItems.addArmor(shrekiteChestplate, "Shrekite Chestplate", shrekiteShard, 1);
@@ -282,7 +296,7 @@ public class MDMItems
 		CSItems.addArmor(proGloves, "Pro Gloves", proAlloy, 4);
 		
 		addItem(heavenPortalActivator, "Heaven Portal Activator");
-		CSItems.addItemWithRecipe(heavenBow, "Heaven Bow", 1, new Object[] { "s| ", "s |", "s| ", Character.valueOf('s'), Item.silk, Character.valueOf('|'), heavenStick });
+		CSItems.addItemWithRecipe(heavenBow, "Heaven Bow", 1, new Object[] { "s| ", "s |", "s| ", Character.valueOf('s'), Item.silk, Character.valueOf('|'), heavenwoodStick });
 		addItem(heavenApple, "Heaven Apple");
 		addItem(heart, "Life Heart");
 		addItem(flamingSword, "Flaming Sword");

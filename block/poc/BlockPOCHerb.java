@@ -4,6 +4,7 @@ import static net.minecraftforge.common.EnumPlantType.Plains;
 
 import java.util.Random;
 
+import clashsoft.clashsoftapi.block.ICustomBlock;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -19,7 +20,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 
-public class BlockPOCHerb extends BlockFlower implements IPlantable
+public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBlock
 {
 	public String[]	names;
 	public String[]	texturenames;
@@ -158,12 +159,11 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable
 		return world.getBlockMetadata(x, y, z);
 	}
 	
-	public BlockPOCHerb addNames()
+	public void addNames()
 	{
 		for (int i = 0; i < names.length; i++)
 		{
 			LanguageRegistry.addName(new ItemStack(this, 1, i), names[i]);
 		}
-		return this;
 	}
 }

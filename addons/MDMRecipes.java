@@ -2,7 +2,6 @@ package clashsoft.mods.moredimensions.addons;
 
 import clashsoft.clashsoftapi.util.CSCrafting;
 import clashsoft.clashsoftapi.util.addons.Addon;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -15,14 +14,18 @@ public class MDMRecipes
 	{
 		// -- Paradise of Chaos --
 		
-		GameRegistry.addRecipe(new ItemStack(MDMBlocks.POCPortalFrame), new Object[] { "nnn", "ndn", "nnn", 'n', Block.blockLapis, 'd', Item.diamond });
+		CSCrafting.addCrafting(new ItemStack(MDMBlocks.POCPortalFrame), "nnn", "ndn", "nnn", 'n', Block.blockLapis, 'd', Item.diamond);
 		
-		GameRegistry.addRecipe(new ItemStack(MDMItems.elixirBottle, 6, 0), new Object[] { " n ", "n n", "nnn", 'n', Block.thinGlass });
-		GameRegistry.addRecipe(new ItemStack(MDMItems.elixirBottle, 4, 1), new Object[] { " n ", " n ", "nnn", 'n', Block.thinGlass });
+		CSCrafting.addCrafting(new ItemStack(MDMItems.elixirBottle, 6, 0), " n ", "n n", "nnn", 'n', Block.thinGlass);
+		CSCrafting.addCrafting(new ItemStack(MDMItems.elixirBottle, 4, 1), " n ", " n ", "nnn", 'n', Block.thinGlass);
 		
 		// -- Heaven --
 		
-		CSCrafting.addShapelessCrafting(new ItemStack(MDMBlocks.woodBlocks, 4, 0), MDMBlocks.heavenLog);
+		CSCrafting.addShapelessCrafting(MDMBlocks.heavenwoodPlanks, MDMBlocks.heavenLogs);
+		CSCrafting.addShapelessCrafting(MDMBlocks.goldwoodPlanks, MDMBlocks.goldwoodPlanks);
+		CSCrafting.addCrafting(MDMItems.heavenwoodStick, "p", "p", 'p', MDMBlocks.heavenwoodPlanks);
+		CSCrafting.addCrafting(MDMItems.goldwoodStick, "p", "p", 'p', MDMBlocks.goldwoodPlanks);
+		
 		CSCrafting.addSmelting(MDMBlocks.clashiumOre, MDMItems.clashiumIngot, 0.2F);
 		CSCrafting.addSmelting(MDMBlocks.holyiumOre, MDMItems.holyiumIngot, 2F);
 		
@@ -36,7 +39,7 @@ public class MDMRecipes
 		CSCrafting.addShapelessCrafting(MDMItems.clashiumIngot, MDMBlocks.clashiumBlock);
 		CSCrafting.addShapelessCrafting(MDMItems.holyiumIngot, MDMBlocks.holyiumBlock);
 		CSCrafting.addShapelessCrafting(MDMItems.bluriteDust, MDMBlocks.bluriteBlock);
-		CSCrafting.addShapelessCrafting(MDMItems.proAlloy, MDMBlocks.proAlloyBlock); 
+		CSCrafting.addShapelessCrafting(MDMItems.proAlloy, MDMBlocks.proAlloyBlock);
 		
 	}
 }
