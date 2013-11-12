@@ -1,9 +1,9 @@
 package clashsoft.mods.moredimensions.world.gen.poc;
 
+import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.world.gen.MDMGenTrees;
 
-public class POCGenMagicOakTree extends MDMGenTrees
+public class POCGenMagicOakTree extends CustomTreeGenerator
 {
 	public POCGenMagicOakTree(boolean par1)
 	{

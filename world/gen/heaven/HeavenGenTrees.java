@@ -1,9 +1,9 @@
 package clashsoft.mods.moredimensions.world.gen.heaven;
 
+import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.world.gen.MDMGenTrees;
 
-public class HeavenGenTrees extends MDMGenTrees
+public class HeavenGenTrees extends CustomTreeGenerator
 {
 	public HeavenGenTrees(boolean blockUpdates, int minTreeHeight, int woodMetadata, int leavesMetadata)
 	{

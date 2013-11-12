@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.biome;
 
+import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.world.gen.MDMGenTrees;
 
 import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.passive.EntityChicken;
@@ -31,7 +31,7 @@ public class BiomeHeaven extends BiomeGenBase
 		
 		this.topBlock = (byte) MDMBlocks.heavenGrass.blockID;
 		this.fillerBlock = (byte) MDMBlocks.groundBlocks.blockID;
-		this.worldGeneratorTrees = new MDMGenTrees(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
+		this.worldGeneratorTrees = new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 		
 		this.theBiomeDecorator = new BiomeDecoratorHeaven(this);
 		

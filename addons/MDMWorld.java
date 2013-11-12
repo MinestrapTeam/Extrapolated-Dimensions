@@ -3,11 +3,11 @@ package clashsoft.mods.moredimensions.addons;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.world.biome.BiomeCorruptedMountains;
 import clashsoft.mods.moredimensions.world.biome.BiomeDesertOfDryness;
 import clashsoft.mods.moredimensions.world.biome.BiomeHeaven;
 import clashsoft.mods.moredimensions.world.biome.BiomePlainsOfInsanity;
-import clashsoft.mods.moredimensions.world.gen.MDMGenTrees;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderHeaven;
@@ -69,7 +69,7 @@ public class MDMWorld
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new MDMGenTrees(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+			(new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
 		for (int i = 0; i < 5; i++)
 		{
