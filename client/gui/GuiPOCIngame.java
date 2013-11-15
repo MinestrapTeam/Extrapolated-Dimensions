@@ -72,7 +72,7 @@ public class GuiPOCIngame extends GuiIngameForge
 	
 	public void renderLevels(int width, int height)
 	{
-		if (Keyboard.isKeyDown(Keyboard.KEY_I))
+		if (Keyboard.isKeyDown(Keyboard.KEY_I) && Minecraft.getMinecraft().inGameHasFocus)
 		{
 			MDMEntityProperties props = MDMEntityProperties.getEntityProperties(mc.thePlayer);
 			int i1 = 11;

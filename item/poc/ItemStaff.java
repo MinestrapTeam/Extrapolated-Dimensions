@@ -12,11 +12,13 @@ import clashsoft.mods.moredimensions.magic.spells.Spell;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class ItemStaff extends Item
@@ -34,7 +36,6 @@ public class ItemStaff extends Item
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		super.registerIcons(par1IconRegister);
 		for (StaffType st : StaffType.staffTypes)
 		{
 			if (st != null)
@@ -55,7 +56,7 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public Icon getIcon(ItemStack par1ItemStack, int pass)
+	public Icon getIconIndex(ItemStack par1ItemStack)
 	{
 		StaffType st = StaffData.getStaffData(par1ItemStack).getStaffType();
 		if (st != null)
@@ -85,10 +86,10 @@ public class ItemStaff extends Item
 				else if (k < st.getCharges())
 					return icons.get(st.getTextureName(0));
 			}
-			return this.getIcon(usingItem, renderPass);
+			return this.getIconIndex(usingItem);
 		}
 		else
-			return getIcon(stack, renderPass);
+			return this.getIconIndex(stack);
 	}
 	
 	@Override
@@ -98,18 +99,39 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		StaffData sd = StaffData.getStaffData(par1ItemStack);
-		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(par3EntityPlayer);
+		return useStaff(stack, player, null);
+	}
+	
+	public ItemStack useStaff(ItemStack stack, EntityPlayer player, MovingObjectPosition object)
+	{
+		StaffData sd = StaffData.getStaffData(stack);
+		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
 		
 		if (!sd.getStaffType().isChargeable())
+		{
 			for (Spell s : sd.getSpells())
-				if (props.getMana() - s.getMana() >= 0F && s.onApplied(par3EntityPlayer, par1ItemStack, null))
+				if (props.getMana() - s.getMana() >= 0F && s.onApplied(player, stack, object))
 					props.addMana(-s.getMana());
+		}
 		else
-			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-		return par1ItemStack;
+			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		return stack;
+	}
+	
+	@Override
+	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer player, EntityLivingBase entity)
+	{
+		this.useStaff(stack, player, new MovingObjectPosition(entity));
+		return true;
+	}
+	
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+	{
+		this.useStaff(stack, player, this.getMovingObjectPositionFromPlayer(world, player, true));
+		return true;
 	}
 	
 	@Override

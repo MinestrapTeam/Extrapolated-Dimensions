@@ -22,7 +22,7 @@ import net.minecraft.util.StatCollector;
 
 public class ItemElixir extends ItemPotion2
 {
-	public static final int	BOTTLE_TYPES	= 2;
+	public static final int	BOTTLE_TYPES	= 3;
 	
 	public Icon[]			bottles;
 	public Icon[]			splashBottles;
@@ -43,10 +43,10 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		bottles = new Icon[16];
-		splashBottles = new Icon[16];
-		liquids = new Icon[16];
-		for (int i = 0; i < 16; i++)
+		bottles = new Icon[BOTTLE_TYPES];
+		splashBottles = new Icon[BOTTLE_TYPES];
+		liquids = new Icon[BOTTLE_TYPES];
+		for (int i = 0; i < BOTTLE_TYPES; i++)
 		{
 			bottles[i] = par1IconRegister.registerIcon("elixir_bottle_" + i);
 			splashBottles[i] = par1IconRegister.registerIcon("elixir_splash_" + i);

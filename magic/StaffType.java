@@ -19,10 +19,7 @@ public class StaffType
 		if (id >= staffTypes.length)
 		{
 			StaffType[] tmp = new StaffType[id + 1];
-			for (int x = 0; x < staffTypes.length; x++)
-			{
-				tmp[x] = staffTypes[x];
-			}
+			System.arraycopy(staffTypes, 0, tmp, 0, staffTypes.length);
 			staffTypes = tmp;
 		}
 		
@@ -66,6 +63,6 @@ public class StaffType
 	
 	public String getTextureName(int charge)
 	{
-		return "staff_" + (this.id) + (isChargeable() ? "_" + (charge + 1) : "");
+		return "staff_" + this.id + (this.isChargeable() ? "_" + (charge + 1) : "");
 	}
 }

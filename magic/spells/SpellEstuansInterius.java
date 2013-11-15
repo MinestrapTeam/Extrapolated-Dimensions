@@ -1,6 +1,5 @@
 package clashsoft.mods.moredimensions.magic.spells;
 
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
@@ -16,19 +15,10 @@ public class SpellEstuansInterius extends Spell
 	@Override
 	public boolean onApplied(EntityLivingBase user, ItemStack stack, MovingObjectPosition target)
 	{
-		if (target != null)
+		if (target != null && target.typeOfHit == EnumMovingObjectType.TILE)
 		{
-			if (target.typeOfHit == EnumMovingObjectType.ENTITY && target.entityHit instanceof EntityLiving)
-			{
-				((EntityLiving) target.entityHit).setDead();
-				// Insert blood particle animation here
-				return true;
-			}
-			else if (target.typeOfHit == EnumMovingObjectType.TILE)
-			{
-				user.worldObj.createExplosion(user, target.blockX, target.blockY, target.blockZ, 3F, true);
-				return true;
-			}
+			user.worldObj.createExplosion(user, target.blockX, target.blockY, target.blockZ, 3F, true);
+			return true;
 		}
 		return false;
 	}

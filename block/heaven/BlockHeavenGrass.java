@@ -60,9 +60,9 @@ public class BlockHeavenGrass extends BlockMDM
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		side = par1IconRegister.registerIcon("heavenGrass_side");
-		top = par1IconRegister.registerIcon("heavenGrass_top");
-		bottom = par1IconRegister.registerIcon("heavenDirt");
+		side = par1IconRegister.registerIcon("heaven_grass_side");
+		top = par1IconRegister.registerIcon("heaven_grass_top");
+		bottom = par1IconRegister.registerIcon("heaven_dirt");
 	}
 	
 	/**

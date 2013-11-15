@@ -1,9 +1,6 @@
 package clashsoft.mods.moredimensions.magic.spells;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -72,7 +69,7 @@ public abstract class Spell
 			NBTTagList list = par1ItemStack.getTagCompound().getTagList("Spells");
 			if (list != null)
 			{
-				List<Spell> spells = new LinkedList<Spell>();
+				List<Spell> spells = new ArrayList<Spell>();
 				for (int i = 0; i < list.tagCount(); i++)
 				{
 					NBTTagCompound nbt = (NBTTagCompound) list.tagAt(i);

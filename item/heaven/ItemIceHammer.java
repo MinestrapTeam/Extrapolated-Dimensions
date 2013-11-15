@@ -22,7 +22,7 @@ public class ItemIceHammer extends ItemIceStick
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
 	{
 		par1ItemStack.damageItem(1, par3EntityLivingBase);
-		par2EntityLivingBase.knockBack(par2EntityLivingBase, 1, 1, 1);
+		par2EntityLivingBase.knockBack(par2EntityLivingBase, 3, 0, 0);
 		return true;
 	}
 	

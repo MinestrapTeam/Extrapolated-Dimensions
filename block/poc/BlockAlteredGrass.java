@@ -11,20 +11,20 @@ import net.minecraft.world.World;
 
 public class BlockAlteredGrass extends Block
 {
+	public Icon[]	textures	= new Icon[2];
+	
 	public BlockAlteredGrass(int par1, Material par2Material)
 	{
 		super(par1, Material.ground);
 	}
 	
-	private final Icon[]	textures	= new Icon[2];
-	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister reg)
 	{
-		this.textures[0] = reg.registerIcon("alteredGrass_bottom");
-		this.textures[1] = reg.registerIcon("alteredGrass_top");
-		this.blockIcon = reg.registerIcon("alteredGrass_side");
+		this.textures[0] = reg.registerIcon("altered_grass_bottom");
+		this.textures[1] = reg.registerIcon("altered_grass_top");
+		this.blockIcon = reg.registerIcon("altered_grass_side");
 	}
 	
 	@Override

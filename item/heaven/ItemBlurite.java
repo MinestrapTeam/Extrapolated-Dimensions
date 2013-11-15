@@ -15,7 +15,7 @@ public class ItemBlurite extends ItemMDM
 {
 	public ItemBlurite(int par1)
 	{
-		super(par1, MDMItems.tabHeavenMaterials);
+		super(par1, MDMItems.tabHeavenItems);
 	}
 	
 	public void addInformation(ItemStack par1ItemStack, List par2List)

@@ -16,11 +16,17 @@ public class MDMLocalizations
 		// - Creative Tabs -
 		
 		addTranslation("itemGroup.MDMTools", "Advanced Tools");
-		addTranslation("itemGroup.POCTab", "Paradise of Chaos");
-		addTranslation("itemGroup.ElixirTab", "Elixirs");
+		
+		addTranslation("itemGroup.POCBlocks", "Paradise of Chaos Blocks");
+		addTranslation("itemGroup.POCItems", "Paradise of Chaos Items");
+		addTranslation("itemGroup.POCTools", "Paradise of Chaos Tools and Weapons");
+		addTranslation("itemGroup.POCArmor", "Paradise of Chaos Armory");
+		
+		addTranslation("itemGroup.AlchemyTab", "Alchemy");
+		
 		addTranslation("itemGroup.HeavenBlocks", "Heaven Blocks");
-		addTranslation("itemGroup.HeavenMaterials", "Heaven Materials");
-		addTranslation("itemGroup.HeavenTools", "Heaven Tools and Weaponry");
+		addTranslation("itemGroup.HeavenItems", "Heaven Items");
+		addTranslation("itemGroup.HeavenTools", "Heaven Tools and Weapons");
 		addTranslation("itemGroup.HeavenArmor", "Heaven Armory");
 		
 		// - Paradise of Chaos -
@@ -43,7 +49,7 @@ public class MDMLocalizations
 		
 		for (int i = 0; i < 16; i++)
 		{
-			LanguageRegistry.addName(new ItemStack(MDMItems.soul, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
+			LanguageRegistry.addName(new ItemStack(MDMItems.heavenSouls, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
 		}
 		
 		// -- Entitys --

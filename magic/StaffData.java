@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.magic;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import clashsoft.mods.moredimensions.magic.spells.Spell;
@@ -92,7 +92,7 @@ public class StaffData
 			String var5 = dataCompound.getString("FoundAt");
 			return new StaffData(var1, StaffType.staffTypes[var3], var2, var4, var5);
 		}
-		return new StaffData(new LinkedList<Spell>(), StaffType.staffTypes[0], false, 0, "");
+		return new StaffData(new ArrayList<Spell>(), StaffType.staffTypes[0], false, 0, "");
 	}
 	
 	public ItemStack addDataToItemStack(ItemStack par1ItemStack)

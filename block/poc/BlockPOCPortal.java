@@ -22,7 +22,7 @@ public class BlockPOCPortal extends BlockBreakable
 {
 	public BlockPOCPortal(int par1)
 	{
-		super(par1, "POCPortal", Material.portal, false);
+		super(par1, "poc_portal", Material.portal, false);
 		this.setTickRandomly(true);
 	}
 	
