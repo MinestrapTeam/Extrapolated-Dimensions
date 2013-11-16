@@ -44,6 +44,10 @@ public class MDMLocalizations
 		addTranslation("elixir.bottletype.0", "de_DE", "Eckig");
 		addTranslation("elixir.bottletype.1", "en_US", "Triangular");
 		addTranslation("elixir.bottletype.1", "de_DE", "Dreieckig");
+		addTranslation("elixir.bottletype.2", "en_US", "Round");
+		addTranslation("elixir.bottletype.2", "de_DE", "Rund");
+		
+		addTranslation("alchemyguide.description", "en_US", "Holds all alchemical knowledge");
 		
 		// - Heaven -
 		

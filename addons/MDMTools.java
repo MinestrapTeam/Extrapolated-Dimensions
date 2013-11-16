@@ -270,7 +270,7 @@ public class MDMTools
 		addItem(woodLongsword, "Wood Longsword");
 		addItem(woodHalberd, "Wood Halberd");
 		addItem(woodSpear, "Wood Spear");
-		addItem(woodHammer, "Wood Warhammer");
+		addItem(woodHammer, "Wood Hammer");
 		addItem(woodWarhammer, "Wood Warhammer");
 		addItem(woodBattleaxe, "Wood Battleaxe");
 		addItem(woodClaws, "Wood Claws");
@@ -292,7 +292,7 @@ public class MDMTools
 		addItem(stoneLongsword, "Stone Longsword");
 		addItem(stoneHalberd, "Stone Halberd");
 		addItem(stoneSpear, "Stone Spear");
-		addItem(stoneHammer, "Stone Warhammer");
+		addItem(stoneHammer, "Stone Hammer");
 		addItem(stoneWarhammer, "Stone Warhammer");
 		addItem(stoneBattleaxe, "Stone Battleaxe");
 		addItem(stoneClaws, "Stone Claws");
@@ -314,7 +314,7 @@ public class MDMTools
 		addItem(ironLongsword, "Iron Longsword");
 		addItem(ironHalberd, "Iron Halberd");
 		addItem(ironSpear, "Iron Spear");
-		addItem(ironHammer, "Iron Warhammer");
+		addItem(ironHammer, "Iron Hammer");
 		addItem(ironWarhammer, "Iron Warhammer");
 		addItem(ironBattleaxe, "Iron Battleaxe");
 		addItem(ironClaws, "Iron Claws");
@@ -336,7 +336,7 @@ public class MDMTools
 		addItem(goldLongsword, "Gold Longsword");
 		addItem(goldHalberd, "Gold Halberd");
 		addItem(goldSpear, "Gold Spear");
-		addItem(goldHammer, "Gold Warhammer");
+		addItem(goldHammer, "Gold Hammer");
 		addItem(goldWarhammer, "Gold Warhammer");
 		addItem(goldBattleaxe, "Gold Battleaxe");
 		addItem(goldClaws, "Gold Claws");
@@ -358,7 +358,7 @@ public class MDMTools
 		addItem(diamondLongsword, "Diamond Longsword");
 		addItem(diamondHalberd, "Diamond Halberd");
 		addItem(diamondSpear, "Diamond Spear");
-		addItem(diamondHammer, "Diamond Warhammer");
+		addItem(diamondHammer, "Diamond Hammer");
 		addItem(diamondWarhammer, "Diamond Warhammer");
 		addItem(diamondBattleaxe, "Diamond Battleaxe");
 		addItem(diamondClaws, "Diamond Claws");

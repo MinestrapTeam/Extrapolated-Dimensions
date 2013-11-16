@@ -5,7 +5,6 @@ import java.util.List;
 import clashsoft.brewingapi.brewing.Brewing;
 import clashsoft.brewingapi.brewing.BrewingBase;
 import clashsoft.brewingapi.item.ItemPotion2;
-import clashsoft.clashsoftapi.util.CSUtil;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -61,14 +60,12 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public boolean isSplash(int par1)
 	{
-		boolean b = CSUtil.checkBit(par1, 1);
-		return b;
+		return (par1 & 2) != 0;
 	}
 	
 	public int getBottleType(int par1)
 	{
-		int i = par1 >> 2;
-		return i;
+		return par1 >> 2;
 	}
 	
 	@Override

@@ -6,10 +6,10 @@ import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class ItemAlchemyGuide extends Item
@@ -22,7 +22,7 @@ public class ItemAlchemyGuide extends Item
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		par3List.add(EnumChatFormatting.ITALIC + "Holds all alchemical knowledge, or so it seems.");
+		par3List.add(I18n.getString("alchemyguide.description"));
 	}
 	
 	@Override
