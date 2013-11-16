@@ -29,8 +29,8 @@ public class BiomeHeaven extends BiomeGenBase
 		
 		spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
-		this.topBlock = (byte) MDMBlocks.heavenGrass.blockID;
-		this.fillerBlock = (byte) MDMBlocks.groundBlocks.blockID;
+		this.topBlock = (byte) MDMBlocks.heavenGrassBlocks.blockID;
+		this.fillerBlock = (byte) MDMBlocks.heavenDirtBlocks.blockID;
 		this.worldGeneratorTrees = new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 		
 		this.theBiomeDecorator = new BiomeDecoratorHeaven(this);

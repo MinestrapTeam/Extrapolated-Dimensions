@@ -94,7 +94,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 								int l2 = 0;
 								if (d15 > 0.0D)
 								{
-									l2 = MDMBlocks.stoneBlocks.blockID;
+									l2 = MDMBlocks.heavenStoneBlocks.blockID;
 								}
 								storage[j2] = ((byte) l2);
 								j2 += c;
@@ -127,11 +127,11 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				int i1 = (int) (this.noiseArray4[(k + l * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
 				
 				int j1 = -1;
-				this.topBlock = ((byte) MDMBlocks.heavenGrass.blockID);
-				this.fillerBlock = ((byte) MDMBlocks.groundBlocks.blockID);
+				this.topBlock = ((byte) MDMBlocks.heavenGrassBlocks.blockID);
+				this.fillerBlock = ((byte) MDMBlocks.heavenDirtBlocks.blockID);
 				byte byte0 = this.topBlock;
 				byte byte1 = this.fillerBlock;
-				byte stone = (byte) MDMBlocks.stoneBlocks.blockID;
+				byte stone = (byte) MDMBlocks.heavenStoneBlocks.blockID;
 				if (byte0 < 0)
 				{
 					byte0 = (byte) (byte0 + 0);

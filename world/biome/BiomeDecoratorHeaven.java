@@ -14,11 +14,11 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 {
 	protected WorldGenerator			spikeGen;
 	
-	private WorldGenerator				dirtGen		= new HeavenGenMinable(MDMBlocks.groundBlocks.blockID, 20);
-	private WorldGenerator				sywoxiteGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 3, 18);
-	private WorldGenerator				clashiumGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 4, 10);
-	private WorldGenerator				bluriteGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 5, 8);
-	private WorldGenerator				holyiumGen	= new HeavenGenMinable(MDMBlocks.stoneBlocks.blockID, 6, 8);
+	private WorldGenerator				dirtGen		= new HeavenGenMinable(MDMBlocks.heavenDirtBlocks.blockID, 20);
+	private WorldGenerator				sywoxiteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 3, 18);
+	private WorldGenerator				clashiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 4, 10);
+	private WorldGenerator				bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 5, 8);
+	private WorldGenerator				holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 6, 8);
 	private WorldGenerator				treeGen		= new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 	
 	public BiomeDecoratorHeaven(BiomeGenBase par1BiomeGenBase)

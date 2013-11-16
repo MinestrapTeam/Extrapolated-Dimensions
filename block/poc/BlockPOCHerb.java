@@ -68,7 +68,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	 */
 	protected boolean canThisGrowOnThisBlockID(int par1)
 	{
-		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.alteredDirt.blockID;
+		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.pocDirtBlocks.blockID;
 	}
 	
 	/**

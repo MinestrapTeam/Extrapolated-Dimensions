@@ -39,12 +39,12 @@ public class HeavenGenBuildings
 		public boolean generateN(World world, Random rand, int x, int y, int z)
 		{
 			// Heavencobble frame
-			CSWorld.setFrame(world, x, y, z, x + 6, y + 4, z + 6, MDMBlocks.stoneBlocks.blockID, 1);
+			CSWorld.setFrame(world, x, y, z, x + 6, y + 4, z + 6, MDMBlocks.heavenStoneBlocks.blockID, 1);
 			// Walls
-			CSWorld.setCube(world, x, y + 1, z + 1, x, y + 3, z + 5, MDMBlocks.woodBlocks.blockID, 0);
-			CSWorld.setCube(world, x + 1, y + 1, z, x + 5, y + 3, z, MDMBlocks.woodBlocks.blockID, 0);
-			CSWorld.setCube(world, x + 6, y + 1, z + 1, x + 6, y + 3, z + 5, MDMBlocks.woodBlocks.blockID, 0);
-			CSWorld.setCube(world, x + 1, y + 1, z + 6, x + 5, y + 3, z + 6, MDMBlocks.woodBlocks.blockID, 0);
+			CSWorld.setCube(world, x, y + 1, z + 1, x, y + 3, z + 5, MDMBlocks.heavenPlanks.blockID, 0);
+			CSWorld.setCube(world, x + 1, y + 1, z, x + 5, y + 3, z, MDMBlocks.heavenPlanks.blockID, 0);
+			CSWorld.setCube(world, x + 6, y + 1, z + 1, x + 6, y + 3, z + 5, MDMBlocks.heavenPlanks.blockID, 0);
+			CSWorld.setCube(world, x + 1, y + 1, z + 6, x + 5, y + 3, z + 6, MDMBlocks.heavenPlanks.blockID, 0);
 			// Floor
 			CSWorld.setCube(world, x + 1, y, z + 1, x + 5, y, z + 5, MDMBlocks.heavenLogs.blockID, 0);
 			// Door

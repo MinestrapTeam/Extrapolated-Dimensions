@@ -44,7 +44,7 @@ public class BlockHeavenPlant extends CustomBlock implements IPlantable
 	 */
 	protected boolean canThisPlantGrowOnThisBlockID(int par1)
 	{
-		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.groundBlocks.blockID || par1 == MDMBlocks.heavenGrass.blockID;
+		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.heavenDirtBlocks.blockID || par1 == MDMBlocks.heavenGrassBlocks.blockID;
 	}
 	
 	/**

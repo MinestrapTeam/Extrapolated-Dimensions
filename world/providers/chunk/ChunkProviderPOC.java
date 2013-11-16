@@ -61,7 +61,7 @@ public class ChunkProviderPOC extends AbstractChunkProvider
 							{
 								if ((d16 += d15) > 0.0D)
 								{
-									par3ArrayOfByte[j2 += short1] = (byte) MDMBlocks.chaosStone.blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) MDMBlocks.pocStoneBlocks.blockID;
 								}
 								else if (k1 * 8 + l1 < b2)
 								{
@@ -114,7 +114,7 @@ public class ChunkProviderPOC extends AbstractChunkProvider
 						{
 							var13 = -1;
 						}
-						else if (var18 != MDMBlocks.chaosStone.blockID)
+						else if (var18 != MDMBlocks.pocStoneBlocks.blockID)
 						{
 							if (var13 == -1)
 							{
@@ -122,7 +122,7 @@ public class ChunkProviderPOC extends AbstractChunkProvider
 								{
 									var14 = 0;
 									
-									var15 = (byte) MDMBlocks.alteredDirt.blockID;
+									var15 = (byte) MDMBlocks.pocDirtBlocks.blockID;
 								}
 								else if ((var16 >= var5 - 4) && (var16 <= var5 + 1))
 								{
