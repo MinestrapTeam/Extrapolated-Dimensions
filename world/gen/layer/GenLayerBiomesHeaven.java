@@ -8,7 +8,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerBiomesHeaven extends GenLayer
 {
-	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomeHeaven };
+	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomeHeaven, MDMWorld.biomeHeavenJungle };
 	
 	public GenLayerBiomesHeaven(long seed, GenLayer genlayer)
 	{

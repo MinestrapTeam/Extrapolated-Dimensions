@@ -253,6 +253,7 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 		long var9 = this.random.nextLong() / 2L * 2L + 1L;
 		this.random.setSeed(par2 * var7 + par3 * var9 ^ this.worldObj.getSeed());
 		boolean var11 = false;
+		
 		if (this.mapFeaturesEnabled)
 		{
 			this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
@@ -267,7 +268,15 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 			int var14 = var5 + this.random.nextInt(16) + 8;
 			new WorldGenLakes(Block.waterStill.blockID).generate(this.worldObj, this.random, var12, var13, var14);
 		}
-		var6.decorate(this.worldObj, this.random, var4, var5);
+		
+		try
+		{
+			var6.decorate(this.worldObj, this.random, var4, var5);
+		}
+		catch (Exception ex)
+		{
+		}
+		
 		SpawnerAnimals.performWorldGenSpawning(this.worldObj, var6, var4 + 8, var5 + 8, 16, 16, this.random);
 		var4 += 8;
 		var5 += 8;

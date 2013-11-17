@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.util.CSRandom;
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import clashsoft.mods.moredimensions.item.ItemMDM;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,7 +34,7 @@ public class ItemHeavenSoul extends ItemMDM
 	
 	public ItemHeavenSoul(int par1)
 	{
-		super(par1, CreativeTabs.tabMisc);
+		super(par1, MDMItems.tabHeavenItems);
 		this.setMaxStackSize(1);
 	}
 	

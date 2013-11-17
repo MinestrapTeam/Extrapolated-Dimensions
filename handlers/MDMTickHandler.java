@@ -2,11 +2,14 @@ package clashsoft.mods.moredimensions.handlers;
 
 import java.util.EnumSet;
 
+import clashsoft.mods.moredimensions.client.gui.GuiGameOverHeaven;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.gui.GuiScreen;
 
 public class MDMTickHandler implements ITickHandler
 {
@@ -25,10 +28,13 @@ public class MDMTickHandler implements ITickHandler
 	
 	public void updateMainMenu()
 	{
-		if (Minecraft.getMinecraft().currentScreen instanceof GuiMainMenu)
-		{
-			// Minecraft.getMinecraft().displayGuiScreen(new GuiPOCMainMenu());
-		}
+		GuiScreen currentScreen = Minecraft.getMinecraft().currentScreen;
+		if (currentScreen == null)
+			return;
+		else if (currentScreen.getClass() == GuiMainMenu.class)
+			; //Minecraft.getMinecraft().displayGuiScreen(new GuiPOCMainMenu());
+		else if (currentScreen.getClass() == GuiGameOver.class)
+			Minecraft.getMinecraft().displayGuiScreen(new GuiGameOverHeaven());
 	}
 	
 	@Override

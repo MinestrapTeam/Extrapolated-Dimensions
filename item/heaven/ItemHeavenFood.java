@@ -1,8 +1,8 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
+import clashsoft.mods.moredimensions.addons.MDMItems;
 import clashsoft.mods.moredimensions.item.ItemMDM;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -44,7 +44,7 @@ public class ItemHeavenFood extends ItemMDM
 	
 	public ItemHeavenFood(int par1, int par2, float par3, boolean par4)
 	{
-		super(par1, CreativeTabs.tabFood);
+		super(par1, MDMItems.tabHeavenItems);
 		this.itemUseDuration = 32;
 		this.healAmount = par2;
 		this.isWolfsFavoriteMeat = par4;

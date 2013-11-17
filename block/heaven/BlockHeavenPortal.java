@@ -266,23 +266,26 @@ public class BlockHeavenPortal extends BlockBreakable
 		if ((par5Entity.ridingEntity == null) && (par5Entity.riddenByEntity == null) && ((par5Entity instanceof EntityPlayerMP)))
 		{
 			EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
-			
-			if (thePlayer.timeUntilPortal > 0)
-			{
-				thePlayer.timeUntilPortal = 10;
-			}
-			else if (thePlayer.dimension != MDMWorld.HEAVEN_ID)
-			{
-				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMWorld.HEAVEN_ID, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(MDMWorld.HEAVEN_ID)));
-			}
-			else
-			{
-				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(0)));
-			}
+			teleportPlayer(thePlayer);
 		}
-		
+	}
+	
+	public static void teleportPlayer(EntityPlayerMP thePlayer)
+	{
+		if (thePlayer.timeUntilPortal > 0)
+		{
+			thePlayer.timeUntilPortal = 10;
+		}
+		else if (thePlayer.dimension != MDMWorld.HEAVEN_ID)
+		{
+			thePlayer.timeUntilPortal = 10;
+			thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMWorld.HEAVEN_ID, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(MDMWorld.HEAVEN_ID)));
+		}
+		else
+		{
+			thePlayer.timeUntilPortal = 10;
+			thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(0)));
+		}
 	}
 	
 	/**

@@ -113,18 +113,19 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				}
 	}
 	
-	public void replaceBlocksForBiome(int i, int j, byte[] abyte0, BiomeGenBase[] abiomegenbase)
+	public void replaceBlocksForBiome(int x, int z, byte[] storage, BiomeGenBase[] biomes)
 	{
 		double d = 0.03125D;
 		
-		this.noiseArray2 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray2, i * 16, j * 16, 0, 16, 16, 1, d, d, 1.0D);
-		this.noiseArray3 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray3, i * 16, 109, j * 16, 16, 1, 16, d, 1.0D, d);
-		this.noiseArray4 = this.noiseGenerator5.generateNoiseOctaves(this.noiseArray4, i * 16, j * 16, 0, 16, 16, 1, d * 2.0D, d * 2.0D, d * 2.0D);
+		this.noiseArray2 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray2, x * 16, z * 16, 0, 16, 16, 1, d, d, 1.0D);
+		this.noiseArray3 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray3, x * 16, 109, z * 16, 16, 1, 16, d, 1.0D, d);
+		this.noiseArray4 = this.noiseGenerator5.generateNoiseOctaves(this.noiseArray4, x * 16, z * 16, 0, 16, 16, 1, d * 2.0D, d * 2.0D, d * 2.0D);
 		
 		for (int k = 0; k < 16; k++)
 			for (int l = 0; l < 16; l++)
 			{
 				int i1 = (int) (this.noiseArray4[(k + l * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
+				BiomeGenBase biome = biomes[k + l * 16];
 				
 				int j1 = -1;
 				this.topBlock = ((byte) MDMBlocks.heavenGrassBlocks.blockID);
@@ -147,7 +148,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				for (int k1 = 127; k1 >= 0; k1--)
 				{
 					int l1 = (l * 16 + k) * 128 + k1;
-					byte byte2 = abyte0[l1];
+					byte byte2 = storage[l1];
 					if (byte2 == 0)
 					{
 						j1 = -1;
@@ -163,17 +164,17 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 							}
 							j1 = i1;
 							if (k1 >= 0)
-								abyte0[l1] = byte0;
+								storage[l1] = byte0;
 							else
 							{
-								abyte0[l1] = byte1;
+								storage[l1] = byte1;
 							}
 							
 						}
 						else if (j1 > 0)
 						{
 							j1--;
-							abyte0[l1] = byte1;
+							storage[l1] = byte1;
 						}
 					}
 				}

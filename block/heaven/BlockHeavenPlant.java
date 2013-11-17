@@ -21,11 +21,10 @@ public class BlockHeavenPlant extends CustomBlock implements IPlantable
 {
 	public BlockHeavenPlant(int par1, String[] par2, String[] par3)
 	{
-		super(par1, Material.plants, par2, par3, false, 1, new CreativeTabs[] { CreativeTabs.tabDecorations });
+		super(par1, Material.plants, par2, par3, false, 1, new CreativeTabs[] { MDMItems.tabHeavenBlocks });
 		this.setTickRandomly(true);
 		float var4 = 0.2F;
 		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		this.setCreativeTab(MDMItems.tabHeavenBlocks);
 	}
 	
 	/**

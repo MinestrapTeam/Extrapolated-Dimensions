@@ -4,10 +4,7 @@ import java.util.Random;
 
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
-import clashsoft.mods.moredimensions.world.biome.BiomeCorruptedMountains;
-import clashsoft.mods.moredimensions.world.biome.BiomeDesertOfDryness;
-import clashsoft.mods.moredimensions.world.biome.BiomeHeaven;
-import clashsoft.mods.moredimensions.world.biome.BiomePlainsOfInsanity;
+import clashsoft.mods.moredimensions.world.biome.*;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderHeaven;
@@ -22,6 +19,7 @@ import net.minecraftforge.common.DimensionManager;
 public class MDMWorld
 {
 	public static BiomeGenBase	biomeHeaven;
+	public static BiomeGenBase biomeHeavenJungle;
 	public static BiomeGenBase	biomePOCPlains;
 	public static BiomeGenBase	biomePOCMountains;
 	public static BiomeGenBase	biomePOCDesert;
@@ -40,7 +38,9 @@ public class MDMWorld
 		
 		// -- Biomes --
 		
-		biomeHeaven = new BiomeHeaven(MDMConfig.getBiome("Heaven", 149));
+		biomeHeaven = new BiomeHeaven(MDMConfig.getBiome("Heaven", 149)).setBiomeName("Heaven");
+		biomeHeavenJungle = new BiomeHeavenJungle(MDMConfig.getBiome("HeavenJungle", 153)).setBiomeName("HeavenJungle");
+		
 		biomePOCPlains = new BiomePlainsOfInsanity(MDMConfig.getBiome("Plains of Insanity", 150)).setBiomeName("POC Plains");
 		biomePOCMountains = new BiomeCorruptedMountains(MDMConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("POC Mountains");
 		biomePOCDesert = new BiomeDesertOfDryness(MDMConfig.getBiome("Desert of Dryness", 152)).setBiomeName("POC Desert");

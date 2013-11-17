@@ -95,7 +95,7 @@ public class MDMItems
 	public static ItemBowMDM				heavenBow;
 	public static ItemHeavenFood			heavenApple;
 	public static ItemLifeHeart				lifeHeart;
-	public static ItemFlamingSword			fireSword;
+	public static ItemFireSword			fireSword;
 	public static ItemPulsingSword			pulsingSword;
 	public static ItemIceHammer				icehammer;
 	public static ItemHeavenSoul			heavenSouls;
@@ -229,7 +229,7 @@ public class MDMItems
 		heavenBow = (ItemBowMDM) (new ItemBowMDM(MDMConfig.getItem("Heaven Bow", heavenItemID++), "heavenwood_bow", heavenArrow)).setUnlocalizedName("heavenwood_bow");
 		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", heavenItemID++), 2, 0, false)).setUnlocalizedName("heaven_apple");
 		lifeHeart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", heavenItemID++))).setUnlocalizedName("life_heart");
-		fireSword = (ItemFlamingSword) (new ItemFlamingSword(MDMConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("fire_sword");
+		fireSword = (ItemFireSword) (new ItemFireSword(MDMConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("fire_sword");
 		pulsingSword = (ItemPulsingSword) (new ItemPulsingSword(MDMConfig.getItem("Pulsing Sword", heavenItemID++))).setUnlocalizedName("pulse_sword").setTextureName("pulse_sword");
 		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer");
 		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");

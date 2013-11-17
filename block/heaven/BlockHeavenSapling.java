@@ -3,6 +3,8 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.clashsoftapi.block.BlockCustomSapling;
+import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenJungleTree;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenTrees;
 
 import net.minecraft.world.World;
@@ -19,6 +21,6 @@ public class BlockHeavenSapling extends BlockCustomSapling
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
 		int metadata = world.getBlockMetadata(x, y, z) & 3;
-		return new HeavenGenTrees(true, 4, metadata, metadata);
+		return random.nextInt(5) == 0 ? new HeavenGenTrees(true, 4, metadata, metadata) : new HeavenGenJungleTree(true, 7, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, metadata, metadata);
 	}
 }

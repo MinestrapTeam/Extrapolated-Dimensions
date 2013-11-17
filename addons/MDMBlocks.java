@@ -87,7 +87,7 @@ public class MDMBlocks
 		
 		pocStoneBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Chaos Stone", 180), Material.rock, "Chaos Stone", "chaosstone", MDMItems.tabPOCBlocks).setUnlocalizedName("chaosstone");
 		pocDirtBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Altered Dirt", 181), Material.ground, "Altered Dirt", "altered_dirt", MDMItems.tabPOCBlocks).setUnlocalizedName("altered_dirt").setStepSound(Block.soundGravelFootstep);
-		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass(MDMConfig.getTerrainBlock("Altered Grass", 182), "Altered Grass", "altered_grass_top", "altered_grass_side", "altered_grass_bottom").setUnlocalizedName("altered_grass").setCreativeTab(MDMItems.tabPOCBlocks).setHardness(0.6F);
+		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass(MDMConfig.getTerrainBlock("Altered Grass", 182), "Altered Grass", "altered_grass_top", "altered_grass_side", "altered_grass_bottom").setUnlocalizedName("altered_grass").setCreativeTab(MDMItems.tabPOCBlocks).setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(0.6F);
 		
 		pocOres1 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 1", 1005), Material.rock, new String[] { "Copper Ore", "Tin Ore", "Silver Ore", "Mithril Ore", "Adamanite Ore", "Blurite Ore", "Daeyalt Ore", "Rubium Ore", "Novite Ore", "Bathus Ore", "Marmaros Ore", "Kratonium Ore", "Fractite Ore", "Zephyrium Ore", "Argonite Ore", "Katagon Ore" }, new String[] { "copper_ore", "tin_ore", "silver_ore", "mithril_ore", "adamanite_ore", "blurite_ore", "daeyalt_ore", "rubium_ore", "novite_ore", "bathus_ore", "marmaros_ore", "kratonium_ore", "fractite_ore", "zephyrium_ore", "argonite_ore", "katagon_ore" }, new CreativeTabs[] { MDMItems.tabPOCBlocks }).setUnlocalizedName("poc_ores_1");
 		pocOres2 = (CustomBlock) new CustomBlock(MDMConfig.getBlock("POC Ores 2", 1006), Material.rock, new String[] { "Gorgonite Ore", "Promethium Ore" }, new String[] { "gorgonite_ore", "promethium_ore" }, new CreativeTabs[] { MDMItems.tabPOCBlocks }).setUnlocalizedName("poc_ores_2");
@@ -149,12 +149,12 @@ public class MDMBlocks
 			proAlloyBlock = new ItemStack(heavenStoneBlocks, 1, ++i);
 		}
 		
-		heavenDirtBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Ground Blocks", 203), Material.ground, new String[] { "Heaven Dirt" }, new String[] { "heaven_dirt" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heaven_ground");
+		heavenDirtBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Ground Blocks", 203), Material.ground, new String[] { "Heaven Dirt", "Mud" }, new String[] { "heaven_dirt", "mud" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heaven_ground");
 		{
 			heavenDirt = new ItemStack(heavenDirtBlocks, 1, 0);
 		}
 		
-		heavenGrassBlocks = (BlockCustomGrass) (new BlockCustomGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204), "Heaven Grass", "heaven_grass_top", "heaven_grass_side", "heaven_dirt")).setUnlocalizedName("heaven_grass").setHardness(0.6F).setStepSound(Block.soundGrassFootstep);
+		heavenGrassBlocks = (BlockCustomGrass) (new BlockCustomGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204), new String[] { "Heaven Grass", "Mud Grass", "Corrupted Grass", "Hallowed Grass", "Mushroom Grass" }, new String[] { "heaven_grass_top", "mud_grass_top", "corrupted_grass_top", "hallowed_grass_top", "mushroom_grass_top" }, new String[] { "heaven_grass_side", "mud_grass_side", "corrupted_grass_side", "hallowed_grass_side", "mushroom_grass_side" }, new String[] { "heaven_dirt", "mud", "dirt", "dirt", "mud" })).setUnlocalizedName("heavenGrassBlocks").setCreativeTab(MDMItems.tabHeavenBlocks);
 		{
 			heavenGrass = new ItemStack(heavenGrassBlocks, 1, 0);
 		}
@@ -227,18 +227,18 @@ public class MDMBlocks
 		
 		// -- Heaven --
 		
-		heavenStoneBlocks.setHardnesses(new float[] { 1.5F, 2.0F, 2.0F, 2F, 2.2F, 2.1F, 2.5F, 2.5F, 2.7F, 2.6F, 3F });
-		heavenStoneBlocks.setDrops(new ItemStack[] { heavenCobble, null, null, MDMItems.shrekiteShard, null, MDMItems.bluriteDust, null, null, null, null, null });
-		heavenDirtBlocks.setHardness(0, 0.5F);
-		heavenGrassBlocks.setHardness(0, 0.6F);
-		heavenGrassBlocks.setDirtBlock(0, heavenDirtBlocks.blockID, 0);
+		heavenStoneBlocks.setHardnesses(1.5F, 2.0F, 2.0F, 2F, 2.2F, 2.1F, 2.5F, 2.5F, 2.7F, 2.6F, 3F);
+		heavenStoneBlocks.setDrops(heavenCobble, null, null, MDMItems.shrekiteShard, null, MDMItems.bluriteDust, null, null, null, null, null);
+		heavenDirtBlocks.setHardnesses(0.5F, 0.6F);
+		heavenGrassBlocks.setHardnesses(0.6F, 0.65F, 0.7F, 0.7F, 0.65F);
+		heavenGrassBlocks.setDirtBlocks(new int[] {heavenDirtBlocks.blockID, heavenDirtBlocks.blockID, Block.dirt.blockID, Block.dirt.blockID, heavenDirtBlocks.blockID}, new int[] {0, 1, 0, 0, 1});
 		
 		heavenPlanks.setHardness(0, 2.0F);
-		heavenPlantBlocks.setHardnesses(new float[] { 0F, 0F, 0F, 0F });
+		heavenPlantBlocks.setHardnesses(0F, 0F, 0F, 0F);
 		
 		addBlock(heavenStoneBlocks, "HeavenStoneBlocks");
 		addBlock(heavenDirtBlocks, "HeavenGroundBlocks");
-		addBlock(heavenGrassBlocks, "Heaven Grass");
+		addBlock(heavenGrassBlocks, "HeavenGrassBlocks");
 		
 		addBlock(heavenLogs, "HeavenLogs");
 		addBlock(heavenLeaves, "HeavenLeaves");

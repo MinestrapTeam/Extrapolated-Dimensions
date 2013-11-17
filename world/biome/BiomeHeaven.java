@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions.world.biome;
 
+import java.util.Random;
+
 import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
@@ -10,6 +12,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeHeaven extends BiomeGenBase
 {
@@ -31,12 +34,18 @@ public class BiomeHeaven extends BiomeGenBase
 		
 		this.topBlock = (byte) MDMBlocks.heavenGrassBlocks.blockID;
 		this.fillerBlock = (byte) MDMBlocks.heavenDirtBlocks.blockID;
-		this.worldGeneratorTrees = new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false);
 		
-		this.theBiomeDecorator = new BiomeDecoratorHeaven(this);
+		this.theBiomeDecorator = getModdedBiomeDecorator(new BiomeDecoratorHeaven(this));
 		
-		this.setColor(0xFFFFFF);
+		this.color = 0x818181;
+		this.waterColorMultiplier = 0x818181;
 		this.setMinMaxHeight(-1.9F, 1.9F);
-		this.setBiomeName("Heaven");
+	}
+	
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		int type = par1Random.nextInt(1);
+		return new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, type, type);
 	}
 }

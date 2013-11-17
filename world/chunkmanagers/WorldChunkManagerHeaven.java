@@ -33,7 +33,7 @@ public class WorldChunkManagerHeaven extends WorldChunkManager
 	public WorldChunkManagerHeaven(long seed, WorldType worldtype)
 	{
 		this.biomeCache = new BiomeCache(this);
-		this.biomesToSpawnIn = Arrays.asList(MDMWorld.biomeHeaven);
+		this.biomesToSpawnIn = Arrays.asList(MDMWorld.biomeHeaven, MDMWorld.biomeHeavenJungle);
 		
 		GenLayer[] agenlayer = GenLayerHeaven.createWorld(seed, worldtype);
 		this.genBiomes = agenlayer[0];

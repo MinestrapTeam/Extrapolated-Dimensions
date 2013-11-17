@@ -17,6 +17,7 @@ public class BiomeDesertOfDryness extends BiomeGenOcean
 		this.minHeight = -0.2F;
 		this.spawnableWaterCreatureList.clear();
 		this.theBiomeDecorator.generateLakes = false;
+		this.waterColorMultiplier = 0xFFFF00;
 	}
 	
 	@Override
