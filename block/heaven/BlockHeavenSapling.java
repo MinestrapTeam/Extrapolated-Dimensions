@@ -23,4 +23,10 @@ public class BlockHeavenSapling extends BlockCustomSapling
 		int metadata = world.getBlockMetadata(x, y, z) & 3;
 		return random.nextInt(5) == 0 ? new HeavenGenTrees(true, 4, metadata, metadata) : new HeavenGenJungleTree(true, 7, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, metadata, metadata);
 	}
+
+	@Override
+	public boolean isValidGround(int blockID, int blockMetadata)
+	{
+		return (blockID == MDMBlocks.heavenGrassBlocks.blockID || blockID == MDMBlocks.heavenDirtBlocks.blockID) && blockMetadata == 0;
+	}
 }

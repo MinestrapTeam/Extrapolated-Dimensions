@@ -67,15 +67,16 @@ public class MDMBlocks
 	public static Block					heavenPortalFrame;
 	public static BlockHeavenPillar		heavenPillar;
 	
-	public static ItemStack				heavenDirt;
-	public static ItemStack				heavenGrass;
+	public static ItemStack				heavenDirt, mudDirt;
+	public static ItemStack				heavenGrass, mudGrass, corruptedGrass, hallowedGrass, mushroomGrass;
 	
 	public static ItemStack				heavenWoodLog, goldWoodLog;
 	public static ItemStack				heavenWoodLeaves, goldWoodLeaves;
 	public static ItemStack				heavenWoodSapling, goldWoodSapling;
 	public static ItemStack				heavenWoodPlanks, goldWoodPlanks;
 	
-	public static ItemStack				blueFlower, orangeFlower, vinePlant, roundPlant;
+	public static ItemStack				heavenGrassTall, mudGrassTall, corruptedGrassTall, hallowedGrassTall, mushroomGrassTall;
+	public static ItemStack				heavenGrassVine, mudGrassVine, corruptedGrassVine, hallowedGrassVine, mushroomGrassVine, grassVine;
 	
 	public static ItemStack				heavenStone, heavenCobble, heavenCobbleMossy;
 	public static ItemStack				shrekiteOre, clashiumOre, bluriteOre, holyiumOre;
@@ -152,11 +153,17 @@ public class MDMBlocks
 		heavenDirtBlocks = (CustomBlock) new CustomBlock(MDMConfig.getTerrainBlock("Heaven Ground Blocks", 203), Material.ground, new String[] { "Heaven Dirt", "Mud" }, new String[] { "heaven_dirt", "mud" }, new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("heaven_ground");
 		{
 			heavenDirt = new ItemStack(heavenDirtBlocks, 1, 0);
+			mudDirt = new ItemStack(heavenDirtBlocks, 1, 1);
 		}
 		
 		heavenGrassBlocks = (BlockCustomGrass) (new BlockCustomGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204), new String[] { "Heaven Grass", "Mud Grass", "Corrupted Grass", "Hallowed Grass", "Mushroom Grass" }, new String[] { "heaven_grass_top", "mud_grass_top", "corrupted_grass_top", "hallowed_grass_top", "mushroom_grass_top" }, new String[] { "heaven_grass_side", "mud_grass_side", "corrupted_grass_side", "hallowed_grass_side", "mushroom_grass_side" }, new String[] { "heaven_dirt", "mud", "dirt", "dirt", "mud" })).setUnlocalizedName("heavenGrassBlocks").setCreativeTab(MDMItems.tabHeavenBlocks);
 		{
-			heavenGrass = new ItemStack(heavenGrassBlocks, 1, 0);
+			int i = -1;
+			heavenGrass = new ItemStack(heavenGrassBlocks, 1, ++i);
+			mudGrass = new ItemStack(heavenGrassBlocks, 1, ++i);
+			corruptedGrass = new ItemStack(heavenGrassBlocks, 1, ++i);
+			hallowedGrass = new ItemStack(heavenGrassBlocks, 1, ++i);
+			mushroomGrass = new ItemStack(heavenGrassBlocks, 1, ++i);
 		}
 		
 		heavenLogs = (BlockCustomLog) (new BlockCustomLog(MDMConfig.getBlock("Heaven Log", 1052), new String[] { "Heaven Wood Log", "Gold Wood Log" }, new String[] { "heavenwood_top", "goldwood_top" }, new String[] { "heavenwood_side", "goldwood_side" })).setUnlocalizedName("heaven_logs").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(2.0F);
@@ -184,13 +191,22 @@ public class MDMBlocks
 			goldWoodPlanks = new ItemStack(heavenPlanks, 1, ++i);
 		}
 		
-		heavenPlantBlocks = (CustomBlock) new BlockHeavenPlant(MDMConfig.getBlock("Heaven Plant Blocks", 1051), new String[] { "Blue Flower", "Orange Flower", "Ground Vine", "Round Plant" }, new String[] { "heavenplant_blue", "heavenplant_orange", "heavenplant_vine", "heavenplant_circle" }).setUnlocalizedName("heaven_plant").setStepSound(Block.soundGrassFootstep);
+		heavenPlantBlocks = (CustomBlock) new BlockHeavenPlant(MDMConfig.getBlock("Heaven Plant Blocks", 1051), new String[] { "Tall Heaven Grass", "Tall Mud Grass", "Tall Corrupted Grass", "Tall Hallowed Grass", "Tall Mushroom Grass", "Heaven Grass Vine", "Mud Grass Vine", "Corrupted Grass Vine", "Hallowed Grass Vine", "Mushroom Grass Vine", "Grass Vine" }, new String[] { "plant_grass_heaven", "plant_grass_mud", "plant_grass_corrupted", "plant_grass_hallowed", "plant_grass_mushroom", "plant_vine_heaven", "plant_vine_mud", "plant_vine_corrupted", "plant_vine_hallowed", "plant_vine_mushroom", "plant_vine_grass" }).setUnlocalizedName("heavenPlantBlocks").setCreativeTab(MDMItems.tabHeavenBlocks).setStepSound(Block.soundGrassFootstep);
 		{
 			int i = -1;
-			blueFlower = new ItemStack(heavenPlantBlocks, 1, ++i);
-			orangeFlower = new ItemStack(heavenPlantBlocks, 1, ++i);
-			vinePlant = new ItemStack(heavenPlantBlocks, 1, ++i);
-			roundPlant = new ItemStack(heavenPlantBlocks, 1, ++i);
+			heavenGrassTall = new ItemStack(heavenPlantBlocks, 1, ++i);
+			mudGrassTall = new ItemStack(heavenPlantBlocks, 1, ++i);
+			corruptedGrassTall = new ItemStack(heavenPlantBlocks, 1, ++i);
+			hallowedGrassTall = new ItemStack(heavenPlantBlocks, 1, ++i);
+			mushroomGrassTall = new ItemStack(heavenPlantBlocks, 1, ++i);
+			
+			heavenGrassVine = new ItemStack(heavenPlantBlocks, 1, ++i);
+			mudGrassVine = new ItemStack(heavenPlantBlocks, 1, ++i);
+			corruptedGrassVine = new ItemStack(heavenPlantBlocks, 1, ++i);
+			hallowedGrassVine = new ItemStack(heavenPlantBlocks, 1, ++i);
+			mushroomGrassVine = new ItemStack(heavenPlantBlocks, 1, ++i);
+			
+			grassVine = new ItemStack(heavenPlantBlocks, 1, ++i);
 		}
 		
 		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(MDMConfig.getBlock("Heaven Portal", 1053))).setUnlocalizedName("heaven_portal").setTextureName("heaven_portal").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(-1F).setLightValue(1F);
@@ -231,7 +247,7 @@ public class MDMBlocks
 		heavenStoneBlocks.setDrops(heavenCobble, null, null, MDMItems.shrekiteShard, null, MDMItems.bluriteDust, null, null, null, null, null);
 		heavenDirtBlocks.setHardnesses(0.5F, 0.6F);
 		heavenGrassBlocks.setHardnesses(0.6F, 0.65F, 0.7F, 0.7F, 0.65F);
-		heavenGrassBlocks.setDirtBlocks(new int[] {heavenDirtBlocks.blockID, heavenDirtBlocks.blockID, Block.dirt.blockID, Block.dirt.blockID, heavenDirtBlocks.blockID}, new int[] {0, 1, 0, 0, 1});
+		heavenGrassBlocks.setDirtBlocks(new int[] { heavenDirtBlocks.blockID, heavenDirtBlocks.blockID, Block.dirt.blockID, Block.dirt.blockID, heavenDirtBlocks.blockID }, new int[] { 0, 1, 0, 0, 1 });
 		
 		heavenPlanks.setHardness(0, 2.0F);
 		heavenPlantBlocks.setHardnesses(0F, 0F, 0F, 0F);
