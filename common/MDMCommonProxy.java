@@ -6,6 +6,8 @@ import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
 import clashsoft.mods.moredimensions.entity.boss.chat.BossChatContainer;
 import clashsoft.mods.moredimensions.inventory.ContainerTome;
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -29,8 +31,9 @@ public class MDMCommonProxy implements IGuiHandler
 		return ID == BOSS_CHAT_GUIID ? new BossChatContainer(player, (IPOCBoss) world.getEntityByID(x)) : (ID == TOME_GUIID ? new GuiTome() : null);
 	}
 	
-	public void registerRenderers()
+	public void register()
 	{
+		TickRegistry.registerTickHandler(new MDMTickHandler(), Side.SERVER);
 	}
 	
 	public void postRegisterRenderers()

@@ -10,7 +10,6 @@ import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTub
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
-import clashsoft.mods.moredimensions.handlers.MDMTickHandler;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
 import com.jadarstudios.developercapes.DevCapesUtil;
@@ -40,17 +39,15 @@ public class MDMClientProxy extends MDMCommonProxy
 	}
 	
 	@Override
-	public void registerRenderers()
+	public void register()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityScider.class, new RenderScider());
-		shrekite = RenderingRegistry.addNewArmourRendererPrefix("shrekite");
+		super.register();
 		
-		String username = "";
-		System.out.println(username = Minecraft.getMinecraft().getSession().getUsername());
+		RenderingRegistry.registerEntityRenderingHandler(EntityScider.class, new RenderScider());
 		
 		DevCapesUtil.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
 		
-		TickRegistry.registerTickHandler(new MDMTickHandler(), Side.CLIENT);
+		TickRegistry.registerTickHandler(new MDMClientTickHandler(), Side.CLIENT);
 		
 		bowRenderer = new RenderPOCBows();
 		

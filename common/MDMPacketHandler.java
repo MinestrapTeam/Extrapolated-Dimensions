@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.handlers;
+package clashsoft.mods.moredimensions.common;
 
 import clashsoft.mods.moredimensions.block.heaven.BlockHeavenPortal;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;

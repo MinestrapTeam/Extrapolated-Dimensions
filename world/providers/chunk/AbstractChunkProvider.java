@@ -57,12 +57,12 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 	public double[]					noise6;
 	public float[]					parabolicField;
 	
-	public AbstractChunkProvider(World par1World, long par2, boolean par4)
+	public AbstractChunkProvider(World world, long seed, boolean mapFeatures)
 	{
-		this.worldObj = par1World;
-		this.mapFeaturesEnabled = par4;
+		this.worldObj = world;
+		this.mapFeaturesEnabled = mapFeatures;
 		
-		this.random = new Random(par2);
+		this.random = new Random(seed);
 		
 		this.noiseGen1 = new NoiseGeneratorOctaves(this.random, 16);
 		this.noiseGen2 = new NoiseGeneratorOctaves(this.random, 16);
@@ -73,49 +73,49 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 		this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.random, 8);
 	}
 	
-	public abstract void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte);
+	public abstract void generateTerrain(int x, int z, byte[] storage);
 	
-	public abstract void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase);
+	public abstract void replaceBlocksForBiome(int x, int z, byte[] storage, BiomeGenBase[] biomes);
 	
 	@Override
-	public Chunk loadChunk(int par1, int par2)
+	public Chunk loadChunk(int x, int z)
 	{
-		return provideChunk(par1, par2);
+		return provideChunk(x, z);
 	}
 	
 	@Override
-	public Chunk provideChunk(int par1, int par2)
+	public Chunk provideChunk(int x, int z)
 	{
-		this.random.setSeed(par1 * worldObj.getSeed() | par2 * worldObj.getSeed() ^ par1 - par2);
+		this.random.setSeed(x * worldObj.getSeed() | z * worldObj.getSeed() ^ x - z);
 		
 		byte[] storage = new byte[32768];
-		generateTerrain(par1, par2, storage);
-		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		replaceBlocksForBiome(par1, par2, storage, this.biomesForGeneration);
-		this.caveGenerator.generate(this, this.worldObj, par1, par2, storage);
-		this.ravineGenerator.generate(this, this.worldObj, par1, par2, storage);
+		generateTerrain(x, z, storage);
+		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, x * 16, z * 16, 16, 16);
+		replaceBlocksForBiome(x, z, storage, this.biomesForGeneration);
+		this.caveGenerator.generate(this, this.worldObj, x, z, storage);
+		this.ravineGenerator.generate(this, this.worldObj, x, z, storage);
 		if (this.mapFeaturesEnabled)
 		{
-			this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, storage);
-			this.villageGenerator.generate(this, this.worldObj, par1, par2, storage);
-			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, storage);
-			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, storage);
+			this.mineshaftGenerator.generate(this, this.worldObj, x, z, storage);
+			this.villageGenerator.generate(this, this.worldObj, x, z, storage);
+			this.strongholdGenerator.generate(this, this.worldObj, x, z, storage);
+			this.scatteredFeatureGenerator.generate(this, this.worldObj, x, z, storage);
 		}
-		Chunk var4 = new Chunk(this.worldObj, storage, par1, par2);
-		byte[] var5 = var4.getBiomeArray();
-		for (int var6 = 0; var6 < var5.length; var6++)
+		Chunk chunk = new Chunk(this.worldObj, storage, x, z);
+		byte[] biomes = chunk.getBiomeArray();
+		for (int var6 = 0; var6 < biomes.length; var6++)
 		{
-			var5[var6] = ((byte) this.biomesForGeneration[var6].biomeID);
+			biomes[var6] = ((byte) this.biomesForGeneration[var6].biomeID);
 		}
-		var4.generateSkylightMap();
-		return var4;
+		chunk.generateSkylightMap();
+		return chunk;
 	}
 	
-	public double[] initializeNoiseField(double[] par1ArrayOfDouble, int par2, int par3, int par4, int par5, int par6, int par7)
+	public double[] initializeNoiseField(double[] noiseField, int par2, int par3, int par4, int par5, int par6, int par7)
 	{
-		if (par1ArrayOfDouble == null)
+		if (noiseField == null)
 		{
-			par1ArrayOfDouble = new double[par5 * par6 * par7];
+			noiseField = new double[par5 * par6 * par7];
 		}
 		if (this.parabolicField == null)
 		{
@@ -227,39 +227,39 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 						double var40 = (var46 - (par6 - 4)) / 3.0F;
 						var30 = var30 * (1.0D - var40) + -10.0D * var40;
 					}
-					par1ArrayOfDouble[var12] = var30;
+					noiseField[var12] = var30;
 					var12++;
 				}
 			}
 		}
-		return par1ArrayOfDouble;
+		return noiseField;
 	}
 	
 	@Override
-	public boolean chunkExists(int par1, int par2)
+	public boolean chunkExists(int x, int z)
 	{
 		return true;
 	}
 	
 	@Override
-	public void populate(IChunkProvider par1IChunkProvider, int par2, int par3)
+	public void populate(IChunkProvider chunkProvider, int x, int z)
 	{
 		BlockSand.fallInstantly = true;
-		int var4 = par2 * 16;
-		int var5 = par3 * 16;
+		int var4 = x * 16;
+		int var5 = z * 16;
 		BiomeGenBase var6 = this.worldObj.getBiomeGenForCoords(var4 + 16, var5 + 16);
 		this.random.setSeed(this.worldObj.getSeed());
 		long var7 = this.random.nextLong() / 2L * 2L + 1L;
 		long var9 = this.random.nextLong() / 2L * 2L + 1L;
-		this.random.setSeed(par2 * var7 + par3 * var9 ^ this.worldObj.getSeed());
+		this.random.setSeed(x * var7 + z * var9 ^ this.worldObj.getSeed());
 		boolean var11 = false;
 		
 		if (this.mapFeaturesEnabled)
 		{
-			this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
-			var11 = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
-			this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
-			this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.random, par2, par3);
+			this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.random, x, z);
+			var11 = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.random, x, z);
+			this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.random, x, z);
+			this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.random, x, z);
 		}
 		if ((!var11) && (this.random.nextInt(4) == 0))
 		{

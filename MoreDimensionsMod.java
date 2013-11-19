@@ -3,8 +3,8 @@ package clashsoft.mods.moredimensions;
 import clashsoft.clashsoftapi.util.CSUpdate;
 import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
-import clashsoft.mods.moredimensions.handlers.MDMEventHandler;
-import clashsoft.mods.moredimensions.handlers.MDMPacketHandler;
+import clashsoft.mods.moredimensions.common.MDMEventHandler;
+import clashsoft.mods.moredimensions.common.MDMPacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -77,7 +77,7 @@ public class MoreDimensionsMod
 		MDMLocalizations.load();
 		
 		long l12 = System.nanoTime();
-		proxy.registerRenderers();
+		proxy.register();
 		proxy.registerEntityRenderers();
 		proxy.registerClientEvents();
 		proxy.postRegisterRenderers();

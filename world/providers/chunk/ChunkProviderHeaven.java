@@ -2,6 +2,7 @@ package clashsoft.mods.moredimensions.world.providers.chunk;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -115,70 +116,97 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 	
 	public void replaceBlocksForBiome(int x, int z, byte[] storage, BiomeGenBase[] biomes)
 	{
+		byte averageHeight = 63;
 		double d = 0.03125D;
 		
 		this.noiseArray2 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray2, x * 16, z * 16, 0, 16, 16, 1, d, d, 1.0D);
 		this.noiseArray3 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray3, x * 16, 109, z * 16, 16, 1, 16, d, 1.0D, d);
 		this.noiseArray4 = this.noiseGenerator5.generateNoiseOctaves(this.noiseArray4, x * 16, z * 16, 0, 16, 16, 1, d * 2.0D, d * 2.0D, d * 2.0D);
 		
-		for (int k = 0; k < 16; k++)
-			for (int l = 0; l < 16; l++)
+		for (int x1 = 0; x1 < 16; x1++)
+		{
+			for (int z1 = 0; z1 < 16; z1++)
 			{
-				int i1 = (int) (this.noiseArray4[(k + l * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
-				BiomeGenBase biome = biomes[k + l * 16];
-				
+				int noise = (int) (this.noiseArray4[(x1 + z1 * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
+				BiomeGenBase biome = biomes[x1 + z1 * 16];
+				float temperature = biome.getFloatTemperature();
 				int j1 = -1;
-				this.topBlock = ((byte) MDMBlocks.heavenGrassBlocks.blockID);
-				this.fillerBlock = ((byte) MDMBlocks.heavenDirtBlocks.blockID);
-				byte byte0 = this.topBlock;
-				byte byte1 = this.fillerBlock;
+				byte grass = (byte) biome.topBlock;
+				byte dirt = (byte) biome.fillerBlock;
 				byte stone = (byte) MDMBlocks.heavenStoneBlocks.blockID;
-				if (byte0 < 0)
+				
+				if (grass < 0)
 				{
-					byte0 = (byte) (byte0 + 0);
+					grass = (byte) (grass + 0);
 				}
-				if (byte1 < 0)
+				if (dirt < 0)
 				{
-					byte1 = (byte) (byte1 + 0);
+					dirt = (byte) (dirt + 0);
 				}
 				if (stone < 0)
 				{
 					stone = (byte) (stone + 0);
 				}
-				for (int k1 = 127; k1 >= 0; k1--)
+				for (int y1 = 127; y1 >= 0; y1--)
 				{
-					int l1 = (l * 16 + k) * 128 + k1;
-					byte byte2 = storage[l1];
-					if (byte2 == 0)
+					int index = (z1 * 16 + x1) * 128 + y1;
+					
+					byte blockAtIndex = storage[index];
+					if (blockAtIndex == 0)
 					{
 						j1 = -1;
 					}
-					else if (byte2 == stone)
+					else if (blockAtIndex != MDMBlocks.pocStoneBlocks.blockID)
 					{
 						if (j1 == -1)
 						{
-							if (i1 <= 0)
+							if (noise == 0)
 							{
-								byte0 = 0;
-								byte1 = stone;
+								topBlock = 0;
+								
+								fillerBlock = (byte) MDMBlocks.pocDirtBlocks.blockID;
 							}
-							j1 = i1;
-							if (k1 >= 0)
-								storage[l1] = byte0;
+							else if ((y1 >= averageHeight - 4) && (y1 <= averageHeight + 1))
+							{
+								topBlock = biome.topBlock;
+								fillerBlock = biome.fillerBlock;
+							}
+							if ((y1 < averageHeight) && (topBlock == 0))
+							{
+								if (temperature < 0.15F)
+								{
+									topBlock = (byte) Block.ice.blockID;
+								}
+								else
+								{
+									topBlock = (byte) Block.waterStill.blockID;
+								}
+							}
+							j1 = noise;
+							if (y1 >= averageHeight - 1)
+							{
+								storage[index] = topBlock;
+							}
 							else
 							{
-								storage[l1] = byte1;
+								storage[index] = fillerBlock;
 							}
-							
 						}
 						else if (j1 > 0)
 						{
 							j1--;
-							storage[l1] = byte1;
+							storage[index] = fillerBlock;
+							if ((j1 == 0) && (fillerBlock == Block.sand.blockID))
+							{
+								j1 = this.random.nextInt(4);
+								fillerBlock = (byte) Block.sandStone.blockID;
+							}
+							
 						}
 					}
 				}
 			}
+		}
 	}
 	
 	public double[] initializeNoiseField(double[] ad, int i, int j, int k, int l, int i1, int j1)

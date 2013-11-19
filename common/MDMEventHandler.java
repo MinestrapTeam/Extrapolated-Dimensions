@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.handlers;
+package clashsoft.mods.moredimensions.common;
 
 import clashsoft.clashsoftapi.util.CSUpdate;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;

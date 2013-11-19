@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.handlers;
+package clashsoft.mods.moredimensions.client;
 
 import java.util.EnumSet;
 
@@ -11,7 +11,7 @@ import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
 
-public class MDMTickHandler implements ITickHandler
+public class MDMClientTickHandler implements ITickHandler
 {
 	
 	@Override
@@ -46,7 +46,7 @@ public class MDMTickHandler implements ITickHandler
 	@Override
 	public String getLabel()
 	{
-		return "ParadiseOfChaos Tick Handler";
+		return "More Dimensions Mod Client Tick Handler";
 	}
 	
 }

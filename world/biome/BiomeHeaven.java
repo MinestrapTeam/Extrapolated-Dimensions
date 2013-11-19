@@ -5,7 +5,6 @@ import java.util.Random;
 import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
-import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
@@ -23,8 +22,6 @@ public class BiomeHeaven extends BiomeGenBase
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
-		
-		spawnableMonsterList.add(new SpawnListEntry(EntityGiantZombie.class, 50, 1, 2));
 		
 		spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 6));
 		spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 12, 2, 8));

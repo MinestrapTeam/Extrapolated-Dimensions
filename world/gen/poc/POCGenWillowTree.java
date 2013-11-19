@@ -17,41 +17,41 @@ public class POCGenWillowTree extends WorldGenerator
 	 * Contains three sets of two values that provide complimentary indices for
 	 * a given 'major' index - 1 and 2 for 0, 0 and 2 for 1, and 0 and 1 for 2.
 	 */
-	static final byte[]	otherCoordPairs		= new byte[] { (byte) 2, (byte) 0, (byte) 0, (byte) 1, (byte) 2, (byte) 1 };
+	public static final byte[]	otherCoordPairs		= new byte[] { (byte) 2, (byte) 0, (byte) 0, (byte) 1, (byte) 2, (byte) 1 };
 	
 	/** random seed for GenBigTree */
-	Random				rand				= new Random();
+	public Random				rand				= new Random();
 	
 	/** Reference to the World object. */
-	World				worldObj;
-	int[]				basePos				= new int[] { 0, 0, 0 };
-	int					heightLimit;
-	int					height;
-	double				heightAttenuation	= 0.618D;
-	double				branchDensity		= 1.0D;
-	double				branchSlope			= 0.381D;
-	double				scaleWidth			= 1.0D;
-	double				leafDensity			= 1.0D;
+	public World				worldObj;
+	public int[]				basePos				= new int[] { 0, 0, 0 };
+	public int					heightLimit;
+	public int					height;
+	public double				heightAttenuation	= 0.618D;
+	public double				branchDensity		= 1.0D;
+	public double				branchSlope			= 0.381D;
+	public double				scaleWidth			= 1.0D;
+	public double				leafDensity			= 1.0D;
 	
 	/**
 	 * Currently always 1, can be set to 2 in the class constructor to generate
 	 * a double-sized tree trunk for big trees.
 	 */
-	int					trunkSize			= 1;
+	public int					trunkSize			= 1;
 	
 	/**
 	 * Sets the limit of the random value used to initialize the height limit.
 	 */
-	int					heightLimitLimit	= 12;
+	public int					heightLimitLimit	= 12;
 	
 	/**
 	 * Sets the distance limit for how far away the generator will populate
 	 * leaves from the base leaf node.
 	 */
-	int					leafDistanceLimit	= 4;
+	public int					leafDistanceLimit	= 4;
 	
 	/** Contains a list of a points at which to generate groups of leaves. */
-	int[][]				leafNodes;
+	public int[][]				leafNodes;
 	
 	public POCGenWillowTree(boolean par1)
 	{
@@ -62,7 +62,7 @@ public class POCGenWillowTree extends WorldGenerator
 	 * Generates a list of leaf nodes for the tree, to be populated by
 	 * generateLeaves.
 	 */
-	void generateLeafNodeList()
+	public void generateLeafNodeList()
 	{
 		this.height = (int) (this.heightLimit * this.heightAttenuation);
 		
@@ -179,7 +179,7 @@ public class POCGenWillowTree extends WorldGenerator
 					}
 					else
 					{
-						this.setBlockAndMetadata(this.worldObj, aint1[0], aint1[1], aint1[2], blockID, 0);
+						this.setBlockAndMetadata(this.worldObj, aint1[0], aint1[1], aint1[2], blockID, metadata);
 						++k1;
 					}
 				}
@@ -190,7 +190,7 @@ public class POCGenWillowTree extends WorldGenerator
 	/**
 	 * Gets the rough size of a layer of the tree.
 	 */
-	float layerSize(int par1)
+	public float layerSize(int par1)
 	{
 		if (par1 < (this.heightLimit) * 0.3D)
 		{
@@ -220,7 +220,7 @@ public class POCGenWillowTree extends WorldGenerator
 		}
 	}
 	
-	float leafSize(int par1)
+	public float leafSize(int par1)
 	{
 		return par1 >= 0 && par1 < this.leafDistanceLimit ? (par1 != 0 && par1 != this.leafDistanceLimit - 1 ? 3.0F : 2.0F) : -1.0F;
 	}
@@ -229,7 +229,7 @@ public class POCGenWillowTree extends WorldGenerator
 	 * Generates the leaves surrounding an individual entry in the leafNodes
 	 * list.
 	 */
-	void generateLeafNode(int par1, int par2, int par3)
+	public void generateLeafNode(int par1, int par2, int par3)
 	{
 		int l = par2;
 		
@@ -365,7 +365,7 @@ public class POCGenWillowTree extends WorldGenerator
 	 * Generates additional wood blocks to fill out the bases of different leaf
 	 * nodes that would otherwise degrade.
 	 */
-	void generateLeafNodeBases()
+	public void generateLeafNodeBases()
 	{
 		int i = 0;
 		int j = this.leafNodes.length;
@@ -451,7 +451,7 @@ public class POCGenWillowTree extends WorldGenerator
 	 * Returns a boolean indicating whether or not the current location for the
 	 * tree, spanning basePos to to the height limit, is valid.
 	 */
-	boolean validTreeLocation()
+	public boolean validTreeLocation()
 	{
 		int[] aint = new int[] { this.basePos[0], this.basePos[1], this.basePos[2] };
 		int[] aint1 = new int[] { this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2] };

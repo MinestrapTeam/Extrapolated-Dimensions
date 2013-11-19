@@ -8,10 +8,7 @@ import clashsoft.clashsoftapi.block.BlockCustomLog;
 import clashsoft.clashsoftapi.block.BlockCustomSapling;
 import clashsoft.clashsoftapi.util.addons.Addon;
 import clashsoft.mods.moredimensions.block.BlockMDM;
-import clashsoft.mods.moredimensions.block.heaven.BlockHeavenPillar;
-import clashsoft.mods.moredimensions.block.heaven.BlockHeavenPlant;
-import clashsoft.mods.moredimensions.block.heaven.BlockHeavenPortal;
-import clashsoft.mods.moredimensions.block.heaven.BlockHeavenSapling;
+import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
 
 import net.minecraft.block.Block;
@@ -54,7 +51,7 @@ public class MDMBlocks
 	
 	public static CustomBlock			heavenStoneBlocks;
 	public static CustomBlock			heavenDirtBlocks;
-	public static BlockCustomGrass		heavenGrassBlocks;
+	public static BlockHeavenGrass		heavenGrassBlocks;
 	
 	public static BlockCustomLog		heavenLogs;
 	public static BlockCustomLeaves		heavenLeaves;
@@ -156,7 +153,7 @@ public class MDMBlocks
 			mudDirt = new ItemStack(heavenDirtBlocks, 1, 1);
 		}
 		
-		heavenGrassBlocks = (BlockCustomGrass) (new BlockCustomGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204), new String[] { "Heaven Grass", "Mud Grass", "Corrupted Grass", "Hallowed Grass", "Mushroom Grass" }, new String[] { "heaven_grass_top", "mud_grass_top", "corrupted_grass_top", "hallowed_grass_top", "mushroom_grass_top" }, new String[] { "heaven_grass_side", "mud_grass_side", "corrupted_grass_side", "hallowed_grass_side", "mushroom_grass_side" }, new String[] { "heaven_dirt", "mud", "dirt", "dirt", "mud" })).setUnlocalizedName("heavenGrassBlocks").setCreativeTab(MDMItems.tabHeavenBlocks);
+		heavenGrassBlocks = (BlockHeavenGrass) (new BlockHeavenGrass(MDMConfig.getTerrainBlock("Heaven Grass", 204), new String[] { "Heaven Grass", "Mud Grass", "Corrupted Grass", "Hallowed Grass", "Mushroom Grass" }, new String[] { "heaven_grass_top", "mud_grass_top", "corrupted_grass_top", "hallowed_grass_top", "mushroom_grass_top" }, new String[] { "heaven_grass_side", "mud_grass_side", "corrupted_grass_side", "hallowed_grass_side", "mushroom_grass_side" }, new String[] { "heaven_dirt", "mud", "dirt", "dirt", "mud" })).setUnlocalizedName("heavenGrassBlocks").setCreativeTab(MDMItems.tabHeavenBlocks);
 		{
 			int i = -1;
 			heavenGrass = new ItemStack(heavenGrassBlocks, 1, ++i);

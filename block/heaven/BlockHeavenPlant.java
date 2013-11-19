@@ -15,18 +15,31 @@ public class BlockHeavenPlant extends BlockCustomPlant
 	@Override
 	public boolean isValidGround(int metadata, int blockID, int blockMetadata)
 	{
-		boolean heavenDirtID = blockID == MDMBlocks.heavenGrassBlocks.blockID || blockID == MDMBlocks.heavenDirtBlocks.blockID;
-		boolean vanillaDirtID = blockID == Block.grass.blockID || blockID == Block.dirt.blockID;
+		boolean heavenDirtID = blockID == MDMBlocks.heavenDirtBlocks.blockID;
+		boolean heavenGrassID = blockID == MDMBlocks.heavenGrassBlocks.blockID;
+		boolean vanillaDirtID = blockID == Block.dirt.blockID;
+		boolean vanillaGrassID = blockID == Block.grass.blockID;
+		switch (metadata)
+		{
+		case 0: // Heaven Grass
+		case 5: //Heaven Vine
+			return (heavenDirtID && blockMetadata == 0) || (heavenGrassID && blockMetadata == 0);
+		case 1: // Mud Grass
+		case 6: // Mud Vine
+			return (heavenDirtID && blockMetadata == 1) || (heavenGrassID && blockMetadata == 1);
+		case 2: // Corrupted Grass
+		case 7: // Corrupted Vine
+			return vanillaDirtID || (heavenGrassID && blockMetadata == 2);
+		case 3: // Hallowed Grass
+		case 8: // Hallowed Vine
+			return vanillaDirtID || (heavenGrassID && blockMetadata == 3);
+		case 4: // Mushroom Grass
+		case 9: // Mushroom Vine
+			return (heavenDirtID && blockMetadata == 1) || (heavenGrassID && blockMetadata == 4);
+		case 10: // Grass Vine
+			return vanillaDirtID || vanillaGrassID;
+		}
 		
-		/*
-		 * switch (metadata) { case 0: //Heaven Grass case 5: //Heaven Vine
-		 * return heavenDirtID && blockMetadata == 0; case 1: //Mud Grass case
-		 * 6: //Mud Vine return heavenDirtID && blockMetadata == 1; case 2:
-		 * //Corrupted Grass case 7: //Corrupted Vine case 3: //Hallowed Grass
-		 * case 8: //Hallowed Vine return vanillaDirtID; case 4: //Mushroom
-		 * Grass case 9: //Mushroom Vine return heavenDirtID && blockMetadata ==
-		 * 1; case 10: //Grass Vine return vanillaDirtID; }
-		 */
-		return heavenDirtID || vanillaDirtID;
+		return false;
 	}
 }
