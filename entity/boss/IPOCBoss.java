@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.entity.boss;
 
-import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData;
-import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser.EnumOutputAction;
+import clashsoft.mods.moredimensions.chat.boss.BossChatData;
+import clashsoft.mods.moredimensions.chat.boss.PlayerInputParser.EnumOutputAction;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -14,7 +14,7 @@ public interface IPOCBoss
 	
 	public BossChatData getBossChatData();
 	
-	public void sendParsedPlayerInput(EnumOutputAction action, EntityPlayer player);
+	public void onPlayerInput(EnumOutputAction action, EntityPlayer player);
 	
 	public void onChatOpened(EntityPlayer palyer);
 }

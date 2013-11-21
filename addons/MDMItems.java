@@ -13,7 +13,6 @@ import clashsoft.mods.moredimensions.item.heaven.*;
 import clashsoft.mods.moredimensions.item.poc.*;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-
 import static clashsoft.clashsoftapi.util.CSItems.*;
 
 import net.minecraft.block.Block;
@@ -95,12 +94,13 @@ public class MDMItems
 	public static ItemBowMDM				heavenBow;
 	public static ItemHeavenFood			heavenApple;
 	public static ItemLifeHeart				lifeHeart;
-	public static ItemFireSword			fireSword;
+	public static ItemFireSword				fireSword;
 	public static ItemPulsingSword			pulsingSword;
 	public static ItemIceHammer				icehammer;
 	public static ItemHeavenSoul			heavenSouls;
 	public static ItemHeavenPortalActivator	heavenPortalActivator;
 	public static ItemCape					capes;
+	public static ItemHeavenSeeds			heavenSeeds;
 	
 	public static ItemStack					heavenWoodStick, goldWoodStick, iceStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
 	
@@ -234,6 +234,7 @@ public class MDMItems
 		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer");
 		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
 		capes = (ItemCape) new ItemCape(MDMConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
+		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(MDMConfig.getItem("Heaven Seeds", heavenItemID++), new String[] {"Heaven Grass Seeds", "Mud Grass Seeds", "Corruped Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds"}, new String[] {"heaven_grass_seeds", "mud_grass_seeds", "corruped_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds"})).setUnlocalizedName("heavenSeeds");
 		
 		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(MDMConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator");
 	}
@@ -344,6 +345,8 @@ public class MDMItems
 		addItem(fireSword, "Fire Sword");
 		addItem(pulsingSword, "Pulsing Sword");
 		addItemWithRecipe(icehammer, "Ice Hammer", 1, new Object[] { "IiI", "IiI", " i ", Character.valueOf('I'), Block.ice, Character.valueOf('i'), iceStick });
+		addItem(capes, "Capes");
+		addItem(heavenSeeds, "HeavenSeeds");
 		
 		tabPOCBlocks.setIconItemStack(new ItemStack(MDMBlocks.pocGrassBlocks));
 		tabPOCItems.setIconItemStack(new ItemStack(pocMaterials));

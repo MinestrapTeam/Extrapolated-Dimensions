@@ -1,9 +1,9 @@
 package clashsoft.mods.moredimensions.entity.boss;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
+import clashsoft.mods.moredimensions.chat.boss.BossChatData;
+import clashsoft.mods.moredimensions.chat.boss.PlayerInputParser.EnumOutputAction;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
-import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData;
-import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser.EnumOutputAction;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 import net.minecraft.entity.Entity;
@@ -62,7 +62,7 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 	}
 	
 	@Override
-	public void sendParsedPlayerInput(EnumOutputAction action, EntityPlayer player)
+	public void onPlayerInput(EnumOutputAction action, EntityPlayer player)
 	{
 		if (action == EnumOutputAction.CANCEL)
 			interactingPlayer = null;

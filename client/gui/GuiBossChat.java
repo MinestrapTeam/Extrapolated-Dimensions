@@ -3,9 +3,9 @@ package clashsoft.mods.moredimensions.client.gui;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
+import clashsoft.mods.moredimensions.chat.boss.BossChatEntry;
+import clashsoft.mods.moredimensions.chat.boss.PlayerInputParser;
 import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
-import clashsoft.mods.moredimensions.entity.boss.chat.BossChatData.BossChatEntry;
-import clashsoft.mods.moredimensions.entity.boss.chat.PlayerInputParser;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
@@ -76,7 +76,7 @@ public class GuiBossChat extends GuiScreen
 			String message = playerInput.getText();
 			
 			theBoss.getBossChatData().addPlayerMessage(message, true);
-			theBoss.sendParsedPlayerInput(PlayerInputParser.parseInput(message), thePlayer);
+			theBoss.onPlayerInput(PlayerInputParser.parseInput(message), thePlayer);
 		}
 	}
 }

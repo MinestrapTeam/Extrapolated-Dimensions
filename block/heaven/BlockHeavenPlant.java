@@ -1,15 +1,32 @@
 package clashsoft.mods.moredimensions.block.heaven;
 
-import net.minecraft.block.Block;
+import java.util.Random;
 
 import clashsoft.clashsoftapi.block.BlockCustomPlant;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.MDMItems;
+
+import net.minecraft.block.Block;
 
 public class BlockHeavenPlant extends BlockCustomPlant
 {
+	public Random rand = new Random();
+	
 	public BlockHeavenPlant(int blockID, String[] names, String[] icons)
 	{
 		super(blockID, names, icons);
+	}
+	
+	@Override
+	public int idDropped(int metadata, Random random, int fortune)
+	{
+		return (random.nextInt(20) == 0 && metadata < 10) ? MDMItems.heavenSeeds.itemID : 0;
+	}
+	
+	@Override
+	public int damageDropped(int metadata)
+	{
+		return metadata < 10 ? metadata % 5 : 0;
 	}
 	
 	@Override
