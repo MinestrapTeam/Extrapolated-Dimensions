@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.inventory;
 
-import clashsoft.mods.moredimensions.entity.boss.IPOCBoss;
+import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -8,9 +8,9 @@ import net.minecraft.inventory.Container;
 public class ContainerBossChat extends Container
 {
 	EntityPlayer	player;
-	IPOCBoss		boss;
+	IMDMBoss		boss;
 	
-	public ContainerBossChat(EntityPlayer par1EntityPlayer, IPOCBoss par2Boss)
+	public ContainerBossChat(EntityPlayer par1EntityPlayer, IMDMBoss par2Boss)
 	{
 		player = par1EntityPlayer;
 		boss = par2Boss;

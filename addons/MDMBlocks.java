@@ -246,7 +246,7 @@ public class MDMBlocks
 		heavenGrassBlocks.setHardnesses(0.6F, 0.65F, 0.7F, 0.7F, 0.65F);
 		heavenGrassBlocks.setDirtBlocks(new int[] { heavenDirtBlocks.blockID, heavenDirtBlocks.blockID, Block.dirt.blockID, Block.dirt.blockID, heavenDirtBlocks.blockID }, new int[] { 0, 1, 0, 0, 1 });
 		
-		heavenPlanks.setHardness(0, 2.0F);
+		heavenPlanks.setHardness(2.0F);
 		heavenPlantBlocks.setHardnesses(0F, 0F, 0F, 0F);
 		
 		addBlock(heavenStoneBlocks, "HeavenStoneBlocks");

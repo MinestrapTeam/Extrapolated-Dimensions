@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.client.gui;
 
-import clashsoft.mods.moredimensions.common.PacketSendPlayerToHeaven;
+import clashsoft.mods.moredimensions.common.PacketHeaven;
 import cpw.mods.fml.common.network.PacketDispatcher;
 
 import net.minecraft.client.gui.GuiButton;
@@ -36,7 +36,7 @@ public class GuiGameOverHeaven extends GuiGameOver
 		{
 			this.mc.thePlayer.respawnPlayer();
 			this.mc.displayGuiScreen((GuiScreen) null);
-			PacketDispatcher.sendPacketToServer(new PacketSendPlayerToHeaven());
+			PacketDispatcher.sendPacketToServer(new PacketHeaven());
 		}
 		else
 			super.actionPerformed(par1GuiButton);

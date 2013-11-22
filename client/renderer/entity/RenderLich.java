@@ -1,109 +1,71 @@
 package clashsoft.mods.moredimensions.client.renderer.entity;
 
+import org.lwjgl.opengl.GL11;
+
 import clashsoft.mods.moredimensions.client.model.ModelLich;
-import clashsoft.mods.moredimensions.entity.boss.EntityLich;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class RenderLich extends RenderBiped
 {
-	private final ModelBiped	field_82434_o;
-	protected ModelBiped		field_82437_k;
-	protected ModelBiped		field_82435_l;
-	protected ModelBiped		field_82436_m;
-	protected ModelBiped		field_82433_n;
+	private static final ResourceLocation	skeletonTextures		= new ResourceLocation("textures/entity/skeleton/skeleton.png");
+	private static final ResourceLocation	witherSkeletonTextures	= new ResourceLocation("textures/entity/skeleton/wither_skeleton.png");
 	
 	public RenderLich()
 	{
-		super(new ModelLich(), 0.5F, 1.0F);
-		this.field_82434_o = this.modelBipedMain;
+		super(new ModelLich(), 0.5F);
 	}
 	
-	@Override
-	protected void func_82421_b()
+	protected void scaleSkeleton(EntitySkeleton par1EntitySkeleton, float par2)
 	{
-		this.field_82423_g = new ModelLich();
-		this.field_82425_h = new ModelLich();
-		this.field_82437_k = this.field_82423_g;
-		this.field_82435_l = this.field_82425_h;
-	}
-	
-	protected int func_82429_a(EntityLich par1EntityLich, int par2, float par3)
-	{
-		this.func_82427_a(par1EntityLich);
-		return super.shouldRenderPass(par1EntityLich, par2, par3);
-	}
-	
-	public void func_82426_a(EntityLich par1EntityLich, double par2, double par4, double par6, float par8, float par9)
-	{
-		this.func_82427_a(par1EntityLich);
-		super.doRenderLiving(par1EntityLich, par2, par4, par6, par8, par9);
-	}
-	
-	protected void func_82428_a(EntityLich par1EntityLich, float par2)
-	{
-		this.func_82427_a(par1EntityLich);
-		super.renderEquippedItems(par1EntityLich, par2);
-	}
-	
-	private void func_82427_a(EntityLich par1EntityLich)
-	{
-		this.mainModel = this.field_82434_o;
-		this.field_82423_g = this.field_82437_k;
-		this.field_82425_h = this.field_82435_l;
-		
-		this.modelBipedMain = (ModelBiped) this.mainModel;
-	}
-	
-	protected void func_82430_a(EntityLich par1EntityLich, float par2, float par3, float par4)
-	{
-		if (par1EntityLich.isStartingFight())
+		if (par1EntitySkeleton.getSkeletonType() == 1)
 		{
-			par3 += (float) (Math.cos(par1EntityLich.ticksExisted * 3.25D) * Math.PI * 0.25D);
+			GL11.glScalef(1.2F, 1.2F, 1.2F);
 		}
-		
-		super.rotateCorpse(par1EntityLich, par2, par3, par4);
-	}
-	
-	protected void renderEquippedItems(EntityLiving par1EntityLiving, float par2)
-	{
-		this.func_82428_a((EntityLich) par1EntityLiving, par2);
 	}
 	
 	@Override
-	public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
+	protected void func_82422_c()
 	{
-		this.func_82426_a((EntityLich) par1EntityLiving, par2, par4, par6, par8, par9);
+		GL11.glTranslatef(0.09375F, 0.1875F, 0.0F);
 	}
 	
-	/**
-	 * Queries whether should render the specified pass or not.
-	 */
-	protected int shouldRenderPass(EntityLiving par1EntityLiving, int par2, float par3)
+	protected ResourceLocation func_110860_a(EntitySkeleton par1EntitySkeleton)
 	{
-		return this.func_82429_a((EntityLich) par1EntityLiving, par2, par3);
-	}
-	
-	protected void rotateCorpse(EntityLiving par1EntityLiving, float par2, float par3, float par4)
-	{
-		this.func_82430_a((EntityLich) par1EntityLiving, par2, par3, par4);
+		return par1EntitySkeleton.getSkeletonType() == 1 ? witherSkeletonTextures : skeletonTextures;
 	}
 	
 	@Override
-	/**
-	 * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-	 * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-	 * (Render<T extends Entity) and this method has signature public void doRender(T entity, double d, double d1,
-	 * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-	 */
-	public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
+	protected ResourceLocation func_110856_a(EntityLiving par1EntityLiving)
 	{
-		this.func_82426_a((EntityLich) par1Entity, par2, par4, par6, par8, par9);
+		return this.func_110860_a((EntitySkeleton) par1EntityLiving);
+	}
+	
+	/**
+	 * Allows the render to do any OpenGL state modifications necessary before
+	 * the model is rendered. Args: entityLiving, partialTickTime
+	 */
+	@Override
+	protected void preRenderCallback(EntityLivingBase par1EntityLivingBase, float par2)
+	{
+		this.scaleSkeleton((EntitySkeleton) par1EntityLivingBase, par2);
+	}
+	
+	/**
+	 * Returns the location of an entity's texture. Doesn't seem to be called
+	 * unless you call Render.bindEntityTexture.
+	 */
+	@Override
+	protected ResourceLocation getEntityTexture(Entity par1Entity)
+	{
+		return this.func_110860_a((EntitySkeleton) par1Entity);
 	}
 }

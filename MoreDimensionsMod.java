@@ -78,9 +78,6 @@ public class MoreDimensionsMod
 		
 		long l12 = System.nanoTime();
 		proxy.register();
-		proxy.registerEntityRenderers();
-		proxy.registerClientEvents();
-		proxy.postRegisterRenderers();
 		long l13 = System.nanoTime();
 		
 		System.out.println(String.format("[MoreDimensionsMod] Loading times: Init:%.4fs; Blocks{init}:%.4fs; Items{init}:%.4fs; Tools{init}:%.4fs; Blocks{load}:%.4fs; Items{load}:%.4fs; Tools{load}:%.4fs; Entitys:%.4fs; Recipes:%.4fs; World:%.4fs; Inventory:%.4fs; Localizations:%.4fs; Proxy:%.4fs", (double)(l1 - l0) / 1000000000D, (double)(l2 - l1) / 1000000000D, (double)(l3 - l2) / 1000000000D, (double)(l4 - l3) / 1000000000D, (double)(l5 - l4) / 1000000000D, (double)(l6 - l5) / 1000000000D, (double)(l7 - l6) / 1000000000D, (double)(l8 - l7) / 1000000000D, (double)(l9 - l8) / 1000000000D, (double)(l10 - l9) / 1000000000D, (double)(l11 - l10) / 1000000000D, (double)(l12 - l11) / 1000000000D, (double)(l13 - l12) / 1000000000D));

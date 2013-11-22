@@ -5,8 +5,6 @@ import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-import net.minecraft.entity.EnumCreatureType;
-
 @Addon(modName = "MoreDimensionsMod", addonName = "Entitys")
 public class MDMEntitys
 {
@@ -14,10 +12,7 @@ public class MDMEntitys
 	{
 		// -- Paradise of Chaos --
 		
-		// Lich Entity
-		EntityRegistry.registerGlobalEntityID(EntityLich.class, "POCBossLich", EntityRegistry.findGlobalUniqueEntityId(), 0xFFFFFF, 0xEEEEEE);
-		
-		EntityRegistry.addSpawn(EntityLich.class, 100, 1, 10, EnumCreatureType.creature);
+		EntityRegistry.registerGlobalEntityID(EntityLich.class, "Lich", EntityRegistry.findGlobalUniqueEntityId(), 0xFFFFFF, 0xEEEEEE);
 		
 		// -- Heaven --
 		

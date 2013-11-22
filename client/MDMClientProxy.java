@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
+import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
 import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTube;
@@ -20,61 +21,44 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderCreeper;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
 public class MDMClientProxy extends MDMCommonProxy
 {
-	public Map<String, Integer> armorFiles = new HashMap<String, Integer>();
+	public Map<String, Integer>	armorFiles	= new HashMap<String, Integer>();
 	
-	public RenderPOCBows	bowRenderer;
+	public RenderPOCBows		bowRenderer;
 	
-	public static int		tubeRenderType;
-
-	public MDMClientProxy()
-	{
-		
-	}
+	public static int			tubeRenderType;
 	
 	@Override
 	public void register()
 	{
+		// Tick Handlers
 		super.register();
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityScider.class, new RenderScider());
-		
-		DevCapesUtil.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
-		
 		TickRegistry.registerTickHandler(new MDMClientTickHandler(), Side.CLIENT);
 		
-		bowRenderer = new RenderPOCBows();
+		// Event Handlers
+		MinecraftForge.EVENT_BUS.register(new MDMClientEventHandler());
+		MinecraftForge.EVENT_BUS.register(new GuiPOCIngame(Minecraft.getMinecraft()));
 		
-		Minecraft mc = Minecraft.getMinecraft();
+		// Sounds
 		installSound("streaming/PoC Menu.ogg");
 		
-		MinecraftForgeClient.registerItemRenderer(Item.bow.itemID, bowRenderer);
+		// Entity Renderers
+		RenderingRegistry.registerEntityRenderingHandler(EntityLich.class, new RenderLich());
+		RenderingRegistry.registerEntityRenderingHandler(EntityScider.class, new RenderScider());
 		
+		// Item Renderers
+		MinecraftForgeClient.registerItemRenderer(Item.bow.itemID, bowRenderer = new RenderPOCBows());
+		
+		// Tile Entity Renderers
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAlchemyTube.class, new RenderAlchemyTube());
-	}
-	
-	@Override
-	public void postRegisterRenderers()
-	{
-		MinecraftForge.EVENT_BUS.register(new GuiPOCIngame(Minecraft.getMinecraft()));
-	}
-	
-	@Override
-	public void registerEntityRenderers()
-	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityLich.class, new RenderCreeper());
-	}
-	
-	@Override
-	public void registerClientEvents()
-	{
-		MinecraftForge.EVENT_BUS.register(new MDMClientEventHandler());
+		
+		// Misc
+		DevCapesUtil.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
 	}
 	
 	public void installSound(String filename)

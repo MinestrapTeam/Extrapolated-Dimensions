@@ -47,28 +47,25 @@ public class BossChatData
 			for (BossChatEntry entry : this.entrys)
 			{
 				NBTTagCompound c = new NBTTagCompound("BossChatEntry");
-				c.setString("Message", entry.text);
-				c.setInteger("UserType", entry.userType.getID());
+				entry.writeToNBT(c);
 				list.appendTag(c);
 			}
 		}
 	}
 	
-	public static BossChatData readFromNBT(NBTTagCompound nbt)
+	public BossChatData readFromNBT(NBTTagCompound nbt)
 	{
 		if (nbt != null && nbt.hasKey("BossChatData"))
 		{
 			NBTTagList list = nbt.getTagList("BossChatData");
-			BossChatData bcd = new BossChatData();
 			for (int i = 0; i < list.tagCount(); i++)
 			{
 				NBTTagCompound c = (NBTTagCompound) list.tagAt(i);
-				EnumBossChatUser user = EnumBossChatUser.getBossChatUserFromID(nbt.getInteger("UserType"));
-				String message = nbt.getString("Message");
-				bcd.addMessage(user, message, true);
+				BossChatEntry entry = new BossChatEntry();
+				entry.readFromNBT(c);
+				this.addMessage(entry);
 			}
-			return bcd;
 		}
-		return new BossChatData();
+		return this;
 	}
 }

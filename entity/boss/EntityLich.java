@@ -7,14 +7,14 @@ import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-public class EntityLich extends EntityLiving implements IPOCBoss
+public class EntityLich extends EntitySkeleton implements IMDMBoss
 {
 	public static ResourceLocation	icon	= new ResourceLocation("paradiseofchaos/gui/bosschat/lichicon.png");
 	
@@ -44,9 +44,9 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 	}
 	
 	@Override
-	public String getDisplayName()
+	public String getEntityName()
 	{
-		return (bossName != null && bossName != "") ? bossName : StatCollector.translateToLocal("entity.POCBossLich.name");
+		return (bossName != null && !bossName.isEmpty()) ? bossName : StatCollector.translateToLocal("entity.POCBossLich.name");
 	}
 	
 	@Override
@@ -67,7 +67,7 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 		if (action == EnumOutputAction.CANCEL)
 			interactingPlayer = null;
 		
-		if (lastAction == "ASK_WHAT_PLAYER_WANTS")
+		if (lastAction == "intro1")
 			if (action == EnumOutputAction.START_FIGHT)
 				this.startBossFight(player);
 	}
@@ -75,7 +75,7 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 	@Override
 	public void onChatOpened(EntityPlayer player)
 	{
-		this.lastAction = "ASK_WHAT_PLAYER_WANTS";
+		this.lastAction = "intro1";
 		chatData.addBossMessage("Greetings, " + player.username + ". What do you want from me?", true);
 	}
 	
@@ -89,7 +89,7 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 	{
 		super.writeEntityToNBT(nbt);
 		chatData.writeToNBT(nbt);
-		if (this.bossName != null && this.bossName != "" && !bossName.isEmpty())
+		if (this.bossName != null && !bossName.isEmpty())
 			nbt.setString("BossName", this.bossName);
 		if (this.interactingPlayer != null)
 		{
@@ -102,11 +102,15 @@ public class EntityLich extends EntityLiving implements IPOCBoss
 	public void readEntityFromNBT(NBTTagCompound nbt)
 	{
 		super.readEntityFromNBT(nbt);
-		chatData = BossChatData.readFromNBT(nbt);
+		
+		chatData = new BossChatData();
+		chatData.readFromNBT(nbt);
+		
 		if (nbt.hasKey("BossName"))
 			this.bossName = nbt.getString("BossName");
 		else
 			this.bossName = "";
+		
 		this.interactingPlayer = this.worldObj.getPlayerEntityByName(nbt.getString("PlayerName"));
 		if (interactingPlayer == null)
 		{

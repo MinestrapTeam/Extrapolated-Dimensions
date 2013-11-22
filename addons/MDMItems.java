@@ -1,5 +1,9 @@
 package clashsoft.mods.moredimensions.addons;
 
+import static clashsoft.cslib.minecraft.util.CSItems.addArmor;
+import static clashsoft.cslib.minecraft.util.CSItems.addItemWithRecipe;
+import static clashsoft.cslib.minecraft.util.CSItems.addTool;
+
 import java.lang.reflect.Constructor;
 
 import clashsoft.cslib.addon.Addon;
@@ -13,7 +17,6 @@ import clashsoft.mods.moredimensions.item.heaven.*;
 import clashsoft.mods.moredimensions.item.poc.*;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import static clashsoft.cslib.minecraft.util.CSItems.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
@@ -44,16 +47,19 @@ public class MDMItems
 	public static EnumToolMaterial			toolEnergy		= EnumHelper.addToolMaterial("ENERGY", 3, 1536, 5F, 10, 2);
 	public static EnumToolMaterial			toolPro			= EnumHelper.addToolMaterial("PRO", 3, 4096, 8F, 10, 10);
 	
-	public static EnumToolMaterial			toolWillow		= EnumHelper.addToolMaterial("WILLOW", 0, 100, 1.2F, 1.5F, 16);
 	public static EnumToolMaterial			toolFire		= EnumHelper.addToolMaterial("FIRE", 2, 416, 3.5F, 2F, 8);
 	public static EnumToolMaterial			toolPulse		= EnumHelper.addToolMaterial("PULSE", 2, 512, 3F, 2F, 10);
+	public static EnumToolMaterial			toolWillow		= EnumHelper.addToolMaterial("WILLOW", 0, 100, 1.2F, 1.5F, 16);
 	public static EnumToolMaterial			toolShannara	= EnumHelper.addToolMaterial("SHANNARA", 3, 2048, 15.0F, 3.2F, Integer.MAX_VALUE);
+	public static EnumToolMaterial			toolDaeyalt		= EnumHelper.addToolMaterial("DAEYALT", 2, 512, 4F, 4F, 7);
 	
 	public static EnumArmorMaterial			armorShrekite	= EnumHelper.addArmorMaterial("SHREKITE", 32, new int[] { 1, 5, 3, 1 }, 9);
 	public static EnumArmorMaterial			armorClashium	= EnumHelper.addArmorMaterial("CLASHIUM", 64, new int[] { 2, 6, 4, 2 }, 11);
 	public static EnumArmorMaterial			armorHolyium	= EnumHelper.addArmorMaterial("HOLYIUM", 128, new int[] { 3, 9, 7, 3 }, 10);
 	public static EnumArmorMaterial			armorEnergy		= EnumHelper.addArmorMaterial("ENERGY", 256, new int[] { 6, 16, 12, 6 }, 2);
 	public static EnumArmorMaterial			armorPro		= EnumHelper.addArmorMaterial("PRO", 512, new int[] { 7, 18, 14, 7 }, 10);
+	
+	public static EnumArmorMaterial			armorDaeyalt	= EnumHelper.addArmorMaterial("DAEYALT", 265, new int[] { 4, 9, 7, 4 }, 7);
 	
 	public static int						pocItemID		= 25000;
 	public static int						heavenItemID	= 26000;
@@ -69,7 +75,11 @@ public class MDMItems
 	public static ItemElixirBottle			elixirBottle;
 	
 	public static CustomItem				pocMaterials;
+	
 	public static Item						willowSword, willowShovel, willowPickaxe, willowAxe, willowHoe;
+	public static Item						daeyaltSword, daeyaltShovel, daeyaltPickaxe, daeyaltAxe, daeyaltHoe;
+	
+	public static Item						daeyaltHelmet, daeyaltChestplate, daeyaltLeggings, daeyaltBoots, daeyaltGloves;
 	
 	public static ItemStack					magicOakStick, willowStick, daeyaltGem, noviteGem, marmarosGem;
 	
@@ -101,6 +111,7 @@ public class MDMItems
 	public static ItemHeavenPortalActivator	heavenPortalActivator;
 	public static ItemCape					capes;
 	public static ItemHeavenSeeds			heavenSeeds;
+	public static CustomItem				specialItems;
 	
 	public static ItemStack					heavenWoodStick, goldWoodStick, iceStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
 	
@@ -130,6 +141,18 @@ public class MDMItems
 		willowPickaxe = (new ItemPickaxe(MDMConfig.getItem("Willow Pickaxe", pocItemID++), toolWillow)).setUnlocalizedName("willow_pickaxe").setTextureName("willow_pickaxe").setCreativeTab(tabPOCTools);
 		willowAxe = (new ItemAxe(MDMConfig.getItem("Willow Axe", pocItemID++), toolWillow)).setUnlocalizedName("willow_axe").setTextureName("willow_axe").setCreativeTab(tabPOCTools);
 		willowHoe = (new ItemHoe(MDMConfig.getItem("Willow Hoe", pocItemID++), toolWillow)).setUnlocalizedName("willow_hoe").setTextureName("willow_hoe").setCreativeTab(tabPOCTools);
+		
+		daeyaltSword = (new ItemSword(MDMConfig.getItem("Daeyalt Sword", pocItemID++), toolWillow)).setUnlocalizedName("daeyalt_sword").setTextureName("daeyalt_sword").setCreativeTab(tabPOCTools);
+		daeyaltShovel = (new ItemSpade(MDMConfig.getItem("Daeyalt Shovel", pocItemID++), toolWillow)).setUnlocalizedName("daeyalt_shovel").setTextureName("daeyalt_shovel").setCreativeTab(tabPOCTools);
+		daeyaltPickaxe = (new ItemPickaxe(MDMConfig.getItem("Daeyalt Pickaxe", pocItemID++), toolWillow)).setUnlocalizedName("daeyalt_pickaxe").setTextureName("daeyalt_pickaxe").setCreativeTab(tabPOCTools);
+		daeyaltAxe = (new ItemAxe(MDMConfig.getItem("Daeyalt Axe", pocItemID++), toolWillow)).setUnlocalizedName("daeyalt_axe").setTextureName("daeyalt_axe").setCreativeTab(tabPOCTools);
+		daeyaltHoe = (new ItemHoe(MDMConfig.getItem("Daeyalt Hoe", pocItemID++), toolWillow)).setUnlocalizedName("daeyalt_hoe").setTextureName("daeyalt_hoe").setCreativeTab(tabPOCTools);
+		
+		daeyaltHelmet = new ItemArmor(MDMConfig.getItem("Daeyalt Helmet", heavenItemID++), armorDaeyalt, MDMCommonProxy.getArmorIndex("daeyalt"), 0).setUnlocalizedName("daeyalt_helmet").setTextureName("daeyalt_helmet").setCreativeTab(tabHeavenArmor);
+		daeyaltChestplate = new ItemArmor(MDMConfig.getItem("Daeyalt Chestplate", heavenItemID++), armorDaeyalt, MDMCommonProxy.getArmorIndex("daeyalt"), 1).setUnlocalizedName("daeyalt_chestplate").setTextureName("daeyalt_chestplate").setCreativeTab(tabHeavenArmor);
+		daeyaltLeggings = new ItemArmor(MDMConfig.getItem("Daeyalt Leggings", heavenItemID++), armorDaeyalt, MDMCommonProxy.getArmorIndex("daeyalt"), 2).setUnlocalizedName("daeyalt_leggings").setTextureName("daeyalt_leggings").setCreativeTab(tabHeavenArmor);
+		daeyaltBoots = new ItemArmor(MDMConfig.getItem("Daeyalt Boots", heavenItemID++), armorDaeyalt, MDMCommonProxy.getArmorIndex("daeyalt"), 3).setUnlocalizedName("daeyalt_boots").setTextureName("daeyalt_boots").setCreativeTab(tabHeavenArmor);
+		daeyaltGloves = new ItemGloves(MDMConfig.getItem("Daeyalt Gloves", heavenItemID++), armorDaeyalt, MDMCommonProxy.getArmorIndex("daeyalt")).setUnlocalizedName("daeyalt_gloves").setTextureName("daeyalt_gloves").setCreativeTab(tabHeavenArmor);
 		
 		// -- Heaven --
 		
@@ -234,7 +257,7 @@ public class MDMItems
 		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer");
 		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
 		capes = (ItemCape) new ItemCape(MDMConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
-		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(MDMConfig.getItem("Heaven Seeds", heavenItemID++), new String[] {"Heaven Grass Seeds", "Mud Grass Seeds", "Corruped Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds"}, new String[] {"heaven_grass_seeds", "mud_grass_seeds", "corruped_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds"})).setUnlocalizedName("heavenSeeds");
+		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(MDMConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corruped Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "heaven_grass_seeds", "mud_grass_seeds", "corruped_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
 		
 		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(MDMConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator");
 	}
@@ -256,6 +279,12 @@ public class MDMItems
 		addTool(willowPickaxe, "Willow Pickaxe", MDMBlocks.willowPlanks, willowStick, 2);
 		addTool(willowAxe, "Willow Axe", MDMBlocks.willowPlanks, willowStick, 3);
 		addTool(willowHoe, "Willow Hoe", MDMBlocks.willowPlanks, willowStick, 4);
+		
+		addTool(willowSword, "Daeyalt Sword", daeyaltGem, 0);
+		addTool(willowShovel, "Daeyalt Shovel", daeyaltGem, 1);
+		addTool(willowPickaxe, "Daeyalt Pickaxe", daeyaltGem, 2);
+		addTool(willowAxe, "Daeyalt Axe", daeyaltGem, 3);
+		addTool(willowHoe, "Daeyalt Hoe", daeyaltGem, 4);
 		
 		// -- Heaven --
 		
@@ -351,7 +380,7 @@ public class MDMItems
 		tabPOCBlocks.setIconItemStack(new ItemStack(MDMBlocks.pocGrassBlocks));
 		tabPOCItems.setIconItemStack(new ItemStack(pocMaterials));
 		tabPOCTools.setIconItemStack(new ItemStack(willowPickaxe));
-		tabPOCArmor.setIconItemStack(null); // <- TODO
+		tabPOCArmor.setIconItemStack(new ItemStack(daeyaltChestplate));
 		
 		tabAlchemy.setIconItemStack(new ItemStack(elixirBottle));
 		

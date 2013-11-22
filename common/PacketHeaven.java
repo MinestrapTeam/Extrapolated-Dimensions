@@ -2,9 +2,9 @@ package clashsoft.mods.moredimensions.common;
 
 import net.minecraft.network.packet.Packet250CustomPayload;
 
-public class PacketSendPlayerToHeaven extends Packet250CustomPayload
+public class PacketHeaven extends Packet250CustomPayload
 {
-	public PacketSendPlayerToHeaven()
+	public PacketHeaven()
 	{
 		super("MDMHeaven", new byte[] {});
 	}
