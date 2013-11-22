@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.world.World;
 
-import clashsoft.clashsoftapi.block.BlockCustomGrass;
+import clashsoft.cslib.minecraft.block.BlockCustomGrass;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 public class BlockHeavenGrass extends BlockCustomGrass

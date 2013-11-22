@@ -2,8 +2,8 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.util.Random;
 
-import clashsoft.clashsoftapi.util.addons.Addon;
-import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
+import clashsoft.cslib.addon.Addon;
+import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.world.biome.*;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;

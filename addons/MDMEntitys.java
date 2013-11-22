@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
-import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.cslib.addon.Addon;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
 import cpw.mods.fml.common.registry.EntityRegistry;

@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import clashsoft.clashsoftapi.block.BlockCustomSapling;
+import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenWillowTree;

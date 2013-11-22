@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.client.renderer.item;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.clashsoftapi.util.CSFontRenderer;
+import clashsoft.cslib.minecraft.util.CSFontRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;

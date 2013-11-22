@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions;
 
-import clashsoft.clashsoftapi.util.CSUpdate;
+import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.common.MDMEventHandler;

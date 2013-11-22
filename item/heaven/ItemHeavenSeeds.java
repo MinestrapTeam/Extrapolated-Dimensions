@@ -5,7 +5,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import clashsoft.clashsoftapi.CustomItem;
+import clashsoft.cslib.minecraft.CustomItem;
+import clashsoft.cslib.util.CSArrays;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 
@@ -13,8 +14,7 @@ public class ItemHeavenSeeds extends CustomItem
 {
 	public ItemHeavenSeeds(int itemID, String[] displayNames, String[] iconNames)
 	{
-		super(itemID, displayNames, iconNames);
-		this.setCreativeTab(MDMItems.tabHeavenItems);
+		super(itemID, displayNames, iconNames, CSArrays.create(MDMItems.tabHeavenItems));
 	}
 	
 	@Override

@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 
 import java.util.Random;
 
-import clashsoft.clashsoftapi.block.BlockCustomPlant;
+import clashsoft.cslib.minecraft.block.BlockCustomPlant;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 

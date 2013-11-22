@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item.armor;
 
-import clashsoft.clashsoftapi.CustomItem;
+import clashsoft.cslib.minecraft.CustomItem;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 
 import com.jadarstudios.developercapes.DevCapes;

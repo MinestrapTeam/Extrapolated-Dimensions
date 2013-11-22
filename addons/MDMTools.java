@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
-import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.cslib.addon.Addon;
 import clashsoft.mods.moredimensions.item.armor.ItemGloves;
 import clashsoft.mods.moredimensions.item.armor.ItemShield;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemBattleaxe;

@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
+import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.entity.passive.EntityChicken;

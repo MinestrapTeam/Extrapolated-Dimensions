@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.io.File;
 
-import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.cslib.addon.Addon;
 
 import net.minecraftforge.common.Configuration;
 

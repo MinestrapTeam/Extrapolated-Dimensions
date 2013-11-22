@@ -2,10 +2,10 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.lang.reflect.Constructor;
 
-import clashsoft.clashsoftapi.CustomCreativeTab;
-import clashsoft.clashsoftapi.CustomItem;
-import clashsoft.clashsoftapi.util.CSItems;
-import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.cslib.addon.Addon;
+import clashsoft.cslib.minecraft.CustomCreativeTab;
+import clashsoft.cslib.minecraft.CustomItem;
+import clashsoft.cslib.minecraft.util.CSItems;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
 import clashsoft.mods.moredimensions.item.armor.ItemGloves;
@@ -13,7 +13,7 @@ import clashsoft.mods.moredimensions.item.heaven.*;
 import clashsoft.mods.moredimensions.item.poc.*;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import static clashsoft.clashsoftapi.util.CSItems.*;
+import static clashsoft.cslib.minecraft.util.CSItems.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.*;

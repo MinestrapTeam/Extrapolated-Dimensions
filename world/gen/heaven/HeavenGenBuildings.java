@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.gen.heaven;
 
 import java.util.Random;
 
-import clashsoft.clashsoftapi.util.CSWorld;
+import clashsoft.cslib.minecraft.util.CSWorld;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;

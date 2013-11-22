@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.common;
 
-import clashsoft.clashsoftapi.util.CSUpdate;
+import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.block.IMinableBlock;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;

@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.gen.heaven;
 
-import clashsoft.clashsoftapi.world.gen.CustomTreeGenerator;
+import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 public class HeavenGenTrees extends CustomTreeGenerator

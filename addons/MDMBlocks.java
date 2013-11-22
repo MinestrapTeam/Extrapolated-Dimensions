@@ -1,12 +1,12 @@
 package clashsoft.mods.moredimensions.addons;
 
-import static clashsoft.clashsoftapi.util.CSBlocks.addBlock;
-import clashsoft.clashsoftapi.CustomBlock;
-import clashsoft.clashsoftapi.block.BlockCustomGrass;
-import clashsoft.clashsoftapi.block.BlockCustomLeaves;
-import clashsoft.clashsoftapi.block.BlockCustomLog;
-import clashsoft.clashsoftapi.block.BlockCustomSapling;
-import clashsoft.clashsoftapi.util.addons.Addon;
+import static clashsoft.cslib.minecraft.util.CSBlocks.addBlock;
+import clashsoft.cslib.addon.Addon;
+import clashsoft.cslib.minecraft.CustomBlock;
+import clashsoft.cslib.minecraft.block.BlockCustomGrass;
+import clashsoft.cslib.minecraft.block.BlockCustomLeaves;
+import clashsoft.cslib.minecraft.block.BlockCustomLog;
+import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.mods.moredimensions.block.BlockMDM;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;

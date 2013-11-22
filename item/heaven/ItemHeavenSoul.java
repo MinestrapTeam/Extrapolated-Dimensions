@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.item.heaven;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.clashsoftapi.util.CSRandom;
+import clashsoft.cslib.util.CSRandom;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 import clashsoft.mods.moredimensions.item.ItemMDM;
 import cpw.mods.fml.relauncher.Side;

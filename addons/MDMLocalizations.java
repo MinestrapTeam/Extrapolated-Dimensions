@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
-import clashsoft.clashsoftapi.util.addons.Addon;
+import clashsoft.cslib.addon.Addon;
 import clashsoft.mods.moredimensions.item.heaven.ItemHeavenSoul;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

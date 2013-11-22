@@ -5,7 +5,7 @@ import static net.minecraftforge.common.EnumPlantType.Plains;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.clashsoftapi.block.ICustomBlock;
+import clashsoft.cslib.minecraft.block.ICustomBlock;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

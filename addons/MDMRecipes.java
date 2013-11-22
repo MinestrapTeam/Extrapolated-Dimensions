@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.addons;
 
-import static clashsoft.clashsoftapi.util.CSCrafting.*;
-import clashsoft.clashsoftapi.util.addons.Addon;
+import static clashsoft.cslib.minecraft.util.CSCrafting.*;
+import clashsoft.cslib.addon.Addon;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
