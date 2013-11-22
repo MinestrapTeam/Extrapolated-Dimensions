@@ -6,39 +6,59 @@ import clashsoft.mods.moredimensions.item.armor.ArmorTypes;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
 import clashsoft.mods.moredimensions.item.armor.ItemGloves;
 import clashsoft.mods.moredimensions.item.armor.ItemShield;
-
-import com.chaosdev.playerinventoryapi.CreativeInventory;
-import com.chaosdev.playerinventoryapi.SurvivalInventory;
-import com.chaosdev.playerinventoryapi.api.ISlotHandler;
-import com.chaosdev.playerinventoryapi.inventory.SlotCustomArmor;
-import com.chaosdev.playerinventoryapi.lib.ExtendedInventory;
+import clashsoft.playerinventoryapi.CreativeInventory;
+import clashsoft.playerinventoryapi.SurvivalInventory;
+import clashsoft.playerinventoryapi.api.ISlotHandler;
+import clashsoft.playerinventoryapi.inventory.SlotCustomArmor;
+import clashsoft.playerinventoryapi.lib.ExtendedInventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 
 public class MDMInventory
 {
-	public static ISlotHandler slotHandler = new ISlotHandler()
-	{
-		@Override
-		public void addSlots(List<Slot> list, EntityPlayer player, boolean creative)
-		{	
-			if (!creative)
-				SurvivalInventory.compactCraftingGrid();
-			
-			SlotCustomArmor glove = new SlotCustomArmor(player, ExtendedInventory.getExtendedInventory(player), 0, 45, 24, ArmorTypes.GLOVE);
-			SlotCustomArmor shield = new SlotCustomArmor(player, ExtendedInventory.getExtendedInventory(player), 1, 63, 24, ArmorTypes.SHIELD);
-			SlotCustomArmor cape = new SlotCustomArmor(player, ExtendedInventory.getExtendedInventory(player), 2, 81, 24, ArmorTypes.CAPE);
-			
-			glove.backgroundIcon = ItemGloves.slotIcon;
-			cape.backgroundIcon = ItemCape.slotIcon;
-			shield.backgroundIcon = ItemShield.slotIcon;
-			
-			list.add(glove);
-			list.add(shield);
-			list.add(cape);
-		}
-	};
+	public static ISlotHandler	slotHandler	= new ISlotHandler()
+											{
+												@Override
+												public void addSlots(List<Slot> list, EntityPlayer player, boolean creative)
+												{
+													if (!creative)
+														SurvivalInventory.compactCraftingGrid();
+													
+													ExtendedInventory ei = ExtendedInventory.get(player);
+													SlotCustomArmor glove, shield, cape;
+													
+													if (creative)
+													{
+														glove = new SlotCustomArmor(player, ei, 0, 45, 24, ArmorTypes.GLOVE);
+														shield = new SlotCustomArmor(player, ei, 1, 63, 24, ArmorTypes.SHIELD);
+														cape = new SlotCustomArmor(player, ei, 2, 81, 24, ArmorTypes.CAPE);
+														
+													}
+													else
+													{
+														glove = new SlotCustomArmor(player, ei, 0, 80, 8, ArmorTypes.GLOVE);
+														shield = new SlotCustomArmor(player, ei, 1, 80, 26, ArmorTypes.SHIELD);
+														cape = new SlotCustomArmor(player, ei, 2, 80, 44, ArmorTypes.CAPE);
+														
+													}
+													
+													glove.backgroundIcon = ItemGloves.slotIcon;
+													cape.backgroundIcon = ItemCape.slotIcon;
+													shield.backgroundIcon = ItemShield.slotIcon;
+													
+													list.add(glove);
+													list.add(shield);
+													list.add(cape);
+													
+													if (creative)
+														for (int i = 3; i < 8; i++)
+															list.add(new Slot(ei, i, 45 + (i * 18), 24));
+													else
+														for (int i = 3; i < 8; i++)
+															list.add(new Slot(ei, i, 80 + (i / 4) * 18, 8 + (i % 4 * 18)));
+												}
+											};
 	
 	public static void load()
 	{
