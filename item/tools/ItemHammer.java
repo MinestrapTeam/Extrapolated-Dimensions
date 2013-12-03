@@ -24,4 +24,13 @@ public class ItemHammer extends ItemTool
 		Material material = par2Block.blockMaterial;
 		return (material == Material.glass || material == Material.piston || material == Material.redstoneLight || material == Material.vine || material == Material.web) ? efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
 	}
+	
+	public static class ItemWarhammer extends ItemHammer
+	{
+		public ItemWarhammer(int par1, EnumToolMaterial par2EnumToolMaterial)
+		{
+			super(par1, par2EnumToolMaterial);
+			this.damageVsEntity = 5F + par2EnumToolMaterial.getDamageVsEntity();
+		}
+	}
 }

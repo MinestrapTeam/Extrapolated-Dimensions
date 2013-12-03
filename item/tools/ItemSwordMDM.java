@@ -194,4 +194,38 @@ public class ItemSwordMDM extends Item
     		super(par1, 5F, 1.25F, par2EnumToolMaterial);
     	}
     }
+    
+    // Throwable
+    
+    public static class ItemThrowableKnife extends ItemSwordMDM
+    {
+    	public ItemThrowableKnife(int par1, EnumToolMaterial par2EnumToolMaterial)
+    	{
+    		super(par1, 4F, 0.7F, par2EnumToolMaterial);
+    	}
+    }
+    
+    public static class ItemNinjaStar extends ItemSwordMDM
+    {
+    	public ItemNinjaStar(int par1, EnumToolMaterial par2EnumToolMaterial)
+    	{
+    		super(par1, 3.5F, 0.666F, par2EnumToolMaterial);
+    	}
+    }
+    
+    public static class ItemJavelin extends ItemSwordMDM
+    {
+    	public ItemJavelin(int par1, EnumToolMaterial par2EnumToolMaterial)
+    	{
+    		super(par1, 3.5F, 1.3F, par2EnumToolMaterial);
+    	}
+    }
+    
+    public static class ItemDart extends ItemSwordMDM
+    {
+    	public ItemDart(int par1, EnumToolMaterial par2EnumToolMaterial)
+    	{
+    		super(par1, 3F, 0.666F, par2EnumToolMaterial);
+    	}
+    }
 }

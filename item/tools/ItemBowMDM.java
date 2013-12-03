@@ -3,29 +3,39 @@ package clashsoft.mods.moredimensions.item.tools;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.item.ItemBow;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
-public class ItemBowMDM extends ItemBow
+public class ItemBowMDM extends ItemTool
 {
+	public static Block[] blocksEffectiveAgainst = {};
+
+	public static ItemStack defaultArrow = new ItemStack(Item.arrow);
+	
 	public ItemStack	arrow;
 	public Icon[]		iconArray;
 	
-	public ItemBowMDM(int par1, String texturename, ItemStack arrow)
+	public ItemBowMDM(int par1, EnumToolMaterial toolMaterial)
 	{
-		super(par1);
-		this.setMaxDamage(400);
-		this.setTextureName(texturename);
+		this(par1, toolMaterial, defaultArrow);
+	}
+	
+	public ItemBowMDM(int par1, EnumToolMaterial toolMaterial, ItemStack arrow)
+	{
+		super(par1, 0F, toolMaterial, blocksEffectiveAgainst);
 		
 		this.arrow = arrow;
 	}
@@ -156,5 +166,21 @@ public class ItemBowMDM extends ItemBow
 				return iconArray[0];
 		}
 		return this.itemIcon;
+	}
+	
+	public static class ItemCrossBow extends ItemBowMDM
+	{	
+		public ItemCrossBow(int itemID, EnumToolMaterial toolMaterial)
+		{
+			super(itemID, toolMaterial, defaultArrow);
+		}
+	}
+	
+	public static class ItemShortBow extends ItemBowMDM
+	{	
+		public ItemShortBow(int itemID, EnumToolMaterial toolMaterial)
+		{
+			super(itemID, toolMaterial, defaultArrow);
+		}
 	}
 }

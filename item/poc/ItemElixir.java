@@ -2,8 +2,8 @@ package clashsoft.mods.moredimensions.item.poc;
 
 import java.util.List;
 
-import clashsoft.brewingapi.brewing.Brewing;
-import clashsoft.brewingapi.brewing.BrewingBase;
+import clashsoft.brewingapi.brewing.PotionType;
+import clashsoft.brewingapi.brewing.PotionBase;
 import clashsoft.brewingapi.item.ItemPotion2;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
@@ -118,12 +118,12 @@ public class ItemElixir extends ItemPotion2
 				var2 = StatCollector.translateToLocal("elixir.prefix.grenade").trim() + " ";
 			}
 			
-			List<Brewing> var3 = this.getEffects(par1ItemStack);
+			List<PotionType> var3 = this.getEffects(par1ItemStack);
 			String var4 = "";
 			
 			if (var3 != null && !var3.isEmpty())
 			{
-				if (var3.size() == Brewing.combinableEffects.size())
+				if (var3.size() == PotionType.combinableEffects.size())
 				{
 					return "\u00a7b" + var2 + StatCollector.translateToLocal("elixir.alleffects.postfix");
 				}
@@ -133,7 +133,7 @@ public class ItemElixir extends ItemPotion2
 				}
 				else if (var3.get(0).isBase())
 				{
-					return StatCollector.translateToLocal("potion.prefix." + ((BrewingBase) var3.get(0)).basename).trim() + " " + var2 + super.getItemDisplayName(par1ItemStack);
+					return StatCollector.translateToLocal("potion.prefix." + ((PotionBase) var3.get(0)).basename).trim() + " " + var2 + super.getItemDisplayName(par1ItemStack);
 				}
 				for (int i = 0; i < var3.size(); i++)
 				{
@@ -184,13 +184,13 @@ public class ItemElixir extends ItemPotion2
 				par3List.add(new ItemStack(this, 1, i * 4));
 			}
 			
-			for (Brewing brewing : Brewing.effectBrewings)
+			for (PotionType potionType : PotionType.potionTypeList)
 			{
 				for (int i = 1; i <= BOTTLE_TYPES * 4; i += 2)
 				{
-					for (Brewing brewing2 : brewing.getSubTypes())
+					for (PotionType brewing2 : potionType.getSubTypes())
 					{
-						Brewing var1 = new Brewing(brewing2.getEffect(), brewing2.getMaxAmplifier(), brewing2.getMaxDuration(), brewing2.getOpposite(), brewing2.getIngredient(), brewing2.getBase());
+						PotionType var1 = new PotionType(brewing2.getEffect(), brewing2.getMaxAmplifier(), brewing2.getMaxDuration(), brewing2.getInverted(), brewing2.getIngredient(), brewing2.getBase());
 						if (isSplash(i) && var1 != null && var1.getEffect() != null && var1.getEffect().getPotionID() > 0)
 						{
 							var1.setEffect(new PotionEffect(var1.getEffect().getPotionID(), MathHelper.ceiling_double_int(var1.getEffect().getDuration() * 0.75D), var1.getEffect().getAmplifier()));

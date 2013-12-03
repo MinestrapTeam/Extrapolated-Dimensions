@@ -15,14 +15,15 @@ public class ItemShield extends ItemArmor
 	
 	public boolean render = true;
 	
-	public ItemShield(int par1, EnumArmorMaterial material)
+	public ItemShield(int par1, EnumArmorMaterial material, int renderIndex)
 	{
-		this(par1, material, true);
+		this(par1, material, renderIndex, true);
 	}
 	
-	public ItemShield(int par1, EnumArmorMaterial material, boolean render)
+	public ItemShield(int par1, EnumArmorMaterial material, int renderIndex, boolean render)
 	{
-		super(par1, material, 0, 0);
+		super(par1, material, renderIndex, 0);
+		this.render = render;
 	}
 	
 	@Override

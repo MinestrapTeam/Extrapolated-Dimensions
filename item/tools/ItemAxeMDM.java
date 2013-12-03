@@ -50,4 +50,12 @@ public class ItemAxeMDM extends ItemTool
 			super(par1, 3F, 2F, par2EnumToolMaterial);
 		}
 	}
+	
+	public static class ItemThrowableAxe extends ItemAxeMDM
+	{
+		public ItemThrowableAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+		{
+			super(par1, 2.5F, 1F, par2EnumToolMaterial);
+		}
+	}
 }
