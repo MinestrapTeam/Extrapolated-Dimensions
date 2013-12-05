@@ -42,14 +42,14 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		bottles = new Icon[BOTTLE_TYPES];
-		splashBottles = new Icon[BOTTLE_TYPES];
-		liquids = new Icon[BOTTLE_TYPES];
+		this.bottles = new Icon[BOTTLE_TYPES];
+		this.splashBottles = new Icon[BOTTLE_TYPES];
+		this.liquids = new Icon[BOTTLE_TYPES];
 		for (int i = 0; i < BOTTLE_TYPES; i++)
 		{
-			bottles[i] = par1IconRegister.registerIcon("elixir_bottle_" + i);
-			splashBottles[i] = par1IconRegister.registerIcon("elixir_splash_" + i);
-			liquids[i] = par1IconRegister.registerIcon("elixir_liquid_" + i);
+			this.bottles[i] = par1IconRegister.registerIcon("elixir_bottle_" + i);
+			this.splashBottles[i] = par1IconRegister.registerIcon("elixir_splash_" + i);
+			this.liquids[i] = par1IconRegister.registerIcon("elixir_liquid_" + i);
 		}
 	}
 	
@@ -91,21 +91,21 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public Icon getIcon(ItemStack par1ItemStack, int par2)
 	{
-		int type = getBottleType(par1ItemStack.getItemDamage());
-		return par2 == 0 ? this.liquids[type] : (isSplash(par1ItemStack.getItemDamage()) ? splashBottles[type] : bottles[type]);
+		int type = this.getBottleType(par1ItemStack.getItemDamage());
+		return par2 == 0 ? this.liquids[type] : (this.isSplash(par1ItemStack.getItemDamage()) ? this.splashBottles[type] : this.bottles[type]);
 	}
 	
 	@Override
 	public Icon getSplashIcon(ItemStack stack)
 	{
-		return splashBottles[getBottleType(stack.getItemDamage())];
+		return this.splashBottles[this.getBottleType(stack.getItemDamage())];
 	}
 	
 	@Override
 	public String getItemDisplayName(ItemStack par1ItemStack)
 	{
-		List effects = getEffects(par1ItemStack);
-		if (isWater(par1ItemStack.getItemDamage()))
+		List effects = this.getEffects(par1ItemStack);
+		if (this.isWater(par1ItemStack.getItemDamage()))
 		{
 			return StatCollector.translateToLocal("elixir.empty").trim();
 		}
@@ -113,7 +113,7 @@ public class ItemElixir extends ItemPotion2
 		{
 			String var2 = "";
 			
-			if (isSplash(par1ItemStack.getItemDamage()))
+			if (this.isSplash(par1ItemStack.getItemDamage()))
 			{
 				var2 = StatCollector.translateToLocal("elixir.prefix.grenade").trim() + " ";
 			}
@@ -165,7 +165,7 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
 	{
-		String s = EnumChatFormatting.ITALIC + StatCollector.translateToLocal("elixir.bottletype") + ": " + StatCollector.translateToLocal("elixir.bottletype." + getBottleType(par1ItemStack.getItemDamage()));
+		String s = EnumChatFormatting.ITALIC + StatCollector.translateToLocal("elixir.bottletype") + ": " + StatCollector.translateToLocal("elixir.bottletype." + this.getBottleType(par1ItemStack.getItemDamage()));
 		par3List.add(s);
 		super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
 	}
@@ -191,7 +191,7 @@ public class ItemElixir extends ItemPotion2
 					for (PotionType brewing2 : potionType.getSubTypes())
 					{
 						PotionType var1 = new PotionType(brewing2.getEffect(), brewing2.getMaxAmplifier(), brewing2.getMaxDuration(), brewing2.getInverted(), brewing2.getIngredient(), brewing2.getBase());
-						if (isSplash(i) && var1 != null && var1.getEffect() != null && var1.getEffect().getPotionID() > 0)
+						if (this.isSplash(i) && var1 != null && var1.getEffect() != null && var1.getEffect().getPotionID() > 0)
 						{
 							var1.setEffect(new PotionEffect(var1.getEffect().getPotionID(), MathHelper.ceiling_double_int(var1.getEffect().getDuration() * 0.75D), var1.getEffect().getAmplifier()));
 						}

@@ -1,8 +1,6 @@
 package clashsoft.mods.moredimensions.common;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
-import clashsoft.mods.moredimensions.client.gui.GuiTome;
 import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
 import clashsoft.mods.moredimensions.inventory.ContainerBossChat;
 import clashsoft.mods.moredimensions.inventory.ContainerTome;
@@ -29,7 +27,7 @@ public class MDMCommonProxy implements IGuiHandler
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		return ID == BOSS_CHAT_GUIID ? new GuiBossChat(player, (IMDMBoss) world.getEntityByID(x)) : (ID == TOME_GUIID ? new GuiTome() : null);
+		return null;
 	}
 	
 	public void register()

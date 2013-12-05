@@ -3,7 +3,9 @@ package clashsoft.mods.moredimensions.client;
 import java.util.HashMap;
 import java.util.Map;
 
+import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
 import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
+import clashsoft.mods.moredimensions.client.gui.GuiTome;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
@@ -11,6 +13,7 @@ import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTub
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
+import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
 import com.jadarstudios.developercapes.DevCapesUtil;
@@ -21,7 +24,9 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -32,6 +37,12 @@ public class MDMClientProxy extends MDMCommonProxy
 	public RenderPOCBows		bowRenderer;
 	
 	public static int			tubeRenderType;
+	
+	@Override
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	{
+		return ID == BOSS_CHAT_GUIID ? new GuiBossChat(player, (IMDMBoss) world.getEntityByID(x)) : (ID == TOME_GUIID ? new GuiTome() : null);
+	}
 	
 	@Override
 	public void register()

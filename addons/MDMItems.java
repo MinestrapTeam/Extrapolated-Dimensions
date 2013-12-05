@@ -182,7 +182,7 @@ public class MDMItems
 			if (c != null)
 				item = c.newInstance(args);
 		}
-		catch (Exception ex)
+		catch (Throwable ex)
 		{
 			ex.printStackTrace();
 			return null;

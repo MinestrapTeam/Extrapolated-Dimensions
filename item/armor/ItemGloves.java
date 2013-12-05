@@ -1,9 +1,6 @@
 package clashsoft.mods.moredimensions.item.armor;
 
-import clashsoft.mods.moredimensions.client.model.ModelGloves;
-
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,10 +12,6 @@ import net.minecraft.util.Icon;
 public class ItemGloves extends ItemArmor
 {
 	public static Icon		slotIcon;
-	
-	public ModelBiped		modelGloves;
-	public ModelRenderer	bipedRightGlove;
-	public ModelRenderer	bipedLeftGlove;
 	
 	public ItemGloves(int par1, EnumArmorMaterial material, int renderIndex)
 	{
@@ -41,13 +34,6 @@ public class ItemGloves extends ItemArmor
 	@Override
 	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot)
 	{
-		if (armorSlot == ArmorTypes.GLOVE)
-		{
-			if (modelGloves == null)
-				modelGloves = new ModelGloves();
-			
-			return modelGloves;
-		}
 		return null;
 	}
 }
