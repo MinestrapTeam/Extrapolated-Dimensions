@@ -184,8 +184,7 @@ public class MDMItems
 		}
 		catch (Throwable ex)
 		{
-			ex.printStackTrace();
-			return null;
+			throw new RuntimeException(ex);
 		}
 		
 		addItem(item, name);

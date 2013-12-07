@@ -1,38 +1,39 @@
 package clashsoft.mods.moredimensions.item.armor;
 
+import clashsoft.cslib.minecraft.item.ItemCustomArmor;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class ItemGloves extends ItemArmor
+public class ItemGloves extends ItemCustomArmor
 {
 	public static Icon		slotIcon;
 	
-	public ItemGloves(int par1, EnumArmorMaterial material, int renderIndex)
+	public ItemGloves(int itemID, EnumArmorMaterial material, int renderIndex)
 	{
-		super(par1, material, renderIndex, 0);
+		super(itemID, material, renderIndex, ArmorTypes.GLOVE);
 	}
 	
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public int getDamageReductionAmount(EnumArmorMaterial material)
 	{
-		super.registerIcons(par1IconRegister);
-		slotIcon = par1IconRegister.registerIcon("armorslot_gloves");
+		return material.getDamageReductionAmount(ArmorTypes.BOOTS);
 	}
 	
 	@Override
-	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		return armorType == ArmorTypes.GLOVE;
+		super.registerIcons(iconRegister);
+		if (slotIcon == null)
+			slotIcon = iconRegister.registerIcon("armorslot_gloves");
 	}
 	
 	@Override
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack stack, int armorSlot)
 	{
 		return null;
 	}

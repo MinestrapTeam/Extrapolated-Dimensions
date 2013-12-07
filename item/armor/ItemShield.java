@@ -1,46 +1,47 @@
 package clashsoft.mods.moredimensions.item.armor;
 
+import clashsoft.cslib.minecraft.item.ItemCustomArmor;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class ItemShield extends ItemArmor
+public class ItemShield extends ItemCustomArmor
 {
 	public static Icon		slotIcon;
 	
 	public boolean render = true;
 	
-	public ItemShield(int par1, EnumArmorMaterial material, int renderIndex)
+	public ItemShield(int itemID, EnumArmorMaterial material, int renderIndex)
 	{
-		this(par1, material, renderIndex, true);
+		this(itemID, material, renderIndex, true);
 	}
 	
-	public ItemShield(int par1, EnumArmorMaterial material, int renderIndex, boolean render)
+	public ItemShield(int itemID, EnumArmorMaterial material, int renderIndex, boolean render)
 	{
-		super(par1, material, renderIndex, 0);
+		super(itemID, material, renderIndex, ArmorTypes.SHIELD);
 		this.render = render;
 	}
 	
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public int getDamageReductionAmount(EnumArmorMaterial material)
 	{
-		super.registerIcons(par1IconRegister);
-		slotIcon = par1IconRegister.registerIcon("armorslot_shield");
+		return material.getDamageReductionAmount(ArmorTypes.LEGGINGS);
 	}
 	
 	@Override
-	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		return armorType == ArmorTypes.SHIELD;
+		super.registerIcons(iconRegister);
+		if (slotIcon == null)
+			slotIcon = iconRegister.registerIcon("armorslot_shield");
 	}
 	
 	@Override
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot)
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack stack, int armorSlot)
 	{
 		if (this.render)
 			return null;

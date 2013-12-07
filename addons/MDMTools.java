@@ -121,7 +121,7 @@ public class MDMTools
 																	armorWillow, armorGoldWood, armorDaeyalt, armorMarmoros, armorNovite, armorKratonium, armorShannara // POC
 																	);
 	
-	public static Item[][]				items				= new Item[materialNames.length][35];
+	public static Item[][]				items				= new Item[materialNames.length][toolTypes.length];
 	
 	public static int					toolItemID			= 27000;
 	
@@ -156,7 +156,7 @@ public class MDMTools
 				if (ItemArmor.class.isAssignableFrom(toolClass))
 				{
 					if (!vanillaArmor)
-						items[materialIndex][toolIndex] = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(itemIconName) }).setCreativeTab(armorTab).setUnlocalizedName(itemID).setTextureName(itemIconName);
+						items[materialIndex][toolIndex] = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) }).setCreativeTab(armorTab).setUnlocalizedName(itemID).setTextureName(itemIconName);
 				}
 				else
 				{

@@ -32,7 +32,8 @@ public class ItemCape extends CustomItem
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		super.registerIcons(par1IconRegister);
-		slotIcon = par1IconRegister.registerIcon("armorslot_cape");
+		if (slotIcon == null)
+			slotIcon = par1IconRegister.registerIcon("armorslot_cape");
 	}
 	
 	@Override

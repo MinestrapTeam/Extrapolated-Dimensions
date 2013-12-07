@@ -27,22 +27,18 @@ public class MDMSlotHandler implements ISlotHandler
 		
 		if (creative)
 		{
-			glove = new SlotCustomArmor(player, ei, 0, 45, 24, ArmorTypes.GLOVE);
-			shield = new SlotCustomArmor(player, ei, 1, 63, 24, ArmorTypes.SHIELD);
-			cape = new SlotCustomArmor(player, ei, 2, 81, 24, ArmorTypes.CAPE);
+			glove = new SlotCustomArmor(player, ei, 0, 45, 24, ArmorTypes.GLOVE, ItemGloves.slotIcon);
+			shield = new SlotCustomArmor(player, ei, 1, 63, 24, ArmorTypes.SHIELD, ItemCape.slotIcon);
+			cape = new SlotCustomArmor(player, ei, 2, 81, 24, ArmorTypes.CAPE, ItemShield.slotIcon);
 			
 		}
 		else
 		{
-			glove = new SlotCustomArmor(player, ei, 0, 80, 8, ArmorTypes.GLOVE);
-			shield = new SlotCustomArmor(player, ei, 1, 80, 26, ArmorTypes.SHIELD);
-			cape = new SlotCustomArmor(player, ei, 2, 80, 44, ArmorTypes.CAPE);
+			glove = new SlotCustomArmor(player, ei, 0, 80, 8, ArmorTypes.GLOVE, ItemGloves.slotIcon);
+			shield = new SlotCustomArmor(player, ei, 1, 80, 26, ArmorTypes.SHIELD, ItemCape.slotIcon);
+			cape = new SlotCustomArmor(player, ei, 2, 80, 44, ArmorTypes.CAPE, ItemShield.slotIcon);
 			
 		}
-		
-		glove.backgroundIcon = ItemGloves.slotIcon;
-		cape.backgroundIcon = ItemCape.slotIcon;
-		shield.backgroundIcon = ItemShield.slotIcon;
 		
 		list.add(glove);
 		list.add(shield);

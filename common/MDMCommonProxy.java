@@ -12,9 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class MDMCommonProxy implements IGuiHandler
-{
-	public static int	shrekite		= 0;
-	
+{	
 	public static int	BOSS_CHAT_GUIID	= 20;
 	public static int	TOME_GUIID		= 21;
 	

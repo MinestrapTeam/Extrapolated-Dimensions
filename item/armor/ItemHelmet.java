@@ -7,7 +7,7 @@ public class ItemHelmet extends ItemArmor
 {
 	public ItemHelmet(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3)
 	{
-		super(par1, par2EnumArmorMaterial, par3, 0);
+		super(par1, par2EnumArmorMaterial, par3, ArmorTypes.HELMET);
 	}
 	
 }
