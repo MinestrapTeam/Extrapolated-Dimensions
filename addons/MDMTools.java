@@ -141,7 +141,7 @@ public class MDMTools
 			boolean vanillaMaterial = (materialName == "Wood" || materialName == "Stone" || materialName == "Iron" || materialName == "Gold" || materialName == "Diamond");
 			
 			for (int toolIndex = 0; toolIndex < toolTypes.length; toolIndex++)
-			{	
+			{
 				String toolType = toolTypes[toolIndex];
 				
 				String itemName = materialName + " " + toolType;
@@ -150,18 +150,23 @@ public class MDMTools
 				
 				Class toolClass = toolClasses[toolIndex];
 				
+				Item item = null;
+				
 				boolean vanillaTool = vanillaMaterial && (toolClass == ItemSword.class || toolClass == ItemSpade.class || toolClass == ItemPickaxe.class || toolClass == ItemAxe.class || toolClass == ItemHoe.class);
 				boolean vanillaArmor = vanillaMaterial && (toolClass == ItemHelmet.class || toolClass == ItemChestplate.class || toolClass == ItemLeggings.class || toolClass == ItemBoots.class);
 				
 				if (ItemArmor.class.isAssignableFrom(toolClass))
 				{
 					if (!vanillaArmor)
-						items[materialIndex][toolIndex] = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) }).setCreativeTab(armorTab).setUnlocalizedName(itemID).setTextureName(itemIconName);
+						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) });
 				}
-				else
+				else if (!vanillaTool)
+						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), toolMaterial });
+				
+				if (item != null)
 				{
-					if (!vanillaTool)
-						items[materialIndex][toolIndex] = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), toolMaterial }).setCreativeTab(toolTab).setUnlocalizedName(itemID).setTextureName(itemIconName);
+					item.setCreativeTab(armorTab).setUnlocalizedName(itemID).setTextureName(itemIconName);
+					MDMItems.addItem(item, itemName);
 				}
 			}
 		}

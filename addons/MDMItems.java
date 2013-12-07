@@ -187,8 +187,6 @@ public class MDMItems
 			throw new RuntimeException(ex);
 		}
 		
-		addItem(item, name);
-		
 		return item;
 	}
 }
