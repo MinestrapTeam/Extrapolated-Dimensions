@@ -2,8 +2,8 @@ package clashsoft.mods.moredimensions.item.poc;
 
 import java.util.List;
 
-import clashsoft.brewingapi.brewing.PotionType;
 import clashsoft.brewingapi.brewing.PotionBase;
+import clashsoft.brewingapi.brewing.PotionType;
 import clashsoft.brewingapi.item.ItemPotion2;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
@@ -13,10 +13,8 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 
 public class ItemElixir extends ItemPotion2
@@ -191,11 +189,11 @@ public class ItemElixir extends ItemPotion2
 					for (PotionType brewing2 : potionType.getSubTypes())
 					{
 						PotionType var1 = new PotionType(brewing2.getEffect(), brewing2.getMaxAmplifier(), brewing2.getMaxDuration(), brewing2.getInverted(), brewing2.getIngredient(), brewing2.getBase());
-						if (this.isSplash(i) && var1 != null && var1.getEffect() != null && var1.getEffect().getPotionID() > 0)
+						par3List.add(var1.addPotionTypeToItemStack(new ItemStack(this, 1, i)));
+						if (this.isSplash(i))
 						{
-							var1.setEffect(new PotionEffect(var1.getEffect().getPotionID(), MathHelper.ceiling_double_int(var1.getEffect().getDuration() * 0.75D), var1.getEffect().getAmplifier()));
+							par3List.add(var1.onGunpowderUsed().addPotionTypeToItemStack(new ItemStack(this, 1, i)));
 						}
-						par3List.add(var1.addBrewingToItemStack(new ItemStack(this, 1, i)));
 					}
 				}
 			}
