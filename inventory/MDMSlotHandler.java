@@ -22,22 +22,20 @@ public class MDMSlotHandler implements ISlotHandler
 		if (!creative)
 			SurvivalInventory.compactCraftingGrid();
 		
-		ExtendedInventory ei = ExtendedInventory.get(player);
+		ExtendedInventory extendedInventory = ExtendedInventory.get(player);
 		SlotCustomArmor glove, shield, cape;
 		
 		if (creative)
 		{
-			glove = new SlotCustomArmor(player, ei, 0, 45, 24, ArmorTypes.GLOVE, ItemGloves.slotIcon);
-			shield = new SlotCustomArmor(player, ei, 1, 63, 24, ArmorTypes.SHIELD, ItemCape.slotIcon);
-			cape = new SlotCustomArmor(player, ei, 2, 81, 24, ArmorTypes.CAPE, ItemShield.slotIcon);
-			
+			glove = new SlotCustomArmor(player, extendedInventory, 0, 45, 24, ArmorTypes.GLOVE, ItemGloves.slotIcon);
+			shield = new SlotCustomArmor(player, extendedInventory, 1, 63, 24, ArmorTypes.SHIELD, ItemCape.slotIcon);
+			cape = new SlotCustomArmor(player, extendedInventory, 2, 81, 24, ArmorTypes.CAPE, ItemShield.slotIcon);
 		}
 		else
 		{
-			glove = new SlotCustomArmor(player, ei, 0, 80, 8, ArmorTypes.GLOVE, ItemGloves.slotIcon);
-			shield = new SlotCustomArmor(player, ei, 1, 80, 26, ArmorTypes.SHIELD, ItemCape.slotIcon);
-			cape = new SlotCustomArmor(player, ei, 2, 80, 44, ArmorTypes.CAPE, ItemShield.slotIcon);
-			
+			glove = new SlotCustomArmor(player, extendedInventory, 0, 80, 8, ArmorTypes.GLOVE, ItemGloves.slotIcon);
+			shield = new SlotCustomArmor(player, extendedInventory, 1, 80, 26, ArmorTypes.SHIELD, ItemCape.slotIcon);
+			cape = new SlotCustomArmor(player, extendedInventory, 2, 80, 44, ArmorTypes.CAPE, ItemShield.slotIcon);	
 		}
 		
 		list.add(glove);
@@ -45,10 +43,18 @@ public class MDMSlotHandler implements ISlotHandler
 		list.add(cape);
 		
 		if (creative)
+		{
 			for (int i = 3; i < 8; i++)
-				list.add(new Slot(ei, i, 45 + (i * 18), 24));
+			{
+				list.add(new Slot(extendedInventory, i, 45 + (i * 18), 24));
+			}
+		}
 		else
+		{
 			for (int i = 3; i < 8; i++)
-				list.add(new Slot(ei, i, 80 + (i / 4) * 18, 8 + (i % 4 * 18)));
+			{
+				list.add(new Slot(extendedInventory, i, 80 + (i / 4) * 18, 8 + (i % 4 * 18)));
+			}
+		}
 	}
 }

@@ -86,7 +86,7 @@ public abstract class DreamType
 	
 	public static DreamType getRandomDreamType(EnumDreamType type)
 	{
-		List<DreamType> temp = new LinkedList<DreamType>();
+		List<DreamType> temp = new ArrayList<DreamType>();
 		for (DreamType dt : dreamTypes.values())
 		{
 			if (dt != null && dt.type != null && dt.type.equals(type))

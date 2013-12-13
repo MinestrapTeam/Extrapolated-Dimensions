@@ -1,6 +1,7 @@
 package clashsoft.mods.moredimensions.addons;
 
 import clashsoft.cslib.addon.Addon;
+import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.util.CSArrays;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.item.armor.*;
@@ -158,10 +159,10 @@ public class MDMTools
 				if (ItemArmor.class.isAssignableFrom(toolClass))
 				{
 					if (!vanillaArmor)
-						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) });
+						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) });
 				}
 				else if (!vanillaTool)
-						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { MDMConfig.getItem(itemName, toolItemID++), toolMaterial });
+						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), toolMaterial });
 				
 				if (item != null)
 				{

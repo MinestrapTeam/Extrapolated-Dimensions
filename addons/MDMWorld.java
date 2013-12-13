@@ -3,6 +3,7 @@ package clashsoft.mods.moredimensions.addons;
 import java.util.Random;
 
 import clashsoft.cslib.addon.Addon;
+import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
 import clashsoft.mods.moredimensions.world.biome.*;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
@@ -31,19 +32,19 @@ public class MDMWorld
 	
 	public static void load()
 	{
-		HEAVEN_ID = MDMConfig.getDimension("Heaven", 8);
-		POC_ID = MDMConfig.getDimension("Paradise of Chaos", 9);
-		DREAMS_ID = MDMConfig.getDimension("Dream", 10);
-		NIGHTMARES_ID = MDMConfig.getDimension("Nightmares", 11);
+		HEAVEN_ID = CSConfig.getDimension("Heaven", 8);
+		POC_ID = CSConfig.getDimension("Paradise of Chaos", 9);
+		DREAMS_ID = CSConfig.getDimension("Dream", 10);
+		NIGHTMARES_ID = CSConfig.getDimension("Nightmares", 11);
 		
 		// -- Biomes --
 		
-		biomeHeaven = new BiomeHeaven(MDMConfig.getBiome("Heaven", 149)).setBiomeName("Heaven");
-		biomeHeavenJungle = new BiomeHeavenJungle(MDMConfig.getBiome("HeavenJungle", 153)).setBiomeName("HeavenJungle");
+		biomeHeaven = new BiomeHeaven(CSConfig.getBiome("Heaven", 149)).setBiomeName("Heaven");
+		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("HeavenJungle", 153)).setBiomeName("HeavenJungle");
 		
-		biomePOCPlains = new BiomePlainsOfInsanity(MDMConfig.getBiome("Plains of Insanity", 150)).setBiomeName("POC Plains");
-		biomePOCMountains = new BiomeCorruptedMountains(MDMConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("POC Mountains");
-		biomePOCDesert = new BiomeDesertOfDryness(MDMConfig.getBiome("Desert of Dryness", 152)).setBiomeName("POC Desert");
+		biomePOCPlains = new BiomePlainsOfInsanity(CSConfig.getBiome("Plains of Insanity", 150)).setBiomeName("POC Plains");
+		biomePOCMountains = new BiomeCorruptedMountains(CSConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("POC Mountains");
+		biomePOCDesert = new BiomeDesertOfDryness(CSConfig.getBiome("Desert of Dryness", 152)).setBiomeName("POC Desert");
 		
 		// -- Dimensions --
 		

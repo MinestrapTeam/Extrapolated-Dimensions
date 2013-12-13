@@ -86,7 +86,6 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 						{
 							int j2 = i2 + i1 * 8 << 11 | 0 + j1 * 8 << 7 | k1 * 4 + l1;
 							
-							char c = '';
 							double d14 = 0.125D;
 							double d15 = d10;
 							double d16 = (d11 - d10) * d14;
@@ -98,7 +97,6 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 									l2 = MDMBlocks.heavenStoneBlocks.blockID;
 								}
 								storage[j2] = ((byte) l2);
-								j2 += c;
 								d15 += d16;
 							}
 							

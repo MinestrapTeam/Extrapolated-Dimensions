@@ -7,6 +7,7 @@ import java.lang.reflect.Constructor;
 import clashsoft.cslib.addon.Addon;
 import clashsoft.cslib.minecraft.CustomCreativeTab;
 import clashsoft.cslib.minecraft.CustomItem;
+import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.minecraft.util.CSItems;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
 import clashsoft.mods.moredimensions.item.heaven.*;
@@ -69,13 +70,13 @@ public class MDMItems
 	{
 		// -- Paradise of Chaos --
 		
-		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(MDMConfig.getItem("Alchemy Guide", pocItemID++)).setUnlocalizedName("alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
-		staves = (ItemStaff) new ItemStaff(MDMConfig.getItem("Staves", pocItemID++)).setUnlocalizedName("staves").setCreativeTab(tabPOCTools);
-		manaStar = (ItemManaStar) new ItemManaStar(MDMConfig.getItem("Mana Star", pocItemID++)).setUnlocalizedName("manastar").setCreativeTab(tabPOCItems);
-		elixir = (ItemElixir) new ItemElixir(MDMConfig.getItem("Elixir", pocItemID++)).setUnlocalizedName("elixir");
-		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(MDMConfig.getItem("Elixir Bottle", pocItemID++)).setUnlocalizedName("elixirbottle");
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(CSConfig.getItem("Alchemy Guide", pocItemID++)).setUnlocalizedName("alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
+		staves = (ItemStaff) new ItemStaff(CSConfig.getItem("Staves", pocItemID++)).setUnlocalizedName("staves").setCreativeTab(tabPOCTools);
+		manaStar = (ItemManaStar) new ItemManaStar(CSConfig.getItem("Mana Star", pocItemID++)).setUnlocalizedName("manastar").setCreativeTab(tabPOCItems);
+		elixir = (ItemElixir) new ItemElixir(CSConfig.getItem("Elixir", pocItemID++)).setUnlocalizedName("elixir");
+		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(CSConfig.getItem("Elixir Bottle", pocItemID++)).setUnlocalizedName("elixirbottle");
 		
-		pocMaterials = (CustomItem) new CustomItem(MDMConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem" }, new String[] { "magicoak_stick", "willow_stick", "daeyalt_gem", "novite_gem", "marmaros_gem" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
+		pocMaterials = (CustomItem) new CustomItem(CSConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem" }, new String[] { "magicoak_stick", "willow_stick", "daeyalt_gem", "novite_gem", "marmaros_gem" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
 		{
 			int i = -1;
 			magicOakStick = new ItemStack(pocMaterials, 1, ++i);
@@ -88,7 +89,7 @@ public class MDMItems
 		// -- Heaven --
 		
 		
-		heavenMaterials = (CustomItem) new CustomItem(MDMConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Ice Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "ice_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
+		heavenMaterials = (CustomItem) new CustomItem(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Ice Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "ice_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
 		{
 			int i = -1;
 			heavenWoodStick = new ItemStack(heavenMaterials, 1, ++i);
@@ -103,15 +104,15 @@ public class MDMItems
 			bluriteDust = new ItemStack(heavenMaterials, 1, ++i);
 		}
 		
-		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(MDMConfig.getItem("Heaven Apple", heavenItemID++), 2, 0, false)).setUnlocalizedName("heaven_apple");
-		lifeHeart = (ItemLifeHeart) (new ItemLifeHeart(MDMConfig.getItem("Life Heart", heavenItemID++))).setUnlocalizedName("life_heart");
-		fireSword = (ItemFireSword) (new ItemFireSword(MDMConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("fire_sword");
-		icehammer = (ItemIceHammer) (new ItemIceHammer(MDMConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer");
-		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(MDMConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
-		capes = (ItemCape) new ItemCape(MDMConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
-		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(MDMConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corrupted Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "heaven_grass_seeds", "mud_grass_seeds", "corrupted_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
+		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(CSConfig.getItem("Heaven Apple", heavenItemID++), 2, 0, false)).setUnlocalizedName("heaven_apple");
+		lifeHeart = (ItemLifeHeart) (new ItemLifeHeart(CSConfig.getItem("Life Heart", heavenItemID++))).setUnlocalizedName("life_heart");
+		fireSword = (ItemFireSword) (new ItemFireSword(CSConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("fire_sword");
+		icehammer = (ItemIceHammer) (new ItemIceHammer(CSConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer");
+		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(CSConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
+		capes = (ItemCape) new ItemCape(CSConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
+		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(CSConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corrupted Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "heaven_grass_seeds", "mud_grass_seeds", "corrupted_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
 		
-		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(MDMConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator");
+		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(CSConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator");
 	}
 	
 	public static void load()
