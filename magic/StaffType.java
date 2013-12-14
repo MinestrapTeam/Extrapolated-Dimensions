@@ -63,6 +63,6 @@ public class StaffType
 	
 	public String getTextureName(int charge)
 	{
-		return "staff_" + this.id + (this.isChargeable() ? "_" + (charge + 1) : "");
+		return "moredimensions:staff_" + this.id + (this.isChargeable() ? "_" + (charge + 1) : "");
 	}
 }

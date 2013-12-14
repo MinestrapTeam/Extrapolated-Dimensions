@@ -13,7 +13,6 @@ public class ItemManaStar extends Item
 	{
 		super(par1);
 		this.setMaxStackSize(16);
-		this.setTextureName("manastar");
 	}
 	
 	/**

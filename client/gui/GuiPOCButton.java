@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiPOCButton extends GuiButton
 {
-	public static ResourceLocation	buttons	= new ResourceLocation("paradiseofchaos/gui/buttons.png");
+	public static ResourceLocation	buttons	= new ResourceLocation("moredimensions", "textures/gui/buttons.png");
 	
 	private float					colorR	= -1F;
 	private float					colorG	= -1F;

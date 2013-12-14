@@ -5,7 +5,6 @@ import java.util.Random;
 
 import clashsoft.cslib.util.CSRandom;
 import clashsoft.mods.moredimensions.addons.MDMItems;
-import clashsoft.mods.moredimensions.item.ItemMDM;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -16,29 +15,31 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class ItemHeavenSoul extends ItemMDM
+public class ItemHeavenSoul extends Item
 {
 	public static Random			rand		= new Random();
 	
 	public static final String[]	soulNames	= new String[] { "Blood", "Fire", CSRandom.getNextRandomName(rand, 6, 7), "Lightning", "Grass", CSRandom.getNextRandomName(rand, 6, 7), "Animals", "Forest", "Sky", "Water", "Night", "Darkness", CSRandom.getNextRandomName(rand, 6, 7), "Myth", "Flowers", "Light" };
-	
-	public static final String[]	soulDesc	= new String[] { "Pretty Bloody", "Hot as the sun", (soulNames[2] + ", the Boss"), "High Voltage", "Green", (soulNames[5] + ", the Boss"), "Wild", "Naturally silent", "Blue without clouds", "Fresh", "Moon and Stars inside", "Dark and evil", (soulNames[12] + ", the Boss"), "Mythic", "Likes grass", "Glowing" };
+	public static final String[]	soulDesc	= new String[] { "Pretty Bloody", "Hot as the sun", (soulNames[2] + ", the Boss"), "High Voltage", "Green", (soulNames[5] + ", the Boss"), "Wild", "Naturally silent", "Blue without clouds", "Fresh", "Contains Moon and Stars", "Dark and evil", (soulNames[12] + ", the Boss"), "Mythic", "Grassy", "Glowing" };
 	
 	public Icon[]					icons		= new Icon[16];
 	
 	public ItemHeavenSoul(int par1)
 	{
-		super(par1, MDMItems.tabHeavenItems);
+		super(par1);
 		this.setMaxStackSize(1);
+		this.setCreativeTab(MDMItems.tabHeavenItems);
 	}
 	
-	public boolean tryPlaceIntoWorld(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	@Override
+	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
 	{
 		switch (par1ItemStack.getItemDamage())
 		{

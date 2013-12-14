@@ -26,8 +26,8 @@ public class BlockHeavenPillar extends BlockMDM
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("pillar_side");
-		this.topIcon = par1IconRegister.registerIcon("pillar_top");
+		this.blockIcon = par1IconRegister.registerIcon("moredimensions:pillar_side");
+		this.topIcon = par1IconRegister.registerIcon("moredimensions:pillar_top");
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 package clashsoft.mods.moredimensions.item.armor;
 
 import clashsoft.cslib.minecraft.CustomItem;
+import clashsoft.cslib.util.CSString;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 
 import com.jadarstudios.developercapes.DevCapes;
@@ -19,12 +20,13 @@ public class ItemCape extends CustomItem
 	public static Icon		slotIcon;
 	
 	public static String[]	displayNames	= { "Pro Cape", "Blue Cape", "Green Cape", "Red Cape", "Yellow Cape", "Invisibility Cape", "Minecon Cape", "Minecon Cape" };
-	public static String[]	iconNames		= { "cape_pro", "cape_blue", "cape_green", "cape_red", "cape_yellow", "cape_invisibility", "cape_minecon2011", "cape_minecon2012" };
+	public static String[]	capeNames		= { "cape_pro", "cape_blue", "cape_green", "cape_red", "cape_yellow", "cape_invisibility", "cape_minecon2011", "cape_minecon2012" };
+	public static String[]	iconNames		= CSString.concatAll(capeNames, "moredimensions:", "");
 	public static String[]	descriptions	= { "", "", "", "", "", "Makes you invisible", "Minecon 2011 Cape", "Minecon 2012 Cape" };
 	
 	public ItemCape(int itemID)
 	{
-		super(itemID, displayNames, iconNames, descriptions);
+		super(itemID, displayNames, capeNames, descriptions);
 		this.setCreativeTab(MDMItems.tabHeavenArmor);
 	}
 	
@@ -33,7 +35,7 @@ public class ItemCape extends CustomItem
 	{
 		super.registerIcons(par1IconRegister);
 		if (slotIcon == null)
-			slotIcon = par1IconRegister.registerIcon("armorslot_cape");
+			slotIcon = par1IconRegister.registerIcon("moredimensions:armorslot_cape");
 	}
 	
 	@Override
@@ -49,6 +51,6 @@ public class ItemCape extends CustomItem
 		if (metadata == 5)
 			player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 2, 0));
 		else
-			DevCapes.getInstance().addUser(player.username, iconNames[metadata]);
+			DevCapes.getInstance().addUser(player.username, capeNames[metadata]);
 	}
 }

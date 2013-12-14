@@ -2,22 +2,21 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.mods.moredimensions.api.ICurseIngredient;
 import clashsoft.mods.moredimensions.curse.Curse;
-import clashsoft.mods.moredimensions.item.ItemMDM;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class ItemIceStick extends ItemMDM implements ICurseIngredient
+public class ItemIceStick extends Item implements ICurseIngredient
 {
 	public ItemIceStick(int itemID)
 	{
-		super(itemID, CreativeTabs.tabMaterials);
+		super(itemID);
 		this.setMaxDamage(64);
 	}
 	

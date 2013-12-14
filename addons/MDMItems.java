@@ -71,13 +71,13 @@ public class MDMItems
 	{
 		// -- Paradise of Chaos --
 		
-		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(CSConfig.getItem("Alchemy Guide", pocItemID++)).setUnlocalizedName("alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(CSConfig.getItem("Alchemy Guide", pocItemID++)).setUnlocalizedName("alchemy_guide").setTextureName("moredimensions:alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
 		staves = (ItemStaff) new ItemStaff(CSConfig.getItem("Staves", pocItemID++)).setUnlocalizedName("staves").setCreativeTab(tabPOCTools);
-		manaStar = (ItemManaStar) new ItemManaStar(CSConfig.getItem("Mana Star", pocItemID++)).setUnlocalizedName("manastar").setCreativeTab(tabPOCItems);
+		manaStar = (ItemManaStar) new ItemManaStar(CSConfig.getItem("Mana Star", pocItemID++)).setUnlocalizedName("manastar").setTextureName("moredimensions:manastar").setCreativeTab(tabPOCItems);
 		elixir = (ItemElixir) new ItemElixir(CSConfig.getItem("Elixir", pocItemID++)).setUnlocalizedName("elixir");
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(CSConfig.getItem("Elixir Bottle", pocItemID++)).setUnlocalizedName("elixirbottle");
 		
-		pocMaterials = (CustomItem) new CustomItem(CSConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem", "Kratonium Ingot" }, new String[] { "magicoak_stick", "willow_stick", "daeyalt_gem", "novite_gem", "marmaros_gem", "Kratonium Ingot" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
+		pocMaterials = (CustomItem) new CustomItem(CSConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem", "Kratonium Ingot" }, new String[] { "moredimensions:magicoak_stick", "moredimensions:willow_stick", "moredimensions:daeyalt_gem", "moredimensions:novite_gem", "moredimensions:marmaros_gem", "moredimensions:kratonium_ingot" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
 		{
 			int i = -1;
 			magicOakStick = new ItemStack(pocMaterials, 1, ++i);
@@ -91,7 +91,7 @@ public class MDMItems
 		
 		// -- Heaven --
 		
-		heavenMaterials = (ItemHeavenMaterials) new ItemHeavenMaterials(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
+		heavenMaterials = (ItemHeavenMaterials) new ItemHeavenMaterials(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "moredimensions:heavenwood_stick", "moredimensions:goldwood_stick", "moredimensions:heaven_arrow", "moredimensions:shrekite_shard", "moredimensions:clashium_ingot", "moredimensions:holyium_ingot", "moredimensions:energy_orb", "moredimensions:pro_ingot", "moredimensions:blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
 		{
 			int i = -1;
 			heavenWoodStick = new ItemStack(heavenMaterials, 1, ++i);
@@ -105,16 +105,16 @@ public class MDMItems
 			bluriteDust = new ItemStack(heavenMaterials, 1, ++i);
 		}
 		
-		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(CSConfig.getItem("Heaven Apple", heavenItemID++), 2, 0, false)).setUnlocalizedName("heaven_apple");
-		lifeHeart = (ItemLifeHeart) (new ItemLifeHeart(CSConfig.getItem("Life Heart", heavenItemID++))).setUnlocalizedName("life_heart");
-		fireSword = (ItemFireSword) (new ItemFireSword(CSConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("fire_sword");
-		icehammer = (ItemIceHammer) (new ItemIceHammer(CSConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer");
+		heavenApple = (ItemHeavenFood) (new ItemHeavenFood(CSConfig.getItem("Heaven Apple", heavenItemID++), 2, 0, false)).setUnlocalizedName("heaven_apple").setTextureName("moredimensions:heaven_apple");
+		lifeHeart = (ItemLifeHeart) (new ItemLifeHeart(CSConfig.getItem("Life Heart", heavenItemID++))).setUnlocalizedName("life_heart").setTextureName("moredimensions:life_heart");
+		fireSword = (ItemFireSword) (new ItemFireSword(CSConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("moredimensions:fire_sword");
+		icehammer = (ItemIceHammer) (new ItemIceHammer(CSConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer").setTextureName("moredimensions:ice_hammer");
 		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(CSConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
 		capes = (ItemCape) new ItemCape(CSConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
-		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(CSConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corrupted Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "heaven_grass_seeds", "mud_grass_seeds", "corrupted_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
-		iceStick = (ItemIceStick) new ItemIceStick(CSConfig.getItem("Ice Stick", heavenItemID++)).setUnlocalizedName("ice_stick").setTextureName("ice_stick").setCreativeTab(tabHeavenItems);
+		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(CSConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corrupted Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "moredimensions:heaven_grass_seeds", "moredimensions:mud_grass_seeds", "moredimensions:corrupted_grass_seeds", "moredimensions:hallowed_grass_seeds", "moredimensions:mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
+		iceStick = (ItemIceStick) new ItemIceStick(CSConfig.getItem("Ice Stick", heavenItemID++)).setUnlocalizedName("ice_stick").setTextureName("moredimensions:ice_stick").setCreativeTab(tabHeavenItems);
 		
-		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(CSConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator");
+		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(CSConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator").setTextureName("moredimensions:heaven_portal_activator").setCreativeTab(tabHeavenTools);
 	}
 	
 	public static void load()

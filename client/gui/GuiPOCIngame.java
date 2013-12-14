@@ -16,7 +16,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 
 public class GuiPOCIngame extends GuiIngameForge
 {
-	public static ResourceLocation	mana	= new ResourceLocation("paradiseofchaos/gui/mana.png");
+	public static ResourceLocation	mana	= new ResourceLocation("moredimensions", "textures/gui/mana.png");
 	
 	private final Minecraft			mc;
 	private ScaledResolution	res;

@@ -2,19 +2,18 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import java.util.List;
 
-import clashsoft.mods.moredimensions.item.ItemMDM;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemHeavenPortalActivator extends ItemMDM
+public class ItemHeavenPortalActivator extends Item
 {
 	public ItemHeavenPortalActivator(int itemID)
 	{
-		super(itemID, CreativeTabs.tabTools);
+		super(itemID);
 		this.maxStackSize = 1;
 		this.setMaxDamage(64);
 	}

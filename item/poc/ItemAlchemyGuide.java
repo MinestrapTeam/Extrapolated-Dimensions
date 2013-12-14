@@ -41,15 +41,4 @@ public class ItemAlchemyGuide extends Item
 		FMLNetworkHandler.openGui(par3EntityPlayer, MoreDimensionsMod.instance, MDMCommonProxy.TOME_GUIID, par2World, 0, 0, 0);
 		return par1ItemStack;
 	}
-	
-	/**
-	 * CLASHSOFT: This code makes items use their unlocalized name as icon name
-	 */
-	@Override
-	public Item setUnlocalizedName(String name)
-	{
-		super.setUnlocalizedName(name);
-		super.setTextureName(name);
-		return this;
-	}
 }

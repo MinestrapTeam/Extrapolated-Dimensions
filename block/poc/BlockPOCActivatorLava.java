@@ -13,7 +13,6 @@ public class BlockPOCActivatorLava extends BlockStationary
 	public BlockPOCActivatorLava(int par1)
 	{
 		super(par1, Material.lava);
-		this.setHardness(100.0F).setLightValue(1.0F).setUnlocalizedName("lava").setTextureName("lava_still");
 		this.setTickRandomly(true);
 	}
 	

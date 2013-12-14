@@ -29,7 +29,7 @@ public class ItemGloves extends ItemCustomArmor
 	{
 		super.registerIcons(iconRegister);
 		if (slotIcon == null)
-			slotIcon = iconRegister.registerIcon("armorslot_gloves");
+			slotIcon = iconRegister.registerIcon("moredimensions:armorslot_gloves");
 	}
 	
 	@Override
