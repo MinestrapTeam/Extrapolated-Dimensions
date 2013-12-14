@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
+import clashsoft.mods.moredimensions.api.ICurseIngredient;
+import clashsoft.mods.moredimensions.curse.Curse;
 import clashsoft.mods.moredimensions.item.ItemMDM;
 
 import net.minecraft.block.Block;
@@ -11,30 +13,25 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class ItemIceStick extends ItemMDM
+public class ItemIceStick extends ItemMDM implements ICurseIngredient
 {
-	
-	public ItemIceStick(int par1)
+	public ItemIceStick(int itemID)
 	{
-		super(par1, CreativeTabs.tabMaterials);
+		super(itemID, CreativeTabs.tabMaterials);
 		this.setMaxDamage(64);
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (par2World.isRemote)
-			return par1ItemStack;
+		if (world.isRemote)
+			return stack;
 		
-		MovingObjectPosition var4 = this.getMovingObjectPositionFromPlayer(par2World, par3EntityPlayer, true);
+		MovingObjectPosition var4 = this.getMovingObjectPositionFromPlayer(world, player, true);
 		
 		if (var4 == null)
 		{
-			return par1ItemStack;
+			return stack;
 		}
 		else
 		{
@@ -44,24 +41,36 @@ public class ItemIceStick extends ItemMDM
 				int var6 = var4.blockY;
 				int var7 = var4.blockZ;
 				
-				if (!par2World.canMineBlock(par3EntityPlayer, var5, var6, var7))
+				if (!world.canMineBlock(player, var5, var6, var7))
 				{
-					return par1ItemStack;
+					return stack;
 				}
 				
-				if (par2World.getBlockMaterial(var5, var6, var7) == Material.water && par2World.getBlockMetadata(var5, var6, var7) == 0)
+				if (world.getBlockMaterial(var5, var6, var7) == Material.water && world.getBlockMetadata(var5, var6, var7) == 0)
 				{
-					par2World.setBlock(var5, var6, var7, Block.ice.blockID);
+					world.setBlock(var5, var6, var7, Block.ice.blockID);
 					
-					if (!par3EntityPlayer.capabilities.isCreativeMode)
+					if (!player.capabilities.isCreativeMode)
 					{
-						par1ItemStack.damageItem(1, par3EntityPlayer);
+						stack.damageItem(1, player);
 					}
 				}
 			}
 			
-			return par1ItemStack;
+			return stack;
 		}
+	}
+
+	@Override
+	public boolean isCurseIngredient(ItemStack stack)
+	{
+		return true;
+	}
+
+	@Override
+	public Curse getCurse(ItemStack stack)
+	{
+		return Curse.test;
 	}
 	
 }

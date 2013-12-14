@@ -63,8 +63,9 @@ public class MDMItems
 	public static ItemCape					capes;
 	public static ItemHeavenSeeds			heavenSeeds;
 	public static CustomItem				specialItems;
+	public static ItemIceStick				iceStick;
 	
-	public static ItemStack					heavenWoodStick, goldWoodStick, iceStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
+	public static ItemStack					heavenWoodStick, goldWoodStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
 	
 	public static void initialize()
 	{
@@ -88,13 +89,11 @@ public class MDMItems
 		
 		// -- Heaven --
 		
-		
-		heavenMaterials = (CustomItem) new CustomItem(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Ice Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "ice_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
+		heavenMaterials = (CustomItem) new ItemHeavenMaterials(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
 		{
 			int i = -1;
 			heavenWoodStick = new ItemStack(heavenMaterials, 1, ++i);
 			goldWoodStick = new ItemStack(heavenMaterials, 1, ++i);
-			iceStick = new ItemStack(heavenMaterials, 1, ++i);
 			heavenArrow = new ItemStack(heavenMaterials, 1, ++i);
 			shrekiteShard = new ItemStack(heavenMaterials, 1, ++i);
 			clashiumIngot = new ItemStack(heavenMaterials, 1, ++i);
@@ -111,6 +110,7 @@ public class MDMItems
 		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(CSConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
 		capes = (ItemCape) new ItemCape(CSConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
 		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(CSConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corrupted Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "heaven_grass_seeds", "mud_grass_seeds", "corrupted_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
+		iceStick = (ItemIceStick) new ItemIceStick(CSConfig.getItem("Ice Stick", heavenItemID++)).setUnlocalizedName("ice_stick").setTextureName("ice_stick").setCreativeTab(tabHeavenItems);
 		
 		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(CSConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator");
 	}
@@ -128,7 +128,6 @@ public class MDMItems
 		
 		// -- Heaven --
 		
-		
 		addItem(heavenMaterials, "HeavenMaterials");
 		addItem(heavenPortalActivator, "Heaven Portal Activator");
 		addItem(heavenApple, "Heaven Apple");
@@ -137,6 +136,7 @@ public class MDMItems
 		addItemWithRecipe(icehammer, "Ice Hammer", 1, new Object[] { "IiI", "IiI", " i ", Character.valueOf('I'), Block.ice, Character.valueOf('i'), iceStick });
 		addItem(capes, "Capes");
 		addItem(heavenSeeds, "HeavenSeeds");
+		addItem(iceStick, "Ice Stick");
 		
 		tabPOCBlocks.setIconItemStack(new ItemStack(MDMBlocks.pocGrassBlocks));
 		tabPOCItems.setIconItemStack(new ItemStack(pocMaterials));

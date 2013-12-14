@@ -13,16 +13,20 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityDamnationTable extends TileEntity implements ISidedInventory
 {
-	public static int	MAX_PROCESS_TIME	= 200;				// 10 seconds
-																
+	public static int	MAX_CURSE_TIME	= 200;				// 10 seconds
+															
+	public static int[]	inputSlots		= { 0, 1, 2 };
+	public static int[]	outputSlots		= { 3, 4 };
+	
 	/**
 	 * The ItemStacks in this container.
 	 * <p>
 	 * 0 = fuel; 1 = curse ingredient; 2 = item to curse; 3 = output; 4 = secondary output
 	 */
-	public ItemStack[]	itemStacks			= new ItemStack[5];
+	public ItemStack[]	itemStacks		= new ItemStack[5];
 	public int			energyTime;
-	public int			processTime;
+	public int			itemEnergyTime;
+	public int			curseTime;
 	
 	private String		name;
 	
@@ -36,16 +40,16 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		
 		if (this.canCurse())
 		{
-			processTime++;
+			curseTime++;
 		}
 		else
 		{
-			processTime = 0;
+			curseTime = 0;
 		}
 		
-		if (processTime >= MAX_PROCESS_TIME)
+		if (curseTime >= MAX_CURSE_TIME)
 		{
-			processTime = 0;
+			curseTime = 0;
 			this.curse();
 		}
 	}
@@ -99,6 +103,26 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	public Curse getCurse(ItemStack stack)
 	{
 		return stack != null && stack.getItem() instanceof ICurseIngredient ? ((ICurseIngredient) stack.getItem()).getCurse(stack) : null;
+	}
+	
+	public boolean isActive()
+	{
+		return this.energyTime > 0;
+	}
+	
+	public int getProgressScaled(int scalar)
+	{
+		return this.curseTime * scalar / MAX_CURSE_TIME;
+	}
+	
+	public int getEnergyTimeRemainingScaled(int scalar)
+	{
+		if (this.itemEnergyTime == 0)
+		{
+			this.itemEnergyTime = 200;
+		}
+		
+		return this.energyTime * scalar / this.itemEnergyTime;
 	}
 	
 	@Override
@@ -173,7 +197,7 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	@Override
 	public String getInvName()
 	{
-		return this.isInvNameLocalized() ? this.name : "container.damnationtable";
+		return this.isInvNameLocalized() ? this.name : "tile.damnationTable.name";
 	}
 	
 	@Override
@@ -277,18 +301,18 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	@Override
 	public int[] getAccessibleSlotsFromSide(int side)
 	{
-		return null;
+		return side == 0 ? outputSlots : inputSlots;
 	}
 	
 	@Override
 	public boolean canInsertItem(int slotID, ItemStack stack, int side)
 	{
-		return false;
+		return side != 0 && slotID < 4 && this.isItemValidForSlot(slotID, stack);
 	}
 	
 	@Override
 	public boolean canExtractItem(int slotID, ItemStack stack, int side)
 	{
-		return false;
+		return side == 0 && (slotID == 4 || slotID == 5);
 	}
 }

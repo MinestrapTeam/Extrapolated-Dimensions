@@ -17,7 +17,7 @@ public class MDMCommonProxy implements IGuiHandler
 {
 	public static int	BOSS_CHAT_GUIID			= 20;
 	public static int	TOME_GUIID				= 21;
-	public static int	DAMNATIONTABLE_GUIID	= 22;
+	public static int	DAMNATION_TABLE_GUIID	= 22;
 	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
@@ -30,7 +30,7 @@ public class MDMCommonProxy implements IGuiHandler
 		{
 			return new ContainerTome();
 		}
-		else if (ID == DAMNATIONTABLE_GUIID)
+		else if (ID == DAMNATION_TABLE_GUIID)
 		{
 			return new ContainerDamnationTable(player.inventory, (TileEntityDamnationTable) world.getBlockTileEntity(x, y, z));
 		}

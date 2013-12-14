@@ -51,7 +51,7 @@ public class MDMClientProxy extends MDMCommonProxy
 		{
 			return new GuiTome();
 		}
-		else if (ID == DAMNATIONTABLE_GUIID)
+		else if (ID == DAMNATION_TABLE_GUIID)
 		{
 			return new GuiDamnationTable(player.inventory, (TileEntityDamnationTable) world.getBlockTileEntity(x, y, z));
 		}

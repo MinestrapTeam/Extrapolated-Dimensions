@@ -215,7 +215,7 @@ public class MDMBlocks
 		
 		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(CSConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setHardness(1.75F);
 	
-		damnationTable = (BlockDamnationTable) new BlockDamnationTable(CSConfig.getBlock("Damnation Tabel", 1059)).setUnlocalizedName("damnationTable").setHardness(4F);
+		damnationTable = (BlockDamnationTable) new BlockDamnationTable(CSConfig.getBlock("Damnation Tabel", 1059)).setUnlocalizedName("damnationTable").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(4F);
 	}
 	
 	public static void load()
@@ -268,5 +268,7 @@ public class MDMBlocks
 		addBlock(heavenPortal, "Heaven Portal");
 		addBlock(heavenPortalFrame, "Heaven Portal Frame");
 		addBlock(heavenPillar, "Heaven Pillar");
+		
+		addBlock(damnationTable, "Damnation Table");
 	}
 }
