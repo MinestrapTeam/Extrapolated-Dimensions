@@ -17,11 +17,11 @@ public class ContainerDamnationTable extends Container
 	public ContainerDamnationTable(InventoryPlayer inventory, TileEntityDamnationTable damnationTable)
 	{
 		this.damnationTable = damnationTable;
-		this.addSlotToContainer(new SlotInput(damnationTable, 0, 50, 61));
-		this.addSlotToContainer(new SlotInput(damnationTable, 1, 23, 26));
-		this.addSlotToContainer(new SlotInput(damnationTable, 2, 73, 26));
-		this.addSlotToContainer(new SlotOutput(damnationTable, 3, 133, 26));
-		this.addSlotToContainer(new SlotOutput(damnationTable, 4, 101, 61));
+		this.addSlotToContainer(new SlotInput(damnationTable, 0, 50, 54));
+		this.addSlotToContainer(new SlotInput(damnationTable, 1, 23, 19));
+		this.addSlotToContainer(new SlotInput(damnationTable, 2, 73, 19));
+		this.addSlotToContainer(new SlotOutput(damnationTable, 3, 133, 19));
+		this.addSlotToContainer(new SlotOutput(damnationTable, 4, 101, 54));
 		int i;
 		
 		for (i = 0; i < 3; ++i)
@@ -38,6 +38,7 @@ public class ContainerDamnationTable extends Container
 		}
 	}
 	
+	@Override
 	public boolean canInteractWith(EntityPlayer player)
 	{
 		return this.damnationTable.isUseableByPlayer(player);
@@ -46,6 +47,7 @@ public class ContainerDamnationTable extends Container
 	/**
 	 * Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.
 	 */
+	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotID)
 	{
 		ItemStack itemstack = null;
@@ -65,14 +67,16 @@ public class ContainerDamnationTable extends Container
 			}
 			else if (this.damnationTable.isCurseFuel(itemstack))
 			{
-				if (!this.mergeItemStack(itemstack1, 0, 1, false));
+				if (!this.mergeItemStack(itemstack1, 0, 1, false))
+					;
 				{
 					return null;
 				}
 			}
 			else if (this.damnationTable.isCurseIngredient(itemstack))
 			{
-				if (!this.mergeItemStack(itemstack1, 1, 2, false));
+				if (!this.mergeItemStack(itemstack1, 1, 2, false))
+					;
 				{
 					return null;
 				}

@@ -234,7 +234,7 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	@Override
 	public String getInvName()
 	{
-		return this.isInvNameLocalized() ? this.name : "tile.damnationTable.name";
+		return this.isInvNameLocalized() ? this.name : "tile.damnation_table.name";
 	}
 	
 	@Override

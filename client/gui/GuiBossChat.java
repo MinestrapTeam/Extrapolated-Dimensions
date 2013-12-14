@@ -16,29 +16,28 @@ import net.minecraft.util.StatCollector;
 
 public class GuiBossChat extends GuiContainer
 {
-	public EntityPlayer											thePlayer;
-	public IMDMBoss	theBoss;
+	public EntityPlayer		thePlayer;
+	public IMDMBoss			theBoss;
 	
-	private GuiTextField										playerInput;
+	private GuiTextField	playerInput;
 	
 	public GuiBossChat(EntityPlayer player, IMDMBoss boss)
 	{
 		super(new ContainerBossChat(player, boss));
-		thePlayer = player;
-		theBoss = boss;
+		this.thePlayer = player;
+		this.theBoss = boss;
 	}
 	
 	@Override
 	public void initGui()
 	{
-		playerInput = new GuiTextField(fontRenderer, this.width / 2 - 100, this.height - 50, 200, 20);
-		playerInput.setFocused(true);
-		theBoss.onChatOpened(thePlayer);
+		this.playerInput = new GuiTextField(this.fontRenderer, this.width / 2 - 100, this.height - 50, 200, 20);
+		this.playerInput.setFocused(true);
+		this.theBoss.onChatOpened(this.thePlayer);
 	}
 	
 	/**
-	 * Fired when a key is typed. This is the equivalent of
-	 * KeyListener.keyTyped(KeyEvent e).
+	 * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
 	 */
 	@Override
 	protected void keyTyped(char par1, int par2)
@@ -47,29 +46,29 @@ public class GuiBossChat extends GuiContainer
 			super.keyTyped(par1, par2);
 		if (par2 == Keyboard.KEY_RETURN)
 		{
-			String message = playerInput.getText();
+			String message = this.playerInput.getText();
 			
-			theBoss.getBossChatData().addPlayerMessage(message, true);
-			theBoss.onPlayerInput(PlayerInputParser.parseInput(message), thePlayer);
+			this.theBoss.getBossChatData().addPlayerMessage(message, true);
+			this.theBoss.onPlayerInput(PlayerInputParser.parseInput(message), this.thePlayer);
 			
-			playerInput.setText("");
+			this.playerInput.setText("");
 		}
 		else
-			playerInput.textboxKeyTyped(par1, par2);
+			this.playerInput.textboxKeyTyped(par1, par2);
 	}
 	
 	@Override
 	protected void mouseClicked(int par1, int par2, int par3)
 	{
-		playerInput.mouseClicked(par1, par2, par3);
+		this.playerInput.mouseClicked(par1, par2, par3);
 	}
-
+	
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
 	{
-		playerInput.drawTextBox();
+		this.playerInput.drawTextBox();
 		
-		List<BossChatEntry> entrys = theBoss.getBossChatData().entrys;
+		List<BossChatEntry> entrys = this.theBoss.getBossChatData().entrys;
 		
 		for (int i = 0; i < entrys.size(); i++)
 		{
@@ -79,14 +78,14 @@ public class GuiBossChat extends GuiContainer
 			int textureSizeY = 16;
 			
 			// Renders the Chat User Name
-			BossChatEntry entry = theBoss.getBossChatData().entrys.get(index);
-			String text = entry.getUserName(this.mc.thePlayer, theBoss) + ": " + (entry.localized ? entry.text : StatCollector.translateToLocal(entry.text));
+			BossChatEntry entry = this.theBoss.getBossChatData().entrys.get(index);
+			String text = entry.getUserName(this.mc.thePlayer, this.theBoss) + ": " + (entry.localized ? entry.text : StatCollector.translateToLocal(entry.text));
 			
-			int textPosX = (this.width - fontRenderer.getStringWidth(text) - textureSizeX) / 2;
+			int textPosX = (this.width - this.fontRenderer.getStringWidth(text) - textureSizeX) / 2;
 			int textPosY = (this.height - 60) - (i * textureSizeX);
 			
 			int alpha = (int) (((10 - i) * 0.1F) * 255F);
-			fontRenderer.drawStringWithShadow(text, textPosX, textPosY, entry.userType.getColor() | (alpha << 24));
+			this.fontRenderer.drawStringWithShadow(text, textPosX, textPosY, entry.userType.getColor() | (alpha << 24));
 		}
 	}
 }
