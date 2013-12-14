@@ -2,7 +2,8 @@ package clashsoft.mods.moredimensions.common;
 
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.block.IMinableBlock;
+import clashsoft.mods.moredimensions.api.IMinableBlock;
+import clashsoft.mods.moredimensions.curse.Curse;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 
 import net.minecraft.block.*;
@@ -15,10 +16,7 @@ import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.ArrowLooseEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import net.minecraftforge.event.entity.player.BonemealEvent;
-import net.minecraftforge.event.entity.player.UseHoeEvent;
+import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 public class MDMEventHandler
@@ -136,5 +134,11 @@ public class MDMEventHandler
 				props.sync(player);
 			}
 		}
+	}
+	
+	@ForgeSubscribe
+	public void getItemTooltip(ItemTooltipEvent event)
+	{
+		Curse.addTooltip(event.itemStack, event.toolTip);
 	}
 }

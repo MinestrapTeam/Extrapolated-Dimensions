@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.inventory;
 
-import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
+import clashsoft.mods.moredimensions.api.IMDMBoss;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;

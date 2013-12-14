@@ -4,7 +4,6 @@ import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
 import clashsoft.mods.moredimensions.world.providers.WorldProviderNightmares;
 
-
 public class Nightmare extends Dream
 {
 	@Override

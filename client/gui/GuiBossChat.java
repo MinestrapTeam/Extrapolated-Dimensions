@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
+import clashsoft.mods.moredimensions.api.IMDMBoss;
 import clashsoft.mods.moredimensions.chat.boss.BossChatEntry;
 import clashsoft.mods.moredimensions.chat.boss.PlayerInputParser;
-import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
 import clashsoft.mods.moredimensions.inventory.ContainerBossChat;
 
 import net.minecraft.client.gui.GuiTextField;

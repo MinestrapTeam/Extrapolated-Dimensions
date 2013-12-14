@@ -1,9 +1,11 @@
 package clashsoft.mods.moredimensions.common;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
+import clashsoft.mods.moredimensions.api.IMDMBoss;
 import clashsoft.mods.moredimensions.inventory.ContainerBossChat;
+import clashsoft.mods.moredimensions.inventory.ContainerDamnationTable;
 import clashsoft.mods.moredimensions.inventory.ContainerTome;
+import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -12,14 +14,30 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class MDMCommonProxy implements IGuiHandler
-{	
-	public static int	BOSS_CHAT_GUIID	= 20;
-	public static int	TOME_GUIID		= 21;
+{
+	public static int	BOSS_CHAT_GUIID			= 20;
+	public static int	TOME_GUIID				= 21;
+	public static int	DAMNATIONTABLE_GUIID	= 22;
 	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		return ID == BOSS_CHAT_GUIID ? new ContainerBossChat(player, (IMDMBoss) world.getEntityByID(x)) : (ID == TOME_GUIID ? new ContainerTome() : null);
+		if (ID == BOSS_CHAT_GUIID)
+		{
+			return new ContainerBossChat(player, (IMDMBoss) world.getEntityByID(x));
+		}
+		else if (ID == TOME_GUIID)
+		{
+			return new ContainerTome();
+		}
+		else if (ID == DAMNATIONTABLE_GUIID)
+		{
+			return new ContainerDamnationTable(player.inventory, (TileEntityDamnationTable) world.getBlockTileEntity(x, y, z));
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	@Override

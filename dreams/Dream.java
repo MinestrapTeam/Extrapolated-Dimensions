@@ -7,7 +7,7 @@ import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class Dream implements IDream
+public class Dream
 {
 	protected DreamType		dream;
 	
@@ -20,13 +20,11 @@ public class Dream implements IDream
 		this.dream = getRandomDreamType();
 	}
 	
-	@Override
 	public void setPlayer(EntityPlayer player)
 	{
 		this.player = player;
 	}
 	
-	@Override
 	public void setPlayerBedPos(World world, int x, int y, int z)
 	{
 		this.bedWorld = world;
@@ -35,31 +33,26 @@ public class Dream implements IDream
 		this.bedZ = z;
 	}
 	
-	@Override
 	public String getDreamName()
 	{
 		return "Dream";
 	}
 	
-	@Override
 	public EntityPlayer getPlayer()
 	{
 		return player;
 	}
 	
-	@Override
 	public EnumDreamType getDreamType()
 	{
 		return EnumDreamType.DREAM;
 	}
 	
-	@Override
 	public int getDreamTime()
 	{
 		return 0;
 	}
 	
-	@Override
 	public void start()
 	{
 		WorldProviderDreams.dreamType = this.dream;
@@ -67,7 +60,6 @@ public class Dream implements IDream
 		player.travelToDimension(CSConfig.getDimension("Dream", 10));
 	}
 	
-	@Override
 	public void stop()
 	{
 		WorldProviderDreams.dreamType = null;
@@ -77,31 +69,26 @@ public class Dream implements IDream
 		player.sleepInBedAt(bedX, bedY, bedZ);
 	}
 	
-	@Override
 	public void onUpdate()
 	{
 		
 	}
 	
-	@Override
 	public World getBedWorld()
 	{
 		return bedWorld;
 	}
 	
-	@Override
 	public int getBedX()
 	{
 		return bedX;
 	}
 	
-	@Override
 	public int getBedY()
 	{
 		return bedY;
 	}
 	
-	@Override
 	public int getBedZ()
 	{
 		return bedZ;

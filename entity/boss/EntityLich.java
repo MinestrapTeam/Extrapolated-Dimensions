@@ -1,6 +1,7 @@
 package clashsoft.mods.moredimensions.entity.boss;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
+import clashsoft.mods.moredimensions.api.IMDMBoss;
 import clashsoft.mods.moredimensions.chat.boss.BossChatData;
 import clashsoft.mods.moredimensions.chat.boss.PlayerInputParser.EnumOutputAction;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;

@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.poc;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.util.CSWorld;
-import clashsoft.mods.moredimensions.alchemy.ITubeConnector;
+import clashsoft.mods.moredimensions.api.ITubeConnector;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
 import net.minecraft.block.Block;

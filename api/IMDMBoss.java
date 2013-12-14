@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.entity.boss;
+package clashsoft.mods.moredimensions.api;
 
 import clashsoft.mods.moredimensions.chat.boss.BossChatData;
 import clashsoft.mods.moredimensions.chat.boss.PlayerInputParser.EnumOutputAction;
@@ -9,11 +9,11 @@ import net.minecraft.util.ResourceLocation;
 
 public interface IMDMBoss extends IBossDisplayData
 {	
-	public ResourceLocation getIcon();
+	ResourceLocation getIcon();
 	
-	public BossChatData getBossChatData();
+	BossChatData getBossChatData();
 	
-	public void onPlayerInput(EnumOutputAction action, EntityPlayer player);
+	void onPlayerInput(EnumOutputAction action, EntityPlayer player);
 	
-	public void onChatOpened(EntityPlayer player);
+	void onChatOpened(EntityPlayer player);
 }

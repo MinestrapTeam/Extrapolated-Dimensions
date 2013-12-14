@@ -3,7 +3,9 @@ package clashsoft.mods.moredimensions.client;
 import java.util.HashMap;
 import java.util.Map;
 
+import clashsoft.mods.moredimensions.api.IMDMBoss;
 import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
+import clashsoft.mods.moredimensions.client.gui.GuiDamnationTable;
 import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
 import clashsoft.mods.moredimensions.client.gui.GuiTome;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
@@ -13,8 +15,8 @@ import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTub
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
-import clashsoft.mods.moredimensions.entity.boss.IMDMBoss;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
+import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 
 import com.jadarstudios.developercapes.DevCapesUtil;
 
@@ -41,7 +43,22 @@ public class MDMClientProxy extends MDMCommonProxy
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
-		return ID == BOSS_CHAT_GUIID ? new GuiBossChat(player, (IMDMBoss) world.getEntityByID(x)) : (ID == TOME_GUIID ? new GuiTome() : null);
+		if (ID == BOSS_CHAT_GUIID)
+		{
+			return new GuiBossChat(player, (IMDMBoss) world.getEntityByID(x));
+		}
+		else if (ID == TOME_GUIID)
+		{
+			return new GuiTome();
+		}
+		else if (ID == DAMNATIONTABLE_GUIID)
+		{
+			return new GuiDamnationTable(player.inventory, (TileEntityDamnationTable) world.getBlockTileEntity(x, y, z));
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	@Override

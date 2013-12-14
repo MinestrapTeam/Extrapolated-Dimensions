@@ -8,6 +8,7 @@ import clashsoft.cslib.minecraft.block.BlockCustomLeaves;
 import clashsoft.cslib.minecraft.block.BlockCustomLog;
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.cslib.minecraft.util.CSConfig;
+import clashsoft.mods.moredimensions.block.BlockDamnationTable;
 import clashsoft.mods.moredimensions.block.BlockMDM;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
@@ -64,6 +65,8 @@ public class MDMBlocks
 	public static BlockHeavenPortal		heavenPortal;
 	public static Block					heavenPortalFrame;
 	public static BlockHeavenPillar		heavenPillar;
+	
+	public static BlockDamnationTable	damnationTable;
 	
 	public static ItemStack				heavenDirt, mudDirt;
 	public static ItemStack				heavenGrass, mudGrass, corruptedGrass, hallowedGrass, mushroomGrass;
@@ -211,6 +214,8 @@ public class MDMBlocks
 		heavenPortalFrame = (new BlockMDM(CSConfig.getBlock("Heaven Portal Frame", 1054), Material.rock, MDMItems.tabHeavenBlocks)).setUnlocalizedName("heaven_portal_frame").setTextureName("heaven_portal_frame").setHardness(2F);
 		
 		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(CSConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setHardness(1.75F);
+	
+		damnationTable = (BlockDamnationTable) new BlockDamnationTable(CSConfig.getBlock("Damnation Tabel", 1059)).setUnlocalizedName("damnationTable").setHardness(4F);
 	}
 	
 	public static void load()
