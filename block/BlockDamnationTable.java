@@ -27,9 +27,9 @@ public class BlockDamnationTable extends BlockContainer
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon("damnation_table_side");
-		this.topIcon = iconRegister.registerIcon("damnation_table_top");
-		this.bottomIcon = iconRegister.registerIcon("damnation_table_bottom");
+		this.blockIcon = iconRegister.registerIcon("moredimensions:damnation_table_side");
+		this.topIcon = iconRegister.registerIcon("moredimensions:damnation_table_top");
+		this.bottomIcon = iconRegister.registerIcon("moredimensions:damnation_table_bottom");
 	}
 	
 	@Override

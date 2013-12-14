@@ -26,7 +26,7 @@ public class ItemCape extends CustomItem
 	
 	public ItemCape(int itemID)
 	{
-		super(itemID, displayNames, capeNames, descriptions);
+		super(itemID, displayNames, iconNames, descriptions);
 		this.setCreativeTab(MDMItems.tabHeavenArmor);
 	}
 	

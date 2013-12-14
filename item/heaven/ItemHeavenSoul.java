@@ -132,7 +132,7 @@ public class ItemHeavenSoul extends Item
 	{
 		for (int i = 0; i < 16; i++)
 		{
-			this.icons[i] = par1IconRegister.registerIcon("soul_" + (i + 1));
+			this.icons[i] = par1IconRegister.registerIcon("moredimensions:soul_" + (i + 1));
 		}
 	}
 	

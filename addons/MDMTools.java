@@ -3,15 +3,16 @@ package clashsoft.mods.moredimensions.addons;
 import clashsoft.cslib.addon.Addon;
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.util.CSArrays;
+import clashsoft.cslib.util.CSString;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.item.armor.*;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemBattleaxe;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemHatchet;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemSaw;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemThrowableAxe;
+import clashsoft.mods.moredimensions.item.tools.*;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM.ItemCrossBow;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM.ItemShortBow;
-import clashsoft.mods.moredimensions.item.tools.*;
 import clashsoft.mods.moredimensions.item.tools.ItemHammer.ItemWarhammer;
 import clashsoft.mods.moredimensions.item.tools.ItemSwordMDM.ItemClaws;
 import clashsoft.mods.moredimensions.item.tools.ItemSwordMDM.ItemDagger;
@@ -147,7 +148,7 @@ public class MDMTools
 				
 				String itemName = materialName + " " + toolType;
 				String itemID = materialID + toolType.replace(" ", "");
-				String itemIconName = (materialID + "_" + toolType.replace(" ", "_")).toLowerCase();
+				String itemIconName = CSString.fastConcat("moredimensions:", materialID, "_", toolType.replace(" ", "_")).toLowerCase();
 				
 				Class toolClass = toolClasses[toolIndex];
 				
@@ -159,14 +160,26 @@ public class MDMTools
 				if (ItemArmor.class.isAssignableFrom(toolClass))
 				{
 					if (!vanillaArmor)
+					{
 						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) });
+						if (item != null)
+						{
+							item.setCreativeTab(armorTab);
+						}
+					}
 				}
 				else if (!vanillaTool)
+				{
 					item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), toolMaterial });
+					if (item != null)
+					{
+						item.setCreativeTab(toolTab);
+					}
+				}
 				
 				if (item != null)
 				{
-					item.setCreativeTab(armorTab).setUnlocalizedName(itemID).setTextureName(itemIconName);
+					item.setUnlocalizedName(itemID).setTextureName(itemIconName);
 					MDMItems.addItem(item, itemName);
 				}
 			}
