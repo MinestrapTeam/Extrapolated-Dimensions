@@ -20,14 +20,13 @@ public class GuiGameOverHeaven extends GuiGameOver
 		super.initGui();
 		if (!this.mc.theWorld.getWorldInfo().isHardcoreModeEnabled() && this.mc.thePlayer.dimension == 0)
 		{
-			this.buttonList.add(heavenButton = new GuiButton(3, this.width / 2 - 100, this.height / 4 + 120, "Go to Heaven"));
-			heavenButton.enabled = false;
+			this.buttonList.add(this.heavenButton = new GuiButton(3, this.width / 2 - 100, this.height / 4 + 120, "Go to Heaven"));
+			this.heavenButton.enabled = false;
 		}
 	}
 	
 	/**
-	 * Fired when a control is clicked. This is the equivalent of
-	 * ActionListener.actionPerformed(ActionEvent e).
+	 * Fired when a control is clicked. This is the equivalent of ActionListener.actionPerformed(ActionEvent e).
 	 */
 	@Override
 	protected void actionPerformed(GuiButton par1GuiButton)

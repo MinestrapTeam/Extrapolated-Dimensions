@@ -16,14 +16,14 @@ public class BlockPOCSapling extends BlockCustomSapling
 	{
 		super(blockID, names, icons);
 	}
-
+	
 	@Override
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
 		int metadata = world.getBlockMetadata(x, y, z) & 3;
 		return metadata == 0 ? new POCGenMagicOakTree(true) : new POCGenWillowTree(true);
 	}
-
+	
 	@Override
 	public boolean isValidGround(int blockID, int blockMetadata)
 	{

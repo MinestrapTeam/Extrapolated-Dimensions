@@ -15,6 +15,5 @@ public class ModelGloves extends ModelBiped
 	{
 		super.render(par1Entity, par2, par3, par4, par5, par6, par7);
 		
-		
 	}
 }

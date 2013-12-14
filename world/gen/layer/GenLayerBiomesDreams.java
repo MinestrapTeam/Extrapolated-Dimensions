@@ -32,7 +32,7 @@ public class GenLayerBiomesDreams extends GenLayer
 			for (int dx = 0; dx < width; dx++)
 			{
 				this.initChunkSeed(dx + x, dz + z);
-				dest[(dx + dz * width)] = dream.getDreamBiome().biomeID;
+				dest[(dx + dz * width)] = this.dream.getDreamBiome().biomeID;
 			}
 		}
 		return dest;

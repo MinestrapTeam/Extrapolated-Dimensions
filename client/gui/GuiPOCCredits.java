@@ -33,14 +33,14 @@ public class GuiPOCCredits extends GuiScreen
 	
 	public GuiPOCCredits(GuiScreen par1GuiScreen)
 	{
-		superGui = par1GuiScreen;
-		respawn = false;
+		this.superGui = par1GuiScreen;
+		this.respawn = false;
 	}
 	
 	public GuiPOCCredits(GuiScreen par1GuiScreen, boolean par2)
 	{
-		superGui = par1GuiScreen;
-		respawn = par2;
+		this.superGui = par1GuiScreen;
+		this.respawn = par2;
 	}
 	
 	/**
@@ -54,10 +54,10 @@ public class GuiPOCCredits extends GuiScreen
 		
 		if (this.updateCounter > f)
 		{
-			if (respawn)
+			if (this.respawn)
 				this.respawnPlayer();
 			else
-				this.mc.displayGuiScreen(superGui);
+				this.mc.displayGuiScreen(this.superGui);
 		}
 	}
 	
@@ -71,24 +71,22 @@ public class GuiPOCCredits extends GuiScreen
 	}
 	
 	/**
-	 * Fired when a key is typed. This is the equivalent of
-	 * KeyListener.keyTyped(KeyEvent e).
+	 * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
 	 */
 	@Override
 	protected void keyTyped(char par1, int par2)
 	{
 		if (par2 == 1)
 		{
-			if (respawn)
+			if (this.respawn)
 				this.respawnPlayer();
 			else
-				this.mc.displayGuiScreen(superGui);
+				this.mc.displayGuiScreen(this.superGui);
 		}
 	}
 	
 	/**
-	 * Returns true if this GUI should pause the game when it is displayed in
-	 * single-player
+	 * Returns true if this GUI should pause the game when it is displayed in single-player
 	 */
 	@Override
 	public boolean doesGuiPauseGame()

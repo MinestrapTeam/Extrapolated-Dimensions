@@ -54,8 +54,7 @@ public class ItemFireSword extends ItemSword
 	}
 	
 	/**
-	 * Current implementations of this method in child classes do not use the
-	 * entry argument beside ev. They just raise the damage on the stack.
+	 * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise the damage on the stack.
 	 */
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase living, EntityLivingBase living2)

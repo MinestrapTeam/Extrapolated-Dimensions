@@ -32,7 +32,7 @@ public class BlockPOCActivatorLava extends BlockStationary
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		super.updateTick(par1World, par2, par3, par4, par5Random);
-		tryToCreatePortal(par1World, par2, par3, par4);
+		this.tryToCreatePortal(par1World, par2, par3, par4);
 	}
 	
 	private void tryToCreatePortal(World par1World, int par2, int par3, int par4)
@@ -43,7 +43,9 @@ public class BlockPOCActivatorLava extends BlockStationary
 				if (MDMBlocks.pocPortal.tryToCreatePortal(par1World, par2, par3 - i, par4))
 					break;
 		}
-		catch (Exception ex) {}
+		catch (Exception ex)
+		{
+		}
 	}
 	
 	/**
@@ -53,6 +55,6 @@ public class BlockPOCActivatorLava extends BlockStationary
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)
 	{
 		super.onBlockAdded(par1World, par2, par3, par4);
-		tryToCreatePortal(par1World, par2, par3, par4);
+		this.tryToCreatePortal(par1World, par2, par3, par4);
 	}
 }

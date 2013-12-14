@@ -22,7 +22,7 @@ public class ItemHammer extends ItemTool
 	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
 	{
 		Material material = par2Block.blockMaterial;
-		return (material == Material.glass || material == Material.piston || material == Material.redstoneLight || material == Material.vine || material == Material.web) ? efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
+		return (material == Material.glass || material == Material.piston || material == Material.redstoneLight || material == Material.vine || material == Material.web) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
 	}
 	
 	public static class ItemWarhammer extends ItemHammer

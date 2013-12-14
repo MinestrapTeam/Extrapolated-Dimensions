@@ -27,15 +27,15 @@ public class GuiPOCButton extends GuiButton
 	
 	public GuiPOCButton setColor(float r, float g, float b)
 	{
-		colorR = r;
-		colorG = g;
-		colorB = b;
+		this.colorR = r;
+		this.colorG = g;
+		this.colorB = b;
 		return this;
 	}
 	
 	public boolean hasSpecialColor()
 	{
-		return colorR >= 0 && colorG >= 0 && colorB >= 0;
+		return this.colorR >= 0 && this.colorG >= 0 && this.colorB >= 0;
 	}
 	
 	@Override
@@ -46,8 +46,8 @@ public class GuiPOCButton extends GuiButton
 			FontRenderer fontrenderer = par1Minecraft.fontRenderer;
 			par1Minecraft.renderEngine.bindTexture(buttons);
 			
-			if (hasSpecialColor())
-				GL11.glColor4f(colorR, colorG, colorB, 1.0F);
+			if (this.hasSpecialColor())
+				GL11.glColor4f(this.colorR, this.colorG, this.colorB, 1.0F);
 			else if (!this.enabled)
 				GL11.glColor4f(0.5F, 0.5F, 0.5F, 1.0F);
 			else
@@ -57,7 +57,7 @@ public class GuiPOCButton extends GuiButton
 			float buttonScaleY = 0.25F;
 			GL11.glScalef(buttonScaleX, buttonScaleY, 1F);
 			this.field_82253_i = par2 >= this.xPosition && par3 >= this.yPosition && par2 < this.xPosition + this.width && par3 < this.yPosition + this.height;
-			int posX1 = hasSpecialColor() ? 160 : (k == 1 ? 0 : (k == 2 ? 80 : 160));
+			int posX1 = this.hasSpecialColor() ? 160 : (k == 1 ? 0 : (k == 2 ? 80 : 160));
 			this.drawTexturedModalRect(this.xPosition * (int) (1F / buttonScaleX), this.yPosition * (int) (1F / buttonScaleY), 0, posX1, (int) (this.width * 2F) + 15, 80);
 			GL11.glScalef(1F / buttonScaleX, 1F / buttonScaleY, 1F);
 			this.mouseDragged(par1Minecraft, par2, par3);

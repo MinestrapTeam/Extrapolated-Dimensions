@@ -53,8 +53,7 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * Returns the Y offset from the entity's position for any entity riding
-	 * this one.
+	 * Returns the Y offset from the entity's position for any entity riding this one.
 	 */
 	@Override
 	public double getMountedYOffset()
@@ -63,8 +62,7 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * returns if this entity triggers Block.onEntityWalking on the blocks they
-	 * walk on. used for sciders and wolves to prevent them from trampling crops
+	 * returns if this entity triggers Block.onEntityWalking on the blocks they walk on. used for sciders and wolves to prevent them from trampling crops
 	 */
 	@Override
 	protected boolean canTriggerWalking()
@@ -73,9 +71,7 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * Finds the closest player within 16 blocks to attack, or null if this
-	 * Entity isn't interested in attacking (Animals, Sciders at day, peaceful
-	 * PigZombies).
+	 * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking (Animals, Sciders at day, peaceful PigZombies).
 	 */
 	@Override
 	protected Entity findPlayerToAttack()
@@ -121,8 +117,7 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * Basic mob attack. Default to touch of death in EntityCreature. Overridden
-	 * by each mob to define their attack.
+	 * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
 	 */
 	@Override
 	protected void attackEntity(Entity par1Entity, float par2)
@@ -219,8 +214,7 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns
-	 * false. The WatchableObject is updated using setBesideClimableBlock.
+	 * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false. The WatchableObject is updated using setBesideClimableBlock.
 	 */
 	public boolean isBesideClimbableBlock()
 	{
@@ -228,8 +222,7 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * Updates the WatchableObject (Byte) created in entityInit(), setting it to
-	 * 0x01 if par1 is true or 0x00 if it is false.
+	 * Updates the WatchableObject (Byte) created in entityInit(), setting it to 0x01 if par1 is true or 0x00 if it is false.
 	 */
 	public void setBesideClimbableBlock(boolean par1)
 	{

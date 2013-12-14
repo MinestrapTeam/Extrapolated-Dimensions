@@ -56,8 +56,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this
-	 * box can change after the pool has been cleared to be reused)
+	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been cleared to be reused)
 	 */
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
@@ -66,8 +65,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y,
-	 * z
+	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
@@ -90,9 +88,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
+	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether or not to render the shared face of two adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
 	 */
 	@Override
 	public boolean isOpaqueCube()
@@ -101,8 +97,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
+	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
 	 */
 	@Override
 	public boolean renderAsNormalBlock()
@@ -111,8 +106,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * Checks to see if this location is valid to create a portal and will
-	 * return True if it does. Args: world, x, y, z
+	 * Checks to see if this location is valid to create a portal and will return True if it does. Args: world, x, y, z
 	 */
 	public boolean tryToCreatePortal(World par1World, int par2, int par3, int par4)
 	{
@@ -183,9 +177,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which
-	 * neighbor changed (coordinates passed are their own) Args: x, y, z,
-	 * neighbor blockID
+	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are their own) Args: x, y, z, neighbor blockID
 	 */
 	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
@@ -277,8 +269,7 @@ public class BlockPOCPortal extends BlockBreakable
 	}
 	
 	/**
-	 * Triggered whenever an entity collides with this block (enters into the
-	 * block). Args: world, x, y, z, entity
+	 * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
 	 */
 	@Override
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)

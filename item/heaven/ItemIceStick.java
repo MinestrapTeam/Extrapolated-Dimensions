@@ -59,13 +59,13 @@ public class ItemIceStick extends Item implements ICurseIngredient
 			return stack;
 		}
 	}
-
+	
 	@Override
 	public boolean isCurseIngredient(ItemStack stack)
 	{
 		return true;
 	}
-
+	
 	@Override
 	public Curse getCurse(ItemStack stack)
 	{

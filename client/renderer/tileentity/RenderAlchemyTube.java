@@ -18,7 +18,7 @@ public class RenderAlchemyTube extends TileEntitySpecialRenderer
 	public void renderTileEntityAt(TileEntityAlchemyTube tileentity, double par2, double par4, double par6, float par8)
 	{
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(tex);
+		Minecraft.getMinecraft().renderEngine.bindTexture(this.tex);
 		GL11.glTranslatef((float) par2 + 0.5F, (float) par4 - 0.5F, (float) par6 + 0.5F);
 		
 		boolean[] bs = BlockAlchemyTube.getConnections(tileentity.worldObj, tileentity.xCoord, tileentity.yCoord, tileentity.zCoord);
@@ -31,6 +31,6 @@ public class RenderAlchemyTube extends TileEntitySpecialRenderer
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double par2, double par4, double par6, float par8)
 	{
-		renderTileEntityAt((TileEntityAlchemyTube) tileentity, par2, par4, par6, par8);
+		this.renderTileEntityAt((TileEntityAlchemyTube) tileentity, par2, par4, par6, par8);
 	}
 }

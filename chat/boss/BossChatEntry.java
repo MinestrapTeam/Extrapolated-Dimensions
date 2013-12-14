@@ -27,9 +27,9 @@ public class BossChatEntry
 	
 	public String getUserName(EntityPlayer player, IMDMBoss boss)
 	{
-		if (userType == EnumBossChatUser.PLAYER)
+		if (this.userType == EnumBossChatUser.PLAYER)
 			return player.username;
-		else if (userType == EnumBossChatUser.BOSS)
+		else if (this.userType == EnumBossChatUser.BOSS)
 			return boss.getEntityName();
 		else
 			return "";
@@ -37,9 +37,9 @@ public class BossChatEntry
 	
 	public ResourceLocation getIcon(IMDMBoss boss)
 	{
-		if (userType == EnumBossChatUser.PLAYER)
+		if (this.userType == EnumBossChatUser.PLAYER)
 			return playericon;
-		else if (userType == EnumBossChatUser.BOSS)
+		else if (this.userType == EnumBossChatUser.BOSS)
 			return boss.getIcon();
 		else
 			return null;

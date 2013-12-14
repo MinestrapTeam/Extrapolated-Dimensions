@@ -14,8 +14,7 @@ import net.minecraftforge.common.ForgeDirection;
 public class POCGenWillowTree extends WorldGenerator
 {
 	/**
-	 * Contains three sets of two values that provide complimentary indices for
-	 * a given 'major' index - 1 and 2 for 0, 0 and 2 for 1, and 0 and 1 for 2.
+	 * Contains three sets of two values that provide complimentary indices for a given 'major' index - 1 and 2 for 0, 0 and 2 for 1, and 0 and 1 for 2.
 	 */
 	public static final byte[]	otherCoordPairs		= new byte[] { (byte) 2, (byte) 0, (byte) 0, (byte) 1, (byte) 2, (byte) 1 };
 	
@@ -34,8 +33,7 @@ public class POCGenWillowTree extends WorldGenerator
 	public double				leafDensity			= 1.0D;
 	
 	/**
-	 * Currently always 1, can be set to 2 in the class constructor to generate
-	 * a double-sized tree trunk for big trees.
+	 * Currently always 1, can be set to 2 in the class constructor to generate a double-sized tree trunk for big trees.
 	 */
 	public int					trunkSize			= 1;
 	
@@ -45,8 +43,7 @@ public class POCGenWillowTree extends WorldGenerator
 	public int					heightLimitLimit	= 12;
 	
 	/**
-	 * Sets the distance limit for how far away the generator will populate
-	 * leaves from the base leaf node.
+	 * Sets the distance limit for how far away the generator will populate leaves from the base leaf node.
 	 */
 	public int					leafDistanceLimit	= 4;
 	
@@ -59,8 +56,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Generates a list of leaf nodes for the tree, to be populated by
-	 * generateLeaves.
+	 * Generates a list of leaf nodes for the tree, to be populated by generateLeaves.
 	 */
 	public void generateLeafNodeList()
 	{
@@ -226,8 +222,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Generates the leaves surrounding an individual entry in the leafNodes
-	 * list.
+	 * Generates the leaves surrounding an individual entry in the leafNodes list.
 	 */
 	public void generateLeafNode(int par1, int par2, int par3)
 	{
@@ -241,8 +236,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Places a line of the specified block ID into the world from the first
-	 * coordinate triplet to the second.
+	 * Places a line of the specified block ID into the world from the first coordinate triplet to the second.
 	 */
 	public void placeBlockLine(int[] sourceCoords, int[] destCoords, int blockID, int metadata)
 	{
@@ -308,8 +302,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Generates the leaf portion of the tree as specified by the leafNodes
-	 * list.
+	 * Generates the leaf portion of the tree as specified by the leafNodes list.
 	 */
 	public void generateLeaves()
 	{
@@ -325,8 +318,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Indicates whether or not a leaf node requires additional wood to be added
-	 * to preserve integrity.
+	 * Indicates whether or not a leaf node requires additional wood to be added to preserve integrity.
 	 */
 	public boolean leafNodeNeedsBase(int par1)
 	{
@@ -334,8 +326,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Places the trunk for the big tree that is being generated. Able to
-	 * generate double-sized trunks by changing a field that is always 1 to 2.
+	 * Places the trunk for the big tree that is being generated. Able to generate double-sized trunks by changing a field that is always 1 to 2.
 	 */
 	public void generateTrunk()
 	{
@@ -362,8 +353,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Generates additional wood blocks to fill out the bases of different leaf
-	 * nodes that would otherwise degrade.
+	 * Generates additional wood blocks to fill out the bases of different leaf nodes that would otherwise degrade.
 	 */
 	public void generateLeafNodeBases()
 	{
@@ -385,9 +375,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Checks a line of blocks in the world from the first coordinate to triplet
-	 * to the second, returning the distance (in blocks) before a non-air,
-	 * non-leaf block is encountered and/or the end is encountered.
+	 * Checks a line of blocks in the world from the first coordinate to triplet to the second, returning the distance (in blocks) before a non-air, non-leaf block is encountered and/or the end is encountered.
 	 */
 	public int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger)
 	{
@@ -448,8 +436,7 @@ public class POCGenWillowTree extends WorldGenerator
 	}
 	
 	/**
-	 * Returns a boolean indicating whether or not the current location for the
-	 * tree, spanning basePos to to the height limit, is valid.
+	 * Returns a boolean indicating whether or not the current location for the tree, spanning basePos to to the height limit, is valid.
 	 */
 	public boolean validTreeLocation()
 	{
@@ -458,7 +445,7 @@ public class POCGenWillowTree extends WorldGenerator
 		int i = this.worldObj.getBlockId(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 		
 		Block soil = Block.blocksList[i];
-		boolean isValidSoil = (soil != null && soil.canSustainPlant(worldObj, basePos[0], basePos[1] - 1, basePos[2], ForgeDirection.UP, (BlockSapling) Block.sapling));
+		boolean isValidSoil = (soil != null && soil.canSustainPlant(this.worldObj, this.basePos[0], this.basePos[1] - 1, this.basePos[2], ForgeDirection.UP, (BlockSapling) Block.sapling));
 		if (!isValidSoil)
 		{
 			return false;

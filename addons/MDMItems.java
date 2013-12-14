@@ -53,7 +53,7 @@ public class MDMItems
 	
 	// -- Heaven --
 	
-	public static ItemHeavenMaterials				heavenMaterials;
+	public static ItemHeavenMaterials		heavenMaterials;
 	public static ItemHeavenFood			heavenApple;
 	public static ItemLifeHeart				lifeHeart;
 	public static ItemFireSword				fireSword;

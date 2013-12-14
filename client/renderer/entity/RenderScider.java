@@ -35,7 +35,7 @@ public class RenderScider extends RenderLiving
 		}
 		else
 		{
-			this.bindTexture(getEntityTexture(par1EntityScider));
+			this.bindTexture(this.getEntityTexture(par1EntityScider));
 			float var4 = 1.0F;
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
@@ -57,8 +57,7 @@ public class RenderScider extends RenderLiving
 	}
 	
 	/**
-	 * Allows the render to do any OpenGL state modifications necessary before
-	 * the model is rendered. Args: entityLiving, partialTickTime
+	 * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args: entityLiving, partialTickTime
 	 */
 	protected void preRenderCallback(EntityLiving par1EntityLiving, float par2)
 	{

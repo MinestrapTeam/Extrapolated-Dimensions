@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public interface IMDMBoss extends IBossDisplayData
-{	
+{
 	ResourceLocation getIcon();
 	
 	BossChatData getBossChatData();

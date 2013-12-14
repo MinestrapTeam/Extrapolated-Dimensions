@@ -23,7 +23,7 @@ public class Nightmare extends Dream
 	{
 		WorldProviderNightmares.nightmareType = this.dream;
 		
-		player.travelToDimension(CSConfig.getDimension("Nightmare", 11));
+		this.player.travelToDimension(CSConfig.getDimension("Nightmare", 11));
 	}
 	
 	@Override
@@ -31,9 +31,9 @@ public class Nightmare extends Dream
 	{
 		WorldProviderDreams.dreamType = null;
 		
-		player.travelToDimension(0);
-		player.setPosition(bedX, bedY, bedZ);
-		player.sleepInBedAt(bedX, bedY, bedZ);
+		this.player.travelToDimension(0);
+		this.player.setPosition(this.bedX, this.bedY, this.bedZ);
+		this.player.sleepInBedAt(this.bedX, this.bedY, this.bedZ);
 	}
 	
 	@Override

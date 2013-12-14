@@ -17,7 +17,7 @@ public class Dream
 	
 	public Dream()
 	{
-		this.dream = getRandomDreamType();
+		this.dream = this.getRandomDreamType();
 	}
 	
 	public void setPlayer(EntityPlayer player)
@@ -40,7 +40,7 @@ public class Dream
 	
 	public EntityPlayer getPlayer()
 	{
-		return player;
+		return this.player;
 	}
 	
 	public EnumDreamType getDreamType()
@@ -57,16 +57,16 @@ public class Dream
 	{
 		WorldProviderDreams.dreamType = this.dream;
 		
-		player.travelToDimension(CSConfig.getDimension("Dream", 10));
+		this.player.travelToDimension(CSConfig.getDimension("Dream", 10));
 	}
 	
 	public void stop()
 	{
 		WorldProviderDreams.dreamType = null;
 		
-		player.travelToDimension(0);
-		player.setPosition(bedX, bedY, bedZ);
-		player.sleepInBedAt(bedX, bedY, bedZ);
+		this.player.travelToDimension(0);
+		this.player.setPosition(this.bedX, this.bedY, this.bedZ);
+		this.player.sleepInBedAt(this.bedX, this.bedY, this.bedZ);
 	}
 	
 	public void onUpdate()
@@ -76,26 +76,26 @@ public class Dream
 	
 	public World getBedWorld()
 	{
-		return bedWorld;
+		return this.bedWorld;
 	}
 	
 	public int getBedX()
 	{
-		return bedX;
+		return this.bedX;
 	}
 	
 	public int getBedY()
 	{
-		return bedY;
+		return this.bedY;
 	}
 	
 	public int getBedZ()
 	{
-		return bedZ;
+		return this.bedZ;
 	}
 	
 	public DreamType getRandomDreamType()
 	{
-		return DreamType.getRandomDreamType(getDreamType());
+		return DreamType.getRandomDreamType(this.getDreamType());
 	}
 }

@@ -80,18 +80,18 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 	@Override
 	public Chunk loadChunk(int x, int z)
 	{
-		return provideChunk(x, z);
+		return this.provideChunk(x, z);
 	}
 	
 	@Override
 	public Chunk provideChunk(int x, int z)
 	{
-		this.random.setSeed(x * worldObj.getSeed() | z * worldObj.getSeed() ^ x - z);
+		this.random.setSeed(x * this.worldObj.getSeed() | z * this.worldObj.getSeed() ^ x - z);
 		
 		byte[] storage = new byte[32768];
-		generateTerrain(x, z, storage);
+		this.generateTerrain(x, z, storage);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, x * 16, z * 16, 16, 16);
-		replaceBlocksForBiome(x, z, storage, this.biomesForGeneration);
+		this.replaceBlocksForBiome(x, z, storage, this.biomesForGeneration);
 		this.caveGenerator.generate(this, this.worldObj, x, z, storage);
 		this.ravineGenerator.generate(this, this.worldObj, x, z, storage);
 		if (this.mapFeaturesEnabled)

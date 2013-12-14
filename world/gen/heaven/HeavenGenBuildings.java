@@ -33,7 +33,7 @@ public class HeavenGenBuildings
 		@Override
 		public boolean generate(World world, Random rand, int x, int y, int z)
 		{
-			return generateN(world, rand, x, y, z);
+			return this.generateN(world, rand, x, y, z);
 		}
 		
 		public boolean generateN(World world, Random rand, int x, int y, int z)

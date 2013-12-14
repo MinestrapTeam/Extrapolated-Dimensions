@@ -72,8 +72,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	}
 	
 	/**
-	 * Returns a list of rainfall values for the specified blocks. Args:
-	 * listToReuse, x, z, width, length.
+	 * Returns a list of rainfall values for the specified blocks. Args: listToReuse, x, z, width, length.
 	 */
 	@Override
 	public float[] getRainfall(float[] par1ArrayOfFloat, int par2, int par3, int par4, int par5)
@@ -113,8 +112,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	}
 	
 	/**
-	 * Returns a list of temperatures to use for the specified blocks. Args:
-	 * listToReuse, x, y, width, length
+	 * Returns a list of temperatures to use for the specified blocks. Args: listToReuse, x, y, width, length
 	 */
 	@Override
 	public float[] getTemperatures(float[] par1ArrayOfFloat, int par2, int par3, int par4, int par5)
@@ -174,9 +172,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	}
 	
 	/**
-	 * Returns biomes to use for the blocks and loads the other data like
-	 * temperature and humidity onto the WorldChunkManager Args: oldBiomeList,
-	 * x, z, width, depth
+	 * Returns biomes to use for the blocks and loads the other data like temperature and humidity onto the WorldChunkManager Args: oldBiomeList, x, z, width, depth
 	 */
 	@Override
 	public BiomeGenBase[] loadBlockGeneratorData(BiomeGenBase[] par1ArrayOfBiomeGenBase, int par2, int par3, int par4, int par5)
@@ -185,9 +181,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	}
 	
 	/**
-	 * Return a list of biomes for the specified blocks. Args: listToReuse, x,
-	 * y, width, length, cacheFlag (if false, don't check biomeCache to avoid
-	 * infinite loop in BiomeCacheBlock)
+	 * Return a list of biomes for the specified blocks. Args: listToReuse, x, y, width, length, cacheFlag (if false, don't check biomeCache to avoid infinite loop in BiomeCacheBlock)
 	 */
 	@Override
 	public BiomeGenBase[] getBiomeGenAt(BiomeGenBase[] par1ArrayOfBiomeGenBase, int x, int y, int width, int length, boolean cacheFlag)
@@ -255,9 +249,7 @@ public class WorldChunkManagerPOC extends WorldChunkManager
 	}
 	
 	/**
-	 * Finds a valid position within a range, that is in one of the listed
-	 * biomes. Searches {par1,par2} +-par3 blocks. Strongly favors positive y
-	 * positions.
+	 * Finds a valid position within a range, that is in one of the listed biomes. Searches {par1,par2} +-par3 blocks. Strongly favors positive y positions.
 	 */
 	@Override
 	public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random)

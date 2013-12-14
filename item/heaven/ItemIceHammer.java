@@ -9,7 +9,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 public class ItemIceHammer extends ItemIceStick
-{	
+{
 	public ItemIceHammer(int par1)
 	{
 		super(par1);
@@ -55,8 +55,7 @@ public class ItemIceHammer extends ItemIceStick
 	}
 	
 	/**
-	 * Return the enchantability factor of the item, most of the time is based
-	 * on material.
+	 * Return the enchantability factor of the item, most of the time is based on material.
 	 */
 	@Override
 	public int getItemEnchantability()

@@ -11,13 +11,13 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeDecoratorHeaven extends BiomeDecorator
 {
-	protected WorldGenerator			spikeGen;
+	protected WorldGenerator	spikeGen;
 	
-	private WorldGenerator				dirtGen		= new HeavenGenMinable(MDMBlocks.heavenDirtBlocks.blockID, 20);
-	private WorldGenerator				sywoxiteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 3, 18);
-	private WorldGenerator				clashiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 4, 10);
-	private WorldGenerator				bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 5, 8);
-	private WorldGenerator				holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 6, 8);
+	private WorldGenerator		dirtGen		= new HeavenGenMinable(MDMBlocks.heavenDirtBlocks.blockID, 20);
+	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 3, 18);
+	private WorldGenerator		clashiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 4, 10);
+	private WorldGenerator		bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 5, 8);
+	private WorldGenerator		holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 6, 8);
 	
 	public BiomeDecoratorHeaven(BiomeGenBase par1BiomeGenBase)
 	{
@@ -33,7 +33,7 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	protected void decorate()
 	{
 		this.generateOres();
-		this.genTrees(this.treesPerChunk, this.biome.getRandomWorldGenForTrees(randomGenerator), 0, 128);
+		this.genTrees(this.treesPerChunk, this.biome.getRandomWorldGenForTrees(this.randomGenerator), 0, 128);
 	}
 	
 	/**

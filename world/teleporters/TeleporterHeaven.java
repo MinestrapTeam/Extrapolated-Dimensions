@@ -27,8 +27,7 @@ public class TeleporterHeaven extends Teleporter
 	private final LongHashMap	destinationCoordinateCache	= new LongHashMap();
 	
 	/**
-	 * A list of valid keys for the destinationCoordainteCache. These are based
-	 * on the X & Z of the players initial location.
+	 * A list of valid keys for the destinationCoordainteCache. These are based on the X & Z of the players initial location.
 	 */
 	private final List			destinationCoordinateKeys	= new ArrayList();
 	
@@ -457,8 +456,7 @@ public class TeleporterHeaven extends Teleporter
 	}
 	
 	/**
-	 * called periodically to remove out-of-date portal locations from the cache
-	 * list. Argument par1 is a WorldServer.getTotalWorldTime() value.
+	 * called periodically to remove out-of-date portal locations from the cache list. Argument par1 is a WorldServer.getTotalWorldTime() value.
 	 */
 	@Override
 	public void removeStalePortalLocations(long par1)

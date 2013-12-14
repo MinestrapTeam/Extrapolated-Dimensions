@@ -73,14 +73,14 @@ public class MDMClientProxy extends MDMCommonProxy
 		MinecraftForge.EVENT_BUS.register(new GuiPOCIngame(Minecraft.getMinecraft()));
 		
 		// Sounds
-		installSound("streaming/PoC Menu.ogg");
+		this.installSound("streaming/PoC Menu.ogg");
 		
 		// Entity Renderers
 		RenderingRegistry.registerEntityRenderingHandler(EntityLich.class, new RenderLich());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScider.class, new RenderScider());
 		
 		// Item Renderers
-		MinecraftForgeClient.registerItemRenderer(Item.bow.itemID, bowRenderer = new RenderPOCBows());
+		MinecraftForgeClient.registerItemRenderer(Item.bow.itemID, this.bowRenderer = new RenderPOCBows());
 		
 		// Tile Entity Renderers
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAlchemyTube.class, new RenderAlchemyTube());
@@ -97,12 +97,12 @@ public class MDMClientProxy extends MDMCommonProxy
 	@Override
 	protected int getArmor(String name)
 	{
-		if (armorFiles.containsKey(name))
-			return armorFiles.get(name);
+		if (this.armorFiles.containsKey(name))
+			return this.armorFiles.get(name);
 		else
 		{
 			int result = RenderingRegistry.addNewArmourRendererPrefix(name);
-			armorFiles.put(name, result);
+			this.armorFiles.put(name, result);
 			return result;
 		}
 	}

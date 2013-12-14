@@ -11,7 +11,7 @@ import net.minecraft.util.Icon;
 
 public class ItemGloves extends ItemCustomArmor
 {
-	public static Icon		slotIcon;
+	public static Icon	slotIcon;
 	
 	public ItemGloves(int itemID, EnumArmorMaterial material, int renderIndex)
 	{

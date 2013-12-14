@@ -20,7 +20,7 @@ public class DreamTypeBiome extends DreamType
 	@Override
 	public BiomeGenBase getDreamBiome()
 	{
-		return biome;
+		return this.biome;
 	}
 	
 	@Override

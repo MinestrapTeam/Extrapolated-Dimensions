@@ -12,5 +12,5 @@ public class ItemMace extends ItemTool
 	{
 		super(par1, 6F, par3EnumToolMaterial, new Block[] {});
 		this.setCreativeTab(MDMItems.tabTools);
-	}	
+	}
 }

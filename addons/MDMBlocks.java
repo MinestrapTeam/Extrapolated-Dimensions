@@ -214,7 +214,7 @@ public class MDMBlocks
 		heavenPortalFrame = (new BlockMDM(CSConfig.getBlock("Heaven Portal Frame", 1054), Material.rock, MDMItems.tabHeavenBlocks)).setUnlocalizedName("heaven_portal_frame").setTextureName("moredimensions:heaven_portal_frame").setHardness(2F);
 		
 		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(CSConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setHardness(1.75F);
-	
+		
 		damnationTable = (BlockDamnationTable) new BlockDamnationTable(CSConfig.getBlock("Damnation Tabel", 1059)).setUnlocalizedName("damnation_table").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(4F);
 	}
 	

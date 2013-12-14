@@ -22,14 +22,12 @@ public class ItemHeavenFood extends Item
 	private final boolean	isWolfsFavoriteMeat;
 	
 	/**
-	 * If this field is true, the food can be consumed even if the player don't
-	 * need to eat.
+	 * If this field is true, the food can be consumed even if the player don't need to eat.
 	 */
 	private boolean			alwaysEdible;
 	
 	/**
-	 * represents the potion effect that will occurr upon eating this food. Set
-	 * by setPotionEffect
+	 * represents the potion effect that will occurr upon eating this food. Set by setPotionEffect
 	 */
 	private int				potionId;
 	
@@ -85,8 +83,7 @@ public class ItemHeavenFood extends Item
 	}
 	
 	/**
-	 * returns the action that specifies what animation to play when the items
-	 * is being used
+	 * returns the action that specifies what animation to play when the items is being used
 	 */
 	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack)
@@ -95,8 +92,7 @@ public class ItemHeavenFood extends Item
 	}
 	
 	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
+	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
 	 */
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
@@ -131,9 +127,7 @@ public class ItemHeavenFood extends Item
 	}
 	
 	/**
-	 * sets a potion effect on the item. Args: int potionId, int duration (will
-	 * be multiplied by 20), int amplifier, float probability of effect
-	 * happening
+	 * sets a potion effect on the item. Args: int potionId, int duration (will be multiplied by 20), int amplifier, float probability of effect happening
 	 */
 	public ItemHeavenFood setPotionEffect(int par1, int par2, int par3, float par4)
 	{
@@ -145,8 +139,7 @@ public class ItemHeavenFood extends Item
 	}
 	
 	/**
-	 * Set the field 'alwaysEdible' to true, and make the food edible even if
-	 * the player don't need to eat.
+	 * Set the field 'alwaysEdible' to true, and make the food edible even if the player don't need to eat.
 	 */
 	public ItemHeavenFood setAlwaysEdible()
 	{

@@ -27,27 +27,27 @@ public class StaffData
 	
 	public List<Spell> getSpells()
 	{
-		return spells;
+		return this.spells;
 	}
 	
 	public StaffType getStaffType()
 	{
-		return staffType;
+		return this.staffType;
 	}
 	
 	public boolean isRare()
 	{
-		return rare;
+		return this.rare;
 	}
 	
 	public int getDamage()
 	{
-		return damage;
+		return this.damage;
 	}
 	
 	public String getFoundAt()
 	{
-		return foundAt;
+		return this.foundAt;
 	}
 	
 	public StaffData setSpells(List<Spell> spells)

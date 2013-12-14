@@ -52,8 +52,7 @@ public class ItemElixir extends ItemPotion2
 	}
 	
 	/**
-	 * returns wether or not a potion is a throwable splash potion based on
-	 * damage value
+	 * returns wether or not a potion is a throwable splash potion based on damage value
 	 */
 	@Override
 	public boolean isSplash(int par1)

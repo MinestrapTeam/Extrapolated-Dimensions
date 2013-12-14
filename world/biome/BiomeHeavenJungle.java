@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeHeavenJungle extends BiomeHeaven
 {
-
+	
 	public BiomeHeavenJungle(int i)
 	{
 		super(i);

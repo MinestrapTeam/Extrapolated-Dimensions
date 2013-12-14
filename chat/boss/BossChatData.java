@@ -12,27 +12,27 @@ public class BossChatData
 	
 	public BossChatData()
 	{
-		entrys = new ArrayList<BossChatEntry>();
+		this.entrys = new ArrayList<BossChatEntry>();
 	}
 	
 	public void addMessage(BossChatEntry entry)
 	{
-		entrys.add(entry);
+		this.entrys.add(entry);
 	}
 	
 	public void addMessage(EnumBossChatUser user, String message, boolean translated)
 	{
-		addMessage(new BossChatEntry(user, message, translated));
+		this.addMessage(new BossChatEntry(user, message, translated));
 	}
 	
 	public void addPlayerMessage(String message, boolean translated)
 	{
-		addMessage(EnumBossChatUser.PLAYER, message, translated);
+		this.addMessage(EnumBossChatUser.PLAYER, message, translated);
 	}
 	
 	public void addBossMessage(String message, boolean translated)
 	{
-		addMessage(EnumBossChatUser.BOSS, message, translated);
+		this.addMessage(EnumBossChatUser.BOSS, message, translated);
 	}
 	
 	public void writeToNBT(NBTTagCompound nbt)

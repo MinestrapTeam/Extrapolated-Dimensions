@@ -1,6 +1,5 @@
 package clashsoft.mods.moredimensions.world.biome;
 
-
 public class BiomeCorruptedMountains extends BiomePlainsOfInsanity
 {
 	public BiomeCorruptedMountains(int par1)

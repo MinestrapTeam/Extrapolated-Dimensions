@@ -162,7 +162,7 @@ public class MDMTools
 						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumArmorMaterial.class, int.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), armorMaterial, MDMCommonProxy.getArmorIndex(materialID.toLowerCase()) });
 				}
 				else if (!vanillaTool)
-						item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), toolMaterial });
+					item = MDMItems.addItem(toolClass, itemName, new Class[] { int.class, EnumToolMaterial.class }, new Object[] { CSConfig.getItem(itemName, toolItemID++), toolMaterial });
 				
 				if (item != null)
 				{

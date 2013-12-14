@@ -21,7 +21,7 @@ public class MDMTickHandler implements ITickHandler
 		{
 			World world = (World) tickData[0];
 			try
-			{	
+			{
 				for (Object o : world.playerEntities)
 				{
 					EntityPlayerMP player = (EntityPlayerMP) o;
@@ -31,7 +31,7 @@ public class MDMTickHandler implements ITickHandler
 						player.setPosition(player.posX, 256, player.posZ);
 						server.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterNoPortal(server.worldServerForDimension(0)));
 					}
-					else if (player.dimension == 0 && player.posY > 256 )
+					else if (player.dimension == 0 && player.posY > 256)
 					{
 						player.setPosition(player.posX, 0, player.posZ);
 						server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.HEAVEN_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.HEAVEN_ID)));

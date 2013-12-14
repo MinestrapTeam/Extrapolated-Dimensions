@@ -14,9 +14,9 @@ public class ChunkProviderPOC extends AbstractChunkProvider
 	}
 	
 	/**
-	 * Generates the shape of the terrain for the chunk though its all stone
-	 * though the water is frozen if the temperature is low enough
+	 * Generates the shape of the terrain for the chunk though its all stone though the water is frozen if the temperature is low enough
 	 */
+	@Override
 	public void generateTerrain(int x, int z, byte[] storage)
 	{
 		byte b0 = 4;
@@ -86,6 +86,7 @@ public class ChunkProviderPOC extends AbstractChunkProvider
 		}
 	}
 	
+	@Override
 	public void replaceBlocksForBiome(int x, int z, byte[] storage, BiomeGenBase[] biomes)
 	{
 		byte averageHeight = 63;

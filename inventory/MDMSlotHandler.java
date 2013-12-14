@@ -35,7 +35,7 @@ public class MDMSlotHandler implements ISlotHandler
 		{
 			glove = new SlotCustomArmor(player, extendedInventory, 0, 80, 8, ArmorTypes.GLOVE, ItemGloves.slotIcon);
 			shield = new SlotCustomArmor(player, extendedInventory, 1, 80, 26, ArmorTypes.SHIELD, ItemCape.slotIcon);
-			cape = new SlotCustomArmor(player, extendedInventory, 2, 80, 44, ArmorTypes.CAPE, ItemShield.slotIcon);	
+			cape = new SlotCustomArmor(player, extendedInventory, 2, 80, 44, ArmorTypes.CAPE, ItemShield.slotIcon);
 		}
 		
 		list.add(glove);

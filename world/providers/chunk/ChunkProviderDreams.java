@@ -17,9 +17,9 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 	}
 	
 	/**
-	 * Generates the shape of the terrain for the chunk though its all stone
-	 * though the water is frozen if the temperature is low enough
+	 * Generates the shape of the terrain for the chunk though its all stone though the water is frozen if the temperature is low enough
 	 */
+	@Override
 	public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte)
 	{
 		byte b0 = 4;
@@ -64,11 +64,11 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 							{
 								if ((d16 += d15) > 0.0D)
 								{
-									par3ArrayOfByte[j2 += short1] = (byte) dreamType.getStoneBlock().blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) this.dreamType.getStoneBlock().blockID;
 								}
 								else if (k1 * 8 + l1 < b2)
 								{
-									par3ArrayOfByte[j2 += short1] = (byte) dreamType.getWaterBlock().blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) this.dreamType.getWaterBlock().blockID;
 								}
 								else
 								{
@@ -88,6 +88,7 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 		}
 	}
 	
+	@Override
 	public void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase)
 	{
 		byte var5 = 63;
@@ -108,7 +109,7 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 					int var17 = (var9 * 16 + var8) * 128 + var16;
 					if (var16 <= 0 + this.random.nextInt(5))
 					{
-						par3ArrayOfByte[var17] = ((byte) dreamType.getBedrockBlock().blockID);
+						par3ArrayOfByte[var17] = ((byte) this.dreamType.getBedrockBlock().blockID);
 					}
 					else
 					{
@@ -118,10 +119,9 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 							var13 = -1;
 						}
 						/**
-						 * Main filler block fill's all the underground,
-						 * replaces block stone
+						 * Main filler block fill's all the underground, replaces block stone
 						 **/
-						else if (var18 != dreamType.getStoneBlock().blockID)
+						else if (var18 != this.dreamType.getStoneBlock().blockID)
 						{
 							if (var13 == -1)
 							{
@@ -129,7 +129,7 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 								{
 									var14 = 0;
 									
-									var15 = (byte) dreamType.getDirtBlock().blockID;//
+									var15 = (byte) this.dreamType.getDirtBlock().blockID;//
 								}
 								else if ((var16 >= var5 - 4) && (var16 <= var5 + 1))
 								{
@@ -140,11 +140,11 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 								{
 									if (var11 < 0.15F)
 									{
-										var14 = (byte) dreamType.getIceBlock().blockID;
+										var14 = (byte) this.dreamType.getIceBlock().blockID;
 									}
 									else
 									{
-										var14 = (byte) dreamType.getWaterBlock().blockID;
+										var14 = (byte) this.dreamType.getWaterBlock().blockID;
 									}
 								}
 								var13 = var12;
@@ -161,10 +161,10 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 							{
 								var13--;
 								par3ArrayOfByte[var17] = var15;
-								if ((var13 == 0) && (var15 == dreamType.getSandBlock().blockID))
+								if ((var13 == 0) && (var15 == this.dreamType.getSandBlock().blockID))
 								{
 									var13 = this.random.nextInt(4);
-									var15 = (byte) dreamType.getSandstoneBlock().blockID;
+									var15 = (byte) this.dreamType.getSandstoneBlock().blockID;
 								}
 							}
 						}
@@ -177,7 +177,7 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 	@Override
 	public Chunk loadChunk(int par1, int par2)
 	{
-		return provideChunk(par1, par2);
+		return this.provideChunk(par1, par2);
 	}
 	
 	@Override
@@ -185,9 +185,9 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 	{
 		this.random.setSeed(par1 * 341873128712L + par2 * 132897987541L);
 		byte[] var3 = new byte[32768];
-		generateTerrain(par1, par2, var3);
+		this.generateTerrain(par1, par2, var3);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		replaceBlocksForBiome(par1, par2, var3, this.biomesForGeneration);
+		this.replaceBlocksForBiome(par1, par2, var3, this.biomesForGeneration);
 		this.caveGenerator.generate(this, this.worldObj, par1, par2, var3);
 		this.ravineGenerator.generate(this, this.worldObj, par1, par2, var3);
 		if (this.mapFeaturesEnabled)

@@ -30,36 +30,36 @@ public class ItemHeavenSeeds extends CustomItem
 		
 		switch (stack.getItemDamage())
 		{
-		case 0: // Heaven Grass Seeds
-			if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 0)
-			{
-				blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-				blockMetadata1 = 0;
-			}
-		case 1: //Mud Grass Seeds
-			if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 1)
-			{
-				blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-				blockMetadata1 = 1;
-			}
-		case 2: //Corrupted Grass Seeds
-			if (blockID == Block.dirt.blockID)
-			{
-				blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-				blockMetadata1 = 2;
-			}
-		case 3: //Hallowed Grass Seeds
-			if (blockID == Block.dirt.blockID)
-			{
-				blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-				blockMetadata1 = 3;
-			}
-		case 4: //Mushroom Grass Seeds
-			if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 1)
-			{
-				blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-				blockMetadata1 = 4;
-			}
+			case 0: // Heaven Grass Seeds
+				if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 0)
+				{
+					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
+					blockMetadata1 = 0;
+				}
+			case 1: // Mud Grass Seeds
+				if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 1)
+				{
+					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
+					blockMetadata1 = 1;
+				}
+			case 2: // Corrupted Grass Seeds
+				if (blockID == Block.dirt.blockID)
+				{
+					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
+					blockMetadata1 = 2;
+				}
+			case 3: // Hallowed Grass Seeds
+				if (blockID == Block.dirt.blockID)
+				{
+					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
+					blockMetadata1 = 3;
+				}
+			case 4: // Mushroom Grass Seeds
+				if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 1)
+				{
+					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
+					blockMetadata1 = 4;
+				}
 		}
 		
 		if (blockID1 != 0)

@@ -21,12 +21,12 @@ import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 public class ItemBowMDM extends ItemTool
 {
-	public static Block[] blocksEffectiveAgainst = {};
-
-	public static ItemStack defaultArrow = new ItemStack(Item.arrow);
+	public static Block[]	blocksEffectiveAgainst	= {};
 	
-	public ItemStack	arrow;
-	public Icon[]		iconArray;
+	public static ItemStack	defaultArrow			= new ItemStack(Item.arrow);
+	
+	public ItemStack		arrow;
+	public Icon[]			iconArray;
 	
 	public ItemBowMDM(int par1, EnumToolMaterial toolMaterial)
 	{
@@ -40,10 +40,11 @@ public class ItemBowMDM extends ItemTool
 		this.arrow = arrow;
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.itemIcon = par1IconRegister.registerIcon(getIconString());
+		this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
 		this.iconArray = new Icon[3];
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
@@ -52,6 +53,7 @@ public class ItemBowMDM extends ItemTool
 		}
 	}
 	
+	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
 		ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
@@ -61,7 +63,7 @@ public class ItemBowMDM extends ItemTool
 			return event.result;
 		}
 		
-		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(arrow))
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(this.arrow))
 		{
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		}
@@ -86,7 +88,7 @@ public class ItemBowMDM extends ItemTool
 		for (int i = 0; i < par3EntityPlayer.inventory.mainInventory.length; i++)
 		{
 			ItemStack stack = par3EntityPlayer.inventory.mainInventory[i];
-			if (stack != null && stack.isItemEqual(arrow))
+			if (stack != null && stack.isItemEqual(this.arrow))
 				slot = i;
 		}
 		
@@ -94,10 +96,10 @@ public class ItemBowMDM extends ItemTool
 		
 		if (flag || slot != -1)
 		{
-			float f = (float) j / 20.0F;
+			float f = j / 20.0F;
 			f = (f * f + f * 2.0F) / 3.0F;
 			
-			if ((double) f < 0.1D)
+			if (f < 0.1D)
 			{
 				return;
 			}
@@ -118,7 +120,7 @@ public class ItemBowMDM extends ItemTool
 			
 			if (k > 0)
 			{
-				entityarrow.setDamage(entityarrow.getDamage() + (double) k * 0.5D + 0.5D);
+				entityarrow.setDamage(entityarrow.getDamage() + k * 0.5D + 0.5D);
 			}
 			
 			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
@@ -159,17 +161,17 @@ public class ItemBowMDM extends ItemTool
 		{
 			int k = usingItem.getMaxItemUseDuration() - useRemaining;
 			if (k >= 18)
-				return iconArray[2];
+				return this.iconArray[2];
 			else if (k > 13)
-				return iconArray[1];
+				return this.iconArray[1];
 			else if (k > 0)
-				return iconArray[0];
+				return this.iconArray[0];
 		}
 		return this.itemIcon;
 	}
 	
 	public static class ItemCrossBow extends ItemBowMDM
-	{	
+	{
 		public ItemCrossBow(int itemID, EnumToolMaterial toolMaterial)
 		{
 			super(itemID, toolMaterial, defaultArrow);
@@ -177,7 +179,7 @@ public class ItemBowMDM extends ItemTool
 	}
 	
 	public static class ItemShortBow extends ItemBowMDM
-	{	
+	{
 		public ItemShortBow(int itemID, EnumToolMaterial toolMaterial)
 		{
 			super(itemID, toolMaterial, defaultArrow);

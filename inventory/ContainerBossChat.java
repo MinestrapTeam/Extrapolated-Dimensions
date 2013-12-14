@@ -12,14 +12,14 @@ public class ContainerBossChat extends Container
 	
 	public ContainerBossChat(EntityPlayer par1EntityPlayer, IMDMBoss par2Boss)
 	{
-		player = par1EntityPlayer;
-		boss = par2Boss;
+		this.player = par1EntityPlayer;
+		this.boss = par2Boss;
 	}
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer)
 	{
-		return entityplayer == player;
+		return entityplayer == this.player;
 	}
 	
 }

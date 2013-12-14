@@ -15,12 +15,12 @@ public enum EnumBossChatUser
 	
 	public int getColor()
 	{
-		return color;
+		return this.color;
 	}
 	
 	public int getID()
 	{
-		return id;
+		return this.id;
 	}
 	
 	public static EnumBossChatUser getBossChatUserFromID(int id)

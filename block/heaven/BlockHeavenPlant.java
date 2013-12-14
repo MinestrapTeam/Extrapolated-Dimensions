@@ -10,7 +10,7 @@ import net.minecraft.block.Block;
 
 public class BlockHeavenPlant extends BlockCustomPlant
 {
-	public Random rand = new Random();
+	public Random	rand	= new Random();
 	
 	public BlockHeavenPlant(int blockID, String[] names, String[] icons)
 	{
@@ -38,23 +38,23 @@ public class BlockHeavenPlant extends BlockCustomPlant
 		boolean vanillaGrassID = blockID == Block.grass.blockID;
 		switch (metadata)
 		{
-		case 0: // Heaven Grass
-		case 5: //Heaven Vine
-			return (heavenDirtID && blockMetadata == 0) || (heavenGrassID && blockMetadata == 0);
-		case 1: // Mud Grass
-		case 6: // Mud Vine
-			return (heavenDirtID && blockMetadata == 1) || (heavenGrassID && blockMetadata == 1);
-		case 2: // Corrupted Grass
-		case 7: // Corrupted Vine
-			return vanillaDirtID || (heavenGrassID && blockMetadata == 2);
-		case 3: // Hallowed Grass
-		case 8: // Hallowed Vine
-			return vanillaDirtID || (heavenGrassID && blockMetadata == 3);
-		case 4: // Mushroom Grass
-		case 9: // Mushroom Vine
-			return (heavenDirtID && blockMetadata == 1) || (heavenGrassID && blockMetadata == 4);
-		case 10: // Grass Vine
-			return vanillaDirtID || vanillaGrassID;
+			case 0: // Heaven Grass
+			case 5: // Heaven Vine
+				return (heavenDirtID && blockMetadata == 0) || (heavenGrassID && blockMetadata == 0);
+			case 1: // Mud Grass
+			case 6: // Mud Vine
+				return (heavenDirtID && blockMetadata == 1) || (heavenGrassID && blockMetadata == 1);
+			case 2: // Corrupted Grass
+			case 7: // Corrupted Vine
+				return vanillaDirtID || (heavenGrassID && blockMetadata == 2);
+			case 3: // Hallowed Grass
+			case 8: // Hallowed Vine
+				return vanillaDirtID || (heavenGrassID && blockMetadata == 3);
+			case 4: // Mushroom Grass
+			case 9: // Mushroom Vine
+				return (heavenDirtID && blockMetadata == 1) || (heavenGrassID && blockMetadata == 4);
+			case 10: // Grass Vine
+				return vanillaDirtID || vanillaGrassID;
 		}
 		
 		return false;

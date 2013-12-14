@@ -33,32 +33,32 @@ public class StaffType
 	
 	public int getID()
 	{
-		return id;
+		return this.id;
 	}
 	
 	public String getName()
 	{
-		return name;
+		return this.name;
 	}
 	
 	public Spell getSpell()
 	{
-		return spell;
+		return this.spell;
 	}
 	
 	public int getMaxDamage()
 	{
-		return maxDamage;
+		return this.maxDamage;
 	}
 	
 	public int getCharges()
 	{
-		return charges;
+		return this.charges;
 	}
 	
 	public boolean isChargeable()
 	{
-		return charges > 0;
+		return this.charges > 0;
 	}
 	
 	public String getTextureName(int charge)

@@ -24,7 +24,7 @@ public class MDMPacketHandler implements IPacketHandler
 		if (MDMEntityProperties.CHANNEL.equals(packet.channel))
 			MDMEntityProperties.setByPacket((EntityLivingBase) playerEntity, packet);
 		else if ("MDMHeaven".equals(packet.channel) && playerEntity instanceof EntityPlayerMP)
-			BlockHeavenPortal.teleportPlayer((EntityPlayerMP)playerEntity);
-			
-	}	
+			BlockHeavenPortal.teleportPlayer((EntityPlayerMP) playerEntity);
+		
+	}
 }

@@ -43,73 +43,73 @@ public class ItemHeavenSoul extends Item
 	{
 		switch (par1ItemStack.getItemDamage())
 		{
-		case 0: // Blood
-			return false;
-		case 1: // Fire
-			int var11 = par3World.getBlockId(par4, par5 + 1, par6);
-			
-			if (var11 == 0)
-			{
-				par3World.playSoundEffect(par4 + 0.5D, par5 + 0.5D, par6 + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-				par3World.setBlock(par4, par5 + 1, par6, Block.fire.blockID);
-			}
-			
-			par1ItemStack.stackSize--;
-			return true;
-		case 2: // Boss 1
-			return false;
-		case 3: // Lightning
-			par3World.spawnEntityInWorld(new EntityLightningBolt(par3World, par4, par5, par6));
-			par1ItemStack.stackSize--;
-			return true;
-		case 4: // Grass
-			if (par3World.getBlockId(par4, par5, par6) == Block.dirt.blockID)
-			{
-				par3World.setBlock(par4, par5, par6, Block.grass.blockID);
+			case 0: // Blood
+				return false;
+			case 1: // Fire
+				int var11 = par3World.getBlockId(par4, par5 + 1, par6);
+				
+				if (var11 == 0)
+				{
+					par3World.playSoundEffect(par4 + 0.5D, par5 + 0.5D, par6 + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+					par3World.setBlock(par4, par5 + 1, par6, Block.fire.blockID);
+				}
+				
 				par1ItemStack.stackSize--;
 				return true;
-			}
-		case 5: // Boss 2
-			return false;
-		case 6: // Animals
-			EntityPig var2 = new EntityPig(par3World);
-			var2.setLocationAndAngles(par4 - 0.25F, par5 + 1, par6 - 0.25F, rand.nextInt(), rand.nextInt());
-			par3World.spawnEntityInWorld(var2);
-			par1ItemStack.stackSize--;
-			return true;
-		case 7: // Forest
-			growTree(par3World, par4, par5 + 1, par6, rand);
-			par1ItemStack.stackSize--;
-			return true;
-		case 8: // Sky
-			par3World.setRainStrength(1);
-			par1ItemStack.stackSize--;
-			return true;
-		case 9: // Water
-			par3World.setBlock(par4, par5 + 1, par6, Block.waterStill.blockID);
-			par1ItemStack.stackSize--;
-			return true;
-		case 10: // Night
-			par3World.setWorldTime(16000);
-			par1ItemStack.stackSize--;
-			return true;
-		case 11: // Darkness
-			return false;
-		case 12: // Boss 3
-			return false;
-		case 13: // Myth
-			return false;
-		case 14: // Flower
-			int flower = rand.nextInt(1) + Block.plantYellow.blockID;
-			par3World.setBlock(par4, par5 + 1, par6, flower);
-			par1ItemStack.stackSize--;
-			return true;
-		case 15: // Light
-			par3World.setWorldTime(0);
-			par1ItemStack.stackSize--;
-			return true;
-		default:
-			return false;
+			case 2: // Boss 1
+				return false;
+			case 3: // Lightning
+				par3World.spawnEntityInWorld(new EntityLightningBolt(par3World, par4, par5, par6));
+				par1ItemStack.stackSize--;
+				return true;
+			case 4: // Grass
+				if (par3World.getBlockId(par4, par5, par6) == Block.dirt.blockID)
+				{
+					par3World.setBlock(par4, par5, par6, Block.grass.blockID);
+					par1ItemStack.stackSize--;
+					return true;
+				}
+			case 5: // Boss 2
+				return false;
+			case 6: // Animals
+				EntityPig var2 = new EntityPig(par3World);
+				var2.setLocationAndAngles(par4 - 0.25F, par5 + 1, par6 - 0.25F, rand.nextInt(), rand.nextInt());
+				par3World.spawnEntityInWorld(var2);
+				par1ItemStack.stackSize--;
+				return true;
+			case 7: // Forest
+				this.growTree(par3World, par4, par5 + 1, par6, rand);
+				par1ItemStack.stackSize--;
+				return true;
+			case 8: // Sky
+				par3World.setRainStrength(1);
+				par1ItemStack.stackSize--;
+				return true;
+			case 9: // Water
+				par3World.setBlock(par4, par5 + 1, par6, Block.waterStill.blockID);
+				par1ItemStack.stackSize--;
+				return true;
+			case 10: // Night
+				par3World.setWorldTime(16000);
+				par1ItemStack.stackSize--;
+				return true;
+			case 11: // Darkness
+				return false;
+			case 12: // Boss 3
+				return false;
+			case 13: // Myth
+				return false;
+			case 14: // Flower
+				int flower = rand.nextInt(1) + Block.plantYellow.blockID;
+				par3World.setBlock(par4, par5 + 1, par6, flower);
+				par1ItemStack.stackSize--;
+				return true;
+			case 15: // Light
+				par3World.setWorldTime(0);
+				par1ItemStack.stackSize--;
+				return true;
+			default:
+				return false;
 		}
 	}
 	
@@ -132,7 +132,7 @@ public class ItemHeavenSoul extends Item
 	{
 		for (int i = 0; i < 16; i++)
 		{
-			icons[i] = par1IconRegister.registerIcon("soul_" + (i + 1));
+			this.icons[i] = par1IconRegister.registerIcon("soul_" + (i + 1));
 		}
 	}
 	
@@ -143,11 +143,11 @@ public class ItemHeavenSoul extends Item
 	 */
 	public Icon getIconFromDamage(int par1)
 	{
-		if (par1 < icons.length)
+		if (par1 < this.icons.length)
 		{
-			return icons[par1];
+			return this.icons[par1];
 		}
-		return icons[15];
+		return this.icons[15];
 	}
 	
 	@Override

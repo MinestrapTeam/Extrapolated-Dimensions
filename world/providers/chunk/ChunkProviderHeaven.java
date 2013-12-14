@@ -51,6 +51,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 		this.noiseGenerator8 = new NoiseGeneratorOctaves(this.random, 8);
 	}
 	
+	@Override
 	public void generateTerrain(int x, int y, byte[] storage)
 	{
 		byte byte0 = 2;
@@ -58,7 +59,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 		byte byte1 = 33;
 		int l = byte0 + 1;
 		
-		this.noiseArray1 = initializeNoiseField(this.noiseArray1, x * byte0, 0, y * byte0, k, byte1, l);
+		this.noiseArray1 = this.initializeNoiseField(this.noiseArray1, x * byte0, 0, y * byte0, k, byte1, l);
 		
 		for (int i1 = 0; i1 < byte0; i1++)
 			for (int j1 = 0; j1 < byte0; j1++)
@@ -112,6 +113,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				}
 	}
 	
+	@Override
 	public void replaceBlocksForBiome(int x, int z, byte[] storage, BiomeGenBase[] biomes)
 	{
 		byte averageHeight = 63;
@@ -129,8 +131,8 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				BiomeGenBase biome = biomes[x1 + z1 * 16];
 				float temperature = biome.getFloatTemperature();
 				int j1 = -1;
-				byte grass = (byte) biome.topBlock;
-				byte dirt = (byte) biome.fillerBlock;
+				byte grass = biome.topBlock;
+				byte dirt = biome.fillerBlock;
 				byte stone = (byte) MDMBlocks.heavenStoneBlocks.blockID;
 				
 				if (grass < 0)
@@ -160,44 +162,44 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 						{
 							if (noise == 0)
 							{
-								topBlock = 0;
+								this.topBlock = 0;
 								
-								fillerBlock = (byte) MDMBlocks.pocDirtBlocks.blockID;
+								this.fillerBlock = (byte) MDMBlocks.pocDirtBlocks.blockID;
 							}
 							else if ((y1 >= averageHeight - 4) && (y1 <= averageHeight + 1))
 							{
-								topBlock = biome.topBlock;
-								fillerBlock = biome.fillerBlock;
+								this.topBlock = biome.topBlock;
+								this.fillerBlock = biome.fillerBlock;
 							}
-							if ((y1 < averageHeight) && (topBlock == 0))
+							if ((y1 < averageHeight) && (this.topBlock == 0))
 							{
 								if (temperature < 0.15F)
 								{
-									topBlock = (byte) Block.ice.blockID;
+									this.topBlock = (byte) Block.ice.blockID;
 								}
 								else
 								{
-									topBlock = (byte) Block.waterStill.blockID;
+									this.topBlock = (byte) Block.waterStill.blockID;
 								}
 							}
 							j1 = noise;
 							if (y1 >= averageHeight - 1)
 							{
-								storage[index] = topBlock;
+								storage[index] = this.topBlock;
 							}
 							else
 							{
-								storage[index] = fillerBlock;
+								storage[index] = this.fillerBlock;
 							}
 						}
 						else if (j1 > 0)
 						{
 							j1--;
-							storage[index] = fillerBlock;
-							if ((j1 == 0) && (fillerBlock == Block.sand.blockID))
+							storage[index] = this.fillerBlock;
+							if ((j1 == 0) && (this.fillerBlock == Block.sand.blockID))
 							{
 								j1 = this.random.nextInt(4);
-								fillerBlock = (byte) Block.sandStone.blockID;
+								this.fillerBlock = (byte) Block.sandStone.blockID;
 							}
 							
 						}
@@ -207,6 +209,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 		}
 	}
 	
+	@Override
 	public double[] initializeNoiseField(double[] ad, int i, int j, int k, int l, int i1, int j1)
 	{
 		if (ad == null)
@@ -307,7 +310,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 	@Override
 	public Chunk loadChunk(int x, int z)
 	{
-		return provideChunk(x, z);
+		return this.provideChunk(x, z);
 	}
 	
 	@Override

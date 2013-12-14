@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemLifeHeart extends ItemHeavenFood
-{	
+{
 	public ItemLifeHeart(int par1)
 	{
 		super(par1, 2, 0, false);

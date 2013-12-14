@@ -45,7 +45,7 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 			this.decrStackSize(0, 1);
 		}
 		
-		if (energyTime > 0 && canCurse)
+		if (this.energyTime > 0 && canCurse)
 		{
 			this.curseTime++;
 		}

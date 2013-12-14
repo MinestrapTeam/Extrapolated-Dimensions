@@ -33,7 +33,7 @@ public class RenderPOCBows implements IItemRenderer
 	{
 		if (item.getItem() instanceof ItemBow)
 		{
-			itemRenderer.renderItemIntoGUI(CSFontRenderer.getFontRenderer(), Minecraft.getMinecraft().renderEngine, item, 0, 0);
+			this.itemRenderer.renderItemIntoGUI(CSFontRenderer.getFontRenderer(), Minecraft.getMinecraft().renderEngine, item, 0, 0);
 			
 			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 			if (player != null)

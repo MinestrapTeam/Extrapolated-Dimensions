@@ -27,7 +27,7 @@ public class HeavenGenMinable extends WorldGenMinable
 	public HeavenGenMinable(int id, int meta, int number)
 	{
 		this(id, number);
-		minableBlockMeta = meta;
+		this.minableBlockMeta = meta;
 	}
 	
 	@Override
@@ -75,7 +75,7 @@ public class HeavenGenMinable extends WorldGenMinable
 								int j = par1World.getBlockMetadata(var38, var41, var44);
 								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (i == MDMBlocks.heavenStoneBlocks.blockID) && j == 0)
 								{
-									par1World.setBlock(var38, var41, var44, this.minableBlockId, minableBlockMeta, 3);
+									par1World.setBlock(var38, var41, var44, this.minableBlockId, this.minableBlockMeta, 3);
 								}
 							}
 						}

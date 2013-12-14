@@ -28,15 +28,15 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	public EntityLich(World par1World)
 	{
 		super(par1World);
-		chatData = new BossChatData();
+		this.chatData = new BossChatData();
 	}
 	
 	@Override
 	public boolean interact(EntityPlayer par1EntityPlayer)
 	{
-		if (interactingPlayer == null)
-			interactingPlayer = par1EntityPlayer;
-		if (interactingPlayer == par1EntityPlayer)
+		if (this.interactingPlayer == null)
+			this.interactingPlayer = par1EntityPlayer;
+		if (this.interactingPlayer == par1EntityPlayer)
 		{
 			FMLNetworkHandler.openGui(par1EntityPlayer, MoreDimensionsMod.instance, MDMCommonProxy.BOSS_CHAT_GUIID, this.worldObj, this.entityId, 0, 0);
 			return true;
@@ -47,7 +47,7 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	@Override
 	public String getEntityName()
 	{
-		return (bossName != null && !bossName.isEmpty()) ? bossName : StatCollector.translateToLocal("entity.POCBossLich.name");
+		return (this.bossName != null && !this.bossName.isEmpty()) ? this.bossName : StatCollector.translateToLocal("entity.POCBossLich.name");
 	}
 	
 	@Override
@@ -59,16 +59,16 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	@Override
 	public BossChatData getBossChatData()
 	{
-		return chatData;
+		return this.chatData;
 	}
 	
 	@Override
 	public void onPlayerInput(EnumOutputAction action, EntityPlayer player)
 	{
 		if (action == EnumOutputAction.CANCEL)
-			interactingPlayer = null;
+			this.interactingPlayer = null;
 		
-		if (lastAction == "intro1")
+		if (this.lastAction == "intro1")
 			if (action == EnumOutputAction.START_FIGHT)
 				this.startBossFight(player);
 	}
@@ -77,7 +77,7 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	public void onChatOpened(EntityPlayer player)
 	{
 		this.lastAction = "intro1";
-		chatData.addBossMessage("Greetings, " + player.username + ". What do you want from me?", true);
+		this.chatData.addBossMessage("Greetings, " + player.username + ". What do you want from me?", true);
 	}
 	
 	public void startBossFight(EntityPlayer player)
@@ -89,13 +89,13 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	public void writeEntityToNBT(NBTTagCompound nbt)
 	{
 		super.writeEntityToNBT(nbt);
-		chatData.writeToNBT(nbt);
-		if (this.bossName != null && !bossName.isEmpty())
+		this.chatData.writeToNBT(nbt);
+		if (this.bossName != null && !this.bossName.isEmpty())
 			nbt.setString("BossName", this.bossName);
 		if (this.interactingPlayer != null)
 		{
-			nbt.setString("PlayerName", interactingPlayer.username);
-			nbt.setInteger("PlayerEntityID", interactingPlayer.entityId);
+			nbt.setString("PlayerName", this.interactingPlayer.username);
+			nbt.setInteger("PlayerEntityID", this.interactingPlayer.entityId);
 		}
 	}
 	
@@ -104,8 +104,8 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	{
 		super.readEntityFromNBT(nbt);
 		
-		chatData = new BossChatData();
-		chatData.readFromNBT(nbt);
+		this.chatData = new BossChatData();
+		this.chatData.readFromNBT(nbt);
 		
 		if (nbt.hasKey("BossName"))
 			this.bossName = nbt.getString("BossName");
@@ -113,12 +113,12 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 			this.bossName = "";
 		
 		this.interactingPlayer = this.worldObj.getPlayerEntityByName(nbt.getString("PlayerName"));
-		if (interactingPlayer == null)
+		if (this.interactingPlayer == null)
 		{
 			Entity e = this.worldObj.getEntityByID(nbt.getInteger("PlayerEntityID"));
 			if (e instanceof EntityPlayer)
 			{
-				interactingPlayer = (EntityPlayer) e;
+				this.interactingPlayer = (EntityPlayer) e;
 			}
 		}
 	}

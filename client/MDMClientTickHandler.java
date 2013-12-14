@@ -17,13 +17,13 @@ public class MDMClientTickHandler implements ITickHandler
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData)
 	{
-		updateMainMenu();
+		this.updateMainMenu();
 	}
 	
 	@Override
 	public void tickEnd(EnumSet<TickType> type, Object... tickData)
 	{
-		updateMainMenu();
+		this.updateMainMenu();
 	}
 	
 	public void updateMainMenu()
@@ -32,7 +32,7 @@ public class MDMClientTickHandler implements ITickHandler
 		if (currentScreen == null)
 			return;
 		else if (currentScreen.getClass() == GuiMainMenu.class)
-			; //Minecraft.getMinecraft().displayGuiScreen(new GuiPOCMainMenu());
+			; // Minecraft.getMinecraft().displayGuiScreen(new GuiPOCMainMenu());
 		else if (currentScreen.getClass() == GuiGameOver.class)
 			Minecraft.getMinecraft().displayGuiScreen(new GuiGameOverHeaven());
 	}

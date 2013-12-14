@@ -26,7 +26,7 @@ public class MDMEventHandler
 	{
 		int blockID = event.world.getBlockId(event.X, event.Y, event.Z);
 		if (Block.blocksList[blockID] instanceof BlockSapling)
-			((BlockSapling)Block.blocksList[blockID]).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			((BlockSapling) Block.blocksList[blockID]).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 	}
 	
 	@ForgeSubscribe

@@ -20,7 +20,7 @@ import net.minecraftforge.common.DimensionManager;
 public class MDMWorld
 {
 	public static BiomeGenBase	biomeHeaven;
-	public static BiomeGenBase biomeHeavenJungle;
+	public static BiomeGenBase	biomeHeavenJungle;
 	public static BiomeGenBase	biomePOCPlains;
 	public static BiomeGenBase	biomePOCMountains;
 	public static BiomeGenBase	biomePOCDesert;
@@ -62,7 +62,6 @@ public class MDMWorld
 		DimensionManager.registerDimension(NIGHTMARES_ID, NIGHTMARES_ID);
 	}
 	
-
 	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
 	{
 		for (int i = 0; i < 10; i++)

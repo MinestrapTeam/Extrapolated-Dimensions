@@ -11,9 +11,9 @@ import net.minecraft.util.Icon;
 
 public class ItemShield extends ItemCustomArmor
 {
-	public static Icon		slotIcon;
+	public static Icon	slotIcon;
 	
-	public boolean render = true;
+	public boolean		render	= true;
 	
 	public ItemShield(int itemID, EnumArmorMaterial material, int renderIndex)
 	{

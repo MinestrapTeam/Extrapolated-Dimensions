@@ -36,7 +36,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);
 		this.names = names;
 		this.texturenames = texturenames;
-		icons = new Icon[texturenames.length];
+		this.icons = new Icon[texturenames.length];
 	}
 	
 	@Override
@@ -48,23 +48,21 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		for (int i = 0; i < texturenames.length; i++)
-			icons[i] = par1IconRegister.registerIcon(texturenames[i]);
+		for (int i = 0; i < this.texturenames.length; i++)
+			this.icons[i] = par1IconRegister.registerIcon(this.texturenames[i]);
 	}
 	
 	/**
-	 * Checks to see if its valid to put this block at the specified
-	 * coordinates. Args: world, x, y, z
+	 * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
 	 */
 	@Override
 	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
 	{
-		return super.canPlaceBlockAt(par1World, par2, par3, par4) && canBlockStay(par1World, par2, par3, par4);
+		return super.canPlaceBlockAt(par1World, par2, par3, par4) && this.canBlockStay(par1World, par2, par3, par4);
 	}
 	
 	/**
-	 * Gets passed in the blockID of the block below and supposed to return true
-	 * if its allowed to grow on the type of blockID passed in. Args: blockID
+	 * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of blockID passed in. Args: blockID
 	 */
 	protected boolean canThisGrowOnThisBlockID(int par1)
 	{
@@ -72,9 +70,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	}
 	
 	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which
-	 * neighbor changed (coordinates passed are their own) Args: x, y, z,
-	 * neighbor blockID
+	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are their own) Args: x, y, z, neighbor blockID
 	 */
 	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
@@ -93,8 +89,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	}
 	
 	/**
-	 * Can this block stay at this position. Similar to canPlaceBlockAt except
-	 * gets checked often with plants.
+	 * Can this block stay at this position. Similar to canPlaceBlockAt except gets checked often with plants.
 	 */
 	@Override
 	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
@@ -104,8 +99,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	}
 	
 	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this
-	 * box can change after the pool has been cleared to be reused)
+	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been cleared to be reused)
 	 */
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
@@ -114,9 +108,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	}
 	
 	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
+	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether or not to render the shared face of two adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
 	 */
 	@Override
 	public boolean isOpaqueCube()
@@ -125,8 +117,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	}
 	
 	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
+	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
 	 */
 	@Override
 	public boolean renderAsNormalBlock()
@@ -152,7 +143,7 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	@Override
 	public int getPlantID(World world, int x, int y, int z)
 	{
-		return blockID;
+		return this.blockID;
 	}
 	
 	@Override
@@ -161,14 +152,15 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 		return world.getBlockMetadata(x, y, z);
 	}
 	
+	@Override
 	public void addNames()
 	{
-		for (int i = 0; i < names.length; i++)
+		for (int i = 0; i < this.names.length; i++)
 		{
-			LanguageRegistry.addName(new ItemStack(this, 1, i), names[i]);
+			LanguageRegistry.addName(new ItemStack(this, 1, i), this.names[i]);
 		}
 	}
-
+	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{

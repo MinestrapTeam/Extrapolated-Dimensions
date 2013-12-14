@@ -9,7 +9,7 @@ import net.minecraft.util.Icon;
 
 public class BlockHeavenPillar extends BlockMDM
 {
-	public Icon topIcon;
+	public Icon	topIcon;
 	
 	public BlockHeavenPillar(int par1)
 	{

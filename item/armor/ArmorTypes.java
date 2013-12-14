@@ -9,5 +9,5 @@ public class ArmorTypes
 	
 	public static final int	GLOVE		= 4;
 	public static final int	SHIELD		= 5;
-	public static final int CAPE		= 6;
+	public static final int	CAPE		= 6;
 }

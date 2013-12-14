@@ -19,20 +19,20 @@ public class BiomeHeaven extends BiomeGenBase
 	{
 		super(i);
 		
-		spawnableMonsterList.clear();
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
+		this.spawnableMonsterList.clear();
+		this.spawnableCreatureList.clear();
+		this.spawnableWaterCreatureList.clear();
 		
-		spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 6));
-		spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 12, 2, 8));
-		spawnableCreatureList.add(new SpawnListEntry(EntityCow.class, 12, 5, 8));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 6));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 12, 2, 8));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityCow.class, 12, 5, 8));
 		
-		spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
+		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
 		this.topBlock = (byte) MDMBlocks.heavenGrassBlocks.blockID;
 		this.fillerBlock = (byte) MDMBlocks.heavenDirtBlocks.blockID;
 		
-		this.theBiomeDecorator = getModdedBiomeDecorator(new BiomeDecoratorHeaven(this));
+		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven(this));
 		
 		this.color = 0x818181;
 		this.waterColorMultiplier = 0x818181;

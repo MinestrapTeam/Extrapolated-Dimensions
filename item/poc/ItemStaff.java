@@ -44,12 +44,12 @@ public class ItemStaff extends Item
 				{
 					for (int i = 0; i < st.getCharges(); i++)
 					{
-						icons.put(st.getTextureName(i), par1IconRegister.registerIcon(st.getTextureName(i)));
+						this.icons.put(st.getTextureName(i), par1IconRegister.registerIcon(st.getTextureName(i)));
 					}
 				}
 				else
 				{
-					icons.put(st.getTextureName(0), par1IconRegister.registerIcon(st.getTextureName(0)));
+					this.icons.put(st.getTextureName(0), par1IconRegister.registerIcon(st.getTextureName(0)));
 				}
 			}
 		}
@@ -60,8 +60,8 @@ public class ItemStaff extends Item
 	{
 		StaffType st = StaffData.getStaffData(par1ItemStack).getStaffType();
 		if (st != null)
-			return icons.get(st.getTextureName(0));
-		return itemIcon;
+			return this.icons.get(st.getTextureName(0));
+		return this.itemIcon;
 	}
 	
 	@Override
@@ -78,13 +78,13 @@ public class ItemStaff extends Item
 					int var1 = (st.getCharges() - i) * 10;
 					if (k >= var1 && k < st.getCharges() * 10)
 					{
-						return icons.get(st.getTextureName(st.getCharges() - i));
+						return this.icons.get(st.getTextureName(st.getCharges() - i));
 					}
 				}
 				if (k > st.getCharges() * 10)
-					return icons.get(st.getTextureName(st.getCharges() - 1));
+					return this.icons.get(st.getTextureName(st.getCharges() - 1));
 				else if (k < st.getCharges())
-					return icons.get(st.getTextureName(0));
+					return this.icons.get(st.getTextureName(0));
 			}
 			return this.getIconIndex(usingItem);
 		}
@@ -101,7 +101,7 @@ public class ItemStaff extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		return useStaff(stack, player, null);
+		return this.useStaff(stack, player, null);
 	}
 	
 	public ItemStack useStaff(ItemStack stack, EntityPlayer player, MovingObjectPosition object)
@@ -169,13 +169,13 @@ public class ItemStaff extends Item
 	@Override
 	public int getDisplayDamage(ItemStack stack)
 	{
-		return getDamage(stack);
+		return this.getDamage(stack);
 	}
 	
 	@Override
 	public boolean isDamaged(ItemStack stack)
 	{
-		return getDamage(stack) > 0;
+		return this.getDamage(stack) > 0;
 	}
 	
 	@Override

@@ -58,8 +58,8 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	
 	public void onPropertyChanged()
 	{
-		if (entity instanceof EntityPlayer)
-			sync((EntityPlayer) entity);
+		if (this.entity instanceof EntityPlayer)
+			this.sync((EntityPlayer) this.entity);
 	}
 	
 	/*
@@ -69,21 +69,21 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	public MDMEntityProperties setMana(float mana)
 	{
 		this.mana = mana;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setAdditionalHearts(float additionalHearts)
 	{
 		this.additionalHearts = additionalHearts;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setMeleeLevel(float meleeLevel)
 	{
 		this.meleeLevel = meleeLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
@@ -91,98 +91,98 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	{
 		this.defenceLevel = defenceLevel;
 		
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setMagicLevel(float magicLevel)
 	{
 		this.magicLevel = magicLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setRangedLevel(float rangedLevel)
 	{
 		this.rangedLevel = rangedLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setDiggingLevel(float level)
 	{
 		this.diggingLevel = level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setMiningLevel(float miningLevel)
 	{
 		this.miningLevel = miningLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setSmithingLevel(float smithingLevel)
 	{
 		this.smithingLevel = smithingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setFishingLevel(float fishingLevel)
 	{
 		this.fishingLevel = fishingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setCookingLevel(float cookingLevel)
 	{
 		this.cookingLevel = cookingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setWoodCuttingLevel(float woodCuttingLevel)
 	{
 		this.woodCuttingLevel = woodCuttingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setHerbloreLevel(float herbloreLevel)
 	{
 		this.herbloreLevel = herbloreLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setThievingLevel(float thievingLevel)
 	{
 		this.thievingLevel = thievingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setSlayerLevel(float level)
 	{
 		this.slayerLevel = level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setFarmingLevel(float farmingLevel)
 	{
 		this.farmingLevel = farmingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties setSharingLevel(float sharingLevel)
 	{
 		this.sharingLevel = sharingLevel;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
@@ -192,87 +192,87 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	
 	public float getMana()
 	{
-		return mana;
+		return this.mana;
 	}
 	
 	public float getAdditionalHearts()
 	{
-		return additionalHearts;
+		return this.additionalHearts;
 	}
 	
 	public float getMeleeLevel()
 	{
-		return meleeLevel;
+		return this.meleeLevel;
 	}
 	
 	public float getDefenceLevel()
 	{
-		return defenceLevel;
+		return this.defenceLevel;
 	}
 	
 	public float getMagicLevel()
 	{
-		return magicLevel;
+		return this.magicLevel;
 	}
 	
 	public float getRangedLevel()
 	{
-		return rangedLevel;
+		return this.rangedLevel;
 	}
 	
 	public float getDiggingLevel()
 	{
-		return diggingLevel;
+		return this.diggingLevel;
 	}
 	
 	public float getMiningLevel()
 	{
-		return miningLevel;
+		return this.miningLevel;
 	}
 	
 	public float getSmithingLevel()
 	{
-		return smithingLevel;
+		return this.smithingLevel;
 	}
 	
 	public float getFishingLevel()
 	{
-		return fishingLevel;
+		return this.fishingLevel;
 	}
 	
 	public float getCookingLevel()
 	{
-		return cookingLevel;
+		return this.cookingLevel;
 	}
 	
 	public float getWoodCuttingLevel()
 	{
-		return woodCuttingLevel;
+		return this.woodCuttingLevel;
 	}
 	
 	public float getHerbloreLevel()
 	{
-		return herbloreLevel;
+		return this.herbloreLevel;
 	}
 	
 	public float getThievingLevel()
 	{
-		return thievingLevel;
+		return this.thievingLevel;
 	}
 	
 	public float getSlayerLevel()
 	{
-		return slayerLevel;
+		return this.slayerLevel;
 	}
 	
 	public float getFarmingLevel()
 	{
-		return farmingLevel;
+		return this.farmingLevel;
 	}
 	
 	public float getSharingLevel()
 	{
-		return sharingLevel;
+		return this.sharingLevel;
 	}
 	
 	/*
@@ -282,119 +282,119 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	public MDMEntityProperties addMana(float mana)
 	{
 		this.mana += mana;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addAdditionalHearts(float additionalHearts)
 	{
 		this.additionalHearts += additionalHearts;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addMeleeLevel(float level)
 	{
 		this.meleeLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addDefenceLevel(float level)
 	{
 		this.defenceLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addMagicLevel(float level)
 	{
 		this.magicLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addRangedLevel(float level)
 	{
 		this.rangedLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addDiggingLevel(float level)
 	{
 		this.diggingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addMiningLevel(float level)
 	{
 		this.miningLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addSmithingLevel(float level)
 	{
 		this.smithingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addFishingLevel(float level)
 	{
 		this.fishingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addCookingLevel(float level)
 	{
 		this.cookingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addWoodCuttingLevel(float level)
 	{
 		this.woodCuttingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addHerbloreLevel(float level)
 	{
 		this.herbloreLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addThievingLevel(float level)
 	{
 		this.thievingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addSlayerLevel(float level)
 	{
 		this.slayerLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addFarmingLevel(float level)
 	{
 		this.farmingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
 	public MDMEntityProperties addSharingLevel(float level)
 	{
 		this.sharingLevel += level;
-		onPropertyChanged();
+		this.onPropertyChanged();
 		return this;
 	}
 	
@@ -460,7 +460,7 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	
 	public void sync(EntityPlayer playerEntity)
 	{
-		Packet250CustomPayload packet = createPacket();
+		Packet250CustomPayload packet = this.createPacket();
 		
 		Side side = FMLCommonHandler.instance().getEffectiveSide();
 		if (side == Side.SERVER)

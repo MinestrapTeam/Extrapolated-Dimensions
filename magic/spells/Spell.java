@@ -27,12 +27,12 @@ public abstract class Spell
 	
 	public String getName()
 	{
-		return name;
+		return this.name;
 	}
 	
 	public int getColor()
 	{
-		return color;
+		return this.color;
 	}
 	
 	public abstract boolean onApplied(EntityLivingBase user, ItemStack stack, MovingObjectPosition target);
@@ -45,7 +45,7 @@ public abstract class Spell
 	public NBTTagCompound createNBT()
 	{
 		NBTTagCompound nbt = new NBTTagCompound();
-		nbt.setString("SpellName", name);
+		nbt.setString("SpellName", this.name);
 		return nbt;
 	}
 	
