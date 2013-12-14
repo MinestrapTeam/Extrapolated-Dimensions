@@ -49,11 +49,11 @@ public class MDMItems
 	
 	public static CustomItem				pocMaterials;
 	
-	public static ItemStack					magicOakStick, willowStick, daeyaltGem, noviteGem, marmarosGem;
+	public static ItemStack					magicOakStick, willowStick, daeyaltGem, noviteGem, marmarosGem, kratoniumIngot;
 	
 	// -- Heaven --
 	
-	public static CustomItem				heavenMaterials;
+	public static ItemHeavenMaterials				heavenMaterials;
 	public static ItemHeavenFood			heavenApple;
 	public static ItemLifeHeart				lifeHeart;
 	public static ItemFireSword				fireSword;
@@ -77,7 +77,7 @@ public class MDMItems
 		elixir = (ItemElixir) new ItemElixir(CSConfig.getItem("Elixir", pocItemID++)).setUnlocalizedName("elixir");
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(CSConfig.getItem("Elixir Bottle", pocItemID++)).setUnlocalizedName("elixirbottle");
 		
-		pocMaterials = (CustomItem) new CustomItem(CSConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem" }, new String[] { "magicoak_stick", "willow_stick", "daeyalt_gem", "novite_gem", "marmaros_gem" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
+		pocMaterials = (CustomItem) new CustomItem(CSConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem", "Kratonium Ingot" }, new String[] { "magicoak_stick", "willow_stick", "daeyalt_gem", "novite_gem", "marmaros_gem", "Kratonium Ingot" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
 		{
 			int i = -1;
 			magicOakStick = new ItemStack(pocMaterials, 1, ++i);
@@ -85,11 +85,13 @@ public class MDMItems
 			daeyaltGem = new ItemStack(pocMaterials, 1, ++i);
 			noviteGem = new ItemStack(pocMaterials, 1, ++i);
 			marmarosGem = new ItemStack(pocMaterials, 1, ++i);
+			kratoniumIngot = new ItemStack(pocMaterials, 1, ++i);
+			
 		}
 		
 		// -- Heaven --
 		
-		heavenMaterials = (CustomItem) new ItemHeavenMaterials(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
+		heavenMaterials = (ItemHeavenMaterials) new ItemHeavenMaterials(CSConfig.getItem("Heaven Materials", heavenItemID++), new String[] { "Heaven Wood Stick", "Gold Wood Stick", "Heaven Arrow", "Shrekite Shard", "Clashium Ingot", "Holyium Ingot", "Energy Orb", "Pro Alloy", "Blurite Dust" }, new String[] { "heavenwood_stick", "goldwood_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }).setUnlocalizedName("heavenMaterials").setCreativeTab(tabHeavenItems);
 		{
 			int i = -1;
 			heavenWoodStick = new ItemStack(heavenMaterials, 1, ++i);

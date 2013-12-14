@@ -28,55 +28,64 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	public int			itemEnergyTime;
 	public int			curseTime;
 	
-	private String		name;
+	public String		name;
 	
 	@Override
 	public void updateEntity()
 	{
-		if (energyTime > 0)
+		boolean canCurse = this.canCurse();
+		
+		if (this.energyTime > 0)
 		{
-			energyTime--;
+			this.energyTime--;
+		}
+		else if (this.isCurseFuel(this.itemStacks[0]) && canCurse)
+		{
+			this.energyTime = this.itemEnergyTime = this.getCurseFuel(this.itemStacks[0]);
+			this.decrStackSize(0, 1);
 		}
 		
-		if (this.canCurse())
+		if (energyTime > 0 && canCurse)
 		{
-			curseTime++;
+			this.curseTime++;
 		}
 		else
 		{
-			curseTime = 0;
+			this.curseTime = 0;
 		}
 		
-		if (curseTime >= MAX_CURSE_TIME)
+		if (this.curseTime >= MAX_CURSE_TIME)
 		{
-			curseTime = 0;
+			this.curseTime = 0;
 			this.curse();
 		}
 	}
 	
 	public void curse()
 	{
-		ItemStack ingredient = itemStacks[1];
-		ItemStack item = itemStacks[2];
+		ItemStack ingredient = this.itemStacks[1];
+		ItemStack item = this.itemStacks[2].copy();
 		
-		Curse curse = getCurse(ingredient);
+		Curse curse = this.getCurse(ingredient);
 		if (curse != null)
 		{
-			curse.addCurseToItemStack(item, ingredient.stackSize - 1);
-			this.itemStacks[1] = null;
-			this.itemStacks[2] = null;
+			curse.addCurseToItemStack(item, 1);
+			this.decrStackSize(1, 1);
+			this.decrStackSize(2, 1);
+			
+			item.stackSize = 1;
 			this.itemStacks[3] = item;
 		}
 	}
 	
 	public boolean canCurse()
 	{
-		if (energyTime <= 0 || itemStacks[3] != null || itemStacks[4] != null)
+		if (this.itemStacks[3] != null || this.itemStacks[4] != null)
 		{
 			return false;
 		}
 		
-		if (!isCurseIngredient(itemStacks[1]))
+		if (!this.isCurseIngredient(this.getIngredient()) || !this.isCursable(this.getIngredient(), this.getItemToCurse()))
 		{
 			return false;
 		}
@@ -84,9 +93,27 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		return true;
 	}
 	
-	public boolean isCursable(ItemStack stack)
+	public ItemStack getFuel()
 	{
-		Curse curse = getCurse(itemStacks[1]);
+		return this.itemStacks[0];
+	}
+	
+	public ItemStack getIngredient()
+	{
+		return this.itemStacks[1];
+	}
+	
+	public ItemStack getItemToCurse()
+	{
+		return this.itemStacks[2];
+	}
+	
+	public boolean isCursable(ItemStack ingredient, ItemStack stack)
+	{
+		if (stack == null)
+			return false;
+		
+		Curse curse = this.getCurse(ingredient);
 		return curse != null && curse.canApply(stack);
 	}
 	
@@ -95,14 +122,24 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		return stack != null && stack.getItem() instanceof ICurseFuel && ((ICurseFuel) stack.getItem()).isCurseFuel(stack);
 	}
 	
+	public int getCurseFuel(ItemStack stack)
+	{
+		return stack != null && stack.getItem() instanceof ICurseFuel ? ((ICurseFuel) stack.getItem()).getCurseFuelValue(stack) : 0;
+	}
+	
 	public boolean isCurseIngredient(ItemStack stack)
 	{
-		return stack != null && stack.getItem() instanceof ICurseIngredient && ((ICurseIngredient) stack.getItem()).isCurseIngredient(stack);
+		if (stack != null && stack.getItem() instanceof ICurseIngredient)
+		{
+			ICurseIngredient icurseingredient = (ICurseIngredient) stack.getItem();
+			return icurseingredient.isCurseIngredient(stack);
+		}
+		return false;
 	}
 	
 	public Curse getCurse(ItemStack stack)
 	{
-		return stack != null && stack.getItem() instanceof ICurseIngredient ? ((ICurseIngredient) stack.getItem()).getCurse(stack) : null;
+		return (stack != null && stack.getItem() instanceof ICurseIngredient) ? ((ICurseIngredient) stack.getItem()).getCurse(stack) : null;
 	}
 	
 	public boolean isActive()
@@ -292,7 +329,7 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 			case 1:
 				return this.isCurseIngredient(stack);
 			case 2:
-				return this.isCursable(stack);
+				return this.isCursable(this.itemStacks[1], stack);
 			default:
 				return true;
 		}

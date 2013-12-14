@@ -3,6 +3,8 @@ package clashsoft.mods.moredimensions.curse;
 import java.util.ArrayList;
 import java.util.List;
 
+import clashsoft.cslib.util.CSString;
+
 import com.google.common.collect.ObjectArrays;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -137,12 +139,12 @@ public class Curse
     public String getTranslatedName(int level)
     {
         String s = StatCollector.translateToLocal(this.getName());
-        return s + " " + StatCollector.translateToLocal("curse.level." + level);
+        return s + " " + CSString.convertToRoman(level);
     }
 
     public boolean canApply(ItemStack stack)
     {
-        return this.type.canCurseItem(stack.getItem());
+        return stack != null && this.type.canCurseItem(stack.getItem());
     }
 
     /**

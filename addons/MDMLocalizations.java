@@ -56,6 +56,10 @@ public class MDMLocalizations
 			LanguageRegistry.addName(new ItemStack(MDMItems.heavenSouls, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
 		}
 		
+		// -- Curses --
+		
+		addTranslation("curse.test", "Test Curse");
+		
 		// -- Entitys --
 		
 		// - Paradise of Chaos -

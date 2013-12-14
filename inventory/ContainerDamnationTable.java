@@ -19,7 +19,7 @@ public class ContainerDamnationTable extends Container
 		this.damnationTable = damnationTable;
 		this.addSlotToContainer(new SlotInput(damnationTable, 0, 50, 61));
 		this.addSlotToContainer(new SlotInput(damnationTable, 1, 23, 26));
-		this.addSlotToContainer(new SlotInput(damnationTable, 2, 73, 26).setMaxStackSize(1));
+		this.addSlotToContainer(new SlotInput(damnationTable, 2, 73, 26));
 		this.addSlotToContainer(new SlotOutput(damnationTable, 3, 133, 26));
 		this.addSlotToContainer(new SlotOutput(damnationTable, 4, 101, 61));
 		int i;
@@ -77,7 +77,7 @@ public class ContainerDamnationTable extends Container
 					return null;
 				}
 			}
-			else if (!this.damnationTable.isCursable(itemstack))
+			else if (!this.damnationTable.isCursable(this.damnationTable.getIngredient(), itemstack))
 			{
 				if (!this.mergeItemStack(itemstack1, 2, 3, false))
 				{
