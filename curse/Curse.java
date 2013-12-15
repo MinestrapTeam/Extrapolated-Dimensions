@@ -216,7 +216,7 @@ public class Curse
 				
 				if (curseList[id] != null)
 				{
-					toolTip.add(curseList[id].getTranslatedName(level));
+					toolTip.add(1, curseList[id].getTranslatedName(level));
 				}
 			}
 		}

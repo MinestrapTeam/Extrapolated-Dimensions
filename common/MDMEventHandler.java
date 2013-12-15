@@ -9,6 +9,8 @@ import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -137,8 +139,19 @@ public class MDMEventHandler
 	}
 	
 	@ForgeSubscribe
+	public void onGUIOpened(GuiOpenEvent event)
+	{
+		MoreDimensionsMod.proxy.replaceGUIs(event);
+	}
+	
+	@ForgeSubscribe
 	public void getItemTooltip(ItemTooltipEvent event)
 	{
 		Curse.addTooltip(event.itemStack, event.toolTip);
+		
+		if (event.itemStack.stackSize <= 0)
+		{
+			event.toolTip.add(EnumChatFormatting.RED + "" + EnumChatFormatting.ITALIC + "0 Stack Size!");
+		}
 	}
 }

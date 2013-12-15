@@ -12,6 +12,7 @@ import cpw.mods.fml.relauncher.Side;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.GuiOpenEvent;
 
 public class MDMCommonProxy implements IGuiHandler
 {
@@ -44,6 +45,10 @@ public class MDMCommonProxy implements IGuiHandler
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 		return null;
+	}
+	
+	public void replaceGUIs(GuiOpenEvent event)
+	{
 	}
 	
 	public void register()

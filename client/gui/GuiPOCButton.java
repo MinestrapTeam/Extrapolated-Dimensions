@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiPOCButton extends GuiButton
 {
-	public static ResourceLocation	buttons	= new ResourceLocation("moredimensions", "textures/gui/buttons.png");
+	public static ResourceLocation	buttonTextures	= new ResourceLocation("moredimensions", "textures/gui/buttons.png");
 	
 	private float					colorR	= -1F;
 	private float					colorG	= -1F;
@@ -43,8 +43,10 @@ public class GuiPOCButton extends GuiButton
 	{
 		if (this.drawButton)
 		{
+			GL11.glPushMatrix();
+			
 			FontRenderer fontrenderer = mc.fontRenderer;
-			mc.renderEngine.bindTexture(buttons);
+			mc.renderEngine.bindTexture(buttonTextures);
 			
 			if (this.hasSpecialColor())
 				GL11.glColor4f(this.colorR, this.colorG, this.colorB, 1.0F);
@@ -52,14 +54,21 @@ public class GuiPOCButton extends GuiButton
 				GL11.glColor4f(0.5F, 0.5F, 0.5F, 1.0F);
 			else
 				GL11.glColor4f(1F, 1F, 1F, 1F);
+			
 			int k = this.getHoverState(this.field_82253_i);
 			float buttonScaleX = 0.5F;
 			float buttonScaleY = 0.25F;
+			
+			GL11.glTranslatef(this.xPosition, this.yPosition, 0F);
 			GL11.glScalef(buttonScaleX, buttonScaleY, 1F);
+			
 			this.field_82253_i = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
-			int posX1 = this.hasSpecialColor() ? 160 : (k == 1 ? 0 : (k == 2 ? 80 : 160));
-			this.drawTexturedModalRect(this.xPosition * (int) (1F / buttonScaleX), this.yPosition * (int) (1F / buttonScaleY), 0, posX1, (int) (this.width * 2F) + 15, 80);
-			GL11.glScalef(1F / buttonScaleX, 1F / buttonScaleY, 1F);
+			int texturePosX = this.hasSpecialColor() ? 102 : (k == 1 ? 0 : (k == 2 ? 52 : 102));
+			
+			this.drawTexturedModalRect(0, 0, 0, texturePosX, (int) (this.width * 2F) + 15, 80);
+			
+			GL11.glPopMatrix();
+			
 			this.mouseDragged(mc, mouseX, mouseY);
 			int l = 14737632;
 			
@@ -71,6 +80,7 @@ public class GuiPOCButton extends GuiButton
 			{
 				l = 16777120;
 			}
+			
 			
 			this.drawCenteredString(fontrenderer, this.displayString, this.xPosition + (this.width + 5) / 2, this.yPosition + (this.height - 8) / 2, l);
 		}

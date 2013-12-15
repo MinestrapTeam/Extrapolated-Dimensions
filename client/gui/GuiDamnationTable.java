@@ -62,6 +62,6 @@ public class GuiDamnationTable extends GuiContainer
 		this.drawTexturedModalRect(k + 95, l + 19, 176, 30, i1, 16);
 		
 		i1 = this.damnationTable.getProgressScaled(16);
-		this.drawTexturedModalRect(k + 103, l + 35, 198, 0, 11, i1);
+		this.drawTexturedModalRect(k + 103, l + 36, 198, 0, 11, i1);
 	}
 }

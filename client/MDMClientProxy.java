@@ -4,10 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import clashsoft.mods.moredimensions.api.IMDMBoss;
-import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
-import clashsoft.mods.moredimensions.client.gui.GuiDamnationTable;
-import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
-import clashsoft.mods.moredimensions.client.gui.GuiTome;
+import clashsoft.mods.moredimensions.client.gui.*;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
@@ -26,10 +23,12 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 public class MDMClientProxy extends MDMCommonProxy
@@ -58,6 +57,16 @@ public class MDMClientProxy extends MDMCommonProxy
 		else
 		{
 			return null;
+		}
+	}
+	
+	@Override
+	public void replaceGUIs(GuiOpenEvent event)
+	{
+		if (event.gui.getClass() == GuiMainMenu.class)
+		{
+			event.setCanceled(true);
+			Minecraft.getMinecraft().displayGuiScreen(new GuiHeavenMainMenu());
 		}
 	}
 	
