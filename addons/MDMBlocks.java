@@ -1,6 +1,7 @@
 package clashsoft.mods.moredimensions.addons;
 
 import static clashsoft.cslib.minecraft.util.CSBlocks.addBlock;
+import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.addon.Addon;
 import clashsoft.cslib.minecraft.CustomBlock;
 import clashsoft.cslib.minecraft.block.BlockCustomGrass;
@@ -11,6 +12,7 @@ import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.mods.moredimensions.block.BlockDamnationTable;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
+import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -269,5 +271,7 @@ public class MDMBlocks
 		addBlock(heavenPillar, "Heaven Pillar");
 		
 		addBlock(damnationTable, "Damnation Table");
+		
+		GameRegistry.registerTileEntity(TileEntityDamnationTable.class, "DamnationTable");
 	}
 }

@@ -252,6 +252,11 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	public void readFromNBT(NBTTagCompound nbt)
 	{
 		super.readFromNBT(nbt);
+		
+		this.energyTime = nbt.getShort("EnergyTime");
+		this.itemEnergyTime = nbt.getShort("ItemEnergyTime");
+		this.curseTime = nbt.getShort("CurseTime");
+		
 		NBTTagList nbttaglist = nbt.getTagList("Items");
 		this.itemStacks = new ItemStack[this.getSizeInventory()];
 		
@@ -276,6 +281,11 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	public void writeToNBT(NBTTagCompound nbt)
 	{
 		super.writeToNBT(nbt);
+		
+		nbt.setShort("EnergyTime", (short) this.energyTime);
+		nbt.setShort("ItemEnergyTime", (short) this.itemEnergyTime);
+		nbt.setShort("CurseTime", (short) this.curseTime);
+		
 		NBTTagList nbttaglist = new NBTTagList();
 		
 		for (int i = 0; i < this.itemStacks.length; ++i)

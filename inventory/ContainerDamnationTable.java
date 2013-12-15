@@ -65,23 +65,21 @@ public class ContainerDamnationTable extends Container
 					return null;
 				}
 			}
-			else if (this.damnationTable.isCurseFuel(itemstack))
+			else if (this.damnationTable.isCurseFuel(itemstack1))
 			{
 				if (!this.mergeItemStack(itemstack1, 0, 1, false))
-					;
 				{
 					return null;
 				}
 			}
-			else if (this.damnationTable.isCurseIngredient(itemstack))
+			else if (this.damnationTable.isCurseIngredient(itemstack1))
 			{
 				if (!this.mergeItemStack(itemstack1, 1, 2, false))
-					;
 				{
 					return null;
 				}
 			}
-			else if (!this.damnationTable.isCursable(this.damnationTable.getIngredient(), itemstack))
+			else if (!this.damnationTable.isCursable(this.damnationTable.getIngredient(), itemstack1))
 			{
 				if (!this.mergeItemStack(itemstack1, 2, 3, false))
 				{
