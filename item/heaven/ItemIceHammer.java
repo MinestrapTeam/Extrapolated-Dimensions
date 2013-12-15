@@ -10,19 +10,19 @@ import net.minecraft.item.ItemStack;
 
 public class ItemIceHammer extends ItemIceStick
 {
-	public ItemIceHammer(int par1)
+	public ItemIceHammer(int itemID)
 	{
-		super(par1);
+		super(itemID);
 		this.maxStackSize = 1;
 		this.setMaxDamage(256);
 		this.setCreativeTab(MDMItems.tabHeavenTools);
 	}
 	
 	@Override
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+	public boolean hitEntity(ItemStack stack, EntityLivingBase attacker, EntityLivingBase living)
 	{
-		par1ItemStack.damageItem(1, par3EntityLivingBase);
-		par2EntityLivingBase.knockBack(par2EntityLivingBase, 3, 0, 0);
+		stack.damageItem(1, living);
+		attacker.knockBack(attacker, 3, 0, 0);
 		return true;
 	}
 	
@@ -40,7 +40,7 @@ public class ItemIceHammer extends ItemIceStick
 	 * How long it takes to use or consume an item
 	 */
 	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack)
+	public int getMaxItemUseDuration(ItemStack stack)
 	{
 		return 72000;
 	}
@@ -49,9 +49,9 @@ public class ItemIceHammer extends ItemIceStick
 	 * Returns if the item (tool) can harvest results from the block type.
 	 */
 	@Override
-	public boolean canHarvestBlock(Block par1Block)
+	public boolean canHarvestBlock(Block block)
 	{
-		return par1Block.blockID == Block.web.blockID;
+		return block.blockID == Block.web.blockID;
 	}
 	
 	/**

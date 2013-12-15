@@ -13,10 +13,9 @@ import net.minecraft.world.World;
 
 public class ItemFireSword extends ItemSword
 {
-	
-	public ItemFireSword(int par1)
+	public ItemFireSword(int itemID)
 	{
-		super(par1, MDMTools.toolFire);
+		super(itemID, MDMTools.toolFire);
 		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 	

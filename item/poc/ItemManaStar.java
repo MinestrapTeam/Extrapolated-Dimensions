@@ -9,9 +9,9 @@ import net.minecraft.world.World;
 
 public class ItemManaStar extends Item
 {
-	public ItemManaStar(int par1)
+	public ItemManaStar(int itemID)
 	{
-		super(par1);
+		super(itemID);
 		this.setMaxStackSize(16);
 	}
 	
@@ -19,28 +19,17 @@ public class ItemManaStar extends Item
 	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
 	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		MDMEntityProperties.getEntityProperties(par3EntityPlayer).addMana(2.5F);
-		if (!par3EntityPlayer.capabilities.isCreativeMode)
-			par1ItemStack.stackSize--;
-		return par1ItemStack;
+		MDMEntityProperties.getEntityProperties(player).addMana(2.5F);
+		if (!player.capabilities.isCreativeMode)
+			stack.stackSize--;
+		return stack;
 	}
 	
 	@Override
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack stack)
 	{
 		return true;
-	}
-	
-	/**
-	 * CLASHSOFT: This code makes items use their unlocalized name as icon name
-	 */
-	@Override
-	public Item setUnlocalizedName(String name)
-	{
-		super.setUnlocalizedName(name);
-		super.setTextureName(name);
-		return this;
 	}
 }

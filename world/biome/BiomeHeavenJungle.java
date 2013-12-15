@@ -17,7 +17,7 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	}
 	
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	public WorldGenerator getRandomWorldGenForTrees(Random random)
 	{
 		return new HeavenGenJungleTree(true, 7, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID);
 	}

@@ -83,29 +83,29 @@ public class ModelScider extends ModelBase
 	 * Sets the models various rotation angles then renders the model.
 	 */
 	@Override
-	public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
+	public void render(Entity entity, float x, float y, float z, float i1, float i2, float i3)
 	{
-		this.setRotationAngles(par2, par3, par4, par5, par6, par7);
-		this.sciderHead.render(par7);
-		this.sciderNeck.render(par7);
-		this.sciderBody.render(par7);
-		this.sciderLeg1.render(par7);
-		this.sciderLeg2.render(par7);
-		this.sciderLeg3.render(par7);
-		this.sciderLeg4.render(par7);
-		this.sciderLeg5.render(par7);
-		this.sciderLeg6.render(par7);
-		this.sciderLeg7.render(par7);
-		this.sciderLeg8.render(par7);
+		this.setRotationAngles(x, y, z, i1, i2, i3);
+		this.sciderHead.render(i3);
+		this.sciderNeck.render(i3);
+		this.sciderBody.render(i3);
+		this.sciderLeg1.render(i3);
+		this.sciderLeg2.render(i3);
+		this.sciderLeg3.render(i3);
+		this.sciderLeg4.render(i3);
+		this.sciderLeg5.render(i3);
+		this.sciderLeg6.render(i3);
+		this.sciderLeg7.render(i3);
+		this.sciderLeg8.render(i3);
 	}
 	
 	/**
 	 * Sets the models various rotation angles.
 	 */
-	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6)
+	public void setRotationAngles(float x, float y, float z, float x1, float y1, float z1)
 	{
-		this.sciderHead.rotateAngleY = par4 / (180F / (float) Math.PI);
-		this.sciderHead.rotateAngleX = par5 / (180F / (float) Math.PI);
+		this.sciderHead.rotateAngleY = x1 / (180F / (float) Math.PI);
+		this.sciderHead.rotateAngleX = y1 / (180F / (float) Math.PI);
 		float var7 = ((float) Math.PI / 4F);
 		this.sciderLeg1.rotateAngleZ = -var7;
 		this.sciderLeg2.rotateAngleZ = var7;
@@ -125,14 +125,14 @@ public class ModelScider extends ModelBase
 		this.sciderLeg6.rotateAngleY = var9 * 1.0F - var8;
 		this.sciderLeg7.rotateAngleY = -var9 * 2.0F + var8;
 		this.sciderLeg8.rotateAngleY = var9 * 2.0F - var8;
-		float var10 = -(MathHelper.cos(par1 * 0.6662F * 2.0F + 0.0F) * 0.4F) * par2;
-		float var11 = -(MathHelper.cos(par1 * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * par2;
-		float var12 = -(MathHelper.cos(par1 * 0.6662F * 2.0F + ((float) Math.PI / 2F)) * 0.4F) * par2;
-		float var13 = -(MathHelper.cos(par1 * 0.6662F * 2.0F + ((float) Math.PI * 3F / 2F)) * 0.4F) * par2;
-		float var14 = Math.abs(MathHelper.sin(par1 * 0.6662F + 0.0F) * 0.4F) * par2;
-		float var15 = Math.abs(MathHelper.sin(par1 * 0.6662F + (float) Math.PI) * 0.4F) * par2;
-		float var16 = Math.abs(MathHelper.sin(par1 * 0.6662F + ((float) Math.PI / 2F)) * 0.4F) * par2;
-		float var17 = Math.abs(MathHelper.sin(par1 * 0.6662F + ((float) Math.PI * 3F / 2F)) * 0.4F) * par2;
+		float var10 = -(MathHelper.cos(x * 0.6662F * 2.0F + 0.0F) * 0.4F) * y;
+		float var11 = -(MathHelper.cos(x * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * y;
+		float var12 = -(MathHelper.cos(x * 0.6662F * 2.0F + ((float) Math.PI / 2F)) * 0.4F) * y;
+		float var13 = -(MathHelper.cos(x * 0.6662F * 2.0F + ((float) Math.PI * 3F / 2F)) * 0.4F) * y;
+		float var14 = Math.abs(MathHelper.sin(x * 0.6662F + 0.0F) * 0.4F) * y;
+		float var15 = Math.abs(MathHelper.sin(x * 0.6662F + (float) Math.PI) * 0.4F) * y;
+		float var16 = Math.abs(MathHelper.sin(x * 0.6662F + ((float) Math.PI / 2F)) * 0.4F) * y;
+		float var17 = Math.abs(MathHelper.sin(x * 0.6662F + ((float) Math.PI * 3F / 2F)) * 0.4F) * y;
 		this.sciderLeg1.rotateAngleY += var10;
 		this.sciderLeg2.rotateAngleY += -var10;
 		this.sciderLeg3.rotateAngleY += var11;

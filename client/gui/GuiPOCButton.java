@@ -15,14 +15,14 @@ public class GuiPOCButton extends GuiButton
 	private float					colorG	= -1F;
 	private float					colorB	= -1F;
 	
-	public GuiPOCButton(int par1, int par2, int par3, String par4Str)
+	public GuiPOCButton(int buttonID, int x, int y, String text)
 	{
-		super(par1, par2, par3, par4Str);
+		super(buttonID, x, y, text);
 	}
 	
-	public GuiPOCButton(int par1, int par2, int par3, int par4, int par5, String par6Str)
+	public GuiPOCButton(int buttonID, int x, int y, int width, int height, String text)
 	{
-		super(par1, par2, par3, par4, par5, par6Str);
+		super(buttonID, x, y, width, height, text);
 	}
 	
 	public GuiPOCButton setColor(float r, float g, float b)
@@ -39,12 +39,12 @@ public class GuiPOCButton extends GuiButton
 	}
 	
 	@Override
-	public void drawButton(Minecraft par1Minecraft, int par2, int par3)
+	public void drawButton(Minecraft mc, int mouseX, int mouseY)
 	{
 		if (this.drawButton)
 		{
-			FontRenderer fontrenderer = par1Minecraft.fontRenderer;
-			par1Minecraft.renderEngine.bindTexture(buttons);
+			FontRenderer fontrenderer = mc.fontRenderer;
+			mc.renderEngine.bindTexture(buttons);
 			
 			if (this.hasSpecialColor())
 				GL11.glColor4f(this.colorR, this.colorG, this.colorB, 1.0F);
@@ -56,11 +56,11 @@ public class GuiPOCButton extends GuiButton
 			float buttonScaleX = 0.5F;
 			float buttonScaleY = 0.25F;
 			GL11.glScalef(buttonScaleX, buttonScaleY, 1F);
-			this.field_82253_i = par2 >= this.xPosition && par3 >= this.yPosition && par2 < this.xPosition + this.width && par3 < this.yPosition + this.height;
+			this.field_82253_i = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
 			int posX1 = this.hasSpecialColor() ? 160 : (k == 1 ? 0 : (k == 2 ? 80 : 160));
 			this.drawTexturedModalRect(this.xPosition * (int) (1F / buttonScaleX), this.yPosition * (int) (1F / buttonScaleY), 0, posX1, (int) (this.width * 2F) + 15, 80);
 			GL11.glScalef(1F / buttonScaleX, 1F / buttonScaleY, 1F);
-			this.mouseDragged(par1Minecraft, par2, par3);
+			this.mouseDragged(mc, mouseX, mouseY);
 			int l = 14737632;
 			
 			if (!this.enabled)

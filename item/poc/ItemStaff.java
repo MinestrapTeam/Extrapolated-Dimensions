@@ -1,9 +1,6 @@
 package clashsoft.mods.moredimensions.item.poc;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import clashsoft.mods.moredimensions.magic.StaffData;
@@ -25,16 +22,16 @@ public class ItemStaff extends Item
 {
 	public Map<String, Icon>	icons	= new HashMap<String, Icon>();
 	
-	public ItemStaff(int par1)
+	public ItemStaff(int itemID)
 	{
-		super(par1);
+		super(itemID);
 		this.setHasSubtypes(true);
 		this.setFull3D();
 		this.setMaxStackSize(1);
 	}
 	
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
 		for (StaffType st : StaffType.staffTypes)
 		{
@@ -44,21 +41,21 @@ public class ItemStaff extends Item
 				{
 					for (int i = 0; i < st.getCharges(); i++)
 					{
-						this.icons.put(st.getTextureName(i), par1IconRegister.registerIcon(st.getTextureName(i)));
+						this.icons.put(st.getTextureName(i), iconRegister.registerIcon(st.getTextureName(i)));
 					}
 				}
 				else
 				{
-					this.icons.put(st.getTextureName(0), par1IconRegister.registerIcon(st.getTextureName(0)));
+					this.icons.put(st.getTextureName(0), iconRegister.registerIcon(st.getTextureName(0)));
 				}
 			}
 		}
 	}
 	
 	@Override
-	public Icon getIconIndex(ItemStack par1ItemStack)
+	public Icon getIconIndex(ItemStack stack)
 	{
-		StaffType st = StaffData.getStaffData(par1ItemStack).getStaffType();
+		StaffType st = StaffData.getStaffData(stack).getStaffType();
 		if (st != null)
 			return this.icons.get(st.getTextureName(0));
 		return this.itemIcon;
@@ -93,9 +90,9 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack stack)
 	{
-		return StaffData.getStaffData(par1ItemStack).isRare();
+		return StaffData.getStaffData(stack).isRare();
 	}
 	
 	@Override
@@ -135,23 +132,23 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int useDuration)
 	{
-		StaffData sd = StaffData.getStaffData(par1ItemStack);
-		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(par3EntityPlayer);
+		StaffData sd = StaffData.getStaffData(stack);
+		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
 		
 		if (sd.getStaffType().isChargeable())
 		{
 			for (Spell s : sd.getSpells())
-				if (props.getMana() - s.getMana() >= 0F && s.onApplied(par3EntityPlayer, par1ItemStack, null))
+				if (props.getMana() - s.getMana() >= 0F && s.onApplied(player, stack, null))
 					props.addMana(-s.getMana());
 		}
 	}
 	
 	@Override
-	public int getMaxDamage(ItemStack par1ItemStack)
+	public int getMaxDamage(ItemStack stack)
 	{
-		return StaffData.getStaffData(par1ItemStack).getStaffType().getMaxDamage();
+		return StaffData.getStaffData(stack).getStaffType().getMaxDamage();
 	}
 	
 	@Override
@@ -179,9 +176,9 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public String getItemDisplayName(ItemStack par1ItemStack)
+	public String getItemDisplayName(ItemStack stack)
 	{
-		StaffData sd = StaffData.getStaffData(par1ItemStack);
+		StaffData sd = StaffData.getStaffData(stack);
 		if (sd != null)
 		{
 			if (sd.getStaffType() != null)
@@ -193,34 +190,34 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		StaffData sd = StaffData.getStaffData(par1ItemStack);
+		StaffData sd = StaffData.getStaffData(stack);
 		for (Spell spell : sd.getSpells())
 		{
 			if (spell != null)
-				par3List.add(spell.getName());
+				list.add(spell.getName());
 		}
 		if (sd.isRare())
 		{
-			par3List.add(EnumChatFormatting.ITALIC + "Found at: " + sd.getFoundAt());
+			list.add(EnumChatFormatting.ITALIC + "Found at: " + sd.getFoundAt());
 		}
 		else
 		{
-			par3List.add(EnumChatFormatting.ITALIC + "Crafted");
+			list.add(EnumChatFormatting.ITALIC + "Crafted");
 		}
 	}
 	
 	@Override
-	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
 	{
 		for (StaffType st : StaffType.staffTypes)
 		{
 			if (st != null)
 			{
-				LinkedList<Spell> var1 = new LinkedList<Spell>();
-				var1.add(st.getSpell());
-				par3List.add(new StaffData(var1, st, true, 0, "Creative Tab").addDataToItemStack(new ItemStack(this, 1, 0)));
+				List<Spell> spells = new ArrayList<Spell>();
+				spells.add(st.getSpell());
+				list.add(new StaffData(spells, st, true, 0, "Creative Tab").addDataToItemStack(new ItemStack(this, 1, 0)));
 			}
 		}
 	}

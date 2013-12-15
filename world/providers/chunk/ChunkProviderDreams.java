@@ -10,17 +10,17 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 {
 	public DreamType	dreamType;
 	
-	public ChunkProviderDreams(World par1World, long par2, boolean par4, DreamType dream)
+	public ChunkProviderDreams(World world, long seed, boolean flag, DreamType dreamType)
 	{
-		super(par1World, par2, par4);
-		this.dreamType = dream;
+		super(world, seed, flag);
+		this.dreamType = dreamType;
 	}
 	
 	/**
 	 * Generates the shape of the terrain for the chunk though its all stone though the water is frozen if the temperature is low enough
 	 */
 	@Override
-	public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte)
+	public void generateTerrain(int x, int z, byte[] storage)
 	{
 		byte b0 = 4;
 		byte b1 = 16;
@@ -28,8 +28,8 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 		int k = b0 + 1;
 		byte b3 = 17;
 		int l = b0 + 1;
-		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, par1 * 4 - 2, par2 * 4 - 2, k + 5, l + 5);
-		this.noiseArray = this.initializeNoiseField(this.noiseArray, par1 * b0, 0, par2 * b0, k, b3, l);
+		this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, k + 5, l + 5);
+		this.noiseArray = this.initializeNoiseField(this.noiseArray, x * b0, 0, z * b0, k, b3, l);
 		for (int i1 = 0; i1 < b0; ++i1)
 		{
 			for (int j1 = 0; j1 < b0; ++j1)
@@ -64,15 +64,15 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 							{
 								if ((d16 += d15) > 0.0D)
 								{
-									par3ArrayOfByte[j2 += short1] = (byte) this.dreamType.getStoneBlock().blockID;
+									storage[j2 += short1] = (byte) this.dreamType.getStoneBlock().blockID;
 								}
 								else if (k1 * 8 + l1 < b2)
 								{
-									par3ArrayOfByte[j2 += short1] = (byte) this.dreamType.getWaterBlock().blockID;
+									storage[j2 += short1] = (byte) this.dreamType.getWaterBlock().blockID;
 								}
 								else
 								{
-									par3ArrayOfByte[j2 += short1] = 0;
+									storage[j2 += short1] = 0;
 								}
 							}
 							d10 += d12;
@@ -89,16 +89,16 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 	}
 	
 	@Override
-	public void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase)
+	public void replaceBlocksForBiome(int x, int y, byte[] storage, BiomeGenBase[] biomes)
 	{
 		byte var5 = 63;
 		double var6 = 0.03125D;
-		this.stoneNoise = this.noiseGen4.generateNoiseOctaves(this.stoneNoise, par1 * 16, par2 * 16, 0, 16, 16, 1, var6 * 2.0D, var6 * 2.0D, var6 * 2.0D);
+		this.stoneNoise = this.noiseGen4.generateNoiseOctaves(this.stoneNoise, x * 16, y * 16, 0, 16, 16, 1, var6 * 2.0D, var6 * 2.0D, var6 * 2.0D);
 		for (int var8 = 0; var8 < 16; var8++)
 		{
 			for (int var9 = 0; var9 < 16; var9++)
 			{
-				BiomeGenBase var10 = par4ArrayOfBiomeGenBase[(var9 + var8 * 16)];
+				BiomeGenBase var10 = biomes[(var9 + var8 * 16)];
 				float var11 = var10.getFloatTemperature();
 				int var12 = (int) (this.stoneNoise[(var8 + var9 * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
 				int var13 = -1;
@@ -109,11 +109,11 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 					int var17 = (var9 * 16 + var8) * 128 + var16;
 					if (var16 <= 0 + this.random.nextInt(5))
 					{
-						par3ArrayOfByte[var17] = ((byte) this.dreamType.getBedrockBlock().blockID);
+						storage[var17] = ((byte) this.dreamType.getBedrockBlock().blockID);
 					}
 					else
 					{
-						byte var18 = par3ArrayOfByte[var17];
+						byte var18 = storage[var17];
 						if (var18 == 0)
 						{
 							var13 = -1;
@@ -150,17 +150,17 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 								var13 = var12;
 								if (var16 >= var5 - 1)
 								{
-									par3ArrayOfByte[var17] = var14;
+									storage[var17] = var14;
 								}
 								else
 								{
-									par3ArrayOfByte[var17] = var15;
+									storage[var17] = var15;
 								}
 							}
 							else if (var13 > 0)
 							{
 								var13--;
-								par3ArrayOfByte[var17] = var15;
+								storage[var17] = var15;
 								if ((var13 == 0) && (var15 == this.dreamType.getSandBlock().blockID))
 								{
 									var13 = this.random.nextInt(4);
@@ -175,35 +175,35 @@ public class ChunkProviderDreams extends AbstractChunkProvider
 	}
 	
 	@Override
-	public Chunk loadChunk(int par1, int par2)
+	public Chunk loadChunk(int x, int y)
 	{
-		return this.provideChunk(par1, par2);
+		return this.provideChunk(x, y);
 	}
 	
 	@Override
-	public Chunk provideChunk(int par1, int par2)
+	public Chunk provideChunk(int x, int y)
 	{
-		this.random.setSeed(par1 * 341873128712L + par2 * 132897987541L);
+		this.random.setSeed(x * 341873128712L + y * 132897987541L);
 		byte[] var3 = new byte[32768];
-		this.generateTerrain(par1, par2, var3);
-		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-		this.replaceBlocksForBiome(par1, par2, var3, this.biomesForGeneration);
-		this.caveGenerator.generate(this, this.worldObj, par1, par2, var3);
-		this.ravineGenerator.generate(this, this.worldObj, par1, par2, var3);
+		this.generateTerrain(x, y, var3);
+		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, x * 16, y * 16, 16, 16);
+		this.replaceBlocksForBiome(x, y, var3, this.biomesForGeneration);
+		this.caveGenerator.generate(this, this.worldObj, x, y, var3);
+		this.ravineGenerator.generate(this, this.worldObj, x, y, var3);
 		if (this.mapFeaturesEnabled)
 		{
-			this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, var3);
-			this.villageGenerator.generate(this, this.worldObj, par1, par2, var3);
-			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, var3);
-			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, var3);
+			this.mineshaftGenerator.generate(this, this.worldObj, x, y, var3);
+			this.villageGenerator.generate(this, this.worldObj, x, y, var3);
+			this.strongholdGenerator.generate(this, this.worldObj, x, y, var3);
+			this.scatteredFeatureGenerator.generate(this, this.worldObj, x, y, var3);
 		}
-		Chunk var4 = new Chunk(this.worldObj, var3, par1, par2);
-		byte[] var5 = var4.getBiomeArray();
-		for (int var6 = 0; var6 < var5.length; var6++)
+		Chunk chunk = new Chunk(this.worldObj, var3, x, y);
+		byte[] biomes = chunk.getBiomeArray();
+		for (int var6 = 0; var6 < biomes.length; var6++)
 		{
-			var5[var6] = ((byte) this.biomesForGeneration[var6].biomeID);
+			biomes[var6] = ((byte) this.biomesForGeneration[var6].biomeID);
 		}
-		var4.generateSkylightMap();
-		return var4;
+		chunk.generateSkylightMap();
+		return chunk;
 	}
 }

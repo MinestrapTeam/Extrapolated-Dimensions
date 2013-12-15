@@ -40,9 +40,9 @@ public class BiomeHeaven extends BiomeGenBase
 	}
 	
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	public WorldGenerator getRandomWorldGenForTrees(Random random)
 	{
-		int type = par1Random.nextInt(1);
+		int type = random.nextInt(1);
 		return new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, type, type);
 	}
 }

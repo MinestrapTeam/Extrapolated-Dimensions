@@ -6,9 +6,9 @@ import net.minecraft.item.Item;
 @Deprecated
 public class ItemMDM extends Item
 {
-	public ItemMDM(int par1, CreativeTabs par2CreativeTabs)
+	public ItemMDM(int itemID, CreativeTabs creativeTab)
 	{
-		super(par1);
-		this.setCreativeTab(par2CreativeTabs);
+		super(itemID);
+		this.setCreativeTab(creativeTab);
 	}
 }

@@ -6,25 +6,25 @@ import net.minecraft.world.WorldServer;
 
 public final class TeleporterNoPortal extends Teleporter
 {
-	public TeleporterNoPortal(WorldServer par1WorldServer)
+	public TeleporterNoPortal(WorldServer world)
 	{
-		super(par1WorldServer);
+		super(world);
 	}
 	
 	@Override
-	public void placeInPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
+	public void placeInPortal(Entity entity, double x, double y, double z, float f)
 	{
 		
 	}
 	
 	@Override
-	public boolean makePortal(Entity par1Entity)
+	public boolean makePortal(Entity entity)
 	{
 		return true;
 	}
 	
 	@Override
-	public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
+	public boolean placeInExistingPortal(Entity entity, double x, double y, double z, float f)
 	{
 		return true;
 	}

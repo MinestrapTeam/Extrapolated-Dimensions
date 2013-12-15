@@ -11,17 +11,17 @@ public class EntityHeavenPortalFX extends EntityFX
 	private double	portalPosY;
 	private double	portalPosZ;
 	
-	public EntityHeavenPortalFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12)
+	public EntityHeavenPortalFX(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
 	{
-		super(par1World, par2, par4, par6, par8, par10, par12);
+		super(world, x, y, z, motionX, motionY, motionZ);
 		this.entityId = 110;
 		
-		this.motionX = par8;
-		this.motionY = par10;
-		this.motionZ = par12;
-		this.portalPosX = this.posX = par2;
-		this.portalPosY = this.posY = par4;
-		this.portalPosZ = this.posZ = par6;
+		this.motionX = motionX;
+		this.motionY = motionY;
+		this.motionZ = motionZ;
+		this.portalPosX = this.posX = x;
+		this.portalPosY = this.posY = y;
+		this.portalPosZ = this.posZ = z;
 		float var14 = this.rand.nextFloat() * 0.6F + 0.4F;
 		this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
 		this.particleRed = 0F;
@@ -33,63 +33,56 @@ public class EntityHeavenPortalFX extends EntityFX
 	}
 	
 	@Override
-	public void renderParticle(Tessellator par1Tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
+	public void renderParticle(Tessellator tessellator, float x, float y, float z, float x1, float y1, float z1)
 	{
-		float var8 = (this.particleAge + par2) / this.particleMaxAge;
-		var8 = 1.0F - var8;
-		var8 *= var8;
-		var8 = 1.0F - var8;
-		this.particleScale = this.portalParticleScale * var8;
-		super.renderParticle(par1Tessellator, par2, par3, par4, par5, par6, par7);
+		float scaledAge = (this.particleAge + x) / this.particleMaxAge;
+		scaledAge = 1.0F - scaledAge;
+		scaledAge *= scaledAge;
+		scaledAge = 1.0F - scaledAge;
+		this.particleScale = this.portalParticleScale * scaledAge;
+		super.renderParticle(tessellator, x, y, z, x1, y1, z1);
 	}
 	
 	@Override
-	public int getBrightnessForRender(float par1)
+	public int getBrightnessForRender(float scalar)
 	{
-		int var2 = super.getBrightnessForRender(par1);
-		float var3 = (float) this.particleAge / (float) this.particleMaxAge;
-		var3 *= var3;
-		var3 *= var3;
-		int var4 = var2 & 255;
-		int var5 = var2 >> 16 & 255;
-		var5 += (int) (var3 * 15.0F * 16.0F);
+		int superBrightness = super.getBrightnessForRender(scalar);
+		float scaledAge = (float) this.particleAge / (float) this.particleMaxAge;
+		scaledAge = scaledAge * scaledAge * scaledAge;
+		int var1 = superBrightness & 255;
+		int var2 = superBrightness >> 16 & 255;
+		var2 += (int) (scaledAge * 15.0F * 16.0F);
 		
-		if (var5 > 240)
+		if (var2 > 240)
 		{
-			var5 = 240;
+			var2 = 240;
 		}
 		
-		return var4 | var5 << 16;
+		return var1 | var2 << 16;
 	}
 	
-	/**
-	 * Gets how bright this entity is.
-	 */
 	@Override
-	public float getBrightness(float par1)
+	public float getBrightness(float scalar)
 	{
-		float var2 = super.getBrightness(par1);
-		float var3 = (float) this.particleAge / (float) this.particleMaxAge;
-		var3 = var3 * var3 * var3 * var3;
-		return var2 * (1.0F - var3) + var3;
+		float superBrightness = super.getBrightness(scalar);
+		float scaledAge = (float) this.particleAge / (float) this.particleMaxAge;
+		scaledAge = scaledAge * scaledAge * scaledAge * scaledAge;
+		return superBrightness * (1.0F - scaledAge) + scaledAge;
 	}
 	
-	/**
-	 * Called to update the entity's position/logic.
-	 */
 	@Override
 	public void onUpdate()
 	{
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
-		float var1 = (float) this.particleAge / (float) this.particleMaxAge;
-		float var2 = var1;
-		var1 = -var1 + var1 * var1 * 2.0F;
-		var1 = 1.0F - var1;
-		this.posX = this.portalPosX + this.motionX * var1;
-		this.posY = this.portalPosY + this.motionY * var1 + (1.0F - var2);
-		this.posZ = this.portalPosZ + this.motionZ * var1;
+		float scaledAge = (float) this.particleAge / (float) this.particleMaxAge;
+		float scaledAge2 = scaledAge;
+		scaledAge = -scaledAge + scaledAge * scaledAge * 2.0F;
+		scaledAge = 1.0F - scaledAge;
+		this.posX = this.portalPosX + this.motionX * scaledAge;
+		this.posY = this.portalPosY + this.motionY * scaledAge + (1.0F - scaledAge2);
+		this.posZ = this.portalPosZ + this.motionZ * scaledAge;
 		
 		if (this.particleAge++ >= this.particleMaxAge)
 		{

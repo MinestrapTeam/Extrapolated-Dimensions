@@ -2,9 +2,9 @@ package clashsoft.mods.moredimensions.world.biome;
 
 public class BiomeCorruptedMountains extends BiomePlainsOfInsanity
 {
-	public BiomeCorruptedMountains(int par1)
+	public BiomeCorruptedMountains(int biomeID)
 	{
-		super(par1);
+		super(biomeID);
 		this.maxHeight = 2F;
 		this.minHeight = 0.7F;
 		this.setDisableRain();

@@ -40,36 +40,37 @@ public class ItemHeavenFood extends Item
 	/** probably of the set potion effect occurring */
 	private float			potionEffectProbability;
 	
-	public ItemHeavenFood(int par1, int par2, float par3, boolean par4)
+	public ItemHeavenFood(int itemID, int healAmount, float saturationModifier, boolean wolfFood)
 	{
-		super(par1);
+		super(itemID);
 		this.itemUseDuration = 32;
-		this.healAmount = par2;
-		this.isWolfsFavoriteMeat = par4;
-		this.saturationModifier = par3;
+		this.healAmount = healAmount;
+		this.isWolfsFavoriteMeat = wolfFood;
+		this.saturationModifier = saturationModifier;
 		this.setCreativeTab(MDMItems.tabHeavenItems);
 	}
 	
-	public ItemHeavenFood(int par1, int par2, boolean par3)
+	public ItemHeavenFood(int itemID, int healAmount, boolean wolfFood)
 	{
-		this(par1, par2, 0.6F, par3);
+		this(itemID, healAmount, 0.6F, wolfFood);
 	}
 	
-	public ItemStack onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	@Override
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		--par1ItemStack.stackSize;
-		par2World.playSoundAtEntity(par3EntityPlayer, "random.burp", 0.5F, par2World.rand.nextFloat() * 0.1F + 0.9F);
-		// par2World.playSoundAtEntity(par3EntityPlayer, "chorus", 0.5F,
-		// par2World.rand.nextFloat() * 0.1F + 0.9F);
-		this.func_77849_c(par1ItemStack, par2World, par3EntityPlayer);
-		return par1ItemStack;
+		--stack.stackSize;
+		world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+		// world.playSoundAtEntity(player, "chorus", 0.5F,
+		// world.rand.nextFloat() * 0.1F + 0.9F);
+		this.applyPotionEffects(stack, world, player);
+		return stack;
 	}
 	
-	protected void func_77849_c(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	protected void applyPotionEffects(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (!par2World.isRemote && this.potionId > 0 && par2World.rand.nextFloat() < this.potionEffectProbability)
+		if (!world.isRemote && this.potionId > 0 && world.rand.nextFloat() < this.potionEffectProbability)
 		{
-			par3EntityPlayer.addPotionEffect(new PotionEffect(this.potionId, this.potionDuration * 20, this.potionAmplifier));
+			player.addPotionEffect(new PotionEffect(this.potionId, this.potionDuration * 20, this.potionAmplifier));
 		}
 	}
 	
@@ -77,7 +78,7 @@ public class ItemHeavenFood extends Item
 	 * How long it takes to use or consume an item
 	 */
 	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack)
+	public int getMaxItemUseDuration(ItemStack stack)
 	{
 		return 32;
 	}
@@ -86,7 +87,7 @@ public class ItemHeavenFood extends Item
 	 * returns the action that specifies what animation to play when the items is being used
 	 */
 	@Override
-	public EnumAction getItemUseAction(ItemStack par1ItemStack)
+	public EnumAction getItemUseAction(ItemStack stack)
 	{
 		return EnumAction.eat;
 	}
@@ -95,14 +96,14 @@ public class ItemHeavenFood extends Item
 	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
 	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (par3EntityPlayer.canEat(this.alwaysEdible))
+		if (player.canEat(this.alwaysEdible))
 		{
-			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		}
 		
-		return par1ItemStack;
+		return stack;
 	}
 	
 	public int getHealAmount()
@@ -111,7 +112,7 @@ public class ItemHeavenFood extends Item
 	}
 	
 	/**
-	 * gets the saturationModifier of the ItemFood
+	 * Gets the saturationModifier of the ItemFood
 	 */
 	public float getSaturationModifier()
 	{
@@ -127,14 +128,14 @@ public class ItemHeavenFood extends Item
 	}
 	
 	/**
-	 * sets a potion effect on the item. Args: int potionId, int duration (will be multiplied by 20), int amplifier, float probability of effect happening
+	 * Sets a potion effect on the item. Args: int potionId, int duration (will be multiplied by 20), int amplifier, float probability of effect happening
 	 */
-	public ItemHeavenFood setPotionEffect(int par1, int par2, int par3, float par4)
+	public ItemHeavenFood setPotionEffect(int potionID, int duration, int amplifier, float propability)
 	{
-		this.potionId = par1;
-		this.potionDuration = par2;
-		this.potionAmplifier = par3;
-		this.potionEffectProbability = par4;
+		this.potionId = potionID;
+		this.potionDuration = duration;
+		this.potionAmplifier = amplifier;
+		this.potionEffectProbability = propability;
 		return this;
 	}
 	

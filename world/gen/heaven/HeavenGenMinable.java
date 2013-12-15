@@ -17,65 +17,61 @@ public class HeavenGenMinable extends WorldGenMinable
 	/** The number of blocks to generate. */
 	private int	numberOfBlocks;
 	
-	public HeavenGenMinable(int par1, int par2)
+	public HeavenGenMinable(int blockID, int number)
 	{
-		super(par1, par2);
-		this.minableBlockId = par1;
-		this.numberOfBlocks = par2;
+		super(blockID, number);
+		this.minableBlockId = blockID;
+		this.numberOfBlocks = number;
 	}
 	
-	public HeavenGenMinable(int id, int meta, int number)
+	public HeavenGenMinable(int blockID, int metadata, int number)
 	{
-		this(id, number);
-		this.minableBlockMeta = meta;
+		this(blockID, number);
+		this.minableBlockMeta = metadata;
 	}
 	
 	@Override
-	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		float var6 = par2Random.nextFloat() * (float) Math.PI;
-		double var7 = par3 + 8 + MathHelper.sin(var6) * this.numberOfBlocks / 8.0F;
-		double var9 = par3 + 8 - MathHelper.sin(var6) * this.numberOfBlocks / 8.0F;
-		double var11 = par5 + 8 + MathHelper.cos(var6) * this.numberOfBlocks / 8.0F;
-		double var13 = par5 + 8 - MathHelper.cos(var6) * this.numberOfBlocks / 8.0F;
-		double var15 = par4 + par2Random.nextInt(3) - 2;
-		double var17 = par4 + par2Random.nextInt(3) - 2;
+		float var6 = random.nextFloat() * (float) Math.PI;
+		double x1 = x + 8 + MathHelper.sin(var6) * this.numberOfBlocks / 8.0F;
+		double x2 = x + 8 - MathHelper.sin(var6) * this.numberOfBlocks / 8.0F;
+		double y1 = y + random.nextInt(3) - 2;
+		double y2 = y + random.nextInt(3) - 2;
+		double z1 = z + 8 + MathHelper.cos(var6) * this.numberOfBlocks / 8.0F;
+		double z2 = z + 8 - MathHelper.cos(var6) * this.numberOfBlocks / 8.0F;
 		
-		for (int var19 = 0; var19 <= this.numberOfBlocks; ++var19)
+		for (int i = 0; i <= this.numberOfBlocks; ++i)
 		{
-			double var20 = var7 + (var9 - var7) * var19 / this.numberOfBlocks;
-			double var22 = var15 + (var17 - var15) * var19 / this.numberOfBlocks;
-			double var24 = var11 + (var13 - var11) * var19 / this.numberOfBlocks;
-			double var26 = par2Random.nextDouble() * this.numberOfBlocks / 16.0D;
-			double var28 = (MathHelper.sin(var19 * (float) Math.PI / this.numberOfBlocks) + 1.0F) * var26 + 1.0D;
-			double var30 = (MathHelper.sin(var19 * (float) Math.PI / this.numberOfBlocks) + 1.0F) * var26 + 1.0D;
-			int var32 = MathHelper.floor_double(var20 - var28 / 2.0D);
-			int var33 = MathHelper.floor_double(var22 - var30 / 2.0D);
-			int var34 = MathHelper.floor_double(var24 - var28 / 2.0D);
-			int var35 = MathHelper.floor_double(var20 + var28 / 2.0D);
-			int var36 = MathHelper.floor_double(var22 + var30 / 2.0D);
-			int var37 = MathHelper.floor_double(var24 + var28 / 2.0D);
+			double x3 = x1 + (x2 - x1) * i / this.numberOfBlocks;
+			double y3 = y1 + (y2 - y1) * i / this.numberOfBlocks;
+			double z3 = z1 + (z2 - z1) * i / this.numberOfBlocks;
+			double j = random.nextDouble() * this.numberOfBlocks / 16.0D;
+			double k = (MathHelper.sin(i * (float) Math.PI / this.numberOfBlocks) + 1.0F) * j + 1.0D;
+			int x4 = MathHelper.floor_double(x3 - k / 2.0D);
+			int y4 = MathHelper.floor_double(y3 - k / 2.0D);
+			int z4 = MathHelper.floor_double(z3 - k / 2.0D);
 			
-			for (int var38 = var32; var38 <= var35; ++var38)
+			for (int cx = x4; cx <= x4; ++cx)
 			{
-				double var39 = (var38 + 0.5D - var20) / (var28 / 2.0D);
+				double var39 = (cx + 0.5D - x3) / (k / 2.0D);
 				
 				if (var39 * var39 < 1.0D)
 				{
-					for (int var41 = var33; var41 <= var36; ++var41)
+					for (int cy = y4; cy <= y4; ++cy)
 					{
-						double var42 = (var41 + 0.5D - var22) / (var30 / 2.0D);
+						double var42 = (cy + 0.5D - y3) / (k / 2.0D);
 						
 						if (var39 * var39 + var42 * var42 < 1.0D)
 						{
-							for (int var44 = var34; var44 <= var37; ++var44)
+							for (int cz = z4; cz <= z4; ++cz)
 							{
-								double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
-								int i = par1World.getBlockId(var38, var41, var44);
-								int j = par1World.getBlockMetadata(var38, var41, var44);
-								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (i == MDMBlocks.heavenStoneBlocks.blockID) && j == 0)
+								double var45 = (cz + 0.5D - z3) / (k / 2.0D);
+								int blockID = world.getBlockId(cx, cy, cz);
+								int blockMetadata = world.getBlockMetadata(cx, cy, cz);
+								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (blockID == MDMBlocks.heavenStoneBlocks.blockID) && blockMetadata == 0)
 								{
-									par1World.setBlock(var38, var41, var44, this.minableBlockId, this.minableBlockMeta, 3);
+									world.setBlock(cx, cy, cz, this.minableBlockId, this.minableBlockMeta, 3);
 								}
 							}
 						}

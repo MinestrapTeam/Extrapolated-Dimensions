@@ -111,11 +111,11 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 		return chunk;
 	}
 	
-	public double[] initializeNoiseField(double[] noiseField, int par2, int par3, int par4, int par5, int par6, int par7)
+	public double[] initializeNoiseField(double[] noiseField, int x, int y, int z, int width, int length, int height)
 	{
 		if (noiseField == null)
 		{
-			noiseField = new double[par5 * par6 * par7];
+			noiseField = new double[width * length * height];
 		}
 		if (this.parabolicField == null)
 		{
@@ -131,29 +131,29 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 		}
 		double var44 = 684.41200000000003D;
 		double var45 = 684.41200000000003D;
-		this.noise5 = this.noiseGen5.generateNoiseOctaves(this.noise5, par2, par4, par5, par7, 1.121D, 1.121D, 0.5D);
-		this.noise6 = this.noiseGen6.generateNoiseOctaves(this.noise6, par2, par4, par5, par7, 200.0D, 200.0D, 0.5D);
-		this.noise3 = this.noiseGen3.generateNoiseOctaves(this.noise3, par2, par3, par4, par5, par6, par7, var44 / 80.0D, var45 / 160.0D, var44 / 80.0D);
-		this.noise1 = this.noiseGen1.generateNoiseOctaves(this.noise1, par2, par3, par4, par5, par6, par7, var44, var45, var44);
-		this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, par2, par3, par4, par5, par6, par7, var44, var45, var44);
+		this.noise5 = this.noiseGen5.generateNoiseOctaves(this.noise5, x, z, width, height, 1.121D, 1.121D, 0.5D);
+		this.noise6 = this.noiseGen6.generateNoiseOctaves(this.noise6, x, z, width, height, 200.0D, 200.0D, 0.5D);
+		this.noise3 = this.noiseGen3.generateNoiseOctaves(this.noise3, x, y, z, width, length, height, var44 / 80.0D, var45 / 160.0D, var44 / 80.0D);
+		this.noise1 = this.noiseGen1.generateNoiseOctaves(this.noise1, x, y, z, width, length, height, var44, var45, var44);
+		this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, x, y, z, width, length, height, var44, var45, var44);
 		boolean var43 = false;
 		boolean var42 = false;
 		int var12 = 0;
 		int var13 = 0;
-		for (int var14 = 0; var14 < par5; var14++)
+		for (int var14 = 0; var14 < width; var14++)
 		{
-			for (int var15 = 0; var15 < par7; var15++)
+			for (int var15 = 0; var15 < height; var15++)
 			{
 				float var16 = 0.0F;
 				float var17 = 0.0F;
 				float var18 = 0.0F;
 				byte var19 = 2;
-				BiomeGenBase var20 = this.biomesForGeneration[(var14 + 2 + (var15 + 2) * (par5 + 5))];
+				BiomeGenBase var20 = this.biomesForGeneration[(var14 + 2 + (var15 + 2) * (width + 5))];
 				for (int var21 = -var19; var21 <= var19; var21++)
 				{
 					for (int var22 = -var19; var22 <= var19; var22++)
 					{
-						BiomeGenBase var23 = this.biomesForGeneration[(var14 + var21 + 2 + (var15 + var22 + 2) * (par5 + 5))];
+						BiomeGenBase var23 = this.biomesForGeneration[(var14 + var21 + 2 + (var15 + var22 + 2) * (width + 5))];
 						float var24 = this.parabolicField[(var21 + 2 + (var22 + 2) * 5)] / (var23.minHeight + 2.0F);
 						if (var23.minHeight > var20.minHeight)
 						{
@@ -193,13 +193,13 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 					var47 /= 8.0D;
 				}
 				var13++;
-				for (int var46 = 0; var46 < par6; var46++)
+				for (int var46 = 0; var46 < length; var46++)
 				{
 					double var48 = var17;
 					double var26 = var16;
 					var48 += var47 * 0.2D;
-					var48 = var48 * par6 / 16.0D;
-					double var28 = par6 / 2.0D + var48 * 4.0D;
+					var48 = var48 * length / 16.0D;
+					double var28 = length / 2.0D + var48 * 4.0D;
 					double var30 = 0.0D;
 					double var32 = (var46 - var28) * 12.0D * 128.0D / 128.0D / var26;
 					if (var32 < 0.0D)
@@ -222,9 +222,9 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 						var30 = var34 + (var36 - var34) * var38;
 					}
 					var30 -= var32;
-					if (var46 > par6 - 4)
+					if (var46 > length - 4)
 					{
-						double var40 = (var46 - (par6 - 4)) / 3.0F;
+						double var40 = (var46 - (length - 4)) / 3.0F;
 						var30 = var30 * (1.0D - var40) + -10.0D * var40;
 					}
 					noiseField[var12] = var30;
@@ -295,12 +295,11 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 				}
 			}
 		}
-		// postPopulate(par1IChunkProvider, par2, par3);
 		BlockSand.fallInstantly = false;
 	}
 	
 	@Override
-	public boolean saveChunks(boolean par1, IProgressUpdate par2IProgressUpdate)
+	public boolean saveChunks(boolean flag, IProgressUpdate progressUpdate)
 	{
 		return true;
 	}
@@ -323,16 +322,16 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 	}
 	
 	@Override
-	public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
+	public List getPossibleCreatures(EnumCreatureType creaturetype, int x, int y, int z)
 	{
-		BiomeGenBase var5 = this.worldObj.getBiomeGenForCoords(par2, par4);
-		return var5 == null ? null : var5.getSpawnableList(par1EnumCreatureType);
+		BiomeGenBase var5 = this.worldObj.getBiomeGenForCoords(x, z);
+		return var5 == null ? null : var5.getSpawnableList(creaturetype);
 	}
 	
 	@Override
-	public ChunkPosition findClosestStructure(World par1World, String par2Str, int par3, int par4, int par5)
+	public ChunkPosition findClosestStructure(World world, String string, int x, int y, int z)
 	{
-		return ("Stronghold".equals(par2Str)) && (this.strongholdGenerator != null) ? this.strongholdGenerator.getNearestInstance(par1World, par3, par4, par5) : null;
+		return ("Stronghold".equals(string)) && (this.strongholdGenerator != null) ? this.strongholdGenerator.getNearestInstance(world, x, y, z) : null;
 	}
 	
 	@Override
@@ -348,7 +347,7 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 	}
 	
 	@Override
-	public void recreateStructures(int i, int j)
+	public void recreateStructures(int x, int y)
 	{
 	}
 	

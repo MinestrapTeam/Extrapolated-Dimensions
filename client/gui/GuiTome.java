@@ -11,15 +11,15 @@ public class GuiTome extends GuiScreen
 	}
 	
 	@Override
-	public void drawScreen(int par1, int par2, float par3)
+	public void drawScreen(int mouseX, int mouseY, float partialTickTime)
 	{
-		super.drawScreen(par1, par2, par3);
+		super.drawScreen(mouseX, mouseY, partialTickTime);
 	}
 	
 	@Override
-	protected void actionPerformed(GuiButton par1GuiButton)
+	protected void actionPerformed(GuiButton button)
 	{
-		super.actionPerformed(par1GuiButton);
+		super.actionPerformed(button);
 	}
 	
 	@Override

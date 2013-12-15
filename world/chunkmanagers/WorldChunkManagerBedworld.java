@@ -10,13 +10,13 @@ public class WorldChunkManagerBedworld extends WorldChunkManager
 	{
 	}
 	
-	public WorldChunkManagerBedworld(long par1, WorldType par3WorldType)
+	public WorldChunkManagerBedworld(long seed, WorldType worldType)
 	{
-		super(par1, par3WorldType);
+		super(seed, worldType);
 	}
 	
-	public WorldChunkManagerBedworld(World par1World)
+	public WorldChunkManagerBedworld(World world)
 	{
-		super(par1World);
+		super(world);
 	}
 }

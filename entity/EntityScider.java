@@ -14,19 +14,19 @@ import net.minecraft.world.World;
 
 public class EntityScider extends EntityMob
 {
-	public EntityScider(World par1World)
+	public EntityScider(World world)
 	{
-		super(par1World);
+		super(world);
 	}
 	
-	public EntityScider(World par1World, double par2, double par3, double par4)
+	public EntityScider(World world, double x, double y, double z)
 	{
-		super(par1World);
-		this.posX = par2;
+		super(world);
+		this.posX = x;
 		this.newPosX = this.posX;
-		this.posY = par3;
+		this.posY = y;
 		this.newPosY = this.posY;
-		this.posZ = par4;
+		this.posZ = z;
 		this.newPosZ = this.posZ;
 		this.setSize(1.4F, 0.9F);
 	}
@@ -120,7 +120,7 @@ public class EntityScider extends EntityMob
 	 * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
 	 */
 	@Override
-	protected void attackEntity(Entity par1Entity, float par2)
+	protected void attackEntity(Entity entity, float damage)
 	{
 		float var3 = this.getBrightness(1.0F);
 		
@@ -130,12 +130,12 @@ public class EntityScider extends EntityMob
 		}
 		else
 		{
-			if (par2 > 2.0F && par2 < 6.0F && this.rand.nextInt(10) == 0)
+			if (damage > 2.0F && damage < 6.0F && this.rand.nextInt(10) == 0)
 			{
 				if (this.onGround)
 				{
-					double var4 = par1Entity.posX - this.posX;
-					double var6 = par1Entity.posZ - this.posZ;
+					double var4 = entity.posX - this.posX;
+					double var6 = entity.posZ - this.posZ;
 					float var8 = MathHelper.sqrt_double(var4 * var4 + var6 * var6);
 					this.motionX = var4 / var8 * 0.5D * 0.800000011920929D + this.motionX * 0.20000000298023224D;
 					this.motionZ = var6 / var8 * 0.5D * 0.800000011920929D + this.motionZ * 0.20000000298023224D;
@@ -144,7 +144,7 @@ public class EntityScider extends EntityMob
 			}
 			else
 			{
-				super.attackEntity(par1Entity, par2);
+				super.attackEntity(entity, damage);
 			}
 		}
 	}
@@ -162,11 +162,11 @@ public class EntityScider extends EntityMob
 	 * Drop 0-2 items of this living's type
 	 */
 	@Override
-	protected void dropFewItems(boolean par1, int par2)
+	protected void dropFewItems(boolean hitByPlayer, int looting)
 	{
-		super.dropFewItems(par1, par2);
+		super.dropFewItems(hitByPlayer, looting);
 		
-		if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
+		if (hitByPlayer && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + looting) > 0))
 		{
 			this.dropItem(Item.spiderEye.itemID, 1);
 		}
@@ -208,9 +208,9 @@ public class EntityScider extends EntityMob
 	}
 	
 	@Override
-	public boolean isPotionApplicable(PotionEffect par1PotionEffect)
+	public boolean isPotionApplicable(PotionEffect potionEffect)
 	{
-		return par1PotionEffect.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(par1PotionEffect);
+		return potionEffect.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(potionEffect);
 	}
 	
 	/**
@@ -222,13 +222,13 @@ public class EntityScider extends EntityMob
 	}
 	
 	/**
-	 * Updates the WatchableObject (Byte) created in entityInit(), setting it to 0x01 if par1 is true or 0x00 if it is false.
+	 * Updates the WatchableObject (Byte) created in entityInit(), setting it to 0x01 if flag is true or 0x00 if it is false.
 	 */
-	public void setBesideClimbableBlock(boolean par1)
+	public void setBesideClimbableBlock(boolean flag)
 	{
 		byte var2 = this.dataWatcher.getWatchableObjectByte(16);
 		
-		if (par1)
+		if (flag)
 		{
 			var2 = (byte) (var2 | 1);
 		}

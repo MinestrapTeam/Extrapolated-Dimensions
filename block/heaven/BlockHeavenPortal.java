@@ -19,9 +19,9 @@ import net.minecraft.world.World;
 
 public class BlockHeavenPortal extends BlockBreakable
 {
-	public BlockHeavenPortal(int par1)
+	public BlockHeavenPortal(int blockID)
 	{
-		super(par1, "moredimensions:heaven_portal", Material.portal, false);
+		super(blockID, "moredimensions:heaven_portal", Material.portal, false);
 		this.setTickRandomly(true);
 	}
 	
@@ -29,16 +29,16 @@ public class BlockHeavenPortal extends BlockBreakable
 	 * Ticks the block if it's been scheduled
 	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
-		super.updateTick(par1World, par2, par3, par4, par5Random);
+		super.updateTick(world, x, y, z, random);
 	}
 	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been cleared to be reused)
 	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		return null;
 	}
@@ -47,12 +47,12 @@ public class BlockHeavenPortal extends BlockBreakable
 	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		float f;
 		float f1;
 		
-		if (par1IBlockAccess.getBlockId(par2 - 1, par3, par4) != this.blockID && par1IBlockAccess.getBlockId(par2 + 1, par3, par4) != this.blockID)
+		if (world.getBlockId(x - 1, y, z) != this.blockID && world.getBlockId(x + 1, y, z) != this.blockID)
 		{
 			f = 0.125F;
 			f1 = 0.5F;
@@ -87,17 +87,17 @@ public class BlockHeavenPortal extends BlockBreakable
 	/**
 	 * Checks to see if this location is valid to create a portal and will return True if it does. Args: world, x, y, z
 	 */
-	public boolean tryToCreatePortal(World par1World, int par2, int par3, int par4)
+	public boolean tryToCreatePortal(World world, int x, int y, int z)
 	{
 		byte b0 = 0;
 		byte b1 = 0;
 		
-		if (par1World.getBlockId(par2 - 1, par3, par4) == MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 + 1, par3, par4) == MDMBlocks.heavenPortalFrame.blockID)
+		if (world.getBlockId(x - 1, y, z) == MDMBlocks.heavenPortalFrame.blockID || world.getBlockId(x + 1, y, z) == MDMBlocks.heavenPortalFrame.blockID)
 		{
 			b0 = 1;
 		}
 		
-		if (par1World.getBlockId(par2, par3, par4 - 1) == MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2, par3, par4 + 1) == MDMBlocks.heavenPortalFrame.blockID)
+		if (world.getBlockId(x, y, z - 1) == MDMBlocks.heavenPortalFrame.blockID || world.getBlockId(x, y, z + 1) == MDMBlocks.heavenPortalFrame.blockID)
 		{
 			b1 = 1;
 		}
@@ -108,10 +108,10 @@ public class BlockHeavenPortal extends BlockBreakable
 		}
 		else
 		{
-			if (par1World.isAirBlock(par2 - b0, par3, par4 - b1))
+			if (world.isAirBlock(x - b0, y, z - b1))
 			{
-				par2 -= b0;
-				par4 -= b1;
+				x -= b0;
+				z -= b1;
 			}
 			
 			int l;
@@ -125,8 +125,8 @@ public class BlockHeavenPortal extends BlockBreakable
 					
 					if (l != -1 && l != 2 || i1 != -1 && i1 != 3)
 					{
-						int j1 = par1World.getBlockId(par2 + b0 * l, par3 + i1, par4 + b1 * l);
-						boolean isAirBlock = par1World.isAirBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l);
+						int j1 = world.getBlockId(x + b0 * l, y + i1, z + b1 * l);
+						boolean isAirBlock = world.isAirBlock(x + b0 * l, y + i1, z + b1 * l);
 						
 						if (flag)
 						{
@@ -147,7 +147,7 @@ public class BlockHeavenPortal extends BlockBreakable
 			{
 				for (i1 = 0; i1 < 3; ++i1)
 				{
-					par1World.setBlock(par2 + b0 * l, par3 + i1, par4 + b1 * l, this.blockID, 0, 2);
+					world.setBlock(x + b0 * l, y + i1, z + b1 * l, this.blockID, 0, 2);
 				}
 			}
 			
@@ -159,12 +159,12 @@ public class BlockHeavenPortal extends BlockBreakable
 	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are their own) Args: x, y, z, neighbor blockID
 	 */
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+	public void onNeighborBlockChange(World world, int x, int y, int z, int neightborBlockID)
 	{
 		byte b0 = 0;
 		byte b1 = 1;
 		
-		if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
+		if (world.getBlockId(x - 1, y, z) == this.blockID || world.getBlockId(x + 1, y, z) == this.blockID)
 		{
 			b0 = 1;
 			b1 = 0;
@@ -172,44 +172,44 @@ public class BlockHeavenPortal extends BlockBreakable
 		
 		int i1;
 		
-		for (i1 = par3; par1World.getBlockId(par2, i1 - 1, par4) == this.blockID; --i1)
+		for (i1 = y; world.getBlockId(x, i1 - 1, z) == this.blockID; --i1)
 		{
 			;
 		}
 		
-		if (par1World.getBlockId(par2, i1 - 1, par4) != MDMBlocks.heavenPortalFrame.blockID)
+		if (world.getBlockId(x, i1 - 1, z) != MDMBlocks.heavenPortalFrame.blockID)
 		{
-			par1World.setBlockToAir(par2, par3, par4);
+			world.setBlockToAir(x, y, z);
 		}
 		else
 		{
 			int j1;
 			
-			for (j1 = 1; j1 < 4 && par1World.getBlockId(par2, i1 + j1, par4) == this.blockID; ++j1)
+			for (j1 = 1; j1 < 4 && world.getBlockId(x, i1 + j1, z) == this.blockID; ++j1)
 			{
 				;
 			}
 			
-			if (j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == MDMBlocks.heavenPortalFrame.blockID)
+			if (j1 == 3 && world.getBlockId(x, i1 + j1, z) == MDMBlocks.heavenPortalFrame.blockID)
 			{
-				boolean flag = par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID;
-				boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) == this.blockID || par1World.getBlockId(par2, par3, par4 + 1) == this.blockID;
+				boolean flag = world.getBlockId(x - 1, y, z) == this.blockID || world.getBlockId(x + 1, y, z) == this.blockID;
+				boolean flag1 = world.getBlockId(x, y, z - 1) == this.blockID || world.getBlockId(x, y, z + 1) == this.blockID;
 				
 				if (flag && flag1)
 				{
-					par1World.setBlockToAir(par2, par3, par4);
+					world.setBlockToAir(x, y, z);
 				}
 				else
 				{
-					if ((par1World.getBlockId(par2 + b0, par3, par4 + b1) != MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != this.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != MDMBlocks.heavenPortalFrame.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != this.blockID))
+					if ((world.getBlockId(x + b0, y, z + b1) != MDMBlocks.heavenPortalFrame.blockID || world.getBlockId(x - b0, y, z - b1) != this.blockID) && (world.getBlockId(x - b0, y, z - b1) != MDMBlocks.heavenPortalFrame.blockID || world.getBlockId(x + b0, y, z + b1) != this.blockID))
 					{
-						par1World.setBlockToAir(par2, par3, par4);
+						world.setBlockToAir(x, y, z);
 					}
 				}
 			}
 			else
 			{
-				par1World.setBlockToAir(par2, par3, par4);
+				world.setBlockToAir(x, y, z);
 			}
 		}
 	}
@@ -219,21 +219,21 @@ public class BlockHeavenPortal extends BlockBreakable
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
-		if (par1IBlockAccess.getBlockId(par2, par3, par4) == this.blockID)
+		if (world.getBlockId(x, y, z) == this.blockID)
 		{
 			return false;
 		}
 		else
 		{
-			boolean flag = par1IBlockAccess.getBlockId(par2 - 1, par3, par4) == this.blockID && par1IBlockAccess.getBlockId(par2 - 2, par3, par4) != this.blockID;
-			boolean flag1 = par1IBlockAccess.getBlockId(par2 + 1, par3, par4) == this.blockID && par1IBlockAccess.getBlockId(par2 + 2, par3, par4) != this.blockID;
-			boolean flag2 = par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == this.blockID && par1IBlockAccess.getBlockId(par2, par3, par4 - 2) != this.blockID;
-			boolean flag3 = par1IBlockAccess.getBlockId(par2, par3, par4 + 1) == this.blockID && par1IBlockAccess.getBlockId(par2, par3, par4 + 2) != this.blockID;
+			boolean flag = world.getBlockId(x - 1, y, z) == this.blockID && world.getBlockId(x - 2, y, z) != this.blockID;
+			boolean flag1 = world.getBlockId(x + 1, y, z) == this.blockID && world.getBlockId(x + 2, y, z) != this.blockID;
+			boolean flag2 = world.getBlockId(x, y, z - 1) == this.blockID && world.getBlockId(x, y, z - 2) != this.blockID;
+			boolean flag3 = world.getBlockId(x, y, z + 1) == this.blockID && world.getBlockId(x, y, z + 2) != this.blockID;
 			boolean flag4 = flag || flag1;
 			boolean flag5 = flag2 || flag3;
-			return flag4 && par5 == 4 ? true : (flag4 && par5 == 5 ? true : (flag5 && par5 == 2 ? true : flag5 && par5 == 3));
+			return flag4 && side == 4 ? true : (flag4 && side == 5 ? true : (flag5 && side == 2 ? true : flag5 && side == 3));
 		}
 	}
 	
@@ -241,7 +241,7 @@ public class BlockHeavenPortal extends BlockBreakable
 	 * Returns the quantity of items to drop on block destruction.
 	 */
 	@Override
-	public int quantityDropped(Random par1Random)
+	public int quantityDropped(Random random)
 	{
 		return 0;
 	}
@@ -250,30 +250,30 @@ public class BlockHeavenPortal extends BlockBreakable
 	 * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
 	 */
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		if ((par5Entity.ridingEntity == null) && (par5Entity.riddenByEntity == null) && ((par5Entity instanceof EntityPlayerMP)))
+		if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP)))
 		{
-			EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
+			EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
 			teleportPlayer(thePlayer);
 		}
 	}
 	
-	public static void teleportPlayer(EntityPlayerMP thePlayer)
+	public static void teleportPlayer(EntityPlayerMP player)
 	{
-		if (thePlayer.timeUntilPortal > 0)
+		if (player.timeUntilPortal > 0)
 		{
-			thePlayer.timeUntilPortal = 10;
+			player.timeUntilPortal = 10;
 		}
-		else if (thePlayer.dimension != MDMWorld.HEAVEN_ID)
+		else if (player.dimension != MDMWorld.HEAVEN_ID)
 		{
-			thePlayer.timeUntilPortal = 10;
-			thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, MDMWorld.HEAVEN_ID, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(MDMWorld.HEAVEN_ID)));
+			player.timeUntilPortal = 10;
+			player.mcServer.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.HEAVEN_ID, new TeleporterHeaven(player.mcServer.worldServerForDimension(MDMWorld.HEAVEN_ID)));
 		}
 		else
 		{
-			thePlayer.timeUntilPortal = 10;
-			thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterHeaven(thePlayer.mcServer.worldServerForDimension(0)));
+			player.timeUntilPortal = 10;
+			player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterHeaven(player.mcServer.worldServerForDimension(0)));
 		}
 	}
 	
@@ -292,38 +292,38 @@ public class BlockHeavenPortal extends BlockBreakable
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
-		if (par5Random.nextInt(100) == 0)
+		if (random.nextInt(100) == 0)
 		{
-			par1World.playSound(par2 + 0.5D, par3 + 0.5D, par4 + 0.5D, "portal.portal", 0.5F, par5Random.nextFloat() * 0.4F + 0.8F, false);
+			world.playSound(x + 0.5D, y + 0.5D, z + 0.5D, "portal.portal", 0.5F, random.nextFloat() * 0.4F + 0.8F, false);
 		}
 		
 		for (int l = 0; l < 4; ++l)
 		{
-			double d0 = par2 + par5Random.nextFloat();
-			double d1 = par3 + par5Random.nextFloat();
-			double d2 = par4 + par5Random.nextFloat();
+			double d0 = x + random.nextFloat();
+			double d1 = y + random.nextFloat();
+			double d2 = z + random.nextFloat();
 			double d3 = 0.0D;
 			double d4 = 0.0D;
 			double d5 = 0.0D;
-			int i1 = par5Random.nextInt(2) * 2 - 1;
-			d3 = (par5Random.nextFloat() - 0.5D) * 0.5D;
-			d4 = (par5Random.nextFloat() - 0.5D) * 0.5D;
-			d5 = (par5Random.nextFloat() - 0.5D) * 0.5D;
+			int i1 = random.nextInt(2) * 2 - 1;
+			d3 = (random.nextFloat() - 0.5D) * 0.5D;
+			d4 = (random.nextFloat() - 0.5D) * 0.5D;
+			d5 = (random.nextFloat() - 0.5D) * 0.5D;
 			
-			if (par1World.getBlockId(par2 - 1, par3, par4) != this.blockID && par1World.getBlockId(par2 + 1, par3, par4) != this.blockID)
+			if (world.getBlockId(x - 1, y, z) != this.blockID && world.getBlockId(x + 1, y, z) != this.blockID)
 			{
-				d0 = par2 + 0.5D + 0.25D * i1;
-				d3 = par5Random.nextFloat() * 2.0F * i1;
+				d0 = x + 0.5D + 0.25D * i1;
+				d3 = random.nextFloat() * 2.0F * i1;
 			}
 			else
 			{
-				d2 = par4 + 0.5D + 0.25D * i1;
-				d5 = par5Random.nextFloat() * 2.0F * i1;
+				d2 = z + 0.5D + 0.25D * i1;
+				d5 = random.nextFloat() * 2.0F * i1;
 			}
 			
-			par1World.spawnParticle("portal", d0, d1, d2, d3, d4, d5);
+			world.spawnParticle("portal", d0, d1, d2, d3, d4, d5);
 		}
 	}
 	
@@ -332,7 +332,7 @@ public class BlockHeavenPortal extends BlockBreakable
 	 */
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int idPicked(World par1World, int par2, int par3, int par4)
+	public int idPicked(World world, int x, int y, int z)
 	{
 		return 0;
 	}

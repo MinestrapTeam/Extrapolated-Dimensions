@@ -23,36 +23,36 @@ public class ItemSwordMDM extends Item
 	public final EnumToolMaterial	toolMaterial;
 	public float					efficiencyOnProperMaterial	= 1F;
 	
-	public ItemSwordMDM(int par1, float weaponDamage, EnumToolMaterial material)
+	public ItemSwordMDM(int itemID, float weaponDamage, EnumToolMaterial material)
 	{
-		this(par1, weaponDamage, 1F, material);
+		this(itemID, weaponDamage, 1F, material);
 	}
 	
-	public ItemSwordMDM(int par1, float weaponDamage, float efficiencyMultiplier, EnumToolMaterial par2EnumToolMaterial)
+	public ItemSwordMDM(int itemID, float weaponDamage, float efficiencyMultiplier, EnumToolMaterial material)
 	{
-		super(par1);
+		super(itemID);
 		this.maxStackSize = 1;
-		this.toolMaterial = par2EnumToolMaterial;
-		this.efficiencyOnProperMaterial = par2EnumToolMaterial.getEfficiencyOnProperMaterial() * efficiencyMultiplier;
+		this.toolMaterial = material;
+		this.efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial() * efficiencyMultiplier;
 		
-		this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
+		this.setMaxDamage(material.getMaxUses());
 		this.setCreativeTab(MDMItems.tabTools);
-		this.weaponDamage = weaponDamage + par2EnumToolMaterial.getDamageVsEntity();
+		this.weaponDamage = weaponDamage + material.getDamageVsEntity();
 	}
 	
 	/**
 	 * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
 	@Override
-	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
+	public float getStrVsBlock(ItemStack stack, Block block)
 	{
-		if (par2Block.blockID == Block.web.blockID)
+		if (block.blockID == Block.web.blockID)
 		{
 			return 15.0F;
 		}
 		else
 		{
-			Material material = par2Block.blockMaterial;
+			Material material = block.blockMaterial;
 			return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.pumpkin ? this.efficiencyOnProperMaterial : (this.efficiencyOnProperMaterial * 1.5F);
 		}
 	}
@@ -61,28 +61,28 @@ public class ItemSwordMDM extends Item
 	 * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise the damage on the stack.
 	 */
 	@Override
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+	public boolean hitEntity(ItemStack stack, EntityLivingBase attacker, EntityLivingBase living)
 	{
-		par1ItemStack.damageItem(1, par3EntityLivingBase);
+		stack.damageItem(1, living);
 		return true;
 	}
 	
 	@Override
-	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLivingBase par7EntityLivingBase)
+	public boolean onBlockDestroyed(ItemStack stack, World world, int blockID, int x, int y, int z, EntityLivingBase living)
 	{
-		if (Block.blocksList[par3].getBlockHardness(par2World, par4, par5, par6) != 0.0D)
+		if (Block.blocksList[blockID].getBlockHardness(world, x, y, z) != 0.0D)
 		{
-			par1ItemStack.damageItem(2, par7EntityLivingBase);
+			stack.damageItem(2, living);
 		}
 		
 		return true;
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
 	/**
 	 * Returns True is the item is renderer in full 3D when hold.
 	 */
+	@Override
+	@SideOnly(Side.CLIENT)
 	public boolean isFull3D()
 	{
 		return true;
@@ -92,7 +92,7 @@ public class ItemSwordMDM extends Item
 	 * How long it takes to use or consume an item
 	 */
 	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack)
+	public int getMaxItemUseDuration(ItemStack stack)
 	{
 		return 72000;
 	}
@@ -101,9 +101,9 @@ public class ItemSwordMDM extends Item
 	 * Returns if the item (tool) can harvest results from the block type.
 	 */
 	@Override
-	public boolean canHarvestBlock(Block par1Block)
+	public boolean canHarvestBlock(Block block)
 	{
-		return par1Block.blockID == Block.web.blockID;
+		return block.blockID == Block.web.blockID;
 	}
 	
 	/**
@@ -127,9 +127,9 @@ public class ItemSwordMDM extends Item
 	 * Return whether this item is repairable in an anvil.
 	 */
 	@Override
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	public boolean getIsRepairable(ItemStack item, ItemStack stack)
 	{
-		return this.toolMaterial.getToolCraftingMaterial() == par2ItemStack.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+		return this.toolMaterial.getToolCraftingMaterial() == stack.itemID ? true : super.getIsRepairable(item, stack);
 	}
 	
 	/**
@@ -147,57 +147,57 @@ public class ItemSwordMDM extends Item
 	
 	public static class ItemDagger extends ItemSwordMDM
 	{
-		public ItemDagger(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemDagger(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 4.5F, 0.75F, par2EnumToolMaterial);
+			super(itemID, 4.5F, 0.75F, material);
 		}
 	}
 	
 	public static class ItemScimitar extends ItemSwordMDM
 	{
-		public ItemScimitar(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemScimitar(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 5F, 0.5F, par2EnumToolMaterial);
+			super(itemID, 5F, 0.5F, material);
 		}
 	}
 	
 	public static class ItemRapier extends ItemSwordMDM
 	{
-		public ItemRapier(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemRapier(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 4.75F, 0.75F, par2EnumToolMaterial);
+			super(itemID, 4.75F, 0.75F, material);
 		}
 	}
 	
 	public static class ItemLongsword extends ItemSwordMDM
 	{
-		public ItemLongsword(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemLongsword(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 4.5F, 1.2F, par2EnumToolMaterial);
+			super(itemID, 4.5F, 1.2F, material);
 		}
 	}
 	
 	public static class ItemHalberd extends ItemSwordMDM
 	{
-		public ItemHalberd(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemHalberd(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 4F, 1.3F, par2EnumToolMaterial);
+			super(itemID, 4F, 1.3F, material);
 		}
 	}
 	
 	public static class ItemSpear extends ItemSwordMDM
 	{
-		public ItemSpear(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemSpear(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 3.75F, 1.3F, par2EnumToolMaterial);
+			super(itemID, 3.75F, 1.3F, material);
 		}
 	}
 	
 	public static class ItemClaws extends ItemSwordMDM
 	{
-		public ItemClaws(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemClaws(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 5F, 1.25F, par2EnumToolMaterial);
+			super(itemID, 5F, 1.25F, material);
 		}
 	}
 	
@@ -205,33 +205,33 @@ public class ItemSwordMDM extends Item
 	
 	public static class ItemThrowableKnife extends ItemSwordMDM
 	{
-		public ItemThrowableKnife(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemThrowableKnife(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 4F, 0.7F, par2EnumToolMaterial);
+			super(itemID, 4F, 0.7F, material);
 		}
 	}
 	
 	public static class ItemNinjaStar extends ItemSwordMDM
 	{
-		public ItemNinjaStar(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemNinjaStar(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 3.5F, 0.666F, par2EnumToolMaterial);
+			super(itemID, 3.5F, 0.666F, material);
 		}
 	}
 	
 	public static class ItemJavelin extends ItemSwordMDM
 	{
-		public ItemJavelin(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemJavelin(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 3.5F, 1.3F, par2EnumToolMaterial);
+			super(itemID, 3.5F, 1.3F, material);
 		}
 	}
 	
 	public static class ItemDart extends ItemSwordMDM
 	{
-		public ItemDart(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemDart(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 3F, 0.666F, par2EnumToolMaterial);
+			super(itemID, 3F, 0.666F, material);
 		}
 	}
 }

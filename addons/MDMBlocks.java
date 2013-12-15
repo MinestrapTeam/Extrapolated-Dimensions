@@ -9,7 +9,6 @@ import clashsoft.cslib.minecraft.block.BlockCustomLog;
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.mods.moredimensions.block.BlockDamnationTable;
-import clashsoft.mods.moredimensions.block.BlockMDM;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
 
@@ -211,9 +210,9 @@ public class MDMBlocks
 		}
 		
 		heavenPortal = (BlockHeavenPortal) (new BlockHeavenPortal(CSConfig.getBlock("Heaven Portal", 1053))).setUnlocalizedName("heaven_portal").setTextureName("moredimensions:heaven_portal").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(-1F).setLightValue(1F);
-		heavenPortalFrame = (new BlockMDM(CSConfig.getBlock("Heaven Portal Frame", 1054), Material.rock, MDMItems.tabHeavenBlocks)).setUnlocalizedName("heaven_portal_frame").setTextureName("moredimensions:heaven_portal_frame").setHardness(2F);
+		heavenPortalFrame = (new Block(CSConfig.getBlock("Heaven Portal Frame", 1054), Material.rock)).setUnlocalizedName("heaven_portal_frame").setTextureName("moredimensions:heaven_portal_frame").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(2F);
 		
-		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(CSConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setHardness(1.75F);
+		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(CSConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(1.75F);
 		
 		damnationTable = (BlockDamnationTable) new BlockDamnationTable(CSConfig.getBlock("Damnation Tabel", 1059)).setUnlocalizedName("damnation_table").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(4F);
 	}

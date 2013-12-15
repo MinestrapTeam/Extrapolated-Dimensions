@@ -5,9 +5,9 @@ import net.minecraft.item.ItemArmor;
 
 public class ItemChestplate extends ItemArmor
 {
-	public ItemChestplate(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3)
+	public ItemChestplate(int itemID, EnumArmorMaterial material, int renderIndex)
 	{
-		super(par1, par2EnumArmorMaterial, par3, ArmorTypes.CHESTPLATE);
+		super(itemID, material, renderIndex, ArmorTypes.CHESTPLATE);
 	}
 	
 }

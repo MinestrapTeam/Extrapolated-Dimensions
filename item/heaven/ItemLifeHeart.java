@@ -8,18 +8,18 @@ import net.minecraft.world.World;
 
 public class ItemLifeHeart extends ItemHeavenFood
 {
-	public ItemLifeHeart(int par1)
+	public ItemLifeHeart(int itemID)
 	{
-		super(par1, 2, 0, false);
+		super(itemID, 2, 0, false);
 	}
 	
 	@Override
-	public ItemStack onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
 	{
-		--par1ItemStack.stackSize;
-		par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, par2World.rand.nextFloat() * 0.1F + 0.9F);
-		MDMEntityProperties.getEntityProperties(par3EntityPlayer).addAdditionalHearts(1F);
-		return par1ItemStack;
+		--stack.stackSize;
+		world.playSoundAtEntity(player, "random.bow", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+		MDMEntityProperties.getEntityProperties(player).addAdditionalHearts(1F);
+		return stack;
 	}
 	
 }

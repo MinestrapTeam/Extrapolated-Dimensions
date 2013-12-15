@@ -20,7 +20,7 @@ public class GuiPOCCredits extends GuiScreen
 	private static final ResourceLocation	title			= new ResourceLocation("textures/gui/title/minecraft.png");
 	private static final ResourceLocation	vignette		= new ResourceLocation("textures/misc/vignette.png");
 	
-	private final GuiScreen					superGui;
+	private final GuiScreen					parentGUI;
 	private final boolean					respawn;
 	
 	/** Counts the number of screen updates. */
@@ -28,19 +28,18 @@ public class GuiPOCCredits extends GuiScreen
 	
 	/** List of lines on the ending poem and credits. */
 	private List							lines;
-	private int								field_73989_c	= 0;
+	private int								length	= 0;
 	private final float						field_73987_d	= 0.5F;
 	
-	public GuiPOCCredits(GuiScreen par1GuiScreen)
+	public GuiPOCCredits(GuiScreen parent)
 	{
-		this.superGui = par1GuiScreen;
-		this.respawn = false;
+		this(parent, false);
 	}
 	
-	public GuiPOCCredits(GuiScreen par1GuiScreen, boolean par2)
+	public GuiPOCCredits(GuiScreen parent, boolean respawn)
 	{
-		this.superGui = par1GuiScreen;
-		this.respawn = par2;
+		this.parentGUI = parent;
+		this.respawn = respawn;
 	}
 	
 	/**
@@ -50,14 +49,14 @@ public class GuiPOCCredits extends GuiScreen
 	public void updateScreen()
 	{
 		this.updateCounter += 2;
-		float f = (this.field_73989_c + this.height + this.height + 24) / this.field_73987_d;
+		float f = (this.length + this.height + this.height + 24) / this.field_73987_d;
 		
 		if (this.updateCounter > f)
 		{
 			if (this.respawn)
 				this.respawnPlayer();
 			else
-				this.mc.displayGuiScreen(this.superGui);
+				this.mc.displayGuiScreen(this.parentGUI);
 		}
 	}
 	
@@ -74,14 +73,14 @@ public class GuiPOCCredits extends GuiScreen
 	 * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
 	 */
 	@Override
-	protected void keyTyped(char par1, int par2)
+	protected void keyTyped(char c, int key)
 	{
-		if (par2 == 1)
+		if (key == 1)
 		{
 			if (this.respawn)
 				this.respawnPlayer();
 			else
-				this.mc.displayGuiScreen(this.superGui);
+				this.mc.displayGuiScreen(this.parentGUI);
 		}
 	}
 	
@@ -108,23 +107,23 @@ public class GuiPOCCredits extends GuiScreen
 			
 			for (String s : lines)
 				this.lines.add(s);
-			this.field_73989_c = this.lines.size() * 12;
+			this.length = this.lines.size() * 12;
 		}
 	}
 	
-	private void func_73986_b(int par1, int par2, float par3)
+	private void func_73986_b(int mouseX, int mouseY, float partialTickTime)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		this.mc.renderEngine.bindTexture(Gui.optionsBackground);
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F);
 		int k = this.width;
-		float f1 = 0.0F - (this.updateCounter + par3) * 0.5F * this.field_73987_d;
-		float f2 = this.height - (this.updateCounter + par3) * 0.5F * this.field_73987_d;
+		float f1 = 0.0F - (this.updateCounter + partialTickTime) * 0.5F * this.field_73987_d;
+		float f2 = this.height - (this.updateCounter + partialTickTime) * 0.5F * this.field_73987_d;
 		float f3 = 0.015625F;
-		float f4 = (this.updateCounter + par3 - 0.0F) * 0.02F;
-		float f5 = (this.field_73989_c + this.height + this.height + 24) / this.field_73987_d;
-		float f6 = (f5 - 20.0F - (this.updateCounter + par3)) * 0.005F;
+		float f4 = (this.updateCounter + partialTickTime - 0.0F) * 0.02F;
+		float f5 = (this.length + this.height + this.height + 24) / this.field_73987_d;
+		float f6 = (f5 - 20.0F - (this.updateCounter + partialTickTime)) * 0.005F;
 		
 		if (f6 < f4)
 		{
@@ -150,14 +149,14 @@ public class GuiPOCCredits extends GuiScreen
 	 * Draws the screen and all the components in it.
 	 */
 	@Override
-	public void drawScreen(int par1, int par2, float par3)
+	public void drawScreen(int mouseX, int mouseY, float partialTickTime)
 	{
-		this.func_73986_b(par1, par2, par3);
+		this.func_73986_b(mouseX, mouseY, partialTickTime);
 		Tessellator tessellator = Tessellator.instance;
 		short short1 = 274;
 		int k = this.width / 2 - short1 / 2;
 		int l = this.height + 50;
-		float f1 = -(this.updateCounter + par3) * this.field_73987_d;
+		float f1 = -(this.updateCounter + partialTickTime) * this.field_73987_d;
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0F, f1, 0.0F);
 		this.mc.renderEngine.bindTexture(title);
@@ -212,6 +211,6 @@ public class GuiPOCCredits extends GuiScreen
 		tessellator.addVertexWithUV(0.0D, 0.0D, this.zLevel, 0.0D, 0.0D);
 		tessellator.draw();
 		GL11.glDisable(GL11.GL_BLEND);
-		super.drawScreen(par1, par2, par3);
+		super.drawScreen(mouseX, mouseY, partialTickTime);
 	}
 }

@@ -29,15 +29,15 @@ public class GuiGameOverHeaven extends GuiGameOver
 	 * Fired when a control is clicked. This is the equivalent of ActionListener.actionPerformed(ActionEvent e).
 	 */
 	@Override
-	protected void actionPerformed(GuiButton par1GuiButton)
+	protected void actionPerformed(GuiButton button)
 	{
-		if (par1GuiButton.id == 3)
+		if (button.id == 3)
 		{
 			this.mc.thePlayer.respawnPlayer();
 			this.mc.displayGuiScreen((GuiScreen) null);
 			PacketDispatcher.sendPacketToServer(new PacketHeaven());
 		}
 		else
-			super.actionPerformed(par1GuiButton);
+			super.actionPerformed(button);
 	}
 }

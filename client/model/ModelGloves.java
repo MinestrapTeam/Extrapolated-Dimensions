@@ -11,9 +11,9 @@ public class ModelGloves extends ModelBiped
 	}
 	
 	@Override
-	public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
+	public void render(Entity entity, float x, float y, float z, float i1, float i2, float i3)
 	{
-		super.render(par1Entity, par2, par3, par4, par5, par6, par7);
+		super.render(entity, x, y, z, i1, i2, i3);
 		
 	}
 }

@@ -16,7 +16,7 @@ public class HeavenGenBuildings
 	/**
 	 * The WorldGen for a little hut
 	 * 
-	 * @author CS
+	 * @author Clashsoft
 	 */
 	public class HeavenGenBuilding1 extends WorldGenerator
 	{
@@ -25,9 +25,9 @@ public class HeavenGenBuildings
 			
 		}
 		
-		public HeavenGenBuilding1(boolean par1)
+		public HeavenGenBuilding1(boolean flag)
 		{
-			super(par1);
+			super(flag);
 		}
 		
 		@Override

@@ -40,11 +40,11 @@ public class GuiBossChat extends GuiContainer
 	 * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
 	 */
 	@Override
-	protected void keyTyped(char par1, int par2)
+	protected void keyTyped(char c, int key)
 	{
-		if (par2 == Keyboard.KEY_ESCAPE)
-			super.keyTyped(par1, par2);
-		if (par2 == Keyboard.KEY_RETURN)
+		if (key == Keyboard.KEY_ESCAPE)
+			super.keyTyped(c, key);
+		if (key == Keyboard.KEY_RETURN)
 		{
 			String message = this.playerInput.getText();
 			
@@ -54,17 +54,17 @@ public class GuiBossChat extends GuiContainer
 			this.playerInput.setText("");
 		}
 		else
-			this.playerInput.textboxKeyTyped(par1, par2);
+			this.playerInput.textboxKeyTyped(c, key);
 	}
 	
 	@Override
-	protected void mouseClicked(int par1, int par2, int par3)
+	protected void mouseClicked(int x, int y, int button)
 	{
-		this.playerInput.mouseClicked(par1, par2, par3);
+		this.playerInput.mouseClicked(x, y, button);
 	}
 	
 	@Override
-	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
+	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{
 		this.playerInput.drawTextBox();
 		

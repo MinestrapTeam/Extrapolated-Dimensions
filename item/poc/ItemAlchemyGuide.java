@@ -14,19 +14,19 @@ import net.minecraft.world.World;
 
 public class ItemAlchemyGuide extends Item
 {
-	public ItemAlchemyGuide(int par1)
+	public ItemAlchemyGuide(int itemID)
 	{
-		super(par1);
+		super(itemID);
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		par3List.add(I18n.getString("alchemyguide.description"));
+		list.add(I18n.getString("alchemyguide.description"));
 	}
 	
 	@Override
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack stack)
 	{
 		return true;
 	}
@@ -35,9 +35,9 @@ public class ItemAlchemyGuide extends Item
 	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
 	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		FMLNetworkHandler.openGui(par3EntityPlayer, MoreDimensionsMod.instance, MDMCommonProxy.TOME_GUIID, par2World, 0, 0, 0);
-		return par1ItemStack;
+		FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMCommonProxy.TOME_GUIID, world, 0, 0, 0);
+		return stack;
 	}
 }

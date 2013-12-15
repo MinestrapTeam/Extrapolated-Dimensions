@@ -28,9 +28,9 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	public String[]	texturenames;
 	public Icon[]	icons;
 	
-	public BlockPOCHerb(int par1, String[] names, String[] texturenames)
+	public BlockPOCHerb(int blockID, String[] names, String[] texturenames)
 	{
-		super(par1, Material.plants);
+		super(blockID, Material.plants);
 		this.setTickRandomly(true);
 		float f = 0.2F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);
@@ -40,69 +40,69 @@ public class BlockPOCHerb extends BlockFlower implements IPlantable, ICustomBloc
 	}
 	
 	@Override
-	public Icon getIcon(int par1, int par2)
+	public Icon getIcon(int side, int metadata)
 	{
-		return this.icons[par2];
+		return this.icons[metadata];
 	}
 	
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
 		for (int i = 0; i < this.texturenames.length; i++)
-			this.icons[i] = par1IconRegister.registerIcon(this.texturenames[i]);
+			this.icons[i] = iconRegister.registerIcon(this.texturenames[i]);
 	}
 	
 	/**
 	 * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
 	 */
 	@Override
-	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
-		return super.canPlaceBlockAt(par1World, par2, par3, par4) && this.canBlockStay(par1World, par2, par3, par4);
+		return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
 	}
 	
 	/**
 	 * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of blockID passed in. Args: blockID
 	 */
-	protected boolean canThisGrowOnThisBlockID(int par1)
+	protected boolean canThisGrowOnThisBlockID(int blockID)
 	{
-		return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == MDMBlocks.pocDirtBlocks.blockID;
+		return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == MDMBlocks.pocDirtBlocks.blockID;
 	}
 	
 	/**
 	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are their own) Args: x, y, z, neighbor blockID
 	 */
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborBlockID)
 	{
-		super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
-		this.checkFlowerChange(par1World, par2, par3, par4);
+		super.onNeighborBlockChange(world, x, y, z, neighborBlockID);
+		this.checkFlowerChange(world, x, y, z);
 	}
 	
 	/**
 	 * Ticks the block if it's been scheduled
 	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
-		this.checkFlowerChange(par1World, par2, par3, par4);
+		this.checkFlowerChange(world, x, y, z);
 	}
 	
 	/**
 	 * Can this block stay at this position. Similar to canPlaceBlockAt except gets checked often with plants.
 	 */
 	@Override
-	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+	public boolean canBlockStay(World world, int x, int y, int z)
 	{
-		Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
-		return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && (soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this));
+		Block soil = blocksList[world.getBlockId(x, y - 1, z)];
+		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && (soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
 	}
 	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been cleared to be reused)
 	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		return null;
 	}

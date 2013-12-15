@@ -31,67 +31,67 @@ public class ItemHeavenSoul extends Item
 	
 	public Icon[]					icons		= new Icon[16];
 	
-	public ItemHeavenSoul(int par1)
+	public ItemHeavenSoul(int itemID)
 	{
-		super(par1);
+		super(itemID);
 		this.setMaxStackSize(1);
 		this.setCreativeTab(MDMItems.tabHeavenItems);
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		switch (par1ItemStack.getItemDamage())
+		switch (stack.getItemDamage())
 		{
 			case 0: // Blood
 				return false;
 			case 1: // Fire
-				int var11 = par3World.getBlockId(par4, par5 + 1, par6);
+				int var11 = world.getBlockId(x, y + 1, z);
 				
 				if (var11 == 0)
 				{
-					par3World.playSoundEffect(par4 + 0.5D, par5 + 0.5D, par6 + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-					par3World.setBlock(par4, par5 + 1, par6, Block.fire.blockID);
+					world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+					world.setBlock(x, y + 1, z, Block.fire.blockID);
 				}
 				
-				par1ItemStack.stackSize--;
+				stack.stackSize--;
 				return true;
 			case 2: // Boss 1
 				return false;
 			case 3: // Lightning
-				par3World.spawnEntityInWorld(new EntityLightningBolt(par3World, par4, par5, par6));
-				par1ItemStack.stackSize--;
+				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y, z));
+				stack.stackSize--;
 				return true;
 			case 4: // Grass
-				if (par3World.getBlockId(par4, par5, par6) == Block.dirt.blockID)
+				if (world.getBlockId(x, y, z) == Block.dirt.blockID)
 				{
-					par3World.setBlock(par4, par5, par6, Block.grass.blockID);
-					par1ItemStack.stackSize--;
+					world.setBlock(x, y, z, Block.grass.blockID);
+					stack.stackSize--;
 					return true;
 				}
 			case 5: // Boss 2
 				return false;
 			case 6: // Animals
-				EntityPig var2 = new EntityPig(par3World);
-				var2.setLocationAndAngles(par4 - 0.25F, par5 + 1, par6 - 0.25F, rand.nextInt(), rand.nextInt());
-				par3World.spawnEntityInWorld(var2);
-				par1ItemStack.stackSize--;
+				EntityPig var2 = new EntityPig(world);
+				var2.setLocationAndAngles(x - 0.25F, y + 1, z - 0.25F, rand.nextInt(), rand.nextInt());
+				world.spawnEntityInWorld(var2);
+				stack.stackSize--;
 				return true;
 			case 7: // Forest
-				this.growTree(par3World, par4, par5 + 1, par6, rand);
-				par1ItemStack.stackSize--;
+				this.growTree(world, x, y + 1, z, rand);
+				stack.stackSize--;
 				return true;
 			case 8: // Sky
-				par3World.setRainStrength(1);
-				par1ItemStack.stackSize--;
+				world.setRainStrength(1);
+				stack.stackSize--;
 				return true;
 			case 9: // Water
-				par3World.setBlock(par4, par5 + 1, par6, Block.waterStill.blockID);
-				par1ItemStack.stackSize--;
+				world.setBlock(x, y + 1, z, Block.waterStill.blockID);
+				stack.stackSize--;
 				return true;
 			case 10: // Night
-				par3World.setWorldTime(16000);
-				par1ItemStack.stackSize--;
+				world.setWorldTime(16000);
+				stack.stackSize--;
 				return true;
 			case 11: // Darkness
 				return false;
@@ -101,12 +101,12 @@ public class ItemHeavenSoul extends Item
 				return false;
 			case 14: // Flower
 				int flower = rand.nextInt(1) + Block.plantYellow.blockID;
-				par3World.setBlock(par4, par5 + 1, par6, flower);
-				par1ItemStack.stackSize--;
+				world.setBlock(x, y + 1, z, flower);
+				stack.stackSize--;
 				return true;
 			case 15: // Light
-				par3World.setWorldTime(0);
-				par1ItemStack.stackSize--;
+				world.setWorldTime(0);
+				stack.stackSize--;
 				return true;
 			default:
 				return false;
@@ -116,64 +116,64 @@ public class ItemHeavenSoul extends Item
 	/**
 	 * Attempts to grow a sapling into a tree
 	 */
-	public void growTree(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void growTree(World world, int x, int y, int z, Random random)
 	{
-		int var6 = par1World.getBlockMetadata(par2, par3, par4) & 3;
+		int var6 = world.getBlockMetadata(x, y, z) & 3;
 		Object var7 = null;
 		int var8 = 0;
 		int var9 = 0;
 		boolean var10 = false;
 		var7 = new WorldGenTrees(true);
-		((WorldGenerator) var7).generate(par1World, par5Random, par2, par3, par4);
+		((WorldGenerator) var7).generate(world, random, x, y, z);
 	}
 	
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
 		for (int i = 0; i < 16; i++)
 		{
-			this.icons[i] = par1IconRegister.registerIcon("moredimensions:soul_" + (i + 1));
+			this.icons[i] = iconRegister.registerIcon("moredimensions:soul_" + (i + 1));
 		}
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
 	/**
 	 * Gets an icon index based on an item's damage value
 	 */
-	public Icon getIconFromDamage(int par1)
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamage(int metadata)
 	{
-		if (par1 < this.icons.length)
+		if (metadata < this.icons.length)
 		{
-			return this.icons[par1];
+			return this.icons[metadata];
 		}
 		return this.icons[15];
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack par1ItemStack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		return super.getUnlocalizedName() + "." + par1ItemStack.getItemDamage();
+		return super.getUnlocalizedName() + "." + stack.getItemDamage();
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		if (par1ItemStack.getItemDamage() < soulDesc.length)
+		if (stack.getItemDamage() < soulDesc.length)
 		{
-			par3List.add(soulDesc[par1ItemStack.getItemDamage()]);
+			list.add(soulDesc[stack.getItemDamage()]);
 		}
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack stack)
 	{
 		return true;
 	}
 	
 	@Override
-	public EnumRarity getRarity(ItemStack par1ItemStack)
+	public EnumRarity getRarity(ItemStack stack)
 	{
 		return EnumRarity.rare;
 	}
@@ -182,11 +182,11 @@ public class ItemHeavenSoul extends Item
 	/**
 	 * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
 	 */
-	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
 	{
 		for (int var4 = 0; var4 < 16; ++var4)
 		{
-			par3List.add(new ItemStack(par1, 1, var4));
+			list.add(new ItemStack(itemID, 1, var4));
 		}
 	}
 }

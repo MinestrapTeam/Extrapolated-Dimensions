@@ -25,9 +25,9 @@ public class ItemElixir extends ItemPotion2
 	public Icon[]			splashBottles;
 	public Icon[]			liquids;
 	
-	public ItemElixir(int par1)
+	public ItemElixir(int itemID)
 	{
-		super(par1);
+		super(itemID);
 	}
 	
 	@Override
@@ -38,16 +38,16 @@ public class ItemElixir extends ItemPotion2
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
 		this.bottles = new Icon[BOTTLE_TYPES];
 		this.splashBottles = new Icon[BOTTLE_TYPES];
 		this.liquids = new Icon[BOTTLE_TYPES];
 		for (int i = 0; i < BOTTLE_TYPES; i++)
 		{
-			this.bottles[i] = par1IconRegister.registerIcon("moredimensions:elixir_bottle_" + i);
-			this.splashBottles[i] = par1IconRegister.registerIcon("moredimensions:elixir_splash_" + i);
-			this.liquids[i] = par1IconRegister.registerIcon("moredimensions:elixir_liquid_" + i);
+			this.bottles[i] = iconRegister.registerIcon("moredimensions:elixir_bottle_" + i);
+			this.splashBottles[i] = iconRegister.registerIcon("moredimensions:elixir_splash_" + i);
+			this.liquids[i] = iconRegister.registerIcon("moredimensions:elixir_liquid_" + i);
 		}
 	}
 	
@@ -55,20 +55,20 @@ public class ItemElixir extends ItemPotion2
 	 * returns wether or not a potion is a throwable splash potion based on damage value
 	 */
 	@Override
-	public boolean isSplash(int par1)
+	public boolean isSplash(int metadata)
 	{
-		return (par1 & 2) != 0;
+		return (metadata & 2) != 0;
 	}
 	
-	public int getBottleType(int par1)
+	public int getBottleType(int metadata)
 	{
-		return par1 >> 2;
+		return metadata >> 2;
 	}
 	
 	@Override
-	public boolean isWater(int par1)
+	public boolean isWater(int metadata)
 	{
-		return (par1 & 1) == 0;
+		return (metadata & 1) == 0;
 	}
 	
 	/**
@@ -86,10 +86,10 @@ public class ItemElixir extends ItemPotion2
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public Icon getIcon(ItemStack par1ItemStack, int par2)
+	public Icon getIcon(ItemStack stack, int pass)
 	{
-		int type = this.getBottleType(par1ItemStack.getItemDamage());
-		return par2 == 0 ? this.liquids[type] : (this.isSplash(par1ItemStack.getItemDamage()) ? this.splashBottles[type] : this.bottles[type]);
+		int type = this.getBottleType(stack.getItemDamage());
+		return pass == 0 ? this.liquids[type] : (this.isSplash(stack.getItemDamage()) ? this.splashBottles[type] : this.bottles[type]);
 	}
 	
 	@Override
@@ -99,10 +99,10 @@ public class ItemElixir extends ItemPotion2
 	}
 	
 	@Override
-	public String getItemDisplayName(ItemStack par1ItemStack)
+	public String getItemDisplayName(ItemStack stack)
 	{
-		List effects = this.getEffects(par1ItemStack);
-		if (this.isWater(par1ItemStack.getItemDamage()))
+		List effects = this.getEffects(stack);
+		if (this.isWater(stack.getItemDamage()))
 		{
 			return StatCollector.translateToLocal("elixir.empty").trim();
 		}
@@ -110,12 +110,12 @@ public class ItemElixir extends ItemPotion2
 		{
 			String var2 = "";
 			
-			if (this.isSplash(par1ItemStack.getItemDamage()))
+			if (this.isSplash(stack.getItemDamage()))
 			{
 				var2 = StatCollector.translateToLocal("elixir.prefix.grenade").trim() + " ";
 			}
 			
-			List<PotionType> var3 = this.getEffects(par1ItemStack);
+			List<PotionType> var3 = this.getEffects(stack);
 			String var4 = "";
 			
 			if (var3 != null && !var3.isEmpty())
@@ -130,7 +130,7 @@ public class ItemElixir extends ItemPotion2
 				}
 				else if (var3.get(0).isBase())
 				{
-					return StatCollector.translateToLocal("potion.prefix." + ((PotionBase) var3.get(0)).basename).trim() + " " + var2 + super.getItemDisplayName(par1ItemStack);
+					return StatCollector.translateToLocal("potion.prefix." + ((PotionBase) var3.get(0)).basename).trim() + " " + var2 + super.getItemDisplayName(stack);
 				}
 				for (int i = 0; i < var3.size(); i++)
 				{
@@ -154,17 +154,17 @@ public class ItemElixir extends ItemPotion2
 			}
 			else
 			{
-				return super.getItemDisplayName(par1ItemStack);
+				return super.getItemDisplayName(stack);
 			}
 		}
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		String s = EnumChatFormatting.ITALIC + StatCollector.translateToLocal("elixir.bottletype") + ": " + StatCollector.translateToLocal("elixir.bottletype." + this.getBottleType(par1ItemStack.getItemDamage()));
-		par3List.add(s);
-		super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
+		String s = EnumChatFormatting.ITALIC + StatCollector.translateToLocal("elixir.bottletype") + ": " + StatCollector.translateToLocal("elixir.bottletype." + this.getBottleType(stack.getItemDamage()));
+		list.add(s);
+		super.addInformation(stack, player, list, flag);
 	}
 	
 	@Override
@@ -172,26 +172,27 @@ public class ItemElixir extends ItemPotion2
 	/**
 	 * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
 	 */
-	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
 	{
-		if (par2CreativeTabs == MDMItems.tabAlchemy || par2CreativeTabs == CreativeTabs.tabAllSearch)
+		if (creativeTab == MDMItems.tabAlchemy || creativeTab == CreativeTabs.tabAllSearch)
 		{
 			for (int i = 0; i < BOTTLE_TYPES; i++)
 			{
-				par3List.add(new ItemStack(this, 1, i * 4));
+				list.add(new ItemStack(this, 1, i * 4));
 			}
 			
 			for (PotionType potionType : PotionType.potionTypeList)
 			{
 				for (int i = 1; i <= BOTTLE_TYPES * 4; i += 2)
 				{
-					for (PotionType brewing2 : potionType.getSubTypes())
+					for (PotionType potionType2 : potionType.getSubTypes())
 					{
-						PotionType var1 = new PotionType(brewing2.getEffect(), brewing2.getMaxAmplifier(), brewing2.getMaxDuration(), brewing2.getInverted(), brewing2.getIngredient(), brewing2.getBase());
-						par3List.add(var1.addPotionTypeToItemStack(new ItemStack(this, 1, i)));
+						PotionType potionType3 = potionType2.copy();
+						list.add(potionType3.addPotionTypeToItemStack(new ItemStack(this, 1, i)));
+						
 						if (this.isSplash(i))
 						{
-							par3List.add(var1.onGunpowderUsed().addPotionTypeToItemStack(new ItemStack(this, 1, i)));
+							list.add(potionType3.onGunpowderUsed().addPotionTypeToItemStack(new ItemStack(this, 1, i)));
 						}
 					}
 				}

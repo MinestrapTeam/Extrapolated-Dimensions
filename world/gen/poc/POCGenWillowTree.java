@@ -50,9 +50,9 @@ public class POCGenWillowTree extends WorldGenerator
 	/** Contains a list of a points at which to generate groups of leaves. */
 	public int[][]				leafNodes;
 	
-	public POCGenWillowTree(boolean par1)
+	public POCGenWillowTree(boolean flag)
 	{
-		super(par1);
+		super(flag);
 	}
 	
 	/**
@@ -141,17 +141,17 @@ public class POCGenWillowTree extends WorldGenerator
 		System.arraycopy(aint, 0, this.leafNodes, 0, k);
 	}
 	
-	public void genTreeLayer(int x, int y, int z, float par4, byte par5, int blockID, int metadata)
+	public void genTreeLayer(int x, int y, int z, float f, byte b, int blockID, int metadata)
 	{
-		int i1 = (int) (par4 + 0.618D);
-		byte b1 = otherCoordPairs[par5];
-		byte b2 = otherCoordPairs[par5 + 3];
+		int i1 = (int) (f + 0.618D);
+		byte b1 = otherCoordPairs[b];
+		byte b2 = otherCoordPairs[b + 3];
 		int[] aint = new int[] { x, y, z };
 		int[] aint1 = new int[] { 0, 0, 0 };
 		int j1 = -i1;
 		int k1 = -i1;
 		
-		for (aint1[par5] = aint[par5]; j1 <= i1; ++j1)
+		for (aint1[b] = aint[b]; j1 <= i1; ++j1)
 		{
 			aint1[b1] = aint[b1] + j1;
 			k1 = -i1;
@@ -160,7 +160,7 @@ public class POCGenWillowTree extends WorldGenerator
 			{
 				double d0 = Math.pow(Math.abs(j1) + 0.5D, 2.0D) + Math.pow(Math.abs(k1) + 0.5D, 2.0D);
 				
-				if (d0 > par4 * par4)
+				if (d0 > f * f)
 				{
 					++k1;
 				}
@@ -186,16 +186,16 @@ public class POCGenWillowTree extends WorldGenerator
 	/**
 	 * Gets the rough size of a layer of the tree.
 	 */
-	public float layerSize(int par1)
+	public float layerSize(int layer)
 	{
-		if (par1 < (this.heightLimit) * 0.3D)
+		if (layer < (this.heightLimit) * 0.3D)
 		{
 			return -1.618F;
 		}
 		else
 		{
 			float f = this.heightLimit / 2.0F;
-			float f1 = this.heightLimit / 2.0F - par1;
+			float f1 = this.heightLimit / 2.0F - layer;
 			float f2;
 			
 			if (f1 == 0.0F)
@@ -216,22 +216,22 @@ public class POCGenWillowTree extends WorldGenerator
 		}
 	}
 	
-	public float leafSize(int par1)
+	public float leafSize(int layer)
 	{
-		return par1 >= 0 && par1 < this.leafDistanceLimit ? (par1 != 0 && par1 != this.leafDistanceLimit - 1 ? 3.0F : 2.0F) : -1.0F;
+		return layer >= 0 && layer < this.leafDistanceLimit ? (layer != 0 && layer != this.leafDistanceLimit - 1 ? 3.0F : 2.0F) : -1.0F;
 	}
 	
 	/**
 	 * Generates the leaves surrounding an individual entry in the leafNodes list.
 	 */
-	public void generateLeafNode(int par1, int par2, int par3)
+	public void generateLeafNode(int x, int y, int z)
 	{
-		int l = par2;
+		int l = y;
 		
-		for (int i1 = par2 + this.leafDistanceLimit; l < i1; ++l)
+		for (int y1 = y + this.leafDistanceLimit; l < y1; ++l)
 		{
-			float f = this.leafSize(l - par2);
-			this.genTreeLayer(par1, l, par3, f, (byte) 1, MDMBlocks.pocLeaves.blockID, 1);
+			float f = this.leafSize(l - y);
+			this.genTreeLayer(x, l, z, f, (byte) 1, MDMBlocks.pocLeaves.blockID, 1);
 		}
 	}
 	
@@ -320,9 +320,9 @@ public class POCGenWillowTree extends WorldGenerator
 	/**
 	 * Indicates whether or not a leaf node requires additional wood to be added to preserve integrity.
 	 */
-	public boolean leafNodeNeedsBase(int par1)
+	public boolean leafNodeNeedsBase(int layer)
 	{
-		return par1 >= this.heightLimit * 0.2D;
+		return layer >= this.heightLimit * 0.2D;
 	}
 	
 	/**
@@ -377,7 +377,7 @@ public class POCGenWillowTree extends WorldGenerator
 	/**
 	 * Checks a line of blocks in the world from the first coordinate to triplet to the second, returning the distance (in blocks) before a non-air, non-leaf block is encountered and/or the end is encountered.
 	 */
-	public int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger)
+	public int checkBlockLine(int[] sourceCoords, int[] destCoords)
 	{
 		int[] aint2 = new int[] { 0, 0, 0 };
 		byte b0 = 0;
@@ -385,7 +385,7 @@ public class POCGenWillowTree extends WorldGenerator
 		
 		for (b1 = 0; b0 < 3; ++b0)
 		{
-			aint2[b0] = par2ArrayOfInteger[b0] - par1ArrayOfInteger[b0];
+			aint2[b0] = destCoords[b0] - sourceCoords[b0];
 			
 			if (Math.abs(aint2[b0]) > Math.abs(aint2[b1]))
 			{
@@ -420,9 +420,9 @@ public class POCGenWillowTree extends WorldGenerator
 			
 			for (j = aint2[b1] + b4; i != j; i += b4)
 			{
-				aint3[b1] = par1ArrayOfInteger[b1] + i;
-				aint3[b2] = MathHelper.floor_double(par1ArrayOfInteger[b2] + i * d0);
-				aint3[b3] = MathHelper.floor_double(par1ArrayOfInteger[b3] + i * d1);
+				aint3[b1] = sourceCoords[b1] + i;
+				aint3[b2] = MathHelper.floor_double(sourceCoords[b2] + i * d0);
+				aint3[b3] = MathHelper.floor_double(sourceCoords[b3] + i * d1);
 				int k = this.worldObj.getBlockId(aint3[0], aint3[1], aint3[2]);
 				
 				if (k != 0 && k != MDMBlocks.pocLeaves.blockID)
@@ -474,28 +474,28 @@ public class POCGenWillowTree extends WorldGenerator
 	 * Rescales the generator settings, only used in WorldGenBigTree
 	 */
 	@Override
-	public void setScale(double par1, double par3, double par5)
+	public void setScale(double scaleHeight, double scaleWidth, double leafDensity)
 	{
-		this.heightLimitLimit = (int) (par1 * 12.0D);
+		this.heightLimitLimit = (int) (scaleHeight * 12.0D);
 		
-		if (par1 > 0.5D)
+		if (scaleHeight > 0.5D)
 		{
 			this.leafDistanceLimit = 5;
 		}
 		
-		this.scaleWidth = par3;
-		this.leafDensity = par5;
+		this.scaleWidth = scaleWidth;
+		this.leafDensity = leafDensity;
 	}
 	
 	@Override
-	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		this.worldObj = par1World;
-		long l = par2Random.nextLong();
+		this.worldObj = world;
+		long l = random.nextLong();
 		this.rand.setSeed(l);
-		this.basePos[0] = par3;
-		this.basePos[1] = par4;
-		this.basePos[2] = par5;
+		this.basePos[0] = x;
+		this.basePos[1] = y;
+		this.basePos[2] = z;
 		
 		if (this.heightLimit == 0)
 		{

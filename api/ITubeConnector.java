@@ -4,5 +4,5 @@ import net.minecraft.world.IBlockAccess;
 
 public interface ITubeConnector
 {
-	boolean canTubeConnectOnSide(IBlockAccess par1World, int x, int y, int z, int side);
+	boolean canTubeConnectOnSide(IBlockAccess world, int x, int y, int z, int side);
 }

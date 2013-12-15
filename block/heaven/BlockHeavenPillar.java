@@ -1,19 +1,17 @@
 package clashsoft.mods.moredimensions.block.heaven;
 
-import clashsoft.mods.moredimensions.addons.MDMItems;
-import clashsoft.mods.moredimensions.block.BlockMDM;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 
-public class BlockHeavenPillar extends BlockMDM
+public class BlockHeavenPillar extends Block
 {
 	public Icon	topIcon;
 	
-	public BlockHeavenPillar(int par1)
+	public BlockHeavenPillar(int blockID)
 	{
-		super(par1, Material.rock, MDMItems.tabHeavenBlocks);
+		super(blockID, Material.rock);
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 1F, 0.9375F);
 	}
 	
@@ -24,10 +22,10 @@ public class BlockHeavenPillar extends BlockMDM
 	}
 	
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("moredimensions:pillar_side");
-		this.topIcon = par1IconRegister.registerIcon("moredimensions:pillar_top");
+		this.blockIcon = iconRegister.registerIcon("moredimensions:pillar_side");
+		this.topIcon = iconRegister.registerIcon("moredimensions:pillar_top");
 	}
 	
 	@Override

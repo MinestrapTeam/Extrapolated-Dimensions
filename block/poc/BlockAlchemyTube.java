@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 {
-	public BlockAlchemyTube(int par1)
+	public BlockAlchemyTube(int blockID)
 	{
-		super(par1, Material.glass);
+		super(blockID, Material.glass);
 	}
 	
 	@Override
@@ -29,9 +29,9 @@ public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 	}
 	
 	@Override
-	public void addCollisionBoxesToList(World par1World, int par2, int par3, int par4, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity)
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity entity)
 	{
-		boolean[] flags = getConnections(par1World, par2, par3, par4);
+		boolean[] flags = getConnections(world, x, y, z);
 		boolean xp = flags[0];
 		boolean xn = flags[1];
 		boolean yp = flags[2];
@@ -43,44 +43,44 @@ public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 		float f1 = 10F / 16F;
 		
 		this.setBlockBounds(f, f, f, f1, f1, f1);
-		super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+		super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		
 		if (xp)
 		{
 			this.setBlockBounds(f, f, f, 1F, f1, f1);
-			super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+			super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		}
 		if (xn)
 		{
 			this.setBlockBounds(0F, f, f, f1, f1, f1);
-			super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+			super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		}
 		if (yp)
 		{
 			this.setBlockBounds(f, f, f, f1, 1F, f1);
-			super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+			super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		}
 		if (yn)
 		{
 			this.setBlockBounds(f, 0F, f, f1, f1, f1);
-			super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+			super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		}
 		if (zp)
 		{
 			this.setBlockBounds(f, f, f, f1, f1, 1F);
-			super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+			super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		}
 		if (zn)
 		{
 			this.setBlockBounds(f, f, 0F, f1, f1, f1);
-			super.addCollisionBoxesToList(par1World, par2, par3, par4, par5AxisAlignedBB, par6List, par7Entity);
+			super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		}
 	}
 	
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1World, int par2, int par3, int par4)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
-		boolean[] flags = getConnections(par1World, par2, par3, par4);
+		boolean[] flags = getConnections(world, x, y, z);
 		boolean xp = flags[0];
 		boolean xn = flags[1];
 		boolean yp = flags[2];

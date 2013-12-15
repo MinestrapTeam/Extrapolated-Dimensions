@@ -4,8 +4,8 @@ import net.minecraft.world.WorldServer;
 
 public class TeleporterBedworld extends TeleporterHeaven
 {
-	public TeleporterBedworld(WorldServer par1WorldServer)
+	public TeleporterBedworld(WorldServer world)
 	{
-		super(par1WorldServer);
+		super(world);
 	}
 }

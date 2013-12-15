@@ -77,17 +77,17 @@ public class Curse
 	/**
 	 * Returns the minimal value of enchantability needed on the curse level passed.
 	 */
-	public int getMinCursability(int par1)
+	public int getMinCursability(int level)
 	{
-		return 1 + par1 * 10;
+		return 1 + level * 10;
 	}
 	
 	/**
 	 * Returns the maximum value of enchantability nedded on the curse level passed.
 	 */
-	public int getMaxCursability(int par1)
+	public int getMaxCursability(int level)
 	{
-		return this.getMinCursability(par1) + 5;
+		return this.getMinCursability(level) + 5;
 	}
 	
 	/**

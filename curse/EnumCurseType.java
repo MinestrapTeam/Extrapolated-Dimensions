@@ -9,13 +9,13 @@ public enum EnumCurseType
 	/**
 	 * Return true if the item passed can be enchanted by a enchantment of this type.
 	 */
-	public boolean canCurseItem(Item par1Item)
+	public boolean canCurseItem(Item item)
 	{
 		if (this == all)
 		{
 			return true;
 		}
-		else if (par1Item instanceof ItemArmor)
+		else if (item instanceof ItemArmor)
 		{
 			if (this == armor)
 			{
@@ -23,13 +23,13 @@ public enum EnumCurseType
 			}
 			else
 			{
-				ItemArmor itemarmor = (ItemArmor) par1Item;
+				ItemArmor itemarmor = (ItemArmor) item;
 				return itemarmor.armorType == 0 ? this == armor_head : (itemarmor.armorType == 2 ? this == armor_legs : (itemarmor.armorType == 1 ? this == armor_torso : (itemarmor.armorType == 3 ? this == armor_feet : false)));
 			}
 		}
 		else
 		{
-			return par1Item instanceof ItemSword ? this == weapon : (par1Item instanceof ItemTool ? this == digger : (par1Item instanceof ItemBow ? this == bow : false));
+			return item instanceof ItemSword ? this == weapon : (item instanceof ItemTool ? this == digger : (item instanceof ItemBow ? this == bow : false));
 		}
 	}
 }

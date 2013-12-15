@@ -4,7 +4,6 @@ import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
 import clashsoft.mods.moredimensions.world.chunkmanagers.WorldChunkManagerDreams;
 
-import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldProviderNightmares extends WorldProviderDreams
@@ -29,53 +28,5 @@ public class WorldProviderNightmares extends WorldProviderDreams
 	public String getDimensionName()
 	{
 		return "Nightmare";
-	}
-	
-	@Override
-	public boolean renderStars()
-	{
-		return !super.renderStars();
-	}
-	
-	@Override
-	public float getStarBrightness(World world, float f)
-	{
-		return 100F;
-	}
-	
-	@Override
-	public boolean renderClouds()
-	{
-		return !super.renderClouds();
-	}
-	
-	@Override
-	public boolean renderVoidFog()
-	{
-		return !super.renderVoidFog();
-	}
-	
-	@Override
-	public boolean renderEndSky()
-	{
-		return !super.renderEndSky();
-	}
-	
-	@Override
-	public float setSunSize()
-	{
-		return 0F;
-	}
-	
-	@Override
-	public float setMoonSize()
-	{
-		return 1F;
-	}
-	
-	@Override
-	public String getWelcomeMessage()
-	{
-		return "Entering Nightmare";
 	}
 }

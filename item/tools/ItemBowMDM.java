@@ -28,55 +28,55 @@ public class ItemBowMDM extends ItemTool
 	public ItemStack		arrow;
 	public Icon[]			iconArray;
 	
-	public ItemBowMDM(int par1, EnumToolMaterial toolMaterial)
+	public ItemBowMDM(int itemID, EnumToolMaterial toolMaterial)
 	{
-		this(par1, toolMaterial, defaultArrow);
+		this(itemID, toolMaterial, defaultArrow);
 	}
 	
-	public ItemBowMDM(int par1, EnumToolMaterial toolMaterial, ItemStack arrow)
+	public ItemBowMDM(int itemID, EnumToolMaterial toolMaterial, ItemStack arrow)
 	{
-		super(par1, 0F, toolMaterial, blocksEffectiveAgainst);
+		super(itemID, 0F, toolMaterial, blocksEffectiveAgainst);
 		
 		this.arrow = arrow;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
+		this.itemIcon = iconRegister.registerIcon(this.getIconString());
 		this.iconArray = new Icon[3];
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
-			this.iconArray[i] = par1IconRegister.registerIcon(this.getIconString() + "_" + i);
+			this.iconArray[i] = iconRegister.registerIcon(this.getIconString() + "_" + i);
 		}
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
+		ArrowNockEvent event = new ArrowNockEvent(player, stack);
 		MinecraftForge.EVENT_BUS.post(event);
 		if (event.isCanceled())
 		{
 			return event.result;
 		}
 		
-		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItemStack(this.arrow))
+		if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(this.arrow))
 		{
-			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+			player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 		}
 		
-		return par1ItemStack;
+		return stack;
 	}
 	
 	@Override
-	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int useDuration)
 	{
-		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
+		int j = this.getMaxItemUseDuration(stack) - useDuration;
 		
-		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
+		ArrowLooseEvent event = new ArrowLooseEvent(player, stack, j);
 		MinecraftForge.EVENT_BUS.post(event);
 		if (event.isCanceled())
 		{
@@ -85,14 +85,14 @@ public class ItemBowMDM extends ItemTool
 		j = event.charge;
 		
 		int slot = -1;
-		for (int i = 0; i < par3EntityPlayer.inventory.mainInventory.length; i++)
+		for (int i = 0; i < player.inventory.mainInventory.length; i++)
 		{
-			ItemStack stack = par3EntityPlayer.inventory.mainInventory[i];
-			if (stack != null && stack.isItemEqual(this.arrow))
+			ItemStack stack1 = player.inventory.mainInventory[i];
+			if (stack1 != null && stack1.isItemEqual(this.arrow))
 				slot = i;
 		}
 		
-		boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
+		boolean flag = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
 		
 		if (flag || slot != -1)
 		{
@@ -109,34 +109,34 @@ public class ItemBowMDM extends ItemTool
 				f = 1.0F;
 			}
 			
-			EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 2.0F);
+			EntityArrow entityarrow = new EntityArrow(world, player, f * 2.0F);
 			
 			if (f == 1.0F)
 			{
 				entityarrow.setIsCritical(true);
 			}
 			
-			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
 			
 			if (k > 0)
 			{
 				entityarrow.setDamage(entityarrow.getDamage() + k * 0.5D + 0.5D);
 			}
 			
-			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
+			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
 			
 			if (l > 0)
 			{
 				entityarrow.setKnockbackStrength(l);
 			}
 			
-			if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
+			if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0)
 			{
 				entityarrow.setFire(100);
 			}
 			
-			par1ItemStack.damageItem(1, par3EntityPlayer);
-			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+			stack.damageItem(1, player);
+			world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 			
 			if (flag)
 			{
@@ -144,12 +144,12 @@ public class ItemBowMDM extends ItemTool
 			}
 			else
 			{
-				par3EntityPlayer.inventory.decrStackSize(slot, 1);
+				player.inventory.decrStackSize(slot, 1);
 			}
 			
-			if (!par2World.isRemote)
+			if (!world.isRemote)
 			{
-				par2World.spawnEntityInWorld(entityarrow);
+				world.spawnEntityInWorld(entityarrow);
 			}
 		}
 	}

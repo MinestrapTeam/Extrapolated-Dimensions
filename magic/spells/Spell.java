@@ -52,21 +52,21 @@ public abstract class Spell
 	/**
 	 * Reads a Spell from a NBTTagCompound
 	 * 
-	 * @param par1NBTTagCompound
+	 * @param nbt
 	 *            NBTTagCompound to read Spell from
 	 * @return Spell read from NBTTagCompound
 	 */
-	public static Spell readFromNBT(NBTTagCompound par1NBTTagCompound)
+	public static Spell readFromNBT(NBTTagCompound nbt)
 	{
-		String name = par1NBTTagCompound.getString("SpellName");
+		String name = nbt.getString("SpellName");
 		return spellList.get(name);
 	}
 	
-	public static List<Spell> getSpells(ItemStack par1ItemStack)
+	public static List<Spell> getSpells(ItemStack stack)
 	{
-		if (par1ItemStack != null && par1ItemStack.getTagCompound() != null && par1ItemStack.getTagCompound().hasKey("Spells"))
+		if (stack != null && stack.getTagCompound() != null && stack.getTagCompound().hasKey("Spells"))
 		{
-			NBTTagList list = par1ItemStack.getTagCompound().getTagList("Spells");
+			NBTTagList list = stack.getTagCompound().getTagList("Spells");
 			if (list != null)
 			{
 				List<Spell> spells = new ArrayList<Spell>();
@@ -83,22 +83,22 @@ public abstract class Spell
 		return new LinkedList<Spell>();
 	}
 	
-	public ItemStack addSpellToItemStack(ItemStack par1ItemStack)
+	public ItemStack addSpellToItemStack(ItemStack stack)
 	{
-		if (par1ItemStack != null)
+		if (stack != null)
 		{
-			if (par1ItemStack.stackTagCompound == null)
+			if (stack.stackTagCompound == null)
 			{
-				par1ItemStack.setTagCompound(new NBTTagCompound());
+				stack.setTagCompound(new NBTTagCompound());
 			}
 			
-			if (!par1ItemStack.stackTagCompound.hasKey("Spells"))
+			if (!stack.stackTagCompound.hasKey("Spells"))
 			{
-				par1ItemStack.stackTagCompound.setTag("Spells", new NBTTagList("Spells"));
+				stack.stackTagCompound.setTag("Spells", new NBTTagList("Spells"));
 			}
-			NBTTagList var2 = (NBTTagList) par1ItemStack.stackTagCompound.getTag("Spells");
+			NBTTagList var2 = (NBTTagList) stack.stackTagCompound.getTag("Spells");
 			var2.appendTag(this.createNBT());
-			return par1ItemStack;
+			return stack;
 		}
 		return null;
 	}

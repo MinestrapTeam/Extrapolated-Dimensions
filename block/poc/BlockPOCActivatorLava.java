@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 public class BlockPOCActivatorLava extends BlockStationary
 {
-	public BlockPOCActivatorLava(int par1)
+	public BlockPOCActivatorLava(int blockID)
 	{
-		super(par1, Material.lava);
+		super(blockID, Material.lava);
 		this.setTickRandomly(true);
 	}
 	
@@ -20,7 +20,7 @@ public class BlockPOCActivatorLava extends BlockStationary
 	 * How many world ticks before ticking
 	 */
 	@Override
-	public int tickRate(World par1World)
+	public int tickRate(World world)
 	{
 		return 1;
 	}
@@ -29,18 +29,18 @@ public class BlockPOCActivatorLava extends BlockStationary
 	 * Ticks the block if it's been scheduled
 	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
-		super.updateTick(par1World, par2, par3, par4, par5Random);
-		this.tryToCreatePortal(par1World, par2, par3, par4);
+		super.updateTick(world, x, y, z, random);
+		this.tryToCreatePortal(world, x, y, z);
 	}
 	
-	private void tryToCreatePortal(World par1World, int par2, int par3, int par4)
+	private void tryToCreatePortal(World world, int x, int y, int z)
 	{
 		try
 		{
 			for (int i = 0; i < 3; i++)
-				if (MDMBlocks.pocPortal.tryToCreatePortal(par1World, par2, par3 - i, par4))
+				if (MDMBlocks.pocPortal.tryToCreatePortal(world, x, y - i, z))
 					break;
 		}
 		catch (Exception ex)
@@ -52,9 +52,9 @@ public class BlockPOCActivatorLava extends BlockStationary
 	 * Called whenever the block is added into the world. Args: world, x, y, z
 	 */
 	@Override
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+	public void onBlockAdded(World world, int x, int y, int z)
 	{
-		super.onBlockAdded(par1World, par2, par3, par4);
-		this.tryToCreatePortal(par1World, par2, par3, par4);
+		super.onBlockAdded(world, x, y, z);
+		this.tryToCreatePortal(world, x, y, z);
 	}
 }

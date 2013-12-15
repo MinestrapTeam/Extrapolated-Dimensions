@@ -8,9 +8,9 @@ import net.minecraft.world.biome.BiomeGenOcean;
 
 public class BiomeDesertOfDryness extends BiomeGenOcean
 {
-	public BiomeDesertOfDryness(int par1)
+	public BiomeDesertOfDryness(int biomeID)
 	{
-		super(par1);
+		super(biomeID);
 		this.topBlock = (byte) Block.sand.blockID;
 		this.fillerBlock = (byte) Block.sand.blockID;
 		this.maxHeight = -0.1F;
@@ -21,8 +21,8 @@ public class BiomeDesertOfDryness extends BiomeGenOcean
 	}
 	
 	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
 	{
-		this.theBiomeDecorator.decorate(par1World, par2Random, par3, par4);
+		this.theBiomeDecorator.decorate(world, random, chunkX, chunkZ);
 	}
 }

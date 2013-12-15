@@ -19,9 +19,9 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	private WorldGenerator		bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 5, 8);
 	private WorldGenerator		holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 6, 8);
 	
-	public BiomeDecoratorHeaven(BiomeGenBase par1BiomeGenBase)
+	public BiomeDecoratorHeaven(BiomeGenBase biome)
 	{
-		super(par1BiomeGenBase);
+		super(biome);
 		this.treesPerChunk = 8;
 		this.randomGenerator = new Random();
 	}
@@ -55,14 +55,14 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	/**
 	 * Standard ore generation helper. Generates most ores.
 	 */
-	protected void genTrees(int par1, WorldGenerator par2WorldGenerator, int par3, int par4)
+	protected void genTrees(int amount, WorldGenerator worldgen, int minHeight, int maxHeight)
 	{
-		for (int var5 = 0; var5 < par1; ++var5)
+		for (int var5 = 0; var5 < amount; ++var5)
 		{
 			int x = this.chunk_X + this.randomGenerator.nextInt(16);
-			int y = this.randomGenerator.nextInt(par4 - par3) + par3;
+			int y = this.randomGenerator.nextInt(maxHeight - minHeight) + minHeight;
 			int z = this.chunk_Z + this.randomGenerator.nextInt(16);
-			par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, x, y, z);
+			worldgen.generate(this.currentWorld, this.randomGenerator, x, y, z);
 		}
 	}
 }

@@ -7,19 +7,19 @@ import net.minecraft.inventory.Container;
 
 public class ContainerBossChat extends Container
 {
-	EntityPlayer	player;
-	IMDMBoss		boss;
+	public EntityPlayer	player;
+	public IMDMBoss		boss;
 	
-	public ContainerBossChat(EntityPlayer par1EntityPlayer, IMDMBoss par2Boss)
+	public ContainerBossChat(EntityPlayer player, IMDMBoss boss)
 	{
-		this.player = par1EntityPlayer;
-		this.boss = par2Boss;
+		this.player = player;
+		this.boss = boss;
 	}
 	
 	@Override
-	public boolean canInteractWith(EntityPlayer entityplayer)
+	public boolean canInteractWith(EntityPlayer player)
 	{
-		return entityplayer == this.player;
+		return player == this.player;
 	}
 	
 }

@@ -11,9 +11,9 @@ import net.minecraft.item.ItemTool;
 
 public class ItemAxeMDM extends ItemTool
 {
-	public ItemAxeMDM(int par1, float weaponDamage, float efficiencyMultiplier, EnumToolMaterial par2EnumToolMaterial)
+	public ItemAxeMDM(int itemID, float weaponDamage, float efficiencyMultiplier, EnumToolMaterial material)
 	{
-		super(par1, weaponDamage, par2EnumToolMaterial, ItemAxe.blocksEffectiveAgainst);
+		super(itemID, weaponDamage, material, ItemAxe.blocksEffectiveAgainst);
 		this.setCreativeTab(MDMItems.tabTools);
 		this.efficiencyOnProperMaterial *= efficiencyMultiplier;
 	}
@@ -22,40 +22,40 @@ public class ItemAxeMDM extends ItemTool
 	 * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
 	@Override
-	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
+	public float getStrVsBlock(ItemStack stack, Block block)
 	{
-		return par2Block != null && (par2Block.blockMaterial == Material.wood || par2Block.blockMaterial == Material.plants || par2Block.blockMaterial == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
+		return block != null && (block.blockMaterial == Material.wood || block.blockMaterial == Material.plants || block.blockMaterial == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(stack, block);
 	}
 	
 	public static class ItemHatchet extends ItemAxeMDM
 	{
-		public ItemHatchet(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemHatchet(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 2.5F, 1.25F, par2EnumToolMaterial);
+			super(itemID, 2.5F, 1.25F, material);
 		}
 	}
 	
 	public static class ItemBattleaxe extends ItemAxeMDM
 	{
-		public ItemBattleaxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemBattleaxe(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 4F, 0.75F, par2EnumToolMaterial);
+			super(itemID, 4F, 0.75F, material);
 		}
 	}
 	
 	public static class ItemSaw extends ItemAxeMDM
 	{
-		public ItemSaw(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemSaw(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 3F, 2F, par2EnumToolMaterial);
+			super(itemID, 3F, 2F, material);
 		}
 	}
 	
 	public static class ItemThrowableAxe extends ItemAxeMDM
 	{
-		public ItemThrowableAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+		public ItemThrowableAxe(int itemID, EnumToolMaterial material)
 		{
-			super(par1, 2.5F, 1F, par2EnumToolMaterial);
+			super(itemID, 2.5F, 1F, material);
 		}
 	}
 }

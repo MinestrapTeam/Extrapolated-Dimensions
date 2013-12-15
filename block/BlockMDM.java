@@ -4,18 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
+@Deprecated
 public class BlockMDM extends Block
 {
-	public BlockMDM(int par1, Material par2Material, CreativeTabs par3CreativeTabs)
+	public BlockMDM(int blockID, Material material, CreativeTabs creativeTab)
 	{
-		super(par1, par2Material);
-		this.setCreativeTab(par3CreativeTabs);
-	}
-	
-	@Override
-	public Block setUnlocalizedName(String par1Str)
-	{
-		this.setTextureName(par1Str);
-		return super.setUnlocalizedName(par1Str);
+		super(blockID, material);
+		this.setCreativeTab(creativeTab);
 	}
 }

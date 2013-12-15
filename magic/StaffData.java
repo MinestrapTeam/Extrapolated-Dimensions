@@ -80,12 +80,12 @@ public class StaffData
 		return this;
 	}
 	
-	public static StaffData getStaffData(ItemStack staff)
+	public static StaffData getStaffData(ItemStack stack)
 	{
-		if (staff != null && staff.getTagCompound() != null)
+		if (stack != null && stack.getTagCompound() != null)
 		{
-			List<Spell> var1 = Spell.getSpells(staff);
-			NBTTagCompound dataCompound = staff.getTagCompound().getCompoundTag("StaffData");
+			List<Spell> var1 = Spell.getSpells(stack);
+			NBTTagCompound dataCompound = stack.getTagCompound().getCompoundTag("StaffData");
 			boolean var2 = dataCompound.getBoolean("RareStaff");
 			int var3 = dataCompound.getInteger("StaffType");
 			int var4 = dataCompound.getInteger("Damage");
@@ -95,32 +95,32 @@ public class StaffData
 		return new StaffData(new ArrayList<Spell>(), StaffType.staffTypes[0], false, 0, "");
 	}
 	
-	public ItemStack addDataToItemStack(ItemStack par1ItemStack)
+	public ItemStack addDataToItemStack(ItemStack stack)
 	{
-		if (par1ItemStack != null)
+		if (stack != null)
 		{
-			if (par1ItemStack.getTagCompound() == null)
-				par1ItemStack.setTagCompound(new NBTTagCompound());
-			if (!par1ItemStack.getTagCompound().hasKey("StaffData"))
+			if (stack.getTagCompound() == null)
+				stack.setTagCompound(new NBTTagCompound());
+			if (!stack.getTagCompound().hasKey("StaffData"))
 			{
-				par1ItemStack.getTagCompound().setCompoundTag("StaffData", new NBTTagCompound("StaffData"));
+				stack.getTagCompound().setCompoundTag("StaffData", new NBTTagCompound("StaffData"));
 			}
 			
-			par1ItemStack.stackTagCompound.setTag("StaffData", new NBTTagCompound("StaffData"));
+			stack.stackTagCompound.setTag("StaffData", new NBTTagCompound("StaffData"));
 			
 			for (Spell s : this.getSpells())
 			{
 				if (s != null)
-					s.addSpellToItemStack(par1ItemStack);
+					s.addSpellToItemStack(stack);
 			}
-			NBTTagCompound nbt = par1ItemStack.stackTagCompound.getCompoundTag("StaffData");
+			NBTTagCompound nbt = stack.stackTagCompound.getCompoundTag("StaffData");
 			nbt.setBoolean("RareStaff", this.isRare());
 			nbt.setInteger("StaffType", this.getStaffType().getID());
 			nbt.setInteger("Damage", this.getDamage());
 			nbt.setString("FoundAt", this.getFoundAt());
 			
-			return par1ItemStack;
+			return stack;
 		}
-		return par1ItemStack;
+		return stack;
 	}
 }

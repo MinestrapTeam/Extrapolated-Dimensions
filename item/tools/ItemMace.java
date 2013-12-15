@@ -8,9 +8,9 @@ import net.minecraft.item.ItemTool;
 
 public class ItemMace extends ItemTool
 {
-	public ItemMace(int par1, EnumToolMaterial par3EnumToolMaterial)
+	public ItemMace(int itemID, EnumToolMaterial material)
 	{
-		super(par1, 6F, par3EnumToolMaterial, new Block[] {});
+		super(itemID, 6F, material, new Block[] {});
 		this.setCreativeTab(MDMItems.tabTools);
 	}
 }

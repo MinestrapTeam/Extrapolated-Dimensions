@@ -243,9 +243,9 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		return this.name != null && this.name.length() > 0;
 	}
 	
-	public void setInvName(String par1Str)
+	public void setInvName(String name)
 	{
-		this.name = par1Str;
+		this.name = name;
 	}
 	
 	@Override

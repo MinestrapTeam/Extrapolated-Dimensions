@@ -18,40 +18,40 @@ import net.minecraft.world.World;
 
 public class ItemElixirBottle extends ItemGlassBottle2
 {
-	public ItemElixirBottle(int par1)
+	public ItemElixirBottle(int itemID)
 	{
-		super(par1);
+		super(itemID);
 		this.setCreativeTab(MDMItems.tabAlchemy);
 		this.setHasSubtypes(true);
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
 	/**
 	 * Gets an icon index based on an item's damage value
 	 */
-	public Icon getIconFromDamage(int par1)
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamage(int metadata)
 	{
-		return MDMItems.elixir.bottles[par1];
+		return MDMItems.elixir.bottles[metadata];
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		MDMItems.elixir.addInformation(new ItemStack(this, 1, par1ItemStack.getItemDamage() * 4), par2EntityPlayer, par3List, par4);
+		MDMItems.elixir.addInformation(new ItemStack(this, 1, stack.getItemDamage() * 4), player, list, flag);
 	}
 	
 	/**
 	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
 	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(par2World, par3EntityPlayer, true);
+		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
 		
 		if (movingobjectposition == null)
 		{
-			return par1ItemStack;
+			return stack;
 		}
 		else
 		{
@@ -61,48 +61,48 @@ public class ItemElixirBottle extends ItemGlassBottle2
 				int j = movingobjectposition.blockY;
 				int k = movingobjectposition.blockZ;
 				
-				if (!par2World.canMineBlock(par3EntityPlayer, i, j, k))
+				if (!world.canMineBlock(player, i, j, k))
 				{
-					return par1ItemStack;
+					return stack;
 				}
 				
-				if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
+				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, stack))
 				{
-					return par1ItemStack;
+					return stack;
 				}
 				
-				if (par2World.getBlockMaterial(i, j, k) == Material.water)
+				if (world.getBlockMaterial(i, j, k) == Material.water)
 				{
-					--par1ItemStack.stackSize;
+					--stack.stackSize;
 					
-					int damage = par1ItemStack.getItemDamage() * 4;
+					int damage = stack.getItemDamage() * 4;
 					
-					if (par1ItemStack.stackSize <= 0)
+					if (stack.stackSize <= 0)
 					{
 						return new ItemStack(MDMItems.elixir, 1, damage);
 					}
 					
-					if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(MDMItems.elixir, 1, damage)))
+					if (!player.inventory.addItemStackToInventory(new ItemStack(MDMItems.elixir, 1, damage)))
 					{
-						par3EntityPlayer.dropPlayerItem(new ItemStack(MDMItems.elixir, 1, damage));
+						player.dropPlayerItem(new ItemStack(MDMItems.elixir, 1, damage));
 					}
 				}
 			}
 			
-			return par1ItemStack;
+			return stack;
 		}
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
 	/**
 	 * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
 	 */
-	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
 	{
 		for (int i = 0; i < ItemElixir.BOTTLE_TYPES; i++)
 		{
-			par3List.add(new ItemStack(this, 1, i));
+			list.add(new ItemStack(this, 1, i));
 		}
 	}
 }

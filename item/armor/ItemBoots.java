@@ -5,9 +5,9 @@ import net.minecraft.item.ItemArmor;
 
 public class ItemBoots extends ItemArmor
 {
-	public ItemBoots(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3)
+	public ItemBoots(int itemID, EnumArmorMaterial material, int renderIndex)
 	{
-		super(par1, par2EnumArmorMaterial, par3, ArmorTypes.BOOTS);
+		super(itemID, material, renderIndex, ArmorTypes.BOOTS);
 	}
 	
 }

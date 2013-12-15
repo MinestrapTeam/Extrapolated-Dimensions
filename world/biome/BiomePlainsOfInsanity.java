@@ -15,9 +15,9 @@ public class BiomePlainsOfInsanity extends BiomeGenBase
 {
 	public final Material	blockMaterial;
 	
-	public BiomePlainsOfInsanity(int par1)
+	public BiomePlainsOfInsanity(int biomeID)
 	{
-		super(par1);
+		super(biomeID);
 		this.blockMaterial = Material.ground;
 		this.minHeight = 0.1F;
 		this.maxHeight = 0.5F;
@@ -35,8 +35,8 @@ public class BiomePlainsOfInsanity extends BiomeGenBase
 	 * Gets a WorldGen appropriate for this biome.
 	 */
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	public WorldGenerator getRandomWorldGenForTrees(Random random)
 	{
-		return par1Random.nextBoolean() ? new POCGenMagicOakTree(true) : new POCGenWillowTree(true);
+		return random.nextBoolean() ? new POCGenMagicOakTree(true) : new POCGenWillowTree(true);
 	}
 }

@@ -25,20 +25,20 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 	
 	public EntityPlayer				interactingPlayer;
 	
-	public EntityLich(World par1World)
+	public EntityLich(World world)
 	{
-		super(par1World);
+		super(world);
 		this.chatData = new BossChatData();
 	}
 	
 	@Override
-	public boolean interact(EntityPlayer par1EntityPlayer)
+	public boolean interact(EntityPlayer player)
 	{
 		if (this.interactingPlayer == null)
-			this.interactingPlayer = par1EntityPlayer;
-		if (this.interactingPlayer == par1EntityPlayer)
+			this.interactingPlayer = player;
+		if (this.interactingPlayer == player)
 		{
-			FMLNetworkHandler.openGui(par1EntityPlayer, MoreDimensionsMod.instance, MDMCommonProxy.BOSS_CHAT_GUIID, this.worldObj, this.entityId, 0, 0);
+			FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMCommonProxy.BOSS_CHAT_GUIID, this.worldObj, this.entityId, 0, 0);
 			return true;
 		}
 		return false;

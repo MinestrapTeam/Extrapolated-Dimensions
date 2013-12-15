@@ -15,9 +15,9 @@ public class PlayerInputParser
 		
 		private final String[]	regexes;
 		
-		private EnumOutputAction(String... par1Strings)
+		private EnumOutputAction(String... regexes)
 		{
-			this.regexes = par1Strings;
+			this.regexes = regexes;
 		}
 	}
 	
