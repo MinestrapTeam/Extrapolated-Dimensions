@@ -141,7 +141,10 @@ public class MDMEventHandler
 	@ForgeSubscribe
 	public void onGUIOpened(GuiOpenEvent event)
 	{
-		MoreDimensionsMod.proxy.replaceGUIs(event);
+		if (event.gui != null)
+		{
+			MoreDimensionsMod.proxy.replaceGUIs(event);
+		}
 	}
 	
 	@ForgeSubscribe

@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.client.gui;
+package clashsoft.mods.moredimensions.client.gui.container;
 
 import org.lwjgl.opengl.GL11;
 

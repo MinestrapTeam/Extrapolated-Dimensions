@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.client.gui;
+package clashsoft.mods.moredimensions.client.gui.button;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;

@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.client.gui;
+package clashsoft.mods.moredimensions.client.gui.button;
 
 import org.lwjgl.opengl.GL11;
 
@@ -37,7 +37,7 @@ public class GuiHeavenButton extends GuiButton
             this.drawTexturedModalRect(this.xPosition + this.width / 2, this.yPosition, 200 - this.width / 2, 128 + k * 20, this.width / 2, this.height);
             
             this.mouseDragged(mc, mouseX, mouseY);
-            int l = 0xAAFFFF;
+            int l = 0x505050;
             
             if (!this.enabled)
             {
@@ -45,10 +45,16 @@ public class GuiHeavenButton extends GuiButton
             }
             else if (this.field_82253_i)
             {
-                l = 0xFFFFFF;
+                l = 0x303030;
             }
 
             this.drawCenteredString(fontrenderer, this.displayString, this.xPosition + this.width / 2, this.yPosition + (this.height - 8) / 2, l);
         }
+    }
+    
+    @Override
+    public void drawCenteredString(FontRenderer fontRenderer, String string, int x, int y, int color)
+    {
+    	fontRenderer.drawString(string, x - fontRenderer.getStringWidth(string) / 2, y, color);
     }
 }
