@@ -3,8 +3,7 @@ package clashsoft.mods.moredimensions.item.armor;
 import clashsoft.cslib.minecraft.CustomItem;
 import clashsoft.cslib.util.CSString;
 import clashsoft.mods.moredimensions.addons.MDMItems;
-
-import com.jadarstudios.developercapes.DevCapes;
+import clashsoft.mods.moredimensions.cape.CapeHelper;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
@@ -51,6 +50,6 @@ public class ItemCape extends CustomItem
 		if (metadata == 5)
 			player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 2, 0));
 		else
-			DevCapes.getInstance().addUser(player.username, capeNames[metadata]);
+			CapeHelper.addUser(player.username, capeNames[metadata]);
 	}
 }

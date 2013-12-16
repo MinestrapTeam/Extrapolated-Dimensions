@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import clashsoft.mods.moredimensions.api.IMDMBoss;
-import clashsoft.mods.moredimensions.client.gui.*;
+import clashsoft.mods.moredimensions.cape.CapeHelper;
+import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
+import clashsoft.mods.moredimensions.client.gui.GuiHeavenMainMenu;
+import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
+import clashsoft.mods.moredimensions.client.gui.GuiTome;
+import clashsoft.mods.moredimensions.client.gui.container.GuiDamnationTable;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
@@ -14,9 +19,6 @@ import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
-
-import com.jadarstudios.developercapes.DevCapesUtil;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
@@ -94,8 +96,8 @@ public class MDMClientProxy extends MDMCommonProxy
 		// Tile Entity Renderers
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAlchemyTube.class, new RenderAlchemyTube());
 		
-		// Misc
-		DevCapesUtil.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
+		// Capes
+		CapeHelper.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
 	}
 	
 	public void installSound(String filename)
@@ -107,7 +109,9 @@ public class MDMClientProxy extends MDMCommonProxy
 	protected int getArmor(String name)
 	{
 		if (this.armorFiles.containsKey(name))
+		{
 			return this.armorFiles.get(name);
+		}
 		else
 		{
 			int result = RenderingRegistry.addNewArmourRendererPrefix(name);
