@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.client.renderer.tileentity;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.mods.moredimensions.block.poc.BlockAlchemyTube;
+import clashsoft.mods.moredimensions.block.alchemy.BlockAlchemyTube;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
 import net.minecraft.client.Minecraft;

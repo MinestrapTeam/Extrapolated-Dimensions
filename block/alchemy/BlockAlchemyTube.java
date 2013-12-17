@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.block.poc;
+package clashsoft.mods.moredimensions.block.alchemy;
 
 import java.util.List;
 

@@ -9,7 +9,7 @@ import clashsoft.cslib.minecraft.block.BlockCustomLeaves;
 import clashsoft.cslib.minecraft.block.BlockCustomLog;
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.cslib.minecraft.util.CSConfig;
-import clashsoft.mods.moredimensions.block.BlockDamnationTable;
+import clashsoft.mods.moredimensions.block.alchemy.BlockAlchemyTube;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;

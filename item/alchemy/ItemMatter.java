@@ -4,9 +4,11 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 
 public class ItemMatter extends Item
@@ -24,7 +26,12 @@ public class ItemMatter extends Item
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		list.add(I18n.getString("item.matter.desc"));
+		list.add(EnumChatFormatting.ITALIC + I18n.getString("item.matter.desc"));
+	}
+	
+	@Override
+	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
+	{
 	}
 	
 	@Override

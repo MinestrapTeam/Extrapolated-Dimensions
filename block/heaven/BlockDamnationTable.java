@@ -1,4 +1,6 @@
-package clashsoft.mods.moredimensions.block;
+package clashsoft.mods.moredimensions.block.heaven;
+
+import java.util.Random;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
@@ -8,15 +10,20 @@ import cpw.mods.fml.common.network.FMLNetworkHandler;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class BlockDamnationTable extends BlockContainer
 {
-	public Icon	topIcon;
-	public Icon	bottomIcon;
+	private Random	rand	= new Random();
+	
+	public Icon		topIcon;
+	public Icon		bottomIcon;
 	
 	public BlockDamnationTable(int blockID)
 	{
@@ -38,9 +45,50 @@ public class BlockDamnationTable extends BlockContainer
 		return side == 0 ? this.bottomIcon : (side == 1 ? this.topIcon : this.blockIcon);
 	}
 	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
+	@Override
+	public void breakBlock(World world, int x, int y, int z, int oldBlockID, int oldBlockMetadata)
+	{
+		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+		
+		if (tileEntity instanceof IInventory)
+		{
+			IInventory iinventory = (IInventory) tileEntity;
+			
+			for (int i = 0; i < iinventory.getSizeInventory(); ++i)
+			{
+				ItemStack stack = iinventory.getStackInSlot(i);
+				
+				if (stack != null)
+				{
+					float offsX = this.rand.nextFloat() * 0.8F + 0.1F;
+					float offsY = this.rand.nextFloat() * 0.8F + 0.1F;
+					float offsZ = this.rand.nextFloat() * 0.8F + 0.1F;
+					
+					while (stack.stackSize > 0)
+					{
+						int j = this.rand.nextInt(21) + 10;
+						
+						if (j > stack.stackSize)
+						{
+							j = stack.stackSize;
+						}
+						stack.stackSize -= j;
+						ItemStack newStack = stack.copy();
+						newStack.stackSize = j;
+						
+						EntityItem entityItem = new EntityItem(world, x + offsX, y + offsY, z + offsZ, newStack);
+						entityItem.motionX = (float) this.rand.nextGaussian() * 0.05F;
+						entityItem.motionY = (float) this.rand.nextGaussian() * 0.05F + 0.2F;
+						entityItem.motionZ = (float) this.rand.nextGaussian() * 0.05F;
+						world.spawnEntityInWorld(entityItem);
+					}
+				}
+			}
+		}
+		
+		super.breakBlock(world, x, y, z, oldBlockID, oldBlockMetadata);
+	}
+	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
