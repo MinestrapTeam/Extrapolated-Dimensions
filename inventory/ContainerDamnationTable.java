@@ -65,7 +65,7 @@ public class ContainerDamnationTable extends Container
 					return null;
 				}
 			}
-			else if (this.damnationTable.isCurseFuel(itemstack1))
+			else if (this.damnationTable.isEnergyFuel(itemstack1))
 			{
 				if (!this.mergeItemStack(itemstack1, 0, 1, false))
 				{

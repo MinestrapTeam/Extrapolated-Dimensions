@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.tileentity;
 
-import clashsoft.mods.moredimensions.api.ICurseFuel;
+import clashsoft.mods.moredimensions.api.IEnergyFuel;
 import clashsoft.mods.moredimensions.api.ICurseIngredient;
 import clashsoft.mods.moredimensions.curse.Curse;
 
@@ -39,7 +39,7 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		{
 			this.energyTime--;
 		}
-		else if (this.isCurseFuel(this.itemStacks[0]) && canCurse)
+		else if (this.isEnergyFuel(this.itemStacks[0]) && canCurse)
 		{
 			this.energyTime = this.itemEnergyTime = this.getCurseFuel(this.itemStacks[0]);
 			this.decrStackSize(0, 1);
@@ -117,14 +117,14 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		return curse != null && curse.canApply(stack);
 	}
 	
-	public boolean isCurseFuel(ItemStack stack)
+	public boolean isEnergyFuel(ItemStack stack)
 	{
-		return stack != null && stack.getItem() instanceof ICurseFuel && ((ICurseFuel) stack.getItem()).isCurseFuel(stack);
+		return stack != null && stack.getItem() instanceof IEnergyFuel && ((IEnergyFuel) stack.getItem()).isEnergyFuel(stack);
 	}
 	
 	public int getCurseFuel(ItemStack stack)
 	{
-		return stack != null && stack.getItem() instanceof ICurseFuel ? ((ICurseFuel) stack.getItem()).getCurseFuelValue(stack) : 0;
+		return stack != null && stack.getItem() instanceof IEnergyFuel ? ((IEnergyFuel) stack.getItem()).getEnergyValue(stack) : 0;
 	}
 	
 	public boolean isCurseIngredient(ItemStack stack)
@@ -335,7 +335,7 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		switch (slotID)
 		{
 			case 0:
-				return this.isCurseFuel(stack);
+				return this.isEnergyFuel(stack);
 			case 1:
 				return this.isCurseIngredient(stack);
 			case 2:

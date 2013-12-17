@@ -1,11 +1,11 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.cslib.minecraft.CustomItem;
-import clashsoft.mods.moredimensions.api.ICurseFuel;
+import clashsoft.mods.moredimensions.api.IEnergyFuel;
 
 import net.minecraft.item.ItemStack;
 
-public class ItemHeavenMaterials extends CustomItem implements ICurseFuel
+public class ItemHeavenMaterials extends CustomItem implements IEnergyFuel
 {
 	public ItemHeavenMaterials(int itemID, String[] displayNames, String[] iconNames)
 	{
@@ -13,13 +13,13 @@ public class ItemHeavenMaterials extends CustomItem implements ICurseFuel
 	}
 	
 	@Override
-	public boolean isCurseFuel(ItemStack stack)
+	public boolean isEnergyFuel(ItemStack stack)
 	{
 		return stack.getItemDamage() == 6;
 	}
 	
 	@Override
-	public int getCurseFuelValue(ItemStack stack)
+	public int getEnergyValue(ItemStack stack)
 	{
 		return stack.getItemDamage() == 6 ? 2000 : 0;
 	}
