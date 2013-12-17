@@ -1,20 +1,18 @@
 package clashsoft.mods.moredimensions.tileentity;
 
-import clashsoft.mods.moredimensions.api.IEnergyFuel;
+import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
 import clashsoft.mods.moredimensions.api.ICurseIngredient;
+import clashsoft.mods.moredimensions.api.IEnergyFuel;
 import clashsoft.mods.moredimensions.curse.Curse;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityDamnationTable extends TileEntity implements ISidedInventory
+public class TileEntityDamnationTable extends TileEntityInventory implements ISidedInventory
 {
-	public static int	MAX_CURSE_TIME	= 200;				// 10 seconds
-															
+	public static int	MAX_CURSE_TIME	= 200;			// 10 seconds
+														
 	public static int[]	inputSlots		= { 0, 1, 2 };
 	public static int[]	outputSlots		= { 3, 4 };
 	
@@ -23,12 +21,14 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	 * <p>
 	 * 0 = fuel; 1 = curse ingredient; 2 = item to curse; 3 = output; 4 = secondary output
 	 */
-	public ItemStack[]	itemStacks		= new ItemStack[5];
 	public int			energyTime;
 	public int			itemEnergyTime;
 	public int			curseTime;
 	
-	public String		name;
+	public TileEntityDamnationTable()
+	{
+		super(5);
+	}
 	
 	@Override
 	public void updateEntity()
@@ -163,92 +163,6 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 	}
 	
 	@Override
-	public int getSizeInventory()
-	{
-		return this.itemStacks.length;
-	}
-	
-	@Override
-	public ItemStack getStackInSlot(int slotID)
-	{
-		return this.itemStacks[slotID];
-	}
-	
-	@Override
-	public ItemStack decrStackSize(int slotID, int amount)
-	{
-		if (this.itemStacks[slotID] != null)
-		{
-			ItemStack itemstack;
-			
-			if (this.itemStacks[slotID].stackSize <= amount)
-			{
-				itemstack = this.itemStacks[slotID];
-				this.itemStacks[slotID] = null;
-				return itemstack;
-			}
-			else
-			{
-				itemstack = this.itemStacks[slotID].splitStack(amount);
-				
-				if (this.itemStacks[slotID].stackSize == 0)
-				{
-					this.itemStacks[slotID] = null;
-				}
-				
-				return itemstack;
-			}
-		}
-		else
-		{
-			return null;
-		}
-	}
-	
-	@Override
-	public ItemStack getStackInSlotOnClosing(int slotID)
-	{
-		if (this.itemStacks[slotID] != null)
-		{
-			ItemStack itemstack = this.itemStacks[slotID];
-			this.itemStacks[slotID] = null;
-			return itemstack;
-		}
-		else
-		{
-			return null;
-		}
-	}
-	
-	@Override
-	public void setInventorySlotContents(int slotID, ItemStack stack)
-	{
-		this.itemStacks[slotID] = stack;
-		
-		if (stack != null && stack.stackSize > this.getInventoryStackLimit())
-		{
-			stack.stackSize = this.getInventoryStackLimit();
-		}
-	}
-	
-	@Override
-	public String getInvName()
-	{
-		return this.isInvNameLocalized() ? this.name : "tile.damnation_table.name";
-	}
-	
-	@Override
-	public boolean isInvNameLocalized()
-	{
-		return this.name != null && this.name.length() > 0;
-	}
-	
-	public void setInvName(String name)
-	{
-		this.name = name;
-	}
-	
-	@Override
 	public void readFromNBT(NBTTagCompound nbt)
 	{
 		super.readFromNBT(nbt);
@@ -256,25 +170,6 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		this.energyTime = nbt.getShort("EnergyTime");
 		this.itemEnergyTime = nbt.getShort("ItemEnergyTime");
 		this.curseTime = nbt.getShort("CurseTime");
-		
-		NBTTagList nbttaglist = nbt.getTagList("Items");
-		this.itemStacks = new ItemStack[this.getSizeInventory()];
-		
-		for (int i = 0; i < nbttaglist.tagCount(); ++i)
-		{
-			NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.tagAt(i);
-			byte b0 = nbttagcompound1.getByte("Slot");
-			
-			if (b0 >= 0 && b0 < this.itemStacks.length)
-			{
-				this.itemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
-			}
-		}
-		
-		if (nbt.hasKey("CustomName"))
-		{
-			this.name = nbt.getString("CustomName");
-		}
 	}
 	
 	@Override
@@ -285,48 +180,6 @@ public class TileEntityDamnationTable extends TileEntity implements ISidedInvent
 		nbt.setShort("EnergyTime", (short) this.energyTime);
 		nbt.setShort("ItemEnergyTime", (short) this.itemEnergyTime);
 		nbt.setShort("CurseTime", (short) this.curseTime);
-		
-		NBTTagList nbttaglist = new NBTTagList();
-		
-		for (int i = 0; i < this.itemStacks.length; ++i)
-		{
-			if (this.itemStacks[i] != null)
-			{
-				NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-				nbttagcompound1.setByte("Slot", (byte) i);
-				this.itemStacks[i].writeToNBT(nbttagcompound1);
-				nbttaglist.appendTag(nbttagcompound1);
-			}
-		}
-		
-		nbt.setTag("Items", nbttaglist);
-		
-		if (this.isInvNameLocalized())
-		{
-			nbt.setString("CustomName", this.name);
-		}
-	}
-	
-	@Override
-	public int getInventoryStackLimit()
-	{
-		return 64;
-	}
-	
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer player)
-	{
-		return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64.0D;
-	}
-	
-	@Override
-	public void openChest()
-	{
-	}
-	
-	@Override
-	public void closeChest()
-	{
 	}
 	
 	@Override
