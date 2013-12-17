@@ -56,6 +56,16 @@ public class MDMLocalizations
 			LanguageRegistry.addName(new ItemStack(MDMItems.heavenSouls, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
 		}
 		
+		addTranslation("item.cape_pro.name", "Pro Cape");
+		addTranslation("item.cape_blue.name", "Blue Cape");
+		addTranslation("item.cape_green.name", "Green Cape");
+		addTranslation("item.cape_red.name", "Red Cape");
+		addTranslation("item.cape_yellow.name", "Yellow Cape");
+		addTranslation("item.cape_invisibility.name", "Invisibility Cape");
+		addTranslation("item.cape_minecon2011.name", "Minecon Cape");
+		addTranslation("item.cape_minecon2012.name", "Minecon Cape");
+		addTranslation("item.cape_minecon2013.name", "Minecon Cape");
+		
 		// -- Curses --
 		
 		addTranslation("curse.test", "Test Curse");

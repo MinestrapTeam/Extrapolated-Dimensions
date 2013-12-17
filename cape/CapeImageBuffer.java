@@ -1,8 +1,3 @@
-/**
- * DeveloperCapes by Jadar
- * License: MIT License (https://raw.github.com/jadar/DeveloperCapes/master/LICENSE)
- * version 2.1
- */
 package clashsoft.mods.moredimensions.cape;
 
 import java.awt.Graphics;

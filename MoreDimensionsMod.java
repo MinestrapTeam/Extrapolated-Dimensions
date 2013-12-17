@@ -6,6 +6,7 @@ import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.common.MDMEventHandler;
 import clashsoft.mods.moredimensions.common.MDMPacketHandler;
+import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -19,7 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = "MoreDimensionsMod", name = "More Dimensions Mod", version = MoreDimensionsMod.VERSION)
-@NetworkMod(channels = { "MDM", "MDMHeaven" }, packetHandler = MDMPacketHandler.class, clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(channels = { "MDM", "MDMHeaven", "MDMCapes", MDMEntityProperties.CHANNEL }, packetHandler = MDMPacketHandler.class, clientSideRequired = true, serverSideRequired = false)
 public class MoreDimensionsMod
 {
 	public static final int			REVISION	= 0;

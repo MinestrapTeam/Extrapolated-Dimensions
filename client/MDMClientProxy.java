@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions.client;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +30,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -117,6 +120,32 @@ public class MDMClientProxy extends MDMCommonProxy
 			int result = RenderingRegistry.addNewArmourRendererPrefix(name);
 			this.armorFiles.put(name, result);
 			return result;
+		}
+	}
+	
+	@Override
+	public void setCape(EntityPlayer player, String cape)
+	{
+		CapeHelper.setCape(Minecraft.getMinecraft().thePlayer, cape);
+	}
+	
+	@Override
+	public void setCape(EntityPlayer player, Packet250CustomPayload packet)
+	{
+		ByteArrayInputStream bis = new ByteArrayInputStream(packet.data);
+		DataInputStream dis = new DataInputStream(bis);
+		
+		try
+		{
+			String username = dis.readUTF();
+			String capeName = dis.readUTF();
+			
+			EntityPlayer player1 = this.findPlayer(player.worldObj, username);
+			this.setCape(player1, capeName);
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
 		}
 	}
 }

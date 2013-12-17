@@ -14,15 +14,19 @@ import net.minecraft.client.renderer.IImageBuffer;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.texture.TextureObject;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class CapeHelper
 {
-	public static CapeHelper							instance		= new CapeHelper();
+	public static CapeHelper							instance				= new CapeHelper();
 	
-	private HashMap<String, String>						users			= new HashMap();
-	private HashMap<String, ResourceLocation>			capeResources	= new HashMap();
-	private HashMap<String, ThreadDownloadImageData>	downloadThreads	= new HashMap();
+	private HashMap<String, String>						users					= new HashMap();
+	private HashMap<String, ResourceLocation>			capeResources			= new HashMap();
+	private HashMap<String, ThreadDownloadImageData>	downloadThreads			= new HashMap();
+	
+	public ResourceLocation								EMPTY_RESOURCE_LOCATION	= new ResourceLocation("moredimensions", "capes/empty");
+	public ThreadDownloadImageData						EMPTY_IMAGE_DATA		= new ThreadDownloadImageData("", EMPTY_RESOURCE_LOCATION, new CapeImageBuffer());
 	
 	protected CapeHelper()
 	{
@@ -56,7 +60,7 @@ public class CapeHelper
 								capeUrl = subLine;
 								
 								ResourceLocation r = new ResourceLocation("moredimensions", "capes/" + group);
-								ThreadDownloadImageData t = getDownloadThread(r, capeUrl, null, new CapeImageBuffer());
+								ThreadDownloadImageData t = createDownloadThread(r, capeUrl, null, new CapeImageBuffer());
 								
 								addCapeResource(group, r);
 								addDownloadThread(group, t);
@@ -84,38 +88,34 @@ public class CapeHelper
 		instance.users.put(username, group);
 	}
 	
+	public static void addCapeResource(String group, ResourceLocation resourceLocation)
+	{
+		instance.capeResources.put(group, resourceLocation);	
+	}
+	
+	public static void addDownloadThread(String group, ThreadDownloadImageData downloadImageThread)
+	{
+		instance.downloadThreads.put(group, downloadImageThread);
+	}
+	
 	public static String getUserGroup(String username)
 	{
 		return instance.users.get(username);
 	}
 	
-	public static void addCapeResource(String group, ResourceLocation resourceLocation)
-	{
-		if (getCapeResource(group) == null)
-		{
-			instance.capeResources.put(group, resourceLocation);
-		}
-	}
-	
 	public static ResourceLocation getCapeResource(String group)
 	{
-		return instance.capeResources.get(group);
-	}
-	
-	public static void addDownloadThread(String group, ThreadDownloadImageData downloadImageThread)
-	{
-		if (getDownloadThread(group) == null)
-		{
-			instance.downloadThreads.put(group, downloadImageThread);
-		}
+		ResourceLocation rl = instance.capeResources.get(group);
+		return rl != null ? rl : instance.EMPTY_RESOURCE_LOCATION;
 	}
 	
 	public static ThreadDownloadImageData getDownloadThread(String group)
 	{
-		return instance.downloadThreads.get(group);
+		ThreadDownloadImageData tdid = instance.downloadThreads.get(group);
+		return tdid != null ? tdid : instance.EMPTY_IMAGE_DATA;
 	}
 	
-	public static ThreadDownloadImageData getDownloadThread(ResourceLocation resourceLocation1, String string, ResourceLocation resourceLocation2, IImageBuffer imageBuffer)
+	public static ThreadDownloadImageData createDownloadThread(ResourceLocation resourceLocation1, String string, ResourceLocation resourceLocation2, IImageBuffer imageBuffer)
 	{
 		TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
 		
@@ -123,6 +123,24 @@ public class CapeHelper
 		texturemanager.loadTexture(resourceLocation1, object);
 		
 		return (ThreadDownloadImageData) object;
+	}
+	
+	public static void setCape(EntityPlayer player, boolean override)
+	{
+		if (player instanceof AbstractClientPlayer && getUserGroup(player.username) != null)
+		{
+			if (override || !getDownloadImageThreadData((AbstractClientPlayer) player).isTextureUploaded())
+			{
+				String userGroup = getUserGroup(player.username);
+				setCape((AbstractClientPlayer) player, userGroup);
+			}
+		}
+	}
+	
+	public static void setCape(AbstractClientPlayer player, String userGroup)
+	{
+		setCapeResourceLocation(player, getCapeResource(userGroup));
+		setDownloadImageThreadData(player, getDownloadThread(userGroup));
 	}
 	
 	public static void setDownloadImageThreadData(AbstractClientPlayer player, ThreadDownloadImageData data)

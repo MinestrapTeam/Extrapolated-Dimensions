@@ -110,7 +110,7 @@ public class MDMItems
 		fireSword = (ItemFireSword) (new ItemFireSword(CSConfig.getItem("Fire Sword", heavenItemID++))).setUnlocalizedName("fire_sword").setTextureName("moredimensions:fire_sword");
 		icehammer = (ItemIceHammer) (new ItemIceHammer(CSConfig.getItem("Ice Hammer", heavenItemID++))).setUnlocalizedName("ice_hammer").setTextureName("moredimensions:ice_hammer");
 		heavenSouls = (ItemHeavenSoul) (new ItemHeavenSoul(CSConfig.getItem("Soul", heavenItemID++))).setUnlocalizedName("soul");
-		capes = (ItemCape) new ItemCape(CSConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape");
+		capes = (ItemCape) new ItemCape(CSConfig.getItem("Cape", heavenItemID++)).setUnlocalizedName("cape").setCreativeTab(tabHeavenArmor);
 		heavenSeeds = (ItemHeavenSeeds) (new ItemHeavenSeeds(CSConfig.getItem("Heaven Seeds", heavenItemID++), new String[] { "Heaven Grass Seeds", "Mud Grass Seeds", "Corrupted Grass Seeds", "Hallowed Grass Seeds", "Mushroom Grass Seeds" }, new String[] { "moredimensions:heaven_grass_seeds", "moredimensions:mud_grass_seeds", "moredimensions:corrupted_grass_seeds", "moredimensions:hallowed_grass_seeds", "moredimensions:mushroom_grass_seeds" })).setUnlocalizedName("heavenSeeds");
 		iceStick = (ItemIceStick) new ItemIceStick(CSConfig.getItem("Ice Stick", heavenItemID++)).setUnlocalizedName("ice_stick").setTextureName("moredimensions:ice_stick").setCreativeTab(tabHeavenItems);
 		

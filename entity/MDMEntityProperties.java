@@ -20,8 +20,8 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class MDMEntityProperties implements IExtendedEntityProperties
 {
-	public static final String		IDENTIFIER			= "POCEntityProperties";
-	public static final String		CHANNEL				= "POCEPC";
+	public static final String		IDENTIFIER			= "MDMEntityProperties";
+	public static final String		CHANNEL				= "MDMEntProp";
 	
 	public static float				maxManaValue		= 10F;
 	
