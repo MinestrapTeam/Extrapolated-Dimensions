@@ -9,6 +9,7 @@ import clashsoft.cslib.minecraft.CustomCreativeTab;
 import clashsoft.cslib.minecraft.CustomItem;
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.minecraft.util.CSItems;
+import clashsoft.mods.moredimensions.item.alchemy.ItemMatter;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
 import clashsoft.mods.moredimensions.item.heaven.*;
 import clashsoft.mods.moredimensions.item.poc.*;
@@ -36,16 +37,13 @@ public class MDMItems
 	public static CustomCreativeTab			tabHeavenArmor	= new CustomCreativeTab("HeavenArmor");
 	
 	public static int						pocItemID		= 25000;
+	public static int						alchemyItemID	= 25500;
 	public static int						heavenItemID	= 26000;
 	
 	// -- Paradise of Chaos --
 	
-	public static ItemAlchemyGuide			alchemyGuide;
 	public static ItemStaff					staves;
 	public static ItemManaStar				manaStar;
-	
-	public static ItemElixir				elixir;
-	public static ItemElixirBottle			elixirBottle;
 	
 	public static CustomItem				pocMaterials;
 	
@@ -67,16 +65,19 @@ public class MDMItems
 	
 	public static ItemStack					heavenWoodStick, goldWoodStick, heavenArrow, shrekiteShard, clashiumIngot, holyiumIngot, energyOrb, proAlloy, bluriteDust;
 	
+	// -- Alchemy --
+	
+	public static ItemAlchemyGuide			alchemyGuide;
+	public static ItemElixir				elixir;
+	public static ItemElixirBottle			elixirBottle;
+	public static ItemMatter				matter;
+	
 	public static void initialize()
 	{
 		// -- Paradise of Chaos --
 		
-		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(CSConfig.getItem("Alchemy Guide", pocItemID++)).setUnlocalizedName("alchemy_guide").setTextureName("moredimensions:alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
 		staves = (ItemStaff) new ItemStaff(CSConfig.getItem("Staves", pocItemID++)).setUnlocalizedName("staves").setCreativeTab(tabPOCTools);
 		manaStar = (ItemManaStar) new ItemManaStar(CSConfig.getItem("Mana Star", pocItemID++)).setUnlocalizedName("manastar").setTextureName("moredimensions:manastar").setCreativeTab(tabPOCItems);
-		elixir = (ItemElixir) new ItemElixir(CSConfig.getItem("Elixir", pocItemID++)).setUnlocalizedName("elixir");
-		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(CSConfig.getItem("Elixir Bottle", pocItemID++)).setUnlocalizedName("elixirbottle");
-		
 		pocMaterials = (CustomItem) new CustomItem(CSConfig.getItem("POC Materials", pocItemID++), new String[] { "Magic Oak Stick", "Willow Stick", "Daeyalt Gem", "Novite Gem", "Marmaros Gem", "Kratonium Ingot" }, new String[] { "moredimensions:magicoak_stick", "moredimensions:willow_stick", "moredimensions:daeyalt_gem", "moredimensions:novite_gem", "moredimensions:marmaros_gem", "moredimensions:kratonium_ingot" }).setUnlocalizedName("pocMaterials").setCreativeTab(tabPOCItems);
 		{
 			int i = -1;
@@ -115,17 +116,20 @@ public class MDMItems
 		iceStick = (ItemIceStick) new ItemIceStick(CSConfig.getItem("Ice Stick", heavenItemID++)).setUnlocalizedName("ice_stick").setTextureName("moredimensions:ice_stick").setCreativeTab(tabHeavenItems);
 		
 		heavenPortalActivator = (ItemHeavenPortalActivator) (new ItemHeavenPortalActivator(CSConfig.getItem("Heaven Portal Activator", heavenItemID++))).setUnlocalizedName("heaven_portal_activator").setTextureName("moredimensions:heaven_portal_activator").setCreativeTab(tabHeavenTools);
+		
+		// -- Alchemy --
+		
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide(CSConfig.getItem("Alchemy Guide", alchemyItemID++)).setUnlocalizedName("alchemy_guide").setTextureName("moredimensions:alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
+		elixir = (ItemElixir) new ItemElixir(CSConfig.getItem("Elixir", alchemyItemID++)).setUnlocalizedName("elixir").setCreativeTab(tabAlchemy);
+		elixirBottle = (ItemElixirBottle) new ItemElixirBottle(CSConfig.getItem("Elixir Bottle", alchemyItemID++)).setUnlocalizedName("elixirbottle").setCreativeTab(tabAlchemy);
+		matter = (ItemMatter) new ItemMatter(CSConfig.getItem("Matter", alchemyItemID++)).setUnlocalizedName("matter").setCreativeTab(tabAlchemy);
 	}
 	
 	public static void load()
 	{
 		// -- Paradise of Chaos --
 		
-		addItem(alchemyGuide, "Alchemy Guide", "Buch der Alchemie");
 		addItem(manaStar, "Mana Star", "Manastern");
-		addItem(elixir, "Elixir", "Elixier");
-		addItem(elixirBottle, "Elixir Bottle", "Elixierflasche");
-		
 		addItem(pocMaterials, "POCMaterials");
 		
 		// -- Heaven --
@@ -147,13 +151,21 @@ public class MDMItems
 		
 		tabHeavenBlocks.setIconItemStack(new ItemStack(MDMBlocks.heavenGrassBlocks));
 		tabHeavenItems.setIconItemStack(shrekiteShard);
+		
+		// -- Alchemy --
+		
+		addItem(alchemyGuide, "Alchemy Guide", "Buch der Alchemie");
+		addItem(elixir, "Elixir", "Elixier");
+		addItem(elixirBottle, "Elixir Bottle", "Elixierflasche");
 	}
 	
 	public static void addItem(Item item, String en, String de)
 	{
 		CSItems.addItem(item, en);
 		if (de != null)
+		{
 			LanguageRegistry.instance().addNameForObject(item, "de_DE", de);
+		}
 	}
 	
 	public static void addItem(Item item, String name)
@@ -168,9 +180,13 @@ public class MDMItems
 		for (int i = 0; i < args.length; i++)
 		{
 			if (args[i] != null)
+			{
 				classes[i] = args[i].getClass();
+			}
 			else
+			{
 				classes[i] = Object.class;
+			}
 		}
 		return addItem(type, name, classes, args);
 	}
@@ -183,7 +199,9 @@ public class MDMItems
 		{
 			Constructor<T> c = type.getConstructor(argsTypes);
 			if (c != null)
+			{
 				item = c.newInstance(args);
+			}
 		}
 		catch (Throwable ex)
 		{
