@@ -1,7 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
 import static clashsoft.cslib.minecraft.util.CSBlocks.addBlock;
-import cpw.mods.fml.common.registry.GameRegistry;
 import clashsoft.cslib.addon.Addon;
 import clashsoft.cslib.minecraft.CustomBlock;
 import clashsoft.cslib.minecraft.block.BlockCustomGrass;
@@ -9,10 +8,12 @@ import clashsoft.cslib.minecraft.block.BlockCustomLeaves;
 import clashsoft.cslib.minecraft.block.BlockCustomLog;
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.cslib.minecraft.util.CSConfig;
+import clashsoft.mods.moredimensions.block.alchemy.BlockAlchemyTable;
 import clashsoft.mods.moredimensions.block.alchemy.BlockAlchemyTube;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.block.poc.*;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -42,8 +43,6 @@ public class MDMBlocks
 	public static Block					pocPortalFrame;
 	public static BlockPOCActivatorLava	activatorLava;
 	public static BlockPOCDreamBed		dreamBed;
-	
-	public static BlockAlchemyTube		alchemyTube;
 	
 	public static ItemStack				magicOakLog, willowLog;
 	public static ItemStack				magicOakLeaves, willowLeaves;
@@ -83,6 +82,11 @@ public class MDMBlocks
 	public static ItemStack				heavenStone, heavenCobble, heavenCobbleMossy;
 	public static ItemStack				shrekiteOre, clashiumOre, bluriteOre, holyiumOre;
 	public static ItemStack				shrekiteBlock, clashiumBlock, bluriteBlock, holyiumBlock, proAlloyBlock;
+	
+	// -- Alchemy --
+	
+	public static BlockAlchemyTube		alchemyTube;
+	public static BlockAlchemyTable		alchemyTable;
 	
 	public static void initialize()
 	{
@@ -130,8 +134,6 @@ public class MDMBlocks
 		
 		Block.blocksList[Block.bed.blockID] = null;
 		dreamBed = (BlockPOCDreamBed) new BlockPOCDreamBed(Block.bed.blockID).setHardness(0.2F).setUnlocalizedName("bed").setTextureName("bed");
-		
-		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(CSConfig.getBlock("Alchemy Tube", 1011)).setUnlocalizedName("AlchemyTube").setTextureName("moredimensions:alchemy_tube").setCreativeTab(MDMItems.tabAlchemy);
 		
 		// -- Heaven Blocks --
 		
@@ -217,6 +219,11 @@ public class MDMBlocks
 		heavenPillar = (BlockHeavenPillar) (new BlockHeavenPillar(CSConfig.getBlock("Heaven Pillar", 1058))).setUnlocalizedName("pillar").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(1.75F);
 		
 		damnationTable = (BlockDamnationTable) new BlockDamnationTable(CSConfig.getBlock("Damnation Tabel", 1059)).setUnlocalizedName("damnation_table").setCreativeTab(MDMItems.tabHeavenBlocks).setHardness(4F);
+		
+		// -- Alchemy Blocks --
+		
+		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube(CSConfig.getBlock("Alchemy Tube", 1011)).setUnlocalizedName("alchemy_tube").setTextureName("moredimensions:alchemy_tube").setCreativeTab(MDMItems.tabAlchemy);
+		alchemyTable = (BlockAlchemyTable) new BlockAlchemyTable(CSConfig.getBlock("Alchemy Table", 1012)).setUnlocalizedName("alchemy_table").setCreativeTab(MDMItems.tabAlchemy);
 	}
 	
 	public static void load()
@@ -242,8 +249,6 @@ public class MDMBlocks
 		addBlock(pocPlantBlocks, "POC Herbs");
 		addBlock(pocPortal, "Paradise of Chaos Portal");
 		addBlock(pocPortalFrame, "Paradise Of Chaos Portal Frame");
-		
-		addBlock(alchemyTube, "Alchemy Tube");
 		
 		// -- Heaven --
 		
@@ -271,7 +276,11 @@ public class MDMBlocks
 		addBlock(heavenPillar, "Heaven Pillar");
 		
 		addBlock(damnationTable, "Damnation Table");
-		
 		GameRegistry.registerTileEntity(TileEntityDamnationTable.class, "DamnationTable");
+		
+		// -- Alchemy --
+		
+		addBlock(alchemyTube, "Alchemy Tube");
+		addBlock(alchemyTable, "Alchemy Table");
 	}
 }

@@ -26,6 +26,7 @@ public class MDMCommonProxy implements IGuiHandler
 	public static int	BOSS_CHAT_GUIID			= 20;
 	public static int	TOME_GUIID				= 21;
 	public static int	DAMNATION_TABLE_GUIID	= 22;
+	public static int	ALCHEMY_TABLE_GUIID		= 23;
 	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
