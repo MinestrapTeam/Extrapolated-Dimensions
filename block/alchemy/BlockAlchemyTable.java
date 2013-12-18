@@ -5,7 +5,6 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
-import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
 import net.minecraft.block.BlockContainer;
@@ -77,7 +76,7 @@ public class BlockAlchemyTable extends BlockContainer
 		{
 			TileEntity tileentity = world.getBlockTileEntity(x, y, z);
 			
-			if (tileentity instanceof TileEntityDamnationTable)
+			if (tileentity instanceof TileEntityAlchemyTable)
 			{
 				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMCommonProxy.ALCHEMY_TABLE_GUIID, world, x, y, z);
 			}

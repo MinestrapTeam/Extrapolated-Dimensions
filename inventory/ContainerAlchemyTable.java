@@ -35,7 +35,6 @@ public class ContainerAlchemyTable extends Container
 		this.addSlotToContainer(new SlotOutput(alchemyTable, 11, 223, 47)); // Primary output
 		this.addSlotToContainer(new SlotOutput(alchemyTable, 12, 144, 85)); // Secondary output
 		
-		
 		int i;
 		
 		for (i = 0; i < 3; ++i)

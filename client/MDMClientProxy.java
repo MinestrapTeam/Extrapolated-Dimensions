@@ -11,6 +11,7 @@ import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
 import clashsoft.mods.moredimensions.client.gui.GuiHeavenMainMenu;
 import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
 import clashsoft.mods.moredimensions.client.gui.GuiTome;
+import clashsoft.mods.moredimensions.client.gui.container.GuiAlchemyTable;
 import clashsoft.mods.moredimensions.client.gui.container.GuiDamnationTable;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
@@ -19,6 +20,7 @@ import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTub
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
+import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -58,6 +60,10 @@ public class MDMClientProxy extends MDMCommonProxy
 		else if (ID == DAMNATION_TABLE_GUIID)
 		{
 			return new GuiDamnationTable(player.inventory, (TileEntityDamnationTable) world.getBlockTileEntity(x, y, z));
+		}
+		else if (ID == ALCHEMY_TABLE_GUIID)
+		{
+			return new GuiAlchemyTable(player, (TileEntityAlchemyTable) world.getBlockTileEntity(x, y, z));
 		}
 		else
 		{

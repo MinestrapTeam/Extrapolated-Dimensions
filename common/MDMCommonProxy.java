@@ -6,9 +6,11 @@ import java.util.List;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.api.IMDMBoss;
+import clashsoft.mods.moredimensions.inventory.ContainerAlchemyTable;
 import clashsoft.mods.moredimensions.inventory.ContainerBossChat;
 import clashsoft.mods.moredimensions.inventory.ContainerDamnationTable;
 import clashsoft.mods.moredimensions.inventory.ContainerTome;
+import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
@@ -42,6 +44,10 @@ public class MDMCommonProxy implements IGuiHandler
 		else if (ID == DAMNATION_TABLE_GUIID)
 		{
 			return new ContainerDamnationTable(player.inventory, (TileEntityDamnationTable) world.getBlockTileEntity(x, y, z));
+		}
+		else if (ID == ALCHEMY_TABLE_GUIID)
+		{
+			return new ContainerAlchemyTable(player.inventory, (TileEntityAlchemyTable) world.getBlockTileEntity(x, y, z));
 		}
 		else
 		{
