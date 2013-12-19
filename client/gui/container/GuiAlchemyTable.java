@@ -7,7 +7,9 @@ import clashsoft.mods.moredimensions.inventory.ContainerAlchemyTable;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiAlchemyTable extends GuiContainer
@@ -41,11 +43,19 @@ public class GuiAlchemyTable extends GuiContainer
 		{
 			heatType = this.alchemyTable.getHeatType(2);
 		}
+		else if (this.isPointInRegion(38, 48, 16, 16, mouseX, mouseY))
+		{
+			this.drawCreativeTabHoveringText(String.format("%s: %.1f%%", I18n.getString("gui.progress"), this.alchemyTable.progressTime / this.alchemyTable.maxProgressTime * 100F), mouseX - this.guiLeft, mouseY - this.guiTop);
+		}
 		
 		if (heatType != null)
 		{
-			this.drawCreativeTabHoveringText(heatType.getLocalizedName(), mouseX, mouseY);
+			this.drawCreativeTabHoveringText(heatType.getLocalizedName(), mouseX - this.guiLeft, mouseY - this.guiTop);
 		}
+		
+		String title = EnumChatFormatting.YELLOW + I18n.getString("tile.alchemy_table.name");
+		int width = this.fontRenderer.getStringWidth(title);
+		this.drawCreativeTabHoveringText(title, this.guiLeft - (width / 2) + 4, 8);
 	}
 	
 	@Override
@@ -92,24 +102,27 @@ public class GuiAlchemyTable extends GuiContainer
 	
 	public int getBubbles(int scaledProgress)
 	{
-		int i = scaledProgress / 2 % 7;
-		
-		switch (i)
+		if (scaledProgress > 0)
 		{
-		case 0:
-			return 29;
-		case 1:
-			return 24;
-		case 2:
-			return 20;
-		case 3:
-			return 16;
-		case 4:
-			return 11;
-		case 5:
-			return 6;
-		case 6:
-			return 0;
+			int i = scaledProgress / 2 % 7;
+			
+			switch (i)
+			{
+				case 0:
+					return 29;
+				case 1:
+					return 24;
+				case 2:
+					return 20;
+				case 3:
+					return 16;
+				case 4:
+					return 11;
+				case 5:
+					return 6;
+				case 6:
+					return 0;
+			}
 		}
 		return 0;
 	}

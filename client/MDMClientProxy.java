@@ -89,7 +89,6 @@ public class MDMClientProxy extends MDMCommonProxy
 		TickRegistry.registerTickHandler(new MDMClientTickHandler(), Side.CLIENT);
 		
 		// Event Handlers
-		MinecraftForge.EVENT_BUS.register(new MDMClientEventHandler());
 		MinecraftForge.EVENT_BUS.register(new GuiPOCIngame(Minecraft.getMinecraft()));
 		
 		// Sounds

@@ -28,7 +28,7 @@ public class GuiPOCIngame extends GuiIngameForge
 	}
 	
 	@ForgeSubscribe
-	public void onRenderExperienceBar(RenderGameOverlayEvent event)
+	public void onRenderGameOverlay(RenderGameOverlayEvent event)
 	{
 		this.res = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
 		
@@ -48,7 +48,7 @@ public class GuiPOCIngame extends GuiIngameForge
 	{
 		this.mc.mcProfiler.startSection("mana");
 		
-		if (!this.mc.thePlayer.capabilities.isCreativeMode || Keyboard.isKeyDown(Keyboard.KEY_I))
+		if (!this.mc.thePlayer.capabilities.isCreativeMode || Keyboard.isKeyDown(Keyboard.KEY_I) && mc.inGameHasFocus)
 		{
 			this.mc.renderEngine.bindTexture(mana);
 			int left = width / 2 + 91;
@@ -72,13 +72,13 @@ public class GuiPOCIngame extends GuiIngameForge
 	
 	public void renderLevels(int width, int height)
 	{
-		if (Keyboard.isKeyDown(Keyboard.KEY_I) && Minecraft.getMinecraft().inGameHasFocus)
+		if (Keyboard.isKeyDown(Keyboard.KEY_I) && mc.inGameHasFocus)
 		{
 			MDMEntityProperties props = MDMEntityProperties.getEntityProperties(this.mc.thePlayer);
+			int i = -9;
 			int i1 = 11;
-			int i = -i1 + 2;
 			
-			this.mc.fontRenderer.drawString(String.format("Melee Level: %s%s (%.2f)", EnumChatFormatting.RED, "TEST", props.getMeleeLevel()), 2, i += i1, 0xFFFFFF, true);
+			this.mc.fontRenderer.drawString(String.format("Melee Level: %s%.2f", EnumChatFormatting.RED, props.getMeleeLevel()), 2, i += i1, 0xFFFFFF, true);
 			this.mc.fontRenderer.drawString(String.format("Defence Level: %s%.2f", EnumChatFormatting.BLACK, props.getDefenceLevel()), 2, i += i1, 0xFFFFFF, true);
 			this.mc.fontRenderer.drawString(String.format("Magic Level: %s%.2f", EnumChatFormatting.BLUE, props.getMagicLevel()), 2, i += i1, 0xFFFFFF, true);
 			this.mc.fontRenderer.drawString(String.format("Ranged Level: %s%.2f", EnumChatFormatting.DARK_GRAY, props.getRangedLevel()), 2, i += i1, 0xFFFFFF, true);

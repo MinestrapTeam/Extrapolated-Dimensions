@@ -22,6 +22,6 @@ public enum EnumHeatType
 	
 	public String getLocalizedName()
 	{
-		return I18n.getString(this.getLocalizedName());
+		return I18n.getString(this.getUnlocalizedName());
 	}
 }
