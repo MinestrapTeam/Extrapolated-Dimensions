@@ -17,6 +17,7 @@ import clashsoft.mods.moredimensions.client.renderer.entity.RenderLich;
 import clashsoft.mods.moredimensions.client.renderer.entity.RenderScider;
 import clashsoft.mods.moredimensions.client.renderer.item.RenderPOCBows;
 import clashsoft.mods.moredimensions.client.renderer.tileentity.RenderAlchemyTube;
+import clashsoft.mods.moredimensions.client.sound.MDMSoundHandler;
 import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.entity.EntityScider;
 import clashsoft.mods.moredimensions.entity.boss.EntityLich;
@@ -90,9 +91,7 @@ public class MDMClientProxy extends MDMCommonProxy
 		
 		// Event Handlers
 		MinecraftForge.EVENT_BUS.register(new GuiPOCIngame(Minecraft.getMinecraft()));
-		
-		// Sounds
-		this.installSound("streaming/PoC Menu.ogg");
+		MinecraftForge.EVENT_BUS.register(MDMSoundHandler.instance);
 		
 		// Entity Renderers
 		RenderingRegistry.registerEntityRenderingHandler(EntityLich.class, new RenderLich());
@@ -106,11 +105,6 @@ public class MDMClientProxy extends MDMCommonProxy
 		
 		// Capes
 		CapeHelper.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
-	}
-	
-	public void installSound(String filename)
-	{
-		Minecraft.getMinecraft().sndManager.addStreaming(filename);
 	}
 	
 	@Override
