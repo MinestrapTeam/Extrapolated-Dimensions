@@ -1,5 +1,7 @@
 package clashsoft.mods.moredimensions;
 
+import java.io.File;
+
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.mods.moredimensions.addons.*;
@@ -35,15 +37,19 @@ public class MoreDimensionsMod
 	public static MDMPacketHandler	packetHandler;
 	public static MDMEventHandler	eventHandler;
 	
+	public static File configFile = null;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		CSConfig.loadConfig(event.getSuggestedConfigurationFile());
+		configFile = event.getSuggestedConfigurationFile();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		CSConfig.loadConfig(configFile);
+		
 		long l0 = System.nanoTime();
 		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 		
@@ -83,11 +89,12 @@ public class MoreDimensionsMod
 		long l13 = System.nanoTime();
 		
 		System.out.println(String.format("[MoreDimensionsMod] Loading times: Init:%.4fs; Blocks{init}:%.4fs; Items{init}:%.4fs; Tools{init}:%.4fs; Blocks{load}:%.4fs; Items{load}:%.4fs; Tools{load}:%.4fs; Entitys:%.4fs; Recipes:%.4fs; World:%.4fs; Inventory:%.4fs; Localizations:%.4fs; Proxy:%.4fs", (l1 - l0) / 1000000000D, (l2 - l1) / 1000000000D, (l3 - l2) / 1000000000D, (l4 - l3) / 1000000000D, (l5 - l4) / 1000000000D, (l6 - l5) / 1000000000D, (l7 - l6) / 1000000000D, (l8 - l7) / 1000000000D, (l9 - l8) / 1000000000D, (l10 - l9) / 1000000000D, (l11 - l10) / 1000000000D, (l12 - l11) / 1000000000D, (l13 - l12) / 1000000000D));
+		
+		CSConfig.saveConfig();
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		CSConfig.saveConfig();
 	}
 }
