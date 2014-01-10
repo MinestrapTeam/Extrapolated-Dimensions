@@ -54,8 +54,8 @@ public class ItemMatter extends Item
 		
 		for (int i = 0; i < 4; i++)
 		{
-			this.icons1[i] = iconRegister.registerIcon("matter_" + i + "_left");
-			this.icons2[i] = iconRegister.registerIcon("matter_" + i + "_right");
+			this.icons1[i] = iconRegister.registerIcon("moredimensions:matter_" + i + "_left");
+			this.icons2[i] = iconRegister.registerIcon("moredimensions:matter_" + i + "_right");
 		}
 	}
 	
