@@ -98,6 +98,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 									l2 = MDMBlocks.heavenStoneBlocks.blockID;
 								}
 								storage[j2] = ((byte) l2);
+								j2 += 128;
 								d15 += d16;
 							}
 							
@@ -156,15 +157,14 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 					{
 						j1 = -1;
 					}
-					else if (blockAtIndex != MDMBlocks.pocStoneBlocks.blockID)
+					else if (blockAtIndex != stone)
 					{
 						if (j1 == -1)
 						{
 							if (noise == 0)
 							{
-								this.topBlock = 0;
-								
-								this.fillerBlock = (byte) MDMBlocks.pocDirtBlocks.blockID;
+								this.topBlock = (byte) MDMBlocks.heavenGrassBlocks.blockID;
+								this.fillerBlock = (byte) MDMBlocks.heavenDirtBlocks.blockID;
 							}
 							else if ((y1 >= averageHeight - 4) && (y1 <= averageHeight + 1))
 							{
