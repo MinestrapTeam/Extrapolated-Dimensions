@@ -10,7 +10,6 @@ import net.minecraft.block.*;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -135,15 +134,6 @@ public class MDMEventHandler
 				MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
 				props.sync(player);
 			}
-		}
-	}
-	
-	@ForgeSubscribe
-	public void onGUIOpened(GuiOpenEvent event)
-	{
-		if (event.gui != null)
-		{
-			MoreDimensionsMod.proxy.replaceGUIs(event);
 		}
 	}
 	
