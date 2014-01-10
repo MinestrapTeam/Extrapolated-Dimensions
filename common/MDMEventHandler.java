@@ -26,8 +26,9 @@ public class MDMEventHandler
 	public void bonemealUsed(BonemealEvent event)
 	{
 		int blockID = event.world.getBlockId(event.X, event.Y, event.Z);
-		if (Block.blocksList[blockID] instanceof BlockSapling)
-			((BlockSapling) Block.blocksList[blockID]).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+		Block block = Block.blocksList[blockID];
+		if (block instanceof BlockSapling && block.getClass() != BlockSapling.class)
+			((BlockSapling) block).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 	}
 	
 	@ForgeSubscribe
