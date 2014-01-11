@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
+import clashsoft.cslib.util.CSLog;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
@@ -496,7 +497,7 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		}
 		catch (Exception ex)
 		{
-			ex.printStackTrace();
+			CSLog.error(ex);
 			return null;
 		}
 		
@@ -530,7 +531,7 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		}
 		catch (Exception ex)
 		{
-			ex.printStackTrace();
+			CSLog.error(ex);
 		}
 		return this;
 	}

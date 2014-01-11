@@ -2,6 +2,8 @@ package clashsoft.mods.moredimensions.dreams;
 
 import java.util.Random;
 
+import clashsoft.cslib.util.CSLog;
+
 import net.minecraft.entity.player.EntityPlayer;
 
 public class DreamHelper
@@ -22,7 +24,7 @@ public class DreamHelper
 	
 	public static void startDream(EntityPlayer player, int x, int y, int z)
 	{
-		System.out.println("Starting dream");
+		CSLog.info("Starting dream");
 		
 		Dream dream = new Dream();
 		dream.setPlayer(player);
@@ -34,7 +36,7 @@ public class DreamHelper
 	
 	public static void startNightmare(EntityPlayer player, int x, int y, int z)
 	{
-		System.out.println("Starting nightmare");
+		CSLog.info("Starting nightmare");
 		
 		Nightmare nightmare = new Nightmare();
 		nightmare.setPlayer(player);

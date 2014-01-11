@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.List;
 
+import clashsoft.cslib.util.CSLog;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.api.IMDMBoss;
 import clashsoft.mods.moredimensions.inventory.ContainerAlchemyTable;
@@ -107,7 +108,7 @@ public class MDMCommonProxy implements IGuiHandler
 		}
 		catch (Exception ex)
 		{
-			ex.printStackTrace();
+			CSLog.error(ex);
 		}
 		
 		Packet packet = new Packet250CustomPayload("MDMCapes", bos.toByteArray());

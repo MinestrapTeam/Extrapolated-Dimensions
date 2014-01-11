@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import clashsoft.cslib.util.CSLog;
 import clashsoft.mods.moredimensions.api.IMDMBoss;
 import clashsoft.mods.moredimensions.cape.CapeHelper;
 import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
@@ -145,7 +146,7 @@ public class MDMClientProxy extends MDMCommonProxy
 		}
 		catch (Exception ex)
 		{
-			ex.printStackTrace();
+			CSLog.error(ex);
 		}
 	}
 }
