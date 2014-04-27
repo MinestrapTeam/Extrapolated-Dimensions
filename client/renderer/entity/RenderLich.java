@@ -36,23 +36,17 @@ public class RenderLich extends RenderBiped
 	}
 	
 	@Override
-	protected ResourceLocation func_110856_a(EntityLiving living)
+	protected ResourceLocation getEntityTexture(EntityLiving living)
 	{
 		return this.getSkeletonTexture((EntitySkeleton) living);
 	}
 	
-	/**
-	 * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args: entityLiving, partialTickTime
-	 */
 	@Override
 	protected void preRenderCallback(EntityLivingBase living, float partialTickTime)
 	{
 		
 	}
 	
-	/**
-	 * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-	 */
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity)
 	{

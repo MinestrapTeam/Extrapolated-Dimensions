@@ -1,19 +1,18 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.mods.moredimensions.addons.MDMItems;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class ItemIceHammer extends ItemIceStick
 {
-	public ItemIceHammer(int itemID)
+	public ItemIceHammer()
 	{
-		super(itemID);
-		this.maxStackSize = 1;
+		super();
+		this.setMaxStackSize(1);
 		this.setMaxDamage(256);
 		this.setCreativeTab(MDMItems.tabHeavenTools);
 	}
@@ -26,37 +25,24 @@ public class ItemIceHammer extends ItemIceStick
 		return true;
 	}
 	
-	/**
-	 * Returns True is the item is renderer in full 3D when hold.
-	 */
 	@Override
-	@SideOnly(Side.CLIENT)
 	public boolean isFull3D()
 	{
 		return true;
 	}
 	
-	/**
-	 * How long it takes to use or consume an item
-	 */
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack)
 	{
 		return 72000;
 	}
 	
-	/**
-	 * Returns if the item (tool) can harvest results from the block type.
-	 */
 	@Override
-	public boolean canHarvestBlock(Block block)
+	public boolean canHarvestBlock(Block block, ItemStack stack)
 	{
-		return block.blockID == Block.web.blockID;
+		return block == Blocks.web;
 	}
 	
-	/**
-	 * Return the enchantability factor of the item, most of the time is based on material.
-	 */
 	@Override
 	public int getItemEnchantability()
 	{

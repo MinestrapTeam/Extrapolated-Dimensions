@@ -1,15 +1,15 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
-import clashsoft.cslib.minecraft.CustomItem;
+import clashsoft.cslib.minecraft.item.CustomItem;
 import clashsoft.mods.moredimensions.api.IEnergyFuel;
 
 import net.minecraft.item.ItemStack;
 
 public class ItemHeavenMaterials extends CustomItem implements IEnergyFuel
 {
-	public ItemHeavenMaterials(int itemID, String[] displayNames, String[] iconNames)
+	public ItemHeavenMaterials(String[] displayNames, String domain)
 	{
-		super(itemID, displayNames, iconNames);
+		super(displayNames, domain);
 	}
 	
 	@Override

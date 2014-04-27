@@ -1,21 +1,9 @@
 package clashsoft.mods.moredimensions.entity;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-
-import clashsoft.cslib.util.CSLog;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.network.Player;
-import cpw.mods.fml.relauncher.Side;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
@@ -60,7 +48,9 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	public void onPropertyChanged()
 	{
 		if (this.entity instanceof EntityPlayer)
+		{
 			this.sync((EntityPlayer) this.entity);
+		}
 	}
 	
 	/*
@@ -404,28 +394,23 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	 */
 	
 	@Override
-	public void init(final Entity entity, World world)
+	public void init(Entity entity, World world)
 	{
 		
 	}
 	
-	public static MDMEntityProperties getEntityProperties(EntityLivingBase living)
+	public static MDMEntityProperties get(EntityLivingBase living)
 	{
-		MDMEntityProperties props = getEntityProperties_(living);
-		return props == null ? setEntityProperties(living, create(living)) : props;
+		MDMEntityProperties props = get_(living);
+		return props == null ? set(living, create(living)) : props;
 	}
 	
-	protected static MDMEntityProperties getEntityProperties_(EntityLivingBase living)
+	protected static MDMEntityProperties get_(EntityLivingBase living)
 	{
 		return (MDMEntityProperties) living.getExtendedProperties(IDENTIFIER);
 	}
 	
-	public static MDMEntityProperties setByPacket(EntityLivingBase living, Packet250CustomPayload packet)
-	{
-		return setEntityProperties(living, create(living).readFromPacket(packet));
-	}
-	
-	public static MDMEntityProperties setEntityProperties(EntityLivingBase living, MDMEntityProperties properties)
+	public static MDMEntityProperties set(EntityLivingBase living, MDMEntityProperties properties)
 	{
 		MDMEntityProperties props = (MDMEntityProperties) living.getExtendedProperties(IDENTIFIER);
 		if (props == null)
@@ -459,81 +444,9 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		dest.sharingLevel = source.sharingLevel;
 	}
 	
-	public void sync(EntityPlayer playerEntity)
+	public void sync(EntityPlayer player)
 	{
-		Packet250CustomPayload packet = this.createPacket();
 		
-		Side side = FMLCommonHandler.instance().getEffectiveSide();
-		if (side == Side.SERVER)
-			PacketDispatcher.sendPacketToPlayer(packet, (Player) playerEntity);
-		else if (side == Side.CLIENT)
-			PacketDispatcher.sendPacketToServer(packet);
-	}
-	
-	protected Packet250CustomPayload createPacket()
-	{
-		ByteArrayOutputStream bos = new ByteArrayOutputStream(128);
-		DataOutputStream dos = new DataOutputStream(bos);
-		
-		try
-		{
-			dos.writeFloat(this.mana);
-			dos.writeFloat(this.additionalHearts);
-			dos.writeFloat(this.meleeLevel);
-			dos.writeFloat(this.defenceLevel);
-			dos.writeFloat(this.magicLevel);
-			dos.writeFloat(this.rangedLevel);
-			dos.writeFloat(this.diggingLevel);
-			dos.writeFloat(this.miningLevel);
-			dos.writeFloat(this.smithingLevel);
-			dos.writeFloat(this.fishingLevel);
-			dos.writeFloat(this.cookingLevel);
-			dos.writeFloat(this.woodCuttingLevel);
-			dos.writeFloat(this.herbloreLevel);
-			dos.writeFloat(this.thievingLevel);
-			dos.writeFloat(this.slayerLevel);
-			dos.writeFloat(this.farmingLevel);
-			dos.writeFloat(this.sharingLevel);
-		}
-		catch (Exception ex)
-		{
-			CSLog.error(ex);
-			return null;
-		}
-		
-		Packet250CustomPayload packet = new Packet250CustomPayload(CHANNEL, bos.toByteArray());
-		
-		return packet;
-	}
-	
-	public MDMEntityProperties readFromPacket(Packet250CustomPayload packet)
-	{
-		DataInputStream dis = new DataInputStream(new ByteArrayInputStream(packet.data));
-		try
-		{
-			this.mana = dis.readFloat();
-			this.additionalHearts = dis.readFloat();
-			this.meleeLevel = dis.readFloat();
-			this.defenceLevel = dis.readFloat();
-			this.magicLevel = dis.readFloat();
-			this.rangedLevel = dis.readFloat();
-			this.diggingLevel = dis.readFloat();
-			this.miningLevel = dis.readFloat();
-			this.smithingLevel = dis.readFloat();
-			this.fishingLevel = dis.readFloat();
-			this.cookingLevel = dis.readFloat();
-			this.woodCuttingLevel = dis.readFloat();
-			this.herbloreLevel = dis.readFloat();
-			this.thievingLevel = dis.readFloat();
-			this.slayerLevel = dis.readFloat();
-			this.farmingLevel = dis.readFloat();
-			this.sharingLevel = dis.readFloat();
-		}
-		catch (Exception ex)
-		{
-			CSLog.error(ex);
-		}
-		return this;
 	}
 	
 	/*
@@ -541,48 +454,48 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	 */
 	
 	@Override
-	public void saveNBTData(NBTTagCompound compound)
+	public void saveNBTData(NBTTagCompound nbt)
 	{
-		NBTTagCompound compound1 = new NBTTagCompound();
+		NBTTagCompound compound = new NBTTagCompound();
 		
-		compound1.setFloat("Mana", this.mana);
-		compound1.setFloat("MeleeLevel", this.meleeLevel);
-		compound1.setFloat("DefenceLevel", this.defenceLevel);
-		compound1.setFloat("MagicLevel", this.magicLevel);
-		compound1.setFloat("RangedLevel", this.rangedLevel);
-		compound1.setFloat("DiggingLevel", this.diggingLevel);
-		compound1.setFloat("MiningLevel", this.miningLevel);
-		compound1.setFloat("SmithingLevel", this.smithingLevel);
-		compound1.setFloat("FishingLevel", this.fishingLevel);
-		compound1.setFloat("CookingLevel", this.cookingLevel);
-		compound1.setFloat("WoodCuttingLevel", this.woodCuttingLevel);
-		compound1.setFloat("HerbloreLevel", this.herbloreLevel);
-		compound1.setFloat("SlayerLevel", this.slayerLevel);
-		compound1.setFloat("ThievingLevel", this.thievingLevel);
-		compound1.setFloat("SharingLevel", this.sharingLevel);
+		compound.setFloat("Mana", this.mana);
+		compound.setFloat("MeleeLevel", this.meleeLevel);
+		compound.setFloat("DefenceLevel", this.defenceLevel);
+		compound.setFloat("MagicLevel", this.magicLevel);
+		compound.setFloat("RangedLevel", this.rangedLevel);
+		compound.setFloat("DiggingLevel", this.diggingLevel);
+		compound.setFloat("MiningLevel", this.miningLevel);
+		compound.setFloat("SmithingLevel", this.smithingLevel);
+		compound.setFloat("FishingLevel", this.fishingLevel);
+		compound.setFloat("CookingLevel", this.cookingLevel);
+		compound.setFloat("WoodCuttingLevel", this.woodCuttingLevel);
+		compound.setFloat("HerbloreLevel", this.herbloreLevel);
+		compound.setFloat("SlayerLevel", this.slayerLevel);
+		compound.setFloat("ThievingLevel", this.thievingLevel);
+		compound.setFloat("SharingLevel", this.sharingLevel);
 		
-		compound.setCompoundTag(IDENTIFIER, compound1);
+		nbt.setTag(IDENTIFIER, compound);
 	}
 	
 	@Override
-	public void loadNBTData(NBTTagCompound compound)
+	public void loadNBTData(NBTTagCompound nbt)
 	{
-		NBTTagCompound compound1 = compound.getCompoundTag(IDENTIFIER);
+		NBTTagCompound compound = nbt.getCompoundTag(IDENTIFIER);
 		
-		this.mana = compound1.getFloat("Mana");
-		this.meleeLevel = compound1.getFloat("MeleeLevel");
-		this.defenceLevel = compound1.getFloat("DefenceLevel");
-		this.magicLevel = compound1.getFloat("MagicLevel");
-		this.rangedLevel = compound1.getFloat("RangedLevel");
-		this.diggingLevel = compound1.getFloat("DiggingLevel");
-		this.miningLevel = compound1.getFloat("MiningLevel");
-		this.smithingLevel = compound1.getFloat("SmithingLevel");
-		this.fishingLevel = compound1.getFloat("FishingLevel");
-		this.cookingLevel = compound1.getFloat("CookingLevel");
-		this.woodCuttingLevel = compound1.getFloat("WoodCuttingLevel");
-		this.herbloreLevel = compound1.getFloat("HerbloreLevel");
-		this.slayerLevel = compound1.getFloat("SlayerLevel");
-		this.thievingLevel = compound1.getFloat("ThievingLevel");
-		this.sharingLevel = compound1.getFloat("SharingLevel");
+		this.mana = compound.getFloat("Mana");
+		this.meleeLevel = compound.getFloat("MeleeLevel");
+		this.defenceLevel = compound.getFloat("DefenceLevel");
+		this.magicLevel = compound.getFloat("MagicLevel");
+		this.rangedLevel = compound.getFloat("RangedLevel");
+		this.diggingLevel = compound.getFloat("DiggingLevel");
+		this.miningLevel = compound.getFloat("MiningLevel");
+		this.smithingLevel = compound.getFloat("SmithingLevel");
+		this.fishingLevel = compound.getFloat("FishingLevel");
+		this.cookingLevel = compound.getFloat("CookingLevel");
+		this.woodCuttingLevel = compound.getFloat("WoodCuttingLevel");
+		this.herbloreLevel = compound.getFloat("HerbloreLevel");
+		this.slayerLevel = compound.getFloat("SlayerLevel");
+		this.thievingLevel = compound.getFloat("ThievingLevel");
+		this.sharingLevel = compound.getFloat("SharingLevel");
 	}
 }

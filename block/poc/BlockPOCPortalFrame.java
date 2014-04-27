@@ -4,17 +4,18 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 
 public class BlockPOCPortalFrame extends Block
 {
 	public BlockPOCPortalFrame(int blockID)
 	{
-		super(blockID, Material.rock);
+		super(Material.rock);
 	}
 	
 	@Override
-	public int idDropped(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return 0;
+		return Item.getItemById(0);
 	}
 }

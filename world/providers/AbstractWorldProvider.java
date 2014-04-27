@@ -90,7 +90,7 @@ public abstract class AbstractWorldProvider extends WorldProvider
 	@SideOnly(Side.CLIENT)
 	public String getWelcomeMessage()
 	{
-		if ((this instanceof WorldProviderPOC))
+		if ((this instanceof POCWorldProvider))
 		{
 			return "Entering the Paradise of Chaos";
 		}

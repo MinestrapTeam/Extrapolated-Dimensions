@@ -9,6 +9,8 @@ import net.minecraft.util.ResourceLocation;
 
 public interface IMDMBoss extends IBossDisplayData
 {
+	String getDisplayName();
+	
 	ResourceLocation getIcon();
 	
 	BossChatData getBossChatData();

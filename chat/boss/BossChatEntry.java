@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class BossChatEntry
 {
-	public static net.minecraft.util.ResourceLocation	playericon	= new ResourceLocation("paradiseofchaos:paradiseofchaos/gui/bosschat/playericon.png");
+	public static net.minecraft.util.ResourceLocation	player_icon	= new ResourceLocation("paradiseofchaos:paradiseofchaos/gui/bosschat/playericon.png");
 	
 	public EnumBossChatUser								userType;
 	public String										text;
@@ -28,21 +28,33 @@ public class BossChatEntry
 	public String getUserName(EntityPlayer player, IMDMBoss boss)
 	{
 		if (this.userType == EnumBossChatUser.PLAYER)
-			return player.username;
+		{
+			return player.getDisplayName();
+		}
 		else if (this.userType == EnumBossChatUser.BOSS)
-			return boss.getEntityName();
+		{
+			return boss.getDisplayName();
+		}
 		else
+		{
 			return "";
+		}
 	}
 	
 	public ResourceLocation getIcon(IMDMBoss boss)
 	{
 		if (this.userType == EnumBossChatUser.PLAYER)
-			return playericon;
+		{
+			return player_icon;
+		}
 		else if (this.userType == EnumBossChatUser.BOSS)
+		{
 			return boss.getIcon();
+		}
 		else
+		{
 			return null;
+		}
 	}
 	
 	public void writeToNBT(NBTTagCompound nbt)

@@ -84,13 +84,13 @@ public class StaffData
 	{
 		if (stack != null && stack.getTagCompound() != null)
 		{
-			List<Spell> var1 = Spell.getSpells(stack);
-			NBTTagCompound dataCompound = stack.getTagCompound().getCompoundTag("StaffData");
-			boolean var2 = dataCompound.getBoolean("RareStaff");
-			int var3 = dataCompound.getInteger("StaffType");
-			int var4 = dataCompound.getInteger("Damage");
-			String var5 = dataCompound.getString("FoundAt");
-			return new StaffData(var1, StaffType.staffTypes[var3], var2, var4, var5);
+			List<Spell> spells = Spell.getSpells(stack);
+			NBTTagCompound nbt = stack.getTagCompound().getCompoundTag("StaffData");
+			boolean rare = nbt.getBoolean("RareStaff");
+			int type = nbt.getInteger("StaffType");
+			int damage = nbt.getInteger("Damage");
+			String foundAt = nbt.getString("FoundAt");
+			return new StaffData(spells, StaffType.staffTypes[type], rare, damage, foundAt);
 		}
 		return new StaffData(new ArrayList<Spell>(), StaffType.staffTypes[0], false, 0, "");
 	}
@@ -99,25 +99,24 @@ public class StaffData
 	{
 		if (stack != null)
 		{
-			if (stack.getTagCompound() == null)
-				stack.setTagCompound(new NBTTagCompound());
-			if (!stack.getTagCompound().hasKey("StaffData"))
+			NBTTagCompound compound = stack.getTagCompound();
+			if (compound == null)
 			{
-				stack.getTagCompound().setCompoundTag("StaffData", new NBTTagCompound("StaffData"));
+				compound = new NBTTagCompound();
+				stack.setTagCompound(compound);
 			}
-			
-			stack.stackTagCompound.setTag("StaffData", new NBTTagCompound("StaffData"));
 			
 			for (Spell s : this.getSpells())
 			{
-				if (s != null)
-					s.addSpellToItemStack(stack);
+				if (s != null) {
+					s.addSpellToItemStack(stack);}
 			}
-			NBTTagCompound nbt = stack.stackTagCompound.getCompoundTag("StaffData");
+			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setBoolean("RareStaff", this.isRare());
 			nbt.setInteger("StaffType", this.getStaffType().getID());
 			nbt.setInteger("Damage", this.getDamage());
 			nbt.setString("FoundAt", this.getFoundAt());
+			compound.setTag("StaffData", nbt);
 			
 			return stack;
 		}

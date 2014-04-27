@@ -3,16 +3,16 @@ package clashsoft.mods.moredimensions.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.network.packet.Packet205ClientCommand;
-import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.network.play.client.C16PacketClientStatus;
+import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class GuiPOCCredits extends GuiScreen
@@ -28,7 +28,7 @@ public class GuiPOCCredits extends GuiScreen
 	
 	/** List of lines on the ending poem and credits. */
 	private List							lines;
-	private int								length	= 0;
+	private int								length			= 0;
 	private final float						field_73987_d	= 0.5F;
 	
 	public GuiPOCCredits(GuiScreen parent)
@@ -42,9 +42,6 @@ public class GuiPOCCredits extends GuiScreen
 		this.respawn = respawn;
 	}
 	
-	/**
-	 * Called from the main game loop to update the screen.
-	 */
 	@Override
 	public void updateScreen()
 	{
@@ -65,8 +62,8 @@ public class GuiPOCCredits extends GuiScreen
 	 */
 	private void respawnPlayer()
 	{
-		this.mc.thePlayer.sendQueue.addToSendQueue(new Packet205ClientCommand(1));
-		this.mc.displayGuiScreen((GuiScreen) null);
+		this.mc.thePlayer.sendQueue.addToSendQueue(new C16PacketClientStatus(C16PacketClientStatus.EnumState.PERFORM_RESPAWN));
+	    this.mc.displayGuiScreen(null);
 	}
 	
 	/**
@@ -103,7 +100,27 @@ public class GuiPOCCredits extends GuiScreen
 		{
 			this.lines = new ArrayList();
 			
-			String[] lines = new String[] { "[C]\u00a7f===============", "[C]\u00a7eParadise of Chaos Credits", "[C]\u00a7f===============", "", "\u00a77Idea:", "\u00a7f            xXSHREKKIDXx", "", "\u00a77Coding", "\u00a7f            Clashsoft", "\u00a7f            xXSHREKKIDXx", "\u00a7f            dannyl101", "", "\u00a77Art, Models & Textures", "\u00a7f            Complete_zero", "\u00a7f            xXSHREKKIDXx", "\u00a7f            budderman", "\u00a7f            stardestroyer_5", "", "\u00a77Concept & Ideas", "\u00a7f            shadowlink1996", "", "", "", };
+			String[] lines = new String[] {
+					"[C]\u00a7f===============",
+					"[C]\u00a7eMore Dimensions Mod Credits",
+					"[C]\u00a7f===============",
+					"",
+					"\u00a77Idea:",
+					"\u00a7f            xXSHREKKIDXx",
+					"",
+					"\u00a77Coding",
+					"\u00a7f            Clashsoft",
+					"\u00a7f            xXSHREKKIDXx",
+					"",
+					"\u00a77Art, Models & Textures",
+					"\u00a7f            Complete_zero",
+					"\u00a7f            xXSHREKKIDXx",
+					"",
+					"\u00a77Concept & Ideas",
+					"\u00a7f            shadowlink1996",
+					"",
+					"",
+					"", };
 			
 			for (String s : lines)
 				this.lines.add(s);
@@ -153,8 +170,7 @@ public class GuiPOCCredits extends GuiScreen
 	{
 		this.func_73986_b(mouseX, mouseY, partialTickTime);
 		Tessellator tessellator = Tessellator.instance;
-		short short1 = 274;
-		int k = this.width / 2 - short1 / 2;
+		int k = this.width / 2 - 137;
 		int l = this.height + 50;
 		float f1 = -(this.updateCounter + partialTickTime) * this.field_73987_d;
 		GL11.glPushMatrix();
@@ -185,12 +201,13 @@ public class GuiPOCCredits extends GuiScreen
 				
 				if (s.startsWith("[C]"))
 				{
-					this.fontRenderer.drawStringWithShadow(s.substring(3), k + (short1 - this.fontRenderer.getStringWidth(s.substring(3))) / 2, i1, 16777215);
+					s = s.substring(3);
+					this.fontRendererObj.drawStringWithShadow(s, k + (274 - this.fontRendererObj.getStringWidth(s)) / 2, i1, 16777215);
 				}
 				else
 				{
-					this.fontRenderer.fontRandom.setSeed(j1 * 4238972211L + this.updateCounter / 4);
-					this.fontRenderer.drawStringWithShadow(s, k, i1, 16777215);
+					this.fontRendererObj.fontRandom.setSeed(j1 * 4238972211L + this.updateCounter / 4);
+					this.fontRendererObj.drawStringWithShadow(s, k, i1, 16777215);
 				}
 			}
 			

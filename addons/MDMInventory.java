@@ -1,15 +1,15 @@
 package clashsoft.mods.moredimensions.addons;
 
 import clashsoft.mods.moredimensions.inventory.MDMSlotHandler;
-import clashsoft.playerinventoryapi.Inventory;
-import clashsoft.playerinventoryapi.api.ISlotHandler;
+import clashsoft.playerinventoryapi.PlayerInventoryAPI;
+import clashsoft.playerinventoryapi.api.IInventoryHandler;
 
 public class MDMInventory
 {
-	public static ISlotHandler	slotHandler	= new MDMSlotHandler();
+	public static IInventoryHandler	slotHandler	= new MDMSlotHandler();
 	
 	public static void load()
 	{
-		Inventory.addSlotHandler(slotHandler);
+		PlayerInventoryAPI.addInventoryHandler(slotHandler);
 	}
 }

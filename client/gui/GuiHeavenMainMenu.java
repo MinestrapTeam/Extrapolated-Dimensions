@@ -34,7 +34,13 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 	public static final ResourceLocation	minecraftTitleTextures		= new ResourceLocation("minecraft", "textures/gui/title/minecraft.png");
 	public static final ResourceLocation	enderPortalEndSkyTextures	= new ResourceLocation("minecraft", "textures/environment/end_sky.png");
 	public static final ResourceLocation	endPortalTextures			= new ResourceLocation("minecraft", "textures/entity/end_portal.png");
-	private static final ResourceLocation[]	titlePanoramaPaths			= new ResourceLocation[] { new ResourceLocation("textures/gui/title/background/panorama_0.png"), new ResourceLocation("textures/gui/title/background/panorama_1.png"), new ResourceLocation("textures/gui/title/background/panorama_2.png"), new ResourceLocation("textures/gui/title/background/panorama_3.png"), new ResourceLocation("textures/gui/title/background/panorama_4.png"), new ResourceLocation("textures/gui/title/background/panorama_5.png") };
+	private static final ResourceLocation[]	titlePanoramaPaths			= new ResourceLocation[] {
+			new ResourceLocation("textures/gui/title/background/panorama_0.png"),
+			new ResourceLocation("textures/gui/title/background/panorama_1.png"),
+			new ResourceLocation("textures/gui/title/background/panorama_2.png"),
+			new ResourceLocation("textures/gui/title/background/panorama_3.png"),
+			new ResourceLocation("textures/gui/title/background/panorama_4.png"),
+			new ResourceLocation("textures/gui/title/background/panorama_5.png") };
 	private ResourceLocation				panoramaTextureLocation;
 	
 	public boolean							minceraft					= false;
@@ -49,8 +55,8 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 	{
 		super();
 		
-		this.splashText = getRandomSplashText();
-		this.minceraft = rand.nextFloat() < 1.0E-4F;
+		this.splashText = this.getRandomSplashText();
+		this.minceraft = this.rand.nextFloat() < 1.0E-4F;
 	}
 	
 	@Override
@@ -156,7 +162,7 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 			if (newButton != null)
 			{
 				newButton.enabled = oldButton.enabled;
-				newButton.drawButton = oldButton.drawButton;
+				newButton.visible = oldButton.visible;
 				
 				this.buttonList.set(i, newButton);
 			}
@@ -192,12 +198,12 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 		
 		tessellator.setColorOpaque_I(16777215);
 		GL11.glPushMatrix();
-		GL11.glTranslatef((float) (this.width / 2 + 90), 70.0F, 0.0F);
+		GL11.glTranslatef(this.width / 2 + 90, 70.0F, 0.0F);
 		GL11.glRotatef(-20.0F, 0.0F, 0.0F, 1.0F);
-		float f1 = 1.8F - MathHelper.abs(MathHelper.sin((float) (Minecraft.getSystemTime() % 1000L) / 1000.0F * (float) Math.PI * 2.0F) * 0.1F);
-		f1 = f1 * 100.0F / (float) (this.fontRenderer.getStringWidth(this.splashText) + 32);
+		float f1 = 1.8F - MathHelper.abs(MathHelper.sin(Minecraft.getSystemTime() % 1000L / 1000.0F * (float) Math.PI * 2.0F) * 0.1F);
+		f1 = f1 * 100.0F / (float) (this.fontRendererObj.getStringWidth(this.splashText) + 32);
 		GL11.glScalef(f1, f1, f1);
-		this.drawCenteredString(this.fontRenderer, this.splashText, 0, -8, 0x00AAFF);
+		this.drawCenteredString(this.fontRendererObj, this.splashText, 0, -8, 0x00AAFF);
 		GL11.glPopMatrix();
 		String s = CSUpdate.CURRENT_VERSION;
 		
@@ -206,18 +212,18 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 			s = s + " Demo";
 		}
 		
-		List<String> brandings = Lists.reverse(FMLCommonHandler.instance().getBrandings());
+		List<String> brandings = Lists.reverse(FMLCommonHandler.instance().getBrandings(false));
 		for (int i = 0; i < brandings.size(); i++)
 		{
 			String branding = brandings.get(i);
 			if (!Strings.isNullOrEmpty(branding))
 			{
-				this.drawString(this.fontRenderer, branding, 2, this.height - (10 + i * (this.fontRenderer.FONT_HEIGHT + 1)), 16777215);
+				this.drawString(this.fontRendererObj, branding, 2, this.height - (10 + i * (this.fontRendererObj.FONT_HEIGHT + 1)), 16777215);
 			}
 		}
 		
 		String s1 = "Copyright Mojang AB. Do not distribute!";
-		this.drawString(this.fontRenderer, s1, this.width - this.fontRenderer.getStringWidth(s1) - 2, this.height - 10, 16777215);
+		this.drawString(this.fontRendererObj, s1, this.width - this.fontRendererObj.getStringWidth(s1) - 2, this.height - 10, 16777215);
 		
 		for (k = 0; k < this.buttonList.size(); ++k)
 		{
@@ -252,8 +258,8 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 			float f2 = ((float) (k / b0) / (float) b0 - 0.5F) / 64.0F;
 			float f3 = 0.0F;
 			GL11.glTranslatef(f1, f2, f3);
-			GL11.glRotatef(MathHelper.sin(((float) this.panoramaTimer + par3) / 400.0F) * 25.0F + 20.0F, 1.0F, 0.0F, 0.0F);
-			GL11.glRotatef(-((float) this.panoramaTimer + par3) * 0.1F, 0.0F, 1.0F, 0.0F);
+			GL11.glRotatef(MathHelper.sin((this.panoramaTimer + par3) / 400.0F) * 25.0F + 20.0F, 1.0F, 0.0F, 0.0F);
+			GL11.glRotatef(-(this.panoramaTimer + par3) * 0.1F, 0.0F, 1.0F, 0.0F);
 			
 			for (int l = 0; l < 6; ++l)
 			{
@@ -288,10 +294,10 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 				tessellator.startDrawingQuads();
 				tessellator.setColorRGBA_I(16777215, 255 / (k + 1));
 				float f4 = 0.0F;
-				tessellator.addVertexWithUV(-1.0D, -1.0D, 1.0D, (double) (0.0F + f4), (double) (0.0F + f4));
-				tessellator.addVertexWithUV(1.0D, -1.0D, 1.0D, (double) (1.0F - f4), (double) (0.0F + f4));
-				tessellator.addVertexWithUV(1.0D, 1.0D, 1.0D, (double) (1.0F - f4), (double) (1.0F - f4));
-				tessellator.addVertexWithUV(-1.0D, 1.0D, 1.0D, (double) (0.0F + f4), (double) (1.0F - f4));
+				tessellator.addVertexWithUV(-1.0D, -1.0D, 1.0D, 0.0F + f4, 0.0F + f4);
+				tessellator.addVertexWithUV(1.0D, -1.0D, 1.0D, 1.0F - f4, 0.0F + f4);
+				tessellator.addVertexWithUV(1.0D, 1.0D, 1.0D, 1.0F - f4, 1.0F - f4);
+				tessellator.addVertexWithUV(-1.0D, 1.0D, 1.0D, 0.0F + f4, 1.0F - f4);
 				tessellator.draw();
 				GL11.glPopMatrix();
 			}
@@ -326,14 +332,14 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 		
 		for (int i = 0; i < b0; ++i)
 		{
-			tessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F / (float) (i + 1));
+			tessellator.setColorRGBA_F(1.0F, 1.0F, 1.0F, 1.0F / (i + 1));
 			int j = this.width;
 			int k = this.height;
-			float f1 = (float) (i - b0 / 2) / 256.0F;
-			tessellator.addVertexWithUV((double) j, (double) k, (double) this.zLevel, (double) (0.0F + f1), 0.0D);
-			tessellator.addVertexWithUV((double) j, 0.0D, (double) this.zLevel, (double) (1.0F + f1), 0.0D);
-			tessellator.addVertexWithUV(0.0D, 0.0D, (double) this.zLevel, (double) (1.0F + f1), 1.0D);
-			tessellator.addVertexWithUV(0.0D, (double) k, (double) this.zLevel, (double) (0.0F + f1), 1.0D);
+			float f1 = (i - b0 / 2) / 256.0F;
+			tessellator.addVertexWithUV(j, k, this.zLevel, 0.0F + f1, 0.0D);
+			tessellator.addVertexWithUV(j, 0.0D, this.zLevel, 1.0F + f1, 0.0D);
+			tessellator.addVertexWithUV(0.0D, 0.0D, this.zLevel, 1.0F + f1, 1.0D);
+			tessellator.addVertexWithUV(0.0D, k, this.zLevel, 0.0F + f1, 1.0D);
 		}
 		
 		tessellator.draw();
@@ -360,9 +366,9 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
 		
-		float f1 = this.width > this.height ? 120.0F / (float) this.width : 120.0F / (float) this.height;
-		float f2 = (float) this.height * f1 / 256.0F;
-		float f3 = (float) this.width * f1 / 256.0F;
+		float f1 = this.width > this.height ? 120.0F / this.width : 120.0F / this.height;
+		float f2 = this.height * f1 / 256.0F;
+		float f3 = this.width * f1 / 256.0F;
 		
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
@@ -371,10 +377,10 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 		int k = this.width;
 		int l = this.height;
 		
-		tessellator.addVertexWithUV(0.0D, (double) l, (double) this.zLevel, (double) (0.5F - f2), (double) (0.5F + f3));
-		tessellator.addVertexWithUV((double) k, (double) l, (double) this.zLevel, (double) (0.5F - f2), (double) (0.5F - f3));
-		tessellator.addVertexWithUV((double) k, 0.0D, (double) this.zLevel, (double) (0.5F + f2), (double) (0.5F - f3));
-		tessellator.addVertexWithUV(0.0D, 0.0D, (double) this.zLevel, (double) (0.5F + f2), (double) (0.5F + f3));
+		tessellator.addVertexWithUV(0.0D, l, this.zLevel, 0.5F - f2, 0.5F + f3);
+		tessellator.addVertexWithUV(k, l, this.zLevel, 0.5F - f2, 0.5F - f3);
+		tessellator.addVertexWithUV(k, 0.0D, this.zLevel, 0.5F + f2, 0.5F - f3);
+		tessellator.addVertexWithUV(0.0D, 0.0D, this.zLevel, 0.5F + f2, 0.5F + f3);
 		tessellator.draw();
 	}
 }

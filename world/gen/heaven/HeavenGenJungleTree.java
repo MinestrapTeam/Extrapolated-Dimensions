@@ -2,27 +2,28 @@ package clashsoft.mods.moredimensions.world.gen.heaven;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
+import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class HeavenGenJungleTree extends CustomTreeGenerator
+public class HeavenGenJungleTree extends CustomTreeGen
 {
-	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID)
+	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves)
 	{
-		super(blockUpdates, minTreeHeight, woodID, leavesID);
+		super(blockUpdates, minTreeHeight, wood, leaves);
 	}
 	
-	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID, int woodMetadata, int leavesMetadata)
+	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata)
 	{
-		super(blockUpdates, minTreeHeight, woodID, leavesID, woodMetadata, leavesMetadata);
+		super(blockUpdates, minTreeHeight, wood, leaves, woodMetadata, leavesMetadata);
 	}
 	
-	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, int woodID, int leavesID, int woodMetadata, int leavesMetadata, boolean vinesGrow)
+	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata, boolean vinesGrow)
 	{
-		super(blockUpdates, minTreeHeight, woodID, leavesID, woodMetadata, leavesMetadata, vinesGrow);
+		super(blockUpdates, minTreeHeight, wood, leaves, woodMetadata, leavesMetadata, vinesGrow);
 	}
 	
 	@Override
@@ -31,22 +32,22 @@ public class HeavenGenJungleTree extends CustomTreeGenerator
 		int treeHeight = random.nextInt(3) + this.minTreeHeight;
 		boolean flag = true;
 		
-		int floor = world.getBlockId(x, y - 1, z);
+		Block soil = world.getBlock(x, y - 1, z);
 		
-		if (floor == MDMBlocks.heavenDirtBlocks.blockID || floor == MDMBlocks.heavenGrassBlocks.blockID || floor == Block.grass.blockID || floor == Block.dirt.blockID)
+		if (soil == MDMBlocks.heavenDirtBlocks || soil == MDMBlocks.heavenGrassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
 		{
 			if (y > 0 && y + treeHeight < 256)
 			{
 				for (int i = 0; i < treeHeight; i++)
 				{
-					this.setBlockAndMetadata(world, x, y + i, z, this.woodId, this.metaWood);
+					this.setBlockAndNotifyAdequately(world, x, y + i, z, this.logBlock, this.logMetadata);
 					
 					if (i > 2)
 					{
 						int randInt = random.nextInt(5);
 						if (randInt < 4)
 						{
-							int meta = this.metaWood | ((randInt == 0 || randInt == 1) ? 8 : 4);
+							int meta = this.logMetadata | ((randInt == 0 || randInt == 1) ? 8 : 4);
 							int xOff = 0;
 							int zOff = 0;
 							
@@ -59,8 +60,8 @@ public class HeavenGenJungleTree extends CustomTreeGenerator
 							else if (randInt == 3)
 								xOff = 1;
 							
-							this.setBlockAndMetadata(world, x + xOff, y + i, z + zOff, this.woodId, meta);
-							this.setBlockAndMetadata(world, x + 2 * xOff, y + i, z + 2 * zOff, this.leavesId, this.metaLeaves);
+							this.setBlockAndNotifyAdequately(world, x + xOff, y + i, z + zOff, this.logBlock, meta);
+							this.setBlockAndNotifyAdequately(world, x + 2 * xOff, y + i, z + 2 * zOff, this.leafBlock, this.leafMetadata);
 						}
 					}
 				}
@@ -72,9 +73,11 @@ public class HeavenGenJungleTree extends CustomTreeGenerator
 					{
 						for (int k = z - 2; k <= z + 2; k++)
 						{
-							int blockID = world.getBlockId(i, j, k);
-							if (blockID != this.woodId && (Block.blocksList[blockID] == null || Block.blocksList[blockID].canBeReplacedByLeaves(world, i, j, k)))
-								this.setBlockAndMetadata(world, i, j, k, this.leavesId, this.metaLeaves);
+							Block block = world.getBlock(i, j, k);
+							if (block != this.logBlock && (block == null || block.canBeReplacedByLeaves(world, i, j, k)))
+							{
+								this.setBlockAndNotifyAdequately(world, i, j, k, this.leafBlock, this.leafMetadata);
+							}
 						}
 					}
 				}

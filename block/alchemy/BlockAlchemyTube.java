@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.block.alchemy;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.util.CSWorld;
+import clashsoft.cslib.minecraft.world.CSWorld;
 import clashsoft.mods.moredimensions.api.ITubeConnector;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTube;
 
@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 {
-	public BlockAlchemyTube(int blockID)
+	public BlockAlchemyTube()
 	{
-		super(blockID, Material.glass);
+		super(Material.glass);
 	}
 	
 	@Override
@@ -101,7 +101,7 @@ public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world)
+	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityAlchemyTube();
 	}
@@ -120,19 +120,19 @@ public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 	
 	public static boolean[] getConnections(IBlockAccess world, int x, int y, int z)
 	{
-		int yNeg = CSWorld.getBlockAtSide(world, x, y, z, 0);
-		int yPos = CSWorld.getBlockAtSide(world, x, y, z, 1);
-		int xNeg = CSWorld.getBlockAtSide(world, x, y, z, 4);
-		int xPos = CSWorld.getBlockAtSide(world, x, y, z, 5);
-		int zNeg = CSWorld.getBlockAtSide(world, x, y, z, 2);
-		int zPos = CSWorld.getBlockAtSide(world, x, y, z, 3);
+		Block yNeg = CSWorld.getBlockAtSide(world, x, y, z, 0);
+		Block yPos = CSWorld.getBlockAtSide(world, x, y, z, 1);
+		Block xNeg = CSWorld.getBlockAtSide(world, x, y, z, 4);
+		Block xPos = CSWorld.getBlockAtSide(world, x, y, z, 5);
+		Block zNeg = CSWorld.getBlockAtSide(world, x, y, z, 2);
+		Block zPos = CSWorld.getBlockAtSide(world, x, y, z, 3);
 		
-		boolean yn = Block.blocksList[yNeg] instanceof ITubeConnector && ((ITubeConnector) Block.blocksList[yNeg]).canTubeConnectOnSide(world, x, y - 1, z, 1);
-		boolean yp = Block.blocksList[yPos] instanceof ITubeConnector && ((ITubeConnector) Block.blocksList[yPos]).canTubeConnectOnSide(world, x, y + 1, z, 0);
-		boolean xn = Block.blocksList[xNeg] instanceof ITubeConnector && ((ITubeConnector) Block.blocksList[xNeg]).canTubeConnectOnSide(world, x - 1, y, z, 5);
-		boolean xp = Block.blocksList[xPos] instanceof ITubeConnector && ((ITubeConnector) Block.blocksList[xPos]).canTubeConnectOnSide(world, x + 1, y, z, 4);
-		boolean zn = Block.blocksList[zNeg] instanceof ITubeConnector && ((ITubeConnector) Block.blocksList[zNeg]).canTubeConnectOnSide(world, x, y, z - 1, 3);
-		boolean zp = Block.blocksList[zPos] instanceof ITubeConnector && ((ITubeConnector) Block.blocksList[zPos]).canTubeConnectOnSide(world, x, y, z + 1, 2);
+		boolean yn = yNeg instanceof ITubeConnector && ((ITubeConnector) yNeg).canTubeConnectOnSide(world, x, y - 1, z, 1);
+		boolean yp = yPos instanceof ITubeConnector && ((ITubeConnector) yPos).canTubeConnectOnSide(world, x, y + 1, z, 0);
+		boolean xn = xNeg instanceof ITubeConnector && ((ITubeConnector) xNeg).canTubeConnectOnSide(world, x - 1, y, z, 5);
+		boolean xp = xPos instanceof ITubeConnector && ((ITubeConnector) xPos).canTubeConnectOnSide(world, x + 1, y, z, 4);
+		boolean zn = zNeg instanceof ITubeConnector && ((ITubeConnector) zNeg).canTubeConnectOnSide(world, x, y, z - 1, 3);
+		boolean zp = zPos instanceof ITubeConnector && ((ITubeConnector) zPos).canTubeConnectOnSide(world, x, y, z + 1, 2);
 		
 		return new boolean[] { xp, xn, yp, yn, zp, zn };
 	}

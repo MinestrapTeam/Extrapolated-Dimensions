@@ -1,10 +1,6 @@
 package clashsoft.mods.moredimensions.addons;
 
-import clashsoft.cslib.addon.Addon;
-import clashsoft.mods.moredimensions.item.heaven.ItemHeavenSoul;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-
-import net.minecraft.item.ItemStack;
+import clashsoft.cslib.minecraft.addon.Addon;
 
 @Addon(modName = "MoreDimensionsMod", addonName = "Localizations")
 public class MDMLocalizations
@@ -15,19 +11,19 @@ public class MDMLocalizations
 		
 		// - Creative Tabs -
 		
-		addTranslation("itemGroup.MDMTools", "Advanced Tools");
+		addTranslation("itemGroup.mdm_tools", "Advanced Tools");
 		
-		addTranslation("itemGroup.POCBlocks", "Paradise of Chaos Blocks");
-		addTranslation("itemGroup.POCItems", "Paradise of Chaos Items");
-		addTranslation("itemGroup.POCTools", "Paradise of Chaos Tools and Weapons");
-		addTranslation("itemGroup.POCArmor", "Paradise of Chaos Armory");
+		addTranslation("itemGroup.poc_blocks", "Paradise of Chaos Blocks");
+		addTranslation("itemGroup.poc_items", "Paradise of Chaos Items");
+		addTranslation("itemGroup.poc_tools", "Paradise of Chaos Tools and Weapons");
+		addTranslation("itemGroup.poc_armor", "Paradise of Chaos Armory");
 		
-		addTranslation("itemGroup.AlchemyTab", "Alchemy");
+		addTranslation("itemGroup.alchemy", "Alchemy");
 		
-		addTranslation("itemGroup.HeavenBlocks", "Heaven Blocks");
-		addTranslation("itemGroup.HeavenItems", "Heaven Items");
-		addTranslation("itemGroup.HeavenTools", "Heaven Tools and Weapons");
-		addTranslation("itemGroup.HeavenArmor", "Heaven Armory");
+		addTranslation("itemGroup.heaven_blocks", "Heaven Blocks");
+		addTranslation("itemGroup.heaven_items", "Heaven Items");
+		addTranslation("itemGroup.heaven_tools", "Heaven Tools and Weapons");
+		addTranslation("itemGroup.heaven_armor", "Heaven Armory");
 		
 		// - Paradise of Chaos -
 		
@@ -50,11 +46,6 @@ public class MDMLocalizations
 		addTranslation("alchemyguide.description", "en_US", "Holds all alchemical knowledge");
 		
 		// - Heaven -
-		
-		for (int i = 0; i < 16; i++)
-		{
-			LanguageRegistry.addName(new ItemStack(MDMItems.heavenSouls, 1, i), "Soul of " + ItemHeavenSoul.soulNames[i]);
-		}
 		
 		addTranslation("item.cape_pro.name", "Pro Cape");
 		addTranslation("item.cape_blue.name", "Blue Cape");
@@ -84,11 +75,11 @@ public class MDMLocalizations
 	
 	public static void addTranslation(String key, String value)
 	{
-		LanguageRegistry.instance().addStringLocalization(key, value);
+		
 	}
 	
 	public static void addTranslation(String key, String lang, String value)
 	{
-		LanguageRegistry.instance().addStringLocalization(key, lang, value);
+		
 	}
 }

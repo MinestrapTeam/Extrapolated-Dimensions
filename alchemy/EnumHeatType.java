@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.alchemy;
 
-import net.minecraft.client.resources.I18n;
+import clashsoft.cslib.minecraft.lang.I18n;
 
 public enum EnumHeatType
 {

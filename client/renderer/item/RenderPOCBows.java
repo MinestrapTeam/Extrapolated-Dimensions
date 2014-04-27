@@ -2,13 +2,13 @@ package clashsoft.mods.moredimensions.client.renderer.item;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.cslib.minecraft.util.CSFontRenderer;
+import clashsoft.cslib.minecraft.client.CSFontRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
@@ -38,14 +38,8 @@ public class RenderPOCBows implements IItemRenderer
 			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 			if (player != null)
 			{
-				InventoryPlayer inv = player.inventory;
-				int arrowCount = 0;
-				for (int i = 0; i < inv.getSizeInventory(); i++)
-				{
-					ItemStack is = inv.getStackInSlot(i);
-					if (is != null && is.getItem().itemID == Item.arrow.itemID)
-						arrowCount += is.stackSize;
-				}
+				int arrowCount = this.countArrows(player);
+				
 				String arrowCountDisplay = String.valueOf(arrowCount);
 				int arrowCountColor = (arrowCount < 1 ? 0xFF0000 : 0xEEEEEE);
 				int stringWidth = CSFontRenderer.getFontRenderer().getStringWidth(arrowCountDisplay);
@@ -54,6 +48,22 @@ public class RenderPOCBows implements IItemRenderer
 				CSFontRenderer.getFontRenderer().drawString(arrowCountDisplay, 0, 0, arrowCountColor, true);
 			}
 		}
+	}
+	
+	public int countArrows(EntityPlayer player)
+	{
+		InventoryPlayer inv = player.inventory;
+		int arrowCount = 0;
+		
+		for (int i = 0; i < inv.getSizeInventory(); i++)
+		{
+			ItemStack is = inv.getStackInSlot(i);
+			if (is != null && is.getItem() == Items.arrow)
+			{
+				arrowCount += is.stackSize;
+			}
+		}
+		return arrowCount;
 	}
 	
 	@Override

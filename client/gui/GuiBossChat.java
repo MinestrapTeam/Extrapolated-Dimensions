@@ -31,14 +31,11 @@ public class GuiBossChat extends GuiContainer
 	@Override
 	public void initGui()
 	{
-		this.playerInput = new GuiTextField(this.fontRenderer, this.width / 2 - 100, this.height - 50, 200, 20);
+		this.playerInput = new GuiTextField(this.fontRendererObj, this.width / 2 - 100, this.height - 50, 200, 20);
 		this.playerInput.setFocused(true);
 		this.theBoss.onChatOpened(this.thePlayer);
 	}
 	
-	/**
-	 * Fired when a key is typed. This is the equivalent of KeyListener.keyTyped(KeyEvent e).
-	 */
 	@Override
 	protected void keyTyped(char c, int key)
 	{
@@ -81,11 +78,11 @@ public class GuiBossChat extends GuiContainer
 			BossChatEntry entry = this.theBoss.getBossChatData().entrys.get(index);
 			String text = entry.getUserName(this.mc.thePlayer, this.theBoss) + ": " + (entry.localized ? entry.text : StatCollector.translateToLocal(entry.text));
 			
-			int textPosX = (this.width - this.fontRenderer.getStringWidth(text) - textureSizeX) / 2;
+			int textPosX = (this.width - this.fontRendererObj.getStringWidth(text) - textureSizeX) / 2;
 			int textPosY = (this.height - 60) - (i * textureSizeX);
 			
-			int alpha = (int) (((10 - i) * 0.1F) * 255F);
-			this.fontRenderer.drawStringWithShadow(text, textPosX, textPosY, entry.userType.getColor() | (alpha << 24));
+			int alpha = (int) ((10 - i) * 25.5F);
+			this.fontRendererObj.drawStringWithShadow(text, textPosX, textPosY, entry.userType.getColor() | (alpha << 24));
 		}
 	}
 }

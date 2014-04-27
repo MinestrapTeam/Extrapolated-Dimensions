@@ -4,33 +4,30 @@ import clashsoft.mods.moredimensions.addons.MDMItems;
 
 import com.google.common.collect.Multimap;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemSwordMDM extends Item
 {
-	public float					weaponDamage;
-	public final EnumToolMaterial	toolMaterial;
-	public float					efficiencyOnProperMaterial	= 1F;
+	public float				weaponDamage;
+	public final ToolMaterial	toolMaterial;
+	public float				efficiencyOnProperMaterial	= 1F;
 	
-	public ItemSwordMDM(int itemID, float weaponDamage, EnumToolMaterial material)
+	public ItemSwordMDM(float weaponDamage, ToolMaterial material)
 	{
-		this(itemID, weaponDamage, 1F, material);
+		this(weaponDamage, 1F, material);
 	}
 	
-	public ItemSwordMDM(int itemID, float weaponDamage, float efficiencyMultiplier, EnumToolMaterial material)
+	public ItemSwordMDM(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
 	{
-		super(itemID);
+		super();
 		this.maxStackSize = 1;
 		this.toolMaterial = material;
 		this.efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial() * efficiencyMultiplier;
@@ -40,26 +37,24 @@ public class ItemSwordMDM extends Item
 		this.weaponDamage = weaponDamage + material.getDamageVsEntity();
 	}
 	
-	/**
-	 * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if sword
-	 */
 	@Override
-	public float getStrVsBlock(ItemStack stack, Block block)
+	public float getDigSpeed(ItemStack stack, Block block, int metadata)
 	{
-		if (block.blockID == Block.web.blockID)
+		if (block == Blocks.web)
 		{
 			return 15.0F;
 		}
 		else
 		{
-			Material material = block.blockMaterial;
-			return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.pumpkin ? this.efficiencyOnProperMaterial : (this.efficiencyOnProperMaterial * 1.5F);
+			Material mat = block.getMaterial();
+			if (mat != Material.plants && mat != Material.vine && mat != Material.coral && mat != Material.leaves && mat != Material.gourd)
+			{
+				return this.efficiencyOnProperMaterial * 1.5F;
+			}
+			return this.efficiencyOnProperMaterial;
 		}
 	}
 	
-	/**
-	 * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise the damage on the stack.
-	 */
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase attacker, EntityLivingBase living)
 	{
@@ -68,9 +63,9 @@ public class ItemSwordMDM extends Item
 	}
 	
 	@Override
-	public boolean onBlockDestroyed(ItemStack stack, World world, int blockID, int x, int y, int z, EntityLivingBase living)
+	public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase living)
 	{
-		if (Block.blocksList[blockID].getBlockHardness(world, x, y, z) != 0.0D)
+		if (block.getBlockHardness(world, x, y, z) != 0.0D)
 		{
 			stack.damageItem(2, living);
 		}
@@ -78,67 +73,45 @@ public class ItemSwordMDM extends Item
 		return true;
 	}
 	
-	/**
-	 * Returns True is the item is renderer in full 3D when hold.
-	 */
 	@Override
-	@SideOnly(Side.CLIENT)
 	public boolean isFull3D()
 	{
 		return true;
 	}
 	
-	/**
-	 * How long it takes to use or consume an item
-	 */
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack)
 	{
 		return 72000;
 	}
 	
-	/**
-	 * Returns if the item (tool) can harvest results from the block type.
-	 */
 	@Override
-	public boolean canHarvestBlock(Block block)
+	public boolean canHarvestBlock(Block block, ItemStack stack)
 	{
-		return block.blockID == Block.web.blockID;
+		return block == Blocks.web;
 	}
 	
-	/**
-	 * Return the enchantability factor of the item, most of the time is based on material.
-	 */
 	@Override
 	public int getItemEnchantability()
 	{
 		return this.toolMaterial.getEnchantability();
 	}
 	
-	/**
-	 * Return the name for this tool's material.
-	 */
 	public String getToolMaterialName()
 	{
 		return this.toolMaterial.toString();
 	}
 	
-	/**
-	 * Return whether this item is repairable in an anvil.
-	 */
 	@Override
 	public boolean getIsRepairable(ItemStack item, ItemStack stack)
 	{
-		return this.toolMaterial.getToolCraftingMaterial() == stack.itemID ? true : super.getIsRepairable(item, stack);
+		return this.toolMaterial.customCraftingMaterial == stack.getItem() || super.getIsRepairable(item, stack);
 	}
 	
-	/**
-	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
-	 */
 	@Override
-	public Multimap getItemAttributeModifiers()
+	public Multimap getAttributeModifiers(ItemStack stack)
 	{
-		Multimap multimap = super.getItemAttributeModifiers();
+		Multimap multimap = super.getAttributeModifiers(stack);
 		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", this.weaponDamage, 0));
 		return multimap;
 	}
@@ -147,57 +120,57 @@ public class ItemSwordMDM extends Item
 	
 	public static class ItemDagger extends ItemSwordMDM
 	{
-		public ItemDagger(int itemID, EnumToolMaterial material)
+		public ItemDagger(ToolMaterial material)
 		{
-			super(itemID, 4.5F, 0.75F, material);
+			super(4.5F, 0.75F, material);
 		}
 	}
 	
 	public static class ItemScimitar extends ItemSwordMDM
 	{
-		public ItemScimitar(int itemID, EnumToolMaterial material)
+		public ItemScimitar(ToolMaterial material)
 		{
-			super(itemID, 5F, 0.5F, material);
+			super(5F, 0.5F, material);
 		}
 	}
 	
 	public static class ItemRapier extends ItemSwordMDM
 	{
-		public ItemRapier(int itemID, EnumToolMaterial material)
+		public ItemRapier(ToolMaterial material)
 		{
-			super(itemID, 4.75F, 0.75F, material);
+			super(4.75F, 0.75F, material);
 		}
 	}
 	
 	public static class ItemLongsword extends ItemSwordMDM
 	{
-		public ItemLongsword(int itemID, EnumToolMaterial material)
+		public ItemLongsword(ToolMaterial material)
 		{
-			super(itemID, 4.5F, 1.2F, material);
+			super(4.5F, 1.2F, material);
 		}
 	}
 	
 	public static class ItemHalberd extends ItemSwordMDM
 	{
-		public ItemHalberd(int itemID, EnumToolMaterial material)
+		public ItemHalberd(ToolMaterial material)
 		{
-			super(itemID, 4F, 1.3F, material);
+			super(4F, 1.3F, material);
 		}
 	}
 	
 	public static class ItemSpear extends ItemSwordMDM
 	{
-		public ItemSpear(int itemID, EnumToolMaterial material)
+		public ItemSpear(ToolMaterial material)
 		{
-			super(itemID, 3.75F, 1.3F, material);
+			super(3.75F, 1.3F, material);
 		}
 	}
 	
 	public static class ItemClaws extends ItemSwordMDM
 	{
-		public ItemClaws(int itemID, EnumToolMaterial material)
+		public ItemClaws(ToolMaterial material)
 		{
-			super(itemID, 5F, 1.25F, material);
+			super(5F, 1.25F, material);
 		}
 	}
 	
@@ -205,33 +178,33 @@ public class ItemSwordMDM extends Item
 	
 	public static class ItemThrowableKnife extends ItemSwordMDM
 	{
-		public ItemThrowableKnife(int itemID, EnumToolMaterial material)
+		public ItemThrowableKnife(ToolMaterial material)
 		{
-			super(itemID, 4F, 0.7F, material);
+			super(4F, 0.7F, material);
 		}
 	}
 	
 	public static class ItemNinjaStar extends ItemSwordMDM
 	{
-		public ItemNinjaStar(int itemID, EnumToolMaterial material)
+		public ItemNinjaStar(ToolMaterial material)
 		{
-			super(itemID, 3.5F, 0.666F, material);
+			super(3.5F, 0.666F, material);
 		}
 	}
 	
 	public static class ItemJavelin extends ItemSwordMDM
 	{
-		public ItemJavelin(int itemID, EnumToolMaterial material)
+		public ItemJavelin(ToolMaterial material)
 		{
-			super(itemID, 3.5F, 1.3F, material);
+			super(3.5F, 1.3F, material);
 		}
 	}
 	
 	public static class ItemDart extends ItemSwordMDM
 	{
-		public ItemDart(int itemID, EnumToolMaterial material)
+		public ItemDart(ToolMaterial material)
 		{
-			super(itemID, 3F, 0.666F, material);
+			super(3F, 0.666F, material);
 		}
 	}
 }

@@ -2,13 +2,13 @@ package clashsoft.mods.moredimensions.client.gui.container;
 
 import org.lwjgl.opengl.GL11;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.mods.moredimensions.inventory.ContainerDamnationTable;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -24,20 +24,14 @@ public class GuiDamnationTable extends GuiContainer
 		this.damnationTable = damnationTable;
 	}
 	
-	/**
-	 * Draw the foreground layer for the GuiContainer (everything in front of the items)
-	 */
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		String s = this.damnationTable.isInvNameLocalized() ? this.damnationTable.getInvName() : I18n.getString(this.damnationTable.getInvName());
-		this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
-		this.fontRenderer.drawString(I18n.getString("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		String s = this.damnationTable.hasCustomInventoryName() ? this.damnationTable.getInventoryName() : I18n.getString(this.damnationTable.getInventoryName());
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
+		this.fontRendererObj.drawString(I18n.getString("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
-	/**
-	 * Draw the background layer for the GuiContainer (everything behind the items)
-	 */
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTickTime, int mouseX, int mouseY)
 	{

@@ -1,19 +1,16 @@
 package clashsoft.mods.moredimensions.item.tools;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Collections;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
@@ -21,31 +18,28 @@ import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 public class ItemBowMDM extends ItemTool
 {
-	public static Block[]	blocksEffectiveAgainst	= {};
-	
-	public static ItemStack	defaultArrow			= new ItemStack(Item.arrow);
+	public static ItemStack	defaultArrow			= new ItemStack(Items.arrow);
 	
 	public ItemStack		arrow;
-	public Icon[]			iconArray;
+	public IIcon[]			iconArray;
 	
-	public ItemBowMDM(int itemID, EnumToolMaterial toolMaterial)
+	public ItemBowMDM(ToolMaterial toolMaterial)
 	{
-		this(itemID, toolMaterial, defaultArrow);
+		this(toolMaterial, defaultArrow);
 	}
 	
-	public ItemBowMDM(int itemID, EnumToolMaterial toolMaterial, ItemStack arrow)
+	public ItemBowMDM(ToolMaterial toolMaterial, ItemStack arrow)
 	{
-		super(itemID, 0F, toolMaterial, blocksEffectiveAgainst);
+		super(0F, toolMaterial, Collections.EMPTY_SET);
 		
 		this.arrow = arrow;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		this.itemIcon = iconRegister.registerIcon(this.getIconString());
-		this.iconArray = new Icon[3];
+		this.iconArray = new IIcon[3];
 		
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
@@ -155,7 +149,7 @@ public class ItemBowMDM extends ItemTool
 	}
 	
 	@Override
-	public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
+	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
 	{
 		if (usingItem != null)
 		{
@@ -172,17 +166,17 @@ public class ItemBowMDM extends ItemTool
 	
 	public static class ItemCrossBow extends ItemBowMDM
 	{
-		public ItemCrossBow(int itemID, EnumToolMaterial toolMaterial)
+		public ItemCrossBow(ToolMaterial toolMaterial)
 		{
-			super(itemID, toolMaterial, defaultArrow);
+			super(toolMaterial, defaultArrow);
 		}
 	}
 	
 	public static class ItemShortBow extends ItemBowMDM
 	{
-		public ItemShortBow(int itemID, EnumToolMaterial toolMaterial)
+		public ItemShortBow(ToolMaterial toolMaterial)
 		{
-			super(itemID, toolMaterial, defaultArrow);
+			super(toolMaterial, defaultArrow);
 		}
 	}
 }

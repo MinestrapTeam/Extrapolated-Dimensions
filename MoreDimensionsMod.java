@@ -1,101 +1,79 @@
 package clashsoft.mods.moredimensions;
 
-import java.io.File;
-
+import clashsoft.cslib.minecraft.ClashsoftMod;
 import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.cslib.minecraft.util.CSConfig;
-import clashsoft.cslib.util.CSLog;
 import clashsoft.mods.moredimensions.addons.*;
-import clashsoft.mods.moredimensions.common.MDMCommonProxy;
 import clashsoft.mods.moredimensions.common.MDMEventHandler;
-import clashsoft.mods.moredimensions.common.MDMPacketHandler;
-import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
-import cpw.mods.fml.common.Mod;
+import clashsoft.mods.moredimensions.common.MDMProxy;
+import clashsoft.mods.moredimensions.network.MDMNetHandler;
+import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = "MoreDimensionsMod", name = "More Dimensions Mod", version = MoreDimensionsMod.VERSION)
-@NetworkMod(channels = { "MDM", "MDMHeaven", "MDMCapes", MDMEntityProperties.CHANNEL }, packetHandler = MDMPacketHandler.class, clientSideRequired = true, serverSideRequired = false)
-public class MoreDimensionsMod
+@Mod(modid = MoreDimensionsMod.MODID, name = MoreDimensionsMod.NAME, version = MoreDimensionsMod.VERSION)
+public class MoreDimensionsMod extends ClashsoftMod
 {
-	public static final int			REVISION	= 0;
-	public static final String		VERSION		= CSUpdate.CURRENT_VERSION + "-" + REVISION;
+	public static final String		MODID		= "moredimensions";
+	public static final String		NAME		= "More Dimensions Mod";
+	public static final String ACRONYM = "mdm";
+	public static final String		VERSION		= CSUpdate.CURRENT_VERSION + "-1.0.0-dev";
 	
-	@Instance("MoreDimensionsMod")
+	@Instance(MODID)
 	public static MoreDimensionsMod	instance;
 	
-	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.MDMClientProxy", serverSide = "clashsoft.mods.moredimensions.common.MDMCommonProxy")
-	public static MDMCommonProxy	proxy;
+	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.MDMClientProxy", serverSide = "clashsoft.mods.moredimensions.common.MDMProxy")
+	public static MDMProxy			proxy;
 	
-	public static MDMPacketHandler	packetHandler;
-	public static MDMEventHandler	eventHandler;
+	public MoreDimensionsMod()
+	{
+		super(proxy, MODID, NAME, ACRONYM, VERSION);
+		this.eventHandler = new MDMEventHandler();
+		this.netHandlerClass = MDMNetHandler.class;
+	}
 	
-	public static File configFile = null;
-	
+	@Override
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		configFile = event.getSuggestedConfigurationFile();
+		super.preInit(event);
 	}
 	
+	@Override
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
-		CSConfig.loadConfig(configFile);
+	{	
+		super.init(event);
 		
-		long l0 = System.nanoTime();
-		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+		CSConfig.loadConfig(this.configFile);
 		
-		eventHandler = new MDMEventHandler();
-		MinecraftForge.EVENT_BUS.register(eventHandler);
-		
-		packetHandler = new MDMPacketHandler();
-		packetHandler.registerChannels();
-		
-		long l1 = System.nanoTime();
 		MDMBlocks.initialize();
-		long l2 = System.nanoTime();
 		MDMItems.initialize();
-		long l3 = System.nanoTime();
 		MDMTools.initialize();
 		
-		long l4 = System.nanoTime();
 		MDMBlocks.load();
-		long l5 = System.nanoTime();
 		MDMItems.load();
-		long l6 = System.nanoTime();
 		MDMTools.load();
 		
-		long l7 = System.nanoTime();
 		MDMEntitys.load();
-		long l8 = System.nanoTime();
 		MDMRecipes.load();
-		long l9 = System.nanoTime();
 		MDMWorld.load();
-		long l10 = System.nanoTime();
 		MDMInventory.load();
-		long l11 = System.nanoTime();
 		MDMLocalizations.load();
-		
-		long l12 = System.nanoTime();
-		proxy.register();
-		long l13 = System.nanoTime();
-		
-		CSLog.info("[MoreDimensionsMod] Loading times: Init:%.4fs; Blocks{init}:%.4fs; Items{init}:%.4fs; Tools{init}:%.4fs; Blocks{load}:%.4fs; Items{load}:%.4fs; Tools{load}:%.4fs; Entitys:%.4fs; Recipes:%.4fs; World:%.4fs; Inventory:%.4fs; Localizations:%.4fs; Proxy:%.4fs", (l1 - l0) / 1000000000D, (l2 - l1) / 1000000000D, (l3 - l2) / 1000000000D, (l4 - l3) / 1000000000D, (l5 - l4) / 1000000000D, (l6 - l5) / 1000000000D, (l7 - l6) / 1000000000D, (l8 - l7) / 1000000000D, (l9 - l8) / 1000000000D, (l10 - l9) / 1000000000D, (l11 - l10) / 1000000000D, (l12 - l11) / 1000000000D, (l13 - l12) / 1000000000D);
 		
 		CSConfig.saveConfig();
 	}
 	
+	@Override
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		super.postInit(event);
 	}
 }

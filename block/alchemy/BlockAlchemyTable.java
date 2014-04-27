@@ -3,10 +3,11 @@ package clashsoft.mods.moredimensions.block.alchemy;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.common.MDMCommonProxy;
+import clashsoft.mods.moredimensions.common.MDMProxy;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
-import cpw.mods.fml.common.network.FMLNetworkHandler;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
@@ -20,15 +21,15 @@ public class BlockAlchemyTable extends BlockContainer
 {
 	private Random	rand	= new Random();
 	
-	public BlockAlchemyTable(int blockID)
+	public BlockAlchemyTable()
 	{
-		super(blockID, Material.rock);
+		super(Material.rock);
 	}
 	
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlockID, int oldBlockMetadata)
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldBlockMetadata)
 	{
-		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
 		
 		if (tileEntity instanceof IInventory)
 		{
@@ -66,7 +67,7 @@ public class BlockAlchemyTable extends BlockContainer
 			}
 		}
 		
-		super.breakBlock(world, x, y, z, oldBlockID, oldBlockMetadata);
+		super.breakBlock(world, x, y, z, oldBlock, oldBlockMetadata);
 	}
 	
 	@Override
@@ -74,18 +75,18 @@ public class BlockAlchemyTable extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
-			TileEntity tileentity = world.getBlockTileEntity(x, y, z);
+			TileEntity tileentity = world.getTileEntity(x, y, z);
 			
 			if (tileentity instanceof TileEntityAlchemyTable)
 			{
-				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMCommonProxy.ALCHEMY_TABLE_GUIID, world, x, y, z);
+				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.ALCHEMY_TABLE_GUIID, world, x, y, z);
 			}
 		}
 		return true;
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world)
+	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityAlchemyTable();
 	}

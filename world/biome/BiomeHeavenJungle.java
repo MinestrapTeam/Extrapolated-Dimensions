@@ -5,11 +5,10 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenJungleTree;
 
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class BiomeHeavenJungle extends BiomeHeaven
 {
-	
 	public BiomeHeavenJungle(int i)
 	{
 		super(i);
@@ -17,8 +16,8 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	}
 	
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random random)
+	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return new HeavenGenJungleTree(true, 7, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID);
+		return new HeavenGenJungleTree(true, 7, MDMBlocks.heavenLogs, MDMBlocks.heavenLeaves);
 	}
 }

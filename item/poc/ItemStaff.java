@@ -1,37 +1,40 @@
 package clashsoft.mods.moredimensions.item.poc;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import clashsoft.mods.moredimensions.magic.StaffData;
 import clashsoft.mods.moredimensions.magic.StaffType;
 import clashsoft.mods.moredimensions.magic.spells.Spell;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class ItemStaff extends Item
 {
-	public Map<String, Icon>	icons	= new HashMap<String, Icon>();
+	public Map<String, IIcon>	icons	= new HashMap();
 	
-	public ItemStaff(int itemID)
+	public ItemStaff()
 	{
-		super(itemID);
+		super();
 		this.setHasSubtypes(true);
 		this.setFull3D();
 		this.setMaxStackSize(1);
 	}
 	
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		for (StaffType st : StaffType.staffTypes)
 		{
@@ -53,16 +56,18 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public Icon getIconIndex(ItemStack stack)
+	public IIcon getIconIndex(ItemStack stack)
 	{
 		StaffType st = StaffData.getStaffData(stack).getStaffType();
 		if (st != null)
+		{
 			return this.icons.get(st.getTextureName(0));
+		}
 		return this.itemIcon;
 	}
 	
 	@Override
-	public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
+	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
 	{
 		if (usingItem != null)
 		{
@@ -72,21 +77,23 @@ public class ItemStaff extends Item
 			{
 				for (int i = 0; i < st.getCharges(); i++)
 				{
-					int var1 = (st.getCharges() - i) * 10;
-					if (k >= var1 && k < st.getCharges() * 10)
+					int j = (st.getCharges() - i) * 10;
+					if (k >= j && k < st.getCharges() * 10)
 					{
 						return this.icons.get(st.getTextureName(st.getCharges() - i));
 					}
 				}
 				if (k > st.getCharges() * 10)
+				{
 					return this.icons.get(st.getTextureName(st.getCharges() - 1));
+				}
 				else if (k < st.getCharges())
+				{
 					return this.icons.get(st.getTextureName(0));
+				}
 			}
-			return this.getIconIndex(usingItem);
 		}
-		else
-			return this.getIconIndex(stack);
+		return this.getIconIndex(stack);
 	}
 	
 	@Override
@@ -104,7 +111,7 @@ public class ItemStaff extends Item
 	public ItemStack useStaff(ItemStack stack, EntityPlayer player, MovingObjectPosition object)
 	{
 		StaffData sd = StaffData.getStaffData(stack);
-		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
+		MDMEntityProperties props = MDMEntityProperties.get(player);
 		
 		if (!sd.getStaffType().isChargeable())
 		{
@@ -135,7 +142,7 @@ public class ItemStaff extends Item
 	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int useDuration)
 	{
 		StaffData sd = StaffData.getStaffData(stack);
-		MDMEntityProperties props = MDMEntityProperties.getEntityProperties(player);
+		MDMEntityProperties props = MDMEntityProperties.get(player);
 		
 		if (sd.getStaffType().isChargeable())
 		{
@@ -176,7 +183,7 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public String getItemDisplayName(ItemStack stack)
+	public String getItemStackDisplayName(ItemStack stack)
 	{
 		StaffData sd = StaffData.getStaffData(stack);
 		if (sd != null)
@@ -196,7 +203,9 @@ public class ItemStaff extends Item
 		for (Spell spell : sd.getSpells())
 		{
 			if (spell != null)
+			{
 				list.add(spell.getName());
+			}
 		}
 		if (sd.isRare())
 		{
@@ -209,7 +218,7 @@ public class ItemStaff extends Item
 	}
 	
 	@Override
-	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
+	public void getSubItems(Item item, CreativeTabs creativeTab, List list)
 	{
 		for (StaffType st : StaffType.staffTypes)
 		{

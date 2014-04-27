@@ -41,7 +41,7 @@ public class GuiPOCButton extends GuiButton
 	@Override
 	public void drawButton(Minecraft mc, int mouseX, int mouseY)
 	{
-		if (this.drawButton)
+		if (this.visible)
 		{
 			GL11.glPushMatrix();
 			
@@ -55,14 +55,14 @@ public class GuiPOCButton extends GuiButton
 			else
 				GL11.glColor4f(1F, 1F, 1F, 1F);
 			
-			int k = this.getHoverState(this.field_82253_i);
+			int k = this.getHoverState(this.field_146123_n);
 			float buttonScaleX = 0.5F;
 			float buttonScaleY = 0.25F;
 			
 			GL11.glTranslatef(this.xPosition, this.yPosition, 0F);
 			GL11.glScalef(buttonScaleX, buttonScaleY, 1F);
 			
-			this.field_82253_i = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
+			this.field_146123_n = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
 			int texturePosX = this.hasSpecialColor() ? 102 : (k == 1 ? 0 : (k == 2 ? 52 : 102));
 			
 			this.drawTexturedModalRect(0, 0, 0, texturePosX, (int) (this.width * 2F) + 15, 80);
@@ -76,7 +76,7 @@ public class GuiPOCButton extends GuiButton
 			{
 				l = -6250336;
 			}
-			else if (this.field_82253_i)
+			else if (this.field_146123_n)
 			{
 				l = 16777120;
 			}

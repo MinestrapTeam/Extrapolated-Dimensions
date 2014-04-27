@@ -2,16 +2,16 @@ package clashsoft.mods.moredimensions.block.heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
 
 public class BlockHeavenPillar extends Block
 {
-	public Icon	topIcon;
+	public IIcon	topIcon;
 	
-	public BlockHeavenPillar(int blockID)
+	public BlockHeavenPillar()
 	{
-		super(blockID, Material.rock);
+		super(Material.rock);
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 1F, 0.9375F);
 	}
 	
@@ -22,14 +22,14 @@ public class BlockHeavenPillar extends Block
 	}
 	
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon("moredimensions:pillar_side");
 		this.topIcon = iconRegister.registerIcon("moredimensions:pillar_top");
 	}
 	
 	@Override
-	public Icon getIcon(int side, int metadata)
+	public IIcon getIcon(int side, int metadata)
 	{
 		return side == 0 || side == 1 ? this.topIcon : this.blockIcon;
 	}

@@ -2,10 +2,10 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.mods.moredimensions.addons.MDMTools;
 
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 public class ItemFireSword extends ItemSword
 {
-	public ItemFireSword(int itemID)
+	public ItemFireSword()
 	{
-		super(itemID, MDMTools.toolFire);
+		super(MDMTools.toolFire);
 		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 	
@@ -40,21 +40,16 @@ public class ItemFireSword extends ItemSword
 		if (side == 5)
 			++x;
 		
-		int var11 = world.getBlockId(x, y, z);
-		
-		if (var11 == 0)
+		if (world.isAirBlock(x, y, z))
 		{
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-			world.setBlock(x, y, z, Block.fire.blockID);
+			world.setBlock(x, y, z, Blocks.fire);
 		}
 		
 		stack.damageItem(1, player);
 		return true;
 	}
 	
-	/**
-	 * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise the damage on the stack.
-	 */
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase living, EntityLivingBase living2)
 	{

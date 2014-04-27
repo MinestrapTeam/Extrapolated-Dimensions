@@ -2,47 +2,51 @@ package clashsoft.mods.moredimensions.item.alchemy;
 
 import java.util.List;
 
-import clashsoft.brewingapi.brewing.PotionBase;
-import clashsoft.brewingapi.brewing.PotionType;
 import clashsoft.brewingapi.item.ItemPotion2;
+import clashsoft.brewingapi.potion.type.IPotionType;
+import clashsoft.brewingapi.potion.type.PotionBase;
+import clashsoft.brewingapi.potion.type.PotionType;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
 public class ItemElixir extends ItemPotion2
 {
 	public static final int	BOTTLE_TYPES	= 3;
 	
-	public Icon[]			bottles;
-	public Icon[]			splashBottles;
-	public Icon[]			liquids;
+	public IIcon[]			bottles;
+	public IIcon[]			splashBottles;
+	public IIcon[]			liquids;
 	
-	public ItemElixir(int itemID)
+	public ItemElixir()
 	{
-		super(itemID);
+		super();
 	}
 	
 	@Override
 	public CreativeTabs[] getCreativeTabs()
 	{
-		return new CreativeTabs[] { MDMItems.tabAlchemy, CreativeTabs.tabAllSearch };
+		return new CreativeTabs[] {
+				MDMItems.tabAlchemy,
+				CreativeTabs.tabAllSearch };
 	}
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.bottles = new Icon[BOTTLE_TYPES];
-		this.splashBottles = new Icon[BOTTLE_TYPES];
-		this.liquids = new Icon[BOTTLE_TYPES];
+		this.bottles = new IIcon[BOTTLE_TYPES];
+		this.splashBottles = new IIcon[BOTTLE_TYPES];
+		this.liquids = new IIcon[BOTTLE_TYPES];
 		for (int i = 0; i < BOTTLE_TYPES; i++)
 		{
 			this.bottles[i] = iconRegister.registerIcon("moredimensions:elixir_bottle_" + i);
@@ -51,11 +55,8 @@ public class ItemElixir extends ItemPotion2
 		}
 	}
 	
-	/**
-	 * returns wether or not a potion is a throwable splash potion based on damage value
-	 */
 	@Override
-	public boolean isSplash(int metadata)
+	public boolean isSplashDamage(int metadata)
 	{
 		return (metadata & 2) != 0;
 	}
@@ -66,9 +67,9 @@ public class ItemElixir extends ItemPotion2
 	}
 	
 	@Override
-	public boolean isWater(int metadata)
+	public boolean isWater(ItemStack stack)
 	{
-		return (metadata & 1) == 0;
+		return (stack.getItemDamage() & 1) == 0;
 	}
 	
 	/**
@@ -84,79 +85,74 @@ public class ItemElixir extends ItemPotion2
 		return bottleType << 2 | (water ? 1 : 0) | (splash ? 2 : 0);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
-	public Icon getIcon(ItemStack stack, int pass)
+	public IIcon getIcon(ItemStack stack, int pass)
 	{
 		int type = this.getBottleType(stack.getItemDamage());
-		return pass == 0 ? this.liquids[type] : (this.isSplash(stack.getItemDamage()) ? this.splashBottles[type] : this.bottles[type]);
+		return pass == 0 ? this.liquids[type] : (this.isSplashDamage(stack.getItemDamage()) ? this.splashBottles[type] : this.bottles[type]);
 	}
 	
 	@Override
-	public Icon getSplashIcon(ItemStack stack)
+	public IIcon getSplashIcon(ItemStack stack)
 	{
 		return this.splashBottles[this.getBottleType(stack.getItemDamage())];
 	}
 	
 	@Override
-	public String getItemDisplayName(ItemStack stack)
+	public String getItemStackDisplayName(ItemStack stack)
 	{
-		List effects = this.getEffects(stack);
-		if (this.isWater(stack.getItemDamage()))
+		List<IPotionType> effects = this.getPotionTypes(stack);
+		if (this.isWater(stack))
 		{
 			return StatCollector.translateToLocal("elixir.empty").trim();
 		}
 		else
 		{
-			String var2 = "";
+			String string1 = "";
 			
-			if (this.isSplash(stack.getItemDamage()))
+			if (this.isSplashDamage(stack.getItemDamage()))
 			{
-				var2 = StatCollector.translateToLocal("elixir.prefix.grenade").trim() + " ";
+				string1 = StatCollector.translateToLocal("elixir.prefix.grenade").trim() + " ";
 			}
 			
-			List<PotionType> var3 = this.getEffects(stack);
-			String var4 = "";
+			String string2 = "";
 			
-			if (var3 != null && !var3.isEmpty())
+			if (effects != null && !effects.isEmpty())
 			{
-				if (var3.size() == PotionType.combinableEffects.size())
+				if (effects.size() == PotionType.combinableTypes.size())
 				{
-					return "\u00a7b" + var2 + StatCollector.translateToLocal("elixir.alleffects.postfix");
+					return "\u00a7b" + string1 + StatCollector.translateToLocal("elixir.alleffects.postfix");
 				}
-				else if (var3.size() > 3)
+				else if (effects.size() > 3)
 				{
-					return var2 + StatCollector.translateToLocal("elixir.elixirof") + " " + var3.size() + " " + StatCollector.translateToLocal("potion.effects");
+					return string1 + StatCollector.translateToLocal("elixir.elixirof") + " " + effects.size() + " " + StatCollector.translateToLocal("potion.effects");
 				}
-				else if (var3.get(0).isBase())
+				else if (effects.get(0).isBase())
 				{
-					return StatCollector.translateToLocal("potion.prefix." + ((PotionBase) var3.get(0)).basename).trim() + " " + var2 + super.getItemDisplayName(stack);
+					return StatCollector.translateToLocal("potion.prefix." + ((PotionBase) effects.get(0)).getName()).trim() + " " + string1 + super.getItemStackDisplayName(stack);
 				}
-				for (int i = 0; i < var3.size(); i++)
+				for (int i = 0; i < effects.size(); i++)
 				{
 					if (i == 0)
 					{
-						var4 = StatCollector.translateToLocal("elixir.elixirof") + " " + StatCollector.translateToLocal(var3.get(i).getEffect() != null && var3.get(i).getEffect().getPotionID() > 0 ? (var3.get(i).getEffect().getEffectName()) : "");
-						var2 += StatCollector.translateToLocal(var4).trim();
+						string2 = StatCollector.translateToLocal("elixir.elixirof") + " " + StatCollector.translateToLocal(effects.get(i).getEffect() != null && effects.get(i).getEffect().getPotionID() > 0 ? (effects.get(i).getEffect().getEffectName()) : "");
+						string1 += StatCollector.translateToLocal(string2).trim();
 					}
-					else if (i + 1 == var3.size())
+					else if (i + 1 == effects.size())
 					{
-						var4 = var3.get(i).getEffect().getEffectName();
-						var2 += " " + StatCollector.translateToLocal("potion.and") + " " + StatCollector.translateToLocal(var4).trim();
+						string2 = effects.get(i).getEffect().getEffectName();
+						string1 += " " + StatCollector.translateToLocal("potion.and") + " " + StatCollector.translateToLocal(string2).trim();
 					}
 					else
 					{
-						var4 = var3.get(i).getEffect().getEffectName();
-						var2 += ", " + StatCollector.translateToLocal(var4).trim();
+						string2 = effects.get(i).getEffect().getEffectName();
+						string1 += ", " + StatCollector.translateToLocal(string2).trim();
 					}
 				}
-				return var2;
-			}
-			else
-			{
-				return super.getItemDisplayName(stack);
+				return string1;
 			}
 		}
+		return super.getItemStackDisplayName(stack);
 	}
 	
 	@Override
@@ -169,10 +165,7 @@ public class ItemElixir extends ItemPotion2
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	/**
-	 * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
-	 */
-	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
+	public void getSubItems(Item item, CreativeTabs creativeTab, List list)
 	{
 		if (creativeTab == MDMItems.tabAlchemy || creativeTab == CreativeTabs.tabAllSearch)
 		{
@@ -181,18 +174,18 @@ public class ItemElixir extends ItemPotion2
 				list.add(new ItemStack(this, 1, i * 4));
 			}
 			
-			for (PotionType potionType : PotionType.potionTypeList)
+			for (IPotionType potionType : PotionType.potionTypeList)
 			{
 				for (int i = 1; i <= BOTTLE_TYPES * 4; i += 2)
 				{
-					for (PotionType potionType2 : potionType.getSubTypes())
+					for (IPotionType potionType2 : potionType.getSubTypes())
 					{
-						PotionType potionType3 = potionType2.copy();
-						list.add(potionType3.addPotionTypeToItemStack(new ItemStack(this, 1, i)));
+						IPotionType potionType3 = potionType2.copy();
+						list.add(potionType3.apply(new ItemStack(this, 1, i)));
 						
-						if (this.isSplash(i))
+						if (this.isSplashDamage(i))
 						{
-							list.add(potionType3.onGunpowderUsed().addPotionTypeToItemStack(new ItemStack(this, 1, i)));
+							list.add(potionType3.onGunpowderUsed().apply(new ItemStack(this, 1, i)));
 						}
 					}
 				}

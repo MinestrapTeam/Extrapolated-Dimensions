@@ -14,7 +14,6 @@ public class EntityHeavenPortalFX extends EntityFX
 	public EntityHeavenPortalFX(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
 	{
 		super(world, x, y, z, motionX, motionY, motionZ);
-		this.entityId = 110;
 		
 		this.motionX = motionX;
 		this.motionY = motionY;

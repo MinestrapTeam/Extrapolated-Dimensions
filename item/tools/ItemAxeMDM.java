@@ -1,61 +1,70 @@
 package clashsoft.mods.moredimensions.item.tools;
 
+import clashsoft.cslib.minecraft.item.datatools.ItemDataAxe;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 
 public class ItemAxeMDM extends ItemTool
 {
-	public ItemAxeMDM(int itemID, float weaponDamage, float efficiencyMultiplier, EnumToolMaterial material)
+	public ItemAxeMDM(ToolMaterial material)
 	{
-		super(itemID, weaponDamage, material, ItemAxe.blocksEffectiveAgainst);
+		this(3F, 1F, material);
+	}
+	
+	public ItemAxeMDM(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
+	{
+		super(weaponDamage, material, ItemDataAxe.blocksEffectiveAgainst);
 		this.setCreativeTab(MDMItems.tabTools);
 		this.efficiencyOnProperMaterial *= efficiencyMultiplier;
 	}
 	
-	/**
-	 * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if sword
-	 */
 	@Override
-	public float getStrVsBlock(ItemStack stack, Block block)
+	public float getDigSpeed(ItemStack stack, Block block, int metadata)
 	{
-		return block != null && (block.blockMaterial == Material.wood || block.blockMaterial == Material.plants || block.blockMaterial == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(stack, block);
+		if (block != null)
+		{
+			Material mat = block.getMaterial();
+			if (mat == Material.wood || mat == Material.plants || mat == Material.vine)
+			{
+				return this.efficiencyOnProperMaterial;
+			}
+		}
+		return super.getDigSpeed(stack, block, metadata);
 	}
 	
 	public static class ItemHatchet extends ItemAxeMDM
 	{
-		public ItemHatchet(int itemID, EnumToolMaterial material)
+		public ItemHatchet(ToolMaterial material)
 		{
-			super(itemID, 2.5F, 1.25F, material);
+			super(2.5F, 1.25F, material);
 		}
 	}
 	
 	public static class ItemBattleaxe extends ItemAxeMDM
 	{
-		public ItemBattleaxe(int itemID, EnumToolMaterial material)
+		public ItemBattleaxe(ToolMaterial material)
 		{
-			super(itemID, 4F, 0.75F, material);
+			super(4F, 0.75F, material);
 		}
 	}
 	
 	public static class ItemSaw extends ItemAxeMDM
 	{
-		public ItemSaw(int itemID, EnumToolMaterial material)
+		public ItemSaw(ToolMaterial material)
 		{
-			super(itemID, 3F, 2F, material);
+			super(3F, 2F, material);
 		}
 	}
 	
 	public static class ItemThrowableAxe extends ItemAxeMDM
 	{
-		public ItemThrowableAxe(int itemID, EnumToolMaterial material)
+		public ItemThrowableAxe(ToolMaterial material)
 		{
-			super(itemID, 2.5F, 1F, material);
+			super(2.5F, 1F, material);
 		}
 	}
 }

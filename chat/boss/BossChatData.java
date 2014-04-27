@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.common.util.Constants;
 
 public class BossChatData
 {
@@ -43,10 +44,10 @@ public class BossChatData
 			{
 				nbt.setTag("BossChatData", new NBTTagList());
 			}
-			NBTTagList list = nbt.getTagList("BossChatData");
+			NBTTagList list = nbt.getTagList("BossChatData", Constants.NBT.TAG_COMPOUND);
 			for (BossChatEntry entry : this.entrys)
 			{
-				NBTTagCompound c = new NBTTagCompound("BossChatEntry");
+				NBTTagCompound c = new NBTTagCompound();
 				entry.writeToNBT(c);
 				list.appendTag(c);
 			}
@@ -57,10 +58,10 @@ public class BossChatData
 	{
 		if (nbt != null && nbt.hasKey("BossChatData"))
 		{
-			NBTTagList list = nbt.getTagList("BossChatData");
+			NBTTagList list = nbt.getTagList("BossChatData", Constants.NBT.TAG_COMPOUND);
 			for (int i = 0; i < list.tagCount(); i++)
 			{
-				NBTTagCompound c = (NBTTagCompound) list.tagAt(i);
+				NBTTagCompound c = list.getCompoundTagAt(i);
 				BossChatEntry entry = new BossChatEntry();
 				entry.readFromNBT(c);
 				this.addMessage(entry);

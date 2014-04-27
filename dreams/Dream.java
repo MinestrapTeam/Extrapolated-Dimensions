@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.dreams;
 
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
-import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
+import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -55,14 +55,14 @@ public class Dream
 	
 	public void start()
 	{
-		WorldProviderDreams.dreamType = this.dream;
+		DreamWorldProvider.dreamType = this.dream;
 		
 		this.player.travelToDimension(CSConfig.getDimension("Dream", 10));
 	}
 	
 	public void stop()
 	{
-		WorldProviderDreams.dreamType = null;
+		DreamWorldProvider.dreamType = null;
 		
 		this.player.travelToDimension(0);
 		this.player.setPosition(this.bedX, this.bedY, this.bedZ);

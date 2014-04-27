@@ -2,15 +2,15 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.util.Random;
 
-import clashsoft.cslib.addon.Addon;
+import clashsoft.cslib.minecraft.addon.Addon;
 import clashsoft.cslib.minecraft.util.CSConfig;
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
+import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.world.biome.*;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
-import clashsoft.mods.moredimensions.world.providers.WorldProviderDreams;
-import clashsoft.mods.moredimensions.world.providers.WorldProviderHeaven;
-import clashsoft.mods.moredimensions.world.providers.WorldProviderNightmares;
-import clashsoft.mods.moredimensions.world.providers.WorldProviderPOC;
+import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
+import clashsoft.mods.moredimensions.world.providers.HeavenWorldProvider;
+import clashsoft.mods.moredimensions.world.providers.NightmareWorldProvider;
+import clashsoft.mods.moredimensions.world.providers.POCWorldProvider;
 
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -49,16 +49,16 @@ public class MDMWorld
 		// -- Dimensions --
 		
 		// Heaven Dimension
-		DimensionManager.registerProviderType(HEAVEN_ID, WorldProviderHeaven.class, true);
+		DimensionManager.registerProviderType(HEAVEN_ID, HeavenWorldProvider.class, true);
 		DimensionManager.registerDimension(HEAVEN_ID, HEAVEN_ID);
 		// POC Dimension
-		DimensionManager.registerProviderType(POC_ID, WorldProviderPOC.class, true);
+		DimensionManager.registerProviderType(POC_ID, POCWorldProvider.class, true);
 		DimensionManager.registerDimension(POC_ID, POC_ID);
 		// Dreams Dimension
-		DimensionManager.registerProviderType(DREAMS_ID, WorldProviderDreams.class, true);
+		DimensionManager.registerProviderType(DREAMS_ID, DreamWorldProvider.class, true);
 		DimensionManager.registerDimension(DREAMS_ID, DREAMS_ID);
 		// Nightmares Dimension
-		DimensionManager.registerProviderType(NIGHTMARES_ID, WorldProviderNightmares.class, true);
+		DimensionManager.registerProviderType(NIGHTMARES_ID, NightmareWorldProvider.class, true);
 		DimensionManager.registerDimension(NIGHTMARES_ID, NIGHTMARES_ID);
 	}
 	
@@ -69,7 +69,7 @@ public class MDMWorld
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+			(new CustomTreeGen(true, 6, MDMBlocks.heavenLogs, MDMBlocks.heavenLeaves, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
 		for (int i = 0; i < 5; i++)
 		{

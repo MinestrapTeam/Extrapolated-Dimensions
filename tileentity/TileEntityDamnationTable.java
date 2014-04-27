@@ -31,6 +31,12 @@ public class TileEntityDamnationTable extends TileEntityInventory implements ISi
 	}
 	
 	@Override
+	public int getSizeInventory()
+	{
+		return 5;
+	}
+	
+	@Override
 	public void updateEntity()
 	{
 		boolean canCurse = this.canCurse();

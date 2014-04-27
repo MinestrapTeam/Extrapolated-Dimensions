@@ -1,7 +1,6 @@
 package clashsoft.mods.moredimensions.client.gui;
 
-import clashsoft.mods.moredimensions.common.PacketHeaven;
-import cpw.mods.fml.common.network.PacketDispatcher;
+import clashsoft.mods.moredimensions.MoreDimensionsMod;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiGameOver;
@@ -11,9 +10,6 @@ public class GuiGameOverHeaven extends GuiGameOver
 {
 	public GuiButton	heavenButton;
 	
-	/**
-	 * Adds the buttons (and other controls) to the screen in question.
-	 */
 	@Override
 	public void initGui()
 	{
@@ -25,9 +21,6 @@ public class GuiGameOverHeaven extends GuiGameOver
 		}
 	}
 	
-	/**
-	 * Fired when a control is clicked. This is the equivalent of ActionListener.actionPerformed(ActionEvent e).
-	 */
 	@Override
 	protected void actionPerformed(GuiButton button)
 	{
@@ -35,9 +28,11 @@ public class GuiGameOverHeaven extends GuiGameOver
 		{
 			this.mc.thePlayer.respawnPlayer();
 			this.mc.displayGuiScreen((GuiScreen) null);
-			PacketDispatcher.sendPacketToServer(new PacketHeaven());
+			MoreDimensionsMod.proxy.sendPlayerToHeaven(this.mc.thePlayer);
 		}
 		else
+		{
 			super.actionPerformed(button);
+		}
 	}
 }

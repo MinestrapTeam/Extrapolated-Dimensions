@@ -2,12 +2,12 @@ package clashsoft.mods.moredimensions.client.gui.container;
 
 import org.lwjgl.opengl.GL11;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.mods.moredimensions.alchemy.EnumHeatType;
 import clashsoft.mods.moredimensions.inventory.ContainerAlchemyTable;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
@@ -31,19 +31,19 @@ public class GuiAlchemyTable extends GuiContainer
 	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		EnumHeatType heatType = null;
-		if (this.isPointInRegion(13, 69, 14, 14, mouseX, mouseY))
+		if (this.func_146978_c(13, 69, 14, 14, mouseX, mouseY))
 		{
 			heatType = this.alchemyTable.getHeatType(0);
 		}
-		else if (this.isPointInRegion(67, 69, 14, 14, mouseX, mouseY))
+		else if (this.func_146978_c(67, 69, 14, 14, mouseX, mouseY))
 		{
 			heatType = this.alchemyTable.getHeatType(1);
 		}
-		else if (this.isPointInRegion(193, 69, 14, 14, mouseX, mouseY))
+		else if (this.func_146978_c(193, 69, 14, 14, mouseX, mouseY))
 		{
 			heatType = this.alchemyTable.getHeatType(2);
 		}
-		else if (this.isPointInRegion(38, 48, 16, 16, mouseX, mouseY))
+		else if (this.func_146978_c(38, 48, 16, 16, mouseX, mouseY))
 		{
 			this.drawCreativeTabHoveringText(String.format("%s: %.1f%%", I18n.getString("gui.progress"), this.alchemyTable.progressTime / this.alchemyTable.maxProgressTime * 100F), mouseX - this.guiLeft, mouseY - this.guiTop);
 		}
@@ -54,8 +54,8 @@ public class GuiAlchemyTable extends GuiContainer
 		}
 		
 		String title = EnumChatFormatting.YELLOW + I18n.getString("tile.alchemy_table.name");
-		int width = this.fontRenderer.getStringWidth(title);
-		this.drawCreativeTabHoveringText(title, this.guiLeft - (width / 2) + 4, 8);
+		int width = this.fontRendererObj.getStringWidth(title);
+		this.drawCreativeTabHoveringText(title, width / 2 + 4, 8);
 	}
 	
 	@Override

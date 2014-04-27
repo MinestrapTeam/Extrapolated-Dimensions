@@ -1,7 +1,8 @@
 package clashsoft.mods.moredimensions.alchemy;
 
-import clashsoft.brewingapi.brewing.PotionType;
-import clashsoft.brewingapi.brewing.PotionBase;
+import clashsoft.brewingapi.potion.type.IPotionType;
+import clashsoft.brewingapi.potion.type.PotionBase;
+import clashsoft.brewingapi.potion.type.PotionType;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -12,22 +13,22 @@ public class ElixirType extends PotionType
 	{
 		super();
 	}
-
+	
 	public ElixirType(PotionEffect effect, int maxAmplifier, int maxDuration, ItemStack ingredient, PotionBase base)
 	{
 		super(effect, maxAmplifier, maxDuration, ingredient, base);
 	}
-
-	public ElixirType(PotionEffect effect, int maxAmplifier, int maxDuration, PotionType inverted, ItemStack ingredient, PotionBase base)
+	
+	public ElixirType(PotionEffect effect, int maxAmplifier, int maxDuration, IPotionType inverted, ItemStack ingredient, PotionBase base)
 	{
 		super(effect, maxAmplifier, maxDuration, inverted, ingredient, base);
 	}
-
-	public ElixirType(PotionEffect effect, int maxAmplifier, int maxDuration, PotionType inverted)
+	
+	public ElixirType(PotionEffect effect, int maxAmplifier, int maxDuration, IPotionType inverted)
 	{
 		super(effect, maxAmplifier, maxDuration, inverted);
 	}
-
+	
 	public ElixirType(PotionEffect effect, int maxAmplifier, int maxDuration)
 	{
 		super(effect, maxAmplifier, maxDuration);

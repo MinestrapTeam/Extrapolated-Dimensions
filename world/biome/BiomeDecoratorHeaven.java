@@ -5,6 +5,7 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
 
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -13,32 +14,25 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 {
 	protected WorldGenerator	spikeGen;
 	
-	private WorldGenerator		dirtGen		= new HeavenGenMinable(MDMBlocks.heavenDirtBlocks.blockID, 20);
-	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 3, 18);
-	private WorldGenerator		clashiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 4, 10);
-	private WorldGenerator		bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 5, 8);
-	private WorldGenerator		holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks.blockID, 6, 8);
+	private WorldGenerator		dirtGen		= new HeavenGenMinable(MDMBlocks.heavenDirtBlocks, 20);
+	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 3, 18);
+	private WorldGenerator		clashiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 4, 10);
+	private WorldGenerator		bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 5, 8);
+	private WorldGenerator		holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 6, 8);
 	
-	public BiomeDecoratorHeaven(BiomeGenBase biome)
+	public BiomeDecoratorHeaven()
 	{
-		super(biome);
 		this.treesPerChunk = 8;
 		this.randomGenerator = new Random();
 	}
 	
-	/**
-	 * The method that does the work of actually decorating chunks
-	 */
 	@Override
-	protected void decorate()
+	public void decorateChunk(World world, Random random, BiomeGenBase biome, int x, int z)
 	{
 		this.generateOres();
-		this.genTrees(this.treesPerChunk, this.biome.getRandomWorldGenForTrees(this.randomGenerator), 0, 128);
+		this.genTrees(this.treesPerChunk, biome.func_150567_a(random), 0, 128);
 	}
 	
-	/**
-	 * Generates ores in the current chunk
-	 */
 	@Override
 	protected void generateOres()
 	{
@@ -52,12 +46,9 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 		this.genStandardOre1(3, this.diamondGen, 0, 128);
 	}
 	
-	/**
-	 * Standard ore generation helper. Generates most ores.
-	 */
 	protected void genTrees(int amount, WorldGenerator worldgen, int minHeight, int maxHeight)
 	{
-		for (int var5 = 0; var5 < amount; ++var5)
+		for (int i = 0; i < amount; ++i)
 		{
 			int x = this.chunk_X + this.randomGenerator.nextInt(16);
 			int y = this.randomGenerator.nextInt(maxHeight - minHeight) + minHeight;

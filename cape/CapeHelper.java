@@ -13,8 +13,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.IImageBuffer;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
+import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.renderer.texture.TextureObject;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -27,7 +27,7 @@ public class CapeHelper
 	private HashMap<String, ThreadDownloadImageData>	downloadThreads			= new HashMap();
 	
 	public ResourceLocation								EMPTY_RESOURCE_LOCATION	= new ResourceLocation("moredimensions", "capes/empty");
-	public ThreadDownloadImageData						EMPTY_IMAGE_DATA		= new ThreadDownloadImageData("", EMPTY_RESOURCE_LOCATION, new CapeImageBuffer());
+	public ThreadDownloadImageData						EMPTY_IMAGE_DATA		= new ThreadDownloadImageData("", this.EMPTY_RESOURCE_LOCATION, new CapeImageBuffer());
 	
 	protected CapeHelper()
 	{
@@ -91,7 +91,7 @@ public class CapeHelper
 	
 	public static void addCapeResource(String group, ResourceLocation resourceLocation)
 	{
-		instance.capeResources.put(group, resourceLocation);	
+		instance.capeResources.put(group, resourceLocation);
 	}
 	
 	public static void addDownloadThread(String group, ThreadDownloadImageData downloadImageThread)
@@ -120,7 +120,7 @@ public class CapeHelper
 	{
 		TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
 		
-		TextureObject object = new ThreadDownloadImageData(string, resourceLocation2, imageBuffer);
+		ITextureObject object = new ThreadDownloadImageData(string, resourceLocation2, imageBuffer);
 		texturemanager.loadTexture(resourceLocation1, object);
 		
 		return (ThreadDownloadImageData) object;
@@ -128,11 +128,12 @@ public class CapeHelper
 	
 	public static void setCape(EntityPlayer player, boolean override)
 	{
-		if (player instanceof AbstractClientPlayer && getUserGroup(player.username) != null)
+		String username = player.getDisplayName();
+		if (player instanceof AbstractClientPlayer && getUserGroup(username) != null)
 		{
 			if (override || !getDownloadImageThreadData((AbstractClientPlayer) player).isTextureUploaded())
 			{
-				String userGroup = getUserGroup(player.username);
+				String userGroup = getUserGroup(username);
 				setCape((AbstractClientPlayer) player, userGroup);
 			}
 		}

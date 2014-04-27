@@ -3,37 +3,36 @@ package clashsoft.mods.moredimensions.item.armor;
 import clashsoft.cslib.minecraft.item.ItemCustomArmor;
 
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 
 public class ItemShield extends ItemCustomArmor
 {
-	public static Icon	slotIcon;
+	public static IIcon	slotIcon;
 	
 	public boolean		render	= true;
 	
-	public ItemShield(int itemID, EnumArmorMaterial material, int renderIndex)
+	public ItemShield(ArmorMaterial material, int renderIndex)
 	{
-		this(itemID, material, renderIndex, true);
+		this(material, renderIndex, true);
 	}
 	
-	public ItemShield(int itemID, EnumArmorMaterial material, int renderIndex, boolean render)
+	public ItemShield(ArmorMaterial material, int renderIndex, boolean render)
 	{
-		super(itemID, material, renderIndex, ArmorTypes.SHIELD);
+		super(material, renderIndex, ArmorTypes.SHIELD);
 		this.render = render;
 	}
 	
 	@Override
-	public int getDamageReductionAmount(EnumArmorMaterial material)
+	public int getDamageReductionAmount(ArmorMaterial material)
 	{
 		return material.getDamageReductionAmount(ArmorTypes.LEGGINGS);
 	}
 	
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		super.registerIcons(iconRegister);
 		if (slotIcon == null)

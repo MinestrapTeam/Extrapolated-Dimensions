@@ -20,20 +20,18 @@ public class GuiFrameButton extends GuiButton
 		super(buttonID, x, y, text);
 	}
 	
-	/**
-     * Draws this button to the screen.
-     */
+	@Override
     public void drawButton(Minecraft mc, int mouseX, int mouseY)
     {
-        if (this.drawButton)
+        if (this.visible)
         {
             FontRenderer fontrenderer = mc.fontRenderer;
             mc.getTextureManager().bindTexture(GuiPOCButton.buttonTextures);
             
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             
-            this.field_82253_i = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
-            int k = this.getHoverState(this.field_82253_i);
+            this.field_146123_n = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
+            int k = this.getHoverState(this.field_146123_n);
             
             this.mouseDragged(mc, mouseX, mouseY);
             
@@ -43,7 +41,7 @@ public class GuiFrameButton extends GuiButton
             {
                 l = -6250336;
             }
-            else if (this.field_82253_i)
+            else if (this.field_146123_n)
             {
                 l = 16777120;
             }

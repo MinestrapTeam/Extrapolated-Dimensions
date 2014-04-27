@@ -99,7 +99,8 @@ public class Curse
 	}
 	
 	/**
-	 * Calculates de (magic) damage done by the curse on a living entity based on level and entity passed.
+	 * Calculates de (magic) damage done by the curse on a living entity based on level and entity
+	 * passed.
 	 */
 	public float calcModifierLiving(int damage, EntityLivingBase living)
 	{
@@ -193,7 +194,7 @@ public class Curse
 		
 		if (!stack.stackTagCompound.hasKey("curse"))
 		{
-			stack.stackTagCompound.setTag("curse", new NBTTagList("curse"));
+			stack.stackTagCompound.setTag("curse", new NBTTagList());
 		}
 		
 		NBTTagList nbttaglist = (NBTTagList) stack.stackTagCompound.getTag("curse");
@@ -205,14 +206,15 @@ public class Curse
 	
 	public static void addTooltip(ItemStack stack, List<String> toolTip)
 	{
-		NBTTagList nbttaglist = getCurseTagList(stack);
+		NBTTagList list = getCurseTagList(stack);
 		
-		if (nbttaglist != null)
+		if (list != null)
 		{
-			for (int i = 0; i < nbttaglist.tagCount(); ++i)
+			for (int i = 0; i < list.tagCount(); ++i)
 			{
-				short id = ((NBTTagCompound) nbttaglist.tagAt(i)).getShort("id");
-				short level = ((NBTTagCompound) nbttaglist.tagAt(i)).getShort("lvl");
+				NBTTagCompound tag = list.getCompoundTagAt(i);
+				short id = tag.getShort("id");
+				short level = tag.getShort("lvl");
 				
 				if (curseList[id] != null)
 				{

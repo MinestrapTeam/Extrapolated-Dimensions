@@ -4,33 +4,28 @@ import java.util.List;
 
 import clashsoft.brewingapi.item.ItemGlassBottle2;
 import clashsoft.mods.moredimensions.addons.MDMItems;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumMovingObjectType;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 
 public class ItemElixirBottle extends ItemGlassBottle2
 {
-	public ItemElixirBottle(int itemID)
+	public ItemElixirBottle()
 	{
-		super(itemID);
+		super();
 		this.setCreativeTab(MDMItems.tabAlchemy);
 		this.setHasSubtypes(true);
 	}
 	
-	/**
-	 * Gets an icon index based on an item's damage value
-	 */
 	@Override
-	@SideOnly(Side.CLIENT)
-	public Icon getIconFromDamage(int metadata)
+	public IIcon getIconFromDamage(int metadata)
 	{
 		return MDMItems.elixir.bottles[metadata];
 	}
@@ -41,9 +36,6 @@ public class ItemElixirBottle extends ItemGlassBottle2
 		MDMItems.elixir.addInformation(new ItemStack(this, 1, stack.getItemDamage() * 4), player, list, flag);
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
@@ -55,23 +47,23 @@ public class ItemElixirBottle extends ItemGlassBottle2
 		}
 		else
 		{
-			if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+			if (movingobjectposition.typeOfHit == MovingObjectType.BLOCK)
 			{
-				int i = movingobjectposition.blockX;
-				int j = movingobjectposition.blockY;
-				int k = movingobjectposition.blockZ;
+				int x = movingobjectposition.blockX;
+				int y = movingobjectposition.blockY;
+				int z = movingobjectposition.blockZ;
 				
-				if (!world.canMineBlock(player, i, j, k))
+				if (!world.canMineBlock(player, x, y, z))
 				{
 					return stack;
 				}
 				
-				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, stack))
+				if (!player.canPlayerEdit(x, y, z, movingobjectposition.sideHit, stack))
 				{
 					return stack;
 				}
 				
-				if (world.getBlockMaterial(i, j, k) == Material.water)
+				if (world.getBlock(x, y, z).getMaterial() == Material.water)
 				{
 					--stack.stackSize;
 					
@@ -84,7 +76,7 @@ public class ItemElixirBottle extends ItemGlassBottle2
 					
 					if (!player.inventory.addItemStackToInventory(new ItemStack(MDMItems.elixir, 1, damage)))
 					{
-						player.dropPlayerItem(new ItemStack(MDMItems.elixir, 1, damage));
+						player.dropPlayerItemWithRandomChoice(new ItemStack(MDMItems.elixir, 1, damage), false);
 					}
 				}
 			}
@@ -93,12 +85,8 @@ public class ItemElixirBottle extends ItemGlassBottle2
 		}
 	}
 	
-	/**
-	 * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
-	 */
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void getSubItems(int itemID, CreativeTabs creativeTab, List list)
+	public void getSubItems(Item item, CreativeTabs creativeTab, List list)
 	{
 		for (int i = 0; i < ItemElixir.BOTTLE_TYPES; i++)
 		{

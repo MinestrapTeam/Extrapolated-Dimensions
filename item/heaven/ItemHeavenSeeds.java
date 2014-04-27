@@ -1,20 +1,21 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
-import clashsoft.cslib.minecraft.CustomItem;
+import clashsoft.cslib.minecraft.item.CustomItem;
 import clashsoft.cslib.util.CSArrays;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.addons.MDMItems;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
 public class ItemHeavenSeeds extends CustomItem
 {
-	public ItemHeavenSeeds(int itemID, String[] displayNames, String[] iconNames)
+	public ItemHeavenSeeds(String[] names, String domain)
 	{
-		super(itemID, displayNames, iconNames, CSArrays.create(MDMItems.tabHeavenItems));
+		super(names, domain, CSArrays.create(MDMItems.tabHeavenItems));
 	}
 	
 	@Override
@@ -23,48 +24,48 @@ public class ItemHeavenSeeds extends CustomItem
 		if (world.isRemote)
 			return false;
 		
-		int blockID = world.getBlockId(x, y, z);
-		int blockMetadata = world.getBlockMetadata(x, y, z);
-		int blockID1 = 0;
-		int blockMetadata1 = 0;
+		Block block = world.getBlock(x, y, z);
+		int metadata = world.getBlockMetadata(x, y, z);
+		Block newBlock = null;
+		int newMetadata = 0;
 		
 		switch (stack.getItemDamage())
 		{
 			case 0: // Heaven Grass Seeds
-				if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 0)
+				if (block == MDMBlocks.heavenDirtBlocks && metadata == 0)
 				{
-					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-					blockMetadata1 = 0;
+					newBlock = MDMBlocks.heavenGrassBlocks;
+					newMetadata = 0;
 				}
 			case 1: // Mud Grass Seeds
-				if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 1)
+				if (block == MDMBlocks.heavenDirtBlocks && metadata == 1)
 				{
-					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-					blockMetadata1 = 1;
+					newBlock = MDMBlocks.heavenGrassBlocks;
+					newMetadata = 1;
 				}
 			case 2: // Corrupted Grass Seeds
-				if (blockID == Block.dirt.blockID)
+				if (block == Blocks.dirt)
 				{
-					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-					blockMetadata1 = 2;
+					newBlock = MDMBlocks.heavenGrassBlocks;
+					newMetadata = 2;
 				}
 			case 3: // Hallowed Grass Seeds
-				if (blockID == Block.dirt.blockID)
+				if (block == Blocks.dirt)
 				{
-					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-					blockMetadata1 = 3;
+					newBlock = MDMBlocks.heavenGrassBlocks;
+					newMetadata = 3;
 				}
 			case 4: // Mushroom Grass Seeds
-				if (blockID == MDMBlocks.heavenDirtBlocks.blockID && blockMetadata == 1)
+				if (block == MDMBlocks.heavenDirtBlocks && metadata == 1)
 				{
-					blockID1 = MDMBlocks.heavenGrassBlocks.blockID;
-					blockMetadata1 = 4;
+					newBlock = MDMBlocks.heavenGrassBlocks;
+					newMetadata = 4;
 				}
 		}
 		
-		if (blockID1 != 0)
+		if (newBlock != null)
 		{
-			world.setBlock(x, y, z, blockID1, blockMetadata1, 3);
+			world.setBlock(x, y, z, newBlock, newMetadata, 3);
 			stack.stackSize--;
 			return true;
 		}

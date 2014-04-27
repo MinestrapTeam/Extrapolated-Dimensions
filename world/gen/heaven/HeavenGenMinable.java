@@ -4,6 +4,7 @@ import java.util.Random;
 
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -11,23 +12,23 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class HeavenGenMinable extends WorldGenMinable
 {
 	/** The block ID of the ore to be placed using this generator. */
-	private int	minableBlockId;
-	private int	minableBlockMeta	= 0;
+	private Block	minableBlock;
+	private int	minableBlockMetadata	= 0;
 	
 	/** The number of blocks to generate. */
 	private int	numberOfBlocks;
 	
-	public HeavenGenMinable(int blockID, int number)
+	public HeavenGenMinable(Block block, int number)
 	{
-		super(blockID, number);
-		this.minableBlockId = blockID;
+		super(block, number);
+		this.minableBlock = block;
 		this.numberOfBlocks = number;
 	}
 	
-	public HeavenGenMinable(int blockID, int metadata, int number)
+	public HeavenGenMinable(Block block, int metadata, int number)
 	{
-		this(blockID, number);
-		this.minableBlockMeta = metadata;
+		this(block, number);
+		this.minableBlockMetadata = metadata;
 	}
 	
 	@Override
@@ -52,26 +53,26 @@ public class HeavenGenMinable extends WorldGenMinable
 			int y4 = MathHelper.floor_double(y3 - k / 2.0D);
 			int z4 = MathHelper.floor_double(z3 - k / 2.0D);
 			
-			for (int cx = x4; cx <= x4; ++cx)
+			for (int x0 = x4; x0 <= x4; ++x0)
 			{
-				double var39 = (cx + 0.5D - x3) / (k / 2.0D);
+				double xf = (x0 + 0.5D - x3) / (k / 2.0D);
 				
-				if (var39 * var39 < 1.0D)
+				if (xf * xf < 1.0D)
 				{
-					for (int cy = y4; cy <= y4; ++cy)
+					for (int y0 = y4; y0 <= y4; ++y0)
 					{
-						double var42 = (cy + 0.5D - y3) / (k / 2.0D);
+						double yf = (y0 + 0.5D - y3) / (k / 2.0D);
 						
-						if (var39 * var39 + var42 * var42 < 1.0D)
+						if (xf * xf + yf * yf < 1.0D)
 						{
-							for (int cz = z4; cz <= z4; ++cz)
+							for (int z0 = z4; z0 <= z4; ++z0)
 							{
-								double var45 = (cz + 0.5D - z3) / (k / 2.0D);
-								int blockID = world.getBlockId(cx, cy, cz);
-								int blockMetadata = world.getBlockMetadata(cx, cy, cz);
-								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (blockID == MDMBlocks.heavenStoneBlocks.blockID) && blockMetadata == 0)
+								double zf = (z0 + 0.5D - z3) / (k / 2.0D);
+								Block block = world.getBlock(x0, y0, z0);
+								int blockMetadata = world.getBlockMetadata(x0, y0, z0);
+								if (xf * xf + yf * yf + zf * zf < 1.0D && (block == MDMBlocks.heavenStoneBlocks) && blockMetadata == 0)
 								{
-									world.setBlock(cx, cy, cz, this.minableBlockId, this.minableBlockMeta, 3);
+									world.setBlock(x0, y0, z0, this.minableBlock, this.minableBlockMetadata, 3);
 								}
 							}
 						}

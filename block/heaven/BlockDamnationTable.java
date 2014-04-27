@@ -3,36 +3,37 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.common.MDMCommonProxy;
+import clashsoft.mods.moredimensions.common.MDMProxy;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
-import cpw.mods.fml.common.network.FMLNetworkHandler;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockDamnationTable extends BlockContainer
 {
 	private Random	rand	= new Random();
 	
-	public Icon		topIcon;
-	public Icon		bottomIcon;
+	public IIcon		topIcon;
+	public IIcon		bottomIcon;
 	
-	public BlockDamnationTable(int blockID)
+	public BlockDamnationTable()
 	{
-		super(blockID, Material.rock);
+		super(Material.rock);
 		this.setBlockBounds(0F, 0F, 0F, 1F, 0.75F, 1F);
 	}
 	
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon("moredimensions:damnation_table_side");
 		this.topIcon = iconRegister.registerIcon("moredimensions:damnation_table_top");
@@ -40,15 +41,15 @@ public class BlockDamnationTable extends BlockContainer
 	}
 	
 	@Override
-	public Icon getIcon(int side, int metdata)
+	public IIcon getIcon(int side, int metdata)
 	{
 		return side == 0 ? this.bottomIcon : (side == 1 ? this.topIcon : this.blockIcon);
 	}
 	
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlockID, int oldBlockMetadata)
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldBlockMetadata)
 	{
-		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
 		
 		if (tileEntity instanceof IInventory)
 		{
@@ -86,7 +87,7 @@ public class BlockDamnationTable extends BlockContainer
 			}
 		}
 		
-		super.breakBlock(world, x, y, z, oldBlockID, oldBlockMetadata);
+		super.breakBlock(world, x, y, z, oldBlock, oldBlockMetadata);
 	}
 	
 	@Override
@@ -94,18 +95,18 @@ public class BlockDamnationTable extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
-			TileEntity tileentity = world.getBlockTileEntity(x, y, z);
+			TileEntity tileentity = world.getTileEntity(x, y, z);
 			
 			if (tileentity instanceof TileEntityDamnationTable)
 			{
-				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMCommonProxy.DAMNATION_TABLE_GUIID, world, x, y, z);
+				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.DAMNATION_TABLE_GUIID, world, x, y, z);
 			}
 		}
 		return true;
 	}
 	
 	@Override
-	public TileEntity createNewTileEntity(World world)
+	public TileEntity createNewTileEntity(World world, int metadata)
 	{
 		return new TileEntityDamnationTable();
 	}

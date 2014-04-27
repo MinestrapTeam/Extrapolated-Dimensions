@@ -3,51 +3,52 @@ package clashsoft.mods.moredimensions.item.heaven;
 import clashsoft.mods.moredimensions.api.ICurseIngredient;
 import clashsoft.mods.moredimensions.curse.Curse;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 
 public class ItemIceStick extends Item implements ICurseIngredient
 {
-	public ItemIceStick(int itemID)
+	public ItemIceStick()
 	{
-		super(itemID);
-		this.setMaxDamage(64);
+		super();
 	}
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
 		if (world.isRemote)
+		{
 			return stack;
+		}
 		
-		MovingObjectPosition var4 = this.getMovingObjectPositionFromPlayer(world, player, true);
+		MovingObjectPosition mop = this.getMovingObjectPositionFromPlayer(world, player, true);
 		
-		if (var4 == null)
+		if (mop == null)
 		{
 			return stack;
 		}
 		else
 		{
-			if (var4.typeOfHit == EnumMovingObjectType.TILE)
+			if (mop.typeOfHit == MovingObjectType.BLOCK)
 			{
-				int var5 = var4.blockX;
-				int var6 = var4.blockY;
-				int var7 = var4.blockZ;
+				int x = mop.blockX;
+				int y = mop.blockY;
+				int z = mop.blockZ;
 				
-				if (!world.canMineBlock(player, var5, var6, var7))
+				if (!world.canMineBlock(player, x, y, z))
 				{
 					return stack;
 				}
 				
-				if (world.getBlockMaterial(var5, var6, var7) == Material.water && world.getBlockMetadata(var5, var6, var7) == 0)
+				if (world.getBlock(x, y, z).getMaterial() == Material.water && world.getBlockMetadata(x, y, z) == 0)
 				{
-					world.setBlock(var5, var6, var7, Block.ice.blockID);
+					world.setBlock(x, y, z, Blocks.ice);
 					
 					if (!player.capabilities.isCreativeMode)
 					{

@@ -21,7 +21,7 @@ public class RenderAlchemyTube extends TileEntitySpecialRenderer
 		Minecraft.getMinecraft().renderEngine.bindTexture(this.tex);
 		GL11.glTranslatef((float) camX + 0.5F, (float) camY - 0.5F, (float) camZ + 0.5F);
 		
-		boolean[] bs = BlockAlchemyTube.getConnections(tileentity.worldObj, tileentity.xCoord, tileentity.yCoord, tileentity.zCoord);
+		boolean[] bs = BlockAlchemyTube.getConnections(tileentity.getWorldObj(), tileentity.xCoord, tileentity.yCoord, tileentity.zCoord);
 		
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		this.model.renderAll(bs[0], bs[1], bs[2], bs[3], bs[4], bs[5]);

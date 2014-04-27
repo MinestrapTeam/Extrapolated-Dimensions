@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraftforge.common.util.Constants;
 
 public abstract class Spell
 {
@@ -66,16 +67,18 @@ public abstract class Spell
 	{
 		if (stack != null && stack.getTagCompound() != null && stack.getTagCompound().hasKey("Spells"))
 		{
-			NBTTagList list = stack.getTagCompound().getTagList("Spells");
+			NBTTagList list = stack.getTagCompound().getTagList("Spells", Constants.NBT.TAG_COMPOUND);
 			if (list != null)
 			{
 				List<Spell> spells = new ArrayList<Spell>();
 				for (int i = 0; i < list.tagCount(); i++)
 				{
-					NBTTagCompound nbt = (NBTTagCompound) list.tagAt(i);
+					NBTTagCompound nbt = list.getCompoundTagAt(i);
 					Spell spell = Spell.readFromNBT(nbt);
 					if (spell != null && !spells.contains(spell))
+					{
 						spells.add(spell);
+					}
 				}
 				return spells;
 			}
@@ -94,7 +97,7 @@ public abstract class Spell
 			
 			if (!stack.stackTagCompound.hasKey("Spells"))
 			{
-				stack.stackTagCompound.setTag("Spells", new NBTTagList("Spells"));
+				stack.stackTagCompound.setTag("Spells", new NBTTagList());
 			}
 			NBTTagList var2 = (NBTTagList) stack.stackTagCompound.getTag("Spells");
 			var2.appendTag(this.createNBT());

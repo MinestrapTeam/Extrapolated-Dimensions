@@ -2,11 +2,11 @@ package clashsoft.mods.moredimensions.item.alchemy;
 
 import java.util.List;
 
+import clashsoft.cslib.minecraft.lang.I18n;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.common.MDMCommonProxy;
-import cpw.mods.fml.common.network.FMLNetworkHandler;
+import clashsoft.mods.moredimensions.common.MDMProxy;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,15 +14,15 @@ import net.minecraft.world.World;
 
 public class ItemAlchemyGuide extends Item
 {
-	public ItemAlchemyGuide(int itemID)
+	public ItemAlchemyGuide()
 	{
-		super(itemID);
+		super();
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		list.add(I18n.getString("alchemyguide.description"));
+		list.add(I18n.getString("item.alchemy_guide.desc"));
 	}
 	
 	@Override
@@ -31,13 +31,10 @@ public class ItemAlchemyGuide extends Item
 		return true;
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMCommonProxy.TOME_GUIID, world, 0, 0, 0);
+		FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.TOME_GUIID, world, 0, 0, 0);
 		return stack;
 	}
 }

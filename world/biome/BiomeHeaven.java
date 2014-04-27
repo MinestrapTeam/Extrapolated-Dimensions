@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGenerator;
+import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.entity.passive.EntityChicken;
@@ -10,8 +10,7 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class BiomeHeaven extends BiomeGenBase
 {
@@ -29,20 +28,20 @@ public class BiomeHeaven extends BiomeGenBase
 		
 		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
-		this.topBlock = (byte) MDMBlocks.heavenGrassBlocks.blockID;
-		this.fillerBlock = (byte) MDMBlocks.heavenDirtBlocks.blockID;
+		this.topBlock = MDMBlocks.heavenGrassBlocks;
+		this.fillerBlock = MDMBlocks.heavenDirtBlocks;
 		
-		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven(this));
+		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven());
 		
 		this.color = 0x818181;
 		this.waterColorMultiplier = 0x818181;
-		this.setMinMaxHeight(-1.9F, 1.9F);
+		this.setHeight(new Height(0F, 1.9F));
 	}
 	
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random random)
+	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		int type = random.nextInt(1);
-		return new CustomTreeGenerator(true, 6, MDMBlocks.heavenLogs.blockID, MDMBlocks.heavenLeaves.blockID, type, type);
+		return new CustomTreeGen(true, 6, MDMBlocks.heavenLogs, MDMBlocks.heavenLeaves, type, type);
 	}
 }

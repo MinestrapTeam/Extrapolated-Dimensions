@@ -5,6 +5,7 @@ import java.util.Random;
 import clashsoft.cslib.util.CSLog;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class DreamHelper
 {
@@ -29,7 +30,7 @@ public class DreamHelper
 		Dream dream = new Dream();
 		dream.setPlayer(player);
 		dream.setPlayerBedPos(player.worldObj, x, y, z);
-		player.addChatMessage("dreams.starting.dream");
+		player.addChatMessage(new ChatComponentTranslation("dreams.start.dream", new Object[0]));
 		
 		dream.start();
 	}
@@ -41,7 +42,7 @@ public class DreamHelper
 		Nightmare nightmare = new Nightmare();
 		nightmare.setPlayer(player);
 		nightmare.setPlayerBedPos(player.worldObj, x, y, z);
-		player.addChatMessage("dreams.starting.nightmare");
+		player.addChatMessage(new ChatComponentTranslation("dreams.start.nightmare", new Object[0]));
 		
 		nightmare.start();
 	}

@@ -2,14 +2,15 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.world.gen.CustomBigTreeGen;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
-import clashsoft.mods.moredimensions.world.gen.poc.POCGenWillowTree;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class BiomePlainsOfInsanity extends BiomeGenBase
 {
@@ -19,24 +20,20 @@ public class BiomePlainsOfInsanity extends BiomeGenBase
 	{
 		super(biomeID);
 		this.blockMaterial = Material.ground;
-		this.minHeight = 0.1F;
-		this.maxHeight = 0.5F;
+		this.setHeight(new Height(0.3F, 0.2F));
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();
-		this.topBlock = ((byte) MDMBlocks.pocGrassBlocks.blockID);
-		this.fillerBlock = ((byte) MDMBlocks.pocDirtBlocks.blockID);
+		this.topBlock = MDMBlocks.pocGrassBlocks;
+		this.fillerBlock = MDMBlocks.pocDirtBlocks;
 		
-		this.theBiomeDecorator = new BiomeDecorator(this);
+		this.theBiomeDecorator = new BiomeDecorator();
 		
 		this.waterColorMultiplier = 0xFFFFFF;
 	}
 	
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random random)
+	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextBoolean() ? new POCGenMagicOakTree(true) : new POCGenWillowTree(true);
+		return random.nextBoolean() ? new POCGenMagicOakTree(true) : new CustomBigTreeGen(true, 5, Blocks.log, Blocks.leaves);
 	}
 }

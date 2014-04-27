@@ -9,19 +9,16 @@ import net.minecraft.world.World;
 
 public class ItemManaStar extends Item
 {
-	public ItemManaStar(int itemID)
+	public ItemManaStar()
 	{
-		super(itemID);
+		super();
 		this.setMaxStackSize(16);
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		MDMEntityProperties.getEntityProperties(player).addMana(2.5F);
+		MDMEntityProperties.get(player).addMana(2.5F);
 		if (!player.capabilities.isCreativeMode)
 			stack.stackSize--;
 		return stack;

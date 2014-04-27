@@ -2,16 +2,16 @@ package clashsoft.mods.moredimensions.block.heaven;
 
 import java.util.Random;
 
-import net.minecraft.world.World;
-
 import clashsoft.cslib.minecraft.block.BlockCustomGrass;
 import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
+import net.minecraft.world.World;
+
 public class BlockHeavenGrass extends BlockCustomGrass
 {
-	public BlockHeavenGrass(int blockID, String[] names, String[] topIcons, String[] sideIcons, String[] bottomIcons)
+	public BlockHeavenGrass(String[] names, String[] topIcons, String[] sideIcons, String[] bottomIcons)
 	{
-		super(blockID, names, topIcons, sideIcons, bottomIcons);
+		super(names, topIcons, sideIcons, bottomIcons);
 	}
 	
 	@Override
@@ -19,13 +19,13 @@ public class BlockHeavenGrass extends BlockCustomGrass
 	{
 		super.updateTick(world, x, y, z, random);
 		
-		if (world.getBlockId(x, y + 1, z) == 0)
+		if (world.isAirBlock(x, y + 1, z))
 		{
 			int randInt = random.nextInt(128);
 			if (randInt < 2)
 			{
 				int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-				world.setBlock(x, y + 1, z, MDMBlocks.heavenPlantBlocks.blockID, metadata, 2);
+				world.setBlock(x, y + 1, z, MDMBlocks.heavenPlantBlocks, metadata, 2);
 			}
 		}
 	}

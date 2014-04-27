@@ -26,5 +26,6 @@ public class DreamTypeBiome extends DreamType
 	@Override
 	public void generateWorld(World world, int chunkX, int chunkY, Random random)
 	{
+		
 	}
 }

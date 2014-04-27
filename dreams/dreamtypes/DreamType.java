@@ -5,6 +5,7 @@ import java.util.*;
 import clashsoft.mods.moredimensions.dreams.EnumDreamType;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -27,59 +28,64 @@ public abstract class DreamType
 	
 	public abstract BiomeGenBase getDreamBiome();
 	
+	public void addBiomes(List<BiomeGenBase> biomes)
+	{
+		biomes.add(this.getDreamBiome());
+	}
+	
 	public Block getStoneBlock()
 	{
-		return Block.stone;
+		return Blocks.stone;
 	}
 	
 	public Block getDirtBlock()
 	{
-		return Block.dirt;
+		return Blocks.dirt;
 	}
 	
 	public Block getTopBlock()
 	{
-		return Block.grass;
+		return Blocks.grass;
 	}
 	
-	public Block getFilledBlock()
+	public Block getFillerBlock()
 	{
-		return Block.dirt;
+		return Blocks.dirt;
 	}
 	
 	public Block getSandBlock()
 	{
-		return Block.sand;
+		return Blocks.sand;
 	}
 	
 	public Block getSandstoneBlock()
 	{
-		return Block.sandStone;
+		return Blocks.sandstone;
 	}
 	
 	public Block getSnowBlock()
 	{
-		return Block.snow;
+		return Blocks.snow;
 	}
 	
 	public Block getIceBlock()
 	{
-		return Block.ice;
+		return Blocks.ice;
 	}
 	
 	public Block getWaterBlock()
 	{
-		return Block.waterStill;
+		return Blocks.water;
 	}
 	
 	public Block getLavaBlock()
 	{
-		return Block.lavaStill;
+		return Blocks.lava;
 	}
 	
 	public Block getBedrockBlock()
 	{
-		return Block.bedrock;
+		return Blocks.bedrock;
 	}
 	
 	public abstract void generateWorld(World world, int chunkX, int chunkY, Random random);

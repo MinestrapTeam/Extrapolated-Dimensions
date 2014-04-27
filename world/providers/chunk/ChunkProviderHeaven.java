@@ -4,77 +4,41 @@ import clashsoft.mods.moredimensions.addons.MDMBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
 
 public class ChunkProviderHeaven extends AbstractChunkProvider
 {
-	public NoiseGeneratorOctaves	noiseGenerator1;
-	public NoiseGeneratorOctaves	noiseGenerator2;
-	public NoiseGeneratorOctaves	noiseGenerator3;
-	public NoiseGeneratorOctaves	noiseGenerator4;
-	public NoiseGeneratorOctaves	noiseGenerator5;
-	public NoiseGeneratorOctaves	noiseGenerator6;
-	public NoiseGeneratorOctaves	noiseGenerator7;
-	public NoiseGeneratorOctaves	noiseGenerator8;
-	
-	public double[]					noiseArray1;
-	public double[]					noiseArray2;
-	public double[]					noiseArray3;
-	public double[]					noiseArray4;
-	
-	public double[]					noiseArray5;
-	public double[]					noiseArray6;
-	public double[]					noiseArray7;
-	public double[]					noiseArray8;
-	public double[]					noiseArray9;
-	
-	public byte						topBlock;
-	public byte						fillerBlock;
+	public double[]	noiseField5;
+	public double[]	noiseField6;
+	public double[]	noiseField7;
+	public double[]	noiseField8;
+	public double[]	noiseField9;
 	
 	public ChunkProviderHeaven(World world, long seed)
 	{
 		super(world, seed, false);
-		
-		this.noiseArray2 = new double[256];
-		this.noiseArray3 = new double[256];
-		this.noiseArray4 = new double[256];
-		
-		this.noiseGenerator1 = new NoiseGeneratorOctaves(this.random, 16);
-		this.noiseGenerator2 = new NoiseGeneratorOctaves(this.random, 16);
-		this.noiseGenerator3 = new NoiseGeneratorOctaves(this.random, 8);
-		this.noiseGenerator4 = new NoiseGeneratorOctaves(this.random, 4);
-		this.noiseGenerator5 = new NoiseGeneratorOctaves(this.random, 4);
-		this.noiseGenerator6 = new NoiseGeneratorOctaves(this.random, 10);
-		this.noiseGenerator7 = new NoiseGeneratorOctaves(this.random, 16);
-		this.noiseGenerator8 = new NoiseGeneratorOctaves(this.random, 8);
 	}
 	
 	@Override
-	public void generateTerrain(int x, int y, byte[] storage)
+	public void generate(int x, int y, Block[] blocks)
 	{
-		byte byte0 = 2;
-		int k = byte0 + 1;
-		byte byte1 = 33;
-		int l = byte0 + 1;
+		this.noiseField1 = this.initializeNoiseField(this.noiseField1, x * (byte) 2, 0, y * (byte) 2, (byte) 2 + 1, (byte) 33, (byte) 2 + 1);
 		
-		this.noiseArray1 = this.initializeNoiseField(this.noiseArray1, x * byte0, 0, y * byte0, k, byte1, l);
-		
-		for (int i1 = 0; i1 < byte0; i1++)
-			for (int j1 = 0; j1 < byte0; j1++)
+		for (int i1 = 0; i1 < (byte) 2; i1++)
+		{
+			for (int j1 = 0; j1 < (byte) 2; j1++)
+			{
 				for (int k1 = 0; k1 < 32; k1++)
 				{
 					double d = 0.25D;
 					
-					double d1 = this.noiseArray1[(((i1 + 0) * l + j1 + 0) * byte1 + k1 + 0)];
-					double d2 = this.noiseArray1[(((i1 + 0) * l + j1 + 1) * byte1 + k1 + 0)];
-					double d3 = this.noiseArray1[(((i1 + 1) * l + j1 + 0) * byte1 + k1 + 0)];
-					double d4 = this.noiseArray1[(((i1 + 1) * l + j1 + 1) * byte1 + k1 + 0)];
-					double d5 = (this.noiseArray1[(((i1 + 0) * l + j1 + 0) * byte1 + k1 + 1)] - d1) * d;
-					double d6 = (this.noiseArray1[(((i1 + 0) * l + j1 + 1) * byte1 + k1 + 1)] - d2) * d;
-					double d7 = (this.noiseArray1[(((i1 + 1) * l + j1 + 0) * byte1 + k1 + 1)] - d3) * d;
-					double d8 = (this.noiseArray1[(((i1 + 1) * l + j1 + 1) * byte1 + k1 + 1)] - d4) * d;
+					double d1 = this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 0)];
+					double d2 = this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 0)];
+					double d3 = this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 0)];
+					double d4 = this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 0)];
+					double d5 = (this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 1)] - d1) * d;
+					double d6 = (this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 1)] - d2) * d;
+					double d7 = (this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 1)] - d3) * d;
+					double d8 = (this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 1)] - d4) * d;
 					
 					for (int l1 = 0; l1 < 4; l1++)
 					{
@@ -92,12 +56,10 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 							double d16 = (d11 - d10) * d14;
 							for (int k2 = 0; k2 < 8; k2++)
 							{
-								int l2 = 0;
 								if (d15 > 0.0D)
 								{
-									l2 = MDMBlocks.heavenStoneBlocks.blockID;
+									blocks[j2] = MDMBlocks.heavenStoneBlocks;
 								}
-								storage[j2] = ((byte) l2);
 								j2 += 128;
 								d15 += d16;
 							}
@@ -112,104 +74,10 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 						d4 += d8;
 					}
 				}
-	}
-	
-	@Override
-	public void replaceBlocksForBiome(int x, int z, byte[] storage, BiomeGenBase[] biomes)
-	{
-		byte averageHeight = 63;
-		double d = 0.03125D;
-		
-		this.noiseArray2 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray2, x * 16, z * 16, 0, 16, 16, 1, d, d, 1.0D);
-		this.noiseArray3 = this.noiseGenerator4.generateNoiseOctaves(this.noiseArray3, x * 16, 109, z * 16, 16, 1, 16, d, 1.0D, d);
-		this.noiseArray4 = this.noiseGenerator5.generateNoiseOctaves(this.noiseArray4, x * 16, z * 16, 0, 16, 16, 1, d * 2.0D, d * 2.0D, d * 2.0D);
-		
-		for (int x1 = 0; x1 < 16; x1++)
-		{
-			for (int z1 = 0; z1 < 16; z1++)
-			{
-				int noise = (int) (this.noiseArray4[(x1 + z1 * 16)] / 3.0D + 3.0D + this.random.nextDouble() * 0.25D);
-				BiomeGenBase biome = biomes[x1 + z1 * 16];
-				float temperature = biome.getFloatTemperature();
-				int j1 = -1;
-				byte grass = biome.topBlock;
-				byte dirt = biome.fillerBlock;
-				byte stone = (byte) MDMBlocks.heavenStoneBlocks.blockID;
-				
-				if (grass < 0)
-				{
-					grass = (byte) (grass + 0);
-				}
-				if (dirt < 0)
-				{
-					dirt = (byte) (dirt + 0);
-				}
-				if (stone < 0)
-				{
-					stone = (byte) (stone + 0);
-				}
-				for (int y1 = 127; y1 >= 0; y1--)
-				{
-					int index = (z1 * 16 + x1) * 128 + y1;
-					
-					byte blockAtIndex = storage[index];
-					if (blockAtIndex == 0)
-					{
-						j1 = -1;
-					}
-					else if (blockAtIndex != stone)
-					{
-						if (j1 == -1)
-						{
-							if (noise == 0)
-							{
-								this.topBlock = (byte) MDMBlocks.heavenGrassBlocks.blockID;
-								this.fillerBlock = (byte) MDMBlocks.heavenDirtBlocks.blockID;
-							}
-							else if ((y1 >= averageHeight - 4) && (y1 <= averageHeight + 1))
-							{
-								this.topBlock = biome.topBlock;
-								this.fillerBlock = biome.fillerBlock;
-							}
-							if ((y1 < averageHeight) && (this.topBlock == 0))
-							{
-								if (temperature < 0.15F)
-								{
-									this.topBlock = (byte) Block.ice.blockID;
-								}
-								else
-								{
-									this.topBlock = (byte) Block.waterStill.blockID;
-								}
-							}
-							j1 = noise;
-							if (y1 >= averageHeight - 1)
-							{
-								storage[index] = this.topBlock;
-							}
-							else
-							{
-								storage[index] = this.fillerBlock;
-							}
-						}
-						else if (j1 > 0)
-						{
-							j1--;
-							storage[index] = this.fillerBlock;
-							if ((j1 == 0) && (this.fillerBlock == Block.sand.blockID))
-							{
-								j1 = this.random.nextInt(4);
-								this.fillerBlock = (byte) Block.sandStone.blockID;
-							}
-							
-						}
-					}
-				}
 			}
 		}
 	}
 	
-	@Override
 	public double[] initializeNoiseField(double[] ad, int i, int j, int k, int l, int i1, int j1)
 	{
 		if (ad == null)
@@ -219,13 +87,13 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 		double d = 684.41200000000003D;
 		double d1 = 684.41200000000003D;
 		
-		this.noiseArray8 = this.noiseGenerator6.generateNoiseOctaves(this.noiseArray8, i, k, l, j1, 1.121D, 1.121D, 0.5D);
-		this.noiseArray9 = this.noiseGenerator7.generateNoiseOctaves(this.noiseArray9, i, k, l, j1, 200.0D, 200.0D, 0.5D);
+		this.noiseField8 = this.noiseGen1.generateNoiseOctaves(this.noiseField8, i, k, l, j1, 1.121D, 1.121D, 0.5D);
+		this.noiseField9 = this.noiseGen4.generateNoiseOctaves(this.noiseField9, i, k, l, j1, 200.0D, 200.0D, 0.5D);
 		
 		d *= 2.0D;
-		this.noiseArray5 = this.noiseGenerator3.generateNoiseOctaves(this.noiseArray5, i, j, k, l, i1, j1, d / 80.0D, d1 / 160.0D, d / 80.0D);
-		this.noiseArray6 = this.noiseGenerator1.generateNoiseOctaves(this.noiseArray6, i, j, k, l, i1, j1, d, d1, d);
-		this.noiseArray7 = this.noiseGenerator2.generateNoiseOctaves(this.noiseArray7, i, j, k, l, i1, j1, d, d1, d);
+		this.noiseField5 = this.noiseGen3.generateNoiseOctaves(this.noiseField5, i, j, k, l, i1, j1, d / 80.0D, d1 / 160.0D, d / 80.0D);
+		this.noiseField6 = this.noiseGen1.generateNoiseOctaves(this.noiseField6, i, j, k, l, i1, j1, d, d1, d);
+		this.noiseField7 = this.noiseGen2.generateNoiseOctaves(this.noiseField7, i, j, k, l, i1, j1, d, d1, d);
 		
 		int k1 = 0;
 		int l1 = 0;
@@ -241,13 +109,13 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 				d4 *= d4;
 				d4 *= d4;
 				d4 = 1.0D - d4;
-				double d5 = (this.noiseArray8[l1] + 256.0D) / 512.0D;
+				double d5 = (this.noiseField8[l1] + 256.0D) / 512.0D;
 				d5 *= d4;
 				if (d5 > 1.0D)
 				{
 					d5 = 1.0D;
 				}
-				double d6 = this.noiseArray9[l1] / 8000.0D;
+				double d6 = this.noiseField9[l1] / 8000.0D;
 				if (d6 < 0.0D)
 				{
 					d6 = -d6 * 0.3D;
@@ -275,9 +143,9 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 					{
 						d9 *= -1.0D;
 					}
-					double d10 = this.noiseArray6[k1] / 512.0D;
-					double d11 = this.noiseArray7[k1] / 512.0D;
-					double d12 = (this.noiseArray5[k1] / 10.0D + 1.0D) / 2.0D;
+					double d10 = this.noiseField6[k1] / 512.0D;
+					double d11 = this.noiseField7[k1] / 512.0D;
+					double d12 = (this.noiseField5[k1] / 10.0D + 1.0D) / 2.0D;
 					if (d12 < 0.0D)
 						d8 = d10;
 					else if (d12 > 1.0D)
@@ -305,17 +173,5 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 			}
 		}
 		return ad;
-	}
-	
-	@Override
-	public Chunk loadChunk(int x, int z)
-	{
-		return this.provideChunk(x, z);
-	}
-	
-	@Override
-	public String makeString()
-	{
-		return "RandomLevelSource";
 	}
 }

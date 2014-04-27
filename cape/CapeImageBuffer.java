@@ -4,13 +4,14 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 
-import net.minecraft.client.renderer.IImageBuffer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+import net.minecraft.client.renderer.IImageBuffer;
+
 @SideOnly(Side.CLIENT)
 public class CapeImageBuffer implements IImageBuffer
-{	
+{
 	private int	imageWidth;
 	private int	imageHeight;
 	
