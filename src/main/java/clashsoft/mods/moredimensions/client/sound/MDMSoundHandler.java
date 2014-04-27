@@ -10,9 +10,8 @@ public class MDMSoundHandler
 	}
 	
 	/*
-	 * TODO: Add those sounds
+	 * TODO: Add sounds
 	 * 
-	 * "moredimensions:sounds.music.heaven"
-	 * "moredimensions:sounds/music/heaven.ogg");
+	 * "mdm_heaven:sounds.music.heaven" @ "mdm_heaven:sounds/music/heaven.ogg");
 	 */
 }

@@ -49,9 +49,9 @@ public class ItemElixir extends ItemPotion2
 		this.liquids = new IIcon[BOTTLE_TYPES];
 		for (int i = 0; i < BOTTLE_TYPES; i++)
 		{
-			this.bottles[i] = iconRegister.registerIcon("moredimensions:elixir_bottle_" + i);
-			this.splashBottles[i] = iconRegister.registerIcon("moredimensions:elixir_splash_" + i);
-			this.liquids[i] = iconRegister.registerIcon("moredimensions:elixir_liquid_" + i);
+			this.bottles[i] = iconRegister.registerIcon("mdm_main:elixir_bottle_" + i);
+			this.splashBottles[i] = iconRegister.registerIcon("mdm_main:elixir_splash_" + i);
+			this.liquids[i] = iconRegister.registerIcon("mdm_main:elixir_liquid_" + i);
 		}
 	}
 	

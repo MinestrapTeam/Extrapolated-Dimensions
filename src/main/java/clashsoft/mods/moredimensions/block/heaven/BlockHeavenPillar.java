@@ -24,8 +24,8 @@ public class BlockHeavenPillar extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon("moredimensions:pillar_side");
-		this.topIcon = iconRegister.registerIcon("moredimensions:pillar_top");
+		this.blockIcon = iconRegister.registerIcon("mdm_heaven:pillar_side");
+		this.topIcon = iconRegister.registerIcon("mdm_heaven:pillar_top");
 	}
 	
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderAlchemyTube extends TileEntitySpecialRenderer
 {
 	private ModelAlchemyTube	model	= new ModelAlchemyTube();
-	private ResourceLocation	tex		= new ResourceLocation("moredimensions:textures/models/alchemytube.png");
+	private ResourceLocation	tex		= new ResourceLocation("mdm_main:textures/models/alchemytube.png");
 	
 	public void renderTileEntityAt(TileEntityAlchemyTube tileentity, double camX, double camY, double camZ, float partialTickTime)
 	{

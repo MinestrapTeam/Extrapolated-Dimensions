@@ -36,7 +36,7 @@ public class ItemShield extends ItemCustomArmor
 	{
 		super.registerIcons(iconRegister);
 		if (slotIcon == null)
-			slotIcon = iconRegister.registerIcon("moredimensions:armorslot_shield");
+			slotIcon = iconRegister.registerIcon("mdm_main:armorslot_shield");
 	}
 	
 	@Override

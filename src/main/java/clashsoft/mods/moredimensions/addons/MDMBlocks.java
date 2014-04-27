@@ -95,33 +95,33 @@ public class MDMBlocks
 		// -- Paradise of Chaos Blocks --
 		
 		pocStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone",
-				"portal_frame" }, new String[] { "moredimensions:chaos_stone",
-				"moredimensions:poc_portal_frame" }, null).setCreativeTab(MDMItems.tabPOCBlocks);
+				"portal_frame" }, new String[] { "mdm_poc:chaos_stone",
+				"mdm_poc:poc_portal_frame" }, null).setCreativeTab(MDMItems.tabPOCBlocks);
 		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, "altered_dirt",
-				"moredimensions:altered_dirt", MDMItems.tabPOCBlocks)
+				"mdm_poc:altered_dirt", MDMItems.tabPOCBlocks)
 				.setStepSound(Block.soundTypeGravel);
 		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass("altered_grass",
-				"moredimensions:altered_grass_top", "moredimensions:altered_grass_side",
-				"moredimensions:altered_grass_bottom").setCreativeTab(MDMItems.tabPOCBlocks);
+				"mdm_poc:altered_grass_top", "mdm_poc:altered_grass_side",
+				"mdm_poc:altered_grass_bottom").setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		String[] ores1 = new String[] { "copper", "tin", "silver", "mithril", "adamanite",
 				"daeyalt", "rubium", "novite", "kratonium", "fractite", "promethium" };
 		
 		pocOres = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1,
-				"moredimensions:", "_ore"), null).setCreativeTab(MDMItems.tabPOCBlocks);
+				"mdm_poc:", "_ore"), null).setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		pocLogs = (BlockCustomLog) new BlockCustomLog(
 				new String[] { "magic_oak", "willow" },
-				new String[] { "moredimensions:magic_oak_log_top", "moredimensions:willow_log_top" },
-				new String[] { "moredimensions:magic_oak_log_side",
-						"moredimensions:willow_log_side" }).setCreativeTab(MDMItems.tabPOCBlocks);
+				new String[] { "mdm_poc:magic_oak_log_top", "mdm_poc:willow_log_top" },
+				new String[] { "mdm_poc:magic_oak_log_side",
+						"mdm_poc:willow_log_side" }).setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		magicOakLog = new ItemStack(pocLogs, 1, 0);
 		willowLog = new ItemStack(pocLogs, 1, 1);
 		
 		pocLeaves = (BlockCustomLeaves) new BlockCustomLeaves(
 				new String[] { "magic_oak", "willow" }, new String[] {
-						"moredimensions:magicoak_leaves", "moredimensions:willow_leaves" })
+						"mdm_poc:magicoak_leaves", "mdm_poc:willow_leaves" })
 				.setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		magicOakLeaves = new ItemStack(pocLeaves, 1, 0);
@@ -129,25 +129,25 @@ public class MDMBlocks
 		
 		pocSaplings = (BlockPOCSapling) new BlockPOCSapling(
 				new String[] { "magic_oak", "willow" },
-				new String[] { "moredimensions:magic_oak_sapling", "moredimensions:willow_sapling" })
+				new String[] { "mdm_poc:magic_oak_sapling", "mdm_poc:willow_sapling" })
 				.setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		magicOakSapling = new ItemStack(pocSaplings, 1, 0);
 		willowSapling = new ItemStack(pocSaplings, 1, 1);
 		
 		pocPlanks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "magic_oak",
-				"willow" }, new String[] { "moredimensions:magic_oak_planks",
-				"moredimensions:willow_planks" }, null).setCreativeTab(MDMItems.tabPOCBlocks)
+				"willow" }, new String[] { "mdm_poc:magic_oak_planks",
+				"mdm_poc:willow_planks" }, null).setCreativeTab(MDMItems.tabPOCBlocks)
 				.setStepSound(Block.soundTypeWood);
 		
 		magicOakPlanks = new ItemStack(pocPlanks, 1, 0);
 		willowPlanks = new ItemStack(pocPlanks, 1, 1);
 		
 		pocPlantBlocks = (BlockCustomPlant) new BlockCustomPlant(new String[] { "saf_flower" },
-				new String[] { "moredimensions:saf_flower" }).setCreativeTab(MDMItems.tabPOCBlocks);
+				new String[] { "mdm_poc:saf_flower" }).setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		pocPortal = (BlockCustomPortal) new BlockPOCPortal("poc_portal",
-				"moredimensions:poc_portal").setCreativeTab(MDMItems.tabPOCBlocks).setHardness(-1F);
+				"mdm_poc:poc_portal").setCreativeTab(MDMItems.tabPOCBlocks).setHardness(-1F);
 		
 		// Block.blocksList[Block.lavaStill.blockID] = null;
 		// activatorLava = (BlockPOCActivatorLava) new
@@ -162,13 +162,13 @@ public class MDMBlocks
 		heavenStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "stone",
 				"portal_frame", "cobble", "mossy", "shrekite_ore", "clashium_ore", "blurite_ore",
 				"holyium_ore", "shrekite_block", "clashium_block", "blurite_block",
-				"holyium_block", "pro_block" }, new String[] { "moredimensions:heavenstone",
-				"moredimensions:heaven_portal_frame", "moredimensions:heavenstone_cobble",
-				"moredimensions:heavenstone_mossy", "moredimensions:shrekite_ore",
-				"moredimensions:clashium_ore", "moredimensions:blurite_ore",
-				"moredimensions:holyium_ore", "moredimensions:shrekite_block",
-				"moredimensions:clashium_block", "moredimensions:blurite_block",
-				"moredimensions:holyium_block", "moredimensions:pro_block" },
+				"holyium_block", "pro_block" }, new String[] { "mdm_heaven:heavenstone",
+				"mdm_heaven:heaven_portal_frame", "mdm_heaven:heavenstone_cobble",
+				"mdm_heaven:heavenstone_mossy", "mdm_heaven:shrekite_ore",
+				"mdm_heaven:clashium_ore", "mdm_heaven:blurite_ore",
+				"mdm_heaven:holyium_ore", "mdm_heaven:shrekite_block",
+				"mdm_heaven:clashium_block", "mdm_heaven:blurite_block",
+				"mdm_heaven:holyium_block", "mdm_heaven:pro_block" },
 				new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundTypeStone);
 		
 		heavenStone = new ItemStack(heavenStoneBlocks, 1, 0);
@@ -186,7 +186,7 @@ public class MDMBlocks
 		proAlloyBlock = new ItemStack(heavenStoneBlocks, 1, 14);
 		
 		heavenDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "dirt",
-				"mud" }, new String[] { "moredimensions:heaven_dirt", "moredimensions:mud" },
+				"mud" }, new String[] { "mdm_heaven:heaven_dirt", "mdm_heaven:mud" },
 				new CreativeTabs[] { MDMItems.tabHeavenBlocks })
 				.setStepSound(Block.soundTypeGravel);
 		
@@ -195,14 +195,14 @@ public class MDMBlocks
 		
 		heavenGrassBlocks = (BlockHeavenGrass) (new BlockHeavenGrass(new String[] { "grass",
 				"mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" }, new String[] {
-				"moredimensions:heaven_grass_top", "moredimensions:mud_grass_top",
-				"moredimensions:corrupted_grass_top", "moredimensions:hallowed_grass_top",
-				"moredimensions:mushroom_grass_top" }, new String[] {
-				"moredimensions:heaven_grass_side", "moredimensions:mud_grass_side",
-				"moredimensions:corrupted_grass_side", "moredimensions:hallowed_grass_side",
-				"moredimensions:mushroom_grass_side" }, new String[] {
-				"moredimensions:heaven_dirt", "moredimensions:mud", "dirt", "dirt",
-				"moredimensions:mud" })).setCreativeTab(MDMItems.tabHeavenBlocks);
+				"mdm_heaven:heaven_grass_top", "mdm_heaven:mud_grass_top",
+				"mdm_heaven:corrupted_grass_top", "mdm_heaven:hallowed_grass_top",
+				"mdm_heaven:mushroom_grass_top" }, new String[] {
+				"mdm_heaven:heaven_grass_side", "mdm_heaven:mud_grass_side",
+				"mdm_heaven:corrupted_grass_side", "mdm_heaven:hallowed_grass_side",
+				"mdm_heaven:mushroom_grass_side" }, new String[] {
+				"mdm_heaven:heaven_dirt", "mdm_heaven:mud", "dirt", "dirt",
+				"mdm_heaven:mud" })).setCreativeTab(MDMItems.tabHeavenBlocks);
 		
 		heavenGrass = new ItemStack(heavenGrassBlocks, 1, 0);
 		mudGrass = new ItemStack(heavenGrassBlocks, 1, 1);
@@ -212,31 +212,31 @@ public class MDMBlocks
 		
 		heavenLogs = (BlockCustomLog) (new BlockCustomLog(
 				new String[] { "heaven_wood", "gold_wood" }, new String[] {
-						"moredimensions:heaven_wood_top", "moredimensions:gold_wood_top" },
-				new String[] { "moredimensions:heaven_wood_side", "moredimensions:gold_wood_side" }))
+						"mdm_heaven:heaven_wood_log_top", "mdm_heaven:gold_wood_log_top" },
+				new String[] { "mdm_heaven:heaven_wood_log_side", "mdm_heaven:gold_wood_log_side" }))
 				.setCreativeTab(MDMItems.tabHeavenBlocks);
 		
 		heavenWoodLog = new ItemStack(heavenLogs, 1, 0);
 		goldWoodLog = new ItemStack(heavenLogs, 1, 1);
 		
 		heavenLeaves = (BlockCustomLeaves) (new BlockCustomLeaves(new String[] { "heaven_wood",
-				"gold_wood" }, new String[] { "moredimensions:heaven_wood_leaves",
-				"moredimensions:gold_wood_leaves" })).setCreativeTab(MDMItems.tabHeavenBlocks)
+				"gold_wood" }, new String[] { "mdm_heaven:heaven_wood_leaves",
+				"mdm_heaven:gold_wood_leaves" })).setCreativeTab(MDMItems.tabHeavenBlocks)
 				.setHardness(0.2F);
 		
 		heavenWoodLeaves = new ItemStack(heavenLeaves, 1, 0);
 		goldWoodLeaves = new ItemStack(heavenLeaves, 1, 1);
 		
 		heavenSaplings = (BlockHeavenSapling) (new BlockHeavenSapling(new String[] { "heaven_wood",
-				"gold_wood" }, new String[] { "moredimensions:heaven_wood_sapling",
-				"moredimensions:gold_wood_sapling" })).setCreativeTab(MDMItems.tabHeavenBlocks);
+				"gold_wood" }, new String[] { "mdm_heaven:heaven_wood_sapling",
+				"mdm_heaven:gold_wood_sapling" })).setCreativeTab(MDMItems.tabHeavenBlocks);
 		
 		heavenWoodSapling = new ItemStack(heavenSaplings, 1, 0);
 		goldWoodSapling = new ItemStack(heavenSaplings, 1, 1);
 		
 		heavenPlanks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "heaven_wood",
-				"gold_wood" }, new String[] { "moredimensions:heaven_wood_planks",
-				"moredimensions:gold_wood_planks" },
+				"gold_wood" }, new String[] { "mdm_heaven:heaven_wood_planks",
+				"mdm_heaven:gold_wood_planks" },
 				new CreativeTabs[] { MDMItems.tabHeavenBlocks }).setStepSound(Block.soundTypeWood);
 		
 		heavenWoodPlanks = new ItemStack(heavenPlanks, 1, 0);
@@ -246,7 +246,7 @@ public class MDMBlocks
 				"hallowed_grass", "mushroom_grass", "heaven_vine", "mud_vine", "corrupted_vine",
 				"hallowed_vine", "mushroom_vine", "grass_vine" };
 		heavenPlantBlocks = (CustomBlock) new BlockHeavenPlant(plants, CSString.concatAll(plants,
-				"moredimensions:plant_", null)).setCreativeTab(MDMItems.tabHeavenBlocks)
+				"mdm_heaven:plant_", null)).setCreativeTab(MDMItems.tabHeavenBlocks)
 				.setStepSound(Block.soundTypeGrass);
 		
 		heavenGrassTall = new ItemStack(heavenPlantBlocks, 1, 0);
@@ -262,7 +262,7 @@ public class MDMBlocks
 		grassVine = new ItemStack(heavenPlantBlocks, 1, 10);
 		
 		heavenPortal = (BlockCustomPortal) new BlockHeavenPortal("heaven_portal",
-				"moredimensions:heaven_portal").setCreativeTab(MDMItems.tabHeavenBlocks);
+				"mdm_heaven:heaven_portal").setCreativeTab(MDMItems.tabHeavenBlocks);
 		
 		heavenPillar = (BlockHeavenPillar) new BlockHeavenPillar().setCreativeTab(
 				MDMItems.tabHeavenBlocks).setHardness(1.75F);
@@ -273,7 +273,7 @@ public class MDMBlocks
 		// -- Alchemy Blocks --
 		
 		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube().setBlockTextureName(
-				"moredimensions:alchemy_tube").setCreativeTab(MDMItems.tabAlchemy);
+				"mdm_main:alchemy_tube").setCreativeTab(MDMItems.tabAlchemy);
 		alchemyTable = (BlockAlchemyTable) new BlockAlchemyTable()
 				.setCreativeTab(MDMItems.tabAlchemy);
 	}

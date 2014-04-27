@@ -138,7 +138,7 @@ public class MDMTools
 				
 				String itemName = materialName + " " + toolType;
 				String itemID = materialID + toolType.replace(" ", "");
-				String itemIconName = CSString.fastConcat("moredimensions_tools:", materialID, "_", toolType.replace(" ", "_")).toLowerCase();
+				String itemIconName = CSString.fastConcat("mdm_tools:", materialID, "_", toolType.replace(" ", "_")).toLowerCase();
 				
 				Class toolClass = toolClasses[toolIndex];
 				

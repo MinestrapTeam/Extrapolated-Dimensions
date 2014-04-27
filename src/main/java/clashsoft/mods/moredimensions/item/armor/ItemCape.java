@@ -43,12 +43,12 @@ public class ItemCape extends ItemCustomArmor implements ICape
 		this.icons = new IIcon[capeNames.length];
 		for (int i = 0; i < capeNames.length; i++)
 		{
-			this.icons[i] = iconRegister.registerIcon("moredimensions:" + capeNames[i]);
+			this.icons[i] = iconRegister.registerIcon("mdm_main:" + capeNames[i]);
 		}
 		
 		if (slotIcon == null)
 		{
-			slotIcon = iconRegister.registerIcon("moredimensions:armorslot_cape");
+			slotIcon = iconRegister.registerIcon("mdm_main:armorslot_cape");
 		}
 	}
 	

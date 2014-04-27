@@ -28,7 +28,7 @@ public class ItemGloves extends ItemCustomArmor
 	{
 		super.registerIcons(iconRegister);
 		if (slotIcon == null)
-			slotIcon = iconRegister.registerIcon("moredimensions:armorslot_gloves");
+			slotIcon = iconRegister.registerIcon("mdm_main:armorslot_gloves");
 	}
 	
 	@Override
