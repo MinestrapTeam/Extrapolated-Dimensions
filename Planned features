@@ -1,11 +1,11 @@
 Planned features
 
-            General
+--- General ---
 Alchemy
 Dreams
-Boss chat                              
+Boss chat
 
-            Trees
+--- Trees ---
 Achey
 Teak 
 Maple
@@ -17,8 +17,7 @@ Cursed Willow
 Cursed Magic oak
 Blisterwood
 
-
-           Melee Weapon Types
+--- Melee Weapon Types ---
 Dagger
 Hatchet
 Pickaxe
@@ -33,7 +32,7 @@ Spear
 Claws
 Rapier
 
-            Ranged Weapon Types
+--- Ranged Weapon Types ---
 Shortbow (arrows)
 Crossbow (arrows)
 Crossbow (bolt)
@@ -42,9 +41,7 @@ Javelins
 Throwing Axe
 Throwing Knives
 
-            Armor Types
+--- Armor Types ---
 Ranged       fighters overcome mages because their projectiles easily penetrate their robes. Ranged armour is usually crafted from tough animal hides, which is highly resistant to Magic attacks.
 Melee        fighters overcome rangers because their weapons can cut through leather armour with ease. Melee armour is also effective at protecting against Ranged attacks, as their projectiles have difficulty piercing the thick, metal armour.
 Magic        users overcome warriors because their spells conduct in their metal armour, effectively cooking them. Effective mages can also bind warriors while attacking from afar, and their magical robes resist Melee attacks.
-
-Magic -> Melee -> Ranged -> Magic -> ...
