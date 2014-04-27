@@ -1,4 +1,4 @@
 More-Dimensions-Mod
 ===================
 
-More Dimensions Mod is the new name for Paradise of Chaos. It will add several dimensions to the game.
+More Dimensions Mod is a Minecraft mod that adds many new dimensions, items, blocks and mobs to the game.
