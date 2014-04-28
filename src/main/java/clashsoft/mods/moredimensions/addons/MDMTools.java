@@ -82,12 +82,12 @@ public class MDMTools
 	public static ArmorMaterial		armorKratonium		= ArmorMaterial.CHAIN;
 	public static ArmorMaterial		armorShannara		= ArmorMaterial.CHAIN;
 	
-	public static String[]			toolTypes			= new String[] { "Axe", "Battleaxe", "Boots", "Bow", "Chestplate", "Claws", "Crossbow", "Dagger", "Dart", "Gloves", "Halberd", "Hammer", "Hatchet", "Helmet", "Hoe", "Javelin", "Leggings", "Longsword", "Mace", "Ninjastar", "Pickaxe", "Pickaxe Variant", "Rapier", "Saw", "Scimitar", "Shield", "Shortbow", "Shovel", "Spade", "Spear", "Sword", "Throwing Axe", "Throwing Knife", "Warhammer" };
+	public static String[]			toolTypes			= new String[] { "axe", "battleaxe", "boots", "bow", "chestplate", "claws", "crossbow", "dagger", "dart", "gloves", "halberd", "hammer", "hatchet", "helmet", "hoe", "javelin", "leggings", "longsword", "mace", "ninjastar", "pickaxe", "pickaxe variant", "rapier", "saw", "scimitar", "shield", "shortbow", "shovel", "spade", "spear", "sword", "throwing axe", "throwing knife", "warhammer" };
 	public static Class[]			toolClasses			= new Class[] { ItemAxeMDM.class, ItemBattleaxe.class, ItemBoots.class, ItemBowMDM.class, ItemChestplate.class, ItemClaws.class, ItemCrossBow.class, ItemDagger.class, ItemDart.class, ItemGloves.class, ItemHalberd.class, ItemHammer.class, ItemHatchet.class, ItemHelmet.class, ItemHoe.class, ItemJavelin.class, ItemLeggings.class, ItemLongsword.class, ItemMace.class, ItemNinjaStar.class, ItemPickaxeMDM.class, ItemPickaxeMDM.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, ItemShield.class, ItemShortBow.class, ItemSpade.class, ItemSpade.class, ItemSpear.class, ItemSword.class, ItemThrowableAxe.class, ItemThrowableKnife.class, ItemWarhammer.class };
 	
-	public static String[]			materialNames		= new String[] { "Wood", "Stone", "Iron", "Gold", "Diamond", // Vanilla
-			"Heaven Wood", "Heaven Stone", "Shrekite", "Clashium", "Holyium", "Energy", "Pro", "Pulse", // Heaven
-			"Willow", "Gold Wood", "Daeyalt", "Marmaros", "Novite", "Kratonium", "Shannara" // POC
+	public static String[]			materialNames		= new String[] { "wood", "stone", "iron", "gold", "diamond", // vanilla
+			"heavenwood", "heavenstone", "shrekite", "clashium", "holyium", "energy", "pro", "pulse", // heaven
+			"willow", "gold_wood", "daeyalt", "marmaros", "novite", "kratonium", "shannara" // poc
 														};
 	
 	public static CreativeTabs		advancedTools		= MDMItems.tabTools, advancedArmor = MDMItems.tabTools;
@@ -115,14 +115,11 @@ public class MDMTools
 	
 	public static Item[][]			items				= new Item[materialNames.length][toolTypes.length];
 	
-	public static int				toolItemID			= 27000;
-	
 	public static void initialize()
 	{
 		for (int materialIndex = 0; materialIndex < materialNames.length; materialIndex++)
 		{
-			String materialName = materialNames[materialIndex];
-			String materialID = materialName.replace(" ", "");
+			String material = materialNames[materialIndex];
 			
 			CreativeTabs toolTab = toolTabs[materialIndex];
 			
@@ -130,15 +127,14 @@ public class MDMTools
 			ToolMaterial toolMaterial = toolMaterials[materialIndex];
 			ArmorMaterial armorMaterial = armorMaterials[materialIndex];
 			
-			boolean vanillaMaterial = (materialName == "Wood" || materialName == "Stone" || materialName == "Iron" || materialName == "Gold" || materialName == "Diamond");
+			boolean vanillaMaterial = (material == "wood" || material == "stone" || material == "iron" || material == "gold" || material == "diamond");
 			
 			for (int toolIndex = 0; toolIndex < toolTypes.length; toolIndex++)
 			{
 				String toolType = toolTypes[toolIndex];
 				
-				String itemName = materialName + " " + toolType;
-				String itemID = materialID + toolType.replace(" ", "");
-				String itemIconName = CSString.fastConcat("mdm_tools:", materialID, "_", toolType.replace(" ", "_")).toLowerCase();
+				String itemID = material + "_" + toolType;
+				String itemIconName = "mdm_tools:" + itemID;
 				
 				Class toolClass = toolClasses[toolIndex];
 				
@@ -146,10 +142,9 @@ public class MDMTools
 				
 				if (ItemArmor.class.isAssignableFrom(toolClass))
 				{
-					boolean vanillaArmor = vanillaMaterial && (toolClass == ItemHelmet.class || toolClass == ItemChestplate.class || toolClass == ItemLeggings.class || toolClass == ItemBoots.class);
-					if (!vanillaArmor)
+					if (!vanillaMaterial || (toolClass != ItemHelmet.class && toolClass != ItemChestplate.class && toolClass != ItemLeggings.class && toolClass != ItemBoots.class))
 					{
-						item = CSItems.createItem(toolClass, itemName, new Class[] { ArmorMaterial.class, int.class }, new Object[] { armorMaterial, MDMProxy.getArmorIndex(materialID.toLowerCase()) });
+						item = CSItems.createItem(toolClass, itemID, new Class[] { ArmorMaterial.class, int.class }, new Object[] { armorMaterial, MDMProxy.getArmorIndex(material.toLowerCase()) });
 						if (item != null)
 						{
 							item.setCreativeTab(armorTab);
@@ -160,7 +155,7 @@ public class MDMTools
 				{
 					if (!vanillaMaterial || (toolClass != ItemSword.class && toolClass != ItemSpade.class && toolClass != ItemPickaxe.class && toolClass != ItemAxe.class && toolClass != ItemHoe.class))
 					{
-						item = CSItems.createItem(toolClass, itemName, new Class[] { ToolMaterial.class }, new Object[] { toolMaterial });
+						item = CSItems.createItem(toolClass, itemID, new Class[] { ToolMaterial.class }, new Object[] { toolMaterial });
 						if (item != null)
 						{
 							item.setCreativeTab(toolTab);

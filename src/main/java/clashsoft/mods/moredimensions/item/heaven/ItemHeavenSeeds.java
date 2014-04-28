@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 public class ItemHeavenSeeds extends CustomItem
 {
-	public ItemHeavenSeeds(String[] names, String domain)
+	public ItemHeavenSeeds(String[] names, String[] iconNames)
 	{
-		super(names, domain, CSArrays.create(MDMItems.tabHeavenItems));
+		super(names, iconNames, CSArrays.create(MDMItems.tabHeavenItems));
 	}
 	
 	@Override

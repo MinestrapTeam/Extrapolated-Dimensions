@@ -4,6 +4,7 @@ import clashsoft.cslib.minecraft.addon.Addon;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
 import clashsoft.cslib.minecraft.item.CustomItem;
+import clashsoft.cslib.util.CSString;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.item.alchemy.ItemAlchemyGuide;
 import clashsoft.mods.moredimensions.item.alchemy.ItemElixir;
@@ -41,7 +42,7 @@ public class MDMItems
 	
 	public static CustomItem				pocMaterials;
 	
-	public static ItemStack					magicOakStick, willowStick, daeyaltGem, noviteGem, marmarosGem, kratoniumIngot;
+	public static ItemStack					magicOakStick, willowStick, promethiumGem, noviteGem, marmarosGem, kratoniumIngot;
 	
 	// -- Heaven --
 	
@@ -72,18 +73,17 @@ public class MDMItems
 		
 		staves = (ItemStaff) new ItemStaff().setCreativeTab(tabPOCTools);
 		manaStar = (ItemManaStar) new ItemManaStar().setTextureName("mdm_poc:mana_star").setCreativeTab(tabPOCItems);
-		pocMaterials = (CustomItem) new CustomItem(new String[] { "magicoak_stick", "willow_stick", "daeyalt_gem", "novite_gem", "marmaros_gem", "kratonium_ingot" }, "mdm_poc").setCreativeTab(tabPOCItems);
+		pocMaterials = (CustomItem) new CustomItem(new String[] { "magic_oak_stick", "willow_stick", "promethium_gem", "novite_gem", "kratonium_ingot" }, "mdm_poc").setCreativeTab(tabPOCItems);
 		
 		magicOakStick = new ItemStack(pocMaterials, 1, 0);
 		willowStick = new ItemStack(pocMaterials, 1, 1);
-		daeyaltGem = new ItemStack(pocMaterials, 1, 2);
+		promethiumGem = new ItemStack(pocMaterials, 1, 2);
 		noviteGem = new ItemStack(pocMaterials, 1, 3);
-		marmarosGem = new ItemStack(pocMaterials, 1, 4);
-		kratoniumIngot = new ItemStack(pocMaterials, 1, 5);
+		kratoniumIngot = new ItemStack(pocMaterials, 1, 4);
 		
 		// -- Heaven --
 		
-		heavenMaterials = (ItemHeavenMaterials) new ItemHeavenMaterials(new String[] { "heavenwood_stick", "goldwood_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }, "mdm_heaven").setCreativeTab(tabHeavenItems);
+		heavenMaterials = (ItemHeavenMaterials) new ItemHeavenMaterials(new String[] { "heaven_wood_stick", "gold_wood_stick", "heaven_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }, "mdm_heaven").setCreativeTab(tabHeavenItems);
 		
 		heavenWoodStick = new ItemStack(heavenMaterials, 1, 0);
 		goldWoodStick = new ItemStack(heavenMaterials, 1, 1);
@@ -101,14 +101,16 @@ public class MDMItems
 		icehammer = (ItemIceHammer) new ItemIceHammer().setTextureName("mdm_heaven:ice_hammer");
 		heavenSouls = (ItemHeavenSoul) new ItemHeavenSoul();
 		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabHeavenArmor);
-		heavenSeeds = (ItemHeavenSeeds) new ItemHeavenSeeds(new String[] { "heaven_grass_seeds", "mud_grass_seeds", "corrupted_grass_seeds", "hallowed_grass_seeds", "mushroom_grass_seeds" }, "mdm_heaven");
+		
+		String[] seeds = new String[] { "heaven_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" };
+		heavenSeeds = (ItemHeavenSeeds) new ItemHeavenSeeds(seeds, CSString.concatAll(seeds, "mdm_heaven:", "_seeds"));
 		iceStick = (ItemIceStick) new ItemIceStick().setTextureName("mdm_heaven:ice_stick").setCreativeTab(tabHeavenItems);
 		
 		heavenPortalActivator = (ItemHeavenPortalActivator) new ItemHeavenPortalActivator().setTextureName("mdm_heaven:heaven_portal_activator").setCreativeTab(tabHeavenTools);
 		
 		// -- Alchemy --
 		
-		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName("mdm_main:alchemy_guide").setCreativeTab(MDMItems.tabPOCItems);
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName("mdm_main:alchemy_guide").setCreativeTab(MDMItems.tabAlchemy);
 		elixir = (ItemElixir) new ItemElixir().setCreativeTab(tabAlchemy);
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle().setCreativeTab(tabAlchemy);
 		matter = (ItemMatter) new ItemMatter().setCreativeTab(tabAlchemy);
@@ -119,14 +121,14 @@ public class MDMItems
 		// -- Paradise of Chaos --
 		
 		CSItems.addItem(manaStar, "mana_star");
-		CSItems.addItem(pocMaterials, "materials_poc");
+		CSItems.addItem(pocMaterials, "poc_materials");
 		
 		// -- Heaven --
 		
-		CSItems.addItem(heavenMaterials, "materials_heaven");
+		CSItems.addItem(heavenMaterials, "heaven_materials");
 		CSItems.addItem(heavenPortalActivator, "heaven_portal_activator");
 		CSItems.addItem(heavenApple, "heaven_apple");
-		CSItems.addItem(lifeHeart, "lfe_heart");
+		CSItems.addItem(lifeHeart, "life_heart");
 		CSItems.addItem(fireSword, "fire_sword");
 		CSItems.addItem(icehammer, "ice_hammer");
 		CSItems.addItem(capes, "cape");

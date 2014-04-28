@@ -35,6 +35,8 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	public ItemCape()
 	{
 		super(ArmorMaterial.CLOTH, 0, ArmorTypes.CAPE);
+		this.setHasSubtypes(true);
+		this.setMaxDamage(0);
 	}
 	
 	@Override

@@ -93,7 +93,7 @@ public class MDMBlocks
 		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, "altered_dirt", "mdm_poc:altered_dirt", MDMItems.tabPOCBlocks).setStepSound(Block.soundTypeGravel);
 		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass("altered_grass", "mdm_poc:altered_grass_top", "mdm_poc:altered_grass_side", "mdm_poc:altered_grass_bottom").setCreativeTab(MDMItems.tabPOCBlocks);
 		
-		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamanite", "rubium", "novite", "kratonium", "fractite", "promethium", "whitium" };
+		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "fractite", "promethium", "whitium" };
 		
 		pocOres = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1, "mdm_poc:", "_ore"), null).setCreativeTab(MDMItems.tabPOCBlocks);
 		
@@ -102,7 +102,7 @@ public class MDMBlocks
 		magicOakLog = new ItemStack(pocLogs, 1, 0);
 		willowLog = new ItemStack(pocLogs, 1, 1);
 		
-		pocLeaves = (BlockCustomLeaves) new BlockCustomLeaves(new String[] { "magic_oak", "willow" }, new String[] { "mdm_poc:magicoak_leaves", "mdm_poc:willow_leaves" }).setCreativeTab(MDMItems.tabPOCBlocks);
+		pocLeaves = (BlockCustomLeaves) new BlockCustomLeaves(new String[] { "magic_oak", "willow" }, new String[] { "mdm_poc:magic_oak_leaves", "mdm_poc:willow_leaves" }).setCreativeTab(MDMItems.tabPOCBlocks);
 		
 		magicOakLeaves = new ItemStack(pocLeaves, 1, 0);
 		willowLeaves = new ItemStack(pocLeaves, 1, 1);
