@@ -12,6 +12,7 @@ elixir.bottletype.0=Square
 elixir.bottletype.1=Triangular
 elixir.bottletype.2=Round
 
+item.elixir.name=Elixir
 item.elixir_bottle.name=Elixir Bottle
 item.alchemy_guide.name=Alchemy Guide
 item.alchemy_guide.desc=Holds all alchemical knowledge

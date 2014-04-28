@@ -32,12 +32,12 @@ tile.heaven_plants.heaven_grass.name=Heaven Grass
 tile.heaven_plants.mud_grass.name=Mud Grass
 tile.heaven_plants.corrupted_grass.name=Corrupted Grass
 tile.heaven_plants.hallowed_grass.name=Hallowed Grass
-tile.heaven_planks.mushroom_grass.name=Mushroom Grass
+tile.heaven_plants.mushroom_grass.name=Mushroom Grass
 tile.heaven_plants.heaven_vine.name=Heaven Grass Vine
 tile.heaven_plants.mud_vine.name=Mud Grass Vine
 tile.heaven_plants.corrupted_vine.name=Corrupted Grass Vine
 tile.heaven_plants.hallowed_vine.name=Hallowed Grass Vine
-tile.heaven_planks.mushroom_vine.name=Mushroom Grass Vine
+tile.heaven_plants.mushroom_vine.name=Mushroom Grass Vine
 
 item.heaven_materials.heaven_wood_stick.name=Heaven Wood Stick
 item.heaven_materials.gold_wood_stick.name=Gold Wood Stick

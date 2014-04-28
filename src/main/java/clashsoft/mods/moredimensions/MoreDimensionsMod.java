@@ -65,7 +65,6 @@ public class MoreDimensionsMod extends ClashsoftMod
 		MDMRecipes.load();
 		MDMWorld.load();
 		MDMInventory.load();
-		MDMLocalizations.load();
 		
 		CSConfig.saveConfig();
 	}
