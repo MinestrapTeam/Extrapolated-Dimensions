@@ -16,7 +16,6 @@ public class ItemFireSword extends ItemSword
 	public ItemFireSword()
 	{
 		super(MDMTools.toolFire);
-		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 	
 	@Override

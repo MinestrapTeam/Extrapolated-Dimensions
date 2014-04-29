@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 
-public class ItemHeavenSoul extends CustomItem
+public class ItemHeavenSoul extends Item
 {
 	public static Random			rand		= new Random();
 	
@@ -41,9 +41,14 @@ public class ItemHeavenSoul extends CustomItem
 	
 	public ItemHeavenSoul()
 	{
-		super(soulNames, "moredimensions");
+		super();
 		this.setMaxStackSize(1);
-		this.setCreativeTab(MDMItems.tabHeavenItems);
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		return CustomItem.getUnlocalizedName(this, soulNames, stack);
 	}
 	
 	@Override

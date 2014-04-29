@@ -95,11 +95,11 @@ public class MDMItems
 		proAlloy = new ItemStack(heavenMaterials, 1, 7);
 		bluriteDust = new ItemStack(heavenMaterials, 1, 8);
 		
-		heavenApple = (ItemFood) new ItemFood(2, 0, false).setTextureName("mdm_heaven:heaven_apple");
-		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName("mdm_heaven:life_heart");
-		fireSword = (ItemFireSword) new ItemFireSword().setTextureName("mdm_heaven:fire_sword");
-		icehammer = (ItemIceHammer) new ItemIceHammer().setTextureName("mdm_heaven:ice_hammer");
-		heavenSouls = (ItemHeavenSoul) new ItemHeavenSoul();
+		heavenApple = (ItemFood) new ItemFood(2, 0, false).setTextureName("mdm_heaven:heaven_apple").setCreativeTab(tabHeavenItems);
+		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName("mdm_heaven:life_heart").setCreativeTab(tabHeavenItems);
+		fireSword = (ItemFireSword) new ItemFireSword().setTextureName("mdm_heaven:fire_sword").setCreativeTab(tabHeavenTools);
+		icehammer = (ItemIceHammer) new ItemIceHammer().setTextureName("mdm_heaven:ice_hammer").setCreativeTab(tabHeavenTools);
+		heavenSouls = (ItemHeavenSoul) new ItemHeavenSoul().setCreativeTab(tabHeavenItems);;
 		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabHeavenArmor);
 		
 		String[] seeds = new String[] { "heaven_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" };
@@ -126,7 +126,6 @@ public class MDMItems
 		// -- Heaven --
 		
 		CSItems.addItem(heavenMaterials, "heaven_materials");
-		CSItems.addItem(heavenPortalActivator, "heaven_portal_activator");
 		CSItems.addItem(heavenApple, "heaven_apple");
 		CSItems.addItem(lifeHeart, "life_heart");
 		CSItems.addItem(fireSword, "fire_sword");
@@ -134,12 +133,14 @@ public class MDMItems
 		CSItems.addItem(capes, "cape");
 		CSItems.addItem(heavenSeeds, "heaven_seeds");
 		CSItems.addItem(iceStick, "ice_stick");
+		CSItems.addItem(heavenPortalActivator, "heaven_portal_activator");
 		
 		// -- Alchemy --
 		
 		CSItems.addItem(alchemyGuide, "alchemy_guide");
-		CSItems.addItem(elixir, "exlixir");
+		CSItems.addItem(elixir, "elixir");
 		CSItems.addItem(elixirBottle, "elixir_bottle");
+		CSItems.addItem(matter, "matter");
 		
 		// -- Creative Tab Icons --
 		

@@ -14,7 +14,6 @@ public class ItemIceHammer extends ItemIceStick
 		super();
 		this.setMaxStackSize(1);
 		this.setMaxDamage(256);
-		this.setCreativeTab(MDMItems.tabHeavenTools);
 	}
 	
 	@Override
