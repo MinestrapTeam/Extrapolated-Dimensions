@@ -82,12 +82,24 @@ public class MDMTools
 	public static ArmorMaterial		armorKratonium		= ArmorMaterial.CHAIN;
 	public static ArmorMaterial		armorShannara		= ArmorMaterial.CHAIN;
 	
-	public static String[]			toolTypes			= new String[] { "axe", "battleaxe", "boots", "bow", "chestplate", "claws", "crossbow", "dagger", "dart", "gloves", "halberd", "hammer", "hatchet", "helmet", "hoe", "javelin", "leggings", "longsword", "mace", "ninjastar", "pickaxe", "pickaxe variant", "rapier", "saw", "scimitar", "shield", "shortbow", "shovel", "spade", "spear", "sword", "throwing axe", "throwing knife", "warhammer" };
-	public static Class[]			toolClasses			= new Class[] { ItemAxeMDM.class, ItemBattleaxe.class, ItemBoots.class, ItemBowMDM.class, ItemChestplate.class, ItemClaws.class, ItemCrossBow.class, ItemDagger.class, ItemDart.class, ItemGloves.class, ItemHalberd.class, ItemHammer.class, ItemHatchet.class, ItemHelmet.class, ItemHoe.class, ItemJavelin.class, ItemLeggings.class, ItemLongsword.class, ItemMace.class, ItemNinjaStar.class, ItemPickaxeMDM.class, ItemPickaxeMDM.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, ItemShield.class, ItemShortBow.class, ItemSpade.class, ItemSpade.class, ItemSpear.class, ItemSword.class, ItemThrowableAxe.class, ItemThrowableKnife.class, ItemWarhammer.class };
+	public static String[]			toolTypes			= CSArrays.create("sword", "shovel", "pickaxe", "axe", "hoe", // Tools
+																"helmet", "chestplate", "leggings", "boots", // Armor
+																"gloves", "shield", // Armor
+																"bow", "crossbow", "shortbow", // Bows
+																"battleaxe", "claws", "dagger", "dart", "halberd", "hammer", "hatchet", //
+																"javelin", "longsword", "mace", "ninjastar", "pickaxe_variant", "rapier", "saw", "scimitar", //
+																"spade", "spear", "throwing_axe", "throwing_knife", "warhammer");
+	public static Class[]			toolClasses			= CSArrays.create(ItemSword.class, ItemSpade.class, ItemPickaxeMDM.class, ItemAxeMDM.class, ItemHoe.class, // Tools
+																ItemHelmet.class, ItemChestplate.class, ItemLeggings.class, ItemBoots.class, // Armor
+																ItemGloves.class, ItemShield.class, // Armor
+																ItemBowMDM.class, ItemCrossBow.class, ItemShortBow.class, // Bows
+																ItemBattleaxe.class, ItemClaws.class, ItemDagger.class, ItemDart.class, ItemHalberd.class, ItemHammer.class, ItemHatchet.class, //
+																ItemJavelin.class, ItemLongsword.class, ItemMace.class, ItemNinjaStar.class, ItemPickaxeMDM.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, //
+																ItemSpade.class, ItemSpear.class, ItemThrowableAxe.class, ItemThrowableKnife.class, ItemWarhammer.class);
 	
 	public static String[]			materialNames		= new String[] { "wood", "stone", "iron", "gold", "diamond", // vanilla
-			"heavenwood", "heavenstone", "shrekite", "clashium", "holyium", "energy", "pro", "pulse", // heaven
-			"willow", "gold_wood", "daeyalt", "marmaros", "novite", "kratonium", "shannara" // poc
+			"heavenwood", "heavenstone", "shrekite", "clashium", "holyium", "energy", "pro", // heaven
+			"willow", "gold_wood" // poc
 														};
 	
 	public static CreativeTabs		advancedTools		= MDMItems.tabTools, advancedArmor = MDMItems.tabTools;
@@ -95,22 +107,22 @@ public class MDMTools
 	public static CreativeTabs		pocTools			= MDMItems.tabPOCTools, pocArmor = MDMItems.tabPOCArmor;
 	
 	public static CreativeTabs[]	toolTabs			= CSArrays.create(advancedTools, advancedTools, advancedTools, advancedTools, advancedTools, // Vanilla
-																heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, // Heaven
-																pocTools, pocTools, pocTools, pocTools, pocTools, pocTools, pocTools // POC
+																heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, // Heaven
+																pocTools, pocTools // POC
 																);
 	public static CreativeTabs[]	armorTabs			= CSArrays.create(advancedArmor, advancedArmor, advancedArmor, advancedArmor, advancedArmor, // Vanilla
-																heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, // Heaven
-																pocArmor, pocArmor, pocArmor, pocArmor, pocArmor, pocArmor, pocArmor // POC
+																heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, // Heaven
+																pocArmor, pocArmor // POC
 																);
 	
 	public static ToolMaterial[]	toolMaterials		= CSArrays.create(toolWood, toolStone, toolIron, toolGold, toolDiamond, // Vanilla
-																toolHeavenWood, toolHeavenStone, toolShrekite, toolClashium, toolHolyium, toolEnergy, toolPro, toolPulse, // Heaven
-																toolWillow, toolGoldWood, toolDaeyalt, toolMarmoros, toolNovite, toolKratonium, toolShannara // POC
+																toolHeavenWood, toolHeavenStone, toolShrekite, toolClashium, toolHolyium, toolEnergy, toolPro, // Heaven
+																toolWillow, toolGoldWood // POC
 																);
 	
 	public static ArmorMaterial[]	armorMaterials		= CSArrays.create(armorWood, armorStone, armorIron, armorGold, armorDiamond, // Vanilla
-																armorHeavenWood, armorHeavenStone, armorShrekite, armorClashium, armorHolyium, armorEnergy, armorPro, armorPulse, // Heaven
-																armorWillow, armorGoldWood, armorDaeyalt, armorMarmoros, armorNovite, armorKratonium, armorShannara // POC
+																armorHeavenWood, armorHeavenStone, armorShrekite, armorClashium, armorHolyium, armorEnergy, armorPro, // Heaven
+																armorWillow, armorGoldWood // POC
 																);
 	
 	public static Item[][]			items				= new Item[materialNames.length][toolTypes.length];
