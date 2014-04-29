@@ -3,21 +3,32 @@ itemGroup.heaven_armor=Heaven Armor
 itemGroup.heaven_items=Heaven Items
 itemGroup.heaven_blocks=Heaven Blocks
 
-tile.heaven_portal.name=Heaven Portal
 tile.heaven_stone.stone.name=Heaven Stone
 tile.heaven_stone.portal_frame.name=Heaven Portal Frame
 tile.heaven_stone.cobble.name=Heaven Cobblestone
 tile.heaven_stone.mossy.name=Mossy Heaven Stone
+tile.heaven_stone.shrekite_ore.name=Shrekite Ore
+tile.heaven_stone.clashium_ore.name=Clashium Ore
+tile.heaven_stone.blurite_ore.name=Blurite Ore
+tile.heaven_stone.holyium_ore.name=Holyium Ore
+
+tile.heaven_metal.shrekite_block.name=Shrekite Block
+tile.heaven_metal.clashium_block.name=Clashium Block
+tile.heaven_metal.blurite_block.name=Blurite Block
+tile.heaven_metal.holyium_block.name=Holyium Block
+tile.heaven_metal.pro_block.name=Pro Block
+
+tile.heaven_portal.name=Heaven Portal
 tile.heaven_pillar.name=Pillar
 tile.damnation_table.name=Damnation Table
 
-tile.heaven_dirt.dirt.name=Heaven Dirt
+tile.heaven_dirt.heaven_dirt.name=Heaven Dirt
 tile.heaven_dirt.mud.name=Heaven Mud
-tile.heaven_grass.grass.name=Heaven Grass Block
+tile.heaven_grass.heaven_grass.name=Heaven Grass Block
 tile.heaven_grass.mud_grass.name=Heaven Mud Grass Block
 tile.heaven_grass.corrupted_grass.name=Corrupted Grass Block
 tile.heaven_grass.hallowed_grass.name=Hallowed Grass Block
-tile.heaven_grass.mushroom.name=Mushroom Grass Block
+tile.heaven_grass.mushroom_grass.name=Mushroom Grass Block
 
 tile.heaven_logs.heaven_wood.name=Heaven Wood Log
 tile.heaven_logs.gold_wood.name=Gold Wood Log
