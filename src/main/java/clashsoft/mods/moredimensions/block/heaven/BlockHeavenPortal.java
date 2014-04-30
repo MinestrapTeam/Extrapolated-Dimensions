@@ -3,6 +3,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 import clashsoft.cslib.minecraft.block.BlockCustomPortal;
 import clashsoft.mods.moredimensions.addons.Heaven;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.world.teleporters.TeleporterHeaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.Teleporter;
@@ -30,6 +31,6 @@ public class BlockHeavenPortal extends BlockCustomPortal
 	@Override
 	public Teleporter createTeleporter(WorldServer world)
 	{
-		return null;
+		return new TeleporterHeaven(world);
 	}
 }
