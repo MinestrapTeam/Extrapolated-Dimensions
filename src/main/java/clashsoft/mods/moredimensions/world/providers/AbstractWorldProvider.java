@@ -12,10 +12,15 @@ public abstract class AbstractWorldProvider extends WorldProvider
 {
 	public float[]	colorsSunriseSunset	= new float[4];
 	
+	public AbstractWorldProvider(int dimID)
+	{
+		this.dimensionId = dimID;
+	}
+	
 	@Override
 	public String getSaveFolder()
 	{
-		return this.getDimensionName().toUpperCase();
+		return this.getDimensionName();
 	}
 	
 	@Override

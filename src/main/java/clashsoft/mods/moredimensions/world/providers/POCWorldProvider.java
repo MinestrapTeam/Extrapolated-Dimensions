@@ -8,12 +8,15 @@ import net.minecraft.world.chunk.IChunkProvider;
 
 public class POCWorldProvider extends AbstractWorldProvider
 {
+	public POCWorldProvider()
+	{
+		super(MDMWorld.POC_ID);
+	}
+	
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.dimensionId = MDMWorld.POC_ID;
 		this.worldChunkMgr = new POCChunkManager(this.getSeed(), this.terrainType);
-		this.hasNoSky = false;
 	}
 	
 	@Override

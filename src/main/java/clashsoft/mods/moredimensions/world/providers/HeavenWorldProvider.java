@@ -8,12 +8,15 @@ import net.minecraft.world.chunk.IChunkProvider;
 
 public class HeavenWorldProvider extends AbstractWorldProvider
 {
+	public HeavenWorldProvider()
+	{
+		super(MDMWorld.HEAVEN_ID);
+	}
+	
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.dimensionId = MDMWorld.HEAVEN_ID;
 		this.worldChunkMgr = new HeavenChunkManager(this.getSeed(), this.terrainType);
-		this.hasNoSky = false;
 	}
 	
 	@Override
@@ -26,5 +29,11 @@ public class HeavenWorldProvider extends AbstractWorldProvider
 	public String getDimensionName()
 	{
 		return "Heaven";
+	}
+	
+	@Override
+	public String getSaveFolder()
+	{
+		return "HEAVEN";
 	}
 }

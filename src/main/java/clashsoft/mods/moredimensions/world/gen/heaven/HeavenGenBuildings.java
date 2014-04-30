@@ -18,7 +18,7 @@ public class HeavenGenBuildings
 	 * 
 	 * @author Clashsoft
 	 */
-	public class HeavenGenBuilding1 extends WorldGenerator
+	public static class HeavenGenBuilding1 extends WorldGenerator
 	{
 		public HeavenGenBuilding1()
 		{

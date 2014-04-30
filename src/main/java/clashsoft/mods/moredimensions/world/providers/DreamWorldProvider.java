@@ -10,6 +10,11 @@ public class DreamWorldProvider extends AbstractWorldProvider
 {
 	public static DreamType	dreamType	= DreamType.plains;
 	
+	public DreamWorldProvider()
+	{
+		super(MDMWorld.DREAMS_ID);
+	}
+	
 	@Override
 	public void registerWorldChunkManager()
 	{

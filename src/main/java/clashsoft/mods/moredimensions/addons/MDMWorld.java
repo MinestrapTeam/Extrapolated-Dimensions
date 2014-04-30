@@ -5,10 +5,8 @@ import java.util.Random;
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.world.biome.*;
-import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings;
-import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
+import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings.HeavenGenBuilding1;
 import clashsoft.mods.moredimensions.world.providers.HeavenWorldProvider;
-import clashsoft.mods.moredimensions.world.providers.NightmareWorldProvider;
 import clashsoft.mods.moredimensions.world.providers.POCWorldProvider;
 
 import net.minecraft.world.World;
@@ -51,15 +49,19 @@ public class MDMWorld
 		// Heaven Dimension
 		DimensionManager.registerProviderType(HEAVEN_ID, HeavenWorldProvider.class, true);
 		DimensionManager.registerDimension(HEAVEN_ID, HEAVEN_ID);
+		
 		// POC Dimension
 		DimensionManager.registerProviderType(POC_ID, POCWorldProvider.class, true);
 		DimensionManager.registerDimension(POC_ID, POC_ID);
+		
+		/*
 		// Dreams Dimension
 		DimensionManager.registerProviderType(DREAMS_ID, DreamWorldProvider.class, true);
 		DimensionManager.registerDimension(DREAMS_ID, DREAMS_ID);
 		// Nightmares Dimension
 		DimensionManager.registerProviderType(NIGHTMARES_ID, NightmareWorldProvider.class, true);
 		DimensionManager.registerDimension(NIGHTMARES_ID, NIGHTMARES_ID);
+		*/
 	}
 	
 	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
@@ -76,7 +78,7 @@ public class MDMWorld
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new HeavenGenBuildings().new HeavenGenBuilding1()).generate(world, rand, randPosX, randPosZ, randPosY);
+			(new HeavenGenBuilding1()).generate(world, rand, randPosX, randPosZ, randPosY);
 		}
 	}
 }
