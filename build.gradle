@@ -17,17 +17,30 @@ buildscript {
 
 apply plugin: 'forge'
 version = "1.7.2"
-group= "clashsoft.mods"
+group= "clashsoft.mods.moredimensions"
 archivesBaseName = "More Dimensions Mod"
 
-minecraft {
+minecraft
+{
     version = "1.7.2-10.12.1.1061"
-    assetDir = "../assets"
+    
+    if(file('../run').exists())
+    {
+        assetDir = "../run/assets/"
+    }
+    else
+    {
+        assetDir = "eclipse/assets"
+    }
 }
 
 dependencies
 {
-    compile fileTree(directory:'dependencies', include:'*.zip')
+    compile fileTree(dir:'dependencies', include:'*.zip')
+    compile fileTree(dir:'dependencies', include:'*.jar')
+    
+    compile project('Minecraft')
+    compile fileTree(dir:'../Minecraft/bin', include:'*.class')
 }
 
 processResources
