@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.providers.chunk;
 
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -58,7 +58,7 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 							{
 								if (d15 > 0.0D)
 								{
-									blocks[j2] = MDMBlocks.heavenStoneBlocks;
+									blocks[j2] = Heaven.heavenStoneBlocks;
 								}
 								j2 += 128;
 								d15 += d16;

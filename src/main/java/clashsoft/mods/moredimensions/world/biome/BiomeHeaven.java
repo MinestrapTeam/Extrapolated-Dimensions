@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -28,8 +28,8 @@ public class BiomeHeaven extends BiomeGenBase
 		
 		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
-		this.topBlock = MDMBlocks.heavenGrassBlocks;
-		this.fillerBlock = MDMBlocks.heavenDirtBlocks;
+		this.topBlock = Heaven.heavenGrassBlocks;
+		this.fillerBlock = Heaven.heavenDirtBlocks;
 		
 		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven());
 		
@@ -42,6 +42,6 @@ public class BiomeHeaven extends BiomeGenBase
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		int type = random.nextInt(1);
-		return new CustomTreeGen(true, 6, MDMBlocks.heavenLogs, MDMBlocks.heavenLeaves, type, type);
+		return new CustomTreeGen(true, 6, Heaven.heavenLogs, Heaven.heavenLeaves, type, type);
 	}
 }

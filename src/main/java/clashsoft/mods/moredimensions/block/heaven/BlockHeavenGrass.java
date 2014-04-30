@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomGrass;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.world.World;
 
@@ -25,7 +25,7 @@ public class BlockHeavenGrass extends BlockCustomGrass
 			if (randInt < 2)
 			{
 				int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-				world.setBlock(x, y + 1, z, MDMBlocks.heavenPlantBlocks, metadata, 2);
+				world.setBlock(x, y + 1, z, Heaven.heavenPlantBlocks, metadata, 2);
 			}
 		}
 	}

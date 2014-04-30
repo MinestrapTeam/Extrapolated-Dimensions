@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.poc;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 
 import net.minecraft.block.Block;
@@ -27,6 +27,6 @@ public class BlockPOCSapling extends BlockCustomSapling
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		return block == MDMBlocks.pocGrassBlocks;
+		return block == ParadiseOfChaos.pocGrassBlocks;
 	}
 }

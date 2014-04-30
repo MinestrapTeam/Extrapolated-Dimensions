@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.CustomBigTreeGen;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 
 import net.minecraft.block.material.Material;
@@ -23,8 +23,8 @@ public class BiomePlainsOfInsanity extends BiomeGenBase
 		this.setHeight(new Height(0.3F, 0.2F));
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();
-		this.topBlock = MDMBlocks.pocGrassBlocks;
-		this.fillerBlock = MDMBlocks.pocDirtBlocks;
+		this.topBlock = ParadiseOfChaos.pocGrassBlocks;
+		this.fillerBlock = ParadiseOfChaos.pocDirtBlocks;
 		
 		this.theBiomeDecorator = new BiomeDecorator();
 		

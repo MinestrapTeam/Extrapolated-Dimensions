@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item.tools;
 
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Tools;
 
 import com.google.common.collect.Multimap;
 
@@ -33,7 +33,7 @@ public class ItemSwordMDM extends Item
 		this.efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial() * efficiencyMultiplier;
 		
 		this.setMaxDamage(material.getMaxUses());
-		this.setCreativeTab(MDMItems.tabTools);
+		this.setCreativeTab(Tools.tabTools);
 		this.weaponDamage = weaponDamage + material.getDamageVsEntity();
 	}
 	

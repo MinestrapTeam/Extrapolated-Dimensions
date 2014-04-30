@@ -5,7 +5,7 @@ import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
 import clashsoft.cslib.minecraft.block.BlockCustomPortal;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterPOC;
 
@@ -19,7 +19,7 @@ public class BlockPOCPortal extends BlockCustomPortal
 	@Override
 	public Block getFrameBlock()
 	{
-		return MDMBlocks.pocStoneBlocks;
+		return ParadiseOfChaos.pocStoneBlocks;
 	}
 	
 	@Override

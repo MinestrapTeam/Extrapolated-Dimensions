@@ -1,16 +1,15 @@
 package clashsoft.mods.moredimensions.addons;
 
-import clashsoft.cslib.minecraft.addon.Addon;
+import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
 import clashsoft.cslib.util.CSArrays;
-import clashsoft.cslib.util.CSString;
 import clashsoft.mods.moredimensions.common.MDMProxy;
 import clashsoft.mods.moredimensions.item.armor.*;
+import clashsoft.mods.moredimensions.item.tools.*;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemBattleaxe;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemHatchet;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemSaw;
 import clashsoft.mods.moredimensions.item.tools.ItemAxeMDM.ItemThrowableAxe;
-import clashsoft.mods.moredimensions.item.tools.*;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM.ItemCrossBow;
 import clashsoft.mods.moredimensions.item.tools.ItemBowMDM.ItemShortBow;
 import clashsoft.mods.moredimensions.item.tools.ItemHammer.ItemWarhammer;
@@ -32,9 +31,10 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-@Addon(modName = "MoreDimensionsMod", addonName = "Tools")
-public class MDMTools
+public class Tools
 {
+	public static CustomCreativeTab	tabTools			= new CustomCreativeTab("mdm_tools");
+	
 	public static ToolMaterial		toolWood			= ToolMaterial.WOOD;
 	public static ToolMaterial		toolStone			= ToolMaterial.STONE;
 	public static ToolMaterial		toolIron			= ToolMaterial.IRON;
@@ -102,9 +102,9 @@ public class MDMTools
 			"willow", "gold_wood" // poc
 														};
 	
-	public static CreativeTabs		advancedTools		= MDMItems.tabTools, advancedArmor = MDMItems.tabTools;
-	public static CreativeTabs		heavenTools			= MDMItems.tabHeavenTools, heavenArmor = MDMItems.tabHeavenArmor;
-	public static CreativeTabs		pocTools			= MDMItems.tabPOCTools, pocArmor = MDMItems.tabPOCArmor;
+	public static CreativeTabs		advancedTools		= tabTools, advancedArmor = tabTools;
+	public static CreativeTabs		heavenTools			= Heaven.tabHeavenTools, heavenArmor = Heaven.tabHeavenArmor;
+	public static CreativeTabs		pocTools			= ParadiseOfChaos.tabTools, pocArmor = ParadiseOfChaos.tabArmor;
 	
 	public static CreativeTabs[]	toolTabs			= CSArrays.create(advancedTools, advancedTools, advancedTools, advancedTools, advancedTools, // Vanilla
 																heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, // Heaven
@@ -127,7 +127,7 @@ public class MDMTools
 	
 	public static Item[][]			items				= new Item[materialNames.length][toolTypes.length];
 	
-	public static void initialize()
+	public static void init()
 	{
 		for (int materialIndex = 0; materialIndex < materialNames.length; materialIndex++)
 		{

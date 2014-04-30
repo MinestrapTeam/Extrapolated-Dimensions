@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
 
 import net.minecraft.world.World;
@@ -14,11 +14,11 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 {
 	protected WorldGenerator	spikeGen;
 	
-	private WorldGenerator		dirtGen		= new HeavenGenMinable(MDMBlocks.heavenDirtBlocks, 20);
-	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 3, 18);
-	private WorldGenerator		clashiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 4, 10);
-	private WorldGenerator		bluriteGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 5, 8);
-	private WorldGenerator		holyiumGen	= new HeavenGenMinable(MDMBlocks.heavenStoneBlocks, 6, 8);
+	private WorldGenerator		dirtGen		= new HeavenGenMinable(Heaven.heavenDirtBlocks, 20);
+	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 3, 18);
+	private WorldGenerator		clashiumGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 4, 10);
+	private WorldGenerator		bluriteGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 5, 8);
+	private WorldGenerator		holyiumGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 6, 8);
 	
 	public BiomeDecoratorHeaven()
 	{

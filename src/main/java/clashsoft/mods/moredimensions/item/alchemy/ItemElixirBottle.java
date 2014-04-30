@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.item.alchemy;
 import java.util.List;
 
 import clashsoft.brewingapi.item.ItemGlassBottle2;
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Alchemy;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,20 +20,20 @@ public class ItemElixirBottle extends ItemGlassBottle2
 	public ItemElixirBottle()
 	{
 		super();
-		this.setCreativeTab(MDMItems.tabAlchemy);
+		this.setCreativeTab(Alchemy.tabAlchemy);
 		this.setHasSubtypes(true);
 	}
 	
 	@Override
 	public IIcon getIconFromDamage(int metadata)
 	{
-		return MDMItems.elixir.bottles[metadata];
+		return Alchemy.elixir.bottles[metadata];
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		MDMItems.elixir.addInformation(new ItemStack(this, 1, stack.getItemDamage() * 4), player, list, flag);
+		Alchemy.elixir.addInformation(new ItemStack(this, 1, stack.getItemDamage() * 4), player, list, flag);
 	}
 	
 	@Override
@@ -71,12 +71,12 @@ public class ItemElixirBottle extends ItemGlassBottle2
 					
 					if (stack.stackSize <= 0)
 					{
-						return new ItemStack(MDMItems.elixir, 1, damage);
+						return new ItemStack(Alchemy.elixir, 1, damage);
 					}
 					
-					if (!player.inventory.addItemStackToInventory(new ItemStack(MDMItems.elixir, 1, damage)))
+					if (!player.inventory.addItemStackToInventory(new ItemStack(Alchemy.elixir, 1, damage)))
 					{
-						player.dropPlayerItemWithRandomChoice(new ItemStack(MDMItems.elixir, 1, damage), false);
+						player.dropPlayerItemWithRandomChoice(new ItemStack(Alchemy.elixir, 1, damage), false);
 					}
 				}
 			}

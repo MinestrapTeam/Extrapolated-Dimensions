@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.item.tools;
 import java.util.Set;
 
 import clashsoft.cslib.collections.CSCollections;
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +18,7 @@ public class ItemHammer extends ItemTool
 	public ItemHammer(float weaponDamage, ToolMaterial material)
 	{
 		super(weaponDamage, material, blocksEffectiveAgainst);
-		this.setCreativeTab(MDMItems.tabTools);
+		this.setCreativeTab(Tools.tabTools);
 	}
 	
 	public ItemHammer(ToolMaterial material)

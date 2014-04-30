@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.teleporters;
 
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.WorldServer;
@@ -15,12 +15,12 @@ public class TeleporterPOC extends AbstractTeleporter
 	@Override
 	public Block getPortalBlock()
 	{
-		return MDMBlocks.pocPortal;
+		return ParadiseOfChaos.pocPortal;
 	}
 
 	@Override
 	public Block getFrameBlock()
 	{
-		return MDMBlocks.pocStoneBlocks;
+		return ParadiseOfChaos.pocStoneBlocks;
 	}
 }

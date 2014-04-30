@@ -3,8 +3,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomPlant;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -27,7 +26,7 @@ public class BlockHeavenPlant extends BlockCustomPlant
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return (random.nextInt(20) == 0 && metadata < 10) ? MDMItems.heavenSeeds : null;
+		return (random.nextInt(20) == 0 && metadata < 10) ? Heaven.heavenSeeds : null;
 	}
 	
 	@Override
@@ -39,8 +38,8 @@ public class BlockHeavenPlant extends BlockCustomPlant
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		boolean heavenDirtID = block == MDMBlocks.heavenDirtBlocks;
-		boolean heavenGrassID = block == MDMBlocks.heavenGrassBlocks;
+		boolean heavenDirtID = block == Heaven.heavenDirtBlocks;
+		boolean heavenGrassID = block == Heaven.heavenGrassBlocks;
 		boolean vanillaDirtID = block == Blocks.dirt;
 		boolean vanillaGrassID = block == Blocks.grass;
 		switch (metadata)

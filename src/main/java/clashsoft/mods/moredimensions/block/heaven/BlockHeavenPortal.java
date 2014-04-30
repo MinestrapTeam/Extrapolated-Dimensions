@@ -1,12 +1,12 @@
 package clashsoft.mods.moredimensions.block.heaven;
 
+import clashsoft.cslib.minecraft.block.BlockCustomPortal;
+import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.addons.MDMWorld;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-
-import clashsoft.cslib.minecraft.block.BlockCustomPortal;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.addons.MDMWorld;
 
 public class BlockHeavenPortal extends BlockCustomPortal
 {
@@ -18,7 +18,7 @@ public class BlockHeavenPortal extends BlockCustomPortal
 	@Override
 	public Block getFrameBlock()
 	{
-		return MDMBlocks.heavenStoneBlocks;
+		return Heaven.heavenStoneBlocks;
 	}
 	
 	@Override

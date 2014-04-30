@@ -2,8 +2,7 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.cslib.minecraft.item.CustomItem;
 import clashsoft.cslib.util.CSArrays;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +14,7 @@ public class ItemHeavenSeeds extends CustomItem
 {
 	public ItemHeavenSeeds(String[] names, String[] iconNames)
 	{
-		super(names, iconNames, CSArrays.create(MDMItems.tabHeavenItems));
+		super(names, iconNames, CSArrays.create(Heaven.tabHeavenItems));
 	}
 	
 	@Override
@@ -32,33 +31,33 @@ public class ItemHeavenSeeds extends CustomItem
 		switch (stack.getItemDamage())
 		{
 			case 0: // Heaven Grass Seeds
-				if (block == MDMBlocks.heavenDirtBlocks && metadata == 0)
+				if (block == Heaven.heavenDirtBlocks && metadata == 0)
 				{
-					newBlock = MDMBlocks.heavenGrassBlocks;
+					newBlock = Heaven.heavenGrassBlocks;
 					newMetadata = 0;
 				}
 			case 1: // Mud Grass Seeds
-				if (block == MDMBlocks.heavenDirtBlocks && metadata == 1)
+				if (block == Heaven.heavenDirtBlocks && metadata == 1)
 				{
-					newBlock = MDMBlocks.heavenGrassBlocks;
+					newBlock = Heaven.heavenGrassBlocks;
 					newMetadata = 1;
 				}
 			case 2: // Corrupted Grass Seeds
 				if (block == Blocks.dirt)
 				{
-					newBlock = MDMBlocks.heavenGrassBlocks;
+					newBlock = Heaven.heavenGrassBlocks;
 					newMetadata = 2;
 				}
 			case 3: // Hallowed Grass Seeds
 				if (block == Blocks.dirt)
 				{
-					newBlock = MDMBlocks.heavenGrassBlocks;
+					newBlock = Heaven.heavenGrassBlocks;
 					newMetadata = 3;
 				}
 			case 4: // Mushroom Grass Seeds
-				if (block == MDMBlocks.heavenDirtBlocks && metadata == 1)
+				if (block == Heaven.heavenDirtBlocks && metadata == 1)
 				{
-					newBlock = MDMBlocks.heavenGrassBlocks;
+					newBlock = Heaven.heavenGrassBlocks;
 					newMetadata = 4;
 				}
 		}

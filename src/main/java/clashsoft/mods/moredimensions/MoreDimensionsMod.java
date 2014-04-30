@@ -20,10 +20,10 @@ import net.minecraftforge.common.MinecraftForge;
 @Mod(modid = MoreDimensionsMod.MODID, name = MoreDimensionsMod.NAME, version = MoreDimensionsMod.VERSION)
 public class MoreDimensionsMod extends ClashsoftMod
 {
-	public static final String		MODID		= "moredimensions";
-	public static final String		NAME		= "More Dimensions Mod";
-	public static final String ACRONYM = "mdm";
-	public static final String		VERSION		= CSUpdate.CURRENT_VERSION + "-1.0.0-dev";
+	public static final String		MODID	= "moredimensions";
+	public static final String		NAME	= "More Dimensions Mod";
+	public static final String		ACRONYM	= "mdm";
+	public static final String		VERSION	= CSUpdate.CURRENT_VERSION + "-1.0.0-dev";
 	
 	@Instance(MODID)
 	public static MoreDimensionsMod	instance;
@@ -48,21 +48,21 @@ public class MoreDimensionsMod extends ClashsoftMod
 	@Override
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{	
+	{
 		super.init(event);
 		
 		CSConfig.loadConfig(this.configFile);
 		
-		MDMBlocks.initialize();
-		MDMItems.initialize();
-		MDMTools.initialize();
+		Heaven.init();
+		ParadiseOfChaos.init();
+		Alchemy.init();
+		Tools.init();
 		
-		MDMBlocks.load();
-		MDMItems.load();
-		MDMTools.load();
+		Heaven.load();
+		ParadiseOfChaos.load();
+		Alchemy.load();
+		Tools.load();
 		
-		MDMEntitys.load();
-		MDMRecipes.load();
 		MDMWorld.load();
 		MDMInventory.load();
 		

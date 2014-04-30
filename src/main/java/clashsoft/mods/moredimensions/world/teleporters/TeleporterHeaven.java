@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.teleporters;
 
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.WorldServer;
@@ -15,12 +15,12 @@ public class TeleporterHeaven extends AbstractTeleporter
 	@Override
 	public Block getPortalBlock()
 	{
-		return MDMBlocks.heavenPortal;
+		return Heaven.heavenPortal;
 	}
 
 	@Override
 	public Block getFrameBlock()
 	{
-		return MDMBlocks.heavenStoneBlocks;
+		return Heaven.heavenStoneBlocks;
 	}
 }

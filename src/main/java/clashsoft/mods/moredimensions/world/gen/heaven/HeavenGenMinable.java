@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.gen.heaven;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
@@ -70,7 +70,7 @@ public class HeavenGenMinable extends WorldGenMinable
 								double zf = (z0 + 0.5D - z3) / (k / 2.0D);
 								Block block = world.getBlock(x0, y0, z0);
 								int blockMetadata = world.getBlockMetadata(x0, y0, z0);
-								if (xf * xf + yf * yf + zf * zf < 1.0D && (block == MDMBlocks.heavenStoneBlocks) && blockMetadata == 0)
+								if (xf * xf + yf * yf + zf * zf < 1.0D && (block == Heaven.heavenStoneBlocks) && blockMetadata == 0)
 								{
 									world.setBlock(x0, y0, z0, this.minableBlock, this.minableBlockMetadata, 3);
 								}

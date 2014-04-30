@@ -2,7 +2,6 @@ package clashsoft.mods.moredimensions.addons;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.addon.Addon;
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.world.biome.*;
@@ -16,7 +15,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
-@Addon(modName = "MoreDimensionsMod", addonName = "World")
 public class MDMWorld
 {
 	public static BiomeGenBase	biomeHeaven;
@@ -69,7 +67,7 @@ public class MDMWorld
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new CustomTreeGen(true, 6, MDMBlocks.heavenLogs, MDMBlocks.heavenLeaves, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+			(new CustomTreeGen(true, 6, Heaven.heavenLogs, Heaven.heavenLeaves, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
 		for (int i = 0; i < 5; i++)
 		{

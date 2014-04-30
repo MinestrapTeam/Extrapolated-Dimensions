@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
-import clashsoft.mods.moredimensions.addons.MDMTools;
+import clashsoft.mods.moredimensions.addons.Tools;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,7 @@ public class ItemFireSword extends ItemSword
 {
 	public ItemFireSword()
 	{
-		super(MDMTools.toolFire);
+		super(Tools.toolFire);
 	}
 	
 	@Override

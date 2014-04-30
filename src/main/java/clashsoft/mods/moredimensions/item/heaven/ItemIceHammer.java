@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Alchemy;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;

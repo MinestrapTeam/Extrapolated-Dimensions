@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.item.tools;
 
 import clashsoft.cslib.minecraft.item.datatools.ItemDataAxe;
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +18,7 @@ public class ItemAxeMDM extends ItemTool
 	public ItemAxeMDM(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
 	{
 		super(weaponDamage, material, ItemDataAxe.blocksEffectiveAgainst);
-		this.setCreativeTab(MDMItems.tabTools);
+		this.setCreativeTab(Tools.tabTools);
 		this.efficiencyOnProperMaterial *= efficiencyMultiplier;
 	}
 	

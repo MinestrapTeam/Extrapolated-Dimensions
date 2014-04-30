@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenJungleTree;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenTrees;
 
@@ -27,12 +27,12 @@ public class BlockHeavenSapling extends BlockCustomSapling
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
 		int metadata = world.getBlockMetadata(x, y, z) & 3;
-		return random.nextInt(5) == 0 ? new HeavenGenTrees(true, 4, metadata, metadata) : new HeavenGenJungleTree(true, 7, MDMBlocks.heavenLogs, MDMBlocks.heavenLeaves, metadata, metadata);
+		return random.nextInt(5) == 0 ? new HeavenGenTrees(true, 4, metadata, metadata) : new HeavenGenJungleTree(true, 7, Heaven.heavenLogs, Heaven.heavenLeaves, metadata, metadata);
 	}
 	
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		return (block == MDMBlocks.heavenGrassBlocks || block == MDMBlocks.heavenDirtBlocks) && blockMetadata == 0;
+		return (block == Heaven.heavenGrassBlocks || block == Heaven.heavenDirtBlocks) && blockMetadata == 0;
 	}
 }

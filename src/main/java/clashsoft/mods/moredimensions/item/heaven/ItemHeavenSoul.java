@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.item.CustomItem;
-import clashsoft.mods.moredimensions.addons.MDMItems;
+import clashsoft.mods.moredimensions.addons.Alchemy;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;

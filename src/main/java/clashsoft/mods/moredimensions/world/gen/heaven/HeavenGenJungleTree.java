@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.gen.heaven;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
-import clashsoft.mods.moredimensions.addons.MDMBlocks;
+import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -34,7 +34,7 @@ public class HeavenGenJungleTree extends CustomTreeGen
 		
 		Block soil = world.getBlock(x, y - 1, z);
 		
-		if (soil == MDMBlocks.heavenDirtBlocks || soil == MDMBlocks.heavenGrassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
+		if (soil == Heaven.heavenDirtBlocks || soil == Heaven.heavenGrassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
 		{
 			if (y > 0 && y + treeHeight < 256)
 			{
