@@ -12,11 +12,11 @@ import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class BiomePlainsOfInsanity extends BiomeGenBase
+public class BiomePOCPlains extends BiomeGenBase
 {
 	public final Material	blockMaterial;
 	
-	public BiomePlainsOfInsanity(int biomeID)
+	public BiomePOCPlains(int biomeID)
 	{
 		super(biomeID);
 		this.blockMaterial = Material.ground;

@@ -2,9 +2,11 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.world.biome.ICustomBiome;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.addons.Heaven;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
@@ -12,7 +14,7 @@ import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class BiomeHeaven extends BiomeGenBase
+public class BiomeHeaven extends BiomeGenBase implements ICustomBiome
 {
 	public BiomeHeaven(int i)
 	{
@@ -36,6 +38,42 @@ public class BiomeHeaven extends BiomeGenBase
 		this.color = 0x818181;
 		this.waterColorMultiplier = 0x818181;
 		this.setHeight(new Height(0F, 1.9F));
+	}
+	
+	@Override
+	public Block getTopBlock(int x, int y, int z)
+	{
+		return Heaven.heavenGrassBlocks;
+	}
+	
+	@Override
+	public int getTopMetadata(int x, int y, int z)
+	{
+		return 0;
+	}
+	
+	@Override
+	public Block getFillerBlock(int x, int y, int z)
+	{
+		return Heaven.heavenDirtBlocks;
+	}
+	
+	@Override
+	public int getFillerMetadata(int x, int y, int z)
+	{
+		return 0;
+	}
+	
+	@Override
+	public Block getStoneBlock(int x, int y, int z)
+	{
+		return Heaven.heavenStoneBlocks;
+	}
+	
+	@Override
+	public int getStoneMetadata(int x, int y, int z)
+	{
+		return 0;
 	}
 	
 	@Override
