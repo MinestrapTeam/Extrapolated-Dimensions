@@ -12,7 +12,7 @@ public class POCWorldProvider extends AbstractWorldProvider
 	public void registerWorldChunkManager()
 	{
 		this.dimensionId = MDMWorld.POC_ID;
-		this.worldChunkMgr = new POCChunkManager();
+		this.worldChunkMgr = new POCChunkManager(this.getSeed(), this.terrainType);
 		this.hasNoSky = false;
 	}
 	

@@ -5,15 +5,12 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.addons.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
 
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeDecoratorHeaven extends BiomeDecorator
 {
-	protected WorldGenerator	spikeGen;
-	
 	private WorldGenerator		dirtGen		= new HeavenGenMinable(Heaven.heavenDirtBlocks, 20);
 	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 3, 18);
 	private WorldGenerator		clashiumGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 4, 10);
@@ -27,10 +24,10 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	}
 	
 	@Override
-	public void decorateChunk(World world, Random random, BiomeGenBase biome, int x, int z)
+	public void genDecorations(BiomeGenBase biome)
 	{
 		this.generateOres();
-		this.genTrees(this.treesPerChunk, biome.func_150567_a(random), 0, 128);
+		this.genTrees(this.treesPerChunk, biome.func_150567_a(this.randomGenerator), 0, 128);
 	}
 	
 	@Override

@@ -11,7 +11,7 @@ public class NightmareWorldProvider extends DreamWorldProvider
 	public void registerWorldChunkManager()
 	{
 		this.dimensionId = MDMWorld.NIGHTMARES_ID;
-		this.worldChunkMgr = new DreamChunkManager().setDreamType(nightmareType);;
+		this.worldChunkMgr = new DreamChunkManager(this.getSeed(), this.terrainType).setDreamType(nightmareType);;
 		this.hasNoSky = false;
 	}
 	

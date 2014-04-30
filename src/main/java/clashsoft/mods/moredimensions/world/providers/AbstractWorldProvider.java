@@ -19,12 +19,6 @@ public abstract class AbstractWorldProvider extends WorldProvider
 	}
 	
 	@Override
-	public int getAverageGroundLevel()
-	{
-		return 0;
-	}
-	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean doesXZShowFog(int x, int z)
 	{
@@ -57,12 +51,6 @@ public abstract class AbstractWorldProvider extends WorldProvider
 		return 128.0F;
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public String getSunTexture()
-	{
-		return "/Main:TwinSuns.png";
-	}
-	
 	@Override
 	public boolean canCoordinateBeSpawn(int x, int z)
 	{
@@ -88,17 +76,6 @@ public abstract class AbstractWorldProvider extends WorldProvider
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public String getWelcomeMessage()
-	{
-		if ((this instanceof POCWorldProvider))
-		{
-			return "Entering the Paradise of Chaos";
-		}
-		return null;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
 	public float[] calcSunriseSunsetColors(float f, float f1)
 	{
 		float f2 = 0.4F;
@@ -111,7 +88,7 @@ public abstract class AbstractWorldProvider extends WorldProvider
 			f6 *= f6;
 			this.colorsSunriseSunset[0] = (f5 * 0.3F + 0.7F);
 			this.colorsSunriseSunset[1] = (f5 * f5 * 0.7F + 0.2F);
-			this.colorsSunriseSunset[2] = (f5 * f5 * 0.0F + 0.2F);
+			this.colorsSunriseSunset[2] = (/* f5 * f5 * 0.0F + */0.2F);
 			this.colorsSunriseSunset[3] = f6;
 			return this.colorsSunriseSunset;
 		}
@@ -154,9 +131,9 @@ public abstract class AbstractWorldProvider extends WorldProvider
 		float f3 = (i >> 16 & 0xFF) / 255.0F;
 		float f4 = (i >> 8 & 0xFF) / 255.0F;
 		float f5 = (i & 0xFF) / 255.0F;
-		f3 *= (f2 * 0.0F + 0.15F);
-		f4 *= (f2 * 0.0F + 0.15F);
-		f5 *= (f2 * 0.0F + 0.15F);
+		f3 *= (f2 * 0.94F + 0.06F);
+		f4 *= (f2 * 0.94F + 0.06F);
+		f5 *= (f2 * 0.91F + 0.09F);
 		return this.worldObj.getWorldVec3Pool().getVecFromPool(f3, f4, f5);
 	}
 }

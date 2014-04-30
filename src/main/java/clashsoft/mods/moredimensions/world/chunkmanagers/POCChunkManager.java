@@ -9,10 +9,13 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 
-
 public class POCChunkManager extends AbstractChunkManager
 {
-
+	public POCChunkManager(long seed, WorldType worldType)
+	{
+		super(seed, worldType);
+	}
+	
 	@Override
 	public void addBiomes(List<BiomeGenBase> list)
 	{
@@ -20,7 +23,7 @@ public class POCChunkManager extends AbstractChunkManager
 		list.add(MDMWorld.biomePOCMountains);
 		list.add(MDMWorld.biomePOCDesert);
 	}
-
+	
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{

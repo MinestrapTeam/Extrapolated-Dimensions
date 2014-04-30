@@ -195,8 +195,8 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 		{
 			for (int l = 0; l < 16; ++l)
 			{
-				BiomeGenBase biomegenbase = biomes[(l + k * 16)];
-				biomegenbase.genTerrainBlocks(this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[(l + k * 16)]);
+				BiomeGenBase biome = biomes[(l + k * 16)];
+				biome.genTerrainBlocks(this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[(l + k * 16)]);
 			}
 		}
 	}

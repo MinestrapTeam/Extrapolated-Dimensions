@@ -1,9 +1,9 @@
 package clashsoft.mods.moredimensions.world.biome;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenOcean;
 
-public class BiomePOCDesert extends BiomeGenOcean
+public class BiomePOCDesert extends BiomePOCPlains
 {
 	public BiomePOCDesert(int biomeID)
 	{
@@ -15,5 +15,17 @@ public class BiomePOCDesert extends BiomeGenOcean
 		this.spawnableWaterCreatureList.clear();
 		this.theBiomeDecorator.generateLakes = false;
 		this.waterColorMultiplier = 0xFFFF00;
+	}
+	
+	@Override
+	public Block getTopBlock(int x, int y, int z)
+	{
+		return Blocks.sand;
+	}
+	
+	@Override
+	public Block getFillerBlock(int x, int y, int z)
+	{
+		return Blocks.sand;
 	}
 }

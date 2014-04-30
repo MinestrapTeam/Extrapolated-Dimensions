@@ -20,4 +20,16 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	{
 		return new HeavenGenJungleTree(true, 7, Heaven.heavenLogs, Heaven.heavenLeaves);
 	}
+	
+	@Override
+	public byte getTopMetadata(int x, int y, int z)
+	{
+		return 1;
+	}
+	
+	@Override
+	public byte getFillerMetadata(int x, int y, int z)
+	{
+		return 1;
+	}
 }

@@ -11,6 +11,10 @@ import net.minecraft.world.gen.layer.GenLayer;
 
 public class HeavenChunkManager extends AbstractChunkManager
 {
+	public HeavenChunkManager(long seed, WorldType worldType)
+	{
+		super(seed, worldType);
+	}
 
 	@Override
 	public void addBiomes(List<BiomeGenBase> list)

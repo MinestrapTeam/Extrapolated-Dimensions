@@ -14,7 +14,7 @@ public class DreamWorldProvider extends AbstractWorldProvider
 	public void registerWorldChunkManager()
 	{
 		this.dimensionId = MDMWorld.DREAMS_ID;
-		this.worldChunkMgr = new DreamChunkManager().setDreamType(dreamType);
+		this.worldChunkMgr = new DreamChunkManager(this.getSeed(), this.terrainType).setDreamType(dreamType);
 		this.hasNoSky = false;
 	}
 	

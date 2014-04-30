@@ -23,17 +23,14 @@ public abstract class AbstractChunkManager extends WorldChunkManager
 	private BiomeCache			biomeCache;
 	private List<BiomeGenBase>	biomesToSpawnIn;
 	
-	protected AbstractChunkManager()
+	public AbstractChunkManager(long seed, WorldType worldType)
 	{
 		this.biomeCache = new BiomeCache(this);
 		this.biomesToSpawnIn = new ArrayList();
 		this.addBiomes(this.biomesToSpawnIn);
-	}
-	
-	public AbstractChunkManager(long seed, WorldType worldType)
-	{
+		
 		GenLayer[] genLayers = this.getGenLayers(seed, worldType);
-		genLayers = getModdedBiomeGenerators(worldType, seed, genLayers);
+		genLayers = this.getModdedBiomeGenerators(worldType, seed, genLayers);
 		this.genLayerBiomes = genLayers[0];
 		this.genLayerBiomeIndex = genLayers[1];
 	}

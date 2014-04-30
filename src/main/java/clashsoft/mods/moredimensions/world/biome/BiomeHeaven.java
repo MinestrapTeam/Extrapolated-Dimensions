@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.biome.ICustomBiome;
+import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.addons.Heaven;
 
@@ -11,10 +11,9 @@ import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class BiomeHeaven extends BiomeGenBase implements ICustomBiome
+public class BiomeHeaven extends CustomBiome
 {
 	public BiomeHeaven(int i)
 	{
@@ -47,7 +46,7 @@ public class BiomeHeaven extends BiomeGenBase implements ICustomBiome
 	}
 	
 	@Override
-	public int getTopMetadata(int x, int y, int z)
+	public byte getTopMetadata(int x, int y, int z)
 	{
 		return 0;
 	}
@@ -59,7 +58,7 @@ public class BiomeHeaven extends BiomeGenBase implements ICustomBiome
 	}
 	
 	@Override
-	public int getFillerMetadata(int x, int y, int z)
+	public byte getFillerMetadata(int x, int y, int z)
 	{
 		return 0;
 	}
@@ -71,7 +70,7 @@ public class BiomeHeaven extends BiomeGenBase implements ICustomBiome
 	}
 	
 	@Override
-	public int getStoneMetadata(int x, int y, int z)
+	public byte getStoneMetadata(int x, int y, int z)
 	{
 		return 0;
 	}

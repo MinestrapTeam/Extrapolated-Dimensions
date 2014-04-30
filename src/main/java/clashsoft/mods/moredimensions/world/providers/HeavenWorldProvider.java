@@ -12,7 +12,7 @@ public class HeavenWorldProvider extends AbstractWorldProvider
 	public void registerWorldChunkManager()
 	{
 		this.dimensionId = MDMWorld.HEAVEN_ID;
-		this.worldChunkMgr = new HeavenChunkManager();
+		this.worldChunkMgr = new HeavenChunkManager(this.getSeed(), this.terrainType);
 		this.hasNoSky = false;
 	}
 	

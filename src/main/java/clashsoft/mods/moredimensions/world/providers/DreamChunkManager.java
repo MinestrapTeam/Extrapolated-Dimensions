@@ -14,6 +14,11 @@ public class DreamChunkManager extends AbstractChunkManager
 {
 	public DreamType dreamType;
 	
+	public DreamChunkManager(long seed, WorldType worldType)
+	{
+		super(seed, worldType);
+	}
+	
 	public DreamChunkManager setDreamType(DreamType dreamType)
 	{
 		this.dreamType = dreamType;

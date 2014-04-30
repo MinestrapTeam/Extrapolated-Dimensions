@@ -2,21 +2,14 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
 
-import net.minecraft.block.material.Material;
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeBloodPlains extends BiomeGenBase
-{
-	public final Material	blockMaterial;
-	
+public class BiomeBloodPlains extends BiomePOCPlains
+{	
 	public BiomeBloodPlains(int biomeID)
 	{
 		super(biomeID);
-		this.blockMaterial = Material.ground;
-		this.setHeight(new Height(0.3F, 0.2F));
-		this.spawnableMonsterList.clear();
-		this.spawnableCreatureList.clear();
 		
 		this.topBlock = ParadiseOfChaos.pocGrassBlocks;
 		this.fillerBlock = ParadiseOfChaos.pocDirtBlocks;
@@ -24,5 +17,23 @@ public class BiomeBloodPlains extends BiomeGenBase
 		this.theBiomeDecorator = new BiomeDecorator();
 		
 		this.waterColorMultiplier = 0xFF0000;
+	}
+	
+	@Override
+	public byte getTopMetadata(int x, int y, int z)
+	{
+		return 1;
+	}
+	
+	@Override
+	public byte getFillerMetadata(int x, int y, int z)
+	{
+		return 1;
+	}
+	
+	@Override
+	public Block getStoneBlock(int x, int y, int z)
+	{
+		return ParadiseOfChaos.pocBloodStoneBlocks;
 	}
 }

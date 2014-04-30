@@ -8,7 +8,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerBiomesPOC extends GenLayer
 {
-	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomePOCPlains, MDMWorld.biomePOCMountains, MDMWorld.biomePOCDesert };
+	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomePOCPlains, MDMWorld.biomePOCMountains, MDMWorld.biomePOCDesert, MDMWorld.biomeBloodPlains };
 	
 	public GenLayerBiomesPOC(long seed, GenLayer genlayer)
 	{
