@@ -22,6 +22,7 @@ public class MDMWorld
 	public static BiomeGenBase	biomePOCPlains;
 	public static BiomeGenBase	biomePOCMountains;
 	public static BiomeGenBase	biomePOCDesert;
+	public static BiomeGenBase biomeBloodPlains;
 	
 	public static int			HEAVEN_ID		= 8;
 	public static int			POC_ID			= 9;
@@ -38,11 +39,12 @@ public class MDMWorld
 		// -- Biomes --
 		
 		biomeHeaven = new BiomeHeaven(CSConfig.getBiome("Heaven", 149)).setBiomeName("Heaven");
-		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("HeavenJungle", 153)).setBiomeName("HeavenJungle");
+		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("Heaven Jungle", 153)).setBiomeName("Heaven Jungle");
 		
-		biomePOCPlains = new BiomePlainsOfInsanity(CSConfig.getBiome("Plains of Insanity", 150)).setBiomeName("POC Plains");
-		biomePOCMountains = new BiomeCorruptedMountains(CSConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("POC Mountains");
-		biomePOCDesert = new BiomeDesertOfDryness(CSConfig.getBiome("Desert of Dryness", 152)).setBiomeName("POC Desert");
+		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 150)).setBiomeName("Plains of Insanity");
+		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("Corrupted Mountains");
+		biomePOCDesert = new BiomePOCDesert(CSConfig.getBiome("Desert of Dryness", 152)).setBiomeName("Desert of Dryness");
+		biomeBloodPlains = new BiomeBloodPlains(CSConfig.getBiome("Blood Plains", 153)).setBiomeName("Blood Plains");
 		
 		// -- Dimensions --
 		
