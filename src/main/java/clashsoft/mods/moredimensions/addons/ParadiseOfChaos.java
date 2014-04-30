@@ -23,9 +23,9 @@ import net.minecraft.item.ItemStack;
 public class ParadiseOfChaos
 {
 	public static CustomCreativeTab		tabBlocks	= new CustomCreativeTab("poc_blocks");
-	public static CustomCreativeTab		tabItems		= new CustomCreativeTab("poc_items");
-	public static CustomCreativeTab		tabTools		= new CustomCreativeTab("poc_tools");
-	public static CustomCreativeTab		tabArmor		= new CustomCreativeTab("poc_armor");
+	public static CustomCreativeTab		tabItems	= new CustomCreativeTab("poc_items");
+	public static CustomCreativeTab		tabTools	= new CustomCreativeTab("poc_tools");
+	public static CustomCreativeTab		tabArmor	= new CustomCreativeTab("poc_armor");
 	
 	// Items
 	
@@ -36,11 +36,16 @@ public class ParadiseOfChaos
 	
 	// Blocks
 	
+	public static BlockCustomPortal		pocPortal;
+	public static Block pocPortalFrame;
+	
 	public static CustomBlock			pocStoneBlocks;
+	public static CustomBlock			pocBloodStoneBlocks;
 	public static CustomBlock			pocDirtBlocks;
 	public static BlockCustomGrass		pocGrassBlocks;
 	
 	public static CustomBlock			pocOres;
+	public static CustomBlock			pocBloodOres;
 	
 	public static BlockCustomLog		pocLogs;
 	public static BlockCustomSapling	pocSaplings;
@@ -49,7 +54,6 @@ public class ParadiseOfChaos
 	
 	public static BlockCustomPlant		pocPlantBlocks;
 	
-	public static BlockCustomPortal		pocPortal;
 	// public static BlockPOCActivatorLava activatorLava;
 	// public static BlockPOCDreamBed dreamBed;
 	
@@ -59,7 +63,7 @@ public class ParadiseOfChaos
 	
 	// Block Stacks
 	
-	public static ItemStack				chaosStone, pocPortalFrame;
+	public static ItemStack				chaosStone;
 	
 	public static ItemStack				magicOakLog, willowLog;
 	public static ItemStack				magicOakLeaves, willowLeaves;
@@ -76,13 +80,20 @@ public class ParadiseOfChaos
 		
 		// Blocks
 		
-		pocStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone", "portal_frame" }, new String[] { "mdm_poc:chaos_stone", "mdm_poc:poc_portal_frame" }, null).setCreativeTab(tabBlocks);
-		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, "altered_dirt", "mdm_poc:altered_dirt", tabBlocks).setStepSound(Block.soundTypeGravel);
-		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass("altered_grass", "mdm_poc:altered_grass_top", "mdm_poc:altered_grass_side", "mdm_poc:altered_grass_bottom").setCreativeTab(tabBlocks);
+		pocPortal = (BlockCustomPortal) new BlockPOCPortal("poc_portal", "mdm_poc:poc_portal").setCreativeTab(tabBlocks).setHardness(-1F);
+		pocPortalFrame = new BlockImpl(Material.rock, "poc_portal_frame", "mdm_poc:poc_portal_frame").setCreativeTab(tabBlocks);
 		
-		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "fractite", "promethium", "whitium" };
+		pocStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone", "chaos_cobble", "chaos_stone_dark", "chaos_cobble_dark"}, "mdm_poc", null).setCreativeTab(tabBlocks);
+		pocBloodStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "blood_stone", "blood_cobble", "blood_cobble_bloody", "blood_brick" }, "mdm_poc", null).setCreativeTab(tabBlocks);
 		
+		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { "mdm_poc:altered_dirt", "blood_dirt" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
+		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { "mdm_poc:altered_grass_top", "mdm_poc:blood_grass_top" }, new String[] { "mdm_poc:altered_grass_side", "mdm_poc:blood_grass_side" }, new String[] { "mdm_poc:altered_dirt", "mdm_poc:blood_dirt" }).setCreativeTab(tabBlocks);
+		
+		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "promethium", "fractite" };
 		pocOres = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1, "mdm_poc:", "_ore"), null).setCreativeTab(tabBlocks);
+		
+		String[] bloodOres = new String[] { "blood", "death", "whitium" };
+		pocBloodOres = (CustomBlock) new CustomBlock(Material.rock, bloodOres, CSString.concatAll(bloodOres, "mdm_poc:", "_ore"), null).setCreativeTab(tabBlocks);
 		
 		pocLogs = (BlockCustomLog) new BlockCustomLog(new String[] { "magic_oak", "willow" }, new String[] { "mdm_poc:magic_oak_log_top", "mdm_poc:willow_log_top" }, new String[] { "mdm_poc:magic_oak_log_side", "mdm_poc:willow_log_side" }).setCreativeTab(tabBlocks);
 		
@@ -93,8 +104,6 @@ public class ParadiseOfChaos
 		pocPlanks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "magic_oak", "willow" }, new String[] { "mdm_poc:magic_oak_planks", "mdm_poc:willow_planks" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeWood);
 		
 		pocPlantBlocks = (BlockCustomPlant) new BlockCustomPlant(new String[] { "saf_flower" }, new String[] { "mdm_poc:saf_flower" }).setCreativeTab(tabBlocks);
-		
-		pocPortal = (BlockCustomPortal) new BlockPOCPortal("poc_portal", "mdm_poc:poc_portal").setCreativeTab(tabBlocks).setHardness(-1F);
 		
 		// Block.blocksList[Block.lavaStill.blockID] = null;
 		// activatorLava = (BlockPOCActivatorLava) new
@@ -150,11 +159,16 @@ public class ParadiseOfChaos
 		pocDirtBlocks.setHardness(0.5F);
 		pocGrassBlocks.setDirtBlock(0, pocDirtBlocks, 0);
 		
+		CSBlocks.addBlock(pocPortal, "poc_portal");
+		CSBlocks.addBlock(pocPortalFrame, "poc_portal_frame");
+		
 		CSBlocks.addBlock(pocStoneBlocks, "poc_stone");
+		CSBlocks.addBlock(pocBloodStoneBlocks, "poc_blood_stone");
 		CSBlocks.addBlock(pocDirtBlocks, "poc_dirt");
 		CSBlocks.addBlock(pocGrassBlocks, "poc_grass");
 		
 		CSBlocks.addBlock(pocOres, "poc_ores");
+		CSBlocks.addBlock(pocBloodOres, "poc_blood_ores");
 		
 		CSBlocks.addBlock(pocLogs, "poc_logs");
 		CSBlocks.addBlock(pocLeaves, "poc_leaves");
@@ -162,15 +176,13 @@ public class ParadiseOfChaos
 		CSBlocks.addBlock(pocPlanks, "poc_planks");
 		CSBlocks.addBlock(pocPlantBlocks, "poc_plants");
 		
-		CSBlocks.addBlock(pocPortal, "poc_portal");
-		
 		addRecipes();
 		setTabIcons();
 	}
 	
 	public static void addRecipes()
 	{
-		addRecipe(ParadiseOfChaos.pocPortalFrame, "nnn", "ndn", "nnn", 'n', CSStacks.lapis_block, 'd', CSStacks.diamond);
+		addRecipe(new ItemStack(ParadiseOfChaos.pocPortalFrame), "nnn", "ndn", "nnn", 'n', CSStacks.lapis_block, 'd', CSStacks.diamond);
 		
 		addRecipe(new ItemStack(Alchemy.elixirBottle, 6, 0), " n ", "n n", "nnn", 'n', CSStacks.glass_pane);
 		addRecipe(new ItemStack(Alchemy.elixirBottle, 4, 1), " n ", " n ", "nnn", 'n', CSStacks.glass_pane);
