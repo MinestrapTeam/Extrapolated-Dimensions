@@ -3,16 +3,12 @@ package clashsoft.mods.moredimensions.addons;
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
-import clashsoft.cslib.minecraft.item.CustomItem;
-import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.block.alchemy.BlockAlchemyTable;
 import clashsoft.mods.moredimensions.block.alchemy.BlockAlchemyTube;
 import clashsoft.mods.moredimensions.item.alchemy.ItemAlchemyGuide;
 import clashsoft.mods.moredimensions.item.alchemy.ItemElixir;
 import clashsoft.mods.moredimensions.item.alchemy.ItemElixirBottle;
 import clashsoft.mods.moredimensions.item.alchemy.ItemMatter;
-import clashsoft.mods.moredimensions.item.poc.ItemManaStar;
-import clashsoft.mods.moredimensions.item.poc.ItemStaff;
 
 import net.minecraft.item.ItemStack;
 

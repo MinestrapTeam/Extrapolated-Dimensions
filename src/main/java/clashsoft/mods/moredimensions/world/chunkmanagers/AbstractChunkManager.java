@@ -232,7 +232,6 @@ public abstract class AbstractChunkManager extends WorldChunkManager
 		int len = x3 * z3;
 		int[] aint = this.genLayerBiomes.getInts(x1, z1, x3, z3);
 		ChunkPosition chunkposition = null;
-		int j2 = 0;
 		
 		for (int i = 0; i < len; ++i)
 		{

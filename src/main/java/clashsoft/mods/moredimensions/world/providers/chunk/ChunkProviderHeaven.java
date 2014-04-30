@@ -97,13 +97,10 @@ public class ChunkProviderHeaven extends AbstractChunkProvider
 		
 		int k1 = 0;
 		int l1 = 0;
-		int i2 = 16 / l;
 		for (int j2 = 0; j2 < l; j2++)
 		{
-			int k2 = j2 * i2 + i2 / 2;
 			for (int l2 = 0; l2 < j1; l2++)
 			{
-				int i3 = l2 * i2 + i2 / 2;
 				
 				double d4 = 1.0D;
 				d4 *= d4;

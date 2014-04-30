@@ -7,15 +7,13 @@ import clashsoft.mods.moredimensions.addons.*;
 import clashsoft.mods.moredimensions.common.MDMEventHandler;
 import clashsoft.mods.moredimensions.common.MDMProxy;
 import clashsoft.mods.moredimensions.network.MDMNetHandler;
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-
-import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = MoreDimensionsMod.MODID, name = MoreDimensionsMod.NAME, version = MoreDimensionsMod.VERSION)
 public class MoreDimensionsMod extends ClashsoftMod

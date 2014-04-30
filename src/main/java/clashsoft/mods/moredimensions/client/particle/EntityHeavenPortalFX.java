@@ -21,7 +21,6 @@ public class EntityHeavenPortalFX extends EntityFX
 		this.portalPosX = this.posX = x;
 		this.portalPosY = this.posY = y;
 		this.portalPosZ = this.posZ = z;
-		float var14 = this.rand.nextFloat() * 0.6F + 0.4F;
 		this.portalParticleScale = this.particleScale = this.rand.nextFloat() * 0.2F + 0.5F;
 		this.particleRed = 0F;
 		this.particleGreen = 0.9F;

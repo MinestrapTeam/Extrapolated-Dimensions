@@ -79,7 +79,7 @@ public class GuiBossChat extends GuiContainer
 			String text = entry.getUserName(this.mc.thePlayer, this.theBoss) + ": " + (entry.localized ? entry.text : StatCollector.translateToLocal(entry.text));
 			
 			int textPosX = (this.width - this.fontRendererObj.getStringWidth(text) - textureSizeX) / 2;
-			int textPosY = (this.height - 60) - (i * textureSizeX);
+			int textPosY = (this.height - 60) - (i * textureSizeY);
 			
 			int alpha = (int) ((10 - i) * 25.5F);
 			this.fontRendererObj.drawStringWithShadow(text, textPosX, textPosY, entry.userType.getColor() | (alpha << 24));

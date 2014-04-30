@@ -37,7 +37,7 @@ public class ParadiseOfChaos
 	// Blocks
 	
 	public static BlockCustomPortal		pocPortal;
-	public static Block pocPortalFrame;
+	public static Block					pocPortalFrame;
 	
 	public static CustomBlock			pocStoneBlocks;
 	public static CustomBlock			pocBloodStoneBlocks;
@@ -83,7 +83,7 @@ public class ParadiseOfChaos
 		pocPortal = (BlockCustomPortal) new BlockPOCPortal("poc_portal", "mdm_poc:poc_portal").setCreativeTab(tabBlocks).setHardness(-1F);
 		pocPortalFrame = new BlockImpl(Material.rock, "poc_portal_frame", "mdm_poc:poc_portal_frame").setCreativeTab(tabBlocks);
 		
-		pocStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone", "chaos_cobble", "chaos_stone_dark", "chaos_cobble_dark"}, "mdm_poc", null).setCreativeTab(tabBlocks);
+		pocStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone", "chaos_cobble", "chaos_stone_dark", "chaos_cobble_dark" }, "mdm_poc", null).setCreativeTab(tabBlocks);
 		pocBloodStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "blood_stone", "blood_cobble", "blood_cobble_bloody", "blood_brick" }, "mdm_poc", null).setCreativeTab(tabBlocks);
 		
 		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { "mdm_poc:altered_dirt", "blood_dirt" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);

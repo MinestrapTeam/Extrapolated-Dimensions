@@ -2,10 +2,9 @@ package clashsoft.mods.moredimensions.client.gui;
 
 import org.lwjgl.input.Keyboard;
 
-import cpw.mods.fml.common.Mod.EventHandler;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
+import cpw.mods.fml.common.Mod.EventHandler;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.EnumChatFormatting;
@@ -54,8 +53,9 @@ public class GuiPOCIngame extends GuiIngameForge
 		if (!this.mc.thePlayer.capabilities.isCreativeMode || Keyboard.isKeyDown(Keyboard.KEY_I) && this.mc.inGameHasFocus)
 		{
 			this.mc.renderEngine.bindTexture(mana);
-			int left = width / 2 + 91;
-			int top = height - 49 - (this.mc.thePlayer.isInsideOfMaterial(Material.water) ? 10 : 0);
+			// int left = width / 2 + 91;
+			// int top = height - 49 -
+			// (this.mc.thePlayer.isInsideOfMaterial(Material.water) ? 10 : 0);
 			
 			float mana = MDMEntityProperties.get(this.mc.thePlayer).getMana();
 			

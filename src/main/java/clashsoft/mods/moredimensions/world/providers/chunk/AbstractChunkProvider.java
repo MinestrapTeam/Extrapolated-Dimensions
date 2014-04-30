@@ -243,15 +243,12 @@ public abstract class AbstractChunkProvider implements IChunkProvider
 	
 	public void generateNoises(int x, int y, int z)
 	{
-		this.noiseField1 = this.noiseGen1.generateNoiseOctaves(this.noiseField1, x, y, z, 5, 33, 5, 684.41200000000003D, 684.41200000000003D, 684.41200000000003D);
-		this.noiseField2 = this.noiseGen2.generateNoiseOctaves(this.noiseField2, x, y, z, 5, 33, 5, 684.41200000000003D, 684.41200000000003D, 684.41200000000003D);
-		this.noiseField3 = this.noiseGen3.generateNoiseOctaves(this.noiseField3, x, y, z, 5, 33, 5, 8.555150000000001D, 4.277575000000001D, 8.555150000000001D);
+		this.noiseField1 = this.noiseGen1.generateNoiseOctaves(this.noiseField1, x, y, z, 5, 33, 5, 684.412D, 684.412D, 684.412D);
+		this.noiseField2 = this.noiseGen2.generateNoiseOctaves(this.noiseField2, x, y, z, 5, 33, 5, 684.412D, 684.412D, 684.412D);
+		this.noiseField3 = this.noiseGen3.generateNoiseOctaves(this.noiseField3, x, y, z, 5, 33, 5, 8.555D, 4.278D, 8.555D);
 		this.noiseField4 = this.noiseGen5.generateNoiseOctaves(this.noiseField4, x, z, 5, 5, 200.0D, 200.0D, 0.5D);
-		boolean flag1 = false;
-		boolean flag = false;
 		int l = 0;
 		int i1 = 0;
-		double d4 = 8.5D;
 		
 		for (int j1 = 0; j1 < 5; ++j1)
 		{

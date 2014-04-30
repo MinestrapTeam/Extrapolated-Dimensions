@@ -30,7 +30,6 @@ public class HeavenGenJungleTree extends CustomTreeGen
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
 		int treeHeight = random.nextInt(3) + this.minTreeHeight;
-		boolean flag = true;
 		
 		Block soil = world.getBlock(x, y - 1, z);
 		

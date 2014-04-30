@@ -2,7 +2,6 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.mods.moredimensions.addons.Tools;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
