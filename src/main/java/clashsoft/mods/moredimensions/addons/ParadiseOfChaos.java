@@ -86,7 +86,7 @@ public class ParadiseOfChaos
 		pocStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone", "chaos_cobble", "chaos_stone_dark", "chaos_cobble_dark" }, "mdm_poc", null).setCreativeTab(tabBlocks);
 		pocBloodStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "blood_stone", "blood_cobble", "blood_cobble_bloody", "blood_brick" }, "mdm_poc", null).setCreativeTab(tabBlocks);
 		
-		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { "mdm_poc:altered_dirt", "blood_dirt" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
+		pocDirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { "mdm_poc:altered_dirt", "mdm_poc:blood_dirt" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
 		pocGrassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { "mdm_poc:altered_grass_top", "mdm_poc:blood_grass_top" }, new String[] { "mdm_poc:altered_grass_side", "mdm_poc:blood_grass_side" }, new String[] { "mdm_poc:altered_dirt", "mdm_poc:blood_dirt" }).setCreativeTab(tabBlocks);
 		
 		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "promethium", "fractite" };
