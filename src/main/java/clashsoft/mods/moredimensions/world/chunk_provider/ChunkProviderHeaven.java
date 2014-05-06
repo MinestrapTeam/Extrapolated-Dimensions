@@ -1,11 +1,12 @@
-package clashsoft.mods.moredimensions.world.providers.chunk;
+package clashsoft.mods.moredimensions.world.chunk_provider;
 
+import clashsoft.cslib.minecraft.world.CustomChunkProvider;
 import clashsoft.mods.moredimensions.addons.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
-public class ChunkProviderHeaven extends AbstractChunkProvider
+public class ChunkProviderHeaven extends CustomChunkProvider
 {
 	public double[]	noiseField5;
 	public double[]	noiseField6;

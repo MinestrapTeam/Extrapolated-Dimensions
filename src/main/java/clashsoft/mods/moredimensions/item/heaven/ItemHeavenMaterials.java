@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.cslib.minecraft.item.CustomItem;
-import clashsoft.mods.moredimensions.api.IEnergyFuel;
+import clashsoft.mods.moredimensions.api.alchemy.IEnergyFuel;
 
 import net.minecraft.item.ItemStack;
 

@@ -6,8 +6,8 @@ import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.world.biome.*;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings.HeavenGenBuilding1;
-import clashsoft.mods.moredimensions.world.providers.HeavenWorldProvider;
-import clashsoft.mods.moredimensions.world.providers.POCWorldProvider;
+import clashsoft.mods.moredimensions.world.provider.HeavenWorldProvider;
+import clashsoft.mods.moredimensions.world.provider.POCWorldProvider;
 
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;

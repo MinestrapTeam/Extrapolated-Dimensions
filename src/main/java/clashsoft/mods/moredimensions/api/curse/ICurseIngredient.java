@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.api;
+package clashsoft.mods.moredimensions.api.curse;
 
 import clashsoft.mods.moredimensions.curse.Curse;
 

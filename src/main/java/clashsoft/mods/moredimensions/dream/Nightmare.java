@@ -1,44 +1,18 @@
 package clashsoft.mods.moredimensions.dream;
 
-import clashsoft.cslib.minecraft.util.CSConfig;
-import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
-import clashsoft.mods.moredimensions.world.providers.NightmareWorldProvider;
+import clashsoft.mods.moredimensions.dream.type.DreamType;
 
 public class Nightmare extends Dream
 {
 	@Override
 	public String getDreamName()
 	{
-		return "Nightmare";
+		return this.type != null ? this.type.name : "Nightmare";
 	}
 	
 	@Override
-	public EnumDreamType getDreamType()
+	public DreamType getRandomDreamType()
 	{
-		return EnumDreamType.NIGHTMARE;
-	}
-	
-	@Override
-	public void start()
-	{
-		NightmareWorldProvider.nightmareType = this.dream;
-		
-		this.player.travelToDimension(CSConfig.getDimension("Nightmare", 11));
-	}
-	
-	@Override
-	public void stop()
-	{
-		DreamWorldProvider.dreamType = null;
-		
-		this.player.travelToDimension(0);
-		this.player.setPosition(this.bedX, this.bedY, this.bedZ);
-		this.player.sleepInBedAt(this.bedX, this.bedY, this.bedZ);
-	}
-	
-	@Override
-	public void onUpdate()
-	{
-		
+		return DreamType.getRandomDreamType(true, rand);
 	}
 }

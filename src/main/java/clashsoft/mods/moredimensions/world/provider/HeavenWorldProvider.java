@@ -1,12 +1,13 @@
-package clashsoft.mods.moredimensions.world.providers;
+package clashsoft.mods.moredimensions.world.provider;
 
+import clashsoft.cslib.minecraft.world.CustomWorldProvider;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
-import clashsoft.mods.moredimensions.world.chunkmanagers.HeavenChunkManager;
-import clashsoft.mods.moredimensions.world.providers.chunk.ChunkProviderHeaven;
+import clashsoft.mods.moredimensions.world.chunk_manager.HeavenChunkManager;
+import clashsoft.mods.moredimensions.world.chunk_provider.ChunkProviderHeaven;
 
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class HeavenWorldProvider extends AbstractWorldProvider
+public class HeavenWorldProvider extends CustomWorldProvider
 {
 	public HeavenWorldProvider()
 	{

@@ -1,8 +1,8 @@
 package clashsoft.mods.moredimensions.tileentity;
 
 import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
-import clashsoft.mods.moredimensions.api.ICurseIngredient;
-import clashsoft.mods.moredimensions.api.IEnergyFuel;
+import clashsoft.mods.moredimensions.api.alchemy.IEnergyFuel;
+import clashsoft.mods.moredimensions.api.curse.ICurseIngredient;
 import clashsoft.mods.moredimensions.curse.Curse;
 
 import net.minecraft.inventory.ISidedInventory;

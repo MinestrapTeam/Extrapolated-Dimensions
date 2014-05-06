@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item.heaven;
 
-import clashsoft.mods.moredimensions.api.ICurseIngredient;
+import clashsoft.mods.moredimensions.api.curse.ICurseIngredient;
 import clashsoft.mods.moredimensions.curse.Curse;
 
 import net.minecraft.block.material.Material;

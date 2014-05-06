@@ -1,15 +1,16 @@
-package clashsoft.mods.moredimensions.world.chunkmanagers;
+package clashsoft.mods.moredimensions.world.chunk_manager;
 
 import java.util.List;
 
+import clashsoft.cslib.minecraft.world.CustomChunkManager;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
-import clashsoft.mods.moredimensions.world.gen.layer.GenLayerPOC;
+import clashsoft.mods.moredimensions.world.gen_layer.GenLayerPOC;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 
-public class POCChunkManager extends AbstractChunkManager
+public class POCChunkManager extends CustomChunkManager
 {
 	public POCChunkManager(long seed, WorldType worldType)
 	{
@@ -27,6 +28,6 @@ public class POCChunkManager extends AbstractChunkManager
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{
-		return GenLayerPOC.createWorld(seed, worldType);
+		return new GenLayerPOC().createWorld(seed, worldType);
 	}
 }

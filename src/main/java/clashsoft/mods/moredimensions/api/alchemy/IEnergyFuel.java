@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.api;
+package clashsoft.mods.moredimensions.api.alchemy;
 
 import net.minecraft.item.ItemStack;
 

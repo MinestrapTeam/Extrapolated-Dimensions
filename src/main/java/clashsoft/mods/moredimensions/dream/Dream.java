@@ -1,15 +1,17 @@
 package clashsoft.mods.moredimensions.dream;
 
-import clashsoft.cslib.minecraft.util.CSConfig;
+import java.util.Random;
+
 import clashsoft.mods.moredimensions.dream.type.DreamType;
-import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class Dream
 {
-	protected DreamType		dream;
+	public static Random	rand	= new Random(13425786L);
+	
+	protected DreamType		type;
 	
 	protected EntityPlayer	player;
 	private World			bedWorld;
@@ -17,7 +19,7 @@ public class Dream
 	
 	public Dream()
 	{
-		this.dream = this.getRandomDreamType();
+		this.type = this.getRandomDreamType();
 	}
 	
 	public void setPlayer(EntityPlayer player)
@@ -25,7 +27,7 @@ public class Dream
 		this.player = player;
 	}
 	
-	public void setPlayerBedPos(World world, int x, int y, int z)
+	public void setBedLocation(World world, int x, int y, int z)
 	{
 		this.bedWorld = world;
 		this.bedX = x;
@@ -35,17 +37,12 @@ public class Dream
 	
 	public String getDreamName()
 	{
-		return "Dream";
+		return this.type != null ? this.type.name : "Dream";
 	}
 	
 	public EntityPlayer getPlayer()
 	{
 		return this.player;
-	}
-	
-	public EnumDreamType getDreamType()
-	{
-		return EnumDreamType.DREAM;
 	}
 	
 	public int getDreamTime()
@@ -55,16 +52,10 @@ public class Dream
 	
 	public void start()
 	{
-		DreamWorldProvider.dreamType = this.dream;
-		
-		this.player.travelToDimension(CSConfig.getDimension("Dream", 10));
 	}
 	
 	public void stop()
 	{
-		DreamWorldProvider.dreamType = null;
-		
-		this.player.travelToDimension(0);
 		this.player.setPosition(this.bedX, this.bedY, this.bedZ);
 		this.player.sleepInBedAt(this.bedX, this.bedY, this.bedZ);
 	}
@@ -96,6 +87,6 @@ public class Dream
 	
 	public DreamType getRandomDreamType()
 	{
-		return DreamType.getRandomDreamType(this.getDreamType());
+		return DreamType.getRandomDreamType(false, rand);
 	}
 }

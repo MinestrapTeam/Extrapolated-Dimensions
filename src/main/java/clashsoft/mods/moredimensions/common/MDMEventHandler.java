@@ -1,12 +1,12 @@
 package clashsoft.mods.moredimensions.common;
 
+import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.api.ICape;
 import clashsoft.mods.moredimensions.api.IMinableBlock;
 import clashsoft.mods.moredimensions.curse.Curse;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
-import clashsoft.mods.moredimensions.world.teleporters.TeleporterNoPortal;
 import clashsoft.playerinventoryapi.lib.ExtendedInventory;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
