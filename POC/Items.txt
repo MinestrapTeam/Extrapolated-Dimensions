@@ -14,8 +14,7 @@ Nephrite
 
 --- Tomes ---
 
-  Perhaps  multiple tomes of Madness, the volumes after 1 used to learn lore rather than travel to the ShadowRealm? And yes, cause insanity.
-  The Tome of Madness, while used for entering the insane realm when thrown into the cauldron, could have a secondary effect.
+  The Tome of Madness, while used for entering the PoC when thrown into the cauldron, could have a secondary effect.
   By right clicking it you could get a temporary new effect called "Insanity", which causes fake mobs, or hallucinations, to spawn, causing confusion. 
   Hallucinations will have a very, very faint hint of being translucent, allowing the player to see these fake mobs for what they are.
 
