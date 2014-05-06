@@ -22,9 +22,6 @@ public abstract class GenLayerPOC extends GenLayer
 		biomes = new GenLayerZoom(2002L, biomes);
 		biomes = new GenLayerZoom(2003L, biomes);
 		biomes = new GenLayerZoom(2004L, biomes);
-		biomes = new GenLayerZoom(2005L, biomes);
-		biomes = new GenLayerZoom(2006L, biomes);
-		biomes = new GenLayerZoom(2007L, biomes);
 		
 		GenLayer genlayervoronoizoom = new GenLayerVoronoiZoom(10L, biomes);
 		

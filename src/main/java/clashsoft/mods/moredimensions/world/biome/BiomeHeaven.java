@@ -15,9 +15,9 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class BiomeHeaven extends CustomBiome
 {
-	public BiomeHeaven(int i)
+	public BiomeHeaven(int id)
 	{
-		super(i);
+		super(id);
 		
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();
@@ -46,21 +46,9 @@ public class BiomeHeaven extends CustomBiome
 	}
 	
 	@Override
-	public byte getTopMetadata(int x, int y, int z)
-	{
-		return 0;
-	}
-	
-	@Override
 	public Block getFillerBlock(int x, int y, int z)
 	{
 		return Heaven.heavenDirtBlocks;
-	}
-	
-	@Override
-	public byte getFillerMetadata(int x, int y, int z)
-	{
-		return 0;
 	}
 	
 	@Override
@@ -70,15 +58,13 @@ public class BiomeHeaven extends CustomBiome
 	}
 	
 	@Override
-	public byte getStoneMetadata(int x, int y, int z)
-	{
-		return 0;
-	}
-	
-	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		int type = random.nextInt(1);
+		int type = random.nextInt(8);
+		if (type == 0) // Golden Tree
+			type = 1;
+		else
+			type = 0;
 		return new CustomTreeGen(true, 6, Heaven.heavenLogs, Heaven.heavenLeaves, type, type);
 	}
 }

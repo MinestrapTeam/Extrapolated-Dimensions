@@ -14,7 +14,7 @@ public class BiomePOCDesert extends BiomePOCPlains
 		this.setHeight(new Height(0.1F, 0.1F));
 		this.spawnableWaterCreatureList.clear();
 		this.theBiomeDecorator.generateLakes = false;
-		this.waterColorMultiplier = 0xFFFF00;
+		this.waterColorMultiplier = 0x00A4A4;
 	}
 	
 	@Override
