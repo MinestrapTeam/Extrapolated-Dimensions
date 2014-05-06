@@ -24,7 +24,6 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
@@ -104,6 +103,6 @@ public class MDMClientProxy extends MDMProxy
 	@Override
 	public void setCape(EntityPlayer player, String cape)
 	{
-		CapeHelper.setCape((AbstractClientPlayer) player, cape);
+		// CapeHelper.setCape((AbstractClientPlayer) player, cape);
 	}
 }
