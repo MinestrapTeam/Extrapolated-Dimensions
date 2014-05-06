@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.providers;
 
 import clashsoft.mods.moredimensions.addons.MDMWorld;
-import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.dream.type.DreamType;
 
 public class NightmareWorldProvider extends DreamWorldProvider
 {

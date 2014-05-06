@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.dreams;
+package clashsoft.mods.moredimensions.dream;
 
 import java.util.Random;
 

@@ -6,7 +6,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 
-import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.dream.type.DreamType;
 import clashsoft.mods.moredimensions.world.chunkmanagers.AbstractChunkManager;
 import clashsoft.mods.moredimensions.world.gen.layer.GenLayerDreams;
 

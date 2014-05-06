@@ -1,8 +1,8 @@
-package clashsoft.mods.moredimensions.dreams.dreamtypes;
+package clashsoft.mods.moredimensions.dream.type;
 
 import java.util.*;
 
-import clashsoft.mods.moredimensions.dreams.EnumDreamType;
+import clashsoft.mods.moredimensions.dream.EnumDreamType;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

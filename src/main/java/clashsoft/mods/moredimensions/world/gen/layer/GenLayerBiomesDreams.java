@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.gen.layer;
 
-import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.dream.type.DreamType;
 
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;

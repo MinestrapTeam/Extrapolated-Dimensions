@@ -1,7 +1,7 @@
-package clashsoft.mods.moredimensions.dreams;
+package clashsoft.mods.moredimensions.dream;
 
 import clashsoft.cslib.minecraft.util.CSConfig;
-import clashsoft.mods.moredimensions.dreams.dreamtypes.DreamType;
+import clashsoft.mods.moredimensions.dream.type.DreamType;
 import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
 
 import net.minecraft.entity.player.EntityPlayer;

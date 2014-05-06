@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.dreams;
+package clashsoft.mods.moredimensions.dream;
 
 import clashsoft.cslib.minecraft.util.CSConfig;
 import clashsoft.mods.moredimensions.world.providers.DreamWorldProvider;
