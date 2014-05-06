@@ -1,8 +1,5 @@
 package clashsoft.mods.moredimensions.common;
 
-import java.util.ConcurrentModificationException;
-import java.util.List;
-
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.api.ICape;
@@ -11,11 +8,10 @@ import clashsoft.mods.moredimensions.curse.Curse;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterNoPortal;
 import clashsoft.playerinventoryapi.lib.ExtendedInventory;
-import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -23,7 +19,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -35,9 +30,9 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 public class MDMEventHandler
 {
-	public int playerCounter = 0;
+	public int	playerCounter	= 0;
 	
-	@EventHandler
+	@SubscribeEvent
 	public void bonemealUsed(BonemealEvent event)
 	{
 		Block block = event.world.getBlock(event.x, event.y, event.z);
@@ -47,13 +42,13 @@ public class MDMEventHandler
 		}
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onEntityAttacked(AttackEntityEvent event)
 	{
 		MDMEntityProperties.get(event.entityPlayer).addMeleeLevel(0.005F);
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent event)
 	{
 		if (event.source.getSourceOfDamage() instanceof EntityPlayer)
@@ -62,7 +57,7 @@ public class MDMEventHandler
 		}
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onEntityHurt(LivingHurtEvent event)
 	{
 		if (event.entityLiving instanceof EntityPlayer)
@@ -71,25 +66,25 @@ public class MDMEventHandler
 		}
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onArrowShot(ArrowLooseEvent event)
 	{
 		MDMEntityProperties.get(event.entityPlayer).addRangedLevel(0.05F);
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onHoeUsed(UseHoeEvent event)
 	{
 		MDMEntityProperties.get(event.entityPlayer).addFarmingLevel(0.001F);
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onItemTossed(ItemTossEvent event)
 	{
 		MDMEntityProperties.get(event.player).addSharingLevel(0.001F);
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onBlockHarvested(HarvestDropsEvent event)
 	{
 		if (event.harvester != null)
@@ -152,12 +147,7 @@ public class MDMEventHandler
 		}
 	}
 	
-	@EventHandler
-	public void onEntityUpdate(LivingUpdateEvent event)
-	{
-	}
-	
-	@EventHandler
+	@SubscribeEvent
 	public void entityConstructing(EntityConstructing event)
 	{
 		if (event.entity instanceof EntityPlayer && !event.entity.worldObj.isRemote)
@@ -167,7 +157,7 @@ public class MDMEventHandler
 		}
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void entityJoinWorld(EntityJoinWorldEvent event)
 	{
 		if (event.entity instanceof EntityPlayer)
@@ -181,7 +171,7 @@ public class MDMEventHandler
 		}
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void getItemTooltip(ItemTooltipEvent event)
 	{
 		Curse.addTooltip(event.itemStack, event.toolTip);
@@ -192,53 +182,52 @@ public class MDMEventHandler
 		}
 	}
 	
-	public void updatePlayerHeight(World world)
+	@SubscribeEvent
+	public void onEntityUpdate(LivingUpdateEvent event)
 	{
-		try
+		if (event.entity instanceof EntityPlayerMP)
 		{
-			for (Object o : world.playerEntities)
-			{
-				EntityPlayerMP player = (EntityPlayerMP) o;
-				MinecraftServer server = player.mcServer;
-				if (player.dimension == MDMWorld.HEAVEN_ID && player.posY <= -64)
-				{
-					player.setPosition(player.posX, 256, player.posZ);
-					server.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterNoPortal(server.worldServerForDimension(0)));
-				}
-				else if (player.dimension == 0 && player.posY > 256)
-				{
-					player.setPosition(player.posX, 0, player.posZ);
-					server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.HEAVEN_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.HEAVEN_ID)));
-				}
-			}
-		}
-		catch (ConcurrentModificationException ex)
-		{
+			EntityPlayerMP player = (EntityPlayerMP) event.entity;
+			this.updatePlayerHeight(player);
+			this.updatePlayerCapes(player);
 		}
 	}
 	
-	public void updatePlayerCapes(World world)
+	public void updatePlayerHeight(EntityPlayerMP player)
 	{
-		if (world != null && world.playerEntities.size() > 0)
+		try
 		{
-			List<AbstractClientPlayer> players = world.playerEntities;
-			EntityPlayer player = players.get(this.playerCounter);
+			MinecraftServer server = player.mcServer;
 			
-			this.playerCounter++;
-			if (this.playerCounter >= players.size())
-				this.playerCounter = 0;
-			
-			ExtendedInventory extendedInventory = ExtendedInventory.get(player);
-			ItemStack stack = extendedInventory.getStackInSlot(2);
-			
-			if (stack == null)
+			if (player.dimension == MDMWorld.HEAVEN_ID && player.posY <= -64)
 			{
-				MoreDimensionsMod.proxy.setCape(player, (String) null);
+				player.setPosition(player.posX, 256, player.posZ);
+				server.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterNoPortal(server.worldServerForDimension(0)));
 			}
-			else if (stack.getItem() instanceof ICape)
+			else if (player.dimension == 0 && player.posY > 256)
 			{
-				((ICape) stack.getItem()).updateCape(player, stack);
+				player.setPosition(player.posX, 0, player.posZ);
+				server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.POC_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.POC_ID)));
 			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+	
+	public void updatePlayerCapes(EntityPlayerMP player)
+	{
+		ExtendedInventory extendedInventory = ExtendedInventory.get(player);
+		ItemStack stack = extendedInventory.getStackInSlot(2);
+		
+		if (stack == null)
+		{
+			MoreDimensionsMod.proxy.setCape(player, (String) null);
+		}
+		else if (stack.getItem() instanceof ICape)
+		{
+			((ICape) stack.getItem()).updateCape(player, stack);
 		}
 	}
 }
