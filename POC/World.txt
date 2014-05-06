@@ -1,0 +1,21 @@
+{== World ==}
+
+- Ruins
+- Solar Eclipse
+- Ancient wizard tower
+- Lost civilization
+  there is only one per world
+- Clouds that are springy and make you jump higher when you jump on them
+
+--- Biomes ---
+
+- Plains of Insanity
+- Corrupted Mountains
+- Desert of Dryness
+- Whispering Woods Biome
+- Dementia Biome 
+
+- Blood Plains
+  A plains variant.
+  Everything is tinted in blood in this biome.
+  Rare Blood ores spawn here.

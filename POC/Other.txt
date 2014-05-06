@@ -1,0 +1,15 @@
+{== Other Features ==}
+
+On the forum page, it will explain the item you use to go into the main dimension.
+Once you get to the dimensions, there are different book for different types of magic.
+The easter egg dimensions are discovered by fucking about with throwing shit in a cauldron.
+
+--- Quests ---
+
+--- Multiplayer ---
+
+- Group Quest Support
+
+--- Smithing ---
+
+- Magic Item/Tool/Armor crafting

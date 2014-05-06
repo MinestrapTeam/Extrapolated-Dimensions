@@ -1,0 +1,18 @@
+{== Trees ==}
+
+- Magic Oak
+  - Cursed Magic Oak
+- Willow
+  - Cursed Willow
+  - Rare Weeping Willow
+  - Rarier Whomping Willow
+- Achey
+- Teak 
+- Holly
+- Maple
+- Mahogany
+- Arctic Pine
+- Eucalyptus
+- Silver Lime 
+- Snargaluff
+- Blisterwood

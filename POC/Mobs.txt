@@ -1,0 +1,25 @@
+{== Mobs ==}
+
+- Some Plant mob like venus fly trap?
+- Imps
+- Fairy
+
+- Paranoia
+  There is only one Paranoia per world.
+  It is always twenty blocks behind the player and it spawns in whispering woods.
+  If it is killed, it respawns. It is four blocks tall, is transparent dark-grey, and has a featureless near-black face.
+
+- Phobia
+  Phobia Spawns in the Dementia Biome, has high health, and can kill the player in two hits.
+
+- Trolls
+  Rare Trolls that wear troll masks. The Troll masks are rare drops.
+  Internet Troll variant of the Troll mob.
+
+--- Boss Mobs ---
+
+- Lich
+- Giant Spider
+
+- Boss Chats
+  The player has to talk to the boss before fighting them

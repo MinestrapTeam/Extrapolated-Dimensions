@@ -1,0 +1,37 @@
+{== Items ==}
+
+Mortar and pestle
+
+Abyssinian shrivelfig
+- Second-year Herbology students work with these plants, learning to prune them. When peeled, shrivelfigs are used as an ingredient in Shrinking Solution. "shrivel" = Eng. "become smaller"
+
+Aconite
+- This is a mundane plant with magical uses. In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly. Aconite is an extremely poisonous plant (hence its other name of wolfsbane). It is also called monkshood because the shape of the flowers somewhat resembles a monk's cowl. Scott Cunningham's Encyclopedia of Magical Herbs informs us that a folk name for the highly poisonous Wolf's Bane is "Dumbledore's Delight". Ellis Peters' medieval mystery Monk's Hood is recommended as both a very good story in its own right and as featuring both the positive and dangerous aspects of this plant. In the story the herbalist Brother Cadfael used the plant as part of an oil used to massage aching joints, but if swallowed or absorbed directly through any break in the skin, the oil could be deadly.
+
+Asphodel
+- Asphodel in an ingredient in the Draught of Living Death. In Greek mythology, the asphodel plant was thought to be the favourite food of the dead. Greeks often planted asphodel around graveyards.
+
+Belladonna
+- This is a mundane plant with magical uses. Essence of belladonna is part of the standard potions-making kit used by students. In magical lore, aconite combined with belladonna was applied as a magical ointment by witches to make themselves fly.
+
+Bubotuber
+- A bubotuber looks like a thick, black, giant slug (it even squirms slightly, although it sticks vertically out of the soil) with many large shiny swellings on it that are filled with a yellow-green pus that smells like petrol. As Professor Sprout taught her fourth-year students, the pus reacts oddly with human skin. Undiluted, it will raise horribly painful boils on contact, but properly diluted and processed can be used to cure acne. The pimple-curing properties were discovered by Sacharissa Tugwood. bubo = (Gr. boubôn, "groin") (plural form: buboes) is a swelling of the lymph nodes. It is found in infections such as bubonic plague. It is similar in appearance to a huge blister, and usually appears under the armpit, in the groin or on the neck. Tuber = In anatomy, the term tubercle may describe a round lump or warty outgrowth found on bones or skin, or, in cases of tuberculosis, in the lungs.
+
+Daisy
+- The roots of the daisy are used in a shrinking solution. An old wives’ tale says that daisy roots, boiled in milk and fed to a farm animal, can stop the animal from growing too large.
+
+Fluxweed
+Gillyweed
+Ginger
+Hellebore
+Knotgrass
+Lovage
+Mistletoe berries
+Monkshood
+Nettle
+Scurvy-grass
+Sneezewort
+Sopophorous bean
+Valerian roots/sprigs
+Wolfsbane
+Wormwood
