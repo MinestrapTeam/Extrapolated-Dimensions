@@ -25,7 +25,7 @@ public class BlockHeavenGrass extends BlockCustomGrass
 			if (randInt < 2)
 			{
 				int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-				world.setBlock(x, y + 1, z, Heaven.heavenPlantBlocks, metadata, 2);
+				world.setBlock(x, y + 1, z, Heaven.plantBlocks, metadata, 2);
 			}
 		}
 	}

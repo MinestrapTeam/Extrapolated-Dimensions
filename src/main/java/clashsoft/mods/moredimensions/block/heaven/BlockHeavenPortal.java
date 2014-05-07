@@ -19,13 +19,7 @@ public class BlockHeavenPortal extends BlockCustomPortal
 	@Override
 	public Block getFrameBlock()
 	{
-		return Heaven.heavenStoneBlocks;
-	}
-	
-	@Override
-	public int getFrameMetadata()
-	{
-		return 1;
+		return Heaven.portalFrame;
 	}
 
 	@Override

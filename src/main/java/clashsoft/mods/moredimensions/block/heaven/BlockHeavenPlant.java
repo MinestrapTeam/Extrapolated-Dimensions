@@ -38,8 +38,8 @@ public class BlockHeavenPlant extends BlockCustomPlant
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		boolean heavenDirtID = block == Heaven.heavenDirtBlocks;
-		boolean heavenGrassID = block == Heaven.heavenGrassBlocks;
+		boolean heavenDirtID = block == Heaven.dirtBlocks;
+		boolean heavenGrassID = block == Heaven.grassBlocks;
 		boolean vanillaDirtID = block == Blocks.dirt;
 		boolean vanillaGrassID = block == Blocks.grass;
 		switch (metadata)

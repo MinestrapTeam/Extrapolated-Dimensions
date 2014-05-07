@@ -18,7 +18,7 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return new HeavenGenJungleTree(true, 7, Heaven.heavenLogs, Heaven.heavenLeaves);
+		return new HeavenGenJungleTree(true, 7, Heaven.logBlocks, Heaven.leafBlocks);
 	}
 	
 	@Override

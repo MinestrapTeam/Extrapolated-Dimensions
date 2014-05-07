@@ -31,33 +31,33 @@ public class ItemHeavenSeeds extends CustomItem
 		switch (stack.getItemDamage())
 		{
 			case 0: // Heaven Grass Seeds
-				if (block == Heaven.heavenDirtBlocks && metadata == 0)
+				if (block == Heaven.dirtBlocks && metadata == 0)
 				{
-					newBlock = Heaven.heavenGrassBlocks;
+					newBlock = Heaven.grassBlocks;
 					newMetadata = 0;
 				}
 			case 1: // Mud Grass Seeds
-				if (block == Heaven.heavenDirtBlocks && metadata == 1)
+				if (block == Heaven.dirtBlocks && metadata == 1)
 				{
-					newBlock = Heaven.heavenGrassBlocks;
+					newBlock = Heaven.grassBlocks;
 					newMetadata = 1;
 				}
 			case 2: // Corrupted Grass Seeds
 				if (block == Blocks.dirt)
 				{
-					newBlock = Heaven.heavenGrassBlocks;
+					newBlock = Heaven.grassBlocks;
 					newMetadata = 2;
 				}
 			case 3: // Hallowed Grass Seeds
 				if (block == Blocks.dirt)
 				{
-					newBlock = Heaven.heavenGrassBlocks;
+					newBlock = Heaven.grassBlocks;
 					newMetadata = 3;
 				}
 			case 4: // Mushroom Grass Seeds
-				if (block == Heaven.heavenDirtBlocks && metadata == 1)
+				if (block == Heaven.dirtBlocks && metadata == 1)
 				{
-					newBlock = Heaven.heavenGrassBlocks;
+					newBlock = Heaven.grassBlocks;
 					newMetadata = 4;
 				}
 		}

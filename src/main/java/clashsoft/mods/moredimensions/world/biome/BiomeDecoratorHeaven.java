@@ -11,11 +11,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeDecoratorHeaven extends BiomeDecorator
 {
-	private WorldGenerator		dirtGen		= new HeavenGenMinable(Heaven.heavenDirtBlocks, 20);
-	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 3, 18);
-	private WorldGenerator		clashiumGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 4, 10);
-	private WorldGenerator		bluriteGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 5, 8);
-	private WorldGenerator		holyiumGen	= new HeavenGenMinable(Heaven.heavenStoneBlocks, 6, 8);
+	private WorldGenerator		dirtGen		= new HeavenGenMinable(Heaven.dirtBlocks, 20);
+	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 3, 18);
+	private WorldGenerator		clashiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 4, 10);
+	private WorldGenerator		bluriteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 5, 8);
+	private WorldGenerator		holyiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 6, 8);
 	
 	public BiomeDecoratorHeaven()
 	{

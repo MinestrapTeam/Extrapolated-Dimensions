@@ -27,12 +27,12 @@ public class BlockHeavenSapling extends BlockCustomSapling
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
 		int metadata = world.getBlockMetadata(x, y, z) & 3;
-		return random.nextInt(5) == 0 ? new HeavenGenTrees(true, 4, metadata, metadata) : new HeavenGenJungleTree(true, 7, Heaven.heavenLogs, Heaven.heavenLeaves, metadata, metadata);
+		return random.nextInt(5) == 0 ? new HeavenGenTrees(true, 4, metadata, metadata) : new HeavenGenJungleTree(true, 7, Heaven.logBlocks, Heaven.leafBlocks, metadata, metadata);
 	}
 	
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		return (block == Heaven.heavenGrassBlocks || block == Heaven.heavenDirtBlocks) && blockMetadata == 0;
+		return (block == Heaven.grassBlocks || block == Heaven.dirtBlocks) && blockMetadata == 0;
 	}
 }

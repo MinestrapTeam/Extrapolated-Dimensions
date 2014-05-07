@@ -21,8 +21,8 @@ public class BiomePOCPlains extends CustomBiome
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();
 		
-		this.topBlock = ParadiseOfChaos.pocGrassBlocks;
-		this.fillerBlock = ParadiseOfChaos.pocDirtBlocks;
+		this.topBlock = ParadiseOfChaos.grassBlocks;
+		this.fillerBlock = ParadiseOfChaos.dirtBlocks;
 		
 		this.theBiomeDecorator = new BiomeDecorator();
 		
@@ -38,6 +38,6 @@ public class BiomePOCPlains extends CustomBiome
 	@Override
 	public Block getStoneBlock(int x, int y, int z)
 	{
-		return ParadiseOfChaos.pocStoneBlocks;
+		return ParadiseOfChaos.stoneBlocks;
 	}
 }

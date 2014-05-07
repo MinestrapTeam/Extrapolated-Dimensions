@@ -29,8 +29,8 @@ public class BiomeHeaven extends CustomBiome
 		
 		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
-		this.topBlock = Heaven.heavenGrassBlocks;
-		this.fillerBlock = Heaven.heavenDirtBlocks;
+		this.topBlock = Heaven.grassBlocks;
+		this.fillerBlock = Heaven.dirtBlocks;
 		
 		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven());
 		
@@ -42,19 +42,19 @@ public class BiomeHeaven extends CustomBiome
 	@Override
 	public Block getTopBlock(int x, int y, int z)
 	{
-		return Heaven.heavenGrassBlocks;
+		return Heaven.grassBlocks;
 	}
 	
 	@Override
 	public Block getFillerBlock(int x, int y, int z)
 	{
-		return Heaven.heavenDirtBlocks;
+		return Heaven.dirtBlocks;
 	}
 	
 	@Override
 	public Block getStoneBlock(int x, int y, int z)
 	{
-		return Heaven.heavenStoneBlocks;
+		return Heaven.stoneBlocks;
 	}
 	
 	@Override
@@ -65,6 +65,6 @@ public class BiomeHeaven extends CustomBiome
 			type = 1;
 		else
 			type = 0;
-		return new CustomTreeGen(true, 6, Heaven.heavenLogs, Heaven.heavenLeaves, type, type);
+		return new CustomTreeGen(true, 6, Heaven.logBlocks, Heaven.leafBlocks, type, type);
 	}
 }

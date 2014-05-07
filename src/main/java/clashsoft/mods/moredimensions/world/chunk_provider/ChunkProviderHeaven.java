@@ -59,7 +59,7 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 							{
 								if (d15 > 0.0D)
 								{
-									blocks[j2] = Heaven.heavenStoneBlocks;
+									blocks[j2] = Heaven.stoneBlocks;
 								}
 								j2 += 128;
 								d15 += d16;

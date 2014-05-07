@@ -11,8 +11,8 @@ public class BiomeBloodPlains extends BiomePOCPlains
 	{
 		super(biomeID);
 		
-		this.topBlock = ParadiseOfChaos.pocGrassBlocks;
-		this.fillerBlock = ParadiseOfChaos.pocDirtBlocks;
+		this.topBlock = ParadiseOfChaos.grassBlocks;
+		this.fillerBlock = ParadiseOfChaos.dirtBlocks;
 		
 		this.theBiomeDecorator = new BiomeDecorator();
 		
@@ -34,6 +34,6 @@ public class BiomeBloodPlains extends BiomePOCPlains
 	@Override
 	public Block getStoneBlock(int x, int y, int z)
 	{
-		return ParadiseOfChaos.pocBloodStoneBlocks;
+		return ParadiseOfChaos.bloodStoneBlocks;
 	}
 }

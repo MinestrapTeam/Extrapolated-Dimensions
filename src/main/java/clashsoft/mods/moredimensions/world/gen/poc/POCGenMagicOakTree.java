@@ -7,6 +7,6 @@ public class POCGenMagicOakTree extends CustomTreeGen
 {
 	public POCGenMagicOakTree(boolean flag)
 	{
-		super(flag, 5, ParadiseOfChaos.pocLogs, ParadiseOfChaos.pocLeaves, 0, 0);
+		super(flag, 5, ParadiseOfChaos.logBlocks, ParadiseOfChaos.leafBlocks, 0, 0);
 	}
 }

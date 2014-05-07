@@ -19,7 +19,7 @@ public class BlockPOCPortal extends BlockCustomPortal
 	@Override
 	public Block getFrameBlock()
 	{
-		return ParadiseOfChaos.pocPortalFrame;
+		return ParadiseOfChaos.portalFrame;
 	}
 	
 	@Override

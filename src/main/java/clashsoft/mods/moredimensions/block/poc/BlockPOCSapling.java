@@ -27,6 +27,6 @@ public class BlockPOCSapling extends BlockCustomSapling
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		return block == ParadiseOfChaos.pocGrassBlocks;
+		return block == ParadiseOfChaos.grassBlocks;
 	}
 }

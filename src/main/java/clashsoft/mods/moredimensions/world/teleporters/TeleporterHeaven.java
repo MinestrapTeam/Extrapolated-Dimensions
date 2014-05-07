@@ -16,12 +16,12 @@ public class TeleporterHeaven extends CustomTeleporter
 	@Override
 	public Block getPortalBlock()
 	{
-		return Heaven.heavenPortal;
+		return Heaven.portal;
 	}
 
 	@Override
 	public Block getFrameBlock()
 	{
-		return Heaven.heavenStoneBlocks;
+		return Heaven.portalFrame;
 	}
 }

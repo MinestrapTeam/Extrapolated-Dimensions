@@ -33,7 +33,7 @@ public class HeavenGenJungleTree extends CustomTreeGen
 		
 		Block soil = world.getBlock(x, y - 1, z);
 		
-		if (soil == Heaven.heavenDirtBlocks || soil == Heaven.heavenGrassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
+		if (soil == Heaven.dirtBlocks || soil == Heaven.grassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
 		{
 			if (y > 0 && y + treeHeight < 256)
 			{

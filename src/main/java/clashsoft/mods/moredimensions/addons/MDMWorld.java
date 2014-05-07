@@ -71,7 +71,7 @@ public class MDMWorld
 			int randPosX = chunkX + rand.nextInt(16);
 			int randPosY = rand.nextInt(250);
 			int randPosZ = chunkZ + rand.nextInt(16);
-			(new CustomTreeGen(true, 6, Heaven.heavenLogs, Heaven.heavenLeaves, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
+			(new CustomTreeGen(true, 6, Heaven.logBlocks, Heaven.leafBlocks, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
 		}
 		for (int i = 0; i < 5; i++)
 		{

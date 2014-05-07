@@ -16,12 +16,12 @@ public class TeleporterPOC extends CustomTeleporter
 	@Override
 	public Block getPortalBlock()
 	{
-		return ParadiseOfChaos.pocPortal;
+		return ParadiseOfChaos.portal;
 	}
 
 	@Override
 	public Block getFrameBlock()
 	{
-		return ParadiseOfChaos.pocStoneBlocks;
+		return ParadiseOfChaos.stoneBlocks;
 	}
 }

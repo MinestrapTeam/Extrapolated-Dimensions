@@ -7,6 +7,6 @@ public class HeavenGenTrees extends CustomTreeGen
 {
 	public HeavenGenTrees(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
 	{
-		super(blockUpdates, minTreeHeight, Heaven.heavenLogs, Heaven.heavenLeaves, metaWood, metaLeaves);
+		super(blockUpdates, minTreeHeight, Heaven.logBlocks, Heaven.leafBlocks, metaWood, metaLeaves);
 	}
 }
