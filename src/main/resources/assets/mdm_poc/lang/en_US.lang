@@ -1,7 +1,11 @@
+# --- Creative Tabs ---
+
 itemGroup.poc_tools=Paradise of Chaos Tools
 itemGroup.poc_armor=Paradise of Chaos Armor
 itemGroup.poc_items=Paradise of Chaos Items
 itemGroup.poc_blocks=Paradise of Chaos Blocks
+
+# --- Blocks ---
 
 tile.poc_portal.name=Paradise of Chaos Portal
 tile.poc_portal_frame.name=Paradise of Chaos Portal Frame
@@ -46,9 +50,17 @@ tile.poc_saplings.willow.name=Willow Sapling
 tile.poc_planks.magic_oak.name=Magic Oak Planks
 tile.poc_planks.willow.name=Willow Planks
 
+# --- Items ---
+
 item.mana_star.name=Mana Star
-item.poc_materials.magic_oak_stick.name=Magic Oak Stick
-item.poc_materials.willow_stick.name=Willow Stick
-item.poc_materials.promethium_gem.name=Promethium Gem
-item.poc_materials.novite_gem.name=Novite Gem
+item.mana_stone.name=Mana Stone
+
+item.poc_items.magic_oak_stick.name=Magic Oak Stick
+item.poc_items.willow_stick.name=Willow Stick
+item.poc_items.promethium_gem.name=Promethium Gem
+item.poc_items.novite_gem.name=Novite Gem
 item.poc_materials.kratonium_ingot.name=Kratonium Ingot
+item.poc_materials.whitium_ingot.name=Whitium Ingot
+item.poc_materials.death_ingot.name=Death Ingot
+item.poc_materials.blood_ingot.name=Blood Ingot
+item.poc_materials.mysterious_ingot.name=Mysterious Ingot

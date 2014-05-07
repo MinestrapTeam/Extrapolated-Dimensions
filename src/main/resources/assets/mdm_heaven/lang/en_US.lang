@@ -19,11 +19,13 @@ tile.heaven_metal.holyium_block.name=Holyium Block
 tile.heaven_metal.pro_block.name=Pro Block
 
 tile.heaven_portal.name=Heaven Portal
+tile.heaven_portal_frame.name=Heaven Portal Frame
 tile.heaven_pillar.name=Pillar
 tile.damnation_table.name=Damnation Table
 
 tile.heaven_dirt.heaven_dirt.name=Heaven Dirt
 tile.heaven_dirt.mud.name=Heaven Mud
+tile.heaven_dirt.ashes.name=Ashes
 tile.heaven_grass.heaven_grass.name=Heaven Grass Block
 tile.heaven_grass.mud_grass.name=Heaven Mud Grass Block
 tile.heaven_grass.corrupted_grass.name=Corrupted Grass Block
