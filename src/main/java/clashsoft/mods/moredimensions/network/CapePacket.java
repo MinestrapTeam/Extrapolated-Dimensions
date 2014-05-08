@@ -1,8 +1,9 @@
 package clashsoft.mods.moredimensions.network;
 
+import java.io.IOException;
+
 import clashsoft.cslib.minecraft.network.CSPacket;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.PacketBuffer;
@@ -25,14 +26,35 @@ public class CapePacket extends CSPacket
 	@Override
 	public void write(PacketBuffer buf)
 	{
-		buf.writeStringToBuffer(this.username);
+		try
+		{
+			buf.writeStringToBuffer(this.username);
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
 	public void read(PacketBuffer buf)
 	{
-		this.username = buf.readStringFromBuffer(0xFFFF);
-		this.cape = buf.readStringFromBuffer(0xFFFF);
+		try
+		{
+			this.username = buf.readStringFromBuffer(0xFFFF);
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try
+		{
+			this.cape = buf.readStringFromBuffer(0xFFFF);
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
