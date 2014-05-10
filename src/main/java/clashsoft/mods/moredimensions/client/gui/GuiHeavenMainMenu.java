@@ -114,7 +114,6 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 			}
 			catch (IOException ioexception)
 			{
-				;
 			}
 			finally
 			{
@@ -126,7 +125,6 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 					}
 					catch (IOException ioexception1)
 					{
-						;
 					}
 				}
 			}

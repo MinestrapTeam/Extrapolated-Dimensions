@@ -4,7 +4,7 @@ import static clashsoft.cslib.minecraft.crafting.CSCrafting.*;
 import clashsoft.cslib.minecraft.block.*;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
-import clashsoft.cslib.minecraft.util.CSString;
+import clashsoft.cslib.util.CSString;
 import clashsoft.mods.moredimensions.block.heaven.*;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
 import clashsoft.mods.moredimensions.item.heaven.*;
