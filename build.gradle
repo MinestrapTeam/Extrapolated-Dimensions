@@ -34,15 +34,6 @@ minecraft
     }
 }
 
-dependencies
-{
-    compile fileTree(dir:'dependencies', include:'*.zip')
-    compile fileTree(dir:'dependencies', include:'*.jar')
-    
-    compile project('Minecraft')
-    compile fileTree(dir:'../Minecraft/bin', include:'*.class')
-}
-
 processResources
 {
     // this will ensure that this task is redone when the versions change.
