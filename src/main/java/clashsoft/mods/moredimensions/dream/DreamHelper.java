@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.dream;
 
 import java.util.Random;
 
-import clashsoft.cslib.util.CSLog;
+import clashsoft.cslib.logging.CSLog;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;

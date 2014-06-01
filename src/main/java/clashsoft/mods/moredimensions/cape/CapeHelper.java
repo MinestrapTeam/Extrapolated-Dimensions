@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
 
+import clashsoft.cslib.logging.CSLog;
 import clashsoft.cslib.reflect.CSReflection;
-import clashsoft.cslib.util.CSLog;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
