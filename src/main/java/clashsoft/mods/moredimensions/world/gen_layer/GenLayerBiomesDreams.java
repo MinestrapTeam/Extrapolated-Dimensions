@@ -8,7 +8,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 
 public class GenLayerBiomesDreams extends CustomBiomeLayer
 {
-	private Dream	dream;
+	public final Dream	dream;
 	
 	public GenLayerBiomesDreams(Dream dream, long seed, GenLayer genlayer)
 	{

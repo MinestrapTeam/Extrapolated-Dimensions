@@ -10,7 +10,6 @@ import clashsoft.mods.moredimensions.network.MDMNetHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -26,8 +25,7 @@ public class MoreDimensionsMod extends ClashsoftMod
 	@Instance(MODID)
 	public static MoreDimensionsMod	instance;
 	
-	@SidedProxy(clientSide = "clashsoft.mods.moredimensions.client.MDMClientProxy", serverSide = "clashsoft.mods.moredimensions.common.MDMProxy")
-	public static MDMProxy			proxy;
+	public static MDMProxy			proxy	= createProxy("clashsoft.mods.moredimensions.client.MDMClientProxy", "clashsoft.mods.moredimensions.common.MDMProxy");
 	
 	public MoreDimensionsMod()
 	{
