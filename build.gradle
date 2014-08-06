@@ -1,36 +1,41 @@
-buildscript {
-    repositories {
+buildscript
+{
+    repositories
+    {
         mavenCentral()
-        maven {
+        maven
+        {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
-        maven {
+        maven
+        {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
-    dependencies {
+    dependencies
+    {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
 
 apply plugin: 'forge'
-version = "1.7.2"
+version = "1.7.10-alpha"
 group= "clashsoft.mods.moredimensions"
-archivesBaseName = "More Dimensions Mod"
+archivesBaseName = "MoreDimensionsMod"
 
 minecraft
 {
-    version = "1.7.2-10.12.1.1103"
+    version = "1.7.10-10.13.0.1189"
 
     if(file('../run').exists())
     {
-        assetDir = "../run/assets/"
+        runDir = "../run/"
     }
     else
     {
-        assetDir = "eclipse/assets"
+        runDir = "eclipse/"
     }
 }
 
@@ -42,7 +47,6 @@ processResources
     from(sourceSets.main.resources.srcDirs)
     {
         include 'mcmod.info'
-
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
 
