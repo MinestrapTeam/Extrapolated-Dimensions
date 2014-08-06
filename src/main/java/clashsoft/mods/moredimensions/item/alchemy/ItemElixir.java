@@ -3,8 +3,8 @@ package clashsoft.mods.moredimensions.item.alchemy;
 import java.util.List;
 
 import clashsoft.brewingapi.item.ItemPotion2;
+import clashsoft.brewingapi.potion.base.PotionBase;
 import clashsoft.brewingapi.potion.type.IPotionType;
-import clashsoft.brewingapi.potion.type.PotionBase;
 import clashsoft.brewingapi.potion.type.PotionType;
 import clashsoft.mods.moredimensions.addons.Alchemy;
 import cpw.mods.fml.relauncher.Side;
@@ -35,9 +35,7 @@ public class ItemElixir extends ItemPotion2
 	@Override
 	public CreativeTabs[] getCreativeTabs()
 	{
-		return new CreativeTabs[] {
-				Alchemy.tabAlchemy,
-				CreativeTabs.tabAllSearch };
+		return new CreativeTabs[] { Alchemy.tabAlchemy, CreativeTabs.tabAllSearch };
 	}
 	
 	@SideOnly(Side.CLIENT)
