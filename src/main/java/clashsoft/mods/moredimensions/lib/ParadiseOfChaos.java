@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.addons;
+package clashsoft.mods.moredimensions.lib;
 
 import static clashsoft.cslib.minecraft.crafting.CSCrafting.addPlanks;
 import static clashsoft.cslib.minecraft.crafting.CSCrafting.addRecipe;

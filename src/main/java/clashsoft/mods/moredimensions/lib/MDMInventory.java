@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.addons;
+package clashsoft.mods.moredimensions.lib;
 
 import clashsoft.cslib.math.Point2i;
 import clashsoft.mods.moredimensions.item.armor.ArmorTypes;

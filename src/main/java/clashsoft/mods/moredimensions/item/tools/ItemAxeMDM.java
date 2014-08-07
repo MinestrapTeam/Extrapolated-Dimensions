@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.item.tools;
 
 import clashsoft.cslib.minecraft.item.datatools.ItemDataAxe;
-import clashsoft.mods.moredimensions.addons.Tools;
+import clashsoft.mods.moredimensions.lib.Tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

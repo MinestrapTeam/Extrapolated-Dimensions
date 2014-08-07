@@ -4,7 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityChicken;

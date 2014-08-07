@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenJungleTree;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenTrees;
 

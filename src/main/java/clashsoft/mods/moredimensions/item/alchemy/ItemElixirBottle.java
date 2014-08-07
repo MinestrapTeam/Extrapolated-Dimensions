@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.item.alchemy;
 import java.util.List;
 
 import clashsoft.brewingapi.item.ItemGlassBottle2;
-import clashsoft.mods.moredimensions.addons.Alchemy;
+import clashsoft.mods.moredimensions.lib.Alchemy;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

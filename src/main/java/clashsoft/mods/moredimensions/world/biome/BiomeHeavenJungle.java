@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenJungleTree;
 
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;

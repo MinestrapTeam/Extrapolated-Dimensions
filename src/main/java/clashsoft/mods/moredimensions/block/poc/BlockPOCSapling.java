@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.poc;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
-import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 
 import net.minecraft.block.Block;

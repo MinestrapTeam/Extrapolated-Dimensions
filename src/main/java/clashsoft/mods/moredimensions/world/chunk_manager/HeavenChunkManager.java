@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.chunk_manager;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.world.CustomChunkManager;
-import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 import clashsoft.mods.moredimensions.world.gen_layer.GenLayerHeaven;
 
 import net.minecraft.world.WorldType;

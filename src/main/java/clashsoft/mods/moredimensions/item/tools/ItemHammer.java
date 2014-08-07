@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.item.tools;
 import java.util.Set;
 
 import clashsoft.cslib.collections.CSCollections;
-import clashsoft.mods.moredimensions.addons.Tools;
+import clashsoft.mods.moredimensions.lib.Tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.item.heaven;
 
 import clashsoft.cslib.minecraft.item.CustomItem;
 import clashsoft.cslib.util.CSArrays;
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

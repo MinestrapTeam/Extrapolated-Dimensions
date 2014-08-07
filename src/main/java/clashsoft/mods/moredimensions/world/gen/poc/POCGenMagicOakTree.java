@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.gen.poc;
 
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
-import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
 
 public class POCGenMagicOakTree extends CustomTreeGen
 {

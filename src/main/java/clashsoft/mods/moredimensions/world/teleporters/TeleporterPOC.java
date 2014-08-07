@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.teleporters;
 
 import clashsoft.cslib.minecraft.world.CustomTeleporter;
-import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.WorldServer;

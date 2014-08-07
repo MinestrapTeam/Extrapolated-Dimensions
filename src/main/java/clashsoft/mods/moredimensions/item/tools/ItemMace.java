@@ -2,7 +2,7 @@ package clashsoft.mods.moredimensions.item.tools;
 
 import java.util.Collections;
 
-import clashsoft.mods.moredimensions.addons.Tools;
+import clashsoft.mods.moredimensions.lib.Tools;
 
 import net.minecraft.item.ItemTool;
 

@@ -5,7 +5,7 @@ import java.util.List;
 import clashsoft.brewingapi.item.ItemPotion2;
 import clashsoft.brewingapi.potion.base.PotionBase;
 import clashsoft.brewingapi.potion.type.IPotionType;
-import clashsoft.mods.moredimensions.addons.Alchemy;
+import clashsoft.mods.moredimensions.lib.Alchemy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

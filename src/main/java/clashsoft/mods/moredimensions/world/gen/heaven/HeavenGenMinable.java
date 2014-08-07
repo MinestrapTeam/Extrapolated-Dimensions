@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.gen.heaven;
 
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.gen.feature.WorldGenMinable;

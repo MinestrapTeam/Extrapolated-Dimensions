@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.block.heaven;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomGrass;
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 
 import net.minecraft.world.World;
 

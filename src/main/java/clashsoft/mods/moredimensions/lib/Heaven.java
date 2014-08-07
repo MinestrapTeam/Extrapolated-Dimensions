@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.addons;
+package clashsoft.mods.moredimensions.lib;
 
 import static clashsoft.cslib.minecraft.crafting.CSCrafting.*;
 import clashsoft.cslib.minecraft.block.*;

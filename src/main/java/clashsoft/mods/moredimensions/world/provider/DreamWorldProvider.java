@@ -1,8 +1,8 @@
 package clashsoft.mods.moredimensions.world.provider;
 
 import clashsoft.cslib.minecraft.world.CustomWorldProvider;
-import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.dream.Dream;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 import clashsoft.mods.moredimensions.world.chunk_manager.DreamChunkManager;
 import clashsoft.mods.moredimensions.world.chunk_provider.DefaultChunkProvider;
 

@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.biome;
 
-import clashsoft.mods.moredimensions.addons.ParadiseOfChaos;
+import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeDecorator;

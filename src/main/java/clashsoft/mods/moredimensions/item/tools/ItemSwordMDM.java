@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.item.tools;
 
-import clashsoft.mods.moredimensions.addons.Tools;
+import clashsoft.mods.moredimensions.lib.Tools;
 
 import com.google.common.collect.Multimap;
 

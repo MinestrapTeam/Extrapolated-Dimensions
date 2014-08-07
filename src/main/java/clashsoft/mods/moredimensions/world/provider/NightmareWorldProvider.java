@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.world.provider;
 
-import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 import clashsoft.mods.moredimensions.world.chunk_manager.DreamChunkManager;
 
 public class NightmareWorldProvider extends DreamWorldProvider

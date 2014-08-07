@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.gen_layer;
 
 import clashsoft.cslib.minecraft.world.CustomBiomeLayer;
-import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;

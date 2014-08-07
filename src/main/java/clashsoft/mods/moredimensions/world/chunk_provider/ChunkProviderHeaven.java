@@ -1,7 +1,7 @@
 package clashsoft.mods.moredimensions.world.chunk_provider;
 
 import clashsoft.cslib.minecraft.world.CustomChunkProvider;
-import clashsoft.mods.moredimensions.addons.Heaven;
+import clashsoft.mods.moredimensions.lib.Heaven;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

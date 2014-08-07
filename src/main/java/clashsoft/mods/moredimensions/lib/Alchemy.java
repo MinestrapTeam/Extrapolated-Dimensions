@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.addons;
+package clashsoft.mods.moredimensions.lib;
 
 import clashsoft.cslib.minecraft.block.CSBlocks;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;

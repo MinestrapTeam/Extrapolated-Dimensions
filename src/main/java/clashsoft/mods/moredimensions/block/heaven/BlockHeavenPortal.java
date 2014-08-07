@@ -1,8 +1,8 @@
 package clashsoft.mods.moredimensions.block.heaven;
 
 import clashsoft.cslib.minecraft.block.BlockCustomPortal;
-import clashsoft.mods.moredimensions.addons.Heaven;
-import clashsoft.mods.moredimensions.addons.MDMWorld;
+import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 import clashsoft.mods.moredimensions.world.teleporters.TeleporterHeaven;
 
 import net.minecraft.block.Block;
