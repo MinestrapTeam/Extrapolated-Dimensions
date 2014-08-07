@@ -5,7 +5,6 @@ import java.util.List;
 import clashsoft.brewingapi.item.ItemPotion2;
 import clashsoft.brewingapi.potion.base.PotionBase;
 import clashsoft.brewingapi.potion.type.IPotionType;
-import clashsoft.brewingapi.potion.type.PotionType;
 import clashsoft.mods.moredimensions.addons.Alchemy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -117,7 +116,7 @@ public class ItemElixir extends ItemPotion2
 			
 			if (effects != null && !effects.isEmpty())
 			{
-				if (effects.size() == PotionType.combinableTypes.size())
+				if (effects.size() == IPotionType.combinableTypes.size())
 				{
 					return "\u00a7b" + string1 + StatCollector.translateToLocal("elixir.alleffects.postfix");
 				}
@@ -172,7 +171,7 @@ public class ItemElixir extends ItemPotion2
 				list.add(new ItemStack(this, 1, i * 4));
 			}
 			
-			for (IPotionType potionType : PotionType.potionTypeList)
+			for (IPotionType potionType : IPotionType.potionTypeList)
 			{
 				for (int i = 1; i <= BOTTLE_TYPES * 4; i += 2)
 				{

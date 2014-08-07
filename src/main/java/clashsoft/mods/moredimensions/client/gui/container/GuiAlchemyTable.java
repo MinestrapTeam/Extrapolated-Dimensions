@@ -80,15 +80,15 @@ public class GuiAlchemyTable extends GuiContainer
 		
 		// Render flames
 		
-		heatType = alchemyTable.getHeatType(0);
+		heatType = this.alchemyTable.getHeatType(0);
 		i1 = this.alchemyTable.getEnergyTimeRemainingScaled(12, 0);
 		this.drawTexturedModalRect(k + 13, l + 69 - i1, heatType.id * 14, 193 + 12 - i1, 14, i1 + 2);
 		
-		heatType = alchemyTable.getHeatType(1);
+		heatType = this.alchemyTable.getHeatType(1);
 		i1 = this.alchemyTable.getEnergyTimeRemainingScaled(12, 1);
 		this.drawTexturedModalRect(k + 67, l + 69 - i1, heatType.id * 14, 193 + 12 - i1, 14, i1 + 2);
 		
-		heatType = alchemyTable.getHeatType(2);
+		heatType = this.alchemyTable.getHeatType(2);
 		i1 = this.alchemyTable.getEnergyTimeRemainingScaled(12, 2);
 		this.drawTexturedModalRect(k + 193, l + 69 - i1, heatType.id * 14, 193 + 12 - i1, 14, i1 + 2);
 		

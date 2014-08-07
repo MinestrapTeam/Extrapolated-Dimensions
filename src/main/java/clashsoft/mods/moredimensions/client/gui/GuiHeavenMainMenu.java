@@ -199,7 +199,7 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 		GL11.glTranslatef(this.width / 2 + 90, 70.0F, 0.0F);
 		GL11.glRotatef(-20.0F, 0.0F, 0.0F, 1.0F);
 		float f1 = 1.8F - MathHelper.abs(MathHelper.sin(Minecraft.getSystemTime() % 1000L / 1000.0F * (float) Math.PI * 2.0F) * 0.1F);
-		f1 = f1 * 100.0F / (float) (this.fontRendererObj.getStringWidth(this.splashText) + 32);
+		f1 = f1 * 100.0F / (this.fontRendererObj.getStringWidth(this.splashText) + 32);
 		GL11.glScalef(f1, f1, f1);
 		this.drawCenteredString(this.fontRendererObj, this.splashText, 0, -8, 0x00AAFF);
 		GL11.glPopMatrix();

@@ -40,4 +40,9 @@ public class CapeImageBuffer implements IImageBuffer
 			return capeImage;
 		}
 	}
+
+	@Override
+	public void func_152634_a()
+	{
+	}
 }

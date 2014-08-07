@@ -31,7 +31,7 @@ public class GuiPOCIngame extends GuiIngameForge
 	{
 		if (event.type == ElementType.HOTBAR)
 		{
-			this.res = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
+			this.res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 			
 			int width = this.res.getScaledWidth();
 			int height = this.res.getScaledHeight();
