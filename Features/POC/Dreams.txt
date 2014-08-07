@@ -1,8 +1,0 @@
-{== Dreams ==}
-
-- Normal dreams and nightmares
-- Start randomly when sleeping in a bed
-- Put you in a uneditable world that is randomly generated each night
-- Your only task is to survive the 10 minutes until you wake up
-
-- Loot?
