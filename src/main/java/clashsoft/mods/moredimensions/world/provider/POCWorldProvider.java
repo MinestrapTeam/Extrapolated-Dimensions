@@ -31,4 +31,10 @@ public class POCWorldProvider extends CustomWorldProvider
 	{
 		return "Paradise Of Chaos";
 	}
+	
+	@Override
+	public String getSaveFolder()
+	{
+		return "POC";
+	}
 }
