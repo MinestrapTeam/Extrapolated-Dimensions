@@ -2,8 +2,9 @@ package clashsoft.mods.moredimensions.item.armor;
 
 import java.util.List;
 
+import clashsoft.cslib.minecraft.cape.Capes;
+import clashsoft.cslib.minecraft.init.CSLib;
 import clashsoft.cslib.minecraft.item.ItemCustomArmor;
-import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.api.ICape;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,21 +15,31 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 
 public class ItemCape extends ItemCustomArmor implements ICape
 {
 	public static IIcon		slotIcon;
 	
 	public static String[]	capeNames	= {
-			"cape_pro",
-			"cape_blue",
-			"cape_green",
-			"cape_red",
-			"cape_yellow",
-			"cape_invisibility",
-			"cape_minecon2011",
-			"cape_minecon2012",
-			"cape_minecon2013"			};
+			"pro",
+			"blue",
+			"green",
+			"red",
+			"yellow",
+			"invisibility",
+			"minecon_2011",
+			"minecon_2012",
+			"minecon_2013"			};
+	
+	static
+	{
+		for (String capeName : capeNames)
+		{
+			ResourceLocation location = new ResourceLocation("mdm_main", "textures/capes/" + capeName + ".png");
+			Capes.addCape(capeName, location);
+		}
+	}
 	
 	public IIcon[]			icons;
 	
@@ -45,7 +56,7 @@ public class ItemCape extends ItemCustomArmor implements ICape
 		this.icons = new IIcon[capeNames.length];
 		for (int i = 0; i < capeNames.length; i++)
 		{
-			this.icons[i] = iconRegister.registerIcon("mdm_main:" + capeNames[i]);
+			this.icons[i] = iconRegister.registerIcon("mdm_main:cape_" + capeNames[i]);
 		}
 		
 		if (slotIcon == null)
@@ -63,7 +74,7 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return "item." + capeNames[stack.getItemDamage() % capeNames.length];
+		return "item.cape_" + capeNames[stack.getItemDamage() % capeNames.length];
 	}
 	
 	@Override
@@ -88,7 +99,7 @@ public class ItemCape extends ItemCustomArmor implements ICape
 			}
 			else
 			{
-				MoreDimensionsMod.proxy.setCape(player, capeNames[metadata]);
+				CSLib.getNetHandler().sendCapePacket(player, capeNames[metadata]);
 			}
 		}
 	}

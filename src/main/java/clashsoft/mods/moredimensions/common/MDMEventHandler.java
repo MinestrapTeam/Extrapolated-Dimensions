@@ -223,7 +223,7 @@ public class MDMEventHandler
 		
 		if (stack == null)
 		{
-			CSLib.proxy.setCape(player, (String) null);
+			CSLib.getNetHandler().sendCapePacket(player, "");
 		}
 		else if (stack.getItem() instanceof ICape)
 		{
