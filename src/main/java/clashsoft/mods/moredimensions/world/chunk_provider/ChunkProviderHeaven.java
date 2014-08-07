@@ -22,26 +22,26 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 	@Override
 	public void generate(int x, int y, Block[] blocks)
 	{
-		this.noiseField1 = this.initializeNoiseField(this.noiseField1, x * (byte) 2, 0, y * (byte) 2, (byte) 2 + 1, (byte) 33, (byte) 2 + 1);
+		this.noiseField1 = this.initializeNoiseField(this.noiseField1, x * 2, 0, y * 2, 3, 33, 3);
 		
-		for (int i1 = 0; i1 < (byte) 2; i1++)
+		for (int x1 = 0; x1 < 2; x1++)
 		{
-			for (int j1 = 0; j1 < (byte) 2; j1++)
+			for (int z1 = 0; z1 < 2; z1++)
 			{
-				for (int k1 = 0; k1 < 32; k1++)
+				for (int y1 = 0; y1 < 32; y1++)
 				{
 					double d = 0.25D;
 					
-					double d1 = this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 0)];
-					double d2 = this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 0)];
-					double d3 = this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 0)];
-					double d4 = this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 0)];
-					double d5 = (this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 1)] - d1) * d;
-					double d6 = (this.noiseField1[(((i1 + 0) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 1)] - d2) * d;
-					double d7 = (this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 0) * (byte) 33 + k1 + 1)] - d3) * d;
-					double d8 = (this.noiseField1[(((i1 + 1) * ((byte) 2 + 1) + j1 + 1) * (byte) 33 + k1 + 1)] - d4) * d;
+					double d1 = this.noiseField1[(((x1 + 0) * 3 + z1 + 0) * 33 + y1 + 0)];
+					double d2 = this.noiseField1[(((x1 + 0) * 3 + z1 + 1) * 33 + y1 + 0)];
+					double d3 = this.noiseField1[(((x1 + 1) * 3 + z1 + 0) * 33 + y1 + 0)];
+					double d4 = this.noiseField1[(((x1 + 1) * 3 + z1 + 1) * 33 + y1 + 0)];
+					double d5 = (this.noiseField1[(((x1 + 0) * 3 + z1 + 0) * 33 + y1 + 1)] - d1) * d;
+					double d6 = (this.noiseField1[(((x1 + 0) * 3 + z1 + 1) * 33 + y1 + 1)] - d2) * d;
+					double d7 = (this.noiseField1[(((x1 + 1) * 3 + z1 + 0) * 33 + y1 + 1)] - d3) * d;
+					double d8 = (this.noiseField1[(((x1 + 1) * 3 + z1 + 1) * 33 + y1 + 1)] - d4) * d;
 					
-					for (int l1 = 0; l1 < 4; l1++)
+					for (int y2 = 0; y2 < 8; y2++)
 					{
 						double d9 = 0.125D;
 						double d10 = d1;
@@ -50,7 +50,7 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 						double d13 = (d4 - d2) * d9;
 						for (int i2 = 0; i2 < 8; i2++)
 						{
-							int j2 = i2 + i1 * 8 << 11 | 0 + j1 * 8 << 7 | k1 * 4 + l1;
+							int index = i2 + x1 * 8 << 12 | 0 + z1 * 8 << 8 | y1 * 8 + y2;
 							
 							double d14 = 0.125D;
 							double d15 = d10;
@@ -59,9 +59,9 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 							{
 								if (d15 > 0.0D)
 								{
-									blocks[j2] = Heaven.stoneBlocks;
+									blocks[index] = Heaven.stoneBlocks;
 								}
-								j2 += 128;
+								index += 256;
 								d15 += d16;
 							}
 							
@@ -79,30 +79,29 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 		}
 	}
 	
-	public double[] initializeNoiseField(double[] ad, int i, int j, int k, int l, int i1, int j1)
+	public double[] initializeNoiseField(double[] noiseArray, int x, int y, int z, int xSize, int ySize, int zSize)
 	{
-		if (ad == null)
+		if (noiseArray == null)
 		{
-			ad = new double[l * i1 * j1];
+			noiseArray = new double[xSize * ySize * zSize];
 		}
-		double d = 684.41200000000003D;
-		double d1 = 684.41200000000003D;
+		double d = 684.412D;
+		double d1 = 684.412D;
 		
-		this.noiseField8 = this.noiseGen1.generateNoiseOctaves(this.noiseField8, i, k, l, j1, 1.121D, 1.121D, 0.5D);
-		this.noiseField9 = this.noiseGen4.generateNoiseOctaves(this.noiseField9, i, k, l, j1, 200.0D, 200.0D, 0.5D);
+		this.noiseField8 = this.noiseGen1.generateNoiseOctaves(this.noiseField8, x, z, xSize, zSize, 1.121D, 1.121D, 0.5D);
+		this.noiseField9 = this.noiseGen4.generateNoiseOctaves(this.noiseField9, x, z, xSize, zSize, 200.0D, 200.0D, 0.5D);
 		
 		d *= 2.0D;
-		this.noiseField5 = this.noiseGen3.generateNoiseOctaves(this.noiseField5, i, j, k, l, i1, j1, d / 80.0D, d1 / 160.0D, d / 80.0D);
-		this.noiseField6 = this.noiseGen1.generateNoiseOctaves(this.noiseField6, i, j, k, l, i1, j1, d, d1, d);
-		this.noiseField7 = this.noiseGen2.generateNoiseOctaves(this.noiseField7, i, j, k, l, i1, j1, d, d1, d);
+		this.noiseField5 = this.noiseGen3.generateNoiseOctaves(this.noiseField5, x, y, z, xSize, ySize, zSize, d / 80.0D, d1 / 160.0D, d / 80.0D);
+		this.noiseField6 = this.noiseGen1.generateNoiseOctaves(this.noiseField6, x, y, z, xSize, ySize, zSize, d, d1, d);
+		this.noiseField7 = this.noiseGen2.generateNoiseOctaves(this.noiseField7, x, y, z, xSize, ySize, zSize, d, d1, d);
 		
 		int k1 = 0;
 		int l1 = 0;
-		for (int j2 = 0; j2 < l; j2++)
+		for (int j2 = 0; j2 < xSize; j2++)
 		{
-			for (int l2 = 0; l2 < j1; l2++)
+			for (int l2 = 0; l2 < zSize; l2++)
 			{
-				
 				double d4 = 1.0D;
 				d4 *= d4;
 				d4 *= d4;
@@ -130,10 +129,10 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 					d5 = 0.0D;
 				}
 				d5 += 0.5D;
-				d6 = d6 * i1 / 16.0D;
+				d6 = d6 * ySize / 16.0D;
 				l1++;
-				double d7 = i1 / 2.0D;
-				for (int j3 = 0; j3 < i1; j3++)
+				double d7 = ySize / 2.0D;
+				for (int j3 = 0; j3 < ySize; j3++)
 				{
 					double d8 = 0.0D;
 					double d9 = (j3 - d7) * 8.0D / d5;
@@ -154,9 +153,9 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 					}
 					d8 -= 8.0D;
 					int k3 = 32;
-					if (j3 > i1 - k3)
+					if (j3 > ySize - k3)
 					{
-						double d13 = (j3 - (i1 - k3)) / (k3 - 1.0F);
+						double d13 = (j3 - (ySize - k3)) / (k3 - 1.0F);
 						d8 = d8 * (1.0D - d13) + -30.0D * d13;
 					}
 					k3 = 8;
@@ -165,11 +164,11 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 						double d14 = (k3 - j3) / (k3 - 1.0F);
 						d8 = d8 * (1.0D - d14) + -30.0D * d14;
 					}
-					ad[k1] = d8;
+					noiseArray[k1] = d8;
 					k1++;
 				}
 			}
 		}
-		return ad;
+		return noiseArray;
 	}
 }
