@@ -103,6 +103,6 @@ public class MDMClientProxy extends MDMProxy
 	@Override
 	public void setCape(EntityPlayer player, String cape)
 	{
-		// CapeHelper.setCape((AbstractClientPlayer) player, cape);
+		CapeHelper.setCape(player, cape);
 	}
 }

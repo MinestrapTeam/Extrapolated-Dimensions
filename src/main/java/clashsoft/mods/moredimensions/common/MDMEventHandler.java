@@ -207,7 +207,7 @@ public class MDMEventHandler
 			else if (player.dimension == 0 && player.posY > 256)
 			{
 				player.setPosition(player.posX, 0, player.posZ);
-				server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.POC_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.POC_ID)));
+				server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.HEAVEN_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.HEAVEN_ID)));
 			}
 		}
 		catch (Exception ex)

@@ -90,7 +90,7 @@ public class Heaven
 		heavenPortalActivator = (ItemHeavenPortalActivator) new ItemHeavenPortalActivator().setTextureName("mdm_heaven:heaven_portal_activator").setCreativeTab(tabHeavenTools);
 		
 		String[] seeds = new String[] { "heaven_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" };
-		heavenSeeds = (ItemHeavenSeeds) new ItemHeavenSeeds(seeds, CSString.concatAll(seeds, "mdm_heaven:", "_seeds"));
+		heavenSeeds = new ItemHeavenSeeds(seeds, CSString.concatAll(seeds, "mdm_heaven:", "_seeds"));
 		iceStick = (ItemIceStick) new ItemIceStick().setTextureName("mdm_heaven:ice_stick").setCreativeTab(tabHeavenItems);
 		
 		// Blocks
