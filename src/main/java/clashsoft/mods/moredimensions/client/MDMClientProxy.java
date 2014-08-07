@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import clashsoft.mods.moredimensions.api.IMDMBoss;
-import clashsoft.mods.moredimensions.cape.CapeHelper;
 import clashsoft.mods.moredimensions.client.gui.GuiBossChat;
 import clashsoft.mods.moredimensions.client.gui.GuiPOCIngame;
 import clashsoft.mods.moredimensions.client.gui.GuiTome;
@@ -82,7 +81,6 @@ public class MDMClientProxy extends MDMProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAlchemyTube.class, new RenderAlchemyTube());
 		
 		// Capes
-		CapeHelper.addFileUrl("https://dl.dropboxusercontent.com/s/riyz6rte7ds9wm5/chaosdev.txt");
 	}
 	
 	@Override
@@ -98,11 +96,5 @@ public class MDMClientProxy extends MDMProxy
 			this.armorFiles.put(name, result);
 			return result;
 		}
-	}
-	
-	@Override
-	public void setCape(EntityPlayer player, String cape)
-	{
-		CapeHelper.setCape(player, cape);
 	}
 }

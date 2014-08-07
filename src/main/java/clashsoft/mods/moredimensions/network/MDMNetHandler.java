@@ -7,7 +7,5 @@ public class MDMNetHandler extends CSNetHandler
 	public MDMNetHandler()
 	{
 		super("MDM");
-		
-		this.registerPacket(PacketHeaven.class);
 	}
 }

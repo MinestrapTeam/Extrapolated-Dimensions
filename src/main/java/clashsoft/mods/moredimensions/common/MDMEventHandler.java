@@ -1,12 +1,12 @@
 package clashsoft.mods.moredimensions.common;
 
+import clashsoft.cslib.minecraft.init.CSLib;
 import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
-import clashsoft.mods.moredimensions.MoreDimensionsMod;
-import clashsoft.mods.moredimensions.addons.MDMWorld;
 import clashsoft.mods.moredimensions.api.ICape;
 import clashsoft.mods.moredimensions.api.IMinableBlock;
 import clashsoft.mods.moredimensions.curse.Curse;
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 import clashsoft.playerinventoryapi.lib.ExtendedInventory;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -219,11 +219,11 @@ public class MDMEventHandler
 	public void updatePlayerCapes(EntityPlayerMP player)
 	{
 		ExtendedInventory extendedInventory = ExtendedInventory.get(player);
-		ItemStack stack = extendedInventory.getStackInSlot(2);
+		ItemStack stack = extendedInventory.getStackInSlot(66);
 		
 		if (stack == null)
 		{
-			MoreDimensionsMod.proxy.setCape(player, (String) null);
+			CSLib.proxy.setCape(player, (String) null);
 		}
 		else if (stack.getItem() instanceof ICape)
 		{

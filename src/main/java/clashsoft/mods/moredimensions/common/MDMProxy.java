@@ -1,7 +1,5 @@
 package clashsoft.mods.moredimensions.common;
 
-import java.util.List;
-
 import clashsoft.cslib.minecraft.common.BaseProxy;
 import clashsoft.mods.moredimensions.MoreDimensionsMod;
 import clashsoft.mods.moredimensions.api.IMDMBoss;
@@ -9,13 +7,11 @@ import clashsoft.mods.moredimensions.inventory.ContainerAlchemyTable;
 import clashsoft.mods.moredimensions.inventory.ContainerBossChat;
 import clashsoft.mods.moredimensions.inventory.ContainerDamnationTable;
 import clashsoft.mods.moredimensions.inventory.ContainerTome;
-import clashsoft.mods.moredimensions.network.CapePacket;
 import clashsoft.mods.moredimensions.tileentity.TileEntityAlchemyTable;
 import clashsoft.mods.moredimensions.tileentity.TileEntityDamnationTable;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import net.minecraftforge.common.DimensionManager;
 
 public class MDMProxy extends BaseProxy
 {
@@ -59,40 +55,7 @@ public class MDMProxy extends BaseProxy
 		return 0;
 	}
 	
-	public void setCape(EntityPlayer player, String cape)
-	{
-		MoreDimensionsMod.instance.netHandler.sendToAll(new CapePacket(player, cape));
-	}
-	
 	public void sendPlayerToHeaven(EntityPlayer player)
 	{
-	}
-	
-	public EntityPlayer findPlayer(String username)
-	{
-		for (World world : DimensionManager.getWorlds())
-		{
-			EntityPlayer player = this.findPlayer(world, username);
-			if (player != null)
-			{
-				return player;
-			}
-		}
-		return null;
-	}
-	
-	public EntityPlayer findPlayer(World world, String username)
-	{
-		List<EntityPlayer> players = world.playerEntities;
-		EntityPlayer player = null;
-		for (int i = 0; i < players.size(); i++)
-		{
-			player = players.get(i);
-			if (player.getDisplayName().equals(username))
-			{
-				return player;
-			}
-		}
-		return null;
 	}
 }
