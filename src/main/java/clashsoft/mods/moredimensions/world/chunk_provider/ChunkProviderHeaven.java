@@ -1,10 +1,18 @@
 package clashsoft.mods.moredimensions.world.chunk_provider;
 
+import java.util.Random;
+
 import clashsoft.cslib.minecraft.world.CustomChunkProvider;
+import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.mods.moredimensions.lib.Heaven;
+import cpw.mods.fml.common.eventhandler.Event;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 
 public class ChunkProviderHeaven extends CustomChunkProvider
 {
@@ -170,5 +178,77 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 			}
 		}
 		return noiseArray;
+	}
+	
+	@Override
+	public void replaceBlocksForBiome(int x, int z, Block[] blocks, byte[] metadata, BiomeGenBase[] biomes)
+	{
+		ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, x, z, blocks, biomes);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.getResult() == Event.Result.DENY)
+		{
+			return;
+		}
+		
+		this.stoneNoise = this.noiseGenPerlin.func_151599_a(this.stoneNoise, x << 4, z << 4, 16, 16, 0.0625, 0.0625, 1.0D);
+		
+		for (int k = 0; k < 16; ++k)
+		{
+			for (int l = 0; l < 16; ++l)
+			{
+				int index = l + k * 16;
+				BiomeGenBase biome = biomes[index];
+				
+				if (biome instanceof CustomBiome)
+				{
+					genTerrainBlocks((CustomBiome) biome, this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[index]);
+				}
+				else
+				{
+					biome.genTerrainBlocks(this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[index]);
+				}
+			}
+		}
+	}
+	
+	public static void genTerrainBlocks(CustomBiome biome, World world, Random random, Block[] blocks, byte[] metadatas, int x, int z, double noise)
+	{
+		int count = blocks.length >> 8;
+		int x1 = x & 0xF;
+		int z1 = z & 0xF;
+		int index1 = ((z1 << 4) + x1) * count;
+		int grassHeight = -1;
+		int randomNoise = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
+		
+		for (int y = 255; y >= 0; --y)
+		{
+			int index = index1 + y;
+			
+			Block block = blocks[index];
+			
+			if (block != null && block.getMaterial() != Material.air)
+			{
+				if (grassHeight == -1)
+				{
+					grassHeight = y;
+					blocks[index] = biome.getTopBlock(x, y, z);
+					metadatas[index] = biome.getTopMetadata(x, y, z);
+				}
+				else if (y >= grassHeight - randomNoise)
+				{
+					blocks[index] = biome.getFillerBlock(x, y, z);
+					metadatas[index] = biome.getFillerMetadata(x, y, z);
+				}
+				else
+				{
+					blocks[index] = biome.getStoneBlock(x, y, z);
+					metadatas[index] = biome.getStoneMetadata(x, y, z);
+				}
+			}
+			else
+			{
+				grassHeight = -1;
+			}
+		}
 	}
 }
