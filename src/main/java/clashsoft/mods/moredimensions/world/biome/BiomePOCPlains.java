@@ -7,7 +7,6 @@ import clashsoft.cslib.minecraft.world.gen.CustomBigTreeGen;
 import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -23,6 +22,7 @@ public class BiomePOCPlains extends CustomBiome
 		
 		this.topBlock = ParadiseOfChaos.grassBlocks;
 		this.fillerBlock = ParadiseOfChaos.dirtBlocks;
+		this.stoneBlock = ParadiseOfChaos.stoneBlocks;
 		
 		this.theBiomeDecorator = new BiomeDecorator();
 		
@@ -33,11 +33,5 @@ public class BiomePOCPlains extends CustomBiome
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextBoolean() ? new POCGenMagicOakTree(true) : new CustomBigTreeGen(true, 5, Blocks.log, Blocks.leaves);
-	}
-	
-	@Override
-	public Block getStoneBlock(int x, int y, int z)
-	{
-		return ParadiseOfChaos.stoneBlocks;
 	}
 }

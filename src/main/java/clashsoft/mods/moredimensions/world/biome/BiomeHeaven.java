@@ -6,7 +6,6 @@ import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.lib.Heaven;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
@@ -31,6 +30,7 @@ public class BiomeHeaven extends CustomBiome
 		
 		this.topBlock = Heaven.grassBlocks;
 		this.fillerBlock = Heaven.dirtBlocks;
+		this.stoneBlock = Heaven.stoneBlocks;
 		
 		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven());
 		
@@ -40,21 +40,9 @@ public class BiomeHeaven extends CustomBiome
 	}
 	
 	@Override
-	public Block getTopBlock(int x, int y, int z)
+	public int getBedrockHeight()
 	{
-		return Heaven.grassBlocks;
-	}
-	
-	@Override
-	public Block getFillerBlock(int x, int y, int z)
-	{
-		return Heaven.dirtBlocks;
-	}
-	
-	@Override
-	public Block getStoneBlock(int x, int y, int z)
-	{
-		return Heaven.stoneBlocks;
+		return 0;
 	}
 	
 	@Override

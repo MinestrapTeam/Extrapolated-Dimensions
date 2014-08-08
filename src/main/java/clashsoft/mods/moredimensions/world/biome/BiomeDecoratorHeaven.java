@@ -27,7 +27,7 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	public void genDecorations(BiomeGenBase biome)
 	{
 		this.generateOres();
-		this.genTrees(this.treesPerChunk, biome.func_150567_a(this.randomGenerator), 0, 128);
+		//this.genTrees(this.treesPerChunk, biome.func_150567_a(this.randomGenerator), 0, 128);
 	}
 	
 	@Override
@@ -48,7 +48,7 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 		for (int i = 0; i < amount; ++i)
 		{
 			int x = this.chunk_X + this.randomGenerator.nextInt(16);
-			int y = this.randomGenerator.nextInt(maxHeight - minHeight) + minHeight;
+			int y = this.randomGenerator.nextInt(maxHeight - minHeight + 1) + minHeight;
 			int z = this.chunk_Z + this.randomGenerator.nextInt(16);
 			worldgen.generate(this.currentWorld, this.randomGenerator, x, y, z);
 		}

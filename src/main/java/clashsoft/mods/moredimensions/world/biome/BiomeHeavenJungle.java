@@ -12,6 +12,10 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	public BiomeHeavenJungle(int i)
 	{
 		super(i);
+		
+		this.topMetadata = 1;
+		this.fillerMetadata = 1;
+		
 		this.theBiomeDecorator.treesPerChunk = 12;
 	}
 	
@@ -19,17 +23,5 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return new HeavenGenJungleTree(true, 7, Heaven.logBlocks, Heaven.leafBlocks);
-	}
-	
-	@Override
-	public byte getTopMetadata(int x, int y, int z)
-	{
-		return 1;
-	}
-	
-	@Override
-	public byte getFillerMetadata(int x, int y, int z)
-	{
-		return 1;
 	}
 }
