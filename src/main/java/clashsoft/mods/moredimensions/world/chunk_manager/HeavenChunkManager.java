@@ -22,6 +22,7 @@ public class HeavenChunkManager extends CustomChunkManager
 	{
 		list.add(MDMWorld.biomeHeaven);
 		list.add(MDMWorld.biomeHeavenJungle);
+		list.add(MDMWorld.biomeHeavenForest);
 	}
 
 	@Override

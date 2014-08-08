@@ -3,7 +3,6 @@ package clashsoft.mods.moredimensions.lib;
 import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.world.biome.*;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings.HeavenGenBuilding1;
 import clashsoft.mods.moredimensions.world.provider.HeavenWorldProvider;
@@ -16,7 +15,9 @@ import net.minecraftforge.common.DimensionManager;
 public class MDMWorld
 {
 	public static BiomeGenBase	biomeHeaven;
+	public static BiomeGenBase biomeHeavenForest;
 	public static BiomeGenBase	biomeHeavenJungle;
+	
 	public static BiomeGenBase	biomePOCPlains;
 	public static BiomeGenBase	biomePOCMountains;
 	public static BiomeGenBase	biomePOCDesert;
@@ -37,7 +38,8 @@ public class MDMWorld
 		// -- Biomes --
 		
 		biomeHeaven = new BiomeHeaven(CSConfig.getBiome("Heaven", 60)).setBiomeName("Heaven");
-		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("Heaven Jungle", 61)).setBiomeName("Heaven Jungle");
+		biomeHeavenForest = new BiomeHeavenForest(CSConfig.getBiome("Heaven Forest", 61)).setBiomeName("Heaven Forest");
+		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("Heaven Jungle", 62)).setBiomeName("Heaven Jungle");
 		
 		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
 		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
@@ -66,13 +68,6 @@ public class MDMWorld
 	
 	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
 	{
-		for (int i = 0; i < 10; i++)
-		{
-			int randPosX = chunkX + rand.nextInt(16);
-			int randPosY = rand.nextInt(250);
-			int randPosZ = chunkZ + rand.nextInt(16);
-			(new CustomTreeGen(true, 6, Heaven.logBlocks, Heaven.leafBlocks, 0, 0, false)).generate(world, rand, randPosX, randPosY, randPosZ);
-		}
 		for (int i = 0; i < 5; i++)
 		{
 			int randPosX = chunkX + rand.nextInt(16);

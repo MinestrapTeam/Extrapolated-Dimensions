@@ -5,21 +5,24 @@ import java.util.Random;
 import clashsoft.mods.moredimensions.lib.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeDecoratorHeaven extends BiomeDecorator
 {
-	private WorldGenerator		dirtGen		= new HeavenGenMinable(Heaven.dirtBlocks, 20);
-	private WorldGenerator		sywoxiteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 3, 18);
-	private WorldGenerator		clashiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 4, 10);
-	private WorldGenerator		bluriteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 5, 8);
-	private WorldGenerator		holyiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 6, 8);
+	private WorldGenerator	dirtGen		= new HeavenGenMinable(Heaven.dirtBlocks, 20);
+	private WorldGenerator	sywoxiteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 3, 18);
+	private WorldGenerator	clashiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 4, 10);
+	private WorldGenerator	bluriteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 5, 8);
+	private WorldGenerator	holyiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 6, 8);
 	
 	public BiomeDecoratorHeaven()
 	{
-		this.treesPerChunk = 8;
+		this.diamondGen = new HeavenGenMinable(Blocks.diamond_ore, 7);
+		this.treesPerChunk = 1;
 		this.randomGenerator = new Random();
 	}
 	
@@ -27,7 +30,26 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	public void genDecorations(BiomeGenBase biome)
 	{
 		this.generateOres();
-		//this.genTrees(this.treesPerChunk, biome.func_150567_a(this.randomGenerator), 0, 128);
+		
+		for (int j = 0; j < this.treesPerChunk; ++j)
+		{
+			try
+			{
+				int x = this.chunk_X + this.randomGenerator.nextInt(16);
+				int z = this.chunk_Z + this.randomGenerator.nextInt(16);
+				int y = this.currentWorld.getTopSolidOrLiquidBlock(x, z);
+				WorldGenAbstractTree worldgenabstracttree = biome.func_150567_a(this.randomGenerator);
+				worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
+				
+				if (worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, x, y, z))
+				{
+					worldgenabstracttree.func_150524_b(this.currentWorld, this.randomGenerator, x, y, z);
+				}
+			}
+			catch (Exception ex)
+			{
+			}
+		}
 	}
 	
 	@Override

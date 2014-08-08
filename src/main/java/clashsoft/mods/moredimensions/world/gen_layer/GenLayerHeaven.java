@@ -16,6 +16,6 @@ public class GenLayerHeaven extends CustomGenLayer
 	@Override
 	public int getBiomeSize(long seed, WorldType worldType)
 	{
-		return 4;
+		return 5;
 	}
 }

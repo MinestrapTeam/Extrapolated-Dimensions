@@ -16,7 +16,7 @@ public class BiomeHeavenJungle extends BiomeHeaven
 		this.topMetadata = 1;
 		this.fillerMetadata = 1;
 		
-		this.theBiomeDecorator.treesPerChunk = 12;
+		this.theBiomeDecorator.treesPerChunk = 8;
 	}
 	
 	@Override
