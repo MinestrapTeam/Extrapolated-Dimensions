@@ -1,18 +1,10 @@
 package clashsoft.mods.moredimensions.world.chunk_provider;
 
-import java.util.Random;
-
 import clashsoft.cslib.minecraft.world.CustomChunkProvider;
-import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.mods.moredimensions.lib.Heaven;
-import cpw.mods.fml.common.eventhandler.Event;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 
 public class ChunkProviderHeaven extends CustomChunkProvider
 {
@@ -38,7 +30,9 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 			{
 				for (int y1 = 0; y1 < 32; y1++)
 				{
-					double d = 0.25D;
+					double d = 0.125D;
+					double d9 = 0.125D;
+					double d14 = 0.125D;
 					
 					double d1 = this.noiseField1[(((x1 + 0) * 3 + z1 + 0) * 33 + y1 + 0)];
 					double d2 = this.noiseField1[(((x1 + 0) * 3 + z1 + 1) * 33 + y1 + 0)];
@@ -51,16 +45,14 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 					
 					for (int y2 = 0; y2 < 8; y2++)
 					{
-						double d9 = 0.125D;
 						double d10 = d1;
 						double d11 = d2;
 						double d12 = (d3 - d1) * d9;
 						double d13 = (d4 - d2) * d9;
-						for (int i2 = 0; i2 < 8; i2++)
+						for (int y3 = 0; y3 < 8; y3++)
 						{
-							int index = i2 + x1 * 8 << 12 | 0 + z1 * 8 << 8 | y1 * 8 + y2;
+							int index = y3 + (x1 * 8) << 12 | (z1 * 8) << 8 | (y1 * 8) + y2;
 							
-							double d14 = 0.125D;
 							double d15 = d10;
 							double d16 = (d11 - d10) * d14;
 							for (int k2 = 0; k2 < 8; k2++)
@@ -93,16 +85,13 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 		{
 			noiseArray = new double[xSize * ySize * zSize];
 		}
-		double d = 684.412D;
-		double d1 = 684.412D;
 		
 		this.noiseField8 = this.noiseGen1.generateNoiseOctaves(this.noiseField8, x, z, xSize, zSize, 1.121D, 1.121D, 0.5D);
 		this.noiseField9 = this.noiseGen4.generateNoiseOctaves(this.noiseField9, x, z, xSize, zSize, 200.0D, 200.0D, 0.5D);
 		
-		d *= 2.0D;
-		this.noiseField5 = this.noiseGen3.generateNoiseOctaves(this.noiseField5, x, y, z, xSize, ySize, zSize, d / 80.0D, d1 / 160.0D, d / 80.0D);
-		this.noiseField6 = this.noiseGen1.generateNoiseOctaves(this.noiseField6, x, y, z, xSize, ySize, zSize, d, d1, d);
-		this.noiseField7 = this.noiseGen2.generateNoiseOctaves(this.noiseField7, x, y, z, xSize, ySize, zSize, d, d1, d);
+		this.noiseField5 = this.noiseGen3.generateNoiseOctaves(this.noiseField5, x, y, z, xSize, ySize, zSize, 1368.824D / 80.0D, 684.412D / 160.0D, 1368.824D / 80.0D);
+		this.noiseField6 = this.noiseGen1.generateNoiseOctaves(this.noiseField6, x, y, z, xSize, ySize, zSize, 1368.824D, 684.412D, 1368.824D);
+		this.noiseField7 = this.noiseGen2.generateNoiseOctaves(this.noiseField7, x, y, z, xSize, ySize, zSize, 1368.824D, 684.412D, 1368.824D);
 		
 		int k1 = 0;
 		int l1 = 0;
@@ -178,77 +167,5 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 			}
 		}
 		return noiseArray;
-	}
-	
-	@Override
-	public void replaceBlocksForBiome(int x, int z, Block[] blocks, byte[] metadata, BiomeGenBase[] biomes)
-	{
-		ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, x, z, blocks, biomes);
-		MinecraftForge.EVENT_BUS.post(event);
-		if (event.getResult() == Event.Result.DENY)
-		{
-			return;
-		}
-		
-		this.stoneNoise = this.noiseGenPerlin.func_151599_a(this.stoneNoise, x << 4, z << 4, 16, 16, 0.0625, 0.0625, 1.0D);
-		
-		for (int k = 0; k < 16; ++k)
-		{
-			for (int l = 0; l < 16; ++l)
-			{
-				int index = l + k * 16;
-				BiomeGenBase biome = biomes[index];
-				
-				if (biome instanceof CustomBiome)
-				{
-					genTerrainBlocks((CustomBiome) biome, this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[index]);
-				}
-				else
-				{
-					biome.genTerrainBlocks(this.worldObj, this.random, blocks, metadata, (x << 4) + k, (z << 4) + l, this.stoneNoise[index]);
-				}
-			}
-		}
-	}
-	
-	public static void genTerrainBlocks(CustomBiome biome, World world, Random random, Block[] blocks, byte[] metadatas, int x, int z, double noise)
-	{
-		int count = blocks.length >> 8;
-		int x1 = x & 0xF;
-		int z1 = z & 0xF;
-		int index1 = ((z1 << 4) + x1) * count;
-		int grassHeight = -1;
-		int randomNoise = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
-		
-		for (int y = 255; y >= 0; --y)
-		{
-			int index = index1 + y;
-			
-			Block block = blocks[index];
-			
-			if (block != null && block.getMaterial() != Material.air)
-			{
-				if (grassHeight == -1)
-				{
-					grassHeight = y;
-					blocks[index] = biome.getTopBlock(x, y, z);
-					metadatas[index] = biome.getTopMetadata(x, y, z);
-				}
-				else if (y >= grassHeight - randomNoise)
-				{
-					blocks[index] = biome.getFillerBlock(x, y, z);
-					metadatas[index] = biome.getFillerMetadata(x, y, z);
-				}
-				else
-				{
-					blocks[index] = biome.getStoneBlock(x, y, z);
-					metadatas[index] = biome.getStoneMetadata(x, y, z);
-				}
-			}
-			else
-			{
-				grassHeight = -1;
-			}
-		}
 	}
 }
