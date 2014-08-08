@@ -36,13 +36,13 @@ public class MDMWorld
 		
 		// -- Biomes --
 		
-		biomeHeaven = new BiomeHeaven(CSConfig.getBiome("Heaven", 149)).setBiomeName("Heaven");
-		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("Heaven Jungle", 153)).setBiomeName("Heaven Jungle");
+		biomeHeaven = new BiomeHeaven(CSConfig.getBiome("Heaven", 60)).setBiomeName("Heaven");
+		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("Heaven Jungle", 61)).setBiomeName("Heaven Jungle");
 		
-		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 150)).setBiomeName("Plains of Insanity");
-		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 151)).setBiomeName("Corrupted Mountains");
-		biomePOCDesert = new BiomePOCDesert(CSConfig.getBiome("Desert of Dryness", 152)).setBiomeName("Desert of Dryness");
-		biomeBloodPlains = new BiomeBloodPlains(CSConfig.getBiome("Blood Plains", 153)).setBiomeName("Blood Plains");
+		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
+		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
+		biomePOCDesert = new BiomePOCDesert(CSConfig.getBiome("Desert of Dryness", 72)).setBiomeName("Desert of Dryness");
+		biomeBloodPlains = new BiomeBloodPlains(CSConfig.getBiome("Blood Plains", 73)).setBiomeName("Blood Plains");
 		
 		// -- Dimensions --
 		
