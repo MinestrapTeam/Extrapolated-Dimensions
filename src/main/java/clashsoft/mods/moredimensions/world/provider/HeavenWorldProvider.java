@@ -6,6 +6,7 @@ import clashsoft.mods.moredimensions.world.chunk_manager.HeavenChunkManager;
 import clashsoft.mods.moredimensions.world.chunk_provider.ChunkProviderHeaven;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.chunk.IChunkProvider;
 
@@ -41,24 +42,38 @@ public class HeavenWorldProvider extends CustomWorldProvider
 	}
 	
 	@Override
-	public Vec3 getFogColor(float f, float f1)
+	public Vec3 getFogColor(float celestialAngle, float partialTickTime)
 	{
-		return Vec3.createVectorHelper(0F, 0.75F, 1F);
+		float f = MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
+
+        if (f < 0.0F)
+        {
+            f = 0.0F;
+        }
+
+        if (f > 1.0F)
+        {
+            f = 1.0F;
+        }
+		
+		return Vec3.createVectorHelper(0F * f, 0.75F * f, 1F * f);
 	}
 	
 	@Override
-	public float[] calcSunriseSunsetColors(float f, float f1)
+	public float[] calcSunriseSunsetColors(float celestialAngle, float partialTickTime)
 	{
-		this.colorsSunriseSunset[0] = 0F;
-		this.colorsSunriseSunset[1] = 0.75F;
-		this.colorsSunriseSunset[2] = 1F;
+		float f = MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
+		this.colorsSunriseSunset[0] = 0F * f;
+		this.colorsSunriseSunset[1] = 0.75F * f;
+		this.colorsSunriseSunset[2] = 1F * f;
 		this.colorsSunriseSunset[3] = 0.5F;
 		return this.colorsSunriseSunset;
 	}
 	
 	@Override
-	public Vec3 getSkyColor(Entity entity, float partialTicks)
+	public Vec3 getSkyColor(Entity entity, float partialTickTime)
 	{
-		return Vec3.createVectorHelper(0F, 0.75F, 1F);
+		float celestialAngle = this.worldObj.getCelestialAngle(partialTickTime);
+        return this.getFogColor(celestialAngle, partialTickTime);
 	}
 }
