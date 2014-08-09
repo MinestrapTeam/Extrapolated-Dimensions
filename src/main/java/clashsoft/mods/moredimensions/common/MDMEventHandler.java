@@ -1,6 +1,6 @@
 package clashsoft.mods.moredimensions.common;
 
-import clashsoft.cslib.minecraft.init.CSLib;
+import clashsoft.cslib.minecraft.CSLib;
 import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
 import clashsoft.mods.moredimensions.api.ICape;
 import clashsoft.mods.moredimensions.api.IMinableBlock;

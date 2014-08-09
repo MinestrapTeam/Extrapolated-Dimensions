@@ -2,8 +2,8 @@ package clashsoft.mods.moredimensions.item.armor;
 
 import java.util.List;
 
+import clashsoft.cslib.minecraft.CSLib;
 import clashsoft.cslib.minecraft.cape.Capes;
-import clashsoft.cslib.minecraft.init.CSLib;
 import clashsoft.cslib.minecraft.item.ItemCustomArmor;
 import clashsoft.mods.moredimensions.api.ICape;
 
