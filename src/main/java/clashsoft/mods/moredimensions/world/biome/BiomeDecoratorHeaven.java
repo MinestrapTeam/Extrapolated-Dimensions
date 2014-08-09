@@ -3,9 +3,11 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.MDMWorld;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -27,29 +29,30 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	}
 	
 	@Override
-	public void genDecorations(BiomeGenBase biome)
+	public void decorateChunk(World world, Random random, BiomeGenBase biome, int chunkX, int chunkZ)
 	{
+		this.currentWorld = world;
+		this.randomGenerator = random;
+		this.chunk_X = chunkX;
+		this.chunk_Z = chunkZ;
+		
 		this.generateOres();
 		
 		for (int j = 0; j < this.treesPerChunk; ++j)
 		{
-			try
+			int x = chunkX + random.nextInt(16);
+			int z = chunkZ + random.nextInt(16);
+			int y = world.getTopSolidOrLiquidBlock(x, z);
+			WorldGenAbstractTree worldgenabstracttree = biome.func_150567_a(random);
+			worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
+			
+			if (worldgenabstracttree.generate(world, random, x, y, z))
 			{
-				int x = this.chunk_X + this.randomGenerator.nextInt(16);
-				int z = this.chunk_Z + this.randomGenerator.nextInt(16);
-				int y = this.currentWorld.getTopSolidOrLiquidBlock(x, z);
-				WorldGenAbstractTree worldgenabstracttree = biome.func_150567_a(this.randomGenerator);
-				worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
-				
-				if (worldgenabstracttree.generate(this.currentWorld, this.randomGenerator, x, y, z))
-				{
-					worldgenabstracttree.func_150524_b(this.currentWorld, this.randomGenerator, x, y, z);
-				}
-			}
-			catch (Exception ex)
-			{
+				worldgenabstracttree.func_150524_b(world, random, x, y, z);
 			}
 		}
+		
+		MDMWorld.generateHeaven(world, random, chunkX, chunkZ);
 	}
 	
 	@Override
@@ -63,16 +66,5 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 		this.genStandardOre1(8, this.bluriteGen, 0, 128);
 		this.genStandardOre1(6, this.holyiumGen, 0, 128);
 		this.genStandardOre1(3, this.diamondGen, 0, 128);
-	}
-	
-	protected void genTrees(int amount, WorldGenerator worldgen, int minHeight, int maxHeight)
-	{
-		for (int i = 0; i < amount; ++i)
-		{
-			int x = this.chunk_X + this.randomGenerator.nextInt(16);
-			int y = this.randomGenerator.nextInt(maxHeight - minHeight + 1) + minHeight;
-			int z = this.chunk_Z + this.randomGenerator.nextInt(16);
-			worldgen.generate(this.currentWorld, this.randomGenerator, x, y, z);
-		}
 	}
 }

@@ -7,5 +7,4 @@ public class BiomeHeavenForest extends BiomeHeaven
 		super(id);
 		this.theBiomeDecorator.treesPerChunk = 4;
 	}
-	
 }

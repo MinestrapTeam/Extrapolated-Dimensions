@@ -4,7 +4,6 @@ import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.mods.moredimensions.world.biome.*;
-import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenBuildings.HeavenGenBuilding1;
 import clashsoft.mods.moredimensions.world.provider.HeavenWorldProvider;
 import clashsoft.mods.moredimensions.world.provider.POCWorldProvider;
 
@@ -68,12 +67,5 @@ public class MDMWorld
 	
 	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
 	{
-		for (int i = 0; i < 5; i++)
-		{
-			int randPosX = chunkX + rand.nextInt(16);
-			int randPosY = rand.nextInt(250);
-			int randPosZ = chunkZ + rand.nextInt(16);
-			(new HeavenGenBuilding1()).generate(world, rand, randPosX, randPosZ, randPosY);
-		}
 	}
 }

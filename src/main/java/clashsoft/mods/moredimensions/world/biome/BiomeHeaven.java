@@ -3,8 +3,8 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenTrees;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -53,6 +53,6 @@ public class BiomeHeaven extends CustomBiome
 			type = 1;
 		else
 			type = 0;
-		return new CustomTreeGen(true, 6, Heaven.logBlocks, Heaven.leafBlocks, type, type);
+		return new HeavenGenTrees(false, 6, type, type);
 	}
 }
