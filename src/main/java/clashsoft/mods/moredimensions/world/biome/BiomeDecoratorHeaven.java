@@ -25,7 +25,7 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	{
 		this.diamondGen = new HeavenGenMinable(Blocks.diamond_ore, 7);
 		this.treesPerChunk = 1;
-		this.randomGenerator = new Random();
+		this.grassPerChunk = 3;
 	}
 	
 	@Override
@@ -52,19 +52,27 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 			}
 		}
 		
+		for (int j = 0; j < this.grassPerChunk; ++j)
+		{
+			int x = chunkX + random.nextInt(16);
+			int z = chunkZ + random.nextInt(16);
+			int y = world.getTopSolidOrLiquidBlock(x, z);
+			WorldGenerator grassGen = biome.getRandomWorldGenForGrass(random);
+			grassGen.generate(world, random, x, y, z);
+		}
+		
 		MDMWorld.generateHeaven(world, random, chunkX, chunkZ);
 	}
 	
 	@Override
 	protected void generateOres()
 	{
-		this.genStandardOre1(20, this.dirtGen, 0, 128);
-		this.genStandardOre1(10, this.gravelGen, 0, 128);
+		this.genStandardOre1(20, this.dirtGen, 32, 192);
 		
-		this.genStandardOre1(10, this.sywoxiteGen, 0, 128);
-		this.genStandardOre1(10, this.clashiumGen, 0, 128);
-		this.genStandardOre1(8, this.bluriteGen, 0, 128);
-		this.genStandardOre1(6, this.holyiumGen, 0, 128);
-		this.genStandardOre1(3, this.diamondGen, 0, 128);
+		this.genStandardOre1(10, this.sywoxiteGen, 32, 160);
+		this.genStandardOre1(10, this.clashiumGen, 24, 96);
+		this.genStandardOre1(8, this.bluriteGen, 32, 128);
+		this.genStandardOre1(6, this.holyiumGen, 32, 80);
+		this.genStandardOre1(3, this.diamondGen, 32, 64);
 	}
 }
