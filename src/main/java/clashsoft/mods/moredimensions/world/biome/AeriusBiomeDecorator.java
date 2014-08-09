@@ -13,7 +13,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeDecoratorHeaven extends BiomeDecorator
+public class AeriusBiomeDecorator extends BiomeDecorator
 {
 	private WorldGenerator	dirtGen		= new AeriusGenMinable(Aerius.dirtBlocks, 20);
 	private WorldGenerator	sywoxiteGen	= new AeriusGenMinable(Aerius.stoneBlocks, 3, 18);
@@ -21,7 +21,7 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 	private WorldGenerator	bluriteGen	= new AeriusGenMinable(Aerius.stoneBlocks, 5, 8);
 	private WorldGenerator	holyiumGen	= new AeriusGenMinable(Aerius.stoneBlocks, 6, 8);
 	
-	public BiomeDecoratorHeaven()
+	public AeriusBiomeDecorator()
 	{
 		this.diamondGen = new AeriusGenMinable(Blocks.diamond_ore, 7);
 		this.treesPerChunk = 1;
@@ -59,6 +59,15 @@ public class BiomeDecoratorHeaven extends BiomeDecorator
 			int y = world.getTopSolidOrLiquidBlock(x, z);
 			WorldGenerator grassGen = biome.getRandomWorldGenForGrass(random);
 			grassGen.generate(world, random, x, y, z);
+		}
+		
+		for (int j = 0; j < 5; ++j)
+		{
+			int x = chunkX + random.nextInt(16);
+			int z = chunkZ + random.nextInt(16);
+			int y = 0;
+			while (y < 64 && world.isAirBlock(x, ++y, z));
+			world.setBlock(x, y - 1, z, Blocks.vine);
 		}
 		
 		MDMWorld.generateHeaven(world, random, chunkX, chunkZ);

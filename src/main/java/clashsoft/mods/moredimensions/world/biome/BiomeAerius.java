@@ -34,7 +34,7 @@ public class BiomeAerius extends CustomBiome
 		this.fillerBlock = Aerius.dirtBlocks;
 		this.stoneBlock = Aerius.stoneBlocks;
 		
-		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven());
+		this.theBiomeDecorator = this.getModdedBiomeDecorator(new AeriusBiomeDecorator());
 		
 		this.color = 0x818181;
 		this.waterColorMultiplier = 0x818181;
