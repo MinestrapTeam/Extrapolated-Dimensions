@@ -3,6 +3,7 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
+import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
 import clashsoft.mods.moredimensions.lib.Heaven;
 import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenTrees;
 
@@ -11,6 +12,7 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeHeaven extends CustomBiome
 {
@@ -48,11 +50,25 @@ public class BiomeHeaven extends CustomBiome
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		int type = random.nextInt(8);
-		if (type == 0) // Golden Tree
+		int type = random.nextInt(10);
+		if (type == 0)
+		{
+			type = 2;
+		}
+		else if (type < 5)
+		{
 			type = 1;
+		}
 		else
+		{
 			type = 0;
-		return new HeavenGenTrees(false, 6, type, type);
+		}
+		return new HeavenGenTrees(false, 6, type == 2 ? 1 : 0, type);
+	}
+	
+	@Override
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
+	{
+		return new WorldGenRanged(Heaven.grassBlocks, 0);
 	}
 }

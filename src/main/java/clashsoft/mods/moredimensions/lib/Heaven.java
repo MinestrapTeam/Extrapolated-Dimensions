@@ -107,7 +107,7 @@ public class Heaven
 		
 		logBlocks = (BlockCustomLog) (new BlockCustomLog(new String[] { "heaven_wood", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_log_top", "mdm_heaven:gold_wood_log_top" }, new String[] { "mdm_heaven:heaven_wood_log_side", "mdm_heaven:gold_wood_log_side" })).setCreativeTab(tabHeavenBlocks);
 		
-		leafBlocks = (BlockCustomLeaves) (new BlockCustomLeaves(new String[] { "heaven_wood", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_leaves", "mdm_heaven:gold_wood_leaves" })).setCreativeTab(tabHeavenBlocks).setHardness(0.2F);
+		leafBlocks = (BlockCustomLeaves) (new BlockCustomLeaves(new String[] { "heaven_wood", "heaven_wood_2", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_leaves", "mdm_heaven:heaven_wood_leaves_2", "mdm_heaven:gold_wood_leaves" })).setCreativeTab(tabHeavenBlocks).setHardness(0.2F);
 		
 		saplingBlocks = (BlockHeavenSapling) (new BlockHeavenSapling(new String[] { "heaven_wood", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_sapling", "mdm_heaven:gold_wood_sapling" })).setCreativeTab(tabHeavenBlocks);
 		

@@ -2,7 +2,6 @@ package clashsoft.mods.moredimensions;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.cslib.minecraft.init.ClashsoftMod;
-import clashsoft.cslib.minecraft.update.CSUpdate;
 import clashsoft.mods.moredimensions.common.MDMEventHandler;
 import clashsoft.mods.moredimensions.common.MDMProxy;
 import clashsoft.mods.moredimensions.lib.*;
@@ -20,7 +19,7 @@ public class MoreDimensionsMod extends ClashsoftMod
 	public static final String		MODID	= "moredimensions";
 	public static final String		NAME	= "More Dimensions Mod";
 	public static final String		ACRONYM	= "mdm";
-	public static final String		VERSION	= CSUpdate.CURRENT_VERSION + "-1.0.0-dev";
+	public static final String		VERSION	= "1.7.10-0.0.1";
 	
 	@Instance(MODID)
 	public static MoreDimensionsMod	instance;
@@ -52,12 +51,12 @@ public class MoreDimensionsMod extends ClashsoftMod
 		Heaven.init();
 		ParadiseOfChaos.init();
 		Alchemy.init();
-		Tools.init();
+		//Tools.init();
 		
 		Heaven.load();
 		ParadiseOfChaos.load();
 		Alchemy.load();
-		Tools.load();
+		//Tools.load();
 		
 		MDMWorld.load();
 		MDMInventory.load();
