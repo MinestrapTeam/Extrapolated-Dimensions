@@ -23,25 +23,32 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 	public void generate(int x, int y, Block[] blocks)
 	{
 		this.noiseField1 = this.initializeNoiseField(this.noiseField1, x * 2, 0, y * 2, 3, 33, 3);
+		double d = 0.125D;
+		double d9 = 0.125D;
+		double d14 = 0.125D;
 		
 		for (int x1 = 0; x1 < 2; x1++)
 		{
+			int l = x1 * 3;
+			int i1 = (x1 + 1) * 3;
+			
 			for (int z1 = 0; z1 < 2; z1++)
 			{
+				int k1 = (l + z1) * 33;
+				int l1 = (l + z1 + 1) * 33;
+				int i2 = (i1 + z1) * 33;
+				int j2 = (i1 + z1 + 1) * 33;
+				
 				for (int y1 = 0; y1 < 32; y1++)
 				{
-					double d = 0.125D;
-					double d9 = 0.125D;
-					double d14 = 0.125D;
-					
-					double d1 = this.noiseField1[(((x1 + 0) * 3 + z1 + 0) * 33 + y1 + 0)];
-					double d2 = this.noiseField1[(((x1 + 0) * 3 + z1 + 1) * 33 + y1 + 0)];
-					double d3 = this.noiseField1[(((x1 + 1) * 3 + z1 + 0) * 33 + y1 + 0)];
-					double d4 = this.noiseField1[(((x1 + 1) * 3 + z1 + 1) * 33 + y1 + 0)];
-					double d5 = (this.noiseField1[(((x1 + 0) * 3 + z1 + 0) * 33 + y1 + 1)] - d1) * d;
-					double d6 = (this.noiseField1[(((x1 + 0) * 3 + z1 + 1) * 33 + y1 + 1)] - d2) * d;
-					double d7 = (this.noiseField1[(((x1 + 1) * 3 + z1 + 0) * 33 + y1 + 1)] - d3) * d;
-					double d8 = (this.noiseField1[(((x1 + 1) * 3 + z1 + 1) * 33 + y1 + 1)] - d4) * d;
+					double d1 = this.noiseField1[k1 + y1];
+					double d2 = this.noiseField1[l1 + y1];
+					double d3 = this.noiseField1[i2 + y1];
+					double d4 = this.noiseField1[j2 + y1];
+					double d5 = (this.noiseField1[k1 + y1 + 1] - d1) * d;
+					double d6 = (this.noiseField1[l1 + y1 + 1] - d2) * d;
+					double d7 = (this.noiseField1[i2 + y1 + 1] - d3) * d;
+					double d8 = (this.noiseField1[j2 + y1 + 1] - d4) * d;
 					
 					for (int y2 = 0; y2 < 8; y2++)
 					{

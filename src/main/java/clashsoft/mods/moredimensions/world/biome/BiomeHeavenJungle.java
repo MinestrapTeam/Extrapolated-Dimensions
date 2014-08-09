@@ -30,6 +30,6 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return new WorldGenRanged(Heaven.grassBlocks, 1);
+		return new WorldGenRanged(Heaven.plantBlocks, 1);
 	}
 }
