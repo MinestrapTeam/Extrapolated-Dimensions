@@ -2,43 +2,43 @@ package clashsoft.mods.moredimensions.world.provider;
 
 import clashsoft.cslib.minecraft.world.CustomWorldProvider;
 import clashsoft.mods.moredimensions.lib.MDMWorld;
-import clashsoft.mods.moredimensions.world.chunk_manager.HeavenChunkManager;
-import clashsoft.mods.moredimensions.world.chunk_provider.ChunkProviderHeaven;
+import clashsoft.mods.moredimensions.world.chunk_manager.AeriusChunkManager;
+import clashsoft.mods.moredimensions.world.chunk_provider.AeriusChunkProvider;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class HeavenWorldProvider extends CustomWorldProvider
+public class AeriusWorldProvider extends CustomWorldProvider
 {
-	public HeavenWorldProvider()
+	public AeriusWorldProvider()
 	{
-		super(MDMWorld.HEAVEN_ID);
+		super(MDMWorld.AERIUS_ID);
 	}
 	
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new HeavenChunkManager(this.getSeed(), this.terrainType);
+		this.worldChunkMgr = new AeriusChunkManager(this.getSeed(), this.terrainType);
 	}
 	
 	@Override
 	public IChunkProvider createChunkGenerator()
 	{
-		return new ChunkProviderHeaven(this.worldObj, this.worldObj.getSeed());
+		return new AeriusChunkProvider(this.worldObj, this.worldObj.getSeed());
 	}
 	
 	@Override
 	public String getDimensionName()
 	{
-		return "Heaven";
+		return "Aerius";
 	}
 	
 	@Override
 	public String getSaveFolder()
 	{
-		return "HEAVEN";
+		return "AERIUS";
 	}
 	
 	@Override

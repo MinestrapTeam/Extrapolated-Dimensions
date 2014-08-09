@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.item.heaven;
+package clashsoft.mods.moredimensions.item.aerius;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemHeavenPortalActivator extends Item
+public class ItemAeriusPortalActivator extends Item
 {
-	public ItemHeavenPortalActivator()
+	public ItemAeriusPortalActivator()
 	{
 		super();
 		this.maxStackSize = 1;

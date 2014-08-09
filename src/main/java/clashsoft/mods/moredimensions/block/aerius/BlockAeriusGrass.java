@@ -1,15 +1,15 @@
-package clashsoft.mods.moredimensions.block.heaven;
+package clashsoft.mods.moredimensions.block.aerius;
 
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomGrass;
-import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.Aerius;
 
 import net.minecraft.world.World;
 
-public class BlockHeavenGrass extends BlockCustomGrass
+public class BlockAeriusGrass extends BlockCustomGrass
 {
-	public BlockHeavenGrass(String[] names, String[] topIcons, String[] sideIcons, String[] bottomIcons)
+	public BlockAeriusGrass(String[] names, String[] topIcons, String[] sideIcons, String[] bottomIcons)
 	{
 		super(names, topIcons, sideIcons, bottomIcons);
 	}
@@ -25,7 +25,7 @@ public class BlockHeavenGrass extends BlockCustomGrass
 			if (randInt < 2)
 			{
 				int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-				world.setBlock(x, y + 1, z, Heaven.plantBlocks, metadata, 2);
+				world.setBlock(x, y + 1, z, Aerius.plantBlocks, metadata, 2);
 			}
 		}
 	}

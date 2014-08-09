@@ -3,15 +3,15 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
-import clashsoft.mods.moredimensions.lib.Heaven;
-import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenJungleTree;
+import clashsoft.mods.moredimensions.lib.Aerius;
+import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenJungleTree;
 
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeHeavenJungle extends BiomeHeaven
+public class BiomeAeriusJungle extends BiomeAerius
 {
-	public BiomeHeavenJungle(int i)
+	public BiomeAeriusJungle(int i)
 	{
 		super(i);
 		
@@ -24,12 +24,12 @@ public class BiomeHeavenJungle extends BiomeHeaven
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return new HeavenGenJungleTree(true, 7, Heaven.logBlocks, Heaven.leafBlocks);
+		return new AeriusGenJungleTree(true, 7, Aerius.logBlocks, Aerius.leafBlocks);
 	}
 	
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return new WorldGenRanged(Heaven.plantBlocks, 1);
+		return new WorldGenRanged(Aerius.plantBlocks, 1);
 	}
 }

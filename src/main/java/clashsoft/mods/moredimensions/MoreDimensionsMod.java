@@ -48,12 +48,12 @@ public class MoreDimensionsMod extends ClashsoftMod
 		
 		CSConfig.loadConfig(this.configFile);
 		
-		Heaven.init();
+		Aerius.init();
 		ParadiseOfChaos.init();
 		Alchemy.init();
 		//Tools.init();
 		
-		Heaven.load();
+		Aerius.load();
 		ParadiseOfChaos.load();
 		Alchemy.load();
 		//Tools.load();

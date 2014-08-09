@@ -1,24 +1,24 @@
-package clashsoft.mods.moredimensions.block.heaven;
+package clashsoft.mods.moredimensions.block.aerius;
 
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomPlant;
-import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.Aerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-public class BlockHeavenPlant extends BlockCustomPlant
+public class BlockAeriusPlant extends BlockCustomPlant
 {
 	public Random	rand	= new Random();
 	
-	public BlockHeavenPlant(String[] names, String[] icons)
+	public BlockAeriusPlant(String[] names, String[] icons)
 	{
 		super(names, icons);
 	}
 	
-	public BlockHeavenPlant(String[] names, String domain)
+	public BlockAeriusPlant(String[] names, String domain)
 	{
 		super(names, domain);
 	}
@@ -26,7 +26,7 @@ public class BlockHeavenPlant extends BlockCustomPlant
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return (random.nextInt(20) == 0 && metadata < 10) ? Heaven.heavenSeeds : null;
+		return (random.nextInt(20) == 0 && metadata < 10) ? Aerius.heavenSeeds : null;
 	}
 	
 	@Override
@@ -38,8 +38,8 @@ public class BlockHeavenPlant extends BlockCustomPlant
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		boolean heavenDirtID = block == Heaven.dirtBlocks;
-		boolean heavenGrassID = block == Heaven.grassBlocks;
+		boolean heavenDirtID = block == Aerius.dirtBlocks;
+		boolean heavenGrassID = block == Aerius.grassBlocks;
 		boolean vanillaDirtID = block == Blocks.dirt;
 		boolean vanillaGrassID = block == Blocks.grass;
 		switch (metadata)

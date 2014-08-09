@@ -2,9 +2,9 @@ package clashsoft.mods.moredimensions.world.biome;
 
 import java.util.Random;
 
-import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.Aerius;
 import clashsoft.mods.moredimensions.lib.MDMWorld;
-import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenMinable;
+import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenMinable;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -15,15 +15,15 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeDecoratorHeaven extends BiomeDecorator
 {
-	private WorldGenerator	dirtGen		= new HeavenGenMinable(Heaven.dirtBlocks, 20);
-	private WorldGenerator	sywoxiteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 3, 18);
-	private WorldGenerator	clashiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 4, 10);
-	private WorldGenerator	bluriteGen	= new HeavenGenMinable(Heaven.stoneBlocks, 5, 8);
-	private WorldGenerator	holyiumGen	= new HeavenGenMinable(Heaven.stoneBlocks, 6, 8);
+	private WorldGenerator	dirtGen		= new AeriusGenMinable(Aerius.dirtBlocks, 20);
+	private WorldGenerator	sywoxiteGen	= new AeriusGenMinable(Aerius.stoneBlocks, 3, 18);
+	private WorldGenerator	clashiumGen	= new AeriusGenMinable(Aerius.stoneBlocks, 4, 10);
+	private WorldGenerator	bluriteGen	= new AeriusGenMinable(Aerius.stoneBlocks, 5, 8);
+	private WorldGenerator	holyiumGen	= new AeriusGenMinable(Aerius.stoneBlocks, 6, 8);
 	
 	public BiomeDecoratorHeaven()
 	{
-		this.diamondGen = new HeavenGenMinable(Blocks.diamond_ore, 7);
+		this.diamondGen = new AeriusGenMinable(Blocks.diamond_ore, 7);
 		this.treesPerChunk = 1;
 		this.grassPerChunk = 3;
 	}

@@ -1,13 +1,13 @@
-package clashsoft.mods.moredimensions.item.heaven;
+package clashsoft.mods.moredimensions.item.aerius;
 
 import clashsoft.cslib.minecraft.item.CustomItem;
 import clashsoft.mods.moredimensions.api.alchemy.IEnergyFuel;
 
 import net.minecraft.item.ItemStack;
 
-public class ItemHeavenMaterials extends CustomItem implements IEnergyFuel
+public class ItemAeriusMaterials extends CustomItem implements IEnergyFuel
 {
-	public ItemHeavenMaterials(String[] displayNames, String domain)
+	public ItemAeriusMaterials(String[] displayNames, String domain)
 	{
 		super(displayNames, domain);
 	}

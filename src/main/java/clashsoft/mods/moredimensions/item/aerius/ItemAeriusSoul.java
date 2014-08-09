@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.item.heaven;
+package clashsoft.mods.moredimensions.item.aerius;
 
 import java.util.List;
 import java.util.Random;
@@ -16,7 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 
-public class ItemHeavenSoul extends Item
+public class ItemAeriusSoul extends Item
 {
 	public static Random			rand		= new Random();
 	
@@ -38,7 +38,7 @@ public class ItemHeavenSoul extends Item
 			"flowers",
 			"light"							};
 	
-	public ItemHeavenSoul()
+	public ItemAeriusSoul()
 	{
 		super();
 		this.setMaxStackSize(1);

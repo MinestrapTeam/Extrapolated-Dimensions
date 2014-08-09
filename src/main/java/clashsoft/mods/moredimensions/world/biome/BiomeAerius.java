@@ -4,8 +4,8 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
-import clashsoft.mods.moredimensions.lib.Heaven;
-import clashsoft.mods.moredimensions.world.gen.heaven.HeavenGenTrees;
+import clashsoft.mods.moredimensions.lib.Aerius;
+import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenTrees;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -14,9 +14,9 @@ import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeHeaven extends CustomBiome
+public class BiomeAerius extends CustomBiome
 {
-	public BiomeHeaven(int id)
+	public BiomeAerius(int id)
 	{
 		super(id);
 		
@@ -30,9 +30,9 @@ public class BiomeHeaven extends CustomBiome
 		
 		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntitySquid.class, 8, 4, 4));
 		
-		this.topBlock = Heaven.grassBlocks;
-		this.fillerBlock = Heaven.dirtBlocks;
-		this.stoneBlock = Heaven.stoneBlocks;
+		this.topBlock = Aerius.grassBlocks;
+		this.fillerBlock = Aerius.dirtBlocks;
+		this.stoneBlock = Aerius.stoneBlocks;
 		
 		this.theBiomeDecorator = this.getModdedBiomeDecorator(new BiomeDecoratorHeaven());
 		
@@ -63,12 +63,12 @@ public class BiomeHeaven extends CustomBiome
 		{
 			type = 0;
 		}
-		return new HeavenGenTrees(false, 6, type == 2 ? 1 : 0, type);
+		return new AeriusGenTrees(false, 6, type == 2 ? 1 : 0, type);
 	}
 	
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return new WorldGenRanged(Heaven.plantBlocks, 0);
+		return new WorldGenRanged(Aerius.plantBlocks, 0);
 	}
 }

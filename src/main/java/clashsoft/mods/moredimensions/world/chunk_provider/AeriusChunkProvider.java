@@ -1,12 +1,12 @@
 package clashsoft.mods.moredimensions.world.chunk_provider;
 
 import clashsoft.cslib.minecraft.world.CustomChunkProvider;
-import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.Aerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
-public class ChunkProviderHeaven extends CustomChunkProvider
+public class AeriusChunkProvider extends CustomChunkProvider
 {
 	public double[]	noiseField5;
 	public double[]	noiseField6;
@@ -14,7 +14,7 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 	public double[]	noiseField8;
 	public double[]	noiseField9;
 	
-	public ChunkProviderHeaven(World world, long seed)
+	public AeriusChunkProvider(World world, long seed)
 	{
 		super(world, seed, false);
 	}
@@ -66,7 +66,7 @@ public class ChunkProviderHeaven extends CustomChunkProvider
 							{
 								if (d15 > 0.0D)
 								{
-									blocks[index] = Heaven.stoneBlocks;
+									blocks[index] = Aerius.stoneBlocks;
 								}
 								index += 256;
 								d15 += d16;

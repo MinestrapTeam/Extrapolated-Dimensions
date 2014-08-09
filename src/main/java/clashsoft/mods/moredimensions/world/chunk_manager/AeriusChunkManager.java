@@ -4,15 +4,15 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.world.CustomChunkManager;
 import clashsoft.mods.moredimensions.lib.MDMWorld;
-import clashsoft.mods.moredimensions.world.gen_layer.GenLayerHeaven;
+import clashsoft.mods.moredimensions.world.gen_layer.GenLayerAerius;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 
-public class HeavenChunkManager extends CustomChunkManager
+public class AeriusChunkManager extends CustomChunkManager
 {
-	public HeavenChunkManager(long seed, WorldType worldType)
+	public AeriusChunkManager(long seed, WorldType worldType)
 	{
 		super(seed, worldType);
 	}
@@ -28,6 +28,6 @@ public class HeavenChunkManager extends CustomChunkManager
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{
-		return new GenLayerHeaven().createWorld(seed, worldType);
+		return new GenLayerAerius().createWorld(seed, worldType);
 	}
 }

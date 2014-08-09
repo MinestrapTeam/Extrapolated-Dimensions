@@ -4,7 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.mods.moredimensions.world.biome.*;
-import clashsoft.mods.moredimensions.world.provider.HeavenWorldProvider;
+import clashsoft.mods.moredimensions.world.provider.AeriusWorldProvider;
 import clashsoft.mods.moredimensions.world.provider.POCWorldProvider;
 
 import net.minecraft.world.World;
@@ -22,23 +22,23 @@ public class MDMWorld
 	public static BiomeGenBase	biomePOCDesert;
 	public static BiomeGenBase biomeBloodPlains;
 	
-	public static int			HEAVEN_ID		= 8;
+	public static int			AERIUS_ID		= 8;
 	public static int			POC_ID			= 9;
 	public static int			DREAMS_ID		= 10;
 	public static int			NIGHTMARES_ID	= 11;
 	
 	public static void load()
 	{
-		HEAVEN_ID = CSConfig.getDimension("Heaven", 8);
+		AERIUS_ID = CSConfig.getDimension("Aerius", 8);
 		POC_ID = CSConfig.getDimension("Paradise of Chaos", 9);
 		DREAMS_ID = CSConfig.getDimension("Dream", 10);
 		NIGHTMARES_ID = CSConfig.getDimension("Nightmares", 11);
 		
 		// -- Biomes --
 		
-		biomeHeaven = new BiomeHeaven(CSConfig.getBiome("Heaven", 60)).setBiomeName("Heaven");
-		biomeHeavenForest = new BiomeHeavenForest(CSConfig.getBiome("Heaven Forest", 61)).setBiomeName("Heaven Forest");
-		biomeHeavenJungle = new BiomeHeavenJungle(CSConfig.getBiome("Heaven Jungle", 62)).setBiomeName("Heaven Jungle");
+		biomeHeaven = new BiomeAerius(CSConfig.getBiome("Heaven", 60)).setBiomeName("Heaven");
+		biomeHeavenForest = new BiomeAeriusForest(CSConfig.getBiome("Heaven Forest", 61)).setBiomeName("Heaven Forest");
+		biomeHeavenJungle = new BiomeAeriusJungle(CSConfig.getBiome("Heaven Jungle", 62)).setBiomeName("Heaven Jungle");
 		
 		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
 		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
@@ -48,8 +48,8 @@ public class MDMWorld
 		// -- Dimensions --
 		
 		// Heaven Dimension
-		DimensionManager.registerProviderType(HEAVEN_ID, HeavenWorldProvider.class, true);
-		DimensionManager.registerDimension(HEAVEN_ID, HEAVEN_ID);
+		DimensionManager.registerProviderType(AERIUS_ID, AeriusWorldProvider.class, true);
+		DimensionManager.registerDimension(AERIUS_ID, AERIUS_ID);
 		
 		// POC Dimension
 		DimensionManager.registerProviderType(POC_ID, POCWorldProvider.class, true);

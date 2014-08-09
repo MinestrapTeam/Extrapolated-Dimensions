@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.item.heaven;
+package clashsoft.mods.moredimensions.item.aerius;
 
 import clashsoft.mods.moredimensions.entity.MDMEntityProperties;
 

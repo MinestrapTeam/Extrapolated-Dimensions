@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.block.heaven;
+package clashsoft.mods.moredimensions.block.aerius;
 
 import java.util.Random;
 

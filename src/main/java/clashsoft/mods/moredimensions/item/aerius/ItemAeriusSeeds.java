@@ -1,8 +1,8 @@
-package clashsoft.mods.moredimensions.item.heaven;
+package clashsoft.mods.moredimensions.item.aerius;
 
 import clashsoft.cslib.minecraft.item.CustomItem;
 import clashsoft.cslib.util.CSArrays;
-import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.Aerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,11 +10,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemHeavenSeeds extends CustomItem
+public class ItemAeriusSeeds extends CustomItem
 {
-	public ItemHeavenSeeds(String[] names, String[] iconNames)
+	public ItemAeriusSeeds(String[] names, String[] iconNames)
 	{
-		super(names, iconNames, CSArrays.create(Heaven.tabHeavenItems));
+		super(names, iconNames, CSArrays.create(Aerius.tabAeriusItems));
 	}
 	
 	@Override
@@ -31,33 +31,33 @@ public class ItemHeavenSeeds extends CustomItem
 		switch (stack.getItemDamage())
 		{
 			case 0: // Heaven Grass Seeds
-				if (block == Heaven.dirtBlocks && metadata == 0)
+				if (block == Aerius.dirtBlocks && metadata == 0)
 				{
-					newBlock = Heaven.grassBlocks;
+					newBlock = Aerius.grassBlocks;
 					newMetadata = 0;
 				}
 			case 1: // Mud Grass Seeds
-				if (block == Heaven.dirtBlocks && metadata == 1)
+				if (block == Aerius.dirtBlocks && metadata == 1)
 				{
-					newBlock = Heaven.grassBlocks;
+					newBlock = Aerius.grassBlocks;
 					newMetadata = 1;
 				}
 			case 2: // Corrupted Grass Seeds
 				if (block == Blocks.dirt)
 				{
-					newBlock = Heaven.grassBlocks;
+					newBlock = Aerius.grassBlocks;
 					newMetadata = 2;
 				}
 			case 3: // Hallowed Grass Seeds
 				if (block == Blocks.dirt)
 				{
-					newBlock = Heaven.grassBlocks;
+					newBlock = Aerius.grassBlocks;
 					newMetadata = 3;
 				}
 			case 4: // Mushroom Grass Seeds
-				if (block == Heaven.dirtBlocks && metadata == 1)
+				if (block == Aerius.dirtBlocks && metadata == 1)
 				{
-					newBlock = Heaven.grassBlocks;
+					newBlock = Aerius.grassBlocks;
 					newMetadata = 4;
 				}
 		}

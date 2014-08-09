@@ -1,15 +1,15 @@
-package clashsoft.mods.moredimensions.block.heaven;
+package clashsoft.mods.moredimensions.block.aerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-public class BlockHeavenPillar extends Block
+public class BlockAeriusPillar extends Block
 {
 	public IIcon	topIcon;
 	
-	public BlockHeavenPillar()
+	public BlockAeriusPillar()
 	{
 		super(Material.rock);
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 1F, 0.9375F);

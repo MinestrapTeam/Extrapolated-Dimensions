@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.world.gen.heaven;
+package clashsoft.mods.moredimensions.world.gen.aerius;
 
 import java.util.Random;
 
@@ -6,7 +6,7 @@ import clashsoft.cslib.minecraft.world.gen.CustomWorldGen;
 
 import net.minecraft.world.World;
 
-public class HeavenGenBuildings
+public class AeriusGenBuildings
 {
 	/**
 	 * The WorldGen for a little hut

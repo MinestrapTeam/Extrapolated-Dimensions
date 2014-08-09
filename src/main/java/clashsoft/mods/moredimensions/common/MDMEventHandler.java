@@ -199,7 +199,7 @@ public class MDMEventHandler
 		{
 			MinecraftServer server = player.mcServer;
 			
-			if (player.dimension == MDMWorld.HEAVEN_ID && player.posY <= -64)
+			if (player.dimension == MDMWorld.AERIUS_ID && player.posY <= -64)
 			{
 				player.setPosition(player.posX, 256, player.posZ);
 				server.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterNoPortal(server.worldServerForDimension(0)));
@@ -207,7 +207,7 @@ public class MDMEventHandler
 			else if (player.dimension == 0 && player.posY > 256)
 			{
 				player.setPosition(player.posX, 0, player.posZ);
-				server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.HEAVEN_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.HEAVEN_ID)));
+				server.getConfigurationManager().transferPlayerToDimension(player, MDMWorld.AERIUS_ID, new TeleporterNoPortal(server.worldServerForDimension(MDMWorld.AERIUS_ID)));
 			}
 		}
 		catch (Exception ex)

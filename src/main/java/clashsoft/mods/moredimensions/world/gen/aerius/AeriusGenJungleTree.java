@@ -1,27 +1,27 @@
-package clashsoft.mods.moredimensions.world.gen.heaven;
+package clashsoft.mods.moredimensions.world.gen.aerius;
 
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
-import clashsoft.mods.moredimensions.lib.Heaven;
+import clashsoft.mods.moredimensions.lib.Aerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class HeavenGenJungleTree extends CustomTreeGen
+public class AeriusGenJungleTree extends CustomTreeGen
 {
-	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves)
+	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves)
 	{
 		super(blockUpdates, minTreeHeight, wood, leaves);
 	}
 	
-	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata)
+	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata)
 	{
 		super(blockUpdates, minTreeHeight, wood, leaves, woodMetadata, leavesMetadata);
 	}
 	
-	public HeavenGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata, boolean vinesGrow)
+	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata, boolean vinesGrow)
 	{
 		super(blockUpdates, minTreeHeight, wood, leaves, woodMetadata, leavesMetadata, vinesGrow);
 	}
@@ -31,7 +31,7 @@ public class HeavenGenJungleTree extends CustomTreeGen
 	{
 		Block soil = world.getBlock(x, y - 1, z);
 		
-		if (soil != Heaven.dirtBlocks && soil != Heaven.grassBlocks && soil != Blocks.grass && soil != Blocks.dirt)
+		if (soil != Aerius.dirtBlocks && soil != Aerius.grassBlocks && soil != Blocks.grass && soil != Blocks.dirt)
 		{
 			return false;
 		}
