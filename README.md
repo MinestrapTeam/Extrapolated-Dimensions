@@ -1,4 +1,5 @@
-More-Dimensions-Mod
+Extrapolated Dimensions
 ===================
 
-More Dimensions Mod is a Minecraft mod that adds many new dimensions, items, blocks and mobs to the game.
+Extrapolated Dimensions is a Minestrappolation Addon that is too big to be included in it.
+The Mod adds several dimensions to the game, each with unique items, blocks, loot and dungeons.
