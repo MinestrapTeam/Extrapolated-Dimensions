@@ -121,7 +121,7 @@ public class Aerius
 		String[] flowers = new String[] { "blue", "white", "orange" };
 		flowerBlocks = (CustomBlock) new BlockAeriusFlower(flowers, CSString.concatAll(flowers, "ed_aerius:flower_", null)).setCreativeTab(tabAeriusBlocks);
 		
-		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName("ed_aerius:cloud").setCreativeTab(tabAeriusBlocks);
+		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName("ed_aerius:cloud").setHardness(0.1F).setStepSound(Block.soundTypeCloth).setCreativeTab(tabAeriusBlocks);
 		
 		pillar = (BlockAeriusPillar) new BlockAeriusPillar().setCreativeTab(tabAeriusBlocks).setHardness(1.75F);
 		damnationTable = (BlockDamnationTable) new BlockDamnationTable().setCreativeTab(tabAeriusBlocks).setHardness(4F);
