@@ -69,9 +69,9 @@ public class WorldManager
 	
 	public static void generateAerius(World world, Random random, int chunkX, int chunkZ)
 	{
-		if (chunkX % 128 == 0 && chunkZ % 128 == 0)
+		if (random.nextInt(64) == 0 && world.getBiomeGenForCoords(chunkX, chunkZ) == biomeHeaven)
 		{
-			new AeriusGenTemple(false).generate(world, random, chunkX, 64, chunkZ);
+			new AeriusGenTemple(false).generate(world, random, chunkX, 96, chunkZ);
 		}
 	}
 }
