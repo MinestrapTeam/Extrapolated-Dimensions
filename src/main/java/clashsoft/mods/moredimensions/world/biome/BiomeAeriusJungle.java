@@ -17,6 +17,7 @@ public class BiomeAeriusJungle extends BiomeAerius
 		
 		this.topMetadata = 1;
 		this.fillerMetadata = 1;
+		this.stoneMetadata = 3;
 		
 		this.theBiomeDecorator.treesPerChunk = 8;
 	}

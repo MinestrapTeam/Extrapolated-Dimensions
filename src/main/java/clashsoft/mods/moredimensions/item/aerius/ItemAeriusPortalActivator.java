@@ -36,7 +36,7 @@ public class ItemAeriusPortalActivator extends Item
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		list.add(I18n.getString("item.heaven_portal_activator.desc"));
+		list.add(I18n.getString("item.aerius_portal_activator.desc"));
 	}
 	
 	@Override

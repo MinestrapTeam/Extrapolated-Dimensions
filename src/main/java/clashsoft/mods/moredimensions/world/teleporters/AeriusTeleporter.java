@@ -3,6 +3,7 @@ package clashsoft.mods.moredimensions.world.teleporters;
 import clashsoft.cslib.minecraft.world.CustomTeleporter;
 import clashsoft.mods.moredimensions.lib.Aerius;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.WorldServer;
 
 public class AeriusTeleporter extends CustomTeleporter
@@ -11,6 +12,6 @@ public class AeriusTeleporter extends CustomTeleporter
 	{
 		super(world);
 		this.portalBlock = Aerius.portal;
-		this.frameBlock = Aerius.portalFrame;
+		this.frameBlock = Blocks.glowstone;
 	}
 }
