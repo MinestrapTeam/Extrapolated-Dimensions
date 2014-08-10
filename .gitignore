@@ -3,5 +3,12 @@
 .classpath
 .gradle/
 
+<<<<<<< HEAD
 bin/
 build/
+=======
+.project
+gradlew*
+gradlew.bat
+gradle/
+>>>>>>> origin/SoBiohazardous-Edit

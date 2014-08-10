@@ -1,5 +1,6 @@
 package clashsoft.mods.moredimensions.lib;
 
+import static clashsoft.cslib.minecraft.crafting.CSCrafting.addFurnaceRecipe;
 import static clashsoft.cslib.minecraft.crafting.CSCrafting.addPlanks;
 import static clashsoft.cslib.minecraft.crafting.CSCrafting.addRecipe;
 import static clashsoft.cslib.minecraft.crafting.CSCrafting.addStick;
@@ -60,7 +61,7 @@ public class ParadiseOfChaos
 	
 	// Item Stacks
 	
-	public static ItemStack				magicOakStick, willowStick, promethiumGem, noviteGem, marmarosGem, kratoniumIngot;
+	public static ItemStack				magicOakStick, willowStick, promethiumGem, noviteGem, marmarosGem, kratoniumIngot, whitiumIngot, deathIngot, bloodIngot;
 	
 	// Block Stacks
 	
@@ -70,6 +71,8 @@ public class ParadiseOfChaos
 	public static ItemStack				magicOakLeaves, willowLeaves;
 	public static ItemStack				magicOakSapling, willowSapling;
 	public static ItemStack				magicOakPlanks, willowPlanks;
+	
+	public static ItemStack				oreBlood, oreDeath, oreWhitium;
 	
 	public static void init()
 	{
@@ -127,7 +130,10 @@ public class ParadiseOfChaos
 		promethiumGem = new ItemStack(items, 1, 2);
 		noviteGem = new ItemStack(items, 1, 3);
 		
-		kratoniumIngot = new ItemStack(materials, 1, 0);
+		kratoniumIngot = new ItemStack(materials, 1, 0);		
+		whitiumIngot = new ItemStack(materials, 1, 1);
+		deathIngot = new ItemStack(materials, 1, 2);
+		bloodIngot = new ItemStack(materials, 1, 3);
 		
 		// Block Stacks
 		
@@ -142,6 +148,10 @@ public class ParadiseOfChaos
 		
 		magicOakPlanks = new ItemStack(plankBlocks, 1, 0);
 		willowPlanks = new ItemStack(plankBlocks, 1, 1);
+		
+		oreBlood = new ItemStack(bloodOreBlocks, 1, 0);
+		oreDeath = new ItemStack(bloodOreBlocks, 1, 1);
+		oreWhitium = new ItemStack(bloodOreBlocks, 1, 2);
 	}
 	
 	public static void load()
@@ -190,6 +200,10 @@ public class ParadiseOfChaos
 		
 		addRecipe(new ItemStack(Alchemy.elixirBottle, 6, 0), " n ", "n n", "nnn", 'n', CSStacks.glass_pane);
 		addRecipe(new ItemStack(Alchemy.elixirBottle, 4, 1), " n ", " n ", "nnn", 'n', CSStacks.glass_pane);
+		
+		addFurnaceRecipe(ParadiseOfChaos.oreBlood, ParadiseOfChaos.bloodIngot, 0.8F);
+		addFurnaceRecipe(ParadiseOfChaos.oreDeath, ParadiseOfChaos.deathIngot, 0.8F);
+		addFurnaceRecipe(ParadiseOfChaos.oreWhitium, ParadiseOfChaos.whitiumIngot, 0.8F);
 		
 		addPlanks(ParadiseOfChaos.magicOakPlanks, ParadiseOfChaos.magicOakLog);
 		addPlanks(ParadiseOfChaos.willowPlanks, ParadiseOfChaos.willowLog);
