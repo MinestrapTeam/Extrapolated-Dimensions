@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.world.gen.aerius;
+package clashsoft.mods.moredimensions.world.gen;
 
 import clashsoft.mods.moredimensions.lib.Aerius;
 

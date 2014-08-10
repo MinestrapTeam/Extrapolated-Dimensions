@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.world.gen.poc;
+package clashsoft.mods.moredimensions.world.gen;
 
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;

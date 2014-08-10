@@ -5,7 +5,7 @@ import java.util.Random;
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
 import clashsoft.mods.moredimensions.lib.Aerius;
-import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenTrees;
+import clashsoft.mods.moredimensions.world.gen.AeriusGenTrees;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;

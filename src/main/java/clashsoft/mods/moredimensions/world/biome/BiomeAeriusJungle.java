@@ -4,7 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
 import clashsoft.mods.moredimensions.lib.Aerius;
-import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenJungleTree;
+import clashsoft.mods.moredimensions.world.gen.AeriusGenJungleTree;
 
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;

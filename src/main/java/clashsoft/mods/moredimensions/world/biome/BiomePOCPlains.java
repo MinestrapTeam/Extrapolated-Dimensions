@@ -5,7 +5,7 @@ import java.util.Random;
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.CustomBigTreeGen;
 import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
-import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
+import clashsoft.mods.moredimensions.world.gen.POCGenMagicOakTree;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;

@@ -4,8 +4,8 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import clashsoft.mods.moredimensions.lib.Aerius;
-import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenJungleTree;
-import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenTrees;
+import clashsoft.mods.moredimensions.world.gen.AeriusGenJungleTree;
+import clashsoft.mods.moredimensions.world.gen.AeriusGenTrees;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

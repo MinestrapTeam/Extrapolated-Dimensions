@@ -1,4 +1,4 @@
-package clashsoft.mods.moredimensions.world.gen.aerius;
+package clashsoft.mods.moredimensions.world.gen;
 
 import java.util.Random;
 
