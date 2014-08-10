@@ -4,6 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.mods.moredimensions.world.biome.*;
+import clashsoft.mods.moredimensions.world.gen.AeriusGenTemple;
 import clashsoft.mods.moredimensions.world.provider.AeriusWorldProvider;
 import clashsoft.mods.moredimensions.world.provider.POCWorldProvider;
 
@@ -14,13 +15,13 @@ import net.minecraftforge.common.DimensionManager;
 public class WorldManager
 {
 	public static BiomeGenBase	biomeHeaven;
-	public static BiomeGenBase biomeHeavenForest;
+	public static BiomeGenBase	biomeHeavenForest;
 	public static BiomeGenBase	biomeHeavenJungle;
 	
 	public static BiomeGenBase	biomePOCPlains;
 	public static BiomeGenBase	biomePOCMountains;
 	public static BiomeGenBase	biomePOCDesert;
-	public static BiomeGenBase biomeBloodPlains;
+	public static BiomeGenBase	biomeBloodPlains;
 	
 	public static int			AERIUS_ID		= 8;
 	public static int			POC_ID			= 9;
@@ -56,16 +57,21 @@ public class WorldManager
 		DimensionManager.registerDimension(POC_ID, POC_ID);
 		
 		/*
-		// Dreams Dimension
-		DimensionManager.registerProviderType(DREAMS_ID, DreamWorldProvider.class, true);
-		DimensionManager.registerDimension(DREAMS_ID, DREAMS_ID);
-		// Nightmares Dimension
-		DimensionManager.registerProviderType(NIGHTMARES_ID, NightmareWorldProvider.class, true);
-		DimensionManager.registerDimension(NIGHTMARES_ID, NIGHTMARES_ID);
-		*/
+		 * // Dreams Dimension DimensionManager.registerProviderType(DREAMS_ID,
+		 * DreamWorldProvider.class, true);
+		 * DimensionManager.registerDimension(DREAMS_ID, DREAMS_ID); //
+		 * Nightmares Dimension
+		 * DimensionManager.registerProviderType(NIGHTMARES_ID,
+		 * NightmareWorldProvider.class, true);
+		 * DimensionManager.registerDimension(NIGHTMARES_ID, NIGHTMARES_ID);
+		 */
 	}
 	
-	public static void generateHeaven(World world, Random rand, int chunkX, int chunkZ)
+	public static void generateAerius(World world, Random random, int chunkX, int chunkZ)
 	{
+		if (chunkX % 128 == 0 && chunkZ % 128 == 0)
+		{
+			new AeriusGenTemple(false).generate(world, random, chunkX, 64, chunkZ);
+		}
 	}
 }
