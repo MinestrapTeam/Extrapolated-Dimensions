@@ -8,7 +8,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 
 public class GenLayerBiomesAerius extends CustomBiomeLayer
 {
-	protected BiomeGenBase[]	allowedBiomes	= { WorldManager.biomeHeaven, WorldManager.biomeHeavenJungle, WorldManager.biomeHeavenForest };
+	protected BiomeGenBase[]	allowedBiomes	= { WorldManager.biomeAerius, WorldManager.biomeAerianJungle, WorldManager.biomeAerianForest };
 	
 	public GenLayerBiomesAerius(long seed, GenLayer genlayer)
 	{

@@ -14,9 +14,9 @@ import net.minecraftforge.common.DimensionManager;
 
 public class WorldManager
 {
-	public static BiomeGenBase	biomeHeaven;
-	public static BiomeGenBase	biomeHeavenForest;
-	public static BiomeGenBase	biomeHeavenJungle;
+	public static BiomeGenBase	biomeAerius;
+	public static BiomeGenBase	biomeAerianForest;
+	public static BiomeGenBase	biomeAerianJungle;
 	
 	public static BiomeGenBase	biomePOCPlains;
 	public static BiomeGenBase	biomePOCMountains;
@@ -37,9 +37,9 @@ public class WorldManager
 		
 		// -- Biomes --
 		
-		biomeHeaven = new BiomeAerius(CSConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
-		biomeHeavenForest = new BiomeAeriusForest(CSConfig.getBiome("Aerial Forest", 61)).setBiomeName("Aerial Forest");
-		biomeHeavenJungle = new BiomeAeriusJungle(CSConfig.getBiome("Aerial Jungle", 62)).setBiomeName("Aerial Jungle");
+		biomeAerius = new BiomeAerius(CSConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
+		biomeAerianForest = new BiomeAeriusForest(CSConfig.getBiome("Aerian Forest", 61)).setBiomeName("Aerian Forest");
+		biomeAerianJungle = new BiomeAeriusJungle(CSConfig.getBiome("Aerian Jungle", 62)).setBiomeName("Aerian Jungle");
 		
 		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
 		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
@@ -69,7 +69,7 @@ public class WorldManager
 	
 	public static void generateAerius(World world, Random random, int chunkX, int chunkZ)
 	{
-		if (random.nextInt(64) == 0 && world.getBiomeGenForCoords(chunkX, chunkZ) == biomeHeaven)
+		if (random.nextInt(64) == 0 && world.getBiomeGenForCoords(chunkX, chunkZ) == biomeAerius)
 		{
 			new AeriusGenTemple(false).generate(world, random, chunkX, 96, chunkZ);
 		}

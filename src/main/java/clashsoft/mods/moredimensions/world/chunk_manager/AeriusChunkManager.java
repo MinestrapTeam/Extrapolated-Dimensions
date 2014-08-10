@@ -20,9 +20,9 @@ public class AeriusChunkManager extends CustomChunkManager
 	@Override
 	public void addBiomes(List<BiomeGenBase> list)
 	{
-		list.add(WorldManager.biomeHeaven);
-		list.add(WorldManager.biomeHeavenJungle);
-		list.add(WorldManager.biomeHeavenForest);
+		list.add(WorldManager.biomeAerius);
+		list.add(WorldManager.biomeAerianJungle);
+		list.add(WorldManager.biomeAerianForest);
 	}
 
 	@Override
