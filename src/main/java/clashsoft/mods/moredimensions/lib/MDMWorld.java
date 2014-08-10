@@ -36,9 +36,9 @@ public class MDMWorld
 		
 		// -- Biomes --
 		
-		biomeHeaven = new BiomeAerius(CSConfig.getBiome("Heaven", 60)).setBiomeName("Heaven");
-		biomeHeavenForest = new BiomeAeriusForest(CSConfig.getBiome("Heaven Forest", 61)).setBiomeName("Heaven Forest");
-		biomeHeavenJungle = new BiomeAeriusJungle(CSConfig.getBiome("Heaven Jungle", 62)).setBiomeName("Heaven Jungle");
+		biomeHeaven = new BiomeAerius(CSConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
+		biomeHeavenForest = new BiomeAeriusForest(CSConfig.getBiome("Aerial Forest", 61)).setBiomeName("Aerial Forest");
+		biomeHeavenJungle = new BiomeAeriusJungle(CSConfig.getBiome("Aerial Jungle", 62)).setBiomeName("Aerial Jungle");
 		
 		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
 		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
@@ -47,7 +47,7 @@ public class MDMWorld
 		
 		// -- Dimensions --
 		
-		// Heaven Dimension
+		// Aerius Dimension
 		DimensionManager.registerProviderType(AERIUS_ID, AeriusWorldProvider.class, true);
 		DimensionManager.registerDimension(AERIUS_ID, AERIUS_ID);
 		
