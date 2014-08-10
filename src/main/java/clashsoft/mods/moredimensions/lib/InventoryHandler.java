@@ -16,9 +16,9 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 
-public class MDMInventory implements IInventoryHandler
+public class InventoryHandler implements IInventoryHandler
 {
-	public static IInventoryHandler	slotHandler	= new MDMInventory();
+	public static IInventoryHandler	slotHandler	= new InventoryHandler();
 	
 	public static void load()
 	{
@@ -74,7 +74,7 @@ public class MDMInventory implements IInventoryHandler
 			}
 		}
 	}
-
+	
 	@Override
 	public void buttonPressed(GuiButton button, EntityPlayer player, boolean creative)
 	{

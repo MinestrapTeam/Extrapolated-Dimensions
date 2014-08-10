@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.biome;
 import java.util.Random;
 
 import clashsoft.mods.moredimensions.lib.Aerius;
-import clashsoft.mods.moredimensions.lib.MDMWorld;
+import clashsoft.mods.moredimensions.lib.WorldManager;
 import clashsoft.mods.moredimensions.world.gen.aerius.AeriusGenMinable;
 
 import net.minecraft.init.Blocks;
@@ -70,7 +70,7 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 			world.setBlock(x, y - 1, z, Blocks.vine);
 		}
 		
-		MDMWorld.generateHeaven(world, random, chunkX, chunkZ);
+		WorldManager.generateHeaven(world, random, chunkX, chunkZ);
 	}
 	
 	@Override

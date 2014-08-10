@@ -1,14 +1,14 @@
 package clashsoft.mods.moredimensions.world.gen_layer;
 
 import clashsoft.cslib.minecraft.world.CustomBiomeLayer;
-import clashsoft.mods.moredimensions.lib.MDMWorld;
+import clashsoft.mods.moredimensions.lib.WorldManager;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 
 public class GenLayerBiomesAerius extends CustomBiomeLayer
 {
-	protected BiomeGenBase[]	allowedBiomes	= { MDMWorld.biomeHeaven, MDMWorld.biomeHeavenJungle, MDMWorld.biomeHeavenForest };
+	protected BiomeGenBase[]	allowedBiomes	= { WorldManager.biomeHeaven, WorldManager.biomeHeavenJungle, WorldManager.biomeHeavenForest };
 	
 	public GenLayerBiomesAerius(long seed, GenLayer genlayer)
 	{

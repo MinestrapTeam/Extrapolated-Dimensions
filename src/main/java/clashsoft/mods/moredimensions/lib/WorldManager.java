@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
-public class MDMWorld
+public class WorldManager
 {
 	public static BiomeGenBase	biomeHeaven;
 	public static BiomeGenBase biomeHeavenForest;

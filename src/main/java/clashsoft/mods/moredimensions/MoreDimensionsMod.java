@@ -58,8 +58,8 @@ public class MoreDimensionsMod extends ClashsoftMod
 		Alchemy.load();
 		//Tools.load();
 		
-		MDMWorld.load();
-		MDMInventory.load();
+		WorldManager.load();
+		InventoryHandler.load();
 		
 		CSConfig.saveConfig();
 	}

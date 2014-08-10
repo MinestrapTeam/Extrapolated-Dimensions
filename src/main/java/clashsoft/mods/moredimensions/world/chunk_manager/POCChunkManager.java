@@ -3,7 +3,7 @@ package clashsoft.mods.moredimensions.world.chunk_manager;
 import java.util.List;
 
 import clashsoft.cslib.minecraft.world.CustomChunkManager;
-import clashsoft.mods.moredimensions.lib.MDMWorld;
+import clashsoft.mods.moredimensions.lib.WorldManager;
 import clashsoft.mods.moredimensions.world.gen_layer.GenLayerPOC;
 
 import net.minecraft.world.WorldType;
@@ -20,9 +20,9 @@ public class POCChunkManager extends CustomChunkManager
 	@Override
 	public void addBiomes(List<BiomeGenBase> list)
 	{
-		list.add(MDMWorld.biomePOCPlains);
-		list.add(MDMWorld.biomePOCMountains);
-		list.add(MDMWorld.biomePOCDesert);
+		list.add(WorldManager.biomePOCPlains);
+		list.add(WorldManager.biomePOCMountains);
+		list.add(WorldManager.biomePOCDesert);
 	}
 	
 	@Override
