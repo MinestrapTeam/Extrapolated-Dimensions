@@ -103,12 +103,9 @@ public class BlockCloud extends Block
 		int metadata = world.getBlockMetadata(x, y, z);
 		if (metadata == 0 || metadata == 1)
 		{
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y, z + 1D);
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.0625D, z + 1D);
 		}
-		else
-		{
-			return AxisAlignedBB.getBoundingBox(x, y, z, x, y, z);
-		}
+		return null;
 	}
 	
 	@Override
