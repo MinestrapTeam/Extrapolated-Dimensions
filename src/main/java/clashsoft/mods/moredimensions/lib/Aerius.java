@@ -41,7 +41,7 @@ public class Aerius
 	// Blocks
 	
 	public static CustomBlock				stoneBlocks;
-	public static CustomBlock oreBlocks;
+	public static CustomBlock				oreBlocks;
 	public static CustomBlock				metalBlocks;
 	public static CustomBlock				dirtBlocks;
 	public static BlockAeriusGrass			grassBlocks;
@@ -98,7 +98,7 @@ public class Aerius
 		portal = (BlockCustomPortal) new BlockAeriusPortal("aerius_portal", "mdm_heaven:aerius_portal").setCreativeTab(tabAeriusBlocks);
 		
 		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "mossy", "jungle" }, new String[] { "mdm_heaven:aerock", "mdm_heaven:aerock_cobbled", "mdm_heaven:aerock_mossy", "mdm_heaven:aerock_jungle" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
-		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "shrekite_ore", "clashium_ore", "condaius_ore", "holyium_ore"}, new String[] { "mdm_heaven:shrekite_ore", "mdm_heaven:clashium_ore", "mdm_heaven:condaius_ore", "mdm_heaven:holyium_ore"}, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
+		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "shrekite_ore", "clashium_ore", "condaius_ore", "holyium_ore" }, new String[] { "mdm_heaven:shrekite_ore", "mdm_heaven:clashium_ore", "mdm_heaven:condaius_ore", "mdm_heaven:holyium_ore" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
 		metalBlocks = (CustomBlock) new CustomBlock(Material.iron, new String[] { "shrekite_block", "clashium_block", "condaius_block", "holyium_block", "pro_block" }, new String[] { "mdm_heaven:shrekite_block", "mdm_heaven:clashium_block", "mdm_heaven:condaius_block", "mdm_heaven:holyium_block", "mdm_heaven:pro_block" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeMetal);
 		
 		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "aerian_soil", "mud", "ashes" }, new String[] { "mdm_heaven:aerian_soil", "mdm_heaven:aerian_mud", "mdm_heaven:ashes" }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeGravel);
