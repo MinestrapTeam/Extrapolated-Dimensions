@@ -24,8 +24,8 @@ public class BlockAeriusPillar extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon("mdm_heaven:pillar_side");
-		this.topIcon = iconRegister.registerIcon("mdm_heaven:pillar_top");
+		this.blockIcon = iconRegister.registerIcon("ed_aerius:pillar_side");
+		this.topIcon = iconRegister.registerIcon("ed_aerius:pillar_top");
 	}
 	
 	@Override

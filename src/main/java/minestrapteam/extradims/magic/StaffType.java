@@ -64,7 +64,7 @@ public class StaffType
 	public String getTextureName(int charge)
 	{
 		if (this.isChargeable())
-			return String.format("mdm_poc:staff_%d_%d", this.id, charge + 1);
+			return String.format("ed_poc:staff_%d_%d", this.id, charge + 1);
 		return "mdm_main:staff_" + this.id;
 	}
 }

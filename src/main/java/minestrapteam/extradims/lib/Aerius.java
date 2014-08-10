@@ -83,44 +83,44 @@ public class Aerius
 	{
 		// Items
 		
-		items = (ItemAeriusMaterials) new ItemAeriusMaterials(new String[] { "heaven_wood_stick", "gold_wood_stick", "aerian_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }, "mdm_heaven").setCreativeTab(tabAeriusItems);
+		items = (ItemAeriusMaterials) new ItemAeriusMaterials(new String[] { "heaven_wood_stick", "gold_wood_stick", "aerian_arrow", "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "blurite_dust" }, "ed_aerius").setCreativeTab(tabAeriusItems);
 		
-		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName("mdm_heaven:aerian_apple").setCreativeTab(tabAeriusItems);
-		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName("mdm_heaven:life_heart").setCreativeTab(tabAeriusItems);
-		fireSword = (ItemFireSword) new ItemFireSword().setTextureName("mdm_heaven:fire_sword").setCreativeTab(tabAeriusTools);
-		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName("mdm_heaven:ice_hammer").setCreativeTab(tabAeriusTools);
+		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName("ed_aerius:aerian_apple").setCreativeTab(tabAeriusItems);
+		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName("ed_aerius:life_heart").setCreativeTab(tabAeriusItems);
+		fireSword = (ItemFireSword) new ItemFireSword().setTextureName("ed_aerius:fire_sword").setCreativeTab(tabAeriusTools);
+		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName("ed_aerius:ice_hammer").setCreativeTab(tabAeriusTools);
 		soul = (ItemAeriusSoul) new ItemAeriusSoul().setCreativeTab(tabAeriusItems);
 		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabAeriusArmor);
-		portalActivator = (ItemAeriusPortalActivator) new ItemAeriusPortalActivator().setTextureName("mdm_heaven:aerius_portal_activator").setCreativeTab(tabAeriusTools);
+		portalActivator = (ItemAeriusPortalActivator) new ItemAeriusPortalActivator().setTextureName("ed_aerius:aerius_portal_activator").setCreativeTab(tabAeriusTools);
 		
 		String[] seeds = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" };
-		aeriusSeeds = new ItemAeriusSeeds(seeds, CSString.concatAll(seeds, "mdm_heaven:", "_seeds"));
-		iceStick = (ItemIceStick) new ItemIceStick().setTextureName("mdm_heaven:ice_stick").setCreativeTab(tabAeriusItems);
+		aeriusSeeds = new ItemAeriusSeeds(seeds, CSString.concatAll(seeds, "ed_aerius:", "_seeds"));
+		iceStick = (ItemIceStick) new ItemIceStick().setTextureName("ed_aerius:ice_stick").setCreativeTab(tabAeriusItems);
 		
 		// Blocks
 		
-		portal = (BlockCustomPortal) new BlockAeriusPortal("aerius_portal", "mdm_heaven:aerius_portal").setCreativeTab(tabAeriusBlocks);
+		portal = (BlockCustomPortal) new BlockAeriusPortal("aerius_portal", "ed_aerius:aerius_portal").setCreativeTab(tabAeriusBlocks);
 		
-		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "mossy", "jungle" }, new String[] { "mdm_heaven:aerock", "mdm_heaven:aerock_cobbled", "mdm_heaven:aerock_mossy", "mdm_heaven:aerock_jungle" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
-		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "shrekite_ore", "clashium_ore", "condaius_ore", "holyium_ore" }, new String[] { "mdm_heaven:shrekite_ore", "mdm_heaven:clashium_ore", "mdm_heaven:condaius_ore", "mdm_heaven:holyium_ore" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
-		metalBlocks = (CustomBlock) new CustomBlock(Material.iron, new String[] { "shrekite_block", "clashium_block", "condaius_block", "holyium_block", "pro_block" }, new String[] { "mdm_heaven:shrekite_block", "mdm_heaven:clashium_block", "mdm_heaven:condaius_block", "mdm_heaven:holyium_block", "mdm_heaven:pro_block" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeMetal);
+		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "mossy", "jungle" }, new String[] { "ed_aerius:aerock", "ed_aerius:aerock_cobbled", "ed_aerius:aerock_mossy", "ed_aerius:aerock_jungle" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
+		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "shrekite_ore", "clashium_ore", "condaius_ore", "holyium_ore" }, new String[] { "ed_aerius:shrekite_ore", "ed_aerius:clashium_ore", "ed_aerius:condaius_ore", "ed_aerius:holyium_ore" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
+		metalBlocks = (CustomBlock) new CustomBlock(Material.iron, new String[] { "shrekite_block", "clashium_block", "condaius_block", "holyium_block", "pro_block" }, new String[] { "ed_aerius:shrekite_block", "ed_aerius:clashium_block", "ed_aerius:condaius_block", "ed_aerius:holyium_block", "ed_aerius:pro_block" }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeMetal);
 		
-		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "aerian_soil", "mud", "ashes" }, new String[] { "mdm_heaven:aerian_soil", "mdm_heaven:aerian_mud", "mdm_heaven:ashes" }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeGravel);
+		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "aerian_soil", "mud", "ashes" }, new String[] { "ed_aerius:aerian_soil", "ed_aerius:aerian_mud", "ed_aerius:ashes" }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeGravel);
 		
-		grassBlocks = (BlockAeriusGrass) (new BlockAeriusGrass(new String[] { "heaven_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" }, new String[] { "mdm_heaven:aerian_grass_top", "mdm_heaven:aerian_mud_grass_top_full", "mdm_heaven:corrupted_grass_top", "mdm_heaven:hallowed_grass_top", "mdm_heaven:mushroom_grass_top" }, new String[] { "mdm_heaven:aerian_grass_side", "mdm_heaven:aerian_mud_grass_side_worn", "mdm_heaven:corrupted_grass_side", "mdm_heaven:hallowed_grass_side", "mdm_heaven:mushroom_grass_side" }, new String[] { "mdm_heaven:aerian_soil", "mdm_heaven:aerian_mud", "dirt", "dirt", "mdm_heaven:aerian_mud" })).setCreativeTab(tabAeriusBlocks);
+		grassBlocks = (BlockAeriusGrass) (new BlockAeriusGrass(new String[] { "heaven_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" }, new String[] { "ed_aerius:aerian_grass_top", "ed_aerius:aerian_mud_grass_top_full", "ed_aerius:corrupted_grass_top", "ed_aerius:hallowed_grass_top", "ed_aerius:mushroom_grass_top" }, new String[] { "ed_aerius:aerian_grass_side", "ed_aerius:aerian_mud_grass_side_worn", "ed_aerius:corrupted_grass_side", "ed_aerius:hallowed_grass_side", "ed_aerius:mushroom_grass_side" }, new String[] { "ed_aerius:aerian_soil", "ed_aerius:aerian_mud", "dirt", "dirt", "ed_aerius:aerian_mud" })).setCreativeTab(tabAeriusBlocks);
 		
-		logBlocks = (BlockCustomLog) (new BlockCustomLog(new String[] { "heaven_wood", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_log_top", "mdm_heaven:gold_wood_log_top" }, new String[] { "mdm_heaven:heaven_wood_log_side", "mdm_heaven:gold_wood_log_side" })).setCreativeTab(tabAeriusBlocks);
+		logBlocks = (BlockCustomLog) (new BlockCustomLog(new String[] { "heaven_wood", "gold_wood" }, new String[] { "ed_aerius:heaven_wood_log_top", "ed_aerius:gold_wood_log_top" }, new String[] { "ed_aerius:heaven_wood_log_side", "ed_aerius:gold_wood_log_side" })).setCreativeTab(tabAeriusBlocks);
 		
-		leafBlocks = (BlockCustomLeaves) (new BlockCustomLeaves(new String[] { "heaven_wood", "heaven_wood_2", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_leaves", "mdm_heaven:heaven_wood_leaves_2", "mdm_heaven:gold_wood_leaves" })).setCreativeTab(tabAeriusBlocks).setHardness(0.2F);
+		leafBlocks = (BlockCustomLeaves) (new BlockCustomLeaves(new String[] { "heaven_wood", "heaven_wood_2", "gold_wood" }, new String[] { "ed_aerius:heaven_wood_leaves", "ed_aerius:heaven_wood_leaves_2", "ed_aerius:gold_wood_leaves" })).setCreativeTab(tabAeriusBlocks).setHardness(0.2F);
 		
-		saplingBlocks = (BlockAeriusSapling) (new BlockAeriusSapling(new String[] { "heaven_wood", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_sapling", "mdm_heaven:gold_wood_sapling" })).setCreativeTab(tabAeriusBlocks);
+		saplingBlocks = (BlockAeriusSapling) (new BlockAeriusSapling(new String[] { "heaven_wood", "gold_wood" }, new String[] { "ed_aerius:heaven_wood_sapling", "ed_aerius:gold_wood_sapling" })).setCreativeTab(tabAeriusBlocks);
 		
-		plankBlocks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "heaven_wood", "gold_wood" }, new String[] { "mdm_heaven:heaven_wood_planks", "mdm_heaven:gold_wood_planks" }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeWood);
+		plankBlocks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "heaven_wood", "gold_wood" }, new String[] { "ed_aerius:heaven_wood_planks", "ed_aerius:gold_wood_planks" }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeWood);
 		
 		String[] plants = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass", "aerian_vine", "mud_vine", "corrupted_vine", "hallowed_vine", "mushroom_vine", "grass_vine" };
-		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants, CSString.concatAll(plants, "mdm_heaven:plant_", null)).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeGrass);
+		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants, CSString.concatAll(plants, "ed_aerius:plant_", null)).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeGrass);
 		
-		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName("mdm_heaven:cloud").setCreativeTab(tabAeriusBlocks);
+		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName("ed_aerius:cloud").setCreativeTab(tabAeriusBlocks);
 		
 		pillar = (BlockAeriusPillar) new BlockAeriusPillar().setCreativeTab(tabAeriusBlocks).setHardness(1.75F);
 		damnationTable = (BlockDamnationTable) new BlockDamnationTable().setCreativeTab(tabAeriusBlocks).setHardness(4F);
