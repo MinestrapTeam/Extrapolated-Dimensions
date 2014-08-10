@@ -4,8 +4,8 @@ import java.util.List;
 
 import clashsoft.cslib.minecraft.lang.I18n;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
-import minestrapteam.extradims.MoreDimensionsMod;
-import minestrapteam.extradims.common.MDMProxy;
+import minestrapteam.extradims.ExtraDimensions;
+import minestrapteam.extradims.common.EDProxy;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -34,7 +34,7 @@ public class ItemAlchemyGuide extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.TOME_GUIID, world, 0, 0, 0);
+		FMLNetworkHandler.openGui(player, ExtraDimensions.instance, EDProxy.TOME_GUIID, world, 0, 0, 0);
 		return stack;
 	}
 }

@@ -5,9 +5,9 @@ import org.lwjgl.opengl.GL11;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButtonLanguage;
 
-public class GuiHeavenButtonLanguage extends GuiButtonLanguage
+public class GuiAeriusButtonLanguage extends GuiButtonLanguage
 {
-	public GuiHeavenButtonLanguage(int buttonID, int x, int y)
+	public GuiAeriusButtonLanguage(int buttonID, int x, int y)
 	{
 		super(buttonID, x, y);
 	}

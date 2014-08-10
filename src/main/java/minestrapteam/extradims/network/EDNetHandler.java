@@ -2,9 +2,9 @@ package minestrapteam.extradims.network;
 
 import clashsoft.cslib.minecraft.network.CSNetHandler;
 
-public class MDMNetHandler extends CSNetHandler
+public class EDNetHandler extends CSNetHandler
 {
-	public MDMNetHandler()
+	public EDNetHandler()
 	{
 		super("MDM");
 	}

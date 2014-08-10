@@ -8,14 +8,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 
-public class ItemAxeMDM extends ItemTool
+public class EDItemAxe extends ItemTool
 {
-	public ItemAxeMDM(ToolMaterial material)
+	public EDItemAxe(ToolMaterial material)
 	{
 		this(3F, 1F, material);
 	}
 	
-	public ItemAxeMDM(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
+	public EDItemAxe(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
 	{
 		super(weaponDamage, material, ItemDataAxe.blocksEffectiveAgainst);
 		this.setCreativeTab(Tools.tabTools);
@@ -36,7 +36,7 @@ public class ItemAxeMDM extends ItemTool
 		return super.getDigSpeed(stack, block, metadata);
 	}
 	
-	public static class ItemHatchet extends ItemAxeMDM
+	public static class ItemHatchet extends EDItemAxe
 	{
 		public ItemHatchet(ToolMaterial material)
 		{
@@ -44,7 +44,7 @@ public class ItemAxeMDM extends ItemTool
 		}
 	}
 	
-	public static class ItemBattleaxe extends ItemAxeMDM
+	public static class ItemBattleaxe extends EDItemAxe
 	{
 		public ItemBattleaxe(ToolMaterial material)
 		{
@@ -52,7 +52,7 @@ public class ItemAxeMDM extends ItemTool
 		}
 	}
 	
-	public static class ItemSaw extends ItemAxeMDM
+	public static class ItemSaw extends EDItemAxe
 	{
 		public ItemSaw(ToolMaterial material)
 		{
@@ -60,7 +60,7 @@ public class ItemAxeMDM extends ItemTool
 		}
 	}
 	
-	public static class ItemThrowableAxe extends ItemAxeMDM
+	public static class ItemThrowableAxe extends EDItemAxe
 	{
 		public ItemThrowableAxe(ToolMaterial material)
 		{

@@ -1,11 +1,11 @@
 package minestrapteam.extradims.client.sound;
 
 
-public class MDMSoundHandler
+public class EDSoundHandler
 {
-	public static final MDMSoundHandler	instance	= new MDMSoundHandler();
+	public static final EDSoundHandler	instance	= new EDSoundHandler();
 	
-	protected MDMSoundHandler()
+	protected EDSoundHandler()
 	{
 	}
 	

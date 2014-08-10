@@ -1,6 +1,6 @@
 package minestrapteam.extradims.chat.boss;
 
-import minestrapteam.extradims.api.IMDMBoss;
+import minestrapteam.extradims.api.IChatEntity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -25,7 +25,7 @@ public class BossChatEntry
 		this.localized = localized;
 	}
 	
-	public String getUserName(EntityPlayer player, IMDMBoss boss)
+	public String getUserName(EntityPlayer player, IChatEntity boss)
 	{
 		if (this.userType == EnumBossChatUser.PLAYER)
 		{
@@ -41,7 +41,7 @@ public class BossChatEntry
 		}
 	}
 	
-	public ResourceLocation getIcon(IMDMBoss boss)
+	public ResourceLocation getIcon(IChatEntity boss)
 	{
 		if (this.userType == EnumBossChatUser.PLAYER)
 		{

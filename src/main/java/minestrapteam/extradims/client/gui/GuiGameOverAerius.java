@@ -1,12 +1,12 @@
 package minestrapteam.extradims.client.gui;
 
-import minestrapteam.extradims.MoreDimensionsMod;
+import minestrapteam.extradims.ExtraDimensions;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiScreen;
 
-public class GuiGameOverHeaven extends GuiGameOver
+public class GuiGameOverAerius extends GuiGameOver
 {
 	public GuiButton	heavenButton;
 	
@@ -28,7 +28,7 @@ public class GuiGameOverHeaven extends GuiGameOver
 		{
 			this.mc.thePlayer.respawnPlayer();
 			this.mc.displayGuiScreen((GuiScreen) null);
-			MoreDimensionsMod.proxy.sendPlayerToHeaven(this.mc.thePlayer);
+			ExtraDimensions.proxy.sendPlayerToHeaven(this.mc.thePlayer);
 		}
 		else
 		{

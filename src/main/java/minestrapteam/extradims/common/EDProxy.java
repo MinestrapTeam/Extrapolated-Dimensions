@@ -1,8 +1,8 @@
 package minestrapteam.extradims.common;
 
 import clashsoft.cslib.minecraft.common.BaseProxy;
-import minestrapteam.extradims.MoreDimensionsMod;
-import minestrapteam.extradims.api.IMDMBoss;
+import minestrapteam.extradims.ExtraDimensions;
+import minestrapteam.extradims.api.IChatEntity;
 import minestrapteam.extradims.inventory.ContainerAlchemyTable;
 import minestrapteam.extradims.inventory.ContainerBossChat;
 import minestrapteam.extradims.inventory.ContainerDamnationTable;
@@ -13,7 +13,7 @@ import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class MDMProxy extends BaseProxy
+public class EDProxy extends BaseProxy
 {
 	public static int	BOSS_CHAT_GUIID			= 20;
 	public static int	TOME_GUIID				= 21;
@@ -25,7 +25,7 @@ public class MDMProxy extends BaseProxy
 	{
 		if (ID == BOSS_CHAT_GUIID)
 		{
-			return new ContainerBossChat(player, (IMDMBoss) world.getEntityByID(x));
+			return new ContainerBossChat(player, (IChatEntity) world.getEntityByID(x));
 		}
 		else if (ID == TOME_GUIID)
 		{
@@ -47,7 +47,7 @@ public class MDMProxy extends BaseProxy
 	
 	public static int getArmorIndex(String name)
 	{
-		return MoreDimensionsMod.proxy.getArmor(name);
+		return ExtraDimensions.proxy.getArmor(name);
 	}
 	
 	protected int getArmor(String name)

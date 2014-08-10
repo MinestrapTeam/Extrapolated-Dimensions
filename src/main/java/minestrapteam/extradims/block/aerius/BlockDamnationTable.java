@@ -3,8 +3,8 @@ package minestrapteam.extradims.block.aerius;
 import java.util.Random;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
-import minestrapteam.extradims.MoreDimensionsMod;
-import minestrapteam.extradims.common.MDMProxy;
+import minestrapteam.extradims.ExtraDimensions;
+import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
 
 import net.minecraft.block.Block;
@@ -99,7 +99,7 @@ public class BlockDamnationTable extends BlockContainer
 			
 			if (tileentity instanceof TileEntityDamnationTable)
 			{
-				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.DAMNATION_TABLE_GUIID, world, x, y, z);
+				FMLNetworkHandler.openGui(player, ExtraDimensions.instance, EDProxy.DAMNATION_TABLE_GUIID, world, x, y, z);
 			}
 		}
 		return true;

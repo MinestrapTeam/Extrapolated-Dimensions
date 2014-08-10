@@ -3,17 +3,17 @@ package minestrapteam.extradims.lib;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
 import clashsoft.cslib.util.CSArrays;
-import minestrapteam.extradims.common.MDMProxy;
+import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.item.armor.*;
 import minestrapteam.extradims.item.tools.*;
-import minestrapteam.extradims.item.tools.ItemAxeMDM.ItemBattleaxe;
-import minestrapteam.extradims.item.tools.ItemAxeMDM.ItemHatchet;
-import minestrapteam.extradims.item.tools.ItemAxeMDM.ItemSaw;
-import minestrapteam.extradims.item.tools.ItemAxeMDM.ItemThrowableAxe;
-import minestrapteam.extradims.item.tools.ItemBowMDM.ItemCrossBow;
-import minestrapteam.extradims.item.tools.ItemBowMDM.ItemShortBow;
+import minestrapteam.extradims.item.tools.EDItemAxe.ItemBattleaxe;
+import minestrapteam.extradims.item.tools.EDItemAxe.ItemHatchet;
+import minestrapteam.extradims.item.tools.EDItemAxe.ItemSaw;
+import minestrapteam.extradims.item.tools.EDItemAxe.ItemThrowableAxe;
+import minestrapteam.extradims.item.tools.EDItemBow.ItemCrossBow;
+import minestrapteam.extradims.item.tools.EDItemBow.ItemShortBow;
 import minestrapteam.extradims.item.tools.ItemHammer.ItemWarhammer;
-import minestrapteam.extradims.item.tools.ItemSwordMDM.*;
+import minestrapteam.extradims.item.tools.EDItemSword.*;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.*;
@@ -79,12 +79,12 @@ public class Tools
 																"battleaxe", "claws", "dagger", "dart", "halberd", "hammer", "hatchet", //
 																"javelin", "longsword", "mace", "ninjastar", "pickaxe_variant", "rapier", "saw", "scimitar", //
 																"spade", "spear", "throwing_axe", "throwing_knife", "warhammer");
-	public static Class[]			toolClasses			= CSArrays.create(ItemSword.class, ItemSpade.class, ItemPickaxeMDM.class, ItemAxeMDM.class, ItemHoe.class, // Tools
+	public static Class[]			toolClasses			= CSArrays.create(ItemSword.class, ItemSpade.class, EDItemPickaxe.class, EDItemAxe.class, ItemHoe.class, // Tools
 																ItemHelmet.class, ItemChestplate.class, ItemLeggings.class, ItemBoots.class, // Armor
 																ItemGloves.class, ItemShield.class, // Armor
-																ItemBowMDM.class, ItemCrossBow.class, ItemShortBow.class, // Bows
+																EDItemBow.class, ItemCrossBow.class, ItemShortBow.class, // Bows
 																ItemBattleaxe.class, ItemClaws.class, ItemDagger.class, ItemDart.class, ItemHalberd.class, ItemHammer.class, ItemHatchet.class, //
-																ItemJavelin.class, ItemLongsword.class, ItemMace.class, ItemNinjaStar.class, ItemPickaxeMDM.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, //
+																ItemJavelin.class, ItemLongsword.class, ItemMace.class, ItemNinjaStar.class, EDItemPickaxe.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, //
 																ItemSpade.class, ItemSpear.class, ItemThrowableAxe.class, ItemThrowableKnife.class, ItemWarhammer.class);
 	
 	public static String[]			materialNames		= new String[] { "wood", "stone", "iron", "gold", "diamond", // vanilla
@@ -146,7 +146,7 @@ public class Tools
 				{
 					if (!vanillaMaterial || (toolClass != ItemHelmet.class && toolClass != ItemChestplate.class && toolClass != ItemLeggings.class && toolClass != ItemBoots.class))
 					{
-						item = CSItems.createItem(toolClass, itemID, new Class[] { ArmorMaterial.class, int.class }, new Object[] { armorMaterial, MDMProxy.getArmorIndex(material.toLowerCase()) });
+						item = CSItems.createItem(toolClass, itemID, new Class[] { ArmorMaterial.class, int.class }, new Object[] { armorMaterial, EDProxy.getArmorIndex(material.toLowerCase()) });
 						if (item != null)
 						{
 							item.setCreativeTab(armorTab);

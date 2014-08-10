@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import minestrapteam.extradims.entity.MDMEntityProperties;
+import minestrapteam.extradims.entity.EDEntityProperties;
 import minestrapteam.extradims.magic.StaffData;
 import minestrapteam.extradims.magic.StaffType;
 import minestrapteam.extradims.magic.spells.Spell;
@@ -111,7 +111,7 @@ public class ItemStaff extends Item
 	public ItemStack useStaff(ItemStack stack, EntityPlayer player, MovingObjectPosition object)
 	{
 		StaffData sd = StaffData.getStaffData(stack);
-		MDMEntityProperties props = MDMEntityProperties.get(player);
+		EDEntityProperties props = EDEntityProperties.get(player);
 		
 		if (!sd.getStaffType().isChargeable())
 		{
@@ -142,7 +142,7 @@ public class ItemStaff extends Item
 	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int useDuration)
 	{
 		StaffData sd = StaffData.getStaffData(stack);
-		MDMEntityProperties props = MDMEntityProperties.get(player);
+		EDEntityProperties props = EDEntityProperties.get(player);
 		
 		if (sd.getStaffType().isChargeable())
 		{

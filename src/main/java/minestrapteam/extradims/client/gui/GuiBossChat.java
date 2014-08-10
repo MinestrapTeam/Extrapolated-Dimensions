@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
-import minestrapteam.extradims.api.IMDMBoss;
+import minestrapteam.extradims.api.IChatEntity;
 import minestrapteam.extradims.chat.boss.BossChatEntry;
 import minestrapteam.extradims.chat.boss.PlayerInputParser;
 import minestrapteam.extradims.inventory.ContainerBossChat;
@@ -17,11 +17,11 @@ import net.minecraft.util.StatCollector;
 public class GuiBossChat extends GuiContainer
 {
 	public EntityPlayer		thePlayer;
-	public IMDMBoss			theBoss;
+	public IChatEntity			theBoss;
 	
 	private GuiTextField	playerInput;
 	
-	public GuiBossChat(EntityPlayer player, IMDMBoss boss)
+	public GuiBossChat(EntityPlayer player, IChatEntity boss)
 	{
 		super(new ContainerBossChat(player, boss));
 		this.thePlayer = player;

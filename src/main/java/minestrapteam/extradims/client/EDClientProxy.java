@@ -6,7 +6,7 @@ import java.util.Map;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import minestrapteam.extradims.api.IMDMBoss;
+import minestrapteam.extradims.api.IChatEntity;
 import minestrapteam.extradims.client.gui.GuiBossChat;
 import minestrapteam.extradims.client.gui.GuiPOCIngame;
 import minestrapteam.extradims.client.gui.GuiTome;
@@ -15,8 +15,8 @@ import minestrapteam.extradims.client.gui.container.GuiDamnationTable;
 import minestrapteam.extradims.client.renderer.entity.RenderLich;
 import minestrapteam.extradims.client.renderer.item.RenderPOCBows;
 import minestrapteam.extradims.client.renderer.tileentity.RenderAlchemyTube;
-import minestrapteam.extradims.client.sound.MDMSoundHandler;
-import minestrapteam.extradims.common.MDMProxy;
+import minestrapteam.extradims.client.sound.EDSoundHandler;
+import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.entity.boss.EntityLich;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTable;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTube;
@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
-public class MDMClientProxy extends MDMProxy
+public class EDClientProxy extends EDProxy
 {
 	public Map<String, Integer>	armorFiles	= new HashMap<String, Integer>();
 	
@@ -42,7 +42,7 @@ public class MDMClientProxy extends MDMProxy
 	{
 		if (ID == BOSS_CHAT_GUIID)
 		{
-			return new GuiBossChat(player, (IMDMBoss) world.getEntityByID(x));
+			return new GuiBossChat(player, (IChatEntity) world.getEntityByID(x));
 		}
 		else if (ID == TOME_GUIID)
 		{
@@ -66,9 +66,9 @@ public class MDMClientProxy extends MDMProxy
 	public void init(FMLInitializationEvent event)
 	{
 		// Event Handlers
-		MinecraftForge.EVENT_BUS.register(new MDMClientEvents());
+		MinecraftForge.EVENT_BUS.register(new EDClientEvents());
 		MinecraftForge.EVENT_BUS.register(new GuiPOCIngame(Minecraft.getMinecraft()));
-		MinecraftForge.EVENT_BUS.register(MDMSoundHandler.instance);
+		MinecraftForge.EVENT_BUS.register(EDSoundHandler.instance);
 		
 		// Entity Renderers
 		RenderingRegistry.registerEntityRenderingHandler(EntityLich.class, new RenderLich());

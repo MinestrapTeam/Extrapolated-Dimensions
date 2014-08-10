@@ -17,7 +17,7 @@ import com.google.common.collect.Lists;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import minestrapteam.extradims.client.gui.button.GuiFrameButton;
-import minestrapteam.extradims.client.gui.button.GuiHeavenButtonLanguage;
+import minestrapteam.extradims.client.gui.button.GuiAeriusButtonLanguage;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -28,7 +28,7 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiHeavenMainMenu extends GuiMainMenu
+public class GuiMainMenuAerius extends GuiMainMenu
 {
 	public static final ResourceLocation	splashTexts					= new ResourceLocation("minecraft", "texts/splashes.txt");
 	public static final ResourceLocation	minecraftTitleTextures		= new ResourceLocation("minecraft", "textures/gui/title/minecraft.png");
@@ -51,7 +51,7 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 	
 	public Random							rand						= new Random();
 	
-	public GuiHeavenMainMenu()
+	public GuiMainMenuAerius()
 	{
 		super();
 		
@@ -154,7 +154,7 @@ public class GuiHeavenMainMenu extends GuiMainMenu
 			}
 			else if (oldButton.getClass() == GuiButtonLanguage.class)
 			{
-				newButton = new GuiHeavenButtonLanguage(oldButton.id, oldButton.xPosition, oldButton.yPosition);
+				newButton = new GuiAeriusButtonLanguage(oldButton.id, oldButton.xPosition, oldButton.yPosition);
 			}
 			
 			if (newButton != null)

@@ -3,7 +3,7 @@ package minestrapteam.extradims.client.gui;
 import org.lwjgl.input.Keyboard;
 
 import cpw.mods.fml.common.Mod.EventHandler;
-import minestrapteam.extradims.entity.MDMEntityProperties;
+import minestrapteam.extradims.entity.EDEntityProperties;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -57,7 +57,7 @@ public class GuiPOCIngame extends GuiIngameForge
 			// int top = height - 49 -
 			// (this.mc.thePlayer.isInsideOfMaterial(Material.water) ? 10 : 0);
 			
-			float mana = MDMEntityProperties.get(this.mc.thePlayer).getMana();
+			float mana = EDEntityProperties.get(this.mc.thePlayer).getMana();
 			
 			String text = Float.toString(mana);
 			int x = (width - this.mc.fontRenderer.getStringWidth(text)) / 2;
@@ -76,7 +76,7 @@ public class GuiPOCIngame extends GuiIngameForge
 	{
 		if (Keyboard.isKeyDown(Keyboard.KEY_I) && this.mc.inGameHasFocus)
 		{
-			MDMEntityProperties props = MDMEntityProperties.get(this.mc.thePlayer);
+			EDEntityProperties props = EDEntityProperties.get(this.mc.thePlayer);
 			int i = -9;
 			int i1 = 11;
 			

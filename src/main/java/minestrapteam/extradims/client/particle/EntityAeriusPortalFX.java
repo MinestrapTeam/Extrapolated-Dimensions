@@ -4,14 +4,14 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
 
-public class EntityHeavenPortalFX extends EntityFX
+public class EntityAeriusPortalFX extends EntityFX
 {
 	private float	portalParticleScale;
 	private double	portalPosX;
 	private double	portalPosY;
 	private double	portalPosZ;
 	
-	public EntityHeavenPortalFX(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
+	public EntityAeriusPortalFX(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
 	{
 		super(world, x, y, z, motionX, motionY, motionZ);
 		

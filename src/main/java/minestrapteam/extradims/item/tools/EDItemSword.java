@@ -14,18 +14,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemSwordMDM extends Item
+public class EDItemSword extends Item
 {
 	public float				weaponDamage;
 	public final ToolMaterial	toolMaterial;
 	public float				efficiencyOnProperMaterial	= 1F;
 	
-	public ItemSwordMDM(float weaponDamage, ToolMaterial material)
+	public EDItemSword(float weaponDamage, ToolMaterial material)
 	{
 		this(weaponDamage, 1F, material);
 	}
 	
-	public ItemSwordMDM(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
+	public EDItemSword(float weaponDamage, float efficiencyMultiplier, ToolMaterial material)
 	{
 		super();
 		this.maxStackSize = 1;
@@ -118,7 +118,7 @@ public class ItemSwordMDM extends Item
 	
 	// --------------------
 	
-	public static class ItemDagger extends ItemSwordMDM
+	public static class ItemDagger extends EDItemSword
 	{
 		public ItemDagger(ToolMaterial material)
 		{
@@ -126,7 +126,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemScimitar extends ItemSwordMDM
+	public static class ItemScimitar extends EDItemSword
 	{
 		public ItemScimitar(ToolMaterial material)
 		{
@@ -134,7 +134,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemRapier extends ItemSwordMDM
+	public static class ItemRapier extends EDItemSword
 	{
 		public ItemRapier(ToolMaterial material)
 		{
@@ -142,7 +142,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemLongsword extends ItemSwordMDM
+	public static class ItemLongsword extends EDItemSword
 	{
 		public ItemLongsword(ToolMaterial material)
 		{
@@ -150,7 +150,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemHalberd extends ItemSwordMDM
+	public static class ItemHalberd extends EDItemSword
 	{
 		public ItemHalberd(ToolMaterial material)
 		{
@@ -158,7 +158,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemSpear extends ItemSwordMDM
+	public static class ItemSpear extends EDItemSword
 	{
 		public ItemSpear(ToolMaterial material)
 		{
@@ -166,7 +166,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemClaws extends ItemSwordMDM
+	public static class ItemClaws extends EDItemSword
 	{
 		public ItemClaws(ToolMaterial material)
 		{
@@ -176,7 +176,7 @@ public class ItemSwordMDM extends Item
 	
 	// Throwable
 	
-	public static class ItemThrowableKnife extends ItemSwordMDM
+	public static class ItemThrowableKnife extends EDItemSword
 	{
 		public ItemThrowableKnife(ToolMaterial material)
 		{
@@ -184,7 +184,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemNinjaStar extends ItemSwordMDM
+	public static class ItemNinjaStar extends EDItemSword
 	{
 		public ItemNinjaStar(ToolMaterial material)
 		{
@@ -192,7 +192,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemJavelin extends ItemSwordMDM
+	public static class ItemJavelin extends EDItemSword
 	{
 		public ItemJavelin(ToolMaterial material)
 		{
@@ -200,7 +200,7 @@ public class ItemSwordMDM extends Item
 		}
 	}
 	
-	public static class ItemDart extends ItemSwordMDM
+	public static class ItemDart extends EDItemSword
 	{
 		public ItemDart(ToolMaterial material)
 		{

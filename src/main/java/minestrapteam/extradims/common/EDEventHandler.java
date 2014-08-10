@@ -7,7 +7,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import minestrapteam.extradims.api.ICape;
 import minestrapteam.extradims.api.IMinableBlock;
 import minestrapteam.extradims.curse.Curse;
-import minestrapteam.extradims.entity.MDMEntityProperties;
+import minestrapteam.extradims.entity.EDEntityProperties;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.block.*;
@@ -28,7 +28,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
-public class MDMEventHandler
+public class EDEventHandler
 {
 	public int	playerCounter	= 0;
 	
@@ -45,7 +45,7 @@ public class MDMEventHandler
 	@SubscribeEvent
 	public void onEntityAttacked(AttackEntityEvent event)
 	{
-		MDMEntityProperties.get(event.entityPlayer).addMeleeLevel(0.005F);
+		EDEntityProperties.get(event.entityPlayer).addMeleeLevel(0.005F);
 	}
 	
 	@SubscribeEvent
@@ -53,7 +53,7 @@ public class MDMEventHandler
 	{
 		if (event.source.getSourceOfDamage() instanceof EntityPlayer)
 		{
-			MDMEntityProperties.get((EntityPlayer) event.source.getSourceOfDamage()).addSlayerLevel(0.01F);
+			EDEntityProperties.get((EntityPlayer) event.source.getSourceOfDamage()).addSlayerLevel(0.01F);
 		}
 	}
 	
@@ -62,26 +62,26 @@ public class MDMEventHandler
 	{
 		if (event.entityLiving instanceof EntityPlayer)
 		{
-			MDMEntityProperties.get(event.entityLiving).addDefenceLevel(0.01F);
+			EDEntityProperties.get(event.entityLiving).addDefenceLevel(0.01F);
 		}
 	}
 	
 	@SubscribeEvent
 	public void onArrowShot(ArrowLooseEvent event)
 	{
-		MDMEntityProperties.get(event.entityPlayer).addRangedLevel(0.05F);
+		EDEntityProperties.get(event.entityPlayer).addRangedLevel(0.05F);
 	}
 	
 	@SubscribeEvent
 	public void onHoeUsed(UseHoeEvent event)
 	{
-		MDMEntityProperties.get(event.entityPlayer).addFarmingLevel(0.001F);
+		EDEntityProperties.get(event.entityPlayer).addFarmingLevel(0.001F);
 	}
 	
 	@SubscribeEvent
 	public void onItemTossed(ItemTossEvent event)
 	{
-		MDMEntityProperties.get(event.player).addSharingLevel(0.001F);
+		EDEntityProperties.get(event.player).addSharingLevel(0.001F);
 	}
 	
 	@SubscribeEvent
@@ -89,7 +89,7 @@ public class MDMEventHandler
 	{
 		if (event.harvester != null)
 		{
-			MDMEntityProperties props = MDMEntityProperties.get(event.harvester);
+			EDEntityProperties props = EDEntityProperties.get(event.harvester);
 			Block block = event.block;
 			Material material = block.getMaterial();
 			
@@ -152,8 +152,8 @@ public class MDMEventHandler
 	{
 		if (event.entity instanceof EntityPlayer && !event.entity.worldObj.isRemote)
 		{
-			MDMEntityProperties props = MDMEntityProperties.create((EntityLivingBase) event.entity);
-			MDMEntityProperties.set((EntityPlayer) event.entity, props);
+			EDEntityProperties props = EDEntityProperties.create((EntityLivingBase) event.entity);
+			EDEntityProperties.set((EntityPlayer) event.entity, props);
 		}
 	}
 	
@@ -165,7 +165,7 @@ public class MDMEventHandler
 			if (!event.world.isRemote)
 			{
 				EntityPlayer player = (EntityPlayer) event.entity;
-				MDMEntityProperties props = MDMEntityProperties.get(player);
+				EDEntityProperties props = EDEntityProperties.get(player);
 				props.sync(player);
 			}
 		}

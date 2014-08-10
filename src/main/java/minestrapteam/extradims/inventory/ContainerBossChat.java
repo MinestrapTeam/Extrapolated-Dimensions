@@ -1,6 +1,6 @@
 package minestrapteam.extradims.inventory;
 
-import minestrapteam.extradims.api.IMDMBoss;
+import minestrapteam.extradims.api.IChatEntity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -8,9 +8,9 @@ import net.minecraft.inventory.Container;
 public class ContainerBossChat extends Container
 {
 	public EntityPlayer	player;
-	public IMDMBoss		boss;
+	public IChatEntity		boss;
 	
-	public ContainerBossChat(EntityPlayer player, IMDMBoss boss)
+	public ContainerBossChat(EntityPlayer player, IChatEntity boss)
 	{
 		this.player = player;
 		this.boss = boss;

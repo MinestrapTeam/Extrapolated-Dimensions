@@ -16,19 +16,19 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
-public class ItemBowMDM extends ItemTool
+public class EDItemBow extends ItemTool
 {
 	public static ItemStack	defaultArrow			= new ItemStack(Items.arrow);
 	
 	public ItemStack		arrow;
 	public IIcon[]			iconArray;
 	
-	public ItemBowMDM(ToolMaterial toolMaterial)
+	public EDItemBow(ToolMaterial toolMaterial)
 	{
 		this(toolMaterial, defaultArrow);
 	}
 	
-	public ItemBowMDM(ToolMaterial toolMaterial, ItemStack arrow)
+	public EDItemBow(ToolMaterial toolMaterial, ItemStack arrow)
 	{
 		super(0F, toolMaterial, Collections.EMPTY_SET);
 		
@@ -164,7 +164,7 @@ public class ItemBowMDM extends ItemTool
 		return this.itemIcon;
 	}
 	
-	public static class ItemCrossBow extends ItemBowMDM
+	public static class ItemCrossBow extends EDItemBow
 	{
 		public ItemCrossBow(ToolMaterial toolMaterial)
 		{
@@ -172,7 +172,7 @@ public class ItemBowMDM extends ItemTool
 		}
 	}
 	
-	public static class ItemShortBow extends ItemBowMDM
+	public static class ItemShortBow extends EDItemBow
 	{
 		public ItemShortBow(ToolMaterial toolMaterial)
 		{

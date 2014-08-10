@@ -7,10 +7,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
-public class MDMEntityProperties implements IExtendedEntityProperties
+public class EDEntityProperties implements IExtendedEntityProperties
 {
-	public static final String		IDENTIFIER			= "MDMEntityProperties";
-	public static final String		CHANNEL				= "MDMEntProp";
+	public static final String		IDENTIFIER			= "EDEntityProperties";
+	public static final String		CHANNEL				= "ED_EProps";
 	
 	public static float				maxManaValue		= 10F;
 	
@@ -35,14 +35,14 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	
 	protected float					sharingLevel		= 0F;
 	
-	private MDMEntityProperties(final EntityLivingBase entity)
+	private EDEntityProperties(final EntityLivingBase entity)
 	{
 		this.entity = entity;
 	}
 	
-	public static MDMEntityProperties create(EntityLivingBase entity)
+	public static EDEntityProperties create(EntityLivingBase entity)
 	{
-		return new MDMEntityProperties(entity);
+		return new EDEntityProperties(entity);
 	}
 	
 	public void onPropertyChanged()
@@ -57,28 +57,28 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	 * Setters
 	 */
 	
-	public MDMEntityProperties setMana(float mana)
+	public EDEntityProperties setMana(float mana)
 	{
 		this.mana = mana;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setAdditionalHearts(float additionalHearts)
+	public EDEntityProperties setAdditionalHearts(float additionalHearts)
 	{
 		this.additionalHearts = additionalHearts;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setMeleeLevel(float meleeLevel)
+	public EDEntityProperties setMeleeLevel(float meleeLevel)
 	{
 		this.meleeLevel = meleeLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setDefenceLevel(float defenceLevel)
+	public EDEntityProperties setDefenceLevel(float defenceLevel)
 	{
 		this.defenceLevel = defenceLevel;
 		
@@ -86,91 +86,91 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		return this;
 	}
 	
-	public MDMEntityProperties setMagicLevel(float magicLevel)
+	public EDEntityProperties setMagicLevel(float magicLevel)
 	{
 		this.magicLevel = magicLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setRangedLevel(float rangedLevel)
+	public EDEntityProperties setRangedLevel(float rangedLevel)
 	{
 		this.rangedLevel = rangedLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setDiggingLevel(float level)
+	public EDEntityProperties setDiggingLevel(float level)
 	{
 		this.diggingLevel = level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setMiningLevel(float miningLevel)
+	public EDEntityProperties setMiningLevel(float miningLevel)
 	{
 		this.miningLevel = miningLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setSmithingLevel(float smithingLevel)
+	public EDEntityProperties setSmithingLevel(float smithingLevel)
 	{
 		this.smithingLevel = smithingLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setFishingLevel(float fishingLevel)
+	public EDEntityProperties setFishingLevel(float fishingLevel)
 	{
 		this.fishingLevel = fishingLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setCookingLevel(float cookingLevel)
+	public EDEntityProperties setCookingLevel(float cookingLevel)
 	{
 		this.cookingLevel = cookingLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setWoodCuttingLevel(float woodCuttingLevel)
+	public EDEntityProperties setWoodCuttingLevel(float woodCuttingLevel)
 	{
 		this.woodCuttingLevel = woodCuttingLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setHerbloreLevel(float herbloreLevel)
+	public EDEntityProperties setHerbloreLevel(float herbloreLevel)
 	{
 		this.herbloreLevel = herbloreLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setThievingLevel(float thievingLevel)
+	public EDEntityProperties setThievingLevel(float thievingLevel)
 	{
 		this.thievingLevel = thievingLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setSlayerLevel(float level)
+	public EDEntityProperties setSlayerLevel(float level)
 	{
 		this.slayerLevel = level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setFarmingLevel(float farmingLevel)
+	public EDEntityProperties setFarmingLevel(float farmingLevel)
 	{
 		this.farmingLevel = farmingLevel;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties setSharingLevel(float sharingLevel)
+	public EDEntityProperties setSharingLevel(float sharingLevel)
 	{
 		this.sharingLevel = sharingLevel;
 		this.onPropertyChanged();
@@ -270,119 +270,119 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 	 * Increasing methods
 	 */
 	
-	public MDMEntityProperties addMana(float mana)
+	public EDEntityProperties addMana(float mana)
 	{
 		this.mana += mana;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addAdditionalHearts(float additionalHearts)
+	public EDEntityProperties addAdditionalHearts(float additionalHearts)
 	{
 		this.additionalHearts += additionalHearts;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addMeleeLevel(float level)
+	public EDEntityProperties addMeleeLevel(float level)
 	{
 		this.meleeLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addDefenceLevel(float level)
+	public EDEntityProperties addDefenceLevel(float level)
 	{
 		this.defenceLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addMagicLevel(float level)
+	public EDEntityProperties addMagicLevel(float level)
 	{
 		this.magicLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addRangedLevel(float level)
+	public EDEntityProperties addRangedLevel(float level)
 	{
 		this.rangedLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addDiggingLevel(float level)
+	public EDEntityProperties addDiggingLevel(float level)
 	{
 		this.diggingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addMiningLevel(float level)
+	public EDEntityProperties addMiningLevel(float level)
 	{
 		this.miningLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addSmithingLevel(float level)
+	public EDEntityProperties addSmithingLevel(float level)
 	{
 		this.smithingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addFishingLevel(float level)
+	public EDEntityProperties addFishingLevel(float level)
 	{
 		this.fishingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addCookingLevel(float level)
+	public EDEntityProperties addCookingLevel(float level)
 	{
 		this.cookingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addWoodCuttingLevel(float level)
+	public EDEntityProperties addWoodCuttingLevel(float level)
 	{
 		this.woodCuttingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addHerbloreLevel(float level)
+	public EDEntityProperties addHerbloreLevel(float level)
 	{
 		this.herbloreLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addThievingLevel(float level)
+	public EDEntityProperties addThievingLevel(float level)
 	{
 		this.thievingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addSlayerLevel(float level)
+	public EDEntityProperties addSlayerLevel(float level)
 	{
 		this.slayerLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addFarmingLevel(float level)
+	public EDEntityProperties addFarmingLevel(float level)
 	{
 		this.farmingLevel += level;
 		this.onPropertyChanged();
 		return this;
 	}
 	
-	public MDMEntityProperties addSharingLevel(float level)
+	public EDEntityProperties addSharingLevel(float level)
 	{
 		this.sharingLevel += level;
 		this.onPropertyChanged();
@@ -399,20 +399,20 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		
 	}
 	
-	public static MDMEntityProperties get(EntityLivingBase living)
+	public static EDEntityProperties get(EntityLivingBase living)
 	{
-		MDMEntityProperties props = get_(living);
+		EDEntityProperties props = get_(living);
 		return props == null ? set(living, create(living)) : props;
 	}
 	
-	protected static MDMEntityProperties get_(EntityLivingBase living)
+	protected static EDEntityProperties get_(EntityLivingBase living)
 	{
-		return (MDMEntityProperties) living.getExtendedProperties(IDENTIFIER);
+		return (EDEntityProperties) living.getExtendedProperties(IDENTIFIER);
 	}
 	
-	public static MDMEntityProperties set(EntityLivingBase living, MDMEntityProperties properties)
+	public static EDEntityProperties set(EntityLivingBase living, EDEntityProperties properties)
 	{
-		MDMEntityProperties props = (MDMEntityProperties) living.getExtendedProperties(IDENTIFIER);
+		EDEntityProperties props = (EDEntityProperties) living.getExtendedProperties(IDENTIFIER);
 		if (props == null)
 		{
 			props = create(living);
@@ -423,7 +423,7 @@ public class MDMEntityProperties implements IExtendedEntityProperties
 		return props;
 	}
 	
-	public static void copy(MDMEntityProperties source, MDMEntityProperties dest)
+	public static void copy(EDEntityProperties source, EDEntityProperties dest)
 	{
 		dest.mana = source.mana;
 		dest.additionalHearts = source.additionalHearts;

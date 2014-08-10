@@ -2,9 +2,9 @@ package minestrapteam.extradims.item.tools;
 
 import net.minecraft.item.ItemPickaxe;
 
-public class ItemPickaxeMDM extends ItemPickaxe
+public class EDItemPickaxe extends ItemPickaxe
 {
-	public ItemPickaxeMDM(ToolMaterial material)
+	public EDItemPickaxe(ToolMaterial material)
 	{
 		super(material);
 	}

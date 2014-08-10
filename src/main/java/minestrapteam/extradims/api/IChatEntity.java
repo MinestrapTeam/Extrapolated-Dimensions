@@ -7,7 +7,7 @@ import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public interface IMDMBoss extends IBossDisplayData
+public interface IChatEntity extends IBossDisplayData
 {
 	String getDisplayName();
 	

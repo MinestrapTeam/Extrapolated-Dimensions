@@ -3,8 +3,8 @@ package minestrapteam.extradims.block.alchemy;
 import java.util.Random;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
-import minestrapteam.extradims.MoreDimensionsMod;
-import minestrapteam.extradims.common.MDMProxy;
+import minestrapteam.extradims.ExtraDimensions;
+import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTable;
 
 import net.minecraft.block.Block;
@@ -79,7 +79,7 @@ public class BlockAlchemyTable extends BlockContainer
 			
 			if (tileentity instanceof TileEntityAlchemyTable)
 			{
-				FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.ALCHEMY_TABLE_GUIID, world, x, y, z);
+				FMLNetworkHandler.openGui(player, ExtraDimensions.instance, EDProxy.ALCHEMY_TABLE_GUIID, world, x, y, z);
 			}
 		}
 		return true;

@@ -1,6 +1,6 @@
 package minestrapteam.extradims.item.poc;
 
-import minestrapteam.extradims.entity.MDMEntityProperties;
+import minestrapteam.extradims.entity.EDEntityProperties;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -18,7 +18,7 @@ public class ItemManaStar extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		MDMEntityProperties.get(player).addMana(2.5F);
+		EDEntityProperties.get(player).addMana(2.5F);
 		if (!player.capabilities.isCreativeMode)
 			stack.stackSize--;
 		return stack;

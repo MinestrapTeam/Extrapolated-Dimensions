@@ -6,14 +6,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 
-public class GuiHeavenButton extends GuiButton
+public class GuiAeriusButton extends GuiButton
 {
-	public GuiHeavenButton(int buttonID, int x, int y, int width, int height, String text)
+	public GuiAeriusButton(int buttonID, int x, int y, int width, int height, String text)
 	{
 		super(buttonID, x, y, width, height, text);
 	}
 
-	public GuiHeavenButton(int buttonID, int x, int y, String text)
+	public GuiAeriusButton(int buttonID, int x, int y, String text)
 	{
 		super(buttonID, x, y, text);
 	}

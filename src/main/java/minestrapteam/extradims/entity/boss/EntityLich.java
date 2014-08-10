@@ -1,11 +1,11 @@
 package minestrapteam.extradims.entity.boss;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
-import minestrapteam.extradims.MoreDimensionsMod;
-import minestrapteam.extradims.api.IMDMBoss;
+import minestrapteam.extradims.ExtraDimensions;
+import minestrapteam.extradims.api.IChatEntity;
 import minestrapteam.extradims.chat.boss.BossChatData;
 import minestrapteam.extradims.chat.boss.PlayerInputParser.EnumOutputAction;
-import minestrapteam.extradims.common.MDMProxy;
+import minestrapteam.extradims.common.EDProxy;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntitySkeleton;
@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-public class EntityLich extends EntitySkeleton implements IMDMBoss
+public class EntityLich extends EntitySkeleton implements IChatEntity
 {
 	public static ResourceLocation	icon	= new ResourceLocation("paradiseofchaos/gui/bosschat/lichicon.png");
 	
@@ -44,7 +44,7 @@ public class EntityLich extends EntitySkeleton implements IMDMBoss
 			this.interactingPlayer = player;}
 		if (this.interactingPlayer == player)
 		{
-			FMLNetworkHandler.openGui(player, MoreDimensionsMod.instance, MDMProxy.BOSS_CHAT_GUIID, this.worldObj, this.getEntityId(), 0, 0);
+			FMLNetworkHandler.openGui(player, ExtraDimensions.instance, EDProxy.BOSS_CHAT_GUIID, this.worldObj, this.getEntityId(), 0, 0);
 			return true;
 		}
 		return false;

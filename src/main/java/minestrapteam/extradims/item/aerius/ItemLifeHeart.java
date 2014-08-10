@@ -1,6 +1,6 @@
 package minestrapteam.extradims.item.aerius;
 
-import minestrapteam.extradims.entity.MDMEntityProperties;
+import minestrapteam.extradims.entity.EDEntityProperties;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -19,7 +19,7 @@ public class ItemLifeHeart extends Item
 	{
 		--stack.stackSize;
 		world.playSoundAtEntity(player, "random.bow", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
-		MDMEntityProperties.get(player).addAdditionalHearts(1F);
+		EDEntityProperties.get(player).addAdditionalHearts(1F);
 		return stack;
 	}
 }
