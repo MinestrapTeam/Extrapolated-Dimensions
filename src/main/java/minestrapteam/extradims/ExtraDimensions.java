@@ -16,15 +16,15 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = ExtraDimensions.MODID, name = ExtraDimensions.NAME, version = ExtraDimensions.VERSION)
 public class ExtraDimensions extends ClashsoftMod
 {
-	public static final String		MODID	= "moredimensions";
-	public static final String		NAME	= "More Dimensions Mod";
-	public static final String		ACRONYM	= "mdm";
-	public static final String		VERSION	= "1.7.10-0.0.1";
+	public static final String		MODID	= "extradims";
+	public static final String		NAME	= "Extrapolated Dimensions";
+	public static final String		ACRONYM	= "ed";
+	public static final String		VERSION	= "1.7.10-0.0.2";
 	
 	@Instance(MODID)
 	public static ExtraDimensions	instance;
 	
-	public static EDProxy			proxy	= createProxy("minestrapteam.extradims.client.MDMClientProxy", "minestrapteam.extradims.common.MDMProxy");
+	public static EDProxy			proxy	= createProxy("minestrapteam.extradims.client.EDClientProxy", "minestrapteam.extradims.common.EDProxy");
 	
 	public ExtraDimensions()
 	{
