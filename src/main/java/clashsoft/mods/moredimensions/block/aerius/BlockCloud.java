@@ -1,6 +1,7 @@
 package clashsoft.mods.moredimensions.block.aerius;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -9,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -64,20 +66,34 @@ public class BlockCloud extends Block
 		entity.fallDistance = 0F;
 		if (metadata == 0)
 		{
-			entity.motionY *= 0.05D;
-		}
-		else if (metadata == 1)
-		{
-			if (entity.motionY < 0D)
+			// White clouds stop fall damage
+			if (entity.motionY < 0)
 			{
-				entity.motionY = -entity.motionY;
+				entity.motionY *= 0.05D;
 			}
-			entity.motionY *= 2D;
 		}
 		else if (metadata == 2)
 		{
+			// Blue clouds launch entities in the air
+			if (!entity.isSneaking())
+			{
+				if (entity.motionY < 0D)
+				{
+					entity.motionY = -entity.motionY;
+				}
+				entity.motionY *= 2D;
+			}
+		}
+		else if (metadata == 3)
+		{
+			// Green Clouds speed entities up
 			entity.motionX *= 2D;
 			entity.motionZ *= 2D;
+		}
+		else if (metadata == 4)
+		{
+			// Red Clouds damage entities
+			entity.attackEntityFrom(new DamageSource("cloud"), 1F);
 		}
 	}
 	
@@ -85,7 +101,7 @@ public class BlockCloud extends Block
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		if (metadata == 0)
+		if (metadata == 0 || metadata == 1)
 		{
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y, z + 1D);
 		}
