@@ -2,6 +2,7 @@ package minestrapteam.extradims.world.biome;
 
 import java.util.Random;
 
+import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
 import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.world.gen.AeriusGenMinable;
@@ -15,17 +16,24 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class AeriusBiomeDecorator extends BiomeDecorator
 {
-	private WorldGenerator	dirtGen		= new AeriusGenMinable(Aerius.dirtBlocks, 20);
-	private WorldGenerator	sywoxiteGen	= new AeriusGenMinable(Aerius.stoneBlocks, 3, 18);
-	private WorldGenerator	clashiumGen	= new AeriusGenMinable(Aerius.stoneBlocks, 4, 10);
-	private WorldGenerator	bluriteGen	= new AeriusGenMinable(Aerius.stoneBlocks, 5, 8);
-	private WorldGenerator	holyiumGen	= new AeriusGenMinable(Aerius.stoneBlocks, 6, 8);
+	private WorldGenerator	blueFlowerGen	= new WorldGenRanged(Aerius.flowerBlocks, 0);
+	private WorldGenerator	whiteFlowerGen	= new WorldGenRanged(Aerius.flowerBlocks, 1);
+	
+	private WorldGenerator	sywoxiteGen		= new AeriusGenMinable(Aerius.stoneBlocks, 3, 18);
+	private WorldGenerator	clashiumGen		= new AeriusGenMinable(Aerius.stoneBlocks, 4, 10);
+	private WorldGenerator	bluriteGen		= new AeriusGenMinable(Aerius.stoneBlocks, 5, 8);
+	private WorldGenerator	holyiumGen		= new AeriusGenMinable(Aerius.stoneBlocks, 6, 8);
+	
+	public int				vinesPerChunk;
 	
 	public AeriusBiomeDecorator()
 	{
+		this.dirtGen = new AeriusGenMinable(Aerius.dirtBlocks, 20);
 		this.diamondGen = new AeriusGenMinable(Blocks.diamond_ore, 7);
 		this.treesPerChunk = 1;
 		this.grassPerChunk = 3;
+		this.vinesPerChunk = 5;
+		this.flowersPerChunk = 5;
 	}
 	
 	@Override
@@ -61,13 +69,29 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 			grassGen.generate(world, random, x, y, z);
 		}
 		
-		for (int j = 0; j < 5; ++j)
+		for (int j = 0; j < this.vinesPerChunk; ++j)
 		{
 			int x = chunkX + random.nextInt(16) + 8;
 			int z = chunkZ + random.nextInt(16) + 8;
 			int y = 0;
-			while (y < 64 && world.isAirBlock(x, ++y, z));
+			while (y < 64 && world.isAirBlock(x, ++y, z))
 			world.setBlock(x, y - 1, z, Blocks.vine);
+		}
+		
+		for (int j = 0; j < this.flowersPerChunk; ++j)
+		{
+			int x = chunkX + random.nextInt(16) + 8;
+			int z = chunkZ + random.nextInt(16) + 8;
+			int y = world.getTopSolidOrLiquidBlock(x, z);
+			
+			if (random.nextBoolean())
+			{
+				this.blueFlowerGen.generate(world, random, x, y, z);
+			}
+			else
+			{
+				this.whiteFlowerGen.generate(world, random, x, y, z);
+			}
 		}
 		
 		WorldManager.generateAerius(world, random, chunkX, chunkZ);
