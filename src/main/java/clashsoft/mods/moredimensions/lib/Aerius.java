@@ -5,6 +5,7 @@ import clashsoft.cslib.minecraft.block.*;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
 import clashsoft.cslib.util.CSString;
+import clashsoft.mods.moredimensions.block.MaterialCloud;
 import clashsoft.mods.moredimensions.block.aerius.*;
 import clashsoft.mods.moredimensions.item.aerius.*;
 import clashsoft.mods.moredimensions.item.armor.ItemCape;
@@ -24,6 +25,8 @@ public class Aerius
 	public static CustomCreativeTab			tabAeriusItems	= new CustomCreativeTab("aerius_items");
 	public static CustomCreativeTab			tabAeriusTools	= new CustomCreativeTab("aerius_tools");
 	public static CustomCreativeTab			tabAeriusArmor	= new CustomCreativeTab("aerius_armor");
+	
+	public static Material					cloudMaterial	= new MaterialCloud();
 	
 	// Items
 	
@@ -52,6 +55,7 @@ public class Aerius
 	public static CustomBlock				plantBlocks;
 	
 	public static BlockCustomPortal			portal;
+	public static BlockCloud				cloud;
 	
 	public static BlockAeriusPillar			pillar;
 	public static BlockDamnationTable		damnationTable;
@@ -115,6 +119,8 @@ public class Aerius
 		
 		String[] plants = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass", "aerian_vine", "mud_vine", "corrupted_vine", "hallowed_vine", "mushroom_vine", "grass_vine" };
 		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants, CSString.concatAll(plants, "mdm_heaven:plant_", null)).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeGrass);
+		
+		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName("mdm_heaven:cloud").setCreativeTab(tabAeriusBlocks);
 		
 		pillar = (BlockAeriusPillar) new BlockAeriusPillar().setCreativeTab(tabAeriusBlocks).setHardness(1.75F);
 		damnationTable = (BlockDamnationTable) new BlockDamnationTable().setCreativeTab(tabAeriusBlocks).setHardness(4F);
@@ -223,6 +229,8 @@ public class Aerius
 		CSBlocks.addBlock(saplingBlocks, "heaven_saplings");
 		CSBlocks.addBlock(plankBlocks, "heaven_planks");
 		CSBlocks.addBlock(plantBlocks, "aerian_plants");
+		
+		CSBlocks.addBlock(cloud, "cloud");
 		
 		CSBlocks.addBlock(pillar, "aerian_pillar");
 		CSBlocks.addBlock(damnationTable, "damnation_table");
