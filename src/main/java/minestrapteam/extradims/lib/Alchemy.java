@@ -32,14 +32,14 @@ public class Alchemy
 	{
 		// Items
 		
-		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName("mdm_main:alchemy_guide").setCreativeTab(Alchemy.tabAlchemy);
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName("extradims:alchemy_guide").setCreativeTab(Alchemy.tabAlchemy);
 		elixir = (ItemElixir) new ItemElixir().setCreativeTab(tabAlchemy);
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle().setCreativeTab(tabAlchemy);
 		matter = (ItemMatter) new ItemMatter().setCreativeTab(tabAlchemy);
 		
 		// Blocks
 		
-		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube().setBlockTextureName("mdm_main:alchemy_tube").setCreativeTab(Alchemy.tabAlchemy);
+		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube().setBlockTextureName("extradims:alchemy_tube").setCreativeTab(Alchemy.tabAlchemy);
 		alchemyTable = (BlockAlchemyTable) new BlockAlchemyTable().setCreativeTab(Alchemy.tabAlchemy);
 	}
 	
