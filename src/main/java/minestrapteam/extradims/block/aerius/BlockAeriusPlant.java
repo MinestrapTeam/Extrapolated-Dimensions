@@ -8,6 +8,7 @@ import minestrapteam.extradims.lib.Aerius;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockAeriusPlant extends BlockCustomPlant
 {
@@ -33,6 +34,12 @@ public class BlockAeriusPlant extends BlockCustomPlant
 	public int damageDropped(int metadata)
 	{
 		return metadata < 10 ? metadata % 5 : 0;
+	}
+	
+	@Override
+	public boolean isReplaceable(IBlockAccess world, int x, int y, int z)
+	{
+		return true;
 	}
 	
 	@Override
