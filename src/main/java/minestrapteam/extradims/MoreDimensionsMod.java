@@ -24,7 +24,7 @@ public class MoreDimensionsMod extends ClashsoftMod
 	@Instance(MODID)
 	public static MoreDimensionsMod	instance;
 	
-	public static MDMProxy			proxy	= createProxy("clashsoft.mods.moredimensions.client.MDMClientProxy", "clashsoft.mods.moredimensions.common.MDMProxy");
+	public static MDMProxy			proxy	= createProxy("minestrapteam.extradims.client.MDMClientProxy", "minestrapteam.extradims.common.MDMProxy");
 	
 	public MoreDimensionsMod()
 	{
