@@ -4,6 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
 import clashsoft.mods.moredimensions.world.biome.*;
+import clashsoft.mods.moredimensions.world.gen.AeriusGenClouds;
 import clashsoft.mods.moredimensions.world.gen.AeriusGenTemple;
 import clashsoft.mods.moredimensions.world.provider.AeriusWorldProvider;
 import clashsoft.mods.moredimensions.world.provider.POCWorldProvider;
@@ -69,9 +70,18 @@ public class WorldManager
 	
 	public static void generateAerius(World world, Random random, int chunkX, int chunkZ)
 	{
-		if (random.nextInt(64) == 0 && world.getBiomeGenForCoords(chunkX, chunkZ) == biomeAerius)
+		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
+		if (random.nextInt(64) == 0 && biome == biomeAerius)
 		{
 			new AeriusGenTemple(false).generate(world, random, chunkX, 96, chunkZ);
 		}
+		
+		int x = chunkX + random.nextInt(16);
+		int y = 32 + random.nextInt(196);
+		int z = chunkZ + random.nextInt(16);
+		
+		int count = 5 + random.nextInt(5);
+		boolean flat = random.nextInt(6) == 0;
+		new AeriusGenClouds(false, count, Aerius.cloud, Aerius.cloud.getRandomType(random), flat).generate(world, random, x, y, z);
 	}
 }

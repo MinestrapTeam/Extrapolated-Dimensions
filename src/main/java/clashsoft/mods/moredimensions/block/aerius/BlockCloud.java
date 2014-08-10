@@ -103,4 +103,14 @@ public class BlockCloud extends Block
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
+	
+	public int getRandomType(Random random)
+	{
+		int i = random.nextInt(12);
+		if (i < 6)
+		{
+			return i;
+		}
+		return 0;
+	}
 }
