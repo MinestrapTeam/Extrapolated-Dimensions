@@ -34,7 +34,7 @@ public class ParadiseOfChaos
 	public static ItemManaStar			manaStar;
 	
 	public static CustomItem			items;
-	public static CustomItem materials;
+	public static CustomItem			materials;
 	
 	// Blocks
 	
@@ -130,7 +130,7 @@ public class ParadiseOfChaos
 		promethiumGem = new ItemStack(items, 1, 2);
 		noviteGem = new ItemStack(items, 1, 3);
 		
-		kratoniumIngot = new ItemStack(materials, 1, 0);		
+		kratoniumIngot = new ItemStack(materials, 1, 0);
 		whitiumIngot = new ItemStack(materials, 1, 1);
 		deathIngot = new ItemStack(materials, 1, 2);
 		bloodIngot = new ItemStack(materials, 1, 3);

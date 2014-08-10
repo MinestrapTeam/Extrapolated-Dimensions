@@ -2,6 +2,7 @@ package clashsoft.mods.moredimensions.world.chunk_provider;
 
 import clashsoft.cslib.minecraft.world.CustomChunkProvider;
 import clashsoft.mods.moredimensions.lib.Aerius;
+import clashsoft.mods.moredimensions.world.map_gen.AeriusGenCaves;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -17,6 +18,9 @@ public class AeriusChunkProvider extends CustomChunkProvider
 	public AeriusChunkProvider(World world, long seed)
 	{
 		super(world, seed, false);
+		
+		this.caveGenerator = new AeriusGenCaves();
+		this.ravineGenerator = null;
 	}
 	
 	@Override

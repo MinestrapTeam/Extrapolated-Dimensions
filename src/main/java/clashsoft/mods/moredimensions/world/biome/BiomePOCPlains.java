@@ -8,7 +8,6 @@ import clashsoft.mods.moredimensions.lib.ParadiseOfChaos;
 import clashsoft.mods.moredimensions.world.gen.poc.POCGenMagicOakTree;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class BiomePOCPlains extends CustomBiome
@@ -23,8 +22,6 @@ public class BiomePOCPlains extends CustomBiome
 		this.topBlock = ParadiseOfChaos.grassBlocks;
 		this.fillerBlock = ParadiseOfChaos.dirtBlocks;
 		this.stoneBlock = ParadiseOfChaos.stoneBlocks;
-		
-		this.theBiomeDecorator = new BiomeDecorator();
 		
 		this.waterColorMultiplier = 0xFFFFFF;
 	}
