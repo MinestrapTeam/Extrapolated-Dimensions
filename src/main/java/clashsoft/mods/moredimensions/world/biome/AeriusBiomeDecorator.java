@@ -40,8 +40,8 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 		
 		for (int j = 0; j < this.treesPerChunk; ++j)
 		{
-			int x = chunkX + random.nextInt(16);
-			int z = chunkZ + random.nextInt(16);
+			int x = chunkX + random.nextInt(16) + 8;
+			int z = chunkZ + random.nextInt(16) + 8;
 			int y = world.getTopSolidOrLiquidBlock(x, z);
 			WorldGenAbstractTree worldgenabstracttree = biome.func_150567_a(random);
 			worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
@@ -54,8 +54,8 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 		
 		for (int j = 0; j < this.grassPerChunk; ++j)
 		{
-			int x = chunkX + random.nextInt(16);
-			int z = chunkZ + random.nextInt(16);
+			int x = chunkX + random.nextInt(16) + 8;
+			int z = chunkZ + random.nextInt(16) + 8;
 			int y = world.getTopSolidOrLiquidBlock(x, z);
 			WorldGenerator grassGen = biome.getRandomWorldGenForGrass(random);
 			grassGen.generate(world, random, x, y, z);
@@ -63,8 +63,8 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 		
 		for (int j = 0; j < 5; ++j)
 		{
-			int x = chunkX + random.nextInt(16);
-			int z = chunkZ + random.nextInt(16);
+			int x = chunkX + random.nextInt(16) + 8;
+			int z = chunkZ + random.nextInt(16) + 8;
 			int y = 0;
 			while (y < 64 && world.isAirBlock(x, ++y, z));
 			world.setBlock(x, y - 1, z, Blocks.vine);

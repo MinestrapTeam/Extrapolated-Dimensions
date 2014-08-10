@@ -46,7 +46,7 @@ public class AeriusGenJungleTree extends CustomTreeGen
 		{
 			this.setBlockAndNotifyAdequately(world, x, y + i, z, this.logBlock, this.logMetadata);
 			
-			if (i > 2 && i < treeHeight)
+			if (i > 2 && i < treeHeight && (i & 1) == 0)
 			{
 				int randInt = random.nextInt(5);
 				if (randInt < 4)
