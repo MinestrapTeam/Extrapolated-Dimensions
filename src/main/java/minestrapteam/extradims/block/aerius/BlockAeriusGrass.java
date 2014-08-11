@@ -9,9 +9,9 @@ import net.minecraft.world.World;
 
 public class BlockAeriusGrass extends BlockCustomGrass
 {
-	public BlockAeriusGrass(String[] names, String[] topIcons, String[] sideIcons, String[] bottomIcons)
+	public BlockAeriusGrass(String[] names, String[] icons)
 	{
-		super(names, topIcons, sideIcons, bottomIcons);
+		super(names, icons);
 	}
 	
 	@Override
@@ -23,7 +23,7 @@ public class BlockAeriusGrass extends BlockCustomGrass
 		if (randInt < 2)
 		{
 			int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-			if (Aerius.plankBlocks.canPlaceBlockAt(world, x, y + 1, z))
+			if (Aerius.plantBlocks.canPlaceBlockAt(world, x, y + 1, z))
 			{
 				world.setBlock(x, y + 1, z, Aerius.plantBlocks, metadata, 2);
 			}

@@ -144,7 +144,7 @@ public class ItemAeriusSoul extends Item
 	}
 	
 	@Override
-	public void getSubItems(Item item, CreativeTabs creativeTab, List list)
+	public void getSubItems(Item item, CreativeTabs tab, List list)
 	{
 		for (int i = 0; i < 16; ++i)
 		{

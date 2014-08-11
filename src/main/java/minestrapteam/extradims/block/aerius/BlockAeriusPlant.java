@@ -27,7 +27,7 @@ public class BlockAeriusPlant extends BlockCustomPlant
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return (random.nextInt(20) == 0 && metadata < 10) ? Aerius.aeriusSeeds : null;
+		return (random.nextInt(20) == 0 && metadata < 10) ? Aerius.seedItems : null;
 	}
 	
 	@Override

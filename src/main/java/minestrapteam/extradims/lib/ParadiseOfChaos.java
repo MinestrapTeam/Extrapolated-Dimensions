@@ -80,8 +80,8 @@ public class ParadiseOfChaos
 		
 		staff = (ItemStaff) new ItemStaff().setCreativeTab(tabTools);
 		manaStar = (ItemManaStar) new ItemManaStar().setTextureName("ed_poc:mana_star").setCreativeTab(tabItems);
-		items = (CustomItem) new CustomItem(new String[] { "magic_oak_stick", "willow_stick", "promethium_gem", "novite_gem" }, "ed_poc").setCreativeTab(tabItems);
-		materials = (CustomItem) new CustomItem(new String[] { "kratonium_ingot", "whitium_ingot", "death_ingot", "blood_ingot", "mysterious_ingot" }, "ed_poc").setCreativeTab(tabItems);
+		items = (CustomItem) new CustomItem(new String[] { "magic_oak_stick", "willow_stick", "promethium_gem", "novite_gem" }, "ed_poc", null).setCreativeTab(tabItems);
+		materials = (CustomItem) new CustomItem(new String[] { "kratonium_ingot", "whitium_ingot", "death_ingot", "blood_ingot", "mysterious_ingot" }, "ed_poc", null).setCreativeTab(tabItems);
 		
 		// Blocks
 		
@@ -92,7 +92,7 @@ public class ParadiseOfChaos
 		bloodStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "blood_stone", "blood_cobble", "blood_cobble_bloody", "blood_brick" }, "ed_poc", null).setCreativeTab(tabBlocks);
 		
 		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { "ed_poc:altered_dirt", "ed_poc:blood_dirt" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
-		grassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { "ed_poc:altered_grass_top", "ed_poc:blood_grass_top" }, new String[] { "ed_poc:altered_grass_side", "ed_poc:blood_grass_side" }, new String[] { "ed_poc:altered_dirt", "ed_poc:blood_dirt" }).setCreativeTab(tabBlocks);
+		grassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { "ed_poc:altered_grass", "ed_poc:blood_grass" }).setCreativeTab(tabBlocks);
 		
 		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "promethium", "fractite" };
 		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1, "ed_poc:", "_ore"), null).setCreativeTab(tabBlocks);

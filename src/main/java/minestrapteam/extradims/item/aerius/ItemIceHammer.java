@@ -2,10 +2,13 @@ package minestrapteam.extradims.item.aerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
-public class ItemIceHammer extends ItemIceStick
+public class ItemIceHammer extends Item
 {
 	public ItemIceHammer()
 	{
@@ -20,6 +23,16 @@ public class ItemIceHammer extends ItemIceStick
 		stack.damageItem(1, living);
 		attacker.knockBack(attacker, 3, 0, 0);
 		return true;
+	}
+	
+	@Override
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+	{
+		if (world.isRemote)
+		{
+			return stack;
+		}
+		return ItemAeriusSticks.tryFreeze(this.getMovingObjectPositionFromPlayer(world, player, true), stack, world, player);
 	}
 	
 	@Override

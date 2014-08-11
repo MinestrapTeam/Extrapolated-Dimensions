@@ -21,6 +21,8 @@ public class BlockCloud extends Block
 	public BlockCloud(Material material)
 	{
 		super(material);
+		this.setHardness(0.1F);
+		this.setStepSound(Block.soundTypeCloth);
 	}
 	
 	@Override

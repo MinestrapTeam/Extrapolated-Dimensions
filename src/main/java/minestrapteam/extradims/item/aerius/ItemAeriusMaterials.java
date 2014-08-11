@@ -7,21 +7,20 @@ import net.minecraft.item.ItemStack;
 
 public class ItemAeriusMaterials extends CustomItem implements IEnergyFuel
 {
-	public ItemAeriusMaterials(String[] displayNames, String domain)
+	public ItemAeriusMaterials(String[] names, String[] iconNames)
 	{
-		super(displayNames, domain);
+		super(names, iconNames, null);
 	}
-	
+
 	@Override
 	public boolean isEnergyFuel(ItemStack stack)
 	{
-		return stack.getItemDamage() == 6;
+		return stack.getItemDamage() == 3;
 	}
 	
 	@Override
 	public int getEnergyValue(ItemStack stack)
 	{
-		return stack.getItemDamage() == 6 ? 2000 : 0;
+		return stack.getItemDamage() == 3 ? 2000 : 0;
 	}
-	
 }
