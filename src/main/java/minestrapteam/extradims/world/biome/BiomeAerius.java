@@ -53,14 +53,17 @@ public class BiomeAerius extends CustomBiome
 		int type = random.nextInt(10);
 		if (type == 0)
 		{
-			type = 2;
+			// Gold Wood
+			type = 3;
 		}
 		else if (type < 5)
 		{
-			type = 1;
+			// Cloudroot
+			type = 2;
 		}
 		else
 		{
+			// Skybark
 			type = 0;
 		}
 		return new AeriusGenTrees(false, 6, type == 2 ? 1 : 0, type);
