@@ -79,6 +79,12 @@ public class BlockCloud extends Block
 			// Blue clouds launch entities in the air
 			if (!entity.isSneaking())
 			{
+				if (entity.motionY <= -5D)
+				{
+					world.func_147480_a(x, y, z, true);
+					return;
+				}
+				
 				if (entity.motionY < 0D)
 				{
 					entity.motionY = -entity.motionY;
@@ -96,6 +102,10 @@ public class BlockCloud extends Block
 		{
 			// Red Clouds damage entities
 			entity.attackEntityFrom(new DamageSource("cloud"), 1F);
+		}
+		else if (metadata == 5)
+		{
+			
 		}
 	}
 	

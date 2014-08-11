@@ -77,11 +77,11 @@ public class WorldManager
 		}
 		
 		int x = chunkX + random.nextInt(16);
-		int y = 32 + random.nextInt(196);
+		int y = 64 + random.nextInt(128);
 		int z = chunkZ + random.nextInt(16);
 		
-		int count = 5 + random.nextInt(5);
-		boolean flat = random.nextInt(6) == 0;
+		int count = 10 + random.nextInt(5);
+		boolean flat = random.nextInt(8) == 0;
 		new AeriusGenClouds(false, count, Aerius.cloud, Aerius.cloud.getRandomType(random), flat).generate(world, random, x, y, z);
 	}
 }

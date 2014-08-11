@@ -20,6 +20,7 @@ public class BiomeAeriusJungle extends BiomeAerius
 		this.stoneMetadata = 3;
 		
 		this.theBiomeDecorator.treesPerChunk = 8;
+		this.theBiomeDecorator.flowersPerChunk = 0;
 	}
 	
 	@Override

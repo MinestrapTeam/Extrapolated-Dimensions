@@ -23,7 +23,7 @@ public class BlockAeriusGrass extends BlockCustomGrass
 		if (randInt < 2)
 		{
 			int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-			if (Aerius.plantBlocks.canPlaceBlockAt(world, x, y + 1, z))
+			if (world.isAirBlock(x, y, z) && Aerius.plantBlocks.canPlaceBlockAt(world, x, y + 1, z))
 			{
 				world.setBlock(x, y + 1, z, Aerius.plantBlocks, metadata, 2);
 			}
