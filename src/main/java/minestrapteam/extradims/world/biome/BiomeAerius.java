@@ -57,31 +57,17 @@ public class BiomeAerius extends CustomBiome
 		if (randInt == 0)
 		{
 			// Gold Wood
-			return new AeriusGenJungleTree(false, 10, 3, 3);
+			return getTreeGenForTree(random, 3, false);
 		}
 		else if (randInt < 5)
 		{
 			// Cloudroot
-			if (random.nextInt(4) == 0)
-			{
-				return new AeriusGenTree(false, 7, 2, 2);
-			}
-			else
-			{
-				return new AeriusGenTree2(false, 7, 2, 2);
-			}
+			return getTreeGenForTree(random, 2, false);
 		}
 		else
 		{
 			// Skybark
-			if (random.nextInt(10) == 0)
-			{
-				return new AeriusGenBigTree(false, 20, 0, 0);
-			}
-			else
-			{
-				return new AeriusGenTree(false, 6, 0, 0);
-			}
+			return getTreeGenForTree(random, 0, false);
 		}
 	}
 	
@@ -89,5 +75,50 @@ public class BiomeAerius extends CustomBiome
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
 		return new WorldGenRanged(Aerius.plantBlocks, 0);
+	}
+	
+	public static WorldGenAbstractTree getTreeGenForTree(Random random, int metadata, boolean update)
+	{
+		if (metadata == 0)
+		{
+			// Skybark
+			if (random.nextInt(10) == 0)
+			{
+				return new AeriusGenBigTree(update, 20, 0, 0);
+			}
+			else
+			{
+				return new AeriusGenTree(update, 6, 0, 0);
+			}
+		}
+		else if (metadata == 1)
+		{
+			// Dark Skybark
+			if (random.nextInt(10) == 0)
+			{
+				return new AeriusGenBigTree(update, 20, 1, 1);
+			}
+			else
+			{
+				return new AeriusGenJungleTree(update, 7, 1, 1);
+			}
+		}
+		else if (metadata == 2)
+		{
+			// Cloudroot
+			if (random.nextInt(4) == 0)
+			{
+				return new AeriusGenTree(update, 7, 2, 2);
+			}
+			else
+			{
+				return new AeriusGenTree2(update, 7, 2, 2);
+			}
+		}
+		else if (metadata == 3)
+		{
+			return new AeriusGenJungleTree(update, 10, 3, 3);
+		}
+		return null;
 	}
 }

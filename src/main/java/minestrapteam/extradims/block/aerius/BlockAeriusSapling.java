@@ -4,8 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import minestrapteam.extradims.lib.Aerius;
-import minestrapteam.extradims.world.gen.AeriusGenJungleTree;
-import minestrapteam.extradims.world.gen.AeriusGenTrees;
+import minestrapteam.extradims.world.biome.BiomeAerius;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -27,7 +26,7 @@ public class BlockAeriusSapling extends BlockCustomSapling
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
 		int metadata = world.getBlockMetadata(x, y, z) & 3;
-		return random.nextInt(5) == 0 ? new AeriusGenTrees(true, 4, metadata, metadata) : new AeriusGenJungleTree(true, 7, Aerius.logBlocks, Aerius.leafBlocks, metadata, metadata);
+		return BiomeAerius.getTreeGenForTree(random, metadata, true);
 	}
 	
 	@Override

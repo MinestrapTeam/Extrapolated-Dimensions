@@ -4,7 +4,6 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
-import minestrapteam.extradims.world.gen.AeriusGenJungleTree;
 
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -26,7 +25,7 @@ public class BiomeAeriusJungle extends BiomeAerius
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return new AeriusGenJungleTree(true, 7, 1, 1);
+		return getTreeGenForTree(random, 1, false);
 	}
 	
 	@Override
