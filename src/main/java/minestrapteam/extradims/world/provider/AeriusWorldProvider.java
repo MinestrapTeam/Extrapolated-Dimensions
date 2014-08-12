@@ -42,6 +42,12 @@ public class AeriusWorldProvider extends CustomWorldProvider
 	}
 	
 	@Override
+	public float getCloudHeight()
+	{
+		return 32F;
+	}
+	
+	@Override
 	public Vec3 getFogColor(float celestialAngle, float partialTickTime)
 	{
 		float f = MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
