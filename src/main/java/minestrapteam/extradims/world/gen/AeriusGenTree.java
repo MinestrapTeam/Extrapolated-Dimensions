@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
 
-public class AeriusGenTrees extends CustomTreeGen
+public class AeriusGenTree extends CustomTreeGen
 {
-	public AeriusGenTrees(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
+	public AeriusGenTree(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
 	{
 		super(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metaWood, metaLeaves);
 	}

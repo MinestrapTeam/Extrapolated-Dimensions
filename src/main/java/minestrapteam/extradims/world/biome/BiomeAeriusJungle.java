@@ -26,7 +26,7 @@ public class BiomeAeriusJungle extends BiomeAerius
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return new AeriusGenJungleTree(true, 7, Aerius.logBlocks, Aerius.leafBlocks, 1, 1);
+		return new AeriusGenJungleTree(true, 7, 1, 1);
 	}
 	
 	@Override

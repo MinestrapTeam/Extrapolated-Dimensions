@@ -112,11 +112,11 @@ public class BlockCloud extends Block
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
-		int metadata = world.getBlockMetadata(x, y, z);
-		if (metadata == 0 || metadata == 1)
-		{
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.0625D, z + 1D);
-		}
+//		int metadata = world.getBlockMetadata(x, y, z);
+//		if (metadata == 0 || metadata == 1)
+//		{
+//			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1D, y + 0.0625D, z + 1D);
+//		}
 		return null;
 	}
 	

@@ -11,19 +11,11 @@ import net.minecraft.world.World;
 
 public class AeriusGenJungleTree extends CustomTreeGen
 {
-	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves)
-	{
-		super(blockUpdates, minTreeHeight, wood, leaves);
-	}
+	public int radius = 3;
 	
-	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata)
+	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
 	{
-		super(blockUpdates, minTreeHeight, wood, leaves, woodMetadata, leavesMetadata);
-	}
-	
-	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block wood, Block leaves, int woodMetadata, int leavesMetadata, boolean vinesGrow)
-	{
-		super(blockUpdates, minTreeHeight, wood, leaves, woodMetadata, leavesMetadata, vinesGrow);
+		super(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metaWood, metaLeaves);
 	}
 	
 	@Override
@@ -46,7 +38,7 @@ public class AeriusGenJungleTree extends CustomTreeGen
 		{
 			this.setBlockAndNotifyAdequately(world, x, y + i, z, this.logBlock, this.logMetadata);
 			
-			if (i > 2 && i < treeHeight && (i & 1) == 0)
+			if (i > 2 && (i & 1) == 0)
 			{
 				int randInt = random.nextInt(5);
 				if (randInt < 4)
@@ -71,7 +63,7 @@ public class AeriusGenJungleTree extends CustomTreeGen
 		}
 		y += treeHeight;
 		
-		int radius = 3;
+		int radius = this.radius;
 		int sqradius = radius * radius;
 		for (int i = -radius; i <= radius; i++)
 		{
@@ -79,7 +71,7 @@ public class AeriusGenJungleTree extends CustomTreeGen
 			{
 				for (int k = -radius; k <= radius; k++)
 				{
-					if (i * i + j * j + k * k > sqradius)
+					if (i * i + j * j + k * k > sqradius + random.nextInt(3) - 1)
 					{
 						continue;
 					}

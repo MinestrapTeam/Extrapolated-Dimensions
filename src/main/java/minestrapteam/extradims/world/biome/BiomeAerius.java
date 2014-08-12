@@ -5,7 +5,10 @@ import java.util.Random;
 import clashsoft.cslib.minecraft.world.biome.CustomBiome;
 import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
-import minestrapteam.extradims.world.gen.AeriusGenTrees;
+import minestrapteam.extradims.world.gen.AeriusGenBigTree;
+import minestrapteam.extradims.world.gen.AeriusGenJungleTree;
+import minestrapteam.extradims.world.gen.AeriusGenTree;
+import minestrapteam.extradims.world.gen.AeriusGenTree2;
 
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -50,23 +53,36 @@ public class BiomeAerius extends CustomBiome
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		int type = random.nextInt(10);
-		if (type == 0)
+		int randInt = random.nextInt(10);
+		if (randInt == 0)
 		{
 			// Gold Wood
-			type = 3;
+			return new AeriusGenJungleTree(false, 10, 3, 3);
 		}
-		else if (type < 5)
+		else if (randInt < 5)
 		{
 			// Cloudroot
-			type = 2;
+			if (random.nextInt(4) == 0)
+			{
+				return new AeriusGenTree(false, 7, 2, 2);
+			}
+			else
+			{
+				return new AeriusGenTree2(false, 7, 2, 2);
+			}
 		}
 		else
 		{
 			// Skybark
-			type = 0;
+			if (random.nextInt(10) == 0)
+			{
+				return new AeriusGenBigTree(false, 20, 0, 0);
+			}
+			else
+			{
+				return new AeriusGenTree(false, 6, 0, 0);
+			}
 		}
-		return new AeriusGenTrees(false, 6, type == 2 ? 1 : 0, type);
 	}
 	
 	@Override
