@@ -79,36 +79,36 @@ public class ParadiseOfChaos
 		// Items
 		
 		staff = (ItemStaff) new ItemStaff().setCreativeTab(tabTools);
-		manaStar = (ItemManaStar) new ItemManaStar().setTextureName("ed_poc:mana_star").setCreativeTab(tabItems);
-		items = (CustomItem) new CustomItem(new String[] { "magic_oak_stick", "willow_stick", "promethium_gem", "novite_gem" }, "ed_poc", null).setCreativeTab(tabItems);
-		materials = (CustomItem) new CustomItem(new String[] { "kratonium_ingot", "whitium_ingot", "death_ingot", "blood_ingot", "mysterious_ingot" }, "ed_poc", null).setCreativeTab(tabItems);
+		manaStar = (ItemManaStar) new ItemManaStar().setTextureName(getTexture("mana_star")).setCreativeTab(tabItems);
+		items = (CustomItem) new CustomItem(new String[] { "magic_oak_stick", "willow_stick", "promethium_gem", "novite_gem" }, new String[] { getTexture("magic_oak_stick"), getTexture("willow_stick") }, null).setCreativeTab(tabItems);
+		materials = (CustomItem) new CustomItem(new String[] { "kratonium_ingot", "whitium_ingot", "death_ingot", "blood_ingot", "mysterious_ingot", "promethium_gem", "novite_gem" }, new String[] { getTexture("minerals/kratonium_ingot"), getTexture("minerals/whitium_ingot"), getTexture("minerals/death_ingot"), getTexture("minerals/blood_ingot"), getTexture("minerals/mysterious_ingot"), getTexture("minerals/promethium_gem"), getTexture("minerals/novite_gem") }, null).setCreativeTab(tabItems);
 		
 		// Blocks
 		
-		portal = (BlockCustomPortal) new BlockPOCPortal("poc_portal", "ed_poc:poc_portal").setCreativeTab(tabBlocks).setHardness(-1F);
-		portalFrame = new BlockImpl(Material.rock, "poc_portal_frame", "ed_poc:poc_portal_frame").setCreativeTab(tabBlocks);
+		portal = (BlockCustomPortal) new BlockPOCPortal("poc_portal", getTexture("poc_portal")).setCreativeTab(tabBlocks).setHardness(-1F);
+		portalFrame = new BlockImpl(Material.rock, "poc_portal_frame", getTexture("poc_portal_frame")).setCreativeTab(tabBlocks);
 		
-		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "chaos_stone", "chaos_cobble", "chaos_stone_dark", "chaos_cobble_dark" }, "ed_poc", null).setCreativeTab(tabBlocks);
-		bloodStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "blood_stone", "blood_cobble", "blood_cobble_bloody", "blood_brick" }, "ed_poc", null).setCreativeTab(tabBlocks);
+		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "dark", "dark_cobbled" }, new String[] { getTexture("stone/chaosstone"), getTexture("stone/chaosstone_cobbled"), getTexture("stone/dark_chaosstone"), getTexture("stone/dark_chaosstone_cobbled") }, null).setCreativeTab(tabBlocks);
+		bloodStoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "bloody" }, new String[] { getTexture("stone/bleedstone"), getTexture("stone/bleedstone_cobbled"), getTexture("stone/bleedstone_bloody") }, null).setCreativeTab(tabBlocks);
 		
-		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { "ed_poc:altered_dirt", "ed_poc:blood_dirt" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
-		grassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { "ed_poc:altered_grass", "ed_poc:blood_grass" }).setCreativeTab(tabBlocks);
+		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { getTexture("soil/altered_dirt"), getTexture("soil/blood_dirt") }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
+		grassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { getTexture("soil/altered_grass"), getTexture("soil/blood_grass") }).setCreativeTab(tabBlocks);
 		
 		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "promethium", "fractite" };
-		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1, "ed_poc:", "_ore"), null).setCreativeTab(tabBlocks);
+		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
 		
 		String[] bloodOres = new String[] { "blood", "death", "whitium" };
-		bloodOreBlocks = (CustomBlock) new CustomBlock(Material.rock, bloodOres, CSString.concatAll(bloodOres, "ed_poc:", "_ore"), null).setCreativeTab(tabBlocks);
+		bloodOreBlocks = (CustomBlock) new CustomBlock(Material.rock, bloodOres, CSString.concatAll(bloodOres, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
 		
-		logBlocks = (BlockCustomLog) new BlockCustomLog(new String[] { "magic_oak", "willow" }, new String[] { "ed_poc:magic_oak_log_top", "ed_poc:willow_log_top" }, new String[] { "ed_poc:magic_oak_log_side", "ed_poc:willow_log_side" }).setCreativeTab(tabBlocks);
+		logBlocks = (BlockCustomLog) new BlockCustomLog(new String[] { "magic_oak", "willow" }, new String[] { getTexture("wood/magic_oak_log_top"), getTexture("wood/willow_log_top") }, new String[] { getTexture("wood/magic_oak_log_side"), getTexture("wood/willow_log_side") }).setCreativeTab(tabBlocks);
 		
-		leafBlocks = (BlockCustomLeaves) new BlockCustomLeaves(new String[] { "magic_oak", "willow" }, new String[] { "ed_poc:magic_oak_leaves", "ed_poc:willow_leaves" }).setCreativeTab(tabBlocks);
+		leafBlocks = (BlockCustomLeaves) new BlockCustomLeaves(new String[] { "magic_oak", "willow" }, new String[] { getTexture("plants/magic_oak_leaves"), getTexture("plants/willow_leaves") }).setCreativeTab(tabBlocks);
 		
-		saplingBlocks = (BlockPOCSapling) new BlockPOCSapling(new String[] { "magic_oak", "willow" }, new String[] { "ed_poc:magic_oak_sapling", "ed_poc:willow_sapling" }).setCreativeTab(tabBlocks);
+		saplingBlocks = (BlockPOCSapling) new BlockPOCSapling(new String[] { "magic_oak", "willow" }, new String[] { getTexture("plants/magic_oak_sapling"), getTexture("plants/willow_sapling") }).setCreativeTab(tabBlocks);
 		
-		plankBlocks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "magic_oak", "willow" }, new String[] { "ed_poc:magic_oak_planks", "ed_poc:willow_planks" }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeWood);
+		plankBlocks = (CustomBlock) new CustomBlock(Material.wood, new String[] { "magic_oak", "willow" }, new String[] { getTexture("wood/magic_oak_planks"), getTexture("wood/willow_planks") }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeWood);
 		
-		plantBlocks = (BlockCustomPlant) new BlockCustomPlant(new String[] { "saf_flower" }, new String[] { "ed_poc:saf_flower" }).setCreativeTab(tabBlocks);
+		plantBlocks = (BlockCustomPlant) new BlockCustomPlant(new String[] { "saf_flower" }, new String[] { getTexture("plants/saf_flower") }).setCreativeTab(tabBlocks);
 		
 		// Block.blocksList[Block.lavaStill.blockID] = null;
 		// activatorLava = (BlockPOCActivatorLava) new
@@ -176,8 +176,8 @@ public class ParadiseOfChaos
 		CSBlocks.addBlock(portal, "poc_portal");
 		CSBlocks.addBlock(portalFrame, "poc_portal_frame");
 		
-		CSBlocks.addBlock(stoneBlocks, "poc_stone");
-		CSBlocks.addBlock(bloodStoneBlocks, "poc_blood_stone");
+		CSBlocks.addBlock(stoneBlocks, "chaosstone");
+		CSBlocks.addBlock(bloodStoneBlocks, "bleedstone");
 		CSBlocks.addBlock(dirtBlocks, "poc_dirt");
 		CSBlocks.addBlock(grassBlocks, "poc_grass");
 		
@@ -215,5 +215,10 @@ public class ParadiseOfChaos
 	{
 		tabBlocks.setIconItemStack(new ItemStack(grassBlocks));
 		tabItems.setIconItemStack(magicOakStick);
+	}
+	
+	public static String getTexture(String name)
+	{
+		return "ed_poc:" + name;
 	}
 }

@@ -65,6 +65,6 @@ public class StaffType
 	{
 		if (this.isChargeable())
 			return String.format("ed_poc:staff_%d_%d", this.id, charge + 1);
-		return "mdm_main:staff_" + this.id;
+		return "ed_poc:staves/staff_" + this.id;
 	}
 }

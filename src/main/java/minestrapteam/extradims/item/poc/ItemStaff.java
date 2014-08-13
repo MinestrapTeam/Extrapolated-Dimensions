@@ -44,12 +44,14 @@ public class ItemStaff extends Item
 				{
 					for (int i = 0; i < st.getCharges(); i++)
 					{
-						this.icons.put(st.getTextureName(i), iconRegister.registerIcon(st.getTextureName(i)));
+						String texture = st.getTextureName(i);
+						this.icons.put(texture, iconRegister.registerIcon(texture));
 					}
 				}
 				else
 				{
-					this.icons.put(st.getTextureName(0), iconRegister.registerIcon(st.getTextureName(0)));
+					String texture = st.getTextureName(0);
+					this.icons.put(texture, iconRegister.registerIcon(texture));
 				}
 			}
 		}

@@ -32,14 +32,14 @@ public class Alchemy
 	{
 		// Items
 		
-		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName("extradims:alchemy_guide").setCreativeTab(Alchemy.tabAlchemy);
+		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName(getTexture("alchemy_guide")).setCreativeTab(Alchemy.tabAlchemy);
 		elixir = (ItemElixir) new ItemElixir().setCreativeTab(tabAlchemy);
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle().setCreativeTab(tabAlchemy);
 		matter = (ItemMatter) new ItemMatter().setCreativeTab(tabAlchemy);
 		
 		// Blocks
 		
-		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube().setBlockTextureName("extradims:alchemy_tube").setCreativeTab(Alchemy.tabAlchemy);
+		alchemyTube = (BlockAlchemyTube) new BlockAlchemyTube().setBlockTextureName(getTexture("alchemy_tube")).setCreativeTab(Alchemy.tabAlchemy);
 		alchemyTable = (BlockAlchemyTable) new BlockAlchemyTable().setCreativeTab(Alchemy.tabAlchemy);
 	}
 	
@@ -60,5 +60,10 @@ public class Alchemy
 		// Tab Icons
 		
 		tabAlchemy.setIconItemStack(new ItemStack(elixirBottle));
+	}
+	
+	public static String getTexture(String name)
+	{
+		return "ed_alchemy:" + name;
 	}
 }

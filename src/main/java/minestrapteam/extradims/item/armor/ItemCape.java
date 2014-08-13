@@ -36,7 +36,7 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	{
 		for (String capeName : capeNames)
 		{
-			ResourceLocation location = new ResourceLocation("extradims", "textures/capes/" + capeName + ".png");
+			ResourceLocation location = new ResourceLocation("ed_aerius", "textures/capes/" + capeName + ".png");
 			Capes.addCape(capeName, location);
 		}
 	}
@@ -56,12 +56,12 @@ public class ItemCape extends ItemCustomArmor implements ICape
 		this.icons = new IIcon[capeNames.length];
 		for (int i = 0; i < capeNames.length; i++)
 		{
-			this.icons[i] = iconRegister.registerIcon("extradims:cape_" + capeNames[i]);
+			this.icons[i] = iconRegister.registerIcon("ed_aerius:armor/cape_" + capeNames[i]);
 		}
 		
 		if (slotIcon == null)
 		{
-			slotIcon = iconRegister.registerIcon("extradims:armorslot_cape");
+			slotIcon = iconRegister.registerIcon("extradims:armorslot/armorslot_cape");
 		}
 	}
 	

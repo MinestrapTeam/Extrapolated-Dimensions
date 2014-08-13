@@ -86,7 +86,7 @@ public class Aerius
 		// Items
 		
 		stickItems = (ItemAeriusSticks) new ItemAeriusSticks(new String[] { "skybark_stick", "dark_skybark_stick", "cloudroot_stick", "gold_wood_stick", "ice_stick" }, new String[] { getTexture("skybark_stick"), getTexture("dark_skybark_stick"), getTexture("cloudroot_stick"), getTexture("gold_wood_stick"), getTexture("ice_stick") }).setCreativeTab(tabAeriusItems);
-		materialItems = (ItemAeriusMaterials) new ItemAeriusMaterials(new String[] { "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "condaius_dust" }, new String[] { getTexture("minerals/shrekite_shard"), getTexture("minerals/clashium_ingot"), getTexture("minerals/holyium_ingot"), getTexture("energy_orb"), getTexture("minerals/pro_ingot"), getTexture("minerals/blurite_dust") }).setCreativeTab(tabAeriusItems);
+		materialItems = (ItemAeriusMaterials) new ItemAeriusMaterials(new String[] { "shrekite_shard", "clashium_ingot", "holyium_ingot", "energy_orb", "pro_ingot", "condaius_dust" }, new String[] { getTexture("minerals/shrekite_shard"), getTexture("minerals/clashium_ingot"), getTexture("minerals/holyium_ingot"), getTexture("energy_orb"), getTexture("minerals/pro_ingot"), getTexture("minerals/condaius_dust") }).setCreativeTab(tabAeriusItems);
 		
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple")).setCreativeTab(tabAeriusItems);
 		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName(getTexture("loot/life_heart")).setCreativeTab(tabAeriusItems);
