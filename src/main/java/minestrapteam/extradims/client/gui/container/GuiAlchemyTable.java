@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiAlchemyTable extends GuiContainer
 {
-	public static final ResourceLocation	alchemyTableTexture	= new ResourceLocation("moredimensions", "textures/gui/container/alchemy_table.png");
+	public static final ResourceLocation	alchemyTableTexture	= new ResourceLocation("ed_alchemy", "textures/gui/container/alchemy_table.png");
 	
 	public TileEntityAlchemyTable			alchemyTable;
 	

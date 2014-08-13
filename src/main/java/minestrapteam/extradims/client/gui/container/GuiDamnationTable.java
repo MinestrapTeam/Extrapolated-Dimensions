@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class GuiDamnationTable extends GuiContainer
 {
-	private static final ResourceLocation	damnationTableTexture	= new ResourceLocation("moredimensions", "textures/gui/container/damnation_table.png");
+	private static final ResourceLocation	damnationTableTexture	= new ResourceLocation("ed_aerius", "textures/gui/container/damnation_table.png");
 	private TileEntityDamnationTable		damnationTable;
 	
 	public GuiDamnationTable(InventoryPlayer inventory, TileEntityDamnationTable damnationTable)
