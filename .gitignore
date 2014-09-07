@@ -3,6 +3,9 @@
 .classpath
 .gradle/
 
+Extrapolated-Dimensions.iml
+.idea/
+
 <<<<<<< HEAD
 bin/
 build/
