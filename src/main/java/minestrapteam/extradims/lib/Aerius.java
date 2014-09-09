@@ -101,7 +101,7 @@ public class Aerius
 		
 		// Blocks
 		
-		portal = (BlockCustomPortal) new BlockAeriusPortal("aerius_portal", getTexture("aerius_portal")).setCreativeTab(tabAeriusBlocks);
+		portal = (BlockCustomPortal) new BlockAeriusPortal(getTexture("aerius_portal")).setCreativeTab(tabAeriusBlocks);
 		
 		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "mossy", "jungle" }, new String[] { getTexture("stone/aerock"), getTexture("stone/aerock_cobbled"), getTexture("stone/aerock_mossy"), getTexture("stone/aerock_jungle") }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
 		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "shrekite_ore", "clashium_ore", "holyium_ore", "condaius_ore", "condaius_ore_jungle" }, new String[] { getTexture("minerals/shrekite_ore"), getTexture("minerals/clashium_ore"), getTexture("minerals/holyium_ore"), getTexture("minerals/condaius_ore_aerock"), getTexture("minerals/condaius_ore_jungle_aerock") }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);

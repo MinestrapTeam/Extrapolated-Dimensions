@@ -1,29 +1,31 @@
 package minestrapteam.extradims.world.gen_layer;
 
-import clashsoft.cslib.minecraft.world.CustomGenLayer;
+import clashsoft.cslib.minecraft.world.CustomBiomeLayer;
 import minestrapteam.extradims.dream.Dream;
 
 import net.minecraft.world.WorldType;
-import net.minecraft.world.gen.layer.GenLayer;
+import net.minecraft.world.biome.BiomeGenBase;
 
-public class GenLayerDreams extends CustomGenLayer
+public class GenLayerDreams extends CustomBiomeLayer
 {
-	public Dream theDream;
+	public Dream	theDream;
 	
-	public GenLayerDreams(Dream dream)
+	public GenLayerDreams(long seed, Dream dream)
 	{
+		super(seed);
 		this.theDream = dream;
 	}
 	
 	@Override
-	public GenLayer getBiomeGenLayer(long seed, WorldType worldType)
+	public BiomeGenBase[] getBiomes()
 	{
-		return new GenLayerBiomesDreams(this.theDream, seed);
+		// FIXME
+		return null;
 	}
-
+	
 	@Override
 	public int getBiomeSize(long seed, WorldType worldType)
 	{
 		return 3;
-	}	
+	}
 }

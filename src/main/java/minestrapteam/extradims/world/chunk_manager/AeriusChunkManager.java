@@ -28,6 +28,6 @@ public class AeriusChunkManager extends CustomChunkManager
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{
-		return new GenLayerAerius().createWorld(seed, worldType);
+		return new GenLayerAerius(seed).generate(seed, worldType);
 	}
 }

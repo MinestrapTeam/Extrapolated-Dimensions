@@ -29,7 +29,7 @@ public class DreamChunkManager extends CustomChunkManager
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{
-		return new GenLayerDreams(this.theDream).createWorld(seed, worldType);
+		return new GenLayerDreams(seed, this.theDream).generate(seed, worldType);
 	}
 	
 	@Override

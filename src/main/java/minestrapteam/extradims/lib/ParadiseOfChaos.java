@@ -85,7 +85,7 @@ public class ParadiseOfChaos
 		
 		// Blocks
 		
-		portal = (BlockCustomPortal) new BlockPOCPortal("poc_portal", getTexture("poc_portal")).setCreativeTab(tabBlocks).setHardness(-1F);
+		portal = (BlockCustomPortal) new BlockPOCPortal(getTexture("poc_portal")).setCreativeTab(tabBlocks).setHardness(-1F);
 		portalFrame = new BlockImpl(Material.rock, "poc_portal_frame", getTexture("poc_portal_frame")).setCreativeTab(tabBlocks);
 		
 		stoneBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { null, "cobbled", "dark", "dark_cobbled" }, new String[] { getTexture("stone/chaosstone"), getTexture("stone/chaosstone_cobbled"), getTexture("stone/dark_chaosstone"), getTexture("stone/dark_chaosstone_cobbled") }, null).setCreativeTab(tabBlocks);

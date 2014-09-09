@@ -28,6 +28,6 @@ public class POCChunkManager extends CustomChunkManager
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{
-		return new GenLayerPOC().createWorld(seed, worldType);
+		return new GenLayerPOC(seed).generate(seed, worldType);
 	}
 }

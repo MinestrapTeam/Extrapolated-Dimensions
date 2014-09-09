@@ -11,9 +11,9 @@ import net.minecraft.world.WorldServer;
 
 public class BlockPOCPortal extends BlockCustomPortal
 {
-	public BlockPOCPortal(String name, String iconName)
+	public BlockPOCPortal(String iconName)
 	{
-		super(name, iconName, WorldManager.POC_ID);
+		super(iconName, WorldManager.POC_ID);
 		this.frameBlock = ParadiseOfChaos.portalFrame;
 	}
 

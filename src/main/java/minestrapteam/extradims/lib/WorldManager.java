@@ -15,19 +15,23 @@ import net.minecraftforge.common.DimensionManager;
 
 public class WorldManager
 {
-	public static BiomeGenBase	biomeAerius;
-	public static BiomeGenBase	biomeAerianForest;
-	public static BiomeGenBase	biomeAerianJungle;
+	public static BiomeGenBase		biomeAerius;
+	public static BiomeGenBase		biomeAerianForest;
+	public static BiomeGenBase		biomeAerianJungle;
 	
-	public static BiomeGenBase	biomePOCPlains;
-	public static BiomeGenBase	biomePOCMountains;
-	public static BiomeGenBase	biomePOCDesert;
-	public static BiomeGenBase	biomeBloodPlains;
+	public static BiomeGenBase[]	aeriusBiomes;
 	
-	public static int			AERIUS_ID		= 8;
-	public static int			POC_ID			= 9;
-	public static int			DREAMS_ID		= 10;
-	public static int			NIGHTMARES_ID	= 11;
+	public static BiomeGenBase		biomePOCPlains;
+	public static BiomeGenBase		biomePOCMountains;
+	public static BiomeGenBase		biomePOCDesert;
+	public static BiomeGenBase		biomeBloodPlains;
+	
+	public static BiomeGenBase[]	pocBiomes;
+	
+	public static int				AERIUS_ID		= 8;
+	public static int				POC_ID			= 9;
+	public static int				DREAMS_ID		= 10;
+	public static int				NIGHTMARES_ID	= 11;
 	
 	public static void load()
 	{
@@ -41,6 +45,8 @@ public class WorldManager
 		biomeAerius = new BiomeAerius(CSConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
 		biomeAerianForest = new BiomeAeriusForest(CSConfig.getBiome("Aerian Forest", 61)).setBiomeName("Aerian Forest");
 		biomeAerianJungle = new BiomeAeriusJungle(CSConfig.getBiome("Aerian Jungle", 62)).setBiomeName("Aerian Jungle");
+		
+		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle };
 		
 		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
 		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");

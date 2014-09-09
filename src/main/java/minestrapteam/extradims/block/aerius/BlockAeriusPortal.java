@@ -11,9 +11,9 @@ import net.minecraft.world.WorldServer;
 
 public class BlockAeriusPortal extends BlockCustomPortal
 {
-	public BlockAeriusPortal(String name, String iconName)
+	public BlockAeriusPortal(String iconName)
 	{
-		super(name, iconName, WorldManager.AERIUS_ID);
+		super(iconName, WorldManager.AERIUS_ID);
 		this.frameBlock = Blocks.glowstone;
 	}
 

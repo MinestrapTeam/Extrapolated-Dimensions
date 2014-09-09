@@ -1,16 +1,22 @@
 package minestrapteam.extradims.world.gen_layer;
 
-import clashsoft.cslib.minecraft.world.CustomGenLayer;
+import clashsoft.cslib.minecraft.world.CustomBiomeLayer;
+import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.world.WorldType;
-import net.minecraft.world.gen.layer.GenLayer;
+import net.minecraft.world.biome.BiomeGenBase;
 
-public class GenLayerPOC extends CustomGenLayer
+public class GenLayerPOC extends CustomBiomeLayer
 {
-	@Override
-	public GenLayer getBiomeGenLayer(long seed, WorldType worldType)
+	public GenLayerPOC(long seed)
 	{
-		return new GenLayerBiomesPOC(seed);
+		super(seed);
+	}
+	
+	@Override
+	public BiomeGenBase[] getBiomes()
+	{
+		return WorldManager.pocBiomes;
 	}
 	
 	@Override
