@@ -1,6 +1,7 @@
 package minestrapteam.extradims;
 
 import minestrapteam.extradims.common.EDEventHandler;
+import minestrapteam.extradims.common.EDFuelHandler;
 import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.lib.*;
 import minestrapteam.extradims.network.EDNetHandler;
@@ -12,6 +13,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = ExtraDimensions.MODID, name = ExtraDimensions.NAME, version = ExtraDimensions.VERSION)
 public class ExtraDimensions extends ClashsoftMod
@@ -48,11 +50,13 @@ public class ExtraDimensions extends ClashsoftMod
 		
 		CSConfig.loadConfig(this.configFile);
 		
+		Virtious.init();
 		Aerius.init();
 		ParadiseOfChaos.init();
 		Alchemy.init();
 		//Tools.init();
 		
+		Virtious.load();
 		Aerius.load();
 		ParadiseOfChaos.load();
 		Alchemy.load();
@@ -62,6 +66,8 @@ public class ExtraDimensions extends ClashsoftMod
 		InventoryHandler.load();
 		
 		CSConfig.saveConfig();
+		
+		GameRegistry.registerFuelHandler(new EDFuelHandler());
 	}
 	
 	@Override

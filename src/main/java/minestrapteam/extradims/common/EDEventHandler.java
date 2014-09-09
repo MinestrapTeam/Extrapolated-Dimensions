@@ -4,11 +4,14 @@ import clashsoft.cslib.minecraft.CSLib;
 import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
 import clashsoft.playerinventoryapi.lib.ExtendedInventory;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import minestrapteam.extradims.api.ICape;
 import minestrapteam.extradims.api.IMinableBlock;
 import minestrapteam.extradims.curse.Curse;
 import minestrapteam.extradims.entity.EDEntityProperties;
 import minestrapteam.extradims.lib.WorldManager;
+import minestrapteam.extradims.lib.virtious.VBlocks;
+import minestrapteam.extradims.lib.virtious.VItems;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -30,7 +33,28 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 public class EDEventHandler
 {
-	public int	playerCounter	= 0;
+	@SubscribeEvent
+	public void onBucketFill(FillBucketEvent event)
+	{
+		ItemStack result = null;
+		int x = event.target.blockX;
+		int y = event.target.blockY;
+		int z = event.target.blockZ;
+		Block block = event.world.getBlock(x, y, z);
+		int metadata = event.world.getBlockMetadata(x, y, z);
+		
+		if (block == VBlocks.virtious_acid && metadata == 0)
+		{
+			result = new ItemStack(VItems.acid_bucket);
+		}
+		
+		if (result != null)
+		{
+			event.world.setBlockToAir(x, y, z);
+			event.result = result;
+			event.setResult(Result.ALLOW);
+		}
+	}
 	
 	@SubscribeEvent
 	public void bonemealUsed(BonemealEvent event)

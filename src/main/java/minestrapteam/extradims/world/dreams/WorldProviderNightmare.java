@@ -1,7 +1,6 @@
 package minestrapteam.extradims.world.dreams;
 
 import minestrapteam.extradims.lib.WorldManager;
-import minestrapteam.extradims.world.poc.DreamChunkManager;
 
 public class WorldProviderNightmare extends WorldProviderDreams
 {
@@ -9,7 +8,7 @@ public class WorldProviderNightmare extends WorldProviderDreams
 	public void registerWorldChunkManager()
 	{
 		this.dimensionId = WorldManager.NIGHTMARES_ID;
-		this.worldChunkMgr = new DreamChunkManager(this);
+		this.worldChunkMgr = new ChunkManagerDreams(this);
 		this.hasNoSky = false;
 	}
 	

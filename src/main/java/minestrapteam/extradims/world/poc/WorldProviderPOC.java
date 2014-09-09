@@ -1,25 +1,22 @@
-package minestrapteam.extradims.world.dreams;
+package minestrapteam.extradims.world.poc;
 
 import clashsoft.cslib.minecraft.world.CustomChunkProvider;
 import clashsoft.cslib.minecraft.world.CustomWorldProvider;
-import minestrapteam.extradims.dream.Dream;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class WorldProviderDreams extends CustomWorldProvider
+public class WorldProviderPOC extends CustomWorldProvider
 {
-	protected Dream theDream;
-	
-	public WorldProviderDreams()
+	public WorldProviderPOC()
 	{
-		super(WorldManager.DREAMS_ID);
+		super(WorldManager.POC_ID);
 	}
 	
 	@Override
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new ChunkManagerDreams(this);
+		this.worldChunkMgr = new ChunkManagerPOC(this.getSeed(), this.terrainType);
 	}
 	
 	@Override
@@ -31,16 +28,12 @@ public class WorldProviderDreams extends CustomWorldProvider
 	@Override
 	public String getDimensionName()
 	{
-		return "Dream";
+		return "Paradise Of Chaos";
 	}
 	
-	public void setDream(Dream dream)
+	@Override
+	public String getSaveFolder()
 	{
-		this.theDream = dream;
-	}
-	
-	public Dream getDream()
-	{
-		return this.theDream;
+		return "POC";
 	}
 }
