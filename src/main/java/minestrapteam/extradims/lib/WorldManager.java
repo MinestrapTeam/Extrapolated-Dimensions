@@ -18,6 +18,7 @@ public class WorldManager
 	public static BiomeGenBase		biomeAerius;
 	public static BiomeGenBase		biomeAerianForest;
 	public static BiomeGenBase		biomeAerianJungle;
+	public static BiomeGenBase biomeHallow;
 	
 	public static BiomeGenBase[]	aeriusBiomes;
 	
@@ -45,8 +46,9 @@ public class WorldManager
 		biomeAerius = new BiomeAerius(CSConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
 		biomeAerianForest = new BiomeAeriusForest(CSConfig.getBiome("Aerian Forest", 61)).setBiomeName("Aerian Forest");
 		biomeAerianJungle = new BiomeAeriusJungle(CSConfig.getBiome("Aerian Jungle", 62)).setBiomeName("Aerian Jungle");
+		biomeHallow = new BiomeHallow(CSConfig.getBiome("Hallow", 63)).setBiomeName("Hallow");
 		
-		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle };
+		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle, biomeHallow };
 		
 		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
 		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
