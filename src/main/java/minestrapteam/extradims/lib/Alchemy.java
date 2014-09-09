@@ -8,7 +8,6 @@ import minestrapteam.extradims.block.alchemy.BlockAlchemyTube;
 import minestrapteam.extradims.item.alchemy.ItemAlchemyGuide;
 import minestrapteam.extradims.item.alchemy.ItemElixir;
 import minestrapteam.extradims.item.alchemy.ItemElixirBottle;
-import minestrapteam.extradims.item.alchemy.ItemMatter;
 
 import net.minecraft.item.ItemStack;
 
@@ -21,7 +20,6 @@ public class Alchemy
 	public static ItemAlchemyGuide	alchemyGuide;
 	public static ItemElixir		elixir;
 	public static ItemElixirBottle	elixirBottle;
-	public static ItemMatter		matter;
 	
 	// Blocks
 	
@@ -35,7 +33,6 @@ public class Alchemy
 		alchemyGuide = (ItemAlchemyGuide) new ItemAlchemyGuide().setTextureName(getTexture("alchemy_guide")).setCreativeTab(Alchemy.tabAlchemy);
 		elixir = (ItemElixir) new ItemElixir().setCreativeTab(tabAlchemy);
 		elixirBottle = (ItemElixirBottle) new ItemElixirBottle().setCreativeTab(tabAlchemy);
-		matter = (ItemMatter) new ItemMatter().setCreativeTab(tabAlchemy);
 		
 		// Blocks
 		
@@ -50,7 +47,6 @@ public class Alchemy
 		CSItems.addItem(alchemyGuide, "alchemy_guide");
 		CSItems.addItem(elixir, "elixir");
 		CSItems.addItem(elixirBottle, "elixir_bottle");
-		CSItems.addItem(matter, "matter");
 		
 		// Blocks
 		

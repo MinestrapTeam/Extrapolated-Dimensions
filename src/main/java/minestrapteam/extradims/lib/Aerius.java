@@ -116,11 +116,11 @@ public class Aerius
 		saplingBlocks = (BlockAeriusSapling) (new BlockAeriusSapling(woodTypes, new String[] { getTexture("plants/skybark_sapling"), getTexture("plants/dark_skybark_sapling"), getTexture("plants/cloudroot_sapling"), getTexture("plants/gold_wood_sapling") })).setCreativeTab(tabAeriusBlocks);
 		plankBlocks = (CustomBlock) new CustomBlock(Material.wood, woodTypes, new String[] { getTexture("wood/skybark_planks"), getTexture("wood/dark_skybark_planks"), getTexture("wood/cloudroot_planks"), getTexture("wood/gold_wood_planks") }, null).setStepSound(Block.soundTypeWood).setCreativeTab(tabAeriusBlocks);
 		
-		String[] plants = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass", "aerian_vine", "mud_vine", "corrupted_vine", "hallowed_vine", "mushroom_vine", "grass_vine" };
-		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants, CSString.concatAll(plants, "ed_aerius:plants/plant_", null)).setCreativeTab(tabAeriusBlocks);
+		String[] plants = new String[] { "angel_grass", "short_angel_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass", "wanderers_bane", "wanderers_bane_small", "corrupted_vine", "hallowed_vine", "mushroom_vine" };
+		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants, CSString.concatAll(plants, getTexture("plants/"), null)).setCreativeTab(tabAeriusBlocks);
 		
-		String[] flowers = new String[] { "blue", "white", "orange" };
-		flowerBlocks = (CustomBlock) new BlockAeriusFlower(flowers, CSString.concatAll(flowers, getTexture("plants/flower_"), null)).setCreativeTab(tabAeriusBlocks);
+		String[] flowers = new String[] { "soulwhisker", "palebloom", "dawnbringer" };
+		flowerBlocks = (CustomBlock) new BlockAeriusFlower(flowers, CSString.concatAll(flowers, getTexture("plants/"), null)).setCreativeTab(tabAeriusBlocks);
 		
 		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName(getTexture("cloud")).setCreativeTab(tabAeriusBlocks);
 		
@@ -219,7 +219,7 @@ public class Aerius
 		plankBlocks.setHardness(2.0F);
 		plantBlocks.setHardnesses(0F, 0F, 0F, 0F);
 		
-		CSBlocks.addBlock(portal, "heaven_portal");
+		CSBlocks.addBlock(portal, "aerius_portal");
 		
 		CSBlocks.addBlock(stoneBlocks, "aerock");
 		CSBlocks.addBlock(oreBlocks, "aerius_ores");
