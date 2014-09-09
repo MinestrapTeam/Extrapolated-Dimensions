@@ -3,7 +3,7 @@ package minestrapteam.extradims.block.poc;
 import clashsoft.cslib.minecraft.block.BlockCustomPortal;
 import minestrapteam.extradims.lib.ParadiseOfChaos;
 import minestrapteam.extradims.lib.WorldManager;
-import minestrapteam.extradims.world.teleporters.TeleporterPOC;
+import minestrapteam.extradims.world.poc.TeleporterPOC;
 
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;

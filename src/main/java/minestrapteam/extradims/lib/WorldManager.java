@@ -3,11 +3,11 @@ package minestrapteam.extradims.lib;
 import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
-import minestrapteam.extradims.world.biome.*;
-import minestrapteam.extradims.world.gen.AeriusGenClouds;
-import minestrapteam.extradims.world.gen.AeriusGenTemple;
-import minestrapteam.extradims.world.provider.AeriusWorldProvider;
-import minestrapteam.extradims.world.provider.POCWorldProvider;
+import minestrapteam.extradims.biome.*;
+import minestrapteam.extradims.world.aerius.WorldProviderAerius;
+import minestrapteam.extradims.world.aerius.gen.AeriusGenClouds;
+import minestrapteam.extradims.world.aerius.gen.AeriusGenTemple;
+import minestrapteam.extradims.world.poc.POCWorldProvider;
 
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -53,10 +53,12 @@ public class WorldManager
 		biomePOCDesert = new BiomePOCDesert(CSConfig.getBiome("Desert of Dryness", 72)).setBiomeName("Desert of Dryness");
 		biomeBloodPlains = new BiomeBloodPlains(CSConfig.getBiome("Blood Plains", 73)).setBiomeName("Blood Plains");
 		
+		pocBiomes = new BiomeGenBase[] { biomePOCPlains, biomePOCMountains, biomePOCDesert, biomeBloodPlains };
+		
 		// -- Dimensions --
 		
 		// Aerius Dimension
-		DimensionManager.registerProviderType(AERIUS_ID, AeriusWorldProvider.class, true);
+		DimensionManager.registerProviderType(AERIUS_ID, WorldProviderAerius.class, true);
 		DimensionManager.registerDimension(AERIUS_ID, AERIUS_ID);
 		
 		// POC Dimension

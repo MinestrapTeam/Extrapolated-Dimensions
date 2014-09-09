@@ -4,7 +4,7 @@ import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
 import minestrapteam.extradims.lib.ParadiseOfChaos;
-import minestrapteam.extradims.world.gen.POCGenMagicOakTree;
+import minestrapteam.extradims.world.poc.gen.POCGenMagicOakTree;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

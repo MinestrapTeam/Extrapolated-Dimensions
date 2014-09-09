@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.aerius;
 
 import clashsoft.cslib.minecraft.block.BlockCustomPortal;
 import minestrapteam.extradims.lib.WorldManager;
-import minestrapteam.extradims.world.teleporters.AeriusTeleporter;
+import minestrapteam.extradims.world.aerius.TeleporterAerius;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.Teleporter;
@@ -20,7 +20,7 @@ public class BlockAeriusPortal extends BlockCustomPortal
 	@Override
 	public Teleporter createTeleporter(WorldServer world)
 	{
-		return new AeriusTeleporter(world);
+		return new TeleporterAerius(world);
 	}
 
 	@Override
