@@ -1,0 +1,146 @@
+# Stone Blocks
+tile.virtianstone.name=Virtianstone
+tile.virtianstone_cobbled.name=Cobbled Virtianstone
+tile.virtianstone_bricks.name=Virtianstone Bricks
+tile.deepstone.name=Deepstone
+tile.deepstone_mossy.name=Mossy Deepstone
+tile.deepstone_bricks.name=Deepstone Bricks
+tile.canyonstone.name=Canyonstone
+tile.canyonstone_bricks.name=Canyonstone Bricks
+
+# Soil Blocks
+tile.virtian_grass.name=Virtian Grass
+tile.virtian_soil.name=Virtian Soil
+tile.virtian_soil_tilled.name=Tilled Virtian Soil
+tile.fine_gravel.name=Fine Gravel
+
+# Ores
+tile.virtian_iron_ore.name=Virtian Iron Ore
+tile.tak_ore.name=Tak Ore
+tile.brazeum_ore.name=Brazeum Ore
+tile.aquieus_ore.name=Aquieus Ore
+tile.pluthorium_ore.name=Pluthorium Ore
+tile.illuminous_ore.name=Illuminous Ore
+tile.deep_iron_ore.name=Deep Iron Ore
+tile.deep_tak_ore.name=Deep Tak Ore
+tile.deep_illuminous_ore.name=Deep Illuminous Ore
+
+# Ore Blocks
+tile.tak_block.name=Tak Block
+tile.brazeum_block.name=Brazeum Block
+tile.aquieus_block.name=Aquieus Block
+tile.pluthorium_block.name=Pluthorium Block
+tile.illuminous_block.name=Illuminous Block
+
+# Wood Blocks
+tile.virtious_logs.virtianwood.name=Virtianwood Log
+tile.virtious_logs.amberwood.name=Amberwood Log
+tile.virtious_leaves.virtianwood.name=Virtianwood Leaves
+tile.virtious_leaves.amberwood.name=Amberwood Leaves
+tile.virtious_saplings.virtianwood.name=Virtianwood Sapling
+tile.virtious_saplings.amberwood.name=Amberwood Sapling
+tile.virtious_planks.virtianwood.name=Virtianwood Planks
+tile.virtious_planks.amberwood.name=Amberwood Planks
+
+# Plants
+tile.blue_torch.name=Blue Mushroom Torch
+tile.green_torch.name=Green Mushroom Torch
+tile.virtious_flowers.veer_flower.name=Veer Flower
+tile.virtious_flowers.nightwhisker.name=Nightwhisker
+tile.virtious_flowers.blue_mushroom.name=Glowing Blue Mushroom
+tile.virtious_flowers.green_mushroom.name=Glowing Green Mushroom
+tile.veer_crops.name=Veer Crops
+
+# Misc Blocks
+tile.virtious_acid.name=Virtious Acid
+tile.fuel_cell.name=Fuel Cell
+tile.rough_glass.name=Rough Glass
+tile.cytoid_wall.name=Cytoid Wall
+tile.cytoid_wall_dark.name=Dark Cytoid Wall
+tile.cytoid_wall_long.name=Long Cytoid Wall
+tile.cytoid_floor.name=Cytoid Floor
+tile.cytoid_floor_double.name=Cytoid Floor
+tile.cytoid_glass.name=Cytoid Glass
+tile.cytoid_door.name=Cytoid Door
+tile.cytoid_control_panel.name=Cytoid Control Panel
+tile.cytoid_lamp_off.name=Cytoid Lamp
+tile.cytoid_lamp_on.name=Cytoid Lamp (On)
+tile.cytoid_lightstrip.name=Cytoid Lightstrip
+
+# Materials
+item.brazeum_ingot.name=Brazeum Ingot
+item.aquieus_shard.name=Aquieus Shard
+item.pluthorium_gem.name=Pluthorium Gem
+item.illuminous_gem.name=Illuminous Gem
+item.tak.name=Tak
+
+# Tools
+item.virtianwood_sword.name=Virtianwood Sword
+item.virtianwood_shovel.name=Virtianwood Shovel
+item.virtianwood_pickaxe.name=Virtianwood Pickaxe
+item.virtianwood_axe.name=Virtianwood Axe
+item.virtianwood_hoe.name=Virtianwood Hoe
+
+item.amberwood_sword.name=Amberwood Sword
+item.amberwood_shovel.name=Amberwood Shovel
+item.amberwood_pickaxe.name=Amberwood Pickaxe
+item.amberwood_axe.name=Amberwood Axe
+item.amberwood_hoe.name=Amberwood Hoe
+
+item.virtianstone_sword.name=Virtianstone Sword
+item.virtianstone_shovel.name=Virtianstone Shovel
+item.virtianstone_pickaxe.name=Virtianstone Pickaxe
+item.virtianstone_axe.name=Virtianstone Axe
+item.virtianstone_hoe.name=Virtianstone Hoe
+
+item.deepstone_sword.name=Deepstone Sword
+item.deepstone_shovel.name=Deepstone Shovel
+item.deepstone_pickaxe.name=Deepstone Pickaxe
+item.deepstone_axe.name=Deepstone Axe
+item.deepstone_hoe.name=Deepstone Hoe
+
+item.brazeum_sword.name=Brazeum Sword
+item.brazeum_shovel.name=Brazeum Shovel
+item.brazeum_pickaxe.name=Brazeum Pickaxe
+item.brazeum_axe.name=Brazeum Axe
+item.brazeum_hoe.name=Brazeum Hoe
+
+item.aquieus_sword.name=Aquieus Sword
+item.aquieus_shovel.name=Aquieus Shovel
+item.aquieus_pickaxe.name=Aquieus Pickaxe
+item.aquieus_axe.name=Aquieus Axe
+item.aquieus_hoe.name=Aquieus Hoe
+
+item.pluthorium_sword.name=Pluthorium Sword
+item.pluthorium_shovel.name=Pluthorium Shovel
+item.pluthorium_pickaxe.name=Pluthorium Pickaxe
+item.pluthorium_axe.name=Pluthorium Axe
+item.pluthorium_hoe.name=Pluthorium Hoe
+
+# Misc Tools
+item.teleporter_wand.name=Teleporter Wand
+item.teleporter_wand.desc=§bShift-Right Click to instantly warp to the Virtious.
+item.amberwood_fishing_rod.name=Amberwood Fishing Rod
+item.sticky_bomb.name=Sticky Bomb
+item.laser_pistol.name=Laser Pistol
+item.laser_rifle.name=Laser Rifle
+item.acid_bucket.name=Acid Bucket
+
+# Food Items
+item.burhaunch_cooked.name=Cooked Burhaunch
+item.burhaunch_raw.name=Raw Burhaunch
+item.evulus_fish.name=Evulus Fish
+item.vois_food.name=Vois Food
+item.binnegan_fruit.name=Binnegan Fruit
+item.veer_seeds.name=Veer Seeds
+item.veer_dye.name=Veer
+
+# Misc Items
+item.cytoid_door_item.name=Cytoid Door
+
+# Entities
+entity.StickyBomb.name=Sticky Bomb
+entity.Burfalaunt.name=Burfalaunt
+entity.NativeAlien.name=Native Alien
+entity.NativeSkeleton.name=Native Skeleton
+
