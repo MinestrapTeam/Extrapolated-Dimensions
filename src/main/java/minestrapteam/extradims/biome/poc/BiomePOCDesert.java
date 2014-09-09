@@ -1,4 +1,4 @@
-package minestrapteam.extradims.biome;
+package minestrapteam.extradims.biome.poc;
 
 import net.minecraft.init.Blocks;
 

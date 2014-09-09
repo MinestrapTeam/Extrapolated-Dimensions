@@ -1,4 +1,4 @@
-package minestrapteam.extradims.biome;
+package minestrapteam.extradims.biome.poc;
 
 public class BiomePOCMountains extends BiomePOCPlains
 {

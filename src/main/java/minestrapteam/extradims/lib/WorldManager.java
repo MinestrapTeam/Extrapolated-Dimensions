@@ -3,7 +3,14 @@ package minestrapteam.extradims.lib;
 import java.util.Random;
 
 import clashsoft.cslib.config.CSConfig;
-import minestrapteam.extradims.biome.*;
+import minestrapteam.extradims.biome.aerius.BiomeAerius;
+import minestrapteam.extradims.biome.aerius.BiomeAeriusForest;
+import minestrapteam.extradims.biome.aerius.BiomeAeriusJungle;
+import minestrapteam.extradims.biome.aerius.BiomeHallow;
+import minestrapteam.extradims.biome.poc.BiomeBloodPlains;
+import minestrapteam.extradims.biome.poc.BiomePOCDesert;
+import minestrapteam.extradims.biome.poc.BiomePOCMountains;
+import minestrapteam.extradims.biome.poc.BiomePOCPlains;
 import minestrapteam.extradims.world.aerius.WorldProviderAerius;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenClouds;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenTemple;

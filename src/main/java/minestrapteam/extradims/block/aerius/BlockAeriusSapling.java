@@ -3,7 +3,7 @@ package minestrapteam.extradims.block.aerius;
 import java.util.Random;
 
 import clashsoft.cslib.minecraft.block.BlockCustomSapling;
-import minestrapteam.extradims.biome.BiomeAerius;
+import minestrapteam.extradims.biome.aerius.BiomeAerius;
 import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.block.Block;

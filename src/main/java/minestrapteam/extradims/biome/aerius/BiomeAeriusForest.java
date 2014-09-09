@@ -1,4 +1,4 @@
-package minestrapteam.extradims.biome;
+package minestrapteam.extradims.biome.aerius;
 
 public class BiomeAeriusForest extends BiomeAerius
 {
