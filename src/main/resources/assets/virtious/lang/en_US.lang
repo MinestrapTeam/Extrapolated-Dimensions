@@ -1,9 +1,9 @@
 # Creative Tabs
-itemGroup.virtious_blocks.name=Virtious - Blocks
-itemGroup.virtious_items.name=Virtious - Items
+itemGroup.virtious_blocks=Virtious - Blocks
+itemGroup.virtious_items=Virtious - Items
 
 # Fluids
-fluid.virtious_acid.name=Virtian Acid
+fluid.virtious_acid=Virtian Acid
 
 # Stone Blocks
 tile.virtianstone.name=Virtianstone

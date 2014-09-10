@@ -1,4 +1,9 @@
+# Creative Tabs
 itemGroup.alchemy=Alchemy
+
+# World Types
+generator.test=Test World
+generator.test.info=Useful for testing mods. Daylight Cycle and Rain are disabled by default.
 
 tile.alchemy_tube.name=Alchemy Tube
 tile.alchemy_table.name=Alchemy Table

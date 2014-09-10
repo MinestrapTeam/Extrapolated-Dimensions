@@ -48,19 +48,9 @@ public class ItemAeriusSticks extends CustomItem implements ICurseIngredient
 			int y = mop.blockY;
 			int z = mop.blockZ;
 			
-			if (!world.canMineBlock(player, x, y, z))
-			{
-				return stack;
-			}
-			
 			if (world.getBlock(x, y, z).getMaterial() == Material.water && world.getBlockMetadata(x, y, z) == 0)
 			{
 				world.setBlock(x, y, z, Blocks.ice);
-				
-				if (!player.capabilities.isCreativeMode)
-				{
-					stack.damageItem(1, player);
-				}
 			}
 		}
 		
