@@ -13,6 +13,7 @@ import minestrapteam.extradims.biome.poc.BiomePOCMountains;
 import minestrapteam.extradims.biome.poc.BiomePOCPlains;
 import minestrapteam.extradims.biome.virtious.*;
 import minestrapteam.extradims.lib.virtious.VBlocks;
+import minestrapteam.extradims.world.WorldTypeTest;
 import minestrapteam.extradims.world.aerius.WorldProviderAerius;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenClouds;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenTemple;
@@ -24,11 +25,14 @@ import minestrapteam.extradims.world.virtious.gen.VirtiousGenMinable;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenVirtianTree;
 
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
 public class WorldManager
 {
+	public static WorldType			testWorldType;
+	
 	public static int				VIRTIOUS_ID		= 7;
 	public static int				AERIUS_ID		= 8;
 	public static int				POC_ID			= 9;
@@ -60,6 +64,8 @@ public class WorldManager
 	
 	public static void load()
 	{
+		testWorldType = new WorldTypeTest("test");
+		
 		VIRTIOUS_ID = CSConfig.getDimension("Virtious", VIRTIOUS_ID);
 		AERIUS_ID = CSConfig.getDimension("Aerius", AERIUS_ID);
 		POC_ID = CSConfig.getDimension("Paradise of Chaos", POC_ID);

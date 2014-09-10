@@ -47,13 +47,13 @@ public class ExtraDimensions extends ClashsoftMod
 		Aerius.init();
 		ParadiseOfChaos.init();
 		Alchemy.init();
-		//Tools.init();
+		// Tools.init();
 		
 		Virtious.load();
 		Aerius.load();
 		ParadiseOfChaos.load();
 		Alchemy.load();
-		//Tools.load();
+		// Tools.load();
 		
 		WorldManager.load();
 		InventoryHandler.load();
