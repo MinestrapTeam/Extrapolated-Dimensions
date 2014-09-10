@@ -6,7 +6,7 @@ public class BiomeGenWhiskerfield extends BiomeGenVirtious
 	{
 		super(id);
 		
-		this.theBiomeDecorator = new BiomeDecoratorWhiskerfield();
+		this.theBiomeDecorator = new WhiskerfieldBiomeDecorator();
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.flowersPerChunk = 4;
 		this.theBiomeDecorator.grassPerChunk = 10;

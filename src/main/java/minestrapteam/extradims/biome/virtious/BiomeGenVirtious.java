@@ -27,6 +27,6 @@ public class BiomeGenVirtious extends CustomBiome
 		this.fillerBlock = VBlocks.virtian_soil;
 		this.stoneBlock = VBlocks.virtianstone;
 		
-		this.theBiomeDecorator = new BiomeDecoratorVirtious();
+		this.theBiomeDecorator = new VirtiousBiomeDecorator();
 	}
 }
