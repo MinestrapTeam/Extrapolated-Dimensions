@@ -25,8 +25,6 @@ public class ParadiseOfChaos
 {
 	public static CustomCreativeTab		tabBlocks	= new CustomCreativeTab("poc_blocks");
 	public static CustomCreativeTab		tabItems	= new CustomCreativeTab("poc_items");
-	public static CustomCreativeTab		tabTools	= new CustomCreativeTab("poc_tools");
-	public static CustomCreativeTab		tabArmor	= new CustomCreativeTab("poc_armor");
 	
 	// Items
 	
@@ -78,7 +76,7 @@ public class ParadiseOfChaos
 	{
 		// Items
 		
-		staff = (ItemStaff) new ItemStaff().setCreativeTab(tabTools);
+		staff = (ItemStaff) new ItemStaff().setCreativeTab(tabItems);
 		manaStar = (ItemManaStar) new ItemManaStar().setTextureName(getTexture("mana_star")).setCreativeTab(tabItems);
 		items = (CustomItem) new CustomItem(new String[] { "magic_oak_stick", "willow_stick", "promethium_gem", "novite_gem" }, new String[] { getTexture("magic_oak_stick"), getTexture("willow_stick") }, null).setCreativeTab(tabItems);
 		materials = (CustomItem) new CustomItem(new String[] { "kratonium_ingot", "whitium_ingot", "death_ingot", "blood_ingot", "mysterious_ingot", "promethium_gem", "novite_gem" }, new String[] { getTexture("minerals/kratonium_ingot"), getTexture("minerals/whitium_ingot"), getTexture("minerals/death_ingot"), getTexture("minerals/blood_ingot"), getTexture("minerals/mysterious_ingot"), getTexture("minerals/promethium_gem"), getTexture("minerals/novite_gem") }, null).setCreativeTab(tabItems);

@@ -23,8 +23,6 @@ public class Aerius
 {
 	public static CustomCreativeTab			tabAeriusBlocks	= new CustomCreativeTab("aerius_blocks");
 	public static CustomCreativeTab			tabAeriusItems	= new CustomCreativeTab("aerius_items");
-	public static CustomCreativeTab			tabAeriusTools	= new CustomCreativeTab("aerius_tools");
-	public static CustomCreativeTab			tabAeriusArmor	= new CustomCreativeTab("aerius_armor");
 	
 	public static Material					cloudMaterial	= new MaterialCloud();
 	
@@ -90,11 +88,11 @@ public class Aerius
 		
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple")).setCreativeTab(tabAeriusItems);
 		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName(getTexture("loot/life_heart")).setCreativeTab(tabAeriusItems);
-		fireSword = (ItemFireSword) new ItemFireSword().setTextureName(getTexture("weapons/fire_sword")).setCreativeTab(tabAeriusTools);
-		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName(getTexture("tools/ice_hammer")).setCreativeTab(tabAeriusTools);
+		fireSword = (ItemFireSword) new ItemFireSword().setTextureName(getTexture("weapons/fire_sword")).setCreativeTab(tabAeriusItems);
+		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName(getTexture("tools/ice_hammer")).setCreativeTab(tabAeriusItems);
 		soul = (ItemAeriusSoul) new ItemAeriusSoul().setCreativeTab(tabAeriusItems);
-		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabAeriusArmor);
-		portalActivator = (ItemAeriusPortalActivator) new ItemAeriusPortalActivator().setTextureName(getTexture("tools/aerius_portal_activator")).setCreativeTab(tabAeriusTools);
+		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabAeriusItems);
+		portalActivator = (ItemAeriusPortalActivator) new ItemAeriusPortalActivator().setTextureName(getTexture("tools/aerius_portal_activator")).setCreativeTab(tabAeriusItems);
 		
 		String[] seeds = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" };
 		seedItems = new ItemAeriusSeeds(seeds, CSString.concatAll(seeds, "ed_aerius:food/", "_seeds"));
@@ -269,10 +267,8 @@ public class Aerius
 	
 	public static void setTabIcons()
 	{
-		tabAeriusItems.setIconItemStack(shrekiteShard);
 		tabAeriusBlocks.setIconItemStack(aerianGrass);
-		tabAeriusTools.setIconItemStack(new ItemStack(iceHammer));
-		tabAeriusArmor.setIconItemStack(new ItemStack(capes));
+		tabAeriusItems.setIconItemStack(shrekiteShard);
 	}
 	
 	public static String getTexture(String name)

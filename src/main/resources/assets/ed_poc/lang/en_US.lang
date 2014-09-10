@@ -1,8 +1,6 @@
 # Creative Tabs
 itemGroup.poc_blocks=Paradise of Chaos - Blocks
 itemGroup.poc_items=Paradise of Chaos - Items
-itemGroup.poc_tools=Paradise of Chaos - Tools
-itemGroup.poc_armor=Paradise of Chaos - Armor
 
 # Blocks
 tile.poc_portal.name=Paradise of Chaos Portal

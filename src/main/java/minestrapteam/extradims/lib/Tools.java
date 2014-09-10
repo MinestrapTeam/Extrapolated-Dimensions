@@ -93,8 +93,8 @@ public class Tools
 														};
 	
 	public static CreativeTabs		advancedTools		= tabTools, advancedArmor = tabTools;
-	public static CreativeTabs		heavenTools			= Aerius.tabAeriusTools, heavenArmor = Aerius.tabAeriusArmor;
-	public static CreativeTabs		pocTools			= ParadiseOfChaos.tabTools, pocArmor = ParadiseOfChaos.tabArmor;
+	public static CreativeTabs		heavenTools			= Aerius.tabAeriusItems, heavenArmor = Aerius.tabAeriusItems;
+	public static CreativeTabs		pocTools			= ParadiseOfChaos.tabItems, pocArmor = ParadiseOfChaos.tabItems;
 	
 	public static CreativeTabs[]	toolTabs			= CSArrays.create(advancedTools, advancedTools, advancedTools, advancedTools, advancedTools, // Vanilla
 																heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, // Heaven
