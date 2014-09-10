@@ -18,6 +18,7 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 {
 	private WorldGenerator	blueFlowerGen	= new WorldGenRanged(Aerius.flowerBlocks, 0);
 	private WorldGenerator	whiteFlowerGen	= new WorldGenRanged(Aerius.flowerBlocks, 1);
+	private WorldGenerator	orangeFlowerGen	= new WorldGenRanged(Aerius.flowerBlocks, 2);
 	
 	private WorldGenerator	sywoxiteGen		= new AeriusGenMinable(Aerius.stoneBlocks, 3, 18);
 	private WorldGenerator	clashiumGen		= new AeriusGenMinable(Aerius.stoneBlocks, 4, 10);
@@ -74,7 +75,11 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 			int x = chunkX + random.nextInt(16) + 8;
 			int z = chunkZ + random.nextInt(16) + 8;
 			int y = 0;
-			while (y < 64 && world.isAirBlock(x, ++y, z))
+			while (y < 64 && world.isAirBlock(x, y, z))
+			{
+				y++;
+			}
+			
 			world.setBlock(x, y - 1, z, Blocks.vine);
 		}
 		
@@ -84,13 +89,18 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 			int z = chunkZ + random.nextInt(16) + 8;
 			int y = world.getTopSolidOrLiquidBlock(x, z);
 			
-			if (random.nextBoolean())
+			int rand = random.nextInt(3);
+			if (rand == 0)
 			{
 				this.blueFlowerGen.generate(world, random, x, y, z);
 			}
+			else if (rand == 1)
+			{
+				this.whiteFlowerGen.generate(world, random, x, y, z);				
+			}
 			else
 			{
-				this.whiteFlowerGen.generate(world, random, x, y, z);
+				this.orangeFlowerGen.generate(world, random, x, y, z);
 			}
 		}
 		
