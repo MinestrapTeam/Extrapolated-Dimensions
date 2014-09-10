@@ -20,10 +20,10 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class Virtious
 {
-	public static CustomCreativeTab	tabVirtiousBlocks	= new CustomCreativeTab("virtious_items");
-	public static CustomCreativeTab	tabVirtiousItems	= new CustomCreativeTab("virtious_blocks");
+	public static CustomCreativeTab	tabVirtiousBlocks	= new CustomCreativeTab("virtious_blocks");
+	public static CustomCreativeTab	tabVirtiousItems	= new CustomCreativeTab("virtious_items");
 	
-	public static Fluid				virtiousFluid		= new Fluid("Virtian Acid");
+	public static Fluid				virtiousFluid		= new Fluid("virtious_acid");
 	
 	public static void init()
 	{

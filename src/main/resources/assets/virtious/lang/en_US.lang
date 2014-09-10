@@ -1,3 +1,10 @@
+# Creative Tabs
+itemGroup.virtious_blocks.name=Virtious - Blocks
+itemGroup.virtious_items.name=Virtious - Items
+
+# Fluids
+fluid.virtious_acid.name=Virtian Acid
+
 # Stone Blocks
 tile.virtianstone.name=Virtianstone
 tile.virtianstone_cobbled.name=Cobbled Virtianstone
@@ -143,4 +150,3 @@ entity.StickyBomb.name=Sticky Bomb
 entity.Burfalaunt.name=Burfalaunt
 entity.NativeAlien.name=Native Alien
 entity.NativeSkeleton.name=Native Skeleton
-
