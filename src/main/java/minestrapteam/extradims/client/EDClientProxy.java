@@ -46,32 +46,7 @@ public class EDClientProxy extends EDProxy
 	public RenderPOCBows		bowRenderer;
 	
 	public static int			tubeRenderType;
-	public static int lightStripRenderType;
-	
-	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-	{
-		if (ID == BOSS_CHAT_GUIID)
-		{
-			return new GuiBossChat(player, (IChatEntity) world.getEntityByID(x));
-		}
-		else if (ID == TOME_GUIID)
-		{
-			return new GuiTome();
-		}
-		else if (ID == DAMNATION_TABLE_GUIID)
-		{
-			return new GuiDamnationTable(player.inventory, (TileEntityDamnationTable) world.getTileEntity(x, y, z));
-		}
-		else if (ID == ALCHEMY_TABLE_GUIID)
-		{
-			return new GuiAlchemyTable(player, (TileEntityAlchemyTable) world.getTileEntity(x, y, z));
-		}
-		else
-		{
-			return null;
-		}
-	}
+	public static int			lightStripRenderType;
 	
 	@Override
 	public void init(FMLInitializationEvent event)
@@ -101,6 +76,31 @@ public class EDClientProxy extends EDProxy
 		// Block Renderers
 		lightStripRenderType = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(lightStripRenderType, RenderGlowingBlock.instance);
+	}
+	
+	@Override
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	{
+		if (ID == BOSS_CHAT_GUIID)
+		{
+			return new GuiBossChat(player, (IChatEntity) world.getEntityByID(x));
+		}
+		else if (ID == TOME_GUIID)
+		{
+			return new GuiTome();
+		}
+		else if (ID == DAMNATION_TABLE_GUIID)
+		{
+			return new GuiDamnationTable(player.inventory, (TileEntityDamnationTable) world.getTileEntity(x, y, z));
+		}
+		else if (ID == ALCHEMY_TABLE_GUIID)
+		{
+			return new GuiAlchemyTable(player, (TileEntityAlchemyTable) world.getTileEntity(x, y, z));
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	@Override

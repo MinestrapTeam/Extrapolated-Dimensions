@@ -40,13 +40,6 @@ public class ExtraDimensions extends ClashsoftMod
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
-	}
-	
-	@Override
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		super.init(event);
 		
 		CSConfig.loadConfig(this.configFile);
 		
@@ -66,6 +59,13 @@ public class ExtraDimensions extends ClashsoftMod
 		InventoryHandler.load();
 		
 		CSConfig.saveConfig();
+	}
+	
+	@Override
+	@EventHandler
+	public void init(FMLInitializationEvent event)
+	{
+		super.init(event);
 		
 		GameRegistry.registerFuelHandler(new EDFuelHandler());
 	}

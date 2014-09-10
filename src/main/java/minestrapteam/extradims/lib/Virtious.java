@@ -2,6 +2,7 @@ package minestrapteam.extradims.lib;
 
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.entity.CSEntities;
+import clashsoft.cslib.minecraft.stack.StackFactory;
 import minestrapteam.extradims.entity.EntityBurfalaunt;
 import minestrapteam.extradims.entity.EntityLaser;
 import minestrapteam.extradims.entity.EntityNative;
@@ -26,19 +27,23 @@ public class Virtious
 	
 	public static void init()
 	{
+		FluidRegistry.registerFluid(virtiousFluid);
+		
 		VBlocks.init();
 		VItems.init();
 	}
 	
 	public static void load()
 	{
-		FluidRegistry.registerFluid(virtiousFluid);
 		FluidContainerRegistry.registerFluidContainer(virtiousFluid, new ItemStack(VItems.acid_bucket), new ItemStack(Items.bucket));
 		
 		VBlocks.load();
 		VItems.load();
 		
 		VRecipes.load();
+		
+		tabVirtiousBlocks.setIconItemStack(StackFactory.create(VBlocks.virtian_grass));
+		tabVirtiousItems.setIconItemStack(StackFactory.create(VItems.binnegan_fruit));
 		
 		// Entities
 		

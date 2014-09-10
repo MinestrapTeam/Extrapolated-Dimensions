@@ -8,10 +8,4 @@ public class EDSoundHandler
 	protected EDSoundHandler()
 	{
 	}
-	
-	/*
-	 * TODO: Add sounds
-	 * 
-	 * "mdm_heaven:sounds.music.heaven" @ "mdm_heaven:sounds/music/heaven.ogg");
-	 */
 }
