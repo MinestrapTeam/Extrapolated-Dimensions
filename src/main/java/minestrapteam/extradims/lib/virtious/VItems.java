@@ -52,18 +52,20 @@ public class VItems
 	public static Item	aquieus_axe;
 	public static Item	aquieus_hoe;
 	
+	public static Item	pluthorium_sword;
+	public static Item	pluthorium_shovel;
 	public static Item	pluthorium_pickaxe;
 	public static Item	pluthorium_axe;
-	public static Item	pluthorium_shovel;
 	public static Item	pluthorium_hoe;
-	public static Item	pluthorium_sword;
 	
 	public static Item	teleporter_wand;
 	public static Item	amberwood_fishing_rod;
 	public static Item	sticky_bomb;
-	public static Item laser_pistol;
+	public static Item	laser_pistol;
 	public static Item	laser_rifle;
 	public static Item	acid_bucket;
+
+	public static Item	cytoid_door;
 	
 	public static Item	burhaunch_cooked;
 	public static Item	burhaunch_raw;
@@ -72,8 +74,6 @@ public class VItems
 	public static Item	binnegan_fruit;
 	public static Item	veer_seeds;
 	public static Item	veer_dye;
-	
-	public static Item	cytoid_door;
 	
 	public static void init()
 	{
@@ -132,6 +132,8 @@ public class VItems
 		laser_rifle = new ItemGun(3000, 2, 1, "").setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("laser_rifle"));
 		acid_bucket = new ItemCustomBucket(VBlocks.virtious_acid).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("acid_bucket"));
 		
+		cytoid_door = new ItemCustomDoor(VBlocks.cytoid_door).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("cytoid_door"));
+		
 		burhaunch_cooked = new ItemFood(4, 0.4F, true).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("burhaunch_cooked"));
 		burhaunch_raw = new ItemFood(9, 0.8F, true).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("burhaunch_raw"));
 		evulus_fish = new ItemFood(5, 0.5F, false).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("evulus_fish"));
@@ -139,8 +141,6 @@ public class VItems
 		binnegan_fruit = new ItemFood(3, 0.25F, false).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("binnegan"));
 		veer_seeds = new ItemReed(VBlocks.veer_crops).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("veer_seeds"));
 		veer_dye = new ItemFood(1, 0.3F, false).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("veer"));
-		
-		cytoid_door = new ItemCustomDoor(VBlocks.cytoid_door).setCreativeTab(Virtious.tabVirtiousItems).setTextureName(getTexture("cytoid_door"));
 	}
 	
 	public static void load()
@@ -187,11 +187,11 @@ public class VItems
 		CSItems.addItem(aquieus_axe, "aquieus_axe");
 		CSItems.addItem(aquieus_hoe, "aquieus_hoe");
 		
+		CSItems.addItem(pluthorium_sword, "pluthorium_sword");
+		CSItems.addItem(pluthorium_shovel, "pluthorium_shovel");
 		CSItems.addItem(pluthorium_pickaxe, "pluthorium_pickaxe");
 		CSItems.addItem(pluthorium_axe, "pluthorium_axe");
-		CSItems.addItem(pluthorium_shovel, "pluthorium_shovel");
 		CSItems.addItem(pluthorium_hoe, "pluthorium_hoe");
-		CSItems.addItem(pluthorium_sword, "pluthorium_sword");
 		
 		CSItems.addItem(teleporter_wand, "teleporter_wand");
 		CSItems.addItem(amberwood_fishing_rod, "amberwood_fishing_rod");
@@ -200,6 +200,8 @@ public class VItems
 		CSItems.addItem(laser_rifle, "laser_rifle");
 		CSItems.addItem(acid_bucket, "acid_bucket");
 		
+		CSItems.addItem(cytoid_door, "cytoid_door_item");
+		
 		CSItems.addItem(burhaunch_cooked, "burhaunch_cooked");
 		CSItems.addItem(burhaunch_raw, "burhaunch_raw");
 		CSItems.addItem(evulus_fish, "evulus_fish");
@@ -207,8 +209,6 @@ public class VItems
 		CSItems.addItem(binnegan_fruit, "binnegan_fruit");
 		CSItems.addItem(veer_seeds, "veer_seeds");
 		CSItems.addItem(veer_dye, "veer_dye");
-		
-		CSItems.addItem(cytoid_door, "cytoid_door_item");
 	}
 	
 	public static String getTexture(String name)
