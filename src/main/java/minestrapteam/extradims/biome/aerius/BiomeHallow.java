@@ -16,6 +16,7 @@ public class BiomeHallow extends BiomeAerius
 		super(id);
 		
 		this.theBiomeDecorator.flowersPerChunk = 0;
+		this.theBiomeDecorator.treesPerChunk = 3;
 		
 		this.topMetadata = 3;
 		this.fillerBlock = Blocks.dirt;
