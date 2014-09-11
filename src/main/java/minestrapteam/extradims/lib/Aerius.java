@@ -79,9 +79,11 @@ public class Aerius
 	
 	public static void init()
 	{
+		String[] woodTypes = new String[] { "skybark", "dark_skybark", "cloudroot", "gold_wood" };
+
 		// Items
 		
-		stickItems = (ItemAeriusSticks) new ItemAeriusSticks(new String[] { "skybark_stick", "dark_skybark_stick", "cloudroot_stick", "gold_wood_stick", "ice_stick" }, new String[] { getTexture("skybark_stick"), getTexture("dark_skybark_stick"), getTexture("cloudroot_stick"), getTexture("gold_wood_stick"), getTexture("ice_stick") }).setCreativeTab(tabAeriusItems);
+		stickItems = (ItemAeriusSticks) new ItemAeriusSticks(new String[] { "skybark", "dark_skybark", "cloudroot", "gold_wood", "ice_stick" }, new String[] { getTexture("skybark_stick"), getTexture("dark_skybark_stick"), getTexture("cloudroot_stick"), getTexture("gold_wood_stick"), getTexture("ice_stick") }).setCreativeTab(tabAeriusItems);
 		materialItems = (ItemAeriusMaterials) new ItemAeriusMaterials(new String[] { "shrekite_shard", "clashium_ingot", "condaius_dust", "holyium_ingot", "pro_ingot", "energy_orb" }, new String[] { getTexture("minerals/shrekite_shard"), getTexture("minerals/clashium_ingot"), getTexture("minerals/condaius_dust"), getTexture("minerals/holyium_ingot"), getTexture("minerals/pro_ingot"), getTexture("energy_orb") }).setCreativeTab(tabAeriusItems);
 		
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple")).setCreativeTab(tabAeriusItems);
@@ -103,10 +105,9 @@ public class Aerius
 		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, new String[] { "shrekite_ore", "clashium_ore", "condaius_ore", "holyium_ore" }, new String[] { getTexture("minerals/shrekite_ore"), getTexture("minerals/clashium_ore"), getTexture("minerals/condaius_ore_aerock"), getTexture("minerals/holyium_ore") }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
 		metalBlocks = (CustomBlock) new CustomBlock(Material.iron, new String[] { "shrekite_block", "clashium_block", "condaius_block", "holyium_block", "pro_block" }, new String[] { getTexture("minerals/shrekite_block"), getTexture("minerals/clashium_block"), getTexture("minerals/condaius_block"), getTexture("minerals/holyium_block"), getTexture("minerals/pro_block") }, null).setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeMetal);
 		
-		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "aerian_soil", "mud", "ashes" }, new String[] { getTexture("soil/aerian_soil"), getTexture("soil/aerian_mud"), getTexture("ashes") }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeGravel);
-		grassBlocks = (BlockAeriusGrass) (new BlockAeriusGrass(new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" }, new String[] { getTexture("soil/aerian_grass"), getTexture("soil/aerian_mud_grass"), getTexture("soil/corrupted_grass"), getTexture("soil/hallowed_grass"), getTexture("soil/mushroom_grass") }).setCreativeTab(tabAeriusBlocks));
+		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { null, "mud", "ashes" }, new String[] { getTexture("soil/aerian_soil"), getTexture("soil/aerian_mud"), getTexture("ashes") }, new CreativeTabs[] { tabAeriusBlocks }).setStepSound(Block.soundTypeGravel);
+		grassBlocks = (BlockAeriusGrass) (new BlockAeriusGrass(new String[] { null, "mud_grass", "corrupted_grass", "hallowed_grass", "mushroom_grass" }, new String[] { getTexture("soil/aerian_grass"), getTexture("soil/aerian_mud_grass"), getTexture("soil/corrupted_grass"), getTexture("soil/hallowed_grass"), getTexture("soil/mushroom_grass") }).setCreativeTab(tabAeriusBlocks));
 		
-		String[] woodTypes = new String[] { "skybark", "dark_skybark", "cloudroot", "gold_wood" };
 		logBlocks = (BlockCustomLog) (new BlockCustomLog(woodTypes, new String[] { getTexture("wood/skybark_log_top"), getTexture("wood/dark_skybark_log_top"), getTexture("wood/cloudroot_log_top"), getTexture("wood/gold_wood_log_top") }, new String[] { getTexture("wood/skybark_log_side"), getTexture("wood/dark_skybark_log_side"), getTexture("wood/cloudroot_log_side"), getTexture("wood/gold_wood_log_side") })).setCreativeTab(tabAeriusBlocks);
 		leafBlocks = (BlockCustomLeaves) (new BlockCustomLeaves(woodTypes, new String[] { getTexture("plants/skybark_leaves"), getTexture("plants/dark_skybark_leaves"), getTexture("plants/cloudroot_leaves"), getTexture("plants/gold_wood_leaves") })).setHardness(0.2F).setCreativeTab(tabAeriusBlocks);
 		saplingBlocks = (BlockAeriusSapling) (new BlockAeriusSapling(woodTypes, new String[] { getTexture("plants/skybark_sapling"), getTexture("plants/dark_skybark_sapling"), getTexture("plants/cloudroot_sapling"), getTexture("plants/gold_wood_sapling") })).setCreativeTab(tabAeriusBlocks);
@@ -270,7 +271,7 @@ public class Aerius
 	public static void setTabIcons()
 	{
 		tabAeriusBlocks.setIconItemStack(aerianGrass);
-		tabAeriusItems.setIconItemStack(shrekiteShard);
+		tabAeriusItems.setIconItemStack(condaiusDust);
 	}
 	
 	public static String getTexture(String name)

@@ -74,7 +74,7 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return "item.cape_" + capeNames[stack.getItemDamage() % capeNames.length];
+		return "item.cape." + capeNames[stack.getItemDamage() % capeNames.length];
 	}
 	
 	@Override

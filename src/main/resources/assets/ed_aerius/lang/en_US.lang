@@ -1,3 +1,82 @@
 # Creative Tabs
 itemGroup.aerius_blocks=Aerius - Blocks
 itemGroup.aerius_items=Aerius - Items
+
+# Stone Blocks
+
+# Soil Blocks
+tile.aerian_dirt.name=Aerian Soil
+tile.aerian_dirt.mud.name=Aerian Mud
+tile.aerian_dirt.ashes.name=Ashes
+
+tile.aerian_grass.name=Aerian Grass
+tile.aerian_grass.mud_grass.name=Mud Grass
+tile.aerian_grass.corrupted_grass.name=Corrupted Grass
+tile.aerian_grass.hallowed_grass.name=Hallowed Grass
+tile.aerian_grass.mushroom_grass.name=Mushroom Grass
+
+# Ores
+
+# Ore Blocks
+
+# Wood Blocks
+tile.aerius_logs.skybark.name=Skybark Log
+tile.aerius_logs.dark_skybark.name=Dark Skybark Log
+tile.aerius_logs.cloudroot.name=Cloudroot Log
+tile.aerius_logs.gold_wood.name=Gold Wood Log
+tile.aerius_leaves.skybark.name=Skybark Leaves
+tile.aerius_leaves.dark_skybark.name=Dark Skybark Leaves
+tile.aerius_leaves.cloudroot.name=Cloudroot Leaves
+tile.aerius_leaves.gold_wood.name=Gold Wood Leaves
+tile.aerius_saplings.skybark.name=Skybark Sapling
+tile.aerius_saplings.dark_skybark.name=Dark Skybark Sapling
+tile.aerius_saplings.cloudroot.name=Cloudroot Sapling
+tile.aerius_saplings.gold_wood.name=Gold Wood Sapling
+tile.aerius_planks.skybark.name=Skybark Planks
+tile.aerius_planks.dark_skybark.name=Dark Skybark Planks
+tile.aerius_planks.cloudroot.name=Cloudroot Planks
+tile.aerius_planks.gold_wood.name=Gold Wood Planks
+
+# Plants
+tile.aerius_flowers.soulwhisker.name=Soulwhisker
+tile.aerius_flowers.palebloom.name=Palebloom
+tile.aerius_flowers.dawnbringer.name=Dawnbringer
+
+# Misc Blocks
+tile.aerius_portal.name=Aerius Portal
+tile.aerian_pillar.name=Aerian Pillar
+tile.damnation_table.name=Damnation Table
+
+# Materials
+item.aerius_sticks.skybark.name=Skybark Stick
+item.aerius_sticks.dark_skybark.name=Dark Skybark Stick
+item.aerius_sticks.cloudroot.name=Cloudroot Stick
+item.aerius_sticks.gold_wood.name=Gold Wood Stick
+
+# Tools
+item.fire_sword.name=Fire Sword
+
+# Armor
+item.cape.pro.name=Pro Cape
+item.cape.blue.name=Blue Cape
+item.cape.green.name=Green Cape
+item.cape.red.name=Red Cape
+item.cape.yellow.name=Yellow Cape
+item.cape.invisibility.name=Invisibility Cape
+item.cape.minecon_2011.name=Minecon 2011 Cape
+item.cape.minecon_2012.name=Minecon 2012 Cape
+item.cape.minecon_2013.name=Minecon 2013 Cape
+
+# Misc Tools
+item.ice_hammer.name=Ice Hammer
+item.aerius_portal_activator.name=Aerwand
+item.aerius_portal_activator.desc=§aActivates the portal to the Aerius
+
+# Food Items
+item.aerian_apple.name=Aerian Apple
+item.life_heart.name=Life Heart
+
+# Misc Items
+
+# Entities
+entity.Lich.name=Lich
