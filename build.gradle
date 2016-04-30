@@ -21,13 +21,18 @@ buildscript
 }
 
 apply plugin: 'forge'
+apply plugin: 'wrapper'
+
 version = "1.7.10-alpha"
-group= "clashsoft.mods.moredimensions"
-archivesBaseName = "MoreDimensionsMod"
+group = "minestrapteam.extradimensions"
+archivesBaseName = "ExtrapolatedDimensionsMod"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 minecraft
 {
-    version = "1.7.10-10.13.0.1189"
+    version = "1.7.10-10.13.4.1558-1.7.10"
 
     if(file('../run').exists())
     {
@@ -39,19 +44,22 @@ minecraft
     }
 }
 
-processResources
-{
+processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
 
-    from(sourceSets.main.resources.srcDirs)
-    {
+    from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
 
-    from(sourceSets.main.resources.srcDirs)
-    {
-        exclude 'mcmod.info'
+    from(sourceSets.main.resources.srcDirs) {
+	    exclude 'mcmod.info'
+    }
+}
+
+idea {
+    module {
+        inheritOutputDirs = true
     }
 }

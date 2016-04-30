@@ -1,17 +1,21 @@
+
+# Temp files
 .DS_STORE
-.project
-.classpath
+
+# Gradle
 .gradle/
 
-Extrapolated-Dimensions.iml
-.idea/
-
-<<<<<<< HEAD
+# Output Directories
 bin/
 build/
-=======
+
+# Eclipse
 .project
-gradlew*
-gradlew.bat
-gradle/
->>>>>>> origin/SoBiohazardous-Edit
+.classpath
+.settings/
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
