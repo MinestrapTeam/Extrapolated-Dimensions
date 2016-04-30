@@ -1,26 +1,22 @@
 package minestrapteam.extradims.lib;
 
-import static minestrapteam.extracore.crafting.ECCrafting.addFurnaceRecipe;
-import static minestrapteam.extracore.crafting.ECCrafting.addPlanks;
-import static minestrapteam.extracore.crafting.ECCrafting.addRecipe;
-import static minestrapteam.extracore.crafting.ECCrafting.addStick;
-import clashsoft.cslib.minecraft.block.*;
-import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
-import minestrapteam.extracore.item.ECItems;
-import minestrapteam.extracore.item.CustomItem;
-import minestrapteam.extracore.item.stack.ECStacks;
-import minestrapteam.extracore.util.StringUtils;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import minestrapteam.extracore.block.*;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.item.CustomItem;
+import minestrapteam.extracore.item.ECItems;
+import minestrapteam.extracore.item.stack.ECStacks;
+import minestrapteam.extracore.util.StringUtils;
 import minestrapteam.extradims.block.poc.BlockPOCPortal;
 import minestrapteam.extradims.block.poc.BlockPOCSapling;
 import minestrapteam.extradims.entity.boss.EntityLich;
 import minestrapteam.extradims.item.poc.ItemManaStar;
 import minestrapteam.extradims.item.poc.ItemStaff;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
+
+import static minestrapteam.extracore.crafting.ECCrafting.*;
 
 public class ParadiseOfChaos
 {

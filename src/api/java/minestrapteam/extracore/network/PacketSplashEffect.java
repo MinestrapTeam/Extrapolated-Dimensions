@@ -1,7 +1,6 @@
 package minestrapteam.extracore.network;
 
-import minestrapteam.extracore.BrewingAPI;
-
+import minestrapteam.extracore.ExtraCore;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.PacketBuffer;
@@ -46,7 +45,7 @@ public class PacketSplashEffect extends ECPacket
 	@Override
 	public void handleClient(EntityPlayer player)
 	{
-		BrewingAPI.proxy.playSplashEffect(BrewingAPI.proxy.getClientWorld(), this.x, this.y, this.z, this.color, this.instant);
+		ExtraCore.proxy.playSplashEffect(ExtraCore.proxy.getClientWorld(), this.x, this.y, this.z, this.color, this.instant);
 	}
 	
 	@Override

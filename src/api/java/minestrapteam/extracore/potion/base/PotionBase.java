@@ -1,6 +1,6 @@
 package minestrapteam.extracore.potion.base;
 
-import minestrapteam.extracore.BrewingAPI;
+import minestrapteam.extracore.api.BrewingAPI;
 import minestrapteam.extracore.potion.PotionTypeList;
 import minestrapteam.extracore.potion.recipe.PotionRecipes;
 import minestrapteam.extracore.potion.type.AbstractPotionType;

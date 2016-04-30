@@ -1,12 +1,10 @@
 package minestrapteam.extradims.lib.virtious;
 
-import clashsoft.cslib.minecraft.block.*;
+import minestrapteam.extracore.block.*;
 import minestrapteam.extracore.item.block.ItemCustomSlab;
 import minestrapteam.extracore.item.stack.StackFactory;
-import minestrapteam.extracore.block.*;
 import minestrapteam.extradims.block.virtious.*;
 import minestrapteam.extradims.lib.Virtious;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;

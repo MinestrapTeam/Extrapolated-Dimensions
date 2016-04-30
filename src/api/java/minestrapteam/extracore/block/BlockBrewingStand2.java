@@ -1,14 +1,11 @@
 package minestrapteam.extracore.block;
 
-import java.util.List;
-import java.util.Random;
-
-import minestrapteam.extracore.BrewingAPI;
-import minestrapteam.extracore.tileentity.TileEntityBrewingStand2;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
+import minestrapteam.extracore.ExtraCore;
+import minestrapteam.extracore.proxy.ECProxy;
+import minestrapteam.extracore.tileentity.TileEntityBrewingStand2;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBrewingStand;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,6 +21,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockBrewingStand2 extends BlockBrewingStand
 {
@@ -78,7 +78,7 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	{
 		if (!world.isRemote && world.getTileEntity(x, y, z) != null)
 		{
-			FMLNetworkHandler.openGui(player, BrewingAPI.instance, BrewingAPI.brewingStand2ID, world, x, y, z);
+			FMLNetworkHandler.openGui(player, ExtraCore.instance, ECProxy.GUI_BREWING_ID, world, x, y, z);
 		}
 		return true;
 	}

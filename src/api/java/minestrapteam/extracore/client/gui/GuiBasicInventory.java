@@ -7,8 +7,7 @@ import java.util.List;
 import minestrapteam.extracore.util.StringUtils;
 import org.lwjgl.opengl.GL11;
 
-import minestrapteam.extracore.client.gui.GuiBuilder;
-import minestrapteam.extracore.PlayerInventoryAPI;
+import minestrapteam.extracore.api.PlayerInventoryAPI;
 
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.inventory.GuiContainer;

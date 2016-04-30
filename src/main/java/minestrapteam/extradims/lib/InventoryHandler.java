@@ -1,8 +1,8 @@
 package minestrapteam.extradims.lib;
 
 import minestrapteam.extracore.util.math.Point2i;
-import minestrapteam.extracore.PlayerInventoryAPI;
-import minestrapteam.extracore.inventory.SurvivalInventory;
+import minestrapteam.extracore.api.PlayerInventoryAPI;
+import minestrapteam.extracore.api.SurvivalInventory;
 import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.inventory.ISlotList;
 import minestrapteam.extracore.inventory.slot.SlotCustomArmor;

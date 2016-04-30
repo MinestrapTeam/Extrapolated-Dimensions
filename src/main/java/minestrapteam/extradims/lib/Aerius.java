@@ -1,6 +1,5 @@
 package minestrapteam.extradims.lib;
 
-import clashsoft.cslib.minecraft.block.*;
 import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
 import minestrapteam.extracore.item.ECItems;
 import minestrapteam.extracore.util.StringUtils;

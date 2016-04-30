@@ -1,9 +1,8 @@
 package minestrapteam.extracore.util;
 
-import java.util.ArrayList;
+import minestrapteam.extracore.ExtraCore;
 
-import minestrapteam.extracore.util.ReflectionUtils;
-import minestrapteam.extracore.PlayerInventoryAPI;
+import java.util.ArrayList;
 
 public class FakeArrayList extends ArrayList
 {
@@ -20,7 +19,7 @@ public class FakeArrayList extends ArrayList
 	public int size()
 	{
 		String clazz = ReflectionUtils.getCallerClassName();
-		if (PlayerInventoryAPI.proxy.isMinecraftClassName(clazz))
+		if (ExtraCore.proxy.isMinecraftClassName(clazz)) // size() called from func_147112_ai
 		{
 			return this.fakeLength;
 		}

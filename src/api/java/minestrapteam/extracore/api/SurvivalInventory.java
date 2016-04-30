@@ -1,6 +1,7 @@
-package minestrapteam.extracore.inventory;
+package minestrapteam.extracore.api;
 
 import minestrapteam.extracore.client.inventory.IInventoryObject;
+import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.util.ButtonHashingStrategy;
 import gnu.trove.set.hash.TCustomHashSet;
 import minestrapteam.extracore.inventory.slot.SlotConstants;
@@ -25,9 +26,9 @@ public class SurvivalInventory implements SlotConstants
 	public static int						craftLabelX		= 87;
 	public static int						craftLabelY		= 16;
 	
-	public static Set						buttons			= new TCustomHashSet(ButtonHashingStrategy.instance);
-	public static List<IInventoryHandler>	handlers		= new ArrayList();
-	public static List<IInventoryObject>	objects			= new ArrayList();
+	public static Set                     buttons  = new TCustomHashSet(ButtonHashingStrategy.instance);
+	public static List<IInventoryHandler> handlers = new ArrayList();
+	public static List<IInventoryObject>  objects  = new ArrayList();
 	
 	public static Point2i[] getSlots()
 	{

@@ -1,6 +1,6 @@
 package minestrapteam.extracore.client.gui;
 
-import static minestrapteam.extracore.inventory.CreativeInventory.*;
+import static minestrapteam.extracore.api.CreativeInventory.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,8 +14,8 @@ import org.lwjgl.opengl.GL12;
 
 import minestrapteam.extracore.util.math.Point2i;
 import minestrapteam.extracore.util.I18n;
-import minestrapteam.extracore.inventory.CreativeInventory;
-import minestrapteam.extracore.PlayerInventoryAPI;
+import minestrapteam.extracore.api.CreativeInventory;
+import minestrapteam.extracore.api.PlayerInventoryAPI;
 import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.client.inventory.IInventoryObject;
 import minestrapteam.extracore.inventory.ContainerCreativeList;

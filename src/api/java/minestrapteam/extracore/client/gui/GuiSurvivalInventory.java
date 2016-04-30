@@ -1,14 +1,14 @@
 package minestrapteam.extracore.client.gui;
 
-import static minestrapteam.extracore.inventory.SurvivalInventory.*;
+import static minestrapteam.extracore.api.SurvivalInventory.*;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import minestrapteam.extracore.util.math.Point2i;
-import minestrapteam.extracore.PlayerInventoryAPI;
-import minestrapteam.extracore.inventory.SurvivalInventory;
+import minestrapteam.extracore.api.PlayerInventoryAPI;
+import minestrapteam.extracore.api.SurvivalInventory;
 import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.client.inventory.IInventoryObject;
 import minestrapteam.extracore.inventory.ContainerCreativeList;

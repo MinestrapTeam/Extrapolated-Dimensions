@@ -1,13 +1,10 @@
 package minestrapteam.extracore.inventory;
 
-import java.util.Arrays;
-
+import minestrapteam.extracore.ExtraCore;
 import minestrapteam.extracore.entity.ECEntities;
 import minestrapteam.extracore.item.stack.ECStacks;
-import minestrapteam.extracore.PlayerInventoryAPI;
 import minestrapteam.extracore.network.EIPacket;
 import minestrapteam.extracore.network.EISlotPacket;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -17,30 +14,32 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
+import java.util.Arrays;
+
 /**
  * Extended Inventory class. Stores extra slot data of a custom player inventory
- * 
+ *
  * @author Clashsoft
  */
 public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 {
-	public static final String	IDENTIFIER	= "PIAPI-EI";
-	
-	public EntityPlayer			entity;
-	
-	public ItemStack[]			itemStacks	= new ItemStack[16];
-	
+	public static final String IDENTIFIER = "PIAPI-EI";
+
+	public EntityPlayer entity;
+
+	public ItemStack[] itemStacks = new ItemStack[16];
+
 	public ExtendedInventory(EntityPlayer entity)
 	{
 		this.entity = entity;
 	}
-	
+
 	@Override
 	public void saveNBTData(NBTTagCompound nbt)
 	{
 		NBTTagList list = new NBTTagList();
 		int len = this.itemStacks.length;
-		
+
 		for (int i = 0; i < len; i++)
 		{
 			ItemStack stack = this.itemStacks[i];
@@ -54,13 +53,13 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		}
 		nbt.setTag("Slots", list);
 	}
-	
+
 	@Override
 	public void loadNBTData(NBTTagCompound compound)
 	{
 		NBTTagList list = (NBTTagList) compound.getTag("Slots");
 		int len = list.tagCount();
-		
+
 		this.checkSize(len);
 		for (int i = 0; i < len; i++)
 		{
@@ -70,12 +69,12 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 			this.itemStacks[slot] = stack;
 		}
 	}
-	
+
 	@Override
 	public void init(Entity entity, World world)
 	{
 	}
-	
+
 	/**
 	 * Called each tick to update items
 	 */
@@ -85,32 +84,31 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		{
 			if (stack != null && stack.getItem() != null)
 			{
-				stack.getItem().onUpdate(stack, this.entity.worldObj, this.entity, this.entity.inventory.currentItem, false);
+				stack.getItem()
+				     .onUpdate(stack, this.entity.worldObj, this.entity, this.entity.inventory.currentItem, false);
 				stack.getItem().onArmorTick(this.entity.worldObj, this.entity, stack);
 			}
 		}
 	}
-	
+
 	public static ExtendedInventory get(EntityPlayer player)
 	{
 		return (ExtendedInventory) ECEntities.getProperties(IDENTIFIER, player);
 	}
-	
+
 	/**
 	 * Syncs all slots with the player.
-	 * 
-	 * @param player
 	 */
 	public void sync()
 	{
-		PlayerInventoryAPI.instance.netHandler.send(new EIPacket(this));
+		ExtraCore.instance.netHandler.send(new EIPacket(this));
 	}
-	
+
 	/**
 	 * Syncs the given {@code slot} with the player.
-	 * 
-	 * @param player
+	 *
 	 * @param slot
+	 * 	the index of the slot to sync
 	 */
 	public void sync(int slot)
 	{
@@ -118,10 +116,10 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		// inventory doesn't.
 		if (this.entity.capabilities.isCreativeMode)
 		{
-			PlayerInventoryAPI.instance.netHandler.send(new EISlotPacket(this, slot));
+			ExtraCore.instance.netHandler.send(new EISlotPacket(this, slot));
 		}
 	}
-	
+
 	public void checkSize(int slot)
 	{
 		int len = this.itemStacks.length;
@@ -132,27 +130,27 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 			this.itemStacks = stacks;
 		}
 	}
-	
+
 	@Override
 	public ItemStack getStackInSlot(int slot)
 	{
 		this.checkSize(slot);
-		
+
 		return this.itemStacks[slot];
 	}
-	
+
 	@Override
 	public int getSizeInventory()
 	{
 		return this.itemStacks.length;
 	}
-	
+
 	public void clear()
 	{
 		Arrays.fill(this.itemStacks, null);
 		this.sync();
 	}
-	
+
 	public void dropAllItems()
 	{
 		for (int i = 0; i < this.itemStacks.length; i++)
@@ -162,12 +160,12 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		}
 		this.sync();
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int slot, int amount)
 	{
 		this.checkSize(slot);
-		
+
 		ItemStack stack = this.itemStacks[slot];
 		if (stack != null)
 		{
@@ -190,25 +188,25 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		}
 		return null;
 	}
-	
+
 	@Override
 	public ItemStack getStackInSlotOnClosing(int slot)
 	{
 		return this.getStackInSlot(slot);
 	}
-	
+
 	public boolean addItemStack(ItemStack stack)
 	{
 		ECStacks.mergeItemStack(this.itemStacks, 0, stack);
 		this.sync();
 		return stack.stackSize > 0;
 	}
-	
+
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack itemstack)
 	{
 		this.checkSize(slot);
-		
+
 		if (itemstack != null && itemstack.stackSize <= 0)
 		{
 			itemstack = null;
@@ -216,47 +214,47 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		this.itemStacks[slot] = itemstack;
 		this.sync(slot);
 	}
-	
+
 	@Override
 	public String getInventoryName()
 	{
 		return IDENTIFIER;
 	}
-	
+
 	@Override
 	public boolean hasCustomInventoryName()
 	{
 		return false;
 	}
-	
+
 	@Override
 	public int getInventoryStackLimit()
 	{
 		return 64;
 	}
-	
+
 	@Override
 	public void markDirty()
 	{
 	}
-	
+
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer)
 	{
 		return true;
 	}
-	
+
 	@Override
 	public boolean isItemValidForSlot(int slotID, ItemStack itemstack)
 	{
 		return true;
 	}
-	
+
 	@Override
 	public void openInventory()
 	{
 	}
-	
+
 	@Override
 	public void closeInventory()
 	{

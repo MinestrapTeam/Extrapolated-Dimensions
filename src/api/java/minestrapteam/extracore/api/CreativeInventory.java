@@ -1,16 +1,16 @@
-package minestrapteam.extracore.inventory;
+package minestrapteam.extracore.api;
 
 import gnu.trove.set.hash.TCustomHashSet;
+import minestrapteam.extracore.client.inventory.IInventoryObject;
+import minestrapteam.extracore.inventory.IInventoryHandler;
+import minestrapteam.extracore.inventory.slot.SlotConstants;
+import minestrapteam.extracore.util.ButtonHashingStrategy;
+import minestrapteam.extracore.util.math.Point2i;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-
-import minestrapteam.extracore.util.math.Point2i;
-import minestrapteam.extracore.client.inventory.IInventoryObject;
-import minestrapteam.extracore.inventory.slot.SlotConstants;
-import minestrapteam.extracore.util.ButtonHashingStrategy;
 
 public class CreativeInventory implements SlotConstants
 {
@@ -23,9 +23,9 @@ public class CreativeInventory implements SlotConstants
 	public static int						binSlotX		= 173;
 	public static int						binSlotY		= 112;
 	
-	public static Set						buttons			= new TCustomHashSet(ButtonHashingStrategy.instance);
-	public static List<IInventoryHandler>	handlers		= new ArrayList();
-	public static List<IInventoryObject>	objects			= new ArrayList();
+	public static Set                     buttons  = new TCustomHashSet(ButtonHashingStrategy.instance);
+	public static List<IInventoryHandler> handlers = new ArrayList();
+	public static List<IInventoryObject>  objects  = new ArrayList();
 	
 	public static Point2i[] getSlots()
 	{
