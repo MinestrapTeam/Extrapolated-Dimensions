@@ -1,6 +1,6 @@
 package minestrapteam.extradims.world.aerius;
 
-import clashsoft.cslib.minecraft.world.CustomWorldProvider;
+import minestrapteam.extracore.world.CustomWorldProvider;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.entity.Entity;

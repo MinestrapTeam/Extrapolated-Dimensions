@@ -2,7 +2,7 @@ package minestrapteam.extradims.lib;
 
 import java.util.Random;
 
-import clashsoft.cslib.config.CSConfig;
+import minestrapteam.extracore.config.ECConfig;
 import minestrapteam.extradims.biome.aerius.BiomeAerius;
 import minestrapteam.extradims.biome.aerius.BiomeAeriusForest;
 import minestrapteam.extradims.biome.aerius.BiomeAeriusJungle;
@@ -66,34 +66,35 @@ public class WorldManager
 	{
 		testWorldType = new WorldTypeTest("test");
 		
-		VIRTIOUS_ID = CSConfig.getDimension("Virtious", VIRTIOUS_ID);
-		AERIUS_ID = CSConfig.getDimension("Aerius", AERIUS_ID);
-		POC_ID = CSConfig.getDimension("Paradise of Chaos", POC_ID);
-		DREAMS_ID = CSConfig.getDimension("Dream", DREAMS_ID);
-		NIGHTMARES_ID = CSConfig.getDimension("Nightmares", NIGHTMARES_ID);
+		VIRTIOUS_ID = ECConfig.getDimension("Virtious", VIRTIOUS_ID);
+		AERIUS_ID = ECConfig.getDimension("Aerius", AERIUS_ID);
+		POC_ID = ECConfig.getDimension("Paradise of Chaos", POC_ID);
+		DREAMS_ID = ECConfig.getDimension("Dream", DREAMS_ID);
+		NIGHTMARES_ID = ECConfig.getDimension("Nightmares", NIGHTMARES_ID);
 		
 		// -- Biomes --
 		
-		biomeVirtious = new BiomeGenVirtious(CSConfig.getBiome("Virtious", 50)).setBiomeName("Virtious");
-		biomeCanyon = new BiomeGenCanyon(CSConfig.getBiome("Canyon", 51)).setBiomeName("Virtious Canyon");
-		biomeWhiskerfield = new BiomeGenWhiskerfield(CSConfig.getBiome("Whiskerfield", 52)).setBiomeName("Whiskerfield");
-		biomeVirtianMountain = new BiomeGenVirtianMountains(CSConfig.getBiome("Virtian Mountains", 53)).setBiomeName("Virtian Mountains");
-		biomeGravelBeach = new BiomeGenGravelBeach(CSConfig.getBiome("Gravel Beach", 54)).setBiomeName("Gravel Beach");
-		biomeVirtiousOcean = new BiomeGenVirtiousOcean(CSConfig.getBiome("Virtious Ocean", 55)).setBiomeName("Virtious Ocean");
+		biomeVirtious = new BiomeGenVirtious(ECConfig.getBiome("Virtious", 50)).setBiomeName("Virtious");
+		biomeCanyon = new BiomeGenCanyon(ECConfig.getBiome("Canyon", 51)).setBiomeName("Virtious Canyon");
+		biomeWhiskerfield = new BiomeGenWhiskerfield(ECConfig.getBiome("Whiskerfield", 52)).setBiomeName("Whiskerfield");
+		biomeVirtianMountain = new BiomeGenVirtianMountains(ECConfig.getBiome("Virtian Mountains", 53)).setBiomeName("Virtian Mountains");
+		biomeGravelBeach = new BiomeGenGravelBeach(ECConfig.getBiome("Gravel Beach", 54)).setBiomeName("Gravel Beach");
+		biomeVirtiousOcean = new BiomeGenVirtiousOcean(ECConfig.getBiome("Virtious Ocean", 55)).setBiomeName("Virtious Ocean");
 		
 		virtiousBiomes = new BiomeGenBase[] { biomeVirtious, biomeCanyon, biomeWhiskerfield, biomeGravelBeach, biomeVirtiousOcean };
 		
-		biomeAerius = new BiomeAerius(CSConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
-		biomeAerianForest = new BiomeAeriusForest(CSConfig.getBiome("Aerian Forest", 61)).setBiomeName("Aerian Forest");
-		biomeAerianJungle = new BiomeAeriusJungle(CSConfig.getBiome("Aerian Jungle", 62)).setBiomeName("Aerian Jungle");
-		biomeHallow = new BiomeHallow(CSConfig.getBiome("Hallow", 63)).setBiomeName("Hallow");
+		biomeAerius = new BiomeAerius(ECConfig.getBiome("Aerius", 60)).setBiomeName("Aerius");
+		biomeAerianForest = new BiomeAeriusForest(ECConfig.getBiome("Aerian Forest", 61)).setBiomeName("Aerian Forest");
+		biomeAerianJungle = new BiomeAeriusJungle(ECConfig.getBiome("Aerian Jungle", 62)).setBiomeName("Aerian Jungle");
+		biomeHallow = new BiomeHallow(ECConfig.getBiome("Hallow", 63)).setBiomeName("Hallow");
 		
 		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle, biomeHallow };
 		
-		biomePOCPlains = new BiomePOCPlains(CSConfig.getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
-		biomePOCMountains = new BiomePOCMountains(CSConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
-		biomePOCDesert = new BiomePOCDesert(CSConfig.getBiome("Desert of Dryness", 72)).setBiomeName("Desert of Dryness");
-		biomeBloodPlains = new BiomeBloodPlains(CSConfig.getBiome("Blood Plains", 73)).setBiomeName("Blood Plains");
+		biomePOCPlains = new BiomePOCPlains(ECConfig
+			                                    .getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
+		biomePOCMountains = new BiomePOCMountains(ECConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
+		biomePOCDesert = new BiomePOCDesert(ECConfig.getBiome("Desert of Dryness", 72)).setBiomeName("Desert of Dryness");
+		biomeBloodPlains = new BiomeBloodPlains(ECConfig.getBiome("Blood Plains", 73)).setBiomeName("Blood Plains");
 		
 		pocBiomes = new BiomeGenBase[] { biomePOCPlains, biomePOCMountains, biomePOCDesert, biomeBloodPlains };
 		

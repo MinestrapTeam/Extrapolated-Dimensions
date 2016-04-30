@@ -2,7 +2,7 @@ package minestrapteam.extradims.item.alchemy;
 
 import java.util.List;
 
-import clashsoft.brewingapi.item.ItemGlassBottle2;
+import minestrapteam.extracore.item.ItemGlassBottle2;
 import minestrapteam.extradims.lib.Alchemy;
 
 import net.minecraft.block.material.Material;

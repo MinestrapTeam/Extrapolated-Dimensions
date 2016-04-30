@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.virtious;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.block.BlockCustomPortalBase;
+import minestrapteam.extracore.block.BlockCustomPortalBase;
 import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.world.virtious.TeleporterVirtious;
 

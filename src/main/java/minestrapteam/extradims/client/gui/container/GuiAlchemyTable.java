@@ -2,7 +2,7 @@ package minestrapteam.extradims.client.gui.container;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.extracore.util.I18n;
 import minestrapteam.extradims.alchemy.EnumHeatType;
 import minestrapteam.extradims.inventory.ContainerAlchemyTable;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTable;

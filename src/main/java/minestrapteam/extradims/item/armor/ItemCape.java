@@ -2,9 +2,9 @@ package minestrapteam.extradims.item.armor;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.CSLib;
-import clashsoft.cslib.minecraft.cape.Capes;
-import clashsoft.cslib.minecraft.item.ItemCustomArmor;
+import minestrapteam.extracore.ExtraCore;
+import minestrapteam.extracore.cape.Capes;
+import minestrapteam.extracore.item.ItemCustomArmor;
 import minestrapteam.extradims.api.ICape;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -99,7 +99,7 @@ public class ItemCape extends ItemCustomArmor implements ICape
 			}
 			else
 			{
-				CSLib.getNetHandler().sendCapePacket(player, capeNames[metadata]);
+				ExtraCore.getNetHandler().sendCapePacket(player, capeNames[metadata]);
 			}
 		}
 	}

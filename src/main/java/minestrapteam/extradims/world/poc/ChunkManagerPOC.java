@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.poc;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.world.CustomChunkManager;
+import minestrapteam.extracore.world.CustomChunkManager;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.world.WorldType;

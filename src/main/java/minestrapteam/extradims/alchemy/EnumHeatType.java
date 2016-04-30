@@ -1,6 +1,6 @@
 package minestrapteam.extradims.alchemy;
 
-import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.extracore.util.I18n;
 
 public enum EnumHeatType
 {

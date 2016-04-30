@@ -1,8 +1,9 @@
 package minestrapteam.extradims.lib.virtious;
 
 import clashsoft.cslib.minecraft.block.*;
-import clashsoft.cslib.minecraft.item.block.ItemCustomSlab;
-import clashsoft.cslib.minecraft.stack.StackFactory;
+import minestrapteam.extracore.item.block.ItemCustomSlab;
+import minestrapteam.extracore.item.stack.StackFactory;
+import minestrapteam.extracore.block.*;
 import minestrapteam.extradims.block.virtious.*;
 import minestrapteam.extradims.lib.Virtious;
 
@@ -53,26 +54,26 @@ public class VBlocks
 	public static Block				blue_torch;
 	public static Block				green_torch;
 	
-	public static Block				virtious_flowers;
-	public static BlockCustomCrops	veer_crops;
+	public static Block            virtious_flowers;
+	public static BlockCustomCrops veer_crops;
 	
 	public static Block				virtious_acid;
 	
 	public static Block				fuel_cell;
 	public static Block				rough_glass;
 	
-	public static Block				cytoid_wall;
-	public static Block				cytoid_wall_dark;
-	public static Block				cytoid_wall_long;
-	public static BlockCustomSlab	cytoid_floor;
-	public static BlockCustomSlab	cytoid_floor_double;
+	public static Block           cytoid_wall;
+	public static Block           cytoid_wall_dark;
+	public static Block           cytoid_wall_long;
+	public static BlockCustomSlab cytoid_floor;
+	public static BlockCustomSlab cytoid_floor_double;
 	
-	public static Block				cytoid_glass;
-	public static Block				cytoid_door;
-	public static Block				cytoid_control_panel;
-	public static BlockCustomLamp	cytoid_lamp_off;
-	public static BlockCustomLamp	cytoid_lamp_on;
-	public static Block				cytoid_lightstrip;
+	public static Block           cytoid_glass;
+	public static Block           cytoid_door;
+	public static Block           cytoid_control_panel;
+	public static BlockCustomLamp cytoid_lamp_off;
+	public static BlockCustomLamp cytoid_lamp_on;
+	public static Block           cytoid_lightstrip;
 	
 	public static void init()
 	{
@@ -156,67 +157,67 @@ public class VBlocks
 	
 	public static void load()
 	{
-		CSBlocks.addBlock(virtious_portal, "virtious_portal");
+		ECBlocks.addBlock(virtious_portal, "virtious_portal");
 		
-		CSBlocks.addBlock(virtianstone, "virtianstone");
-		CSBlocks.addBlock(virtianstone_cobbled, "virtianstone_cobbled");
-		CSBlocks.addBlock(virtianstone_bricks, "virtianstone_bricks");
-		CSBlocks.addBlock(deepstone, "deepstone");
-		CSBlocks.addBlock(deepstone_mossy, "deepstone_mossy");
-		CSBlocks.addBlock(deepstone_bricks, "deepstone_bricks");
-		CSBlocks.addBlock(canyonstone, "canyonstone");
-		CSBlocks.addBlock(canyonstone_bricks, "canyonstone_bricks");
+		ECBlocks.addBlock(virtianstone, "virtianstone");
+		ECBlocks.addBlock(virtianstone_cobbled, "virtianstone_cobbled");
+		ECBlocks.addBlock(virtianstone_bricks, "virtianstone_bricks");
+		ECBlocks.addBlock(deepstone, "deepstone");
+		ECBlocks.addBlock(deepstone_mossy, "deepstone_mossy");
+		ECBlocks.addBlock(deepstone_bricks, "deepstone_bricks");
+		ECBlocks.addBlock(canyonstone, "canyonstone");
+		ECBlocks.addBlock(canyonstone_bricks, "canyonstone_bricks");
 		
-		CSBlocks.addBlock(virtian_grass, "virtian_grass");
-		CSBlocks.addBlock(virtian_soil, "virtian_soil");
-		CSBlocks.addBlock(virtian_soil_tilled, "virtian_soil_tilled");
-		CSBlocks.addBlock(fine_gravel, "fine_gravel");
+		ECBlocks.addBlock(virtian_grass, "virtian_grass");
+		ECBlocks.addBlock(virtian_soil, "virtian_soil");
+		ECBlocks.addBlock(virtian_soil_tilled, "virtian_soil_tilled");
+		ECBlocks.addBlock(fine_gravel, "fine_gravel");
 		
-		CSBlocks.addBlock(virtian_iron_ore, "virtian_iron_ore");
-		CSBlocks.addBlock(tak_ore, "tak_ore");
-		CSBlocks.addBlock(brazeum_ore, "brazeum_ore");
-		CSBlocks.addBlock(aquieus_ore, "aquieus_ore");
-		CSBlocks.addBlock(pluthorium_ore, "pluthorium_ore");
-		CSBlocks.addBlock(illuminous_ore, "illuminous_ore");
+		ECBlocks.addBlock(virtian_iron_ore, "virtian_iron_ore");
+		ECBlocks.addBlock(tak_ore, "tak_ore");
+		ECBlocks.addBlock(brazeum_ore, "brazeum_ore");
+		ECBlocks.addBlock(aquieus_ore, "aquieus_ore");
+		ECBlocks.addBlock(pluthorium_ore, "pluthorium_ore");
+		ECBlocks.addBlock(illuminous_ore, "illuminous_ore");
 		
-		CSBlocks.addBlock(deep_iron_ore, "deep_iron_ore");
-		CSBlocks.addBlock(deep_tak_ore, "deep_tak_ore");
-		CSBlocks.addBlock(deep_illuminous_ore, "deep_illuminous_ore");
+		ECBlocks.addBlock(deep_iron_ore, "deep_iron_ore");
+		ECBlocks.addBlock(deep_tak_ore, "deep_tak_ore");
+		ECBlocks.addBlock(deep_illuminous_ore, "deep_illuminous_ore");
 		
-		CSBlocks.addBlock(tak_block, "tak_block");
-		CSBlocks.addBlock(brazeum_block, "brazeum_block");
-		CSBlocks.addBlock(aquieus_block, "aquieus_block");
-		CSBlocks.addBlock(pluthorium_block, "pluthorium_block");
-		CSBlocks.addBlock(illuminous_block, "illuminous_block");
+		ECBlocks.addBlock(tak_block, "tak_block");
+		ECBlocks.addBlock(brazeum_block, "brazeum_block");
+		ECBlocks.addBlock(aquieus_block, "aquieus_block");
+		ECBlocks.addBlock(pluthorium_block, "pluthorium_block");
+		ECBlocks.addBlock(illuminous_block, "illuminous_block");
 		
-		CSBlocks.addBlock(virtious_logs, "virtious_logs");
-		CSBlocks.addBlock(virtious_leaves, "virtious_leaves");
-		CSBlocks.addBlock(virtious_saplings, "virtious_saplings");
-		CSBlocks.addBlock(virtious_planks, "virtious_planks");
+		ECBlocks.addBlock(virtious_logs, "virtious_logs");
+		ECBlocks.addBlock(virtious_leaves, "virtious_leaves");
+		ECBlocks.addBlock(virtious_saplings, "virtious_saplings");
+		ECBlocks.addBlock(virtious_planks, "virtious_planks");
 		
-		CSBlocks.addBlock(blue_torch, "blue_torch");
-		CSBlocks.addBlock(green_torch, "green_torch");
+		ECBlocks.addBlock(blue_torch, "blue_torch");
+		ECBlocks.addBlock(green_torch, "green_torch");
 		
-		CSBlocks.addBlock(virtious_flowers, "virtious_flowers");
-		CSBlocks.addBlock(veer_crops, "veer_crops");
+		ECBlocks.addBlock(virtious_flowers, "virtious_flowers");
+		ECBlocks.addBlock(veer_crops, "veer_crops");
 		
-		CSBlocks.addBlock(virtious_acid, "virtious_acid");
+		ECBlocks.addBlock(virtious_acid, "virtious_acid");
 		
-		CSBlocks.addBlock(fuel_cell, "fuel_cell");
-		CSBlocks.addBlock(rough_glass, "rough_glass");
+		ECBlocks.addBlock(fuel_cell, "fuel_cell");
+		ECBlocks.addBlock(rough_glass, "rough_glass");
 		
-		CSBlocks.addBlock(cytoid_wall, "cytoid_wall");
-		CSBlocks.addBlock(cytoid_wall_dark, "cytoid_wall_dark");
-		CSBlocks.addBlock(cytoid_wall_long, "cytoid_wall_long");
-		CSBlocks.addBlock(cytoid_floor, ItemCustomSlab.class, "cytoid_floor");
-		CSBlocks.addBlock(cytoid_floor_double, "cytoid_floor_double");
+		ECBlocks.addBlock(cytoid_wall, "cytoid_wall");
+		ECBlocks.addBlock(cytoid_wall_dark, "cytoid_wall_dark");
+		ECBlocks.addBlock(cytoid_wall_long, "cytoid_wall_long");
+		ECBlocks.addBlock(cytoid_floor, ItemCustomSlab.class, "cytoid_floor");
+		ECBlocks.addBlock(cytoid_floor_double, "cytoid_floor_double");
 		
-		CSBlocks.addBlock(cytoid_glass, "cytoid_glass");
-		CSBlocks.addBlock(cytoid_door, "cytoid_door");
-		CSBlocks.addBlock(cytoid_control_panel, "cytoid_control_panel");
-		CSBlocks.addBlock(cytoid_lamp_off, "cytoid_lamp_off");
-		CSBlocks.addBlock(cytoid_lamp_on, "cytoid_lamp_on");
-		CSBlocks.addBlock(cytoid_lightstrip, "cytoid_lightstrip");
+		ECBlocks.addBlock(cytoid_glass, "cytoid_glass");
+		ECBlocks.addBlock(cytoid_door, "cytoid_door");
+		ECBlocks.addBlock(cytoid_control_panel, "cytoid_control_panel");
+		ECBlocks.addBlock(cytoid_lamp_off, "cytoid_lamp_off");
+		ECBlocks.addBlock(cytoid_lamp_on, "cytoid_lamp_on");
+		ECBlocks.addBlock(cytoid_lightstrip, "cytoid_lightstrip");
 		
 		veer_crops.setSeed(StackFactory.create(VItems.veer_seeds)).setCrop(StackFactory.create(VItems.veer_dye));
 	}

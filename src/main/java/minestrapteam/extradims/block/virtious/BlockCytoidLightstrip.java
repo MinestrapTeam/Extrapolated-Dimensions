@@ -1,7 +1,7 @@
 package minestrapteam.extradims.block.virtious;
 
-import clashsoft.cslib.minecraft.block.IBlockRenderPass;
-import clashsoft.cslib.minecraft.client.renderer.block.RenderBlockMulti;
+import minestrapteam.extracore.block.IBlockRenderPass;
+import minestrapteam.extracore.client.renderer.block.RenderBlockMulti;
 import minestrapteam.extradims.client.renderer.block.RenderGlowingBlock;
 import minestrapteam.extradims.lib.Virtious;
 

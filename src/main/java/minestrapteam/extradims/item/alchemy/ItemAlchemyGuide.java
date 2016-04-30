@@ -2,7 +2,7 @@ package minestrapteam.extradims.item.alchemy;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.extracore.util.I18n;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import minestrapteam.extradims.ExtraDimensions;
 import minestrapteam.extradims.common.EDProxy;

@@ -1,6 +1,6 @@
 package minestrapteam.extradims.world.dreams;
 
-import clashsoft.cslib.minecraft.world.CustomBiomeLayer;
+import minestrapteam.extracore.world.CustomBiomeLayer;
 import minestrapteam.extradims.dream.Dream;
 
 import net.minecraft.world.WorldType;

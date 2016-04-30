@@ -1,10 +1,11 @@
 package minestrapteam.extradims.lib;
 
 import clashsoft.cslib.minecraft.block.*;
-import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
-import clashsoft.cslib.minecraft.item.CSItems;
-import clashsoft.cslib.util.CSString;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.item.ECItems;
+import minestrapteam.extracore.util.StringUtils;
 import cpw.mods.fml.common.registry.GameRegistry;
+import minestrapteam.extracore.block.*;
 import minestrapteam.extradims.block.MaterialCloud;
 import minestrapteam.extradims.block.aerius.*;
 import minestrapteam.extradims.item.aerius.*;
@@ -17,7 +18,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
-import static clashsoft.cslib.minecraft.crafting.CSCrafting.*;
+import static minestrapteam.extracore.crafting.ECCrafting.*;
 
 public class Aerius
 {
@@ -109,7 +110,7 @@ public class Aerius
 
 		String[] seeds = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass",
 			"mushroom_grass" };
-		seedItems = new ItemAeriusSeeds(seeds, CSString.concatAll(seeds, "ed_aerius:food/", "_seeds"));
+		seedItems = new ItemAeriusSeeds(seeds, StringUtils.concatAll(seeds, "ed_aerius:food/", "_seeds"));
 
 		// Blocks
 
@@ -174,12 +175,12 @@ public class Aerius
 			"mushroom_grass", "wanderers_bane", "wanderers_bane_small", "corrupted_vine", "hallowed_vine",
 			"mushroom_vine" };
 		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants,
-		                                                 CSString.concatAll(plants, getTexture("plants/"), null))
+		                                                 StringUtils.concatAll(plants, getTexture("plants/"), null))
 			                            .setCreativeTab(tabAeriusBlocks);
 
 		String[] flowers = new String[] { "soulwhisker", "palebloom", "dawnbringer" };
 		flowerBlocks = (CustomBlock) new BlockAeriusFlower(flowers,
-		                                                   CSString.concatAll(flowers, getTexture("plants/"), null))
+		                                                   StringUtils.concatAll(flowers, getTexture("plants/"), null))
 			                             .setCreativeTab(tabAeriusBlocks);
 
 		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName(getTexture("clouds/cloud"))
@@ -259,15 +260,15 @@ public class Aerius
 	{
 		// Items
 
-		CSItems.addItem(stickItems, "aerius_sticks");
-		CSItems.addItem(materialItems, "aerius_materials");
-		CSItems.addItem(aerianApple, "aerian_apple");
-		CSItems.addItem(lifeHeart, "life_heart");
-		CSItems.addItem(fireSword, "fire_sword");
-		CSItems.addItem(iceHammer, "ice_hammer");
-		CSItems.addItem(capes, "cape");
-		CSItems.addItem(seedItems, "aerius_seeds");
-		CSItems.addItem(portalActivator, "aerius_portal_activator");
+		ECItems.addItem(stickItems, "aerius_sticks");
+		ECItems.addItem(materialItems, "aerius_materials");
+		ECItems.addItem(aerianApple, "aerian_apple");
+		ECItems.addItem(lifeHeart, "life_heart");
+		ECItems.addItem(fireSword, "fire_sword");
+		ECItems.addItem(iceHammer, "ice_hammer");
+		ECItems.addItem(capes, "cape");
+		ECItems.addItem(seedItems, "aerius_seeds");
+		ECItems.addItem(portalActivator, "aerius_portal_activator");
 
 		// Blocks
 
@@ -281,24 +282,24 @@ public class Aerius
 		plankBlocks.setHardness(2.0F);
 		plantBlocks.setHardnesses(0F, 0F, 0F, 0F);
 
-		CSBlocks.addBlock(portal, "aerius_portal");
+		ECBlocks.addBlock(portal, "aerius_portal");
 
-		CSBlocks.addBlock(stoneBlocks, "aerock");
-		CSBlocks.addBlock(oreBlocks, "aerius_ores");
-		CSBlocks.addBlock(metalBlocks, "aerius_metals");
-		CSBlocks.addBlock(dirtBlocks, "aerian_dirt");
-		CSBlocks.addBlock(grassBlocks, "aerian_grass");
-		CSBlocks.addBlock(logBlocks, "aerius_logs");
-		CSBlocks.addBlock(leafBlocks, "aerius_leaves");
-		CSBlocks.addBlock(saplingBlocks, "aerius_saplings");
-		CSBlocks.addBlock(plankBlocks, "aerius_planks");
-		CSBlocks.addBlock(plantBlocks, "aerius_plants");
-		CSBlocks.addBlock(flowerBlocks, "aerius_flowers");
+		ECBlocks.addBlock(stoneBlocks, "aerock");
+		ECBlocks.addBlock(oreBlocks, "aerius_ores");
+		ECBlocks.addBlock(metalBlocks, "aerius_metals");
+		ECBlocks.addBlock(dirtBlocks, "aerian_dirt");
+		ECBlocks.addBlock(grassBlocks, "aerian_grass");
+		ECBlocks.addBlock(logBlocks, "aerius_logs");
+		ECBlocks.addBlock(leafBlocks, "aerius_leaves");
+		ECBlocks.addBlock(saplingBlocks, "aerius_saplings");
+		ECBlocks.addBlock(plankBlocks, "aerius_planks");
+		ECBlocks.addBlock(plantBlocks, "aerius_plants");
+		ECBlocks.addBlock(flowerBlocks, "aerius_flowers");
 
-		CSBlocks.addBlock(cloud, "cloud");
+		ECBlocks.addBlock(cloud, "cloud");
 
-		CSBlocks.addBlock(pillar, "aerian_pillar");
-		CSBlocks.addBlock(damnationTable, "damnation_table");
+		ECBlocks.addBlock(pillar, "aerian_pillar");
+		ECBlocks.addBlock(damnationTable, "damnation_table");
 		GameRegistry.registerTileEntity(TileEntityDamnationTable.class, "DamnationTable");
 
 		initStacks();

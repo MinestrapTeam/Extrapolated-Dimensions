@@ -2,8 +2,8 @@ package minestrapteam.extradims.item.virtious;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.lang.I18n;
-import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
+import minestrapteam.extracore.util.I18n;
+import minestrapteam.extracore.world.TeleporterNoPortal;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.entity.player.EntityPlayer;

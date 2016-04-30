@@ -1,8 +1,8 @@
 package minestrapteam.extradims.network;
 
-import clashsoft.cslib.minecraft.network.CSNetHandler;
+import minestrapteam.extracore.network.BaseNetHandler;
 
-public class EDNetHandler extends CSNetHandler
+public class EDNetHandler extends BaseNetHandler
 {
 	public EDNetHandler()
 	{

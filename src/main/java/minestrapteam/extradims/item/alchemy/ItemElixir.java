@@ -2,9 +2,9 @@ package minestrapteam.extradims.item.alchemy;
 
 import java.util.List;
 
-import clashsoft.brewingapi.item.ItemPotion2;
-import clashsoft.brewingapi.potion.base.PotionBase;
-import clashsoft.brewingapi.potion.type.IPotionType;
+import minestrapteam.extracore.item.ItemPotion2;
+import minestrapteam.extracore.potion.base.PotionBase;
+import minestrapteam.extracore.potion.type.IPotionType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.extradims.lib.Alchemy;

@@ -1,8 +1,8 @@
 package minestrapteam.extradims.inventory;
 
-import clashsoft.cslib.minecraft.inventory.SlotInfo;
-import clashsoft.cslib.minecraft.inventory.SlotInput;
-import clashsoft.cslib.minecraft.inventory.SlotOutput;
+import minestrapteam.extracore.inventory.slot.SlotInfo;
+import minestrapteam.extracore.inventory.slot.SlotInput;
+import minestrapteam.extracore.inventory.slot.SlotOutput;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTable;
 
 import net.minecraft.entity.player.EntityPlayer;

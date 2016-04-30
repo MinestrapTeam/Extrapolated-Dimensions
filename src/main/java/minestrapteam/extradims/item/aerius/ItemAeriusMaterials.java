@@ -1,6 +1,6 @@
 package minestrapteam.extradims.item.aerius;
 
-import clashsoft.cslib.minecraft.item.CustomItem;
+import minestrapteam.extracore.item.CustomItem;
 import minestrapteam.extradims.api.alchemy.IEnergyFuel;
 
 import net.minecraft.item.ItemStack;

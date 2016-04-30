@@ -1,7 +1,7 @@
 package minestrapteam.extradims.world.aerius;
 
-import clashsoft.cslib.minecraft.world.CustomChunkProvider;
-import clashsoft.cslib.minecraft.world.gen.CustomCaveGen;
+import minestrapteam.extracore.world.CustomChunkProvider;
+import minestrapteam.extracore.world.gen.CustomCaveGen;
 import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.block.Block;

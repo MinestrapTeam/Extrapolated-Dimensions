@@ -1,7 +1,7 @@
 package minestrapteam.extradims.lib;
 
-import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
-import clashsoft.cslib.minecraft.item.CSItems;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.item.ECItems;
 import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.item.armor.*;
 import minestrapteam.extradims.item.tools.*;
@@ -139,7 +139,7 @@ public class Tools
 				{
 					if (!vanillaMaterial || (toolClass != ItemHelmet.class && toolClass != ItemChestplate.class && toolClass != ItemLeggings.class && toolClass != ItemBoots.class))
 					{
-						item = CSItems.createItem(toolClass, itemID, new Class[] { ArmorMaterial.class, int.class }, new Object[] { armorMaterial, EDProxy.getArmorIndex(material.toLowerCase()) });
+						item = ECItems.createItem(toolClass, itemID, new Class[] { ArmorMaterial.class, int.class }, new Object[] { armorMaterial, EDProxy.getArmorIndex(material.toLowerCase()) });
 						if (item != null)
 						{
 							item.setCreativeTab(armorTab);
@@ -150,7 +150,7 @@ public class Tools
 				{
 					if (!vanillaMaterial || (toolClass != ItemSword.class && toolClass != ItemSpade.class && toolClass != ItemPickaxe.class && toolClass != ItemAxe.class && toolClass != ItemHoe.class))
 					{
-						item = CSItems.createItem(toolClass, itemID, new Class[] { ToolMaterial.class }, new Object[] { toolMaterial });
+						item = ECItems.createItem(toolClass, itemID, new Class[] { ToolMaterial.class }, new Object[] { toolMaterial });
 						if (item != null)
 						{
 							item.setCreativeTab(toolTab);
@@ -161,7 +161,7 @@ public class Tools
 				if (item != null)
 				{
 					item.setUnlocalizedName(itemID).setTextureName(itemIconName);
-					CSItems.addItem(item);
+					ECItems.addItem(item);
 				}
 			}
 		}

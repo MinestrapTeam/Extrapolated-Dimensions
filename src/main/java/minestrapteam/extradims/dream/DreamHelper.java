@@ -2,7 +2,7 @@ package minestrapteam.extradims.dream;
 
 import java.util.Random;
 
-import clashsoft.cslib.logging.CSLog;
+import minestrapteam.extracore.util.logging.ECLog;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;
@@ -27,14 +27,14 @@ public class DreamHelper
 	
 	public static void startDream(EntityPlayer player, int x, int y, int z)
 	{
-		CSLog.info("Starting dream");
+		ECLog.info("Starting dream");
 		player.addChatMessage(new ChatComponentTranslation("dreams.start.dream"));
 		start(new Dream(), player, x, y, z);
 	}
 	
 	public static void startNightmare(EntityPlayer player, int x, int y, int z)
 	{
-		CSLog.info("Starting nightmare");
+		ECLog.info("Starting nightmare");
 		player.addChatMessage(new ChatComponentTranslation("dreams.start.nightmare"));
 		start(new Nightmare(), player, x, y, z);
 	}

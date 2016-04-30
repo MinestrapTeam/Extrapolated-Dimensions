@@ -4,7 +4,7 @@ import minestrapteam.extradims.lib.virtious.VBlocks;
 
 import net.minecraft.block.Block;
 
-import clashsoft.cslib.minecraft.block.BlockCustomCrops;
+import minestrapteam.extracore.block.BlockCustomCrops;
 
 public class BlockVeerCrops extends BlockCustomCrops
 {	

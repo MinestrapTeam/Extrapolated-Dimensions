@@ -5,12 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+import minestrapteam.extracore.util.ReflectionUtils;
+import minestrapteam.extracore.util.update.ECUpdate;
 import org.apache.commons.io.Charsets;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.Project;
-
-import clashsoft.cslib.minecraft.update.CSUpdate;
-import clashsoft.cslib.reflect.CSReflection;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
@@ -147,8 +146,8 @@ public class GuiMainMenuAerius extends GuiMainMenu
 			
 			if (oldButton.getClass() == GuiButton.class)
 			{
-				int width = CSReflection.getValue(GuiButton.class, oldButton, 1);
-				int height = CSReflection.getValue(GuiButton.class, oldButton, 2);
+				int width = ReflectionUtils.getValue(GuiButton.class, oldButton, 1);
+				int height = ReflectionUtils.getValue(GuiButton.class, oldButton, 2);
 				
 				newButton = new GuiFrameButton(oldButton.id, oldButton.xPosition, oldButton.yPosition, width, height, oldButton.displayString);
 			}
@@ -203,7 +202,7 @@ public class GuiMainMenuAerius extends GuiMainMenu
 		GL11.glScalef(f1, f1, f1);
 		this.drawCenteredString(this.fontRendererObj, this.splashText, 0, -8, 0x00AAFF);
 		GL11.glPopMatrix();
-		String s = CSUpdate.CURRENT_VERSION;
+		String s = ECUpdate.CURRENT_VERSION;
 		
 		if (this.mc.isDemo())
 		{

@@ -1,6 +1,7 @@
 package minestrapteam.extradims.item.aerius;
 
-import clashsoft.cslib.minecraft.item.CustomItem;
+import minestrapteam.extracore.item.CustomItem;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
 import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.block.Block;
@@ -13,7 +14,7 @@ public class ItemAeriusSeeds extends CustomItem
 {
 	public ItemAeriusSeeds(String[] names, String[] iconNames)
 	{
-		super(names, iconNames, new clashsoft.cslib.minecraft.creativetab.CustomCreativeTab[] { Aerius.tabAeriusItems });
+		super(names, iconNames, new CustomCreativeTab[] { Aerius.tabAeriusItems });
 	}
 	
 	@Override

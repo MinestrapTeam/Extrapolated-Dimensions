@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.dreams;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.world.CustomChunkManager;
+import minestrapteam.extracore.world.CustomChunkManager;
 import minestrapteam.extradims.dream.Dream;
 
 import net.minecraft.world.WorldType;

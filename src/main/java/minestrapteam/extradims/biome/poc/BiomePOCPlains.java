@@ -2,8 +2,8 @@ package minestrapteam.extradims.biome.poc;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.biome.CustomBiome;
-import clashsoft.cslib.minecraft.world.gen.CustomBigTreeGen;
+import minestrapteam.extracore.world.biome.CustomBiome;
+import minestrapteam.extracore.world.gen.CustomBigTreeGen;
 import minestrapteam.extradims.lib.ParadiseOfChaos;
 import minestrapteam.extradims.world.poc.gen.POCGenMagicOakTree;
 

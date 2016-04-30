@@ -1,16 +1,17 @@
 package minestrapteam.extradims.lib;
 
-import static clashsoft.cslib.minecraft.crafting.CSCrafting.addFurnaceRecipe;
-import static clashsoft.cslib.minecraft.crafting.CSCrafting.addPlanks;
-import static clashsoft.cslib.minecraft.crafting.CSCrafting.addRecipe;
-import static clashsoft.cslib.minecraft.crafting.CSCrafting.addStick;
+import static minestrapteam.extracore.crafting.ECCrafting.addFurnaceRecipe;
+import static minestrapteam.extracore.crafting.ECCrafting.addPlanks;
+import static minestrapteam.extracore.crafting.ECCrafting.addRecipe;
+import static minestrapteam.extracore.crafting.ECCrafting.addStick;
 import clashsoft.cslib.minecraft.block.*;
-import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
-import clashsoft.cslib.minecraft.item.CSItems;
-import clashsoft.cslib.minecraft.item.CustomItem;
-import clashsoft.cslib.minecraft.stack.CSStacks;
-import clashsoft.cslib.util.CSString;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.item.ECItems;
+import minestrapteam.extracore.item.CustomItem;
+import minestrapteam.extracore.item.stack.ECStacks;
+import minestrapteam.extracore.util.StringUtils;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import minestrapteam.extracore.block.*;
 import minestrapteam.extradims.block.poc.BlockPOCPortal;
 import minestrapteam.extradims.block.poc.BlockPOCSapling;
 import minestrapteam.extradims.entity.boss.EntityLich;
@@ -36,8 +37,8 @@ public class ParadiseOfChaos
 	
 	// Blocks
 	
-	public static BlockCustomPortal		portal;
-	public static Block					portalFrame;
+	public static BlockCustomPortal portal;
+	public static Block             portalFrame;
 	
 	public static CustomBlock			stoneBlocks;
 	public static CustomBlock			bloodStoneBlocks;
@@ -47,12 +48,12 @@ public class ParadiseOfChaos
 	public static CustomBlock			oreBlocks;
 	public static CustomBlock			bloodOreBlocks;
 	
-	public static BlockCustomLog		logBlocks;
-	public static BlockCustomSapling	saplingBlocks;
-	public static BlockCustomLeaves		leafBlocks;
-	public static CustomBlock			plankBlocks;
+	public static BlockCustomLog     logBlocks;
+	public static BlockCustomSapling saplingBlocks;
+	public static BlockCustomLeaves  leafBlocks;
+	public static CustomBlock        plankBlocks;
 	
-	public static BlockCustomPlant		plantBlocks;
+	public static BlockCustomPlant plantBlocks;
 	
 	// public static BlockPOCActivatorLava activatorLava;
 	// public static BlockPOCDreamBed dreamBed;
@@ -93,10 +94,11 @@ public class ParadiseOfChaos
 		grassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { getTexture("soil/altered_grass"), getTexture("soil/blood_grass") }).setCreativeTab(tabBlocks);
 		
 		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "promethium", "fractite" };
-		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, ores1, CSString.concatAll(ores1, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
+		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, ores1, StringUtils
+			                                                                .concatAll(ores1, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
 		
 		String[] bloodOres = new String[] { "blood", "death", "whitium" };
-		bloodOreBlocks = (CustomBlock) new CustomBlock(Material.rock, bloodOres, CSString.concatAll(bloodOres, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
+		bloodOreBlocks = (CustomBlock) new CustomBlock(Material.rock, bloodOres, StringUtils.concatAll(bloodOres, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
 		
 		logBlocks = (BlockCustomLog) new BlockCustomLog(new String[] { "magic_oak", "willow" }, new String[] { getTexture("wood/magic_oak_log_top"), getTexture("wood/willow_log_top") }, new String[] { getTexture("wood/magic_oak_log_side"), getTexture("wood/willow_log_side") }).setCreativeTab(tabBlocks);
 		
@@ -160,10 +162,10 @@ public class ParadiseOfChaos
 		
 		// Items
 		
-		CSItems.addItem(staff, "staff");
-		CSItems.addItem(manaStar, "mana_star");
-		CSItems.addItem(items, "poc_items");
-		CSItems.addItem(materials, "poc_materials");
+		ECItems.addItem(staff, "staff");
+		ECItems.addItem(manaStar, "mana_star");
+		ECItems.addItem(items, "poc_items");
+		ECItems.addItem(materials, "poc_materials");
 		
 		// Blocks
 		
@@ -171,22 +173,22 @@ public class ParadiseOfChaos
 		dirtBlocks.setHardness(0.5F);
 		grassBlocks.setDirtBlock(0, dirtBlocks, 0);
 		
-		CSBlocks.addBlock(portal, "poc_portal");
-		CSBlocks.addBlock(portalFrame, "poc_portal_frame");
+		ECBlocks.addBlock(portal, "poc_portal");
+		ECBlocks.addBlock(portalFrame, "poc_portal_frame");
 		
-		CSBlocks.addBlock(stoneBlocks, "chaosstone");
-		CSBlocks.addBlock(bloodStoneBlocks, "bleedstone");
-		CSBlocks.addBlock(dirtBlocks, "poc_dirt");
-		CSBlocks.addBlock(grassBlocks, "poc_grass");
+		ECBlocks.addBlock(stoneBlocks, "chaosstone");
+		ECBlocks.addBlock(bloodStoneBlocks, "bleedstone");
+		ECBlocks.addBlock(dirtBlocks, "poc_dirt");
+		ECBlocks.addBlock(grassBlocks, "poc_grass");
 		
-		CSBlocks.addBlock(oreBlocks, "poc_ores");
-		CSBlocks.addBlock(bloodOreBlocks, "poc_blood_ores");
+		ECBlocks.addBlock(oreBlocks, "poc_ores");
+		ECBlocks.addBlock(bloodOreBlocks, "poc_blood_ores");
 		
-		CSBlocks.addBlock(logBlocks, "poc_logs");
-		CSBlocks.addBlock(leafBlocks, "poc_leaves");
-		CSBlocks.addBlock(saplingBlocks, "poc_saplings");
-		CSBlocks.addBlock(plankBlocks, "poc_planks");
-		CSBlocks.addBlock(plantBlocks, "poc_plants");
+		ECBlocks.addBlock(logBlocks, "poc_logs");
+		ECBlocks.addBlock(leafBlocks, "poc_leaves");
+		ECBlocks.addBlock(saplingBlocks, "poc_saplings");
+		ECBlocks.addBlock(plankBlocks, "poc_planks");
+		ECBlocks.addBlock(plantBlocks, "poc_plants");
 		
 		addRecipes();
 		setTabIcons();
@@ -194,10 +196,10 @@ public class ParadiseOfChaos
 	
 	public static void addRecipes()
 	{
-		addRecipe(new ItemStack(ParadiseOfChaos.portalFrame), "nnn", "ndn", "nnn", 'n', CSStacks.lapis_block, 'd', CSStacks.diamond);
+		addRecipe(new ItemStack(ParadiseOfChaos.portalFrame), "nnn", "ndn", "nnn", 'n', ECStacks.lapis_block, 'd', ECStacks.diamond);
 		
-		addRecipe(new ItemStack(Alchemy.elixirBottle, 6, 0), " n ", "n n", "nnn", 'n', CSStacks.glass_pane);
-		addRecipe(new ItemStack(Alchemy.elixirBottle, 4, 1), " n ", " n ", "nnn", 'n', CSStacks.glass_pane);
+		addRecipe(new ItemStack(Alchemy.elixirBottle, 6, 0), " n ", "n n", "nnn", 'n', ECStacks.glass_pane);
+		addRecipe(new ItemStack(Alchemy.elixirBottle, 4, 1), " n ", " n ", "nnn", 'n', ECStacks.glass_pane);
 		
 		addFurnaceRecipe(ParadiseOfChaos.oreBlood, ParadiseOfChaos.bloodIngot, 0.8F);
 		addFurnaceRecipe(ParadiseOfChaos.oreDeath, ParadiseOfChaos.deathIngot, 0.8F);

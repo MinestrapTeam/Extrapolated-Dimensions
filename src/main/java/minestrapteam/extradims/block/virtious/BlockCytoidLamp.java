@@ -1,6 +1,6 @@
 package minestrapteam.extradims.block.virtious;
 
-import clashsoft.cslib.minecraft.block.BlockCustomLamp;
+import minestrapteam.extracore.block.BlockCustomLamp;
 
 public class BlockCytoidLamp extends BlockCustomLamp
 {

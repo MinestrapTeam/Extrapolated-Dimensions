@@ -3,8 +3,8 @@ package minestrapteam.extradims.block.aerius;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.block.CustomBlock;
-import clashsoft.cslib.minecraft.block.ICustomBlock;
+import minestrapteam.extracore.block.CustomBlock;
+import minestrapteam.extracore.block.ICustomBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

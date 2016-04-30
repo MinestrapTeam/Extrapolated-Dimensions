@@ -1,6 +1,6 @@
 package minestrapteam.extradims.world.virtious;
 
-import clashsoft.cslib.minecraft.world.CustomChunkProvider;
+import minestrapteam.extracore.world.CustomChunkProvider;
 
 import net.minecraft.world.World;
 

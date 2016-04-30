@@ -2,7 +2,7 @@ package minestrapteam.extradims.client.renderer.item;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.cslib.minecraft.client.CSFontRenderer;
+import minestrapteam.extracore.client.ECFontRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -33,7 +33,7 @@ public class RenderPOCBows implements IItemRenderer
 	{
 		if (item.getItem() instanceof ItemBow)
 		{
-			this.itemRenderer.renderItemIntoGUI(CSFontRenderer.getFontRenderer(), Minecraft.getMinecraft().renderEngine, item, 0, 0);
+			this.itemRenderer.renderItemIntoGUI(ECFontRenderer.getFontRenderer(), Minecraft.getMinecraft().renderEngine, item, 0, 0);
 			
 			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 			if (player != null)
@@ -42,10 +42,10 @@ public class RenderPOCBows implements IItemRenderer
 				
 				String arrowCountDisplay = String.valueOf(arrowCount);
 				int arrowCountColor = (arrowCount < 1 ? 0xFF0000 : 0xEEEEEE);
-				int stringWidth = CSFontRenderer.getFontRenderer().getStringWidth(arrowCountDisplay);
+				int stringWidth = ECFontRenderer.getFontRenderer().getStringWidth(arrowCountDisplay);
 				float scale = (16F / stringWidth) > 1F ? 1F : (16F / stringWidth);
 				GL11.glScalef(scale, scale, 1F);
-				CSFontRenderer.getFontRenderer().drawString(arrowCountDisplay, 0, 0, arrowCountColor, true);
+				ECFontRenderer.getFontRenderer().drawString(arrowCountDisplay, 0, 0, arrowCountColor, true);
 			}
 		}
 	}

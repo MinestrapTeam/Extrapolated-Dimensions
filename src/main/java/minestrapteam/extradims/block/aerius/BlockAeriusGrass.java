@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.aerius;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.block.BlockCustomGrass;
+import minestrapteam.extracore.block.BlockCustomGrass;
 import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.world.World;

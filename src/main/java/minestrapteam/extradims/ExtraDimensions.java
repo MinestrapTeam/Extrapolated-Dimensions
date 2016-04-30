@@ -5,8 +5,8 @@ import minestrapteam.extradims.common.EDFuelHandler;
 import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.lib.*;
 import minestrapteam.extradims.network.EDNetHandler;
-import clashsoft.cslib.config.CSConfig;
-import clashsoft.cslib.minecraft.init.ClashsoftMod;
+import minestrapteam.extracore.config.ECConfig;
+import minestrapteam.extracore.init.ClashsoftMod;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -41,7 +41,7 @@ public class ExtraDimensions extends ClashsoftMod
 	{
 		super.preInit(event);
 		
-		CSConfig.loadConfig(this.configFile);
+		ECConfig.loadConfig(this.configFile);
 		
 		Virtious.init();
 		Aerius.init();
@@ -58,7 +58,7 @@ public class ExtraDimensions extends ClashsoftMod
 		WorldManager.load();
 		InventoryHandler.load();
 		
-		CSConfig.saveConfig();
+		ECConfig.saveConfig();
 	}
 	
 	@Override

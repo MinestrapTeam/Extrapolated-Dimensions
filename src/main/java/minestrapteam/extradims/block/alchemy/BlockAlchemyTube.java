@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.alchemy;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.world.CSWorld;
+import minestrapteam.extracore.world.ECWorld;
 import minestrapteam.extradims.api.alchemy.ITubeConnector;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTube;
 
@@ -120,12 +120,12 @@ public class BlockAlchemyTube extends BlockContainer implements ITubeConnector
 	
 	public static boolean[] getConnections(IBlockAccess world, int x, int y, int z)
 	{
-		Block yNeg = CSWorld.getBlockAtSide(world, x, y, z, 0);
-		Block yPos = CSWorld.getBlockAtSide(world, x, y, z, 1);
-		Block xNeg = CSWorld.getBlockAtSide(world, x, y, z, 4);
-		Block xPos = CSWorld.getBlockAtSide(world, x, y, z, 5);
-		Block zNeg = CSWorld.getBlockAtSide(world, x, y, z, 2);
-		Block zPos = CSWorld.getBlockAtSide(world, x, y, z, 3);
+		Block yNeg = ECWorld.getBlockAtSide(world, x, y, z, 0);
+		Block yPos = ECWorld.getBlockAtSide(world, x, y, z, 1);
+		Block xNeg = ECWorld.getBlockAtSide(world, x, y, z, 4);
+		Block xPos = ECWorld.getBlockAtSide(world, x, y, z, 5);
+		Block zNeg = ECWorld.getBlockAtSide(world, x, y, z, 2);
+		Block zPos = ECWorld.getBlockAtSide(world, x, y, z, 3);
 		
 		boolean yn = yNeg instanceof ITubeConnector && ((ITubeConnector) yNeg).canTubeConnectOnSide(world, x, y - 1, z, 1);
 		boolean yp = yPos instanceof ITubeConnector && ((ITubeConnector) yPos).canTubeConnectOnSide(world, x, y + 1, z, 0);

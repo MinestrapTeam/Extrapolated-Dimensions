@@ -2,8 +2,8 @@ package minestrapteam.extradims.biome.aerius;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.biome.CustomBiome;
-import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
+import minestrapteam.extracore.world.biome.CustomBiome;
+import minestrapteam.extracore.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenBigTree;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenJungleTree;

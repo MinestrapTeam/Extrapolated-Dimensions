@@ -1,8 +1,8 @@
 package minestrapteam.extradims.lib;
 
-import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
-import clashsoft.cslib.minecraft.entity.CSEntities;
-import clashsoft.cslib.minecraft.stack.StackFactory;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.entity.ECEntities;
+import minestrapteam.extracore.item.stack.StackFactory;
 import minestrapteam.extradims.entity.EntityBurfalaunt;
 import minestrapteam.extradims.entity.EntityLaser;
 import minestrapteam.extradims.entity.EntityNative;
@@ -47,11 +47,11 @@ public class Virtious
 		
 		// Entities
 		
-		CSEntities.register("StickyBomb", 100, EntityStickyBomb.class);
-		CSEntities.register("Laser", 101, EntityLaser.class);
-		CSEntities.register("Burfalaunt", 102, EntityBurfalaunt.class, 0x110802, 0x3F1E06);
-		CSEntities.register("NativeAlien", 103, EntityNative.class, 0x59563E, 0x2D3C21);
-		CSEntities.register("NativeSkeleton", 104, EntityNativeSkeleton.class, 0x494949, 0xD8D8D8);
+		ECEntities.register("StickyBomb", 100, EntityStickyBomb.class);
+		ECEntities.register("Laser", 101, EntityLaser.class);
+		ECEntities.register("Burfalaunt", 102, EntityBurfalaunt.class, 0x110802, 0x3F1E06);
+		ECEntities.register("NativeAlien", 103, EntityNative.class, 0x59563E, 0x2D3C21);
+		ECEntities.register("NativeSkeleton", 104, EntityNativeSkeleton.class, 0x494949, 0xD8D8D8);
 	}
 	
 	public static String getTexture(String name)

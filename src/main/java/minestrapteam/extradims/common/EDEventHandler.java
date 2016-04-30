@@ -1,8 +1,8 @@
 package minestrapteam.extradims.common;
 
-import clashsoft.cslib.minecraft.CSLib;
-import clashsoft.cslib.minecraft.world.TeleporterNoPortal;
-import clashsoft.playerinventoryapi.lib.ExtendedInventory;
+import minestrapteam.extracore.ExtraCore;
+import minestrapteam.extracore.world.TeleporterNoPortal;
+import minestrapteam.extracore.inventory.ExtendedInventory;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import minestrapteam.extradims.api.ICape;
@@ -247,7 +247,7 @@ public class EDEventHandler
 		
 		if (stack == null)
 		{
-			CSLib.getNetHandler().sendCapePacket(player, "");
+			ExtraCore.getNetHandler().sendCapePacket(player, "");
 		}
 		else if (stack.getItem() instanceof ICape)
 		{

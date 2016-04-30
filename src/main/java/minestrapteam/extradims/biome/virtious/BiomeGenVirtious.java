@@ -1,6 +1,6 @@
 package minestrapteam.extradims.biome.virtious;
 
-import clashsoft.cslib.minecraft.world.biome.CustomBiome;
+import minestrapteam.extracore.world.biome.CustomBiome;
 import minestrapteam.extradims.entity.EntityBurfalaunt;
 import minestrapteam.extradims.entity.EntityNative;
 import minestrapteam.extradims.entity.EntityNativeSkeleton;

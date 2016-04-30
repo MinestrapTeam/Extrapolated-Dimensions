@@ -2,7 +2,7 @@ package minestrapteam.extradims.biome.aerius;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
+import minestrapteam.extracore.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
 import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenMinable;
