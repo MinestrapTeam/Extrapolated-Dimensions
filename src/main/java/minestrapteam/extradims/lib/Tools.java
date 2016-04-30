@@ -2,7 +2,6 @@ package minestrapteam.extradims.lib;
 
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
-import clashsoft.cslib.util.CSArrays;
 import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.item.armor.*;
 import minestrapteam.extradims.item.tools.*;
@@ -72,21 +71,19 @@ public class Tools
 	public static ArmorMaterial		armorKratonium		= ArmorMaterial.CHAIN;
 	public static ArmorMaterial		armorShannara		= ArmorMaterial.CHAIN;
 	
-	public static String[]			toolTypes			= CSArrays.create("sword", "shovel", "pickaxe", "axe", "hoe", // Tools
-																"helmet", "chestplate", "leggings", "boots", // Armor
-																"gloves", "shield", // Armor
-																"bow", "crossbow", "shortbow", // Bows
-																"battleaxe", "claws", "dagger", "dart", "halberd", "hammer", "hatchet", //
-																"javelin", "longsword", "mace", "ninjastar", "pickaxe_variant", "rapier", "saw", "scimitar", //
-																"spade", "spear", "throwing_axe", "throwing_knife", "warhammer");
-	public static Class[]			toolClasses			= CSArrays.create(ItemSword.class, ItemSpade.class, EDItemPickaxe.class, EDItemAxe.class, ItemHoe.class, // Tools
-																ItemHelmet.class, ItemChestplate.class, ItemLeggings.class, ItemBoots.class, // Armor
-																ItemGloves.class, ItemShield.class, // Armor
-																EDItemBow.class, ItemCrossBow.class, ItemShortBow.class, // Bows
-																ItemBattleaxe.class, ItemClaws.class, ItemDagger.class, ItemDart.class, ItemHalberd.class, ItemHammer.class, ItemHatchet.class, //
-																ItemJavelin.class, ItemLongsword.class, ItemMace.class, ItemNinjaStar.class, EDItemPickaxe.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, //
-																ItemSpade.class, ItemSpear.class, ItemThrowableAxe.class, ItemThrowableKnife.class, ItemWarhammer.class);
-	
+	public static String[]			toolTypes			= new String[] { "sword", "shovel", "pickaxe", "axe", "hoe",
+		"helmet", "chestplate", "leggings", "boots", "gloves", "shield", "bow", "crossbow", "shortbow", "battleaxe",
+		"claws", "dagger", "dart", "halberd", "hammer", "hatchet", "javelin", "longsword", "mace", "ninjastar",
+		"pickaxe_variant", "rapier", "saw", "scimitar", "spade", "spear", "throwing_axe", "throwing_knife",
+		"warhammer" };
+	public static Class[]			toolClasses			= new Class<? extends Item>[] { ItemSword.class,
+		ItemSpade.class, EDItemPickaxe.class, EDItemAxe.class, ItemHoe.class, ItemHelmet.class, ItemChestplate.class,
+		ItemLeggings.class, ItemBoots.class, ItemGloves.class, ItemShield.class, EDItemBow.class, ItemCrossBow.class,
+		ItemShortBow.class, ItemBattleaxe.class, ItemClaws.class, ItemDagger.class, ItemDart.class, ItemHalberd.class,
+		ItemHammer.class, ItemHatchet.class, ItemJavelin.class, ItemLongsword.class, ItemMace.class,
+		ItemNinjaStar.class, EDItemPickaxe.class, ItemRapier.class, ItemSaw.class, ItemScimitar.class, ItemSpade.class,
+		ItemSpear.class, ItemThrowableAxe.class, ItemThrowableKnife.class, ItemWarhammer.class };
+
 	public static String[]			materialNames		= new String[] { "wood", "stone", "iron", "gold", "diamond", // vanilla
 			"heavenwood", "heavenstone", "shrekite", "clashium", "holyium", "energy", "pro", // heaven
 			"willow", "gold_wood" // poc
@@ -96,25 +93,21 @@ public class Tools
 	public static CreativeTabs		heavenTools			= Aerius.tabAeriusItems, heavenArmor = Aerius.tabAeriusItems;
 	public static CreativeTabs		pocTools			= ParadiseOfChaos.tabItems, pocArmor = ParadiseOfChaos.tabItems;
 	
-	public static CreativeTabs[]	toolTabs			= CSArrays.create(advancedTools, advancedTools, advancedTools, advancedTools, advancedTools, // Vanilla
-																heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, // Heaven
-																pocTools, pocTools // POC
-																);
-	public static CreativeTabs[]	armorTabs			= CSArrays.create(advancedArmor, advancedArmor, advancedArmor, advancedArmor, advancedArmor, // Vanilla
-																heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, // Heaven
-																pocArmor, pocArmor // POC
-																);
-	
-	public static ToolMaterial[]	toolMaterials		= CSArrays.create(toolWood, toolStone, toolIron, toolGold, toolDiamond, // Vanilla
-																toolHeavenWood, toolHeavenStone, toolShrekite, toolClashium, toolHolyium, toolEnergy, toolPro, // Heaven
-																toolWillow, toolGoldWood // POC
-																);
-	
-	public static ArmorMaterial[]	armorMaterials		= CSArrays.create(armorWood, armorStone, armorIron, armorGold, armorDiamond, // Vanilla
-																armorHeavenWood, armorHeavenStone, armorShrekite, armorClashium, armorHolyium, armorEnergy, armorPro, // Heaven
-																armorWillow, armorGoldWood // POC
-																);
-	
+	public static CreativeTabs[]	toolTabs			= new CreativeTabs[] { advancedTools, advancedTools,
+		advancedTools, advancedTools, advancedTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools,
+		heavenTools, heavenTools, pocTools, pocTools };
+	public static CreativeTabs[]	armorTabs			= new CreativeTabs[] { advancedArmor, advancedArmor,
+		advancedArmor, advancedArmor, advancedArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor,
+		heavenArmor, heavenArmor, pocArmor, pocArmor };
+
+	public static ToolMaterial[]	toolMaterials		= new ToolMaterial[] { toolWood, toolStone, toolIron, toolGold,
+		toolDiamond, toolHeavenWood, toolHeavenStone, toolShrekite, toolClashium, toolHolyium, toolEnergy, toolPro,
+		toolWillow, toolGoldWood };
+
+	public static ArmorMaterial[]	armorMaterials		= new ArmorMaterial[] { armorWood, armorStone, armorIron,
+		armorGold, armorDiamond, armorHeavenWood, armorHeavenStone, armorShrekite, armorClashium, armorHolyium,
+		armorEnergy, armorPro, armorWillow, armorGoldWood };
+
 	public static Item[][]			items				= new Item[materialNames.length][toolTypes.length];
 	
 	public static void init()

@@ -1,14 +1,9 @@
 package clashsoft.cslib.minecraft.block.ore;
 
-import java.util.List;
-import java.util.Random;
-
-import clashsoft.cslib.math.CSMath;
 import clashsoft.cslib.minecraft.block.CustomBlock;
 import clashsoft.cslib.minecraft.block.IBlockRenderPass;
 import clashsoft.cslib.minecraft.block.ICustomBlock;
 import clashsoft.cslib.minecraft.client.renderer.block.RenderBlockMulti;
-
 import net.minecraft.block.BlockOre;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,8 +13,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockOre2 extends BlockOre implements IBlockRenderPass, ICustomBlock
 {
@@ -105,7 +104,7 @@ public class BlockOre2 extends BlockOre implements IBlockRenderPass, ICustomBloc
 		OreBase base = this.getBase(metadata);
 		if (base != null)
 		{
-			return CSMath.ceiling_float(base.amountMultiplier * i);
+			return MathHelper.ceiling_float_int(base.amountMultiplier * i);
 		}
 		return i;
 	}
@@ -137,7 +136,7 @@ public class BlockOre2 extends BlockOre implements IBlockRenderPass, ICustomBloc
 		OreBase base = this.getBase(metadata);
 		if (base != null)
 		{
-			return CSMath.ceiling_float(base.xpMultiplier * i);
+			return MathHelper.ceiling_float_int(base.xpMultiplier * i);
 		}
 		return i;
 	}

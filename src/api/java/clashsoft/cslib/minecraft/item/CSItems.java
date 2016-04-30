@@ -1,25 +1,14 @@
 package clashsoft.cslib.minecraft.item;
 
-import static clashsoft.cslib.minecraft.stack.CSStacks.stick;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.Map;
-
 import clashsoft.cslib.logging.CSLog;
 import clashsoft.cslib.minecraft.crafting.CSCrafting;
-import clashsoft.cslib.minecraft.item.datatools.DataToolSet;
 import clashsoft.cslib.minecraft.util.Constants;
 import clashsoft.cslib.reflect.CSReflection;
-import clashsoft.cslib.util.CSUtil;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -27,7 +16,14 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatCrafting;
 import net.minecraft.stats.StatList;
-import net.minecraftforge.common.util.EnumHelper;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.Map;
+
+import static clashsoft.cslib.minecraft.stack.CSStacks.stick;
 
 /**
  * The Class CSItems.
@@ -268,47 +264,14 @@ public class CSItems
 		CSCrafting.addToolRecipe(new ItemStack(item), material, stick, type);
 	}
 	
-	/**
-	 * Adds a tool material, can also be applied to a tool set.
-	 * 
-	 * @param name
-	 *            the name
-	 * @param harvestLevel
-	 *            the harvest level
-	 * @param maxUses
-	 *            the max uses
-	 * @param efficiency
-	 *            the efficiency
-	 * @param damage
-	 *            the damage
-	 * @param enchantability
-	 *            the enchantability
-	 * @param color
-	 *            the color
-	 * @param recipe
-	 *            the recipe
-	 * @param dataToolSet
-	 *            the data tool set
-	 * @return the enum tool material
-	 */
-	public static ToolMaterial addToolMaterial(String name, int harvestLevel, int maxUses, float efficiency, float damage, int enchantability, int color, ItemStack recipe, DataToolSet dataToolSet)
-	{
-		ToolMaterial toolMaterial = EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage, enchantability);
-		if (dataToolSet != null)
-		{
-			dataToolSet.registerToolMaterial(toolMaterial, name);
-		}
-		return toolMaterial;
-	}
-	
 	public static ToolMaterial getToolMaterial(ArmorMaterial armorMaterial)
 	{
-		return CSUtil.getEnumConstant(ToolMaterial.class, armorMaterial.name());
+		return CSReflection.getEnumConstant(ToolMaterial.class, armorMaterial.name());
 	}
 	
 	public static ArmorMaterial getArmorMaterial(ToolMaterial toolMaterial)
 	{
-		return CSUtil.getEnumConstant(ArmorMaterial.class, toolMaterial.name());
+		return CSReflection.getEnumConstant(ArmorMaterial.class, toolMaterial.name());
 	}
 	
 	public static boolean replaceItem(Item item, Item newItem)

@@ -1,11 +1,6 @@
 package clashsoft.cslib.minecraft.world.gen;
 
-import java.util.Random;
-import java.util.Set;
-
-import clashsoft.cslib.collections.ArraySet;
 import clashsoft.cslib.logging.CSLog;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -13,6 +8,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.Random;
+import java.util.Set;
 
 public class OreGen extends WorldGenerator
 {
@@ -132,7 +132,7 @@ public class OreGen extends WorldGenerator
 	{
 		if (this.includedBiomes == null)
 		{
-			this.includedBiomes = new ArraySet();
+			this.includedBiomes = Collections.newSetFromMap(new IdentityHashMap<>());
 		}
 		this.includedBiomes.add(biome);
 		return this;
@@ -142,7 +142,7 @@ public class OreGen extends WorldGenerator
 	{
 		if (this.excludedBiomes == null)
 		{
-			this.excludedBiomes = new ArraySet();
+			this.excludedBiomes = Collections.newSetFromMap(new IdentityHashMap<>());
 		}
 		this.excludedBiomes.add(biome);
 		return this;

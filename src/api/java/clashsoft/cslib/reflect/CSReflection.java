@@ -1,13 +1,13 @@
 package clashsoft.cslib.reflect;
 
+import clashsoft.cslib.logging.CSLog;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import clashsoft.cslib.logging.CSLog;
 
 /**
  * The class CSReflection.
@@ -602,5 +602,18 @@ public class CSReflection
 		{
 			return null;
 		}
+	}
+
+	public static <E extends Enum> E getEnumConstant(Class<E> enumClass, String name)
+	{
+		E[] values = enumClass.getEnumConstants();
+		for (E e : values)
+		{
+			if (e.name().equalsIgnoreCase(name))
+			{
+				return e;
+			}
+		}
+		return null;
 	}
 }

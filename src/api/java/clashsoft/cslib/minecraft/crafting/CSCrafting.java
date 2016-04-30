@@ -1,8 +1,13 @@
 package clashsoft.cslib.minecraft.crafting;
 
-import static clashsoft.cslib.minecraft.stack.CSStacks.coal;
-import static clashsoft.cslib.minecraft.stack.CSStacks.fire;
-import static clashsoft.cslib.minecraft.stack.CSStacks.stick;
+import clashsoft.cslib.logging.CSLog;
+import clashsoft.cslib.minecraft.stack.CSStacks;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.*;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,19 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
-import net.minecraftforge.oredict.OreDictionary;
-import clashsoft.cslib.logging.CSLog;
-import clashsoft.cslib.minecraft.item.meta.ISubItemRecipe;
-import clashsoft.cslib.minecraft.stack.CSStacks;
-import cpw.mods.fml.common.registry.GameRegistry;
+import static clashsoft.cslib.minecraft.stack.CSStacks.stick;
 
 /**
  * The Class CSCrafting.
@@ -114,7 +107,6 @@ public class CSCrafting
 	 * @param recipe
 	 *            the recipe
 	 * @return the {@link ShapedRecipes} instance
-	 * @see CSCrafting#addAdvancedRecipe(ItemStack, Object...)
 	 */
 	public static ShapedRecipes addRecipe(ItemStack output, Object... recipe)
 	{
@@ -144,7 +136,6 @@ public class CSCrafting
 	 *            the output
 	 * @param experience
 	 *            the experience
-	 * @see FurnaceRecipes#addSmelting(int, int ItemStack, float)
 	 */
 	public static void addFurnaceRecipe(Item input, ItemStack output, float experience)
 	{
@@ -160,7 +151,6 @@ public class CSCrafting
 	 *            the output
 	 * @param experience
 	 *            the experience
-	 * @see FurnaceRecipes#addSmelting(int, int ItemStack, float)
 	 */
 	public static void addFurnaceRecipe(Block input, ItemStack output, float experience)
 	{
@@ -176,7 +166,6 @@ public class CSCrafting
 	 *            the output
 	 * @param experience
 	 *            the experience
-	 * @see FurnaceRecipes#addSmelting(int, int ItemStack, float)
 	 */
 	public static void addFurnaceRecipe(ItemStack input, ItemStack output, float experience)
 	{
@@ -274,19 +263,19 @@ public class CSCrafting
 	{
 		if (type == 0)
 		{
-			addRecipe(output, "XXX", "X X", Character.valueOf('X'), input);
+			addRecipe(output, "XXX", "X X", 'X', input);
 		}
 		else if (type == 1)
 		{
-			addRecipe(output, "X X", "XXX", "XXX", Character.valueOf('X'), input);
+			addRecipe(output, "X X", "XXX", "XXX", 'X', input);
 		}
 		else if (type == 2)
 		{
-			addRecipe(output, "XXX", "X X", "X X", Character.valueOf('X'), input);
+			addRecipe(output, "XXX", "X X", "X X", 'X', input);
 		}
 		else if (type == 3)
 		{
-			addRecipe(output, "X X", "X X", Character.valueOf('X'), input);
+			addRecipe(output, "X X", "X X", 'X', input);
 		}
 		else if (type == 4)
 		{
@@ -373,7 +362,7 @@ public class CSCrafting
 					count++;
 				}
 			}
-			catch (Exception ex)
+			catch (Exception ignored)
 			{
 			}
 		}
@@ -397,65 +386,7 @@ public class CSCrafting
 		OreDictionary.registerOre(name, ore);
 		return ore;
 	}
-	
-	/**
-	 * Analyzes a crafting recipe and returns a two-dimensional Array of
-	 * {@link ItemStack ItemStacks} resembling the recipe. This method is mainly
-	 * used for recipe displays. Depending on the recipe type, the output is
-	 * either
-	 * <p>
-	 * [1][2][_] # = how you need to put the items in the crafting table<br>
-	 * [3][4][_]<br>
-	 * [_][_][5]<br>
-	 * for shaped recipes,
-	 * <p>
-	 * [1][2][3] # = objects in shaped recipe list<br>
-	 * [4][5][_]<br>
-	 * [_][_][_]<br>
-	 * for shapeless recipes or
-	 * <p>
-	 * [_][O][_] O = output<br>
-	 * [_][F][_] F = fire<br>
-	 * [_][C][_] C = coal<br>
-	 * for furnace recipes.
-	 * 
-	 * @param recipe
-	 *            the recipe
-	 * @return a two-dimensional Array of {@link ItemStack ItemStacks}
-	 *         resembling the recipe.
-	 */
-	public static ItemStack[][] analyseCrafting(ISubItemRecipe recipe)
-	{
-		try
-		{
-			if (recipe.getCraftingType() == ISubItemRecipe.FURNACE)
-			{
-				return new ItemStack[][] { { null, (ItemStack) recipe.getData()[0], null }, { null, fire, null }, { null, coal, null } };
-			}
-			else if (recipe.getCraftingType() == ISubItemRecipe.CRAFTING_SHAPELESS)
-			{
-				ItemStack[][] ret = new ItemStack[3][3];
-				
-				for (int i = 0; i < recipe.getData().length; i++)
-				{
-					int x = i / 3 % 3;
-					int y = i % 3;
-					ret[x][y] = (ItemStack) recipe.getData()[i];
-				}
-				
-				return ret;
-			}
-			else if (recipe.getCraftingType() == ISubItemRecipe.CRAFTING)
-			{
-				return analyseCraftingShaped(recipe.getData());
-			}
-		}
-		catch (Exception ex)
-		{
-			CSLog.error(ex);
-		}
-		return new ItemStack[][] { { null, null, null }, { null, null, null }, { null, null, null } };
-	}
+
 	
 	/**
 	 * Analyzes a shaped crafting recipe.
@@ -493,7 +424,7 @@ public class CSCrafting
 			}
 		}
 		
-		Map<Character, ItemStack> hashmap = new HashMap<Character, ItemStack>();
+		Map<Character, ItemStack> hashmap = new HashMap<>();
 		
 		for (; i < recipe.length; i += 2)
 		{
