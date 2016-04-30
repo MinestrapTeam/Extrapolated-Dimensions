@@ -68,6 +68,6 @@ public class BlockCustomGlass extends CustomBlock
 	{
 		Block block = world.getBlock(x, y, z);
 		
-		return !this.renderSide && block == this ? false : super.shouldSideBeRendered(world, x, y, z, side);
+		return !(!this.renderSide && block == this) && super.shouldSideBeRendered(world, x, y, z, side);
 	}
 }

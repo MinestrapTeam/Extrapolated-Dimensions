@@ -319,7 +319,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 		
 		if (this.maxPages != 0)
 		{
-			String page = String.format("%d / %d", new Object[] { tabPage + 1, this.maxPages + 1 });
+			String page = String.format("%d / %d", tabPage + 1, this.maxPages + 1);
 			int width = this.fontRendererObj.getStringWidth(page);
 			GL11.glDisable(2896);
 			this.fontRendererObj.drawString(page, this.guiLeft + (this.xSize - width) / 2, this.guiTop - 44, -1);
@@ -413,7 +413,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 			
 			if (tab1 != null && tab1 != tab)
 			{
-				drawCreativeTab(tab1);
+				this.drawCreativeTab(tab1);
 			}
 		}
 		
@@ -742,7 +742,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 			{
 				this.mc.thePlayer.dropPlayerItemWithRandomChoice(inventoryplayer.getItemStack(), true);
 				this.mc.playerController.sendPacketDropItem(inventoryplayer.getItemStack());
-				inventoryplayer.setItemStack((ItemStack) null);
+				inventoryplayer.setItemStack(null);
 			}
 			
 			if (var1 != 1)
@@ -757,7 +757,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 			{
 				return;
 			}
-			inventoryplayer.setItemStack((ItemStack) null);
+			inventoryplayer.setItemStack(null);
 		}
 		else
 		{
@@ -766,7 +766,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 				int len = this.inventorySlots.inventorySlots.size();
 				for (int i = 0; i < len; ++i)
 				{
-					this.mc.playerController.sendSlotPacket((ItemStack) null, i);
+					this.mc.playerController.sendSlotPacket(null, i);
 				}
 				ExtendedInventory.get(this.player).clear();
 			}
@@ -775,7 +775,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 			{
 				if (slot == this.binSlot)
 				{
-					this.mc.thePlayer.inventory.setItemStack((ItemStack) null);
+					this.mc.thePlayer.inventory.setItemStack(null);
 				}
 				else if (var2 == 4 && slot != null && slot.getHasStack())
 				{
@@ -787,7 +787,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 				{
 					this.mc.thePlayer.dropPlayerItemWithRandomChoice(this.mc.thePlayer.inventory.getItemStack(), true);
 					this.mc.playerController.sendPacketDropItem(this.mc.thePlayer.inventory.getItemStack());
-					this.mc.thePlayer.inventory.setItemStack((ItemStack) null);
+					this.mc.thePlayer.inventory.setItemStack(null);
 				}
 				else
 				{
@@ -854,7 +854,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 					}
 					else if (itemstack1.stackSize <= 1)
 					{
-						inventoryplayer.setItemStack((ItemStack) null);
+						inventoryplayer.setItemStack(null);
 					}
 					else
 					{
@@ -873,7 +873,7 @@ public class GuiCreativeInventory extends GuiBasicInventory
 				}
 				else
 				{
-					inventoryplayer.setItemStack((ItemStack) null);
+					inventoryplayer.setItemStack(null);
 				}
 			}
 			else

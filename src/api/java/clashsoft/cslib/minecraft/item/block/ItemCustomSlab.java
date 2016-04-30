@@ -81,7 +81,8 @@ public class ItemCustomSlab extends ItemBlock
 			return true;
 		}
 		
-		return this.placeSlab(stack, player, world, x, y, z, side) ? true : super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+		return this.placeSlab(stack, player, world, x, y, z, side) || super.onItemUse(stack, player, world, x, y, z,
+		                                                                              side, hitX, hitY, hitZ);
 	}
 	
 	@Override
@@ -128,7 +129,8 @@ public class ItemCustomSlab extends ItemBlock
 		block = world.getBlock(x, y, z);
 		metadata = world.getBlockMetadata(x, y, z);
 		type = metadata & 7;
-		return block == this.singleSlab && type == stack.getItemDamage() ? true : super.func_150936_a(world, i1, j1, k1, side, player, stack);
+		return block == this.singleSlab && type == stack.getItemDamage() || super.func_150936_a(world, i1, j1, k1, side,
+		                                                                                        player, stack);
 	}
 	
 	private boolean placeSlab(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side)

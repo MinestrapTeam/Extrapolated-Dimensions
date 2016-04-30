@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 
 public interface IPotionBase
 {
-	public static final Map<String, IPotionBase>	bases	= new HashMap();
+	Map<String, IPotionBase>	bases	= new HashMap();
 	
-	public static IPotionBase						water	= new PotionBaseWater();
+	IPotionBase						water	= new PotionBaseWater();
 	
 	/**
 	 * Registers this {@link IPotionBase}. It is recommended to register it by
@@ -21,14 +21,14 @@ public interface IPotionBase
 	 * 
 	 * @return this potion recipe
 	 */
-	public IPotionBase register();
+	IPotionBase register();
 	
 	/**
 	 * Returns the name of this {@link IPotionBase}.
 	 * 
 	 * @return the name
 	 */
-	public String getName();
+	String getName();
 	
 	/**
 	 * Returns the liquid color of this {@link IPotionBase}. Usually
@@ -36,9 +36,9 @@ public interface IPotionBase
 	 * 
 	 * @return the liquid color
 	 */
-	public int getLiquidColor();
+	int getLiquidColor();
 	
-	public ItemStack apply(ItemStack potion);
+	ItemStack apply(ItemStack potion);
 	
 	/**
 	 * Applies this potion base to the {@link ItemStack}. The item of the stack
@@ -47,7 +47,7 @@ public interface IPotionBase
 	 * @param potionTypes
 	 *            the potion stack
 	 */
-	public ItemStack apply(PotionTypeList potionTypes);
+	ItemStack apply(PotionTypeList potionTypes);
 	
 	/**
 	 * Returns true if this {@link IPotionBase} accepts the given
@@ -59,7 +59,7 @@ public interface IPotionBase
 	 *            the potion type
 	 * @return true, if this accepts the potion
 	 */
-	public boolean accepts(IPotionType potion);
+	boolean accepts(IPotionType potion);
 	
 	/**
 	 * Returns true if this potion base matches the given {@link ItemStack}
@@ -72,7 +72,7 @@ public interface IPotionBase
 	 *            the potion stack
 	 * @return true, if this potion base matches the potion.
 	 */
-	public boolean matches(IPotionType type, PotionTypeList potionTypes);
+	boolean matches(IPotionType type, PotionTypeList potionTypes);
 	
-	public void onApplied(IPotionType type, PotionTypeList potionTypes);
+	void onApplied(IPotionType type, PotionTypeList potionTypes);
 }

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 public interface ICustomHUDBlock
 {
-	public ItemStack getDisplayStack(int metadata, World world, int x, int y, int z);
+	ItemStack getDisplayStack(int metadata, World world, int x, int y, int z);
 	
-	public void addInformation(int metadata, World world, int x, int y, int z, List<String> list);
+	void addInformation(int metadata, World world, int x, int y, int z, List<String> list);
 }

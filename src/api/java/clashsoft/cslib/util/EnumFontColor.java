@@ -62,7 +62,7 @@ public enum EnumFontColor
 	 * @param b
 	 *            the b
 	 */
-	private EnumFontColor(int l, int r, int g, int b)
+	EnumFontColor(int l, int r, int g, int b)
 	{
 		this.light = l;
 		this.red = r;

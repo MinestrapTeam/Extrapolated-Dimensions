@@ -1,21 +1,7 @@
 package clashsoft.cslib.minecraft.client;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.Bidi;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
-import javax.imageio.ImageIO;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Tessellator;
@@ -25,6 +11,17 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.Bidi;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class CSFontRenderer extends FontRenderer
@@ -265,7 +262,8 @@ public class CSFontRenderer extends FontRenderer
 	 * Render a single character with the default.png font at current
 	 * (posX,posY) location...
 	 */
-	private float renderDefaultChar(int i, boolean italic)
+	@Override
+	protected float renderDefaultChar(int i, boolean italic)
 	{
 		float f = i % 16 * 8;
 		float f1 = i / 16 * 8;
@@ -301,7 +299,8 @@ public class CSFontRenderer extends FontRenderer
 	{
 		if (field_111274_c[i] == null)
 		{
-			field_111274_c[i] = new ResourceLocation(String.format("textures/font/unicode_page_%02x.png", new Object[] { Integer.valueOf(i) }));
+			field_111274_c[i] = new ResourceLocation(String.format("textures/font/unicode_page_%02x.png",
+			                                                       Integer.valueOf(i)));
 		}
 		
 		return field_111274_c[i];
@@ -311,7 +310,8 @@ public class CSFontRenderer extends FontRenderer
 	 * Render a single Unicode character at current (posX,posY) location using
 	 * one of the /font/glyph_XX.png files...
 	 */
-	private float renderUnicodeChar(char c, boolean italic)
+	@Override
+	protected float renderUnicodeChar(char c, boolean italic)
 	{
 		if (this.glyphWidth[c] == 0)
 		{

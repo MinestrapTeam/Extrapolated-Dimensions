@@ -274,23 +274,23 @@ public class CSCrafting
 	{
 		if (type == 0)
 		{
-			addRecipe(output, new Object[] { "XXX", "X X", Character.valueOf('X'), input });
+			addRecipe(output, "XXX", "X X", Character.valueOf('X'), input);
 		}
 		else if (type == 1)
 		{
-			addRecipe(output, new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), input });
+			addRecipe(output, "X X", "XXX", "XXX", Character.valueOf('X'), input);
 		}
 		else if (type == 2)
 		{
-			addRecipe(output, new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), input });
+			addRecipe(output, "XXX", "X X", "X X", Character.valueOf('X'), input);
 		}
 		else if (type == 3)
 		{
-			addRecipe(output, new Object[] { "X X", "X X", Character.valueOf('X'), input });
+			addRecipe(output, "X X", "X X", Character.valueOf('X'), input);
 		}
 		else if (type == 4)
 		{
-			addRecipe(output, new Object[] { "X X", 'X', input });
+			addRecipe(output, "X X", 'X', input);
 		}
 	}
 	

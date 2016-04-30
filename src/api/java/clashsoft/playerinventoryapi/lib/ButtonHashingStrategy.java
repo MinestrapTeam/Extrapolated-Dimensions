@@ -38,9 +38,7 @@ public class ButtonHashingStrategy implements HashingStrategy<GuiButton>
 			return false;
 		if (o1.xPosition != o2.xPosition)
 			return false;
-		if (o1.yPosition != o2.yPosition)
-			return false;
-		return true;
+		return o1.yPosition == o2.yPosition;
 	}
 	
 }

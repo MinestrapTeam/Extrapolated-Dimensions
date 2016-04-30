@@ -12,43 +12,43 @@ import net.minecraft.potion.PotionEffect;
  */
 public interface ISubItem
 {
-	public ItemStack asStack();
+	ItemStack asStack();
 	
-	public ItemStack asStack(int i);
+	ItemStack asStack(int i);
 	
-	public EnumAction getAction();
+	EnumAction getAction();
 	
-	public Block getBlockPlaced();
+	Block getBlockPlaced();
 	
-	public int getMetadataPlaced();
+	int getMetadataPlaced();
 	
-	public PotionEffect[] getEffects();
+	PotionEffect[] getEffects();
 	
-	public int getFoodValue();
+	int getFoodValue();
 	
-	public String getIconName();
+	String getIconName();
 	
-	public int getID();
+	int getID();
 	
-	public String getName();
+	String getName();
 	
-	public Collection<String> getDescription();
+	Collection<String> getDescription();
 	
-	public boolean isEnabled();
+	boolean isEnabled();
 	
-	public ISubItem register();
+	ISubItem register();
 	
-	public ISubItem setBlockPlaced(Block block, int metadata);
+	ISubItem setBlockPlaced(Block block, int metadata);
 	
-	public ISubItem setEffects(PotionEffect... effects);
+	ISubItem setEffects(PotionEffect... effects);
 	
-	public ISubItem setEnabled(boolean enabled);
+	ISubItem setEnabled(boolean enabled);
 	
-	public ISubItem setFoodValue(int foodValue);
+	ISubItem setFoodValue(int foodValue);
 	
-	public ISubItem setIconName(String icon);
+	ISubItem setIconName(String icon);
 	
-	public ISubItem setName(String name);
+	ISubItem setName(String name);
 	
-	public ISubItemRecipe getRecipe();
+	ISubItemRecipe getRecipe();
 }

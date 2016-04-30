@@ -72,7 +72,7 @@ public class ContainerCreativeList extends Container
 				}
 				else
 				{
-					GuiCreativeInventory.getInventory().setInventorySlotContents(l + k * 9, (ItemStack) null);
+					GuiCreativeInventory.getInventory().setInventorySlotContents(l + k * 9, null);
 				}
 			}
 		}
@@ -97,7 +97,7 @@ public class ContainerCreativeList extends Container
 			
 			if (slot != null && slot.getHasStack())
 			{
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			}
 		}
 		

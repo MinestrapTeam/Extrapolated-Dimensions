@@ -4,5 +4,5 @@ import net.minecraft.item.ItemStack;
 
 public interface IItemMatcher
 {
-	public boolean isItemValid(ItemStack stack);
+	boolean isItemValid(ItemStack stack);
 }

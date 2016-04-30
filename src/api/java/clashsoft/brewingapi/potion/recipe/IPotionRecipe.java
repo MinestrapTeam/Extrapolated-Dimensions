@@ -14,14 +14,14 @@ public interface IPotionRecipe
 	 * @see AbstractPotionRecipe#register()
 	 * @return this potion recipe
 	 */
-	public IPotionRecipe register();
+	IPotionRecipe register();
 	
 	/**
 	 * Gets the ingredient of this {@link IPotionRecipe}.
 	 * 
 	 * @return the ingredient
 	 */
-	public ItemStack getIngredient();
+	ItemStack getIngredient();
 	
 	/**
 	 * Returns true if this {@link IPotionRecipe} is appliable to the given
@@ -33,7 +33,7 @@ public interface IPotionRecipe
 	 *            the potion stack
 	 * @return true, if this potion recipe is appliable
 	 */
-	public boolean canApply(ItemStack ingredient, PotionTypeList potionTypes);
+	boolean canApply(ItemStack ingredient, PotionTypeList potionTypes);
 	
 	/**
 	 * Applies this {@link IPotionRecipe} to the given {@link ItemStack}
@@ -44,5 +44,5 @@ public interface IPotionRecipe
 	 * @param potion
 	 *            the potion stack
 	 */
-	public void apply(ItemStack ingredient, PotionTypeList potionTypes);
+	void apply(ItemStack ingredient, PotionTypeList potionTypes);
 }

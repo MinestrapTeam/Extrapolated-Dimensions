@@ -62,9 +62,9 @@ public class BlockBrewingStand2 extends BlockBrewingStand
 	public void addCollidingBlockToList(World world, int x, int y, int z, AxisAlignedBB aabb, List list, Entity entity)
 	{
 		this.setBlockBounds(0.4375F, 0.0F, 0.4375F, 0.5625F, 0.875F, 0.5625F);
-		super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
+		addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 		this.setBlockBoundsForItemRender();
-		super.addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
+		addCollisionBoxesToList(world, x, y, z, aabb, list, entity);
 	}
 	
 	@Override

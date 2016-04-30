@@ -46,11 +46,7 @@ public class ModUpdater extends URLUpdater
 		{
 			return true;
 		}
-		if (this.acronym != null && this.acronym.equals(key))
-		{
-			return true;
-		}
-		return false;
+		return this.acronym != null && this.acronym.equals(key);
 	}
 	
 	@Override

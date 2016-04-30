@@ -212,7 +212,9 @@ public class CSBlocks
 			}
 			
 			now = System.currentTimeMillis() - now;
-			CSLog.info(flag ? "Replace Block : %s (%s) with %s, took %d ms" : "Replace Block : %s (%s) with %s FAILED, took %d ms", new Object[] { block.getUnlocalizedName(), block.getClass().getSimpleName(), newBlock.getClass().getSimpleName(), now });
+			CSLog.info(flag ? "Replace Block : %s (%s) with %s, took %d ms" : "Replace Block : %s (%s) with %s FAILED, took %d ms",
+			           block.getUnlocalizedName(), block.getClass().getSimpleName(), newBlock.getClass().getSimpleName(),
+			           now);
 			
 			return true;
 		}

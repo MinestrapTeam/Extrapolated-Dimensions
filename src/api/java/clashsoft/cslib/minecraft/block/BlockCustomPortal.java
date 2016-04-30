@@ -109,7 +109,6 @@ public abstract class BlockCustomPortal extends BlockCustomPortalBase
 			
 			for (int i1 = y; y > i1 - 21 && y > 0 && this.isValidBlock(x, y - 1, z); --y)
 			{
-				;
 			}
 			
 			int j1 = this.calculateWidth(x, y, z, this.direction2) - 1;

@@ -23,7 +23,7 @@ public interface IInventoryHandler
 	 * @param creative
 	 *            true, if the player is in creative mode
 	 */
-	public void pre(Point2i[] slots, EntityPlayer player, boolean creative);
+	void pre(Point2i[] slots, EntityPlayer player, boolean creative);
 	
 	/**
 	 * Override this method to add new inventory slots. This method is called
@@ -39,7 +39,7 @@ public interface IInventoryHandler
 	 * @param creative
 	 *            true, if the player is in creative mode
 	 */
-	public void addSlots(ISlotList container, EntityPlayer player, boolean creative);
+	void addSlots(ISlotList container, EntityPlayer player, boolean creative);
 	
 	/**
 	 * This method is called when a button is pressed on the creative or
@@ -52,5 +52,5 @@ public interface IInventoryHandler
 	 * @param creative
 	 *            true, if the player is in creative mode
 	 */
-	public void buttonPressed(GuiButton button, EntityPlayer player, boolean creative);
+	void buttonPressed(GuiButton button, EntityPlayer player, boolean creative);
 }

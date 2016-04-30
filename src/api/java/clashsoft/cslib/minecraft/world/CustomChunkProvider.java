@@ -509,10 +509,10 @@ public class CustomChunkProvider implements IChunkProvider
 	{
 		if (this.mapFeaturesEnabled)
 		{
-			this.mineshaftGenerator.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
-			this.villageGenerator.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
-			this.strongholdGenerator.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
-			this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
+			this.mineshaftGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
+			this.villageGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
+			this.strongholdGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
+			this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
 		}
 	}
 }

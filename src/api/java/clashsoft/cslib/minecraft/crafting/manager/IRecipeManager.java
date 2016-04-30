@@ -14,7 +14,7 @@ public interface IRecipeManager
 	 * @param output
 	 *            the output
 	 */
-	public void addRecipe(Block block, ItemStack output);
+	void addRecipe(Block block, ItemStack output);
 	
 	/**
 	 * Adds a new recipe.
@@ -24,7 +24,7 @@ public interface IRecipeManager
 	 * @param output
 	 *            the output
 	 */
-	public void addRecipe(Item item, ItemStack output);
+	void addRecipe(Item item, ItemStack output);
 	
 	/**
 	 * Adds a new recipe.
@@ -34,7 +34,7 @@ public interface IRecipeManager
 	 * @param output
 	 *            the output
 	 */
-	public void addRecipe(ItemStack input, ItemStack output);
+	void addRecipe(ItemStack input, ItemStack output);
 	
 	/**
 	 * Returns true if the given {@link ItemStack} {@code input} has a crafting
@@ -43,7 +43,7 @@ public interface IRecipeManager
 	 * @param input
 	 * @return true, if the input has a crafting result
 	 */
-	public boolean hasResult(ItemStack input);
+	boolean hasResult(ItemStack input);
 	
 	/**
 	 * Returns the crafting result for the given {@link ItemStack} {@code input}
@@ -52,7 +52,7 @@ public interface IRecipeManager
 	 *            the input
 	 * @return the output
 	 */
-	public ItemStack getResult(ItemStack input);
+	ItemStack getResult(ItemStack input);
 	
 	/**
 	 * Returns a copy of the crafting result for the given {@link ItemStack}
@@ -62,5 +62,5 @@ public interface IRecipeManager
 	 *            the input
 	 * @return the output
 	 */
-	public ItemStack copyResult(ItemStack input);
+	ItemStack copyResult(ItemStack input);
 }

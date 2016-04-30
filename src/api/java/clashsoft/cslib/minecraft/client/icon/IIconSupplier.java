@@ -5,9 +5,9 @@ import net.minecraft.util.IIcon;
 
 public interface IIconSupplier
 {
-	public void registerIcons(IIconRegister iconRegister);
+	void registerIcons(IIconRegister iconRegister);
 	
-	public IIcon getIcon(int metadata);
+	IIcon getIcon(int metadata);
 	
-	public IIcon getIcon(int metadata, int side);
+	IIcon getIcon(int metadata, int side);
 }

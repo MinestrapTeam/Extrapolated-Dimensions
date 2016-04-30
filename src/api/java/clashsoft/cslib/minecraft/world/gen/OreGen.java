@@ -265,11 +265,7 @@ public class OreGen extends WorldGenerator
 		{
 			return false;
 		}
-		if (this.excludedBiomes != null && this.excludedBiomes.contains(biome))
-		{
-			return false;
-		}
-		return true;
+		return !(this.excludedBiomes != null && this.excludedBiomes.contains(biome));
 	}
 	
 	@Override
@@ -386,10 +382,6 @@ public class OreGen extends WorldGenerator
 		{
 			return false;
 		}
-		if (this.veigns != other.veigns)
-		{
-			return false;
-		}
-		return true;
+		return this.veigns == other.veigns;
 	}
 }

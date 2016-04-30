@@ -173,7 +173,7 @@ public class ContainerInventory extends Container implements ISlotList
 				player.dropPlayerItemWithRandomChoice(itemstack, false);
 			}
 		}
-		this.craftResult.setInventorySlotContents(0, (ItemStack) null);
+		this.craftResult.setInventorySlotContents(0, null);
 	}
 	
 	@Override
@@ -287,7 +287,7 @@ public class ContainerInventory extends Container implements ISlotList
 			
 			if (itemstack1.stackSize == 0)
 			{
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			}
 			else
 			{

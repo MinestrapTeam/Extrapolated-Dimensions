@@ -10,7 +10,7 @@ import net.minecraft.potion.PotionEffect;
 
 public interface IPotionAttribute
 {
-	public static Map<String, IPotionAttribute>	attributes	= new HashMap();
+	Map<String, IPotionAttribute>	attributes	= new HashMap();
 	
 	/**
 	 * Registers this {@link IPotionAttribute}. It is recommended to register it
@@ -20,7 +20,7 @@ public interface IPotionAttribute
 	 * @see AbstractPotionAttribute#register()
 	 * @return this potion attribute
 	 */
-	public IPotionAttribute register();
+	IPotionAttribute register();
 	
 	/**
 	 * Returns a copy of this {@link IPotionAttribute}. If this attribute is
@@ -29,7 +29,7 @@ public interface IPotionAttribute
 	 * 
 	 * @return this potion attribute or a new instance
 	 */
-	public IPotionAttribute copy();
+	IPotionAttribute copy();
 	
 	/**
 	 * Returns the name of this {@link IPotionAttribute}. Note that the name is
@@ -37,7 +37,7 @@ public interface IPotionAttribute
 	 * 
 	 * @return the name
 	 */
-	public String getName();
+	String getName();
 	
 	/**
 	 * Returns the display name of this {@link IPotionAttribute}, depending on
@@ -48,7 +48,7 @@ public interface IPotionAttribute
 	 *            the potion type
 	 * @return the display name
 	 */
-	public String getDisplayName(IPotionType type);
+	String getDisplayName(IPotionType type);
 	
 	/**
 	 * Returns the modded {@link PotionEffect} {@code effect} of this
@@ -61,7 +61,7 @@ public interface IPotionAttribute
 	 *            the effect
 	 * @return the modded effect
 	 */
-	public PotionEffect getModdedEffect(IPotionType type, PotionEffect effect);
+	PotionEffect getModdedEffect(IPotionType type, PotionEffect effect);
 	
 	/**
 	 * Reads this {@link IPotionAttribute} from the given {@link NBTTagCompound}
@@ -70,7 +70,7 @@ public interface IPotionAttribute
 	 * @param nbt
 	 *            the NBT
 	 */
-	public void writeToNBT(NBTTagCompound nbt);
+	void writeToNBT(NBTTagCompound nbt);
 	
 	/**
 	 * Writes this {@link IPotionAttribute} to the given {@link NBTTagCompound}
@@ -79,5 +79,5 @@ public interface IPotionAttribute
 	 * @param nbt
 	 *            the NBT
 	 */
-	public void readFromNBT(NBTTagCompound nbt);
+	void readFromNBT(NBTTagCompound nbt);
 }

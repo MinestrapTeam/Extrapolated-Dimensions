@@ -4,5 +4,5 @@ import net.minecraft.inventory.Slot;
 
 public interface ISlotList
 {
-	public Slot addSlot(Slot slot);
+	Slot addSlot(Slot slot);
 }

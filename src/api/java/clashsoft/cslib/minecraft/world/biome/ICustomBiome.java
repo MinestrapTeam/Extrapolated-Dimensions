@@ -4,23 +4,23 @@ import net.minecraft.block.Block;
 
 public interface ICustomBiome
 {
-	public Block getTopBlock();
+	Block getTopBlock();
 	
-	public Block getFillerBlock();
+	Block getFillerBlock();
 	
-	public Block getStoneBlock();
+	Block getStoneBlock();
 	
-	public Block getWaterBlock();
+	Block getWaterBlock();
 	
-	public byte getTopMetadata();
+	byte getTopMetadata();
 	
-	public byte getFillerMetadata();
+	byte getFillerMetadata();
 	
-	public byte getStoneMetadata();
+	byte getStoneMetadata();
 	
-	public byte getWaterMetadata();
+	byte getWaterMetadata();
 	
-	public int getBedrockHeight();
+	int getBedrockHeight();
 	
-	public int getWaterLevel();
+	int getWaterLevel();
 }

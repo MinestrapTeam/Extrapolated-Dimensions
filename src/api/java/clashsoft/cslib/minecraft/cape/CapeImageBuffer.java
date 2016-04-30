@@ -24,8 +24,8 @@ public class CapeImageBuffer implements IImageBuffer
 		}
 		else
 		{
-			this.imageWidth = bufferedImage.getWidth((ImageObserver) null);
-			this.imageHeight = bufferedImage.getHeight((ImageObserver) null);
+			this.imageWidth = bufferedImage.getWidth(null);
+			this.imageHeight = bufferedImage.getHeight(null);
 			if (this.imageWidth < 64)
 			{
 				this.imageWidth = 64;
@@ -38,7 +38,7 @@ public class CapeImageBuffer implements IImageBuffer
 			BufferedImage capeImage = new BufferedImage(this.imageWidth, this.imageHeight, 2);
 			
 			Graphics graphics = capeImage.getGraphics();
-			graphics.drawImage(bufferedImage, 0, 0, (ImageObserver) null);
+			graphics.drawImage(bufferedImage, 0, 0, null);
 			graphics.dispose();
 			
 			return capeImage;

@@ -18,9 +18,9 @@ import clashsoft.cslib.minecraft.CSLib;
 @Target(ElementType.TYPE)
 public @interface Addon
 {
-	public String modName() default CSLib.NAME;
+	String modName() default CSLib.NAME;
 	
-	public String addonName();
+	String addonName();
 	
-	public boolean enable() default true;
+	boolean enable() default true;
 }

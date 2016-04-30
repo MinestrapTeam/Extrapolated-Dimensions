@@ -18,7 +18,7 @@ public class Convenience
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			mc.theWorld.sendQuittingDisconnectingPacket();
-			mc.loadWorld((WorldClient) null);
+			mc.loadWorld(null);
 			
 			mc.shutdown();
 		}

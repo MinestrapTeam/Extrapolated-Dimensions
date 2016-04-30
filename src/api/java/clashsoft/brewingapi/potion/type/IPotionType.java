@@ -22,23 +22,23 @@ import net.minecraft.potion.PotionEffect;
 public interface IPotionType extends Comparable<IPotionType>
 {
 	/** Name of the tag compound that stores the potion type list */
-	public static final String					COMPOUND_NAME	= "Brewing";
+	String					COMPOUND_NAME	= "Brewing";
 	
 	/** Version identifier for NBTs. **/
-	public static final String					NBT_VERSION		= "1.1";
+	String					NBT_VERSION		= "1.1";
 	
 	/** List that stores ALL PotionTypes, also PotionBase types **/
-	public static TIntObjectMap<IPotionType>	potionTypes		= new TIntObjectHashMap();
-	public static List<IPotionType>				potionTypeList	= new ArrayList();
-	public static List<IPotionType>				combinableTypes	= new ArrayList();
-	public static List<IPotionType>				effectTypes		= new ArrayList();
+	TIntObjectMap<IPotionType>	potionTypes		= new TIntObjectHashMap();
+	List<IPotionType>				potionTypeList	= new ArrayList();
+	List<IPotionType>				combinableTypes	= new ArrayList();
+	List<IPotionType>				effectTypes		= new ArrayList();
 	
 	/**
 	 * Returns an unique identifier for this {@link IPotionType}.
 	 * 
 	 * @return the UUID
 	 */
-	public String getUUID();
+	String getUUID();
 	
 	/**
 	 * Creates a copy of this {@link IPotionType}. This is usually used to make
@@ -46,21 +46,21 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return a copy of this {@link IPotionType}
 	 */
-	public IPotionType copy();
+	IPotionType copy();
 	
 	/**
 	 * Registers a potion type. This is useful to sort the potion types.
 	 * 
 	 * @return this
 	 */
-	public IPotionType register();
+	IPotionType register();
 	
 	/**
 	 * Returns true if this is a base potion type.
 	 * 
 	 * @return true, if this is a base potion type
 	 */
-	public boolean isBase();
+	boolean isBase();
 	
 	/**
 	 * Returns true if this {@link IPotionType} is combinable with an other
@@ -68,21 +68,21 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return true, if this is combinable
 	 */
-	public boolean isCombinable();
+	boolean isCombinable();
 	
 	/**
 	 * Returns the underlying {@link PotionEffect} of this {@link IPotionType}.
 	 * 
 	 * @return the PotionEffect
 	 */
-	public PotionEffect getEffect();
+	PotionEffect getEffect();
 	
 	/**
 	 * Returns true if this {@link IPotionType} has an effect
 	 * 
 	 * @return true, if this has an effect
 	 */
-	public boolean hasEffect();
+	boolean hasEffect();
 	
 	/**
 	 * Returns the name of this {@link IPotionType}'s effect. If the effect is
@@ -90,7 +90,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return
 	 */
-	public String getEffectName();
+	String getEffectName();
 	
 	/**
 	 * Returns the display name of this {@link IPotionType}'s effect. The
@@ -103,7 +103,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the display name
 	 */
-	public StringBuilder getDisplayName();
+	StringBuilder getDisplayName();
 	
 	/**
 	 * Returns the liquid color of this {@link IPotionType}'s effect. If the
@@ -112,7 +112,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return
 	 */
-	public int getLiquidColor();
+	int getLiquidColor();
 	
 	/**
 	 * Returns the {@link Potion} of this {@link IPotionType}'s effect. If the
@@ -120,7 +120,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the potion
 	 */
-	public Potion getPotion();
+	Potion getPotion();
 	
 	/**
 	 * Returns the potion ID of this {@link IPotionType}'s effect. If the effect
@@ -128,7 +128,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the potion ID
 	 */
-	public int getPotionID();
+	int getPotionID();
 	
 	/**
 	 * Returns true if the effect of this {@link IPotionType} is a bad effect /
@@ -136,7 +136,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return true, if this has a bad effect
 	 */
-	public boolean isBadEffect();
+	boolean isBadEffect();
 	
 	/**
 	 * Returns the duration of this {@link IPotionType}'s effect. If the effect
@@ -144,14 +144,14 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the potion
 	 */
-	public int getDuration();
+	int getDuration();
 	
 	/**
 	 * Returns true if this {@link IPotionType}'s effect is instant.
 	 * 
 	 * @return true, if this effect is instant.
 	 */
-	public boolean isInstant();
+	boolean isInstant();
 	
 	/**
 	 * Returns the amplifier of this {@link IPotionType}'s effect. If the effect
@@ -159,7 +159,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the potion
 	 */
-	public int getAmplifier();
+	int getAmplifier();
 	
 	/**
 	 * Returns the amount of redstone dust that had to be used to reach the
@@ -167,7 +167,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the redstone amount
 	 */
-	public int getRedstoneAmount();
+	int getRedstoneAmount();
 	
 	/**
 	 * Returns the amount of redstone dust that had to be used to reach the
@@ -175,7 +175,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the redstone amount
 	 */
-	public int getGlowstoneAmount();
+	int getGlowstoneAmount();
 	
 	/**
 	 * Returns the mximimum amplifier this {@link IPotionType}'s effect can
@@ -183,7 +183,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the max amplifier
 	 */
-	public int getMaxAmplifier();
+	int getMaxAmplifier();
 	
 	/**
 	 * Returns the mximimum duration this {@link IPotionType}'s effect can
@@ -191,7 +191,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the max duration
 	 */
-	public int getMaxDuration();
+	int getMaxDuration();
 	
 	/**
 	 * Returns the default duration of this {@link IPotionType}'s effect. If
@@ -199,7 +199,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the default duration
 	 */
-	public int getDefaultDuration();
+	int getDefaultDuration();
 	
 	/**
 	 * Returns the base potion type that is required to brew this
@@ -207,7 +207,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the base potion type
 	 */
-	public IPotionBase getBase();
+	IPotionBase getBase();
 	
 	/**
 	 * Returns the inverted effect potion type. This is used when a fermented
@@ -215,35 +215,35 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the inverted potion type
 	 */
-	public IPotionType getInverted();
+	IPotionType getInverted();
 	
 	/**
 	 * Returns the ingredient that is used to brew this {@link IPotionType}.
 	 * 
 	 * @return the ingredient
 	 */
-	public ItemStack getIngredient();
+	ItemStack getIngredient();
 	
 	/**
 	 * Returns true if this {@link IPotionType} is amplifiable with Glowstone.
 	 * 
 	 * @return true, if this {@link IPotionType} is amplifiable
 	 */
-	public boolean isAmplifiable();
+	boolean isAmplifiable();
 	
 	/**
 	 * Returns true if this {@link IPotionType} is extendable with Redstone.
 	 * 
 	 * @return true, if this {@link IPotionType} is extendable
 	 */
-	public boolean isExtendable();
+	boolean isExtendable();
 	
 	/**
 	 * Returns true if this {@link IPotionType} is dilutable.
 	 * 
 	 * @return true, if this {@link IPotionType} is dilutable
 	 */
-	public boolean isDilutable();
+	boolean isDilutable();
 	
 	/**
 	 * Returns true if this {@link IPotionType} is inversible with a Fermented
@@ -251,35 +251,35 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return true, if this {@link IPotionType} is inversible
 	 */
-	public boolean isInversible();
+	boolean isInversible();
 	
 	/**
 	 * Returns the Glowstone-amplified version of this {@link IPotionType}.
 	 * 
 	 * @return the amplified version
 	 */
-	public IPotionType onAmplified();
+	IPotionType onAmplified();
 	
 	/**
 	 * Returns the Redstone-extended version of this {@link IPotionType}.
 	 * 
 	 * @return the extended version
 	 */
-	public IPotionType onExtended();
+	IPotionType onExtended();
 	
 	/**
 	 * Returns the diluted version of this {@link IPotionType}.
 	 * 
 	 * @return the diluted version
 	 */
-	public IPotionType onDiluted();
+	IPotionType onDiluted();
 	
 	/**
 	 * Returns the splash version of this {@link IPotionType}.
 	 * 
 	 * @return the splash version
 	 */
-	public IPotionType onGunpowderUsed();
+	IPotionType onGunpowderUsed();
 	
 	/**
 	 * Returns the Fermented Spider Eye-inverted version of this
@@ -287,7 +287,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the inverted version
 	 */
-	public IPotionType onInverted();
+	IPotionType onInverted();
 	
 	/**
 	 * Sets the attributes of this {@link IPotionType} to the given {@link List}
@@ -296,7 +296,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param attributes
 	 *            the attributes
 	 */
-	public void setAttributes(List<IPotionAttribute> attributes);
+	void setAttributes(List<IPotionAttribute> attributes);
 	
 	/**
 	 * Returns a {@link List} of {@link IPotionAttribute} of this
@@ -304,14 +304,14 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the attributes
 	 */
-	public List<IPotionAttribute> getAttributes();
+	List<IPotionAttribute> getAttributes();
 	
 	/**
 	 * Returns true if this {@link IPotionType} has any attributes.
 	 * 
 	 * @return true, if this {@link IPotionType} has attributes
 	 */
-	public boolean hasAttributes();
+	boolean hasAttributes();
 	
 	/**
 	 * Adds the given {@link IPotionAttribute} {@code attribute} to this potion
@@ -319,7 +319,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @param attribute
 	 */
-	public void addAttribute(IPotionAttribute attribute);
+	void addAttribute(IPotionAttribute attribute);
 	
 	/**
 	 * Returns true if this {@link IPotionType} has the given
@@ -329,7 +329,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 *            the attribute
 	 * @return true, if this {@link IPotionType} has the attribute
 	 */
-	public boolean hasAttribute(IPotionAttribute attribute);
+	boolean hasAttribute(IPotionAttribute attribute);
 	
 	/**
 	 * Returns a list of sub-types of this {@link IPotionType}.
@@ -341,9 +341,9 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * 
 	 * @return the list of subtypes
 	 */
-	public List<IPotionType> getSubTypes();
+	List<IPotionType> getSubTypes();
 	
-	public ItemStack apply(ItemStack potion);
+	ItemStack apply(ItemStack potion);
 	
 	/**
 	 * Adds this {@link IPotionType} to the given {@link PotionTypesList} {@code potionTypes}.
@@ -351,9 +351,9 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param potionTypes
 	 *            the cached list of potion types
 	 */
-	public ItemStack apply(PotionTypeList potionTypes);
+	ItemStack apply(PotionTypeList potionTypes);
 	
-	public ItemStack remove(ItemStack potion);
+	ItemStack remove(ItemStack potion);
 	
 	/**
 	 * Removes this {@link IPotionType} from the given {@link PotionTypesList} {@code potionTypes}.
@@ -361,7 +361,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param potionTypes
 	 *            the cached list of potion types
 	 */
-	public ItemStack remove(PotionTypeList potionTypes);
+	ItemStack remove(PotionTypeList potionTypes);
 	
 	/**
 	 * Applies this {@link IPotionType}'s effect to the living entity or player.
@@ -369,7 +369,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param target
 	 *            the target
 	 */
-	public void apply(EntityLivingBase target);
+	void apply(EntityLivingBase target);
 	
 	/**
 	 * Applies this {@link IPotionType}'s effect to the living entity or player.
@@ -388,7 +388,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param target
 	 * @param distance
 	 */
-	public void apply(EntityLivingBase thrower, EntityLivingBase target, double distance);
+	void apply(EntityLivingBase thrower, EntityLivingBase target, double distance);
 	
 	/**
 	 * Directly applies the given {@link PotionEffect} to the living entity or
@@ -399,7 +399,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param effect
 	 *            the effect to apply
 	 */
-	public void apply_do(EntityLivingBase target, PotionEffect effect);
+	void apply_do(EntityLivingBase target, PotionEffect effect);
 	
 	/**
 	 * Writes this {@link IPotionType} to the given {@link NBTTagCompound}
@@ -408,7 +408,7 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param nbt
 	 *            the NBTTagCompound
 	 */
-	public void writeToNBT(NBTTagCompound nbt);
+	void writeToNBT(NBTTagCompound nbt);
 	
 	/**
 	 * Reads this {@link IPotionType} from the given {@link NBTTagCompound}
@@ -417,5 +417,5 @@ public interface IPotionType extends Comparable<IPotionType>
 	 * @param nbt
 	 *            the NBTTagCompound
 	 */
-	public void readFromNBT(NBTTagCompound nbt);
+	void readFromNBT(NBTTagCompound nbt);
 }

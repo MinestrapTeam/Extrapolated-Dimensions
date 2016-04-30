@@ -17,7 +17,7 @@ public interface IPotionEffectHandler
 	 * @param effect
 	 *            the potion effect
 	 */
-	public void onPotionUpdate(int tick, EntityLivingBase entity, PotionEffect effect);
+	void onPotionUpdate(int tick, EntityLivingBase entity, PotionEffect effect);
 	
 	/**
 	 * Returns true if this effect handler can handle the given
@@ -27,5 +27,5 @@ public interface IPotionEffectHandler
 	 *            the effect
 	 * @return true, if this can handle the effect
 	 */
-	public boolean canHandle(PotionEffect effect);
+	boolean canHandle(PotionEffect effect);
 }

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ICustomHUDEntity
 {
-	public void addInformation(List<String> list);
+	void addInformation(List<String> list);
 }

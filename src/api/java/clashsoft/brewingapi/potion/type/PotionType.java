@@ -47,7 +47,7 @@ public class PotionType extends AbstractPotionType
 	 */
 	public PotionType(PotionEffect effect, int maxAmplifier, int maxDuration)
 	{
-		this(effect, maxAmplifier, maxDuration, (IPotionType) null);
+		this(effect, maxAmplifier, maxDuration, null);
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class PotionType extends AbstractPotionType
 	 */
 	public PotionType(PotionEffect effect, int maxAmplifier, int maxDuration, IPotionType inverted)
 	{
-		this(effect, maxAmplifier, maxDuration, inverted, (ItemStack) null, (PotionBase) null);
+		this(effect, maxAmplifier, maxDuration, inverted, null, null);
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class PotionType extends AbstractPotionType
 	 */
 	public PotionType(PotionEffect effect, int maxAmplifier, int maxDuration, ItemStack ingredient, PotionBase base)
 	{
-		this(effect, maxAmplifier, maxDuration, (IPotionType) null, ingredient, base);
+		this(effect, maxAmplifier, maxDuration, null, ingredient, base);
 	}
 	
 	/**
@@ -138,7 +138,7 @@ public class PotionType extends AbstractPotionType
 			}
 			if (potion instanceof CustomPotion)
 			{
-				return ((CustomPotion) potion).isBadEffect();
+				return potion.isBadEffect();
 			}
 		}
 		return false;
@@ -341,11 +341,7 @@ public class PotionType extends AbstractPotionType
 		{
 			return false;
 		}
-		if (this.maxDuration != other.maxDuration)
-		{
-			return false;
-		}
-		return true;
+		return this.maxDuration == other.maxDuration;
 	}
 	
 	@Override

@@ -393,7 +393,9 @@ public class CSItems
 			}
 			
 			now = System.currentTimeMillis() - now;
-			CSLog.info(flag ? "Replace Item : %s (%s) with %s, took %d ms" : "Replace Item : %s (%s) with %s FAILED, took %d ms", new Object[] { item.getUnlocalizedName(), item.getClass().getSimpleName(), newItem.getClass().getSimpleName(), now });
+			CSLog.info(flag ? "Replace Item : %s (%s) with %s, took %d ms" : "Replace Item : %s (%s) with %s FAILED, took %d ms",
+			           item.getUnlocalizedName(), item.getClass().getSimpleName(), newItem.getClass().getSimpleName(),
+			           now);
 			
 			return true;
 		}

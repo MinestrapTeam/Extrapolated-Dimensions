@@ -7,9 +7,9 @@ import net.minecraft.item.ItemStack;
 
 public interface ICustomBlock
 {
-	public static final String[]	DEFAULT_NAMES	= new String[] { null };
+	String[]	DEFAULT_NAMES	= new String[] { null };
 	
-	public String getUnlocalizedName(ItemStack stack);
+	String getUnlocalizedName(ItemStack stack);
 	
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list);
+	void addInformation(ItemStack stack, EntityPlayer player, List<String> list);
 }

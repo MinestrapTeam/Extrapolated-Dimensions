@@ -80,7 +80,7 @@ public class CommandPotion extends CommandBase
 		
 		if (id < 0 || id >= Potion.potionTypes.length || Potion.potionTypes[id] == null)
 		{
-			throw new NumberInvalidException("commands.potion.effect.notFound", new Object[] { Integer.valueOf(id) });
+			throw new NumberInvalidException("commands.potion.effect.notFound", Integer.valueOf(id));
 		}
 		
 		if (Potion.potionTypes[id].isInstant())
