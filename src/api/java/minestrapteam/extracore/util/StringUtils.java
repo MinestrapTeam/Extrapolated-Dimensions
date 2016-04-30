@@ -213,7 +213,7 @@ public class StringUtils
 		String[] ret = new String[array.length];
 		for (int i = 0; i < ret.length; i++)
 		{
-			ret[i] = array[i] + prefix + postfix;
+			ret[i] = prefix + array[i] + postfix;
 		}
 		return ret;
 	}
@@ -235,7 +235,7 @@ public class StringUtils
 		List<String> ret = new ArrayList<>(list.size());
 		for (int i = 0; i < ret.size(); i++)
 		{
-			ret.add(list.get(i) + prefix + postfix);
+			ret.add(prefix + list.get(i) + postfix);
 		}
 		return ret;
 	}

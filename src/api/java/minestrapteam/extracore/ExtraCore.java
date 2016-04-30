@@ -8,6 +8,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.extracore.api.BrewingAPI;
+import minestrapteam.extracore.api.PlayerInventoryAPI;
 import minestrapteam.extracore.block.BlockBrewingStand2;
 import minestrapteam.extracore.block.ECBlocks;
 import minestrapteam.extracore.block.ore.BlockOre2;
@@ -23,7 +24,6 @@ import minestrapteam.extracore.entity.ECEntities;
 import minestrapteam.extracore.entity.EntityPotion2;
 import minestrapteam.extracore.init.ClashsoftMod;
 import minestrapteam.extracore.inventory.ExtendedInventory;
-import minestrapteam.extracore.api.PlayerInventoryAPI;
 import minestrapteam.extracore.item.ECItems;
 import minestrapteam.extracore.item.ItemGlassBottle2;
 import minestrapteam.extracore.item.ItemPotion2;
@@ -47,6 +47,7 @@ import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -305,7 +306,7 @@ public class ExtraCore extends ClashsoftMod
 		}
 
 		GameRegistry.registerTileEntity(TileEntityBrewingStand2.class, "BrewingStand2");
-		ECEntities.replace("ThrownPotion", 16, EntityPotion2.class);
+		ECEntities.replace(EntityPotion.class, EntityPotion2.class);
 
 		BlockDispenser.dispenseBehaviorRegistry.putObject(potion2, new PotionDispenser());
 	}
