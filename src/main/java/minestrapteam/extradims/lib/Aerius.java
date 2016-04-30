@@ -1,6 +1,5 @@
 package minestrapteam.extradims.lib;
 
-import static clashsoft.cslib.minecraft.crafting.CSCrafting.*;
 import clashsoft.cslib.minecraft.block.*;
 import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
 import clashsoft.cslib.minecraft.item.CSItems;
@@ -11,13 +10,14 @@ import minestrapteam.extradims.block.aerius.*;
 import minestrapteam.extradims.item.aerius.*;
 import minestrapteam.extradims.item.armor.ItemCape;
 import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+
+import static clashsoft.cslib.minecraft.crafting.CSCrafting.*;
 
 public class Aerius
 {

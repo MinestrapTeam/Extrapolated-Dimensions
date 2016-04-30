@@ -54,7 +54,13 @@ public class BlockCytoidLightstrip extends VBlock implements IBlockRenderPass
 	{
 		return RenderGlowingBlock.instance.getRenderId();
 	}
-	
+
+	@Override
+	public int getRenderID(int metadata, int pass)
+	{
+		return this.getRenderType();
+	}
+
 	@Override
 	public boolean isOpaqueCube()
 	{
