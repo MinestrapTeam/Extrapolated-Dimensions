@@ -3,7 +3,7 @@ package minestrapteam.extradims.item.aerius;
 import java.util.List;
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.item.CustomItem;
+import minestrapteam.extracore.item.CustomItem;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;

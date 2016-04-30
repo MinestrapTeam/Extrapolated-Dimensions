@@ -1,6 +1,6 @@
 package minestrapteam.extradims.world.poc;
 
-import clashsoft.cslib.minecraft.world.CustomBiomeLayer;
+import minestrapteam.extracore.world.CustomBiomeLayer;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.world.WorldType;

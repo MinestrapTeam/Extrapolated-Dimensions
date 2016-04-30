@@ -2,7 +2,7 @@ package minestrapteam.extradims.item.aerius;
 
 import java.util.List;
 
-import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.extracore.util.I18n;
 import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,7 +1,7 @@
 package minestrapteam.extradims.block.virtious;
 
-import clashsoft.cslib.minecraft.block.BlockCustomSlab;
-import clashsoft.cslib.minecraft.client.icon.slab.SlabIconSupplier;
+import minestrapteam.extracore.block.BlockCustomSlab;
+import minestrapteam.extracore.client.icon.slab.SlabIconSupplier;
 
 import net.minecraft.block.material.Material;
 

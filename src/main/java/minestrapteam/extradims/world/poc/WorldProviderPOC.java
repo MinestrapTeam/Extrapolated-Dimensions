@@ -1,7 +1,7 @@
 package minestrapteam.extradims.world.poc;
 
-import clashsoft.cslib.minecraft.world.CustomChunkProvider;
-import clashsoft.cslib.minecraft.world.CustomWorldProvider;
+import minestrapteam.extracore.world.CustomChunkProvider;
+import minestrapteam.extracore.world.CustomWorldProvider;
 import minestrapteam.extradims.lib.WorldManager;
 
 import net.minecraft.world.chunk.IChunkProvider;

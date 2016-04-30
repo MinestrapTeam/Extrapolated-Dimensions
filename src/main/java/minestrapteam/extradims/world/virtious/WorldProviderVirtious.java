@@ -1,6 +1,6 @@
 package minestrapteam.extradims.world.virtious;
 
-import clashsoft.cslib.minecraft.world.CustomWorldProvider;
+import minestrapteam.extracore.world.CustomWorldProvider;
 import minestrapteam.extradims.client.renderer.VirtiousSkyRenderer;
 import minestrapteam.extradims.lib.WorldManager;
 

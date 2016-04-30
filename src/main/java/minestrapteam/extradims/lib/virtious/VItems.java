@@ -1,8 +1,8 @@
 package minestrapteam.extradims.lib.virtious;
 
-import clashsoft.cslib.minecraft.item.CSItems;
-import clashsoft.cslib.minecraft.item.ItemCustomBucket;
-import clashsoft.cslib.minecraft.item.ItemCustomDoor;
+import minestrapteam.extracore.item.ECItems;
+import minestrapteam.extracore.item.ItemCustomBucket;
+import minestrapteam.extracore.item.ItemCustomDoor;
 import minestrapteam.extradims.item.virtious.*;
 import minestrapteam.extradims.lib.Virtious;
 
@@ -145,70 +145,70 @@ public class VItems
 	
 	public static void load()
 	{
-		CSItems.addItem(brazeum_ingot, "brazeum_ingot");
-		CSItems.addItem(aquieus_shard, "aquieus_shard");
-		CSItems.addItem(pluthorium_gem, "pluthorium_gem");
-		CSItems.addItem(illuminous_gem, "illuminous_gem");
-		CSItems.addItem(tak, "tak");
+		ECItems.addItem(brazeum_ingot, "brazeum_ingot");
+		ECItems.addItem(aquieus_shard, "aquieus_shard");
+		ECItems.addItem(pluthorium_gem, "pluthorium_gem");
+		ECItems.addItem(illuminous_gem, "illuminous_gem");
+		ECItems.addItem(tak, "tak");
 		
-		CSItems.addItem(virtianwood_sword, "virtianwood_sword");
-		CSItems.addItem(virtianwood_shovel, "virtianwood_shovel");
-		CSItems.addItem(virtianwood_pickaxe, "virtianwood_pickaxe");
-		CSItems.addItem(virtianwood_axe, "virtianwood_axe");
-		CSItems.addItem(virtianwood_hoe, "virtianwood_hoe");
+		ECItems.addItem(virtianwood_sword, "virtianwood_sword");
+		ECItems.addItem(virtianwood_shovel, "virtianwood_shovel");
+		ECItems.addItem(virtianwood_pickaxe, "virtianwood_pickaxe");
+		ECItems.addItem(virtianwood_axe, "virtianwood_axe");
+		ECItems.addItem(virtianwood_hoe, "virtianwood_hoe");
 		
-		CSItems.addItem(amberwood_sword, "amberwood_sword");
-		CSItems.addItem(amberwood_shovel, "amberwood_shovel");
-		CSItems.addItem(amberwood_pickaxe, "amberwood_pickaxe");
-		CSItems.addItem(amberwood_axe, "amberwood_axe");
-		CSItems.addItem(amberwood_hoe, "amberwood_hoe");
+		ECItems.addItem(amberwood_sword, "amberwood_sword");
+		ECItems.addItem(amberwood_shovel, "amberwood_shovel");
+		ECItems.addItem(amberwood_pickaxe, "amberwood_pickaxe");
+		ECItems.addItem(amberwood_axe, "amberwood_axe");
+		ECItems.addItem(amberwood_hoe, "amberwood_hoe");
 		
-		CSItems.addItem(virtianstone_sword, "virtianstone_sword");
-		CSItems.addItem(virtianstone_shovel, "virtianstone_shovel");
-		CSItems.addItem(virtianstone_pickaxe, "virtianstone_pickaxe");
-		CSItems.addItem(virtianstone_axe, "virtianstone_axe");
-		CSItems.addItem(virtianstone_hoe, "virtianstone_hoe");
+		ECItems.addItem(virtianstone_sword, "virtianstone_sword");
+		ECItems.addItem(virtianstone_shovel, "virtianstone_shovel");
+		ECItems.addItem(virtianstone_pickaxe, "virtianstone_pickaxe");
+		ECItems.addItem(virtianstone_axe, "virtianstone_axe");
+		ECItems.addItem(virtianstone_hoe, "virtianstone_hoe");
 		
-		CSItems.addItem(deepstone_sword, "deepstone_sword");
-		CSItems.addItem(deepstone_shovel, "deepstone_shovel");
-		CSItems.addItem(deepstone_pickaxe, "deepstone_pickaxe");
-		CSItems.addItem(deepstone_axe, "deepstone_axe");
-		CSItems.addItem(deepstone_hoe, "deepstone_hoe");
+		ECItems.addItem(deepstone_sword, "deepstone_sword");
+		ECItems.addItem(deepstone_shovel, "deepstone_shovel");
+		ECItems.addItem(deepstone_pickaxe, "deepstone_pickaxe");
+		ECItems.addItem(deepstone_axe, "deepstone_axe");
+		ECItems.addItem(deepstone_hoe, "deepstone_hoe");
 		
-		CSItems.addItem(brazeum_sword, "brazeum_sword");
-		CSItems.addItem(brazeum_shovel, "brazeum_shovel");
-		CSItems.addItem(brazeum_pickaxe, "brazeum_pickaxe");
-		CSItems.addItem(brazeum_axe, "brazeum_axe");
-		CSItems.addItem(brazeum_hoe, "brazeum_hoe");
+		ECItems.addItem(brazeum_sword, "brazeum_sword");
+		ECItems.addItem(brazeum_shovel, "brazeum_shovel");
+		ECItems.addItem(brazeum_pickaxe, "brazeum_pickaxe");
+		ECItems.addItem(brazeum_axe, "brazeum_axe");
+		ECItems.addItem(brazeum_hoe, "brazeum_hoe");
 		
-		CSItems.addItem(aquieus_sword, "aquieus_sword");
-		CSItems.addItem(aquieus_shovel, "aquieus_shovel");
-		CSItems.addItem(aquieus_pickaxe, "aquieus_pickaxe");
-		CSItems.addItem(aquieus_axe, "aquieus_axe");
-		CSItems.addItem(aquieus_hoe, "aquieus_hoe");
+		ECItems.addItem(aquieus_sword, "aquieus_sword");
+		ECItems.addItem(aquieus_shovel, "aquieus_shovel");
+		ECItems.addItem(aquieus_pickaxe, "aquieus_pickaxe");
+		ECItems.addItem(aquieus_axe, "aquieus_axe");
+		ECItems.addItem(aquieus_hoe, "aquieus_hoe");
 		
-		CSItems.addItem(pluthorium_sword, "pluthorium_sword");
-		CSItems.addItem(pluthorium_shovel, "pluthorium_shovel");
-		CSItems.addItem(pluthorium_pickaxe, "pluthorium_pickaxe");
-		CSItems.addItem(pluthorium_axe, "pluthorium_axe");
-		CSItems.addItem(pluthorium_hoe, "pluthorium_hoe");
+		ECItems.addItem(pluthorium_sword, "pluthorium_sword");
+		ECItems.addItem(pluthorium_shovel, "pluthorium_shovel");
+		ECItems.addItem(pluthorium_pickaxe, "pluthorium_pickaxe");
+		ECItems.addItem(pluthorium_axe, "pluthorium_axe");
+		ECItems.addItem(pluthorium_hoe, "pluthorium_hoe");
 		
-		CSItems.addItem(teleporter_wand, "teleporter_wand");
-		CSItems.addItem(amberwood_fishing_rod, "amberwood_fishing_rod");
-		CSItems.addItem(sticky_bomb, "sticky_bomb");
-		CSItems.addItem(laser_pistol, "laser_pistol");
-		CSItems.addItem(laser_rifle, "laser_rifle");
-		CSItems.addItem(acid_bucket, "acid_bucket");
+		ECItems.addItem(teleporter_wand, "teleporter_wand");
+		ECItems.addItem(amberwood_fishing_rod, "amberwood_fishing_rod");
+		ECItems.addItem(sticky_bomb, "sticky_bomb");
+		ECItems.addItem(laser_pistol, "laser_pistol");
+		ECItems.addItem(laser_rifle, "laser_rifle");
+		ECItems.addItem(acid_bucket, "acid_bucket");
 		
-		CSItems.addItem(cytoid_door, "cytoid_door_item");
+		ECItems.addItem(cytoid_door, "cytoid_door_item");
 		
-		CSItems.addItem(burhaunch_cooked, "burhaunch_cooked");
-		CSItems.addItem(burhaunch_raw, "burhaunch_raw");
-		CSItems.addItem(evulus_fish, "evulus_fish");
-		CSItems.addItem(vois_food, "vois_food");
-		CSItems.addItem(binnegan_fruit, "binnegan_fruit");
-		CSItems.addItem(veer_seeds, "veer_seeds");
-		CSItems.addItem(veer_dye, "veer_dye");
+		ECItems.addItem(burhaunch_cooked, "burhaunch_cooked");
+		ECItems.addItem(burhaunch_raw, "burhaunch_raw");
+		ECItems.addItem(evulus_fish, "evulus_fish");
+		ECItems.addItem(vois_food, "vois_food");
+		ECItems.addItem(binnegan_fruit, "binnegan_fruit");
+		ECItems.addItem(veer_seeds, "veer_seeds");
+		ECItems.addItem(veer_dye, "veer_dye");
 	}
 	
 	public static String getTexture(String name)

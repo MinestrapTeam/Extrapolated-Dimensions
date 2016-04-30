@@ -1,8 +1,8 @@
 package minestrapteam.extradims.lib;
 
-import clashsoft.cslib.minecraft.block.CSBlocks;
-import clashsoft.cslib.minecraft.creativetab.CustomCreativeTab;
-import clashsoft.cslib.minecraft.item.CSItems;
+import minestrapteam.extracore.block.ECBlocks;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.item.ECItems;
 import minestrapteam.extradims.block.alchemy.BlockAlchemyTable;
 import minestrapteam.extradims.block.alchemy.BlockAlchemyTube;
 import minestrapteam.extradims.item.alchemy.ItemAlchemyGuide;
@@ -44,14 +44,14 @@ public class Alchemy
 	{
 		// Items
 		
-		CSItems.addItem(alchemyGuide, "alchemy_guide");
-		CSItems.addItem(elixir, "elixir");
-		CSItems.addItem(elixirBottle, "elixir_bottle");
+		ECItems.addItem(alchemyGuide, "alchemy_guide");
+		ECItems.addItem(elixir, "elixir");
+		ECItems.addItem(elixirBottle, "elixir_bottle");
 		
 		// Blocks
 		
-		CSBlocks.addBlock(alchemyTube, "alchemy_tube");
-		CSBlocks.addBlock(alchemyTable, "alchemy_table");
+		ECBlocks.addBlock(alchemyTube, "alchemy_tube");
+		ECBlocks.addBlock(alchemyTable, "alchemy_table");
 		
 		// Tab Icons
 		

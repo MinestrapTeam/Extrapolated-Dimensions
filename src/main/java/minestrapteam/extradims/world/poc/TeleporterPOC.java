@@ -1,6 +1,6 @@
 package minestrapteam.extradims.world.poc;
 
-import clashsoft.cslib.minecraft.world.CustomTeleporter;
+import minestrapteam.extracore.world.CustomTeleporter;
 import minestrapteam.extradims.lib.ParadiseOfChaos;
 
 import net.minecraft.world.WorldServer;

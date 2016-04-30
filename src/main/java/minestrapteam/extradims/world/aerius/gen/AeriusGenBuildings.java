@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.aerius.gen;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.CustomWorldGen;
+import minestrapteam.extracore.world.gen.CustomWorldGen;
 
 import net.minecraft.world.World;
 

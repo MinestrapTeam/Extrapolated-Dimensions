@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.virtious;
 
 import java.util.Iterator;
 
-import clashsoft.cslib.minecraft.world.CustomTeleporter;
+import minestrapteam.extracore.world.CustomTeleporter;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 
 import net.minecraft.block.Block;

@@ -2,7 +2,7 @@ package minestrapteam.extradims.client.gui.button;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.cslib.minecraft.client.gui.GuiBuilder;
+import minestrapteam.extracore.client.gui.GuiBuilder;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;

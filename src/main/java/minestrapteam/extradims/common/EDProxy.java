@@ -1,6 +1,6 @@
 package minestrapteam.extradims.common;
 
-import clashsoft.cslib.minecraft.common.BaseProxy;
+import minestrapteam.extracore.proxy.BaseProxy;
 import minestrapteam.extradims.ExtraDimensions;
 import minestrapteam.extradims.api.IChatEntity;
 import minestrapteam.extradims.inventory.ContainerAlchemyTable;

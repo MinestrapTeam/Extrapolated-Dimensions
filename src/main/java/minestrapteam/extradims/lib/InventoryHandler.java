@@ -1,12 +1,12 @@
 package minestrapteam.extradims.lib;
 
-import clashsoft.cslib.math.Point2i;
-import clashsoft.playerinventoryapi.PlayerInventoryAPI;
-import clashsoft.playerinventoryapi.SurvivalInventory;
-import clashsoft.playerinventoryapi.api.IInventoryHandler;
-import clashsoft.playerinventoryapi.api.ISlotList;
-import clashsoft.playerinventoryapi.inventory.SlotCustomArmor;
-import clashsoft.playerinventoryapi.lib.ExtendedInventory;
+import minestrapteam.extracore.util.math.Point2i;
+import minestrapteam.extracore.api.PlayerInventoryAPI;
+import minestrapteam.extracore.api.SurvivalInventory;
+import minestrapteam.extracore.inventory.IInventoryHandler;
+import minestrapteam.extracore.inventory.ISlotList;
+import minestrapteam.extracore.inventory.slot.SlotCustomArmor;
+import minestrapteam.extracore.inventory.ExtendedInventory;
 import minestrapteam.extradims.item.armor.ArmorTypes;
 import minestrapteam.extradims.item.armor.ItemCape;
 import minestrapteam.extradims.item.armor.ItemGloves;

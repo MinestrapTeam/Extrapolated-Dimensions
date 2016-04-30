@@ -4,7 +4,7 @@ import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.block.Block;
 
-import clashsoft.cslib.minecraft.block.BlockCustomPlant;
+import minestrapteam.extracore.block.BlockCustomPlant;
 
 public class BlockAeriusFlower extends BlockCustomPlant
 {

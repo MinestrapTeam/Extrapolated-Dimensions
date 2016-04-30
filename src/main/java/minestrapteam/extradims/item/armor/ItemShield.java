@@ -1,6 +1,6 @@
 package minestrapteam.extradims.item.armor;
 
-import clashsoft.cslib.minecraft.item.ItemCustomArmor;
+import minestrapteam.extracore.item.ItemCustomArmor;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.texture.IIconRegister;

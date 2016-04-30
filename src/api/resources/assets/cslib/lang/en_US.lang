@@ -1,0 +1,50 @@
+recipe.none=Not Craftable
+recipe.crafting=Crafting
+recipe.crafting.shapeless=Shapeless Crafting
+recipe.smelting=Smelting
+recipe.cooking=Cooking
+
+orebase.base_material=Base Material
+orebase.stone=Stone
+orebase.netherrack=Netherrack
+orebase.endstone=Endstone
+
+search.match=Match
+search.match.category=Category Match
+
+motd.message=%1$s Message of the Day:
+
+update.none=§7No Updates found.
+update.found=§aUpdates found:
+update.not_found=§7No updates found for %1$s.
+update.notification=§7A new §f%1$s§7 version is available: §a%2$s§7.
+update.notes=Update notes:
+update.automatic.disabled=§cAutomatic updates disabled.
+
+update.invalid=Invalid
+update.other_mc_version=Other Minecraft Version
+update.older_version=Older Version
+update.current_version=Current Version
+
+update.install=§aInstalling %1$s...
+update.install.skipping=§eSkipping installation.
+update.install.oldversion=§eAn old version of %1$s was detected (%2$s). Deleting.
+update.install.success=§aSuccessfully installed %1$s.
+update.install.failure=§cFailed to install %1$s. Reason: %2$s
+
+update.list.title=Mod Updates
+update.list.showinvalid=Show Invalid Updates
+
+update.list.modname=Mod Name:
+update.list.version=Current Version:
+update.list.newversion=New Version:
+update.list.url=Download URL:
+update.list.notes=Update Notes:
+
+update.list.install=Install
+update.list.installall=Install All
+update.list.install.status=Installation Status:
+update.list.install.error=Installation failed
+update.list.install.notstarted=Not yet started
+update.list.install.installing=Installing...
+update.list.install.installed=Installed

@@ -1,6 +1,6 @@
 package minestrapteam.extradims.client.renderer.block;
 
-import clashsoft.cslib.minecraft.client.renderer.block.RenderBlockMulti;
+import minestrapteam.extracore.client.renderer.block.RenderBlockMulti;
 import minestrapteam.extradims.client.EDClientProxy;
 
 import net.minecraft.block.Block;

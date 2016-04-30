@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.virtious;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.block.BlockCustomSapling;
+import minestrapteam.extracore.block.BlockCustomSapling;
 import minestrapteam.extradims.lib.Virtious;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenAmberTree;

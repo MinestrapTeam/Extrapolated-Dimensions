@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.virtious.gen;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
+import minestrapteam.extracore.world.gen.CustomTreeGen;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 
 import net.minecraft.world.World;

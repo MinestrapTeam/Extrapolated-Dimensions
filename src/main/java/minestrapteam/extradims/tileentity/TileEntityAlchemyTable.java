@@ -1,7 +1,7 @@
 package minestrapteam.extradims.tileentity;
 
 import minestrapteam.extradims.alchemy.EnumHeatType;
-import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
+import minestrapteam.extracore.tileentity.TileEntityInventory;
 
 public class TileEntityAlchemyTable extends TileEntityInventory
 {

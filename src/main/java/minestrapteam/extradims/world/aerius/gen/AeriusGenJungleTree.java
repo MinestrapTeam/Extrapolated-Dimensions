@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.aerius.gen;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
+import minestrapteam.extracore.world.gen.CustomTreeGen;
 import minestrapteam.extradims.lib.Aerius;
 
 import net.minecraft.block.Block;

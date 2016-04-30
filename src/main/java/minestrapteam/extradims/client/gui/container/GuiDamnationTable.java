@@ -2,7 +2,7 @@ package minestrapteam.extradims.client.gui.container;
 
 import org.lwjgl.opengl.GL11;
 
-import clashsoft.cslib.minecraft.lang.I18n;
+import minestrapteam.extracore.util.I18n;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.extradims.inventory.ContainerDamnationTable;

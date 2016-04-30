@@ -1,6 +1,6 @@
 package minestrapteam.extradims.biome.virtious;
 
-import clashsoft.cslib.minecraft.world.biome.CustomBiome;
+import minestrapteam.extracore.world.biome.CustomBiome;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 
 public class BiomeGenVirtiousOcean extends CustomBiome

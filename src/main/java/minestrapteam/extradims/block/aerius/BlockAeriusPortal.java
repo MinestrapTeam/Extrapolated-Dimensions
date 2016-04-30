@@ -1,6 +1,6 @@
 package minestrapteam.extradims.block.aerius;
 
-import clashsoft.cslib.minecraft.block.BlockCustomPortal;
+import minestrapteam.extracore.block.BlockCustomPortal;
 import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.world.aerius.TeleporterAerius;
 

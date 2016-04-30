@@ -2,8 +2,8 @@ package minestrapteam.extradims.world.aerius.gen;
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.CSWorld;
-import clashsoft.cslib.minecraft.world.gen.CustomWorldGen;
+import minestrapteam.extracore.world.ECWorld;
+import minestrapteam.extracore.world.gen.CustomWorldGen;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -49,7 +49,7 @@ public final class AeriusGenTemple extends CustomWorldGen
 	{
 		long now = System.currentTimeMillis();
 		
-		if (CSWorld.isBoxEmpty(world, x, y, z, this.length, this.width, this.height))
+		if (ECWorld.isBoxEmpty(world, x, y, z, this.length, this.width, this.height))
 		{
 			this.generate(world, random, x, y, z, this.length, this.width, this.height);
 			

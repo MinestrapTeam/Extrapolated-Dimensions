@@ -8,7 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import clashsoft.cslib.minecraft.world.gen.CustomTreeGen;
+import minestrapteam.extracore.world.gen.CustomTreeGen;
 
 public class AeriusGenTree2 extends CustomTreeGen
 {

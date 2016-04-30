@@ -1,8 +1,8 @@
 package minestrapteam.extradims.alchemy;
 
-import clashsoft.brewingapi.potion.base.PotionBase;
-import clashsoft.brewingapi.potion.type.IPotionType;
-import clashsoft.brewingapi.potion.type.PotionType;
+import minestrapteam.extracore.potion.base.PotionBase;
+import minestrapteam.extracore.potion.type.IPotionType;
+import minestrapteam.extracore.potion.type.PotionType;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;

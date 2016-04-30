@@ -1,7 +1,7 @@
 package minestrapteam.extradims.world.dreams;
 
-import clashsoft.cslib.minecraft.world.CustomChunkProvider;
-import clashsoft.cslib.minecraft.world.CustomWorldProvider;
+import minestrapteam.extracore.world.CustomChunkProvider;
+import minestrapteam.extracore.world.CustomWorldProvider;
 import minestrapteam.extradims.dream.Dream;
 import minestrapteam.extradims.lib.WorldManager;
 

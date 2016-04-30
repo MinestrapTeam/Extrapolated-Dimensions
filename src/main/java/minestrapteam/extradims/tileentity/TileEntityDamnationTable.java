@@ -1,6 +1,6 @@
 package minestrapteam.extradims.tileentity;
 
-import clashsoft.cslib.minecraft.tileentity.TileEntityInventory;
+import minestrapteam.extracore.tileentity.TileEntityInventory;
 import minestrapteam.extradims.api.alchemy.IEnergyFuel;
 import minestrapteam.extradims.api.curse.ICurseIngredient;
 import minestrapteam.extradims.curse.Curse;

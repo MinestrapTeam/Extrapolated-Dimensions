@@ -5,7 +5,7 @@ import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.Ev
 
 import java.util.Random;
 
-import clashsoft.cslib.minecraft.world.gen.WorldGenRanged;
+import minestrapteam.extracore.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 

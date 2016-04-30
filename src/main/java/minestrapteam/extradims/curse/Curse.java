@@ -3,7 +3,7 @@ package minestrapteam.extradims.curse;
 import java.util.ArrayList;
 import java.util.List;
 
-import clashsoft.cslib.util.CSString;
+import minestrapteam.extracore.util.StringUtils;
 
 import com.google.common.collect.ObjectArrays;
 
@@ -138,7 +138,7 @@ public class Curse
 	public String getTranslatedName(int level)
 	{
 		String s = StatCollector.translateToLocal(this.getName());
-		return s + " " + CSString.convertToRoman(level);
+		return s + " " + StringUtils.convertToRoman(level);
 	}
 	
 	public boolean canApply(ItemStack stack)

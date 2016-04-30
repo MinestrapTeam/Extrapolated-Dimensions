@@ -1,0 +1,89 @@
+package minestrapteam.extracore.potion.recipe;
+
+import minestrapteam.extracore.potion.PotionList;
+import minestrapteam.extracore.potion.PotionTypeList;
+import minestrapteam.extracore.potion.base.IPotionBase;
+import minestrapteam.extracore.potion.base.PotionBase;
+import minestrapteam.extracore.potion.type.IPotionType;
+
+import net.minecraft.item.ItemStack;
+
+public class PotionRecipe extends AbstractPotionRecipe
+{
+	private IPotionType	output;
+	private IPotionBase	base;
+	
+	/**
+	 * Constructs a new {@link PotionRecipe} from the given {@link ItemStack}
+	 * {@code input} and the given {@link IPotionType} {@code output}. The
+	 * required base potion is set to awkward.
+	 * 
+	 * @param input
+	 *            the input stack
+	 * @param output
+	 *            the output potion type
+	 */
+	public PotionRecipe(ItemStack input, IPotionType output)
+	{
+		this(input, PotionList.awkward, output);
+	}
+	
+	/**
+	 * Constructs a new {@link PotionRecipe} from the given {@link ItemStack}
+	 * {@code input}, the given {@link PotionBase} {@code base} and the given
+	 * {@link IPotionType} {@code output}.
+	 * 
+	 * @param input
+	 *            the input stack
+	 * @param output
+	 *            the output potion type
+	 */
+	public PotionRecipe(ItemStack input, IPotionBase base, IPotionType output)
+	{
+		super(input);
+		this.base = base;
+		this.output = output;
+	}
+	
+	/**
+	 * Gets the base potion of this {@link PotionRecipe}.
+	 * 
+	 * @return the base potion
+	 */
+	public IPotionBase getBase()
+	{
+		return this.base;
+	}
+	
+	/**
+	 * Gets the output potion type of this {@link PotionRecipe}.
+	 * 
+	 * @return the output potion type
+	 */
+	public IPotionType getOutput()
+	{
+		return this.output;
+	}
+	
+	@Override
+	public boolean canApply(PotionTypeList potionTypes)
+	{
+		IPotionBase base = this.base;
+		if (base == null)
+		{
+			return true;
+		}
+		return base.matches(this.output, potionTypes);
+	}
+	
+	@Override
+	public void apply(PotionTypeList potionTypes)
+	{
+		ItemStack potion = potionTypes.getPotion();
+		if (potion.getItemDamage() == 0)
+		{
+			potion.setItemDamage(1);
+		}
+		this.output.apply(potionTypes);
+	}
+}
