@@ -129,7 +129,7 @@ public class Aerius
 			                                          "holium_ore" },
 		                                          new String[] { getTexture("minerals/luminite_ore"),
 			                                          getTexture("minerals/white_gold_ore_aerock"),
-			                                          getTexture("minerals/luminite_ore"),
+			                                          getTexture("minerals/condaius_ore_aerock"),
 			                                          getTexture("minerals/holium_ore_aerock") }, null)
 			                          .setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
 		metalBlocks = (CustomBlock) new CustomBlock(Material.iron, new String[] { "luminite_block", "white_gold_block",
