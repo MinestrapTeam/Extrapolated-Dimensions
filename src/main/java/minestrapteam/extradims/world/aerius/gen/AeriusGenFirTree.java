@@ -1,18 +1,16 @@
 package minestrapteam.extradims.world.aerius.gen;
 
-import java.util.Random;
-
+import minestrapteam.extracore.world.gen.CustomTreeGen;
 import minestrapteam.extradims.lib.Aerius;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import minestrapteam.extracore.world.gen.CustomTreeGen;
+import java.util.Random;
 
-public class AeriusGenTree2 extends CustomTreeGen
+public class AeriusGenFirTree extends CustomTreeGen
 {
-	public AeriusGenTree2(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
+	public AeriusGenFirTree(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
 	{
 		super(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metaWood, metaLeaves);
 	}

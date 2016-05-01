@@ -1,21 +1,20 @@
 package minestrapteam.extradims.biome.aerius;
 
-import java.util.Random;
-
 import minestrapteam.extracore.world.biome.CustomBiome;
 import minestrapteam.extracore.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenBigTree;
+import minestrapteam.extradims.world.aerius.gen.AeriusGenFirTree;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenJungleTree;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenTree;
-import minestrapteam.extradims.world.aerius.gen.AeriusGenTree2;
-
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class BiomeAerius extends CustomBiome
 {
@@ -85,9 +84,9 @@ public class BiomeAerius extends CustomBiome
 	
 	public static WorldGenAbstractTree getTreeGenForTree(Random random, int metadata, boolean update)
 	{
-		if (metadata == 0)
+		switch (metadata)
 		{
-			// Skybark
+		case 0: // Skybark
 			if (random.nextInt(10) == 0)
 			{
 				return new AeriusGenBigTree(update, 20, 0, 0);
@@ -96,10 +95,7 @@ public class BiomeAerius extends CustomBiome
 			{
 				return new AeriusGenTree(update, 6, 0, 0);
 			}
-		}
-		else if (metadata == 1)
-		{
-			// Dark Skybark
+		case 1: // Dark Skybark
 			if (random.nextInt(10) == 0)
 			{
 				return new AeriusGenBigTree(update, 20, 1, 1);
@@ -108,22 +104,16 @@ public class BiomeAerius extends CustomBiome
 			{
 				return new AeriusGenJungleTree(update, 7, 1, 1);
 			}
-		}
-		else if (metadata == 2)
-		{
-			// Cloudroot
+		case 2: // Cloudroot
 			if (random.nextInt(4) == 0)
 			{
 				return new AeriusGenTree(update, 7, 2, 2);
 			}
 			else
 			{
-				return new AeriusGenTree2(update, 7, 2, 2);
+				return new AeriusGenFirTree(update, 7, 2, 2);
 			}
-		}
-		else if (metadata == 3)
-		{
-			// Goldwood
+		case 3: // Goldwood
 			return new AeriusGenJungleTree(update, 10, 3, 3);
 		}
 		return null;
