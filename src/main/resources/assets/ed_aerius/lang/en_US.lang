@@ -1,3 +1,5 @@
+# suppress inspection "UnusedProperty" for whole file
+
 # Creative Tabs
 itemGroup.aerius_blocks=Aerius - Blocks
 itemGroup.aerius_items=Aerius - Items
@@ -103,9 +105,18 @@ item.aerius_materials.holium_ingot.name=Holium Ingot
 item.aerius_materials.pro_ingot.name=Pro Alloy Ingot
 item.aerius_materials.energy_orb.name=Energy Orb
 
-item.aerius_items.ice_stick.name=Ice Stick
-item.aerius_items.mana_star.name=Mana Star
-item.aerius_items.mana_stone.name=Mana Stone
+item.aerius_loot.ice_stick.name=Ice Stick
+item.aerius_loot.fire_ring.name=Fire Ring
+item.aerius_loot.gold_ball.name=Gold Ball
+item.aerius_loot.life_gem.name=Life Gem
+item.aerius_loot.life_heart.name=Life Heart
+item.aerius_loot.mana_star.name=Mana Star
+item.aerius_loot.mana_stone.name=Mana Stone
+item.aerius_loot.etherical_stone.name=Etherical Stone
+item.aerius_loot.bottle_light.name=Bottle of Light
+item.aerius_loot.hephaestor_flame.name=Hephaestos Flame
+item.aerius_loot.chains.name=Chains
+item.aerius_loot.amnethite_paragon_gem.name=Holy Amnethite Parageon Gem
 
 item.aerius_sticks.skybark.name=Skybark Stick
 item.aerius_sticks.dark_skybark.name=Dark Skybark Stick
@@ -141,7 +152,6 @@ item.aerius_portal_activator.desc=§aActivates the portal to the Aerius
 
 # Food Items
 item.aerian_apple.name=Aerian Apple
-item.life_heart.name=Life Heart
 
 # Misc Items
 

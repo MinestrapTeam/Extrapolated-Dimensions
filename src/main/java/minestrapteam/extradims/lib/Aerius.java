@@ -3,6 +3,7 @@ package minestrapteam.extradims.lib;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.extracore.block.*;
 import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
+import minestrapteam.extracore.item.CustomItem;
 import minestrapteam.extracore.item.ECItems;
 import minestrapteam.extracore.util.StringUtils;
 import minestrapteam.extradims.block.MaterialCloud;
@@ -20,6 +21,8 @@ import static minestrapteam.extracore.crafting.ECCrafting.*;
 
 public class Aerius
 {
+	public static final String TEXTURE_DOMAIN = "ed_aerius:";
+
 	public static CustomCreativeTab tabAeriusBlocks = new CustomCreativeTab("aerius_blocks");
 	public static CustomCreativeTab tabAeriusItems  = new CustomCreativeTab("aerius_items");
 
@@ -27,41 +30,48 @@ public class Aerius
 
 	// Items
 
-	public static ItemAeriusSticks          stickItems;
-	public static ItemAeriusMaterials       materialItems;
-	public static ItemFood                  aerianApple;
-	public static ItemLifeHeart             lifeHeart;
-	public static ItemFireSword             fireSword;
-	public static ItemIceHammer             iceHammer;
-	public static ItemAeriusSoul            soul;
-	public static ItemAeriusPortalActivator portalActivator;
-	public static ItemCape                  capes;
-	public static ItemAeriusSeeds           seedItems;
+	public static CustomItem      stickItems;
+	public static CustomItem      materialItems;
+	public static ItemAeriusLoot  lootItems;
+	public static ItemAeriusSeeds seedItems;
+
+	public static ItemFood       aerianApple;
+	public static ItemFireSword  fireSword;
+	public static ItemIceHammer  iceHammer;
+	public static ItemAeriusSoul soul;
+	public static ItemCape       capes;
+	public static ItemStaff      staff;
 
 	// Blocks
 
 	public static BlockCustomPortal portal;
 
-	public static CustomBlock        stoneBlocks;
-	public static CustomBlock        oreBlocks;
-	public static CustomBlock        metalBlocks;
-	public static CustomBlock        dirtBlocks;
-	public static BlockAeriusGrass   grassBlocks;
+	public static CustomBlock stoneBlocks;
+
+	public static CustomBlock      oreBlocks;
+	public static CustomBlock      metalBlocks;
+	public static CustomBlock      dirtBlocks;
+	public static BlockAeriusGrass grassBlocks;
+
 	public static BlockCustomLog     logBlocks;
 	public static BlockCustomLeaves  leafBlocks;
 	public static BlockCustomSapling saplingBlocks;
 	public static CustomBlock        plankBlocks;
-	public static CustomBlock        plantBlocks;
-	public static CustomBlock        flowerBlocks;
 
-	public static BlockCloud cloud;
+	public static CustomBlock plantBlocks;
+	public static CustomBlock flowerBlocks;
+	public static BlockCloud  cloud;
 
-	public static BlockAeriusPillar   pillar;
+	public static BlockAeriusPillar pillar;
+
 	public static BlockDamnationTable damnationTable;
-
 	// Item Stacks
 
-	public static ItemStack skybarkStick, darkSkybarkStick, cloudrootStick, goldWoodStick, iceStick;
+	public static ItemStack skybarkStick, darkSkybarkStick, cloudrootStick, goldWoodStick;
+	// public static ItemStack magicOakStick, willowStick;
+
+	public static ItemStack portalActivator, iceStick, manaStar, lifeHeart;
+
 	public static ItemStack luminiteChunk, whiteGoldIngot, condaiusDust, holiumIngot, proAlloy, energyOrb;
 
 	public static ItemStack aerianSoil, mudDirt, ashes;
@@ -71,6 +81,11 @@ public class Aerius
 	public static ItemStack skybarkLeaves, darkSkybarkLeaves, cloudrootLeaves, goldWoodLeaves;
 	public static ItemStack skybarkSapling, darkSkybarkSapling, cloudrootSapling, goldWoodSapling;
 	public static ItemStack skybarkPlanks, darkSkybarkPlanks, cloudrootPlanks, goldWoodPlanks;
+
+	//	public static ItemStack magicOakLog, willowLog;
+	//	public static ItemStack magicOakLeaves, willowLeaves;
+	//	public static ItemStack magicOakSapling, willowSapling;
+	//	public static ItemStack magicOakPlanks, willowPlanks;
 
 	public static ItemStack aerock, cobbledAerock, mossyAerock;
 	public static ItemStack luminiteOre, whiteGoldOre, condaiusOre, holiumOre;
@@ -82,32 +97,34 @@ public class Aerius
 
 		// Items
 
-		stickItems = (ItemAeriusSticks) new ItemAeriusSticks(new String[] { "skybark", "dark_skybark", "cloudroot",
-			"gold_wood", "ice_stick" }, new String[] { getTexture("skybark_stick"), getTexture("dark_skybark_stick"),
-			getTexture("cloudroot_stick"), getTexture("gold_wood_stick"), getTexture("ice_stick") })
-			                                .setCreativeTab(tabAeriusItems);
-		materialItems = (ItemAeriusMaterials) new ItemAeriusMaterials(new String[] { "luminite", "white_gold_ingot",
-			"condaius_dust", "holium_ingot", "pro_ingot", "energy_orb" }, new String[] { getTexture("minerals/luminite"),
-			                                                              getTexture("minerals/white_gold_ingot"),
-			                                                              getTexture("minerals/condaius_dust"),
-			                                                              getTexture("minerals/holium_ingot"),
-			                                                              getTexture("minerals/pro_ingot"),
-			                                                              getTexture("energy_orb") })
-			                                      .setCreativeTab(tabAeriusItems);
+		stickItems = (CustomItem) new CustomItem(new String[] { "skybark", "dark_skybark", "cloudroot", "gold_wood" },
+		                                         new String[] { getTexture("materials/skybark_stick"),
+			                                         getTexture("materials/dark_skybark_stick"),
+			                                         getTexture("materials/cloudroot_stick"),
+			                                         getTexture("materials/gold_wood_stick") }, null)
+			                          .setCreativeTab(tabAeriusItems);
+
+		materialItems = (CustomItem) new CustomItem(new String[] { "luminite", "white_gold_ingot", "condaius_dust",
+			"holium_ingot", "pro_ingot", "energy_orb" }, new String[] { getTexture("minerals/luminite"),
+			getTexture("minerals/white_gold_ingot"), getTexture("minerals/condaius_dust"),
+			getTexture("minerals/holium_ingot"), getTexture("minerals/pro_ingot"), getTexture("materials/energy_orb"),
+			getTexture("minerals/promethium_gem"), getTexture("minerals/novite_gem") }, null)
+			                             .setCreativeTab(tabAeriusItems);
+
+		lootItems = (ItemAeriusLoot) new ItemAeriusLoot(new String[] { "ice_stick", "fire_ring", "gold_ball",
+			"life_gem", "life_heart", "mana_gem", "mana_star", "etherical_stone", "bottle_light", "hephaestos_flame",
+			"chains", "amnethite_paragon_gem" }).setCreativeTab(tabAeriusItems);
 
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple"))
 		                                                  .setCreativeTab(tabAeriusItems);
-		lifeHeart = (ItemLifeHeart) new ItemLifeHeart().setTextureName(getTexture("loot/life_heart"))
-		                                               .setCreativeTab(tabAeriusItems);
+		staff = (ItemStaff) new ItemStaff().setCreativeTab(tabAeriusItems);
+
 		fireSword = (ItemFireSword) new ItemFireSword().setTextureName(getTexture("weapons/fire_sword"))
 		                                               .setCreativeTab(tabAeriusItems);
 		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName(getTexture("tools/ice_hammer"))
 		                                               .setCreativeTab(tabAeriusItems);
 		soul = (ItemAeriusSoul) new ItemAeriusSoul().setCreativeTab(tabAeriusItems);
 		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabAeriusItems);
-		portalActivator = (ItemAeriusPortalActivator) new ItemAeriusPortalActivator()
-			                                              .setTextureName(getTexture("tools/aerius_portal_activator"))
-			                                              .setCreativeTab(tabAeriusItems);
 
 		String[] seeds = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass",
 			"mushroom_grass" };
@@ -125,12 +142,12 @@ public class Aerius
 			                            .setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
 		oreBlocks = (CustomBlock) new CustomBlock(Material.rock,
 		                                          new String[] { "luminite_ore", "white_gold_ore", "condaius_ore",
-			                                          "holium_ore" },
-		                                          new String[] { getTexture("minerals/luminite_ore"),
+			                                          "holium_ore" }, new String[] { getTexture("minerals/luminite_ore"),
 			                                          getTexture("minerals/white_gold_ore_aerock"),
 			                                          getTexture("minerals/condaius_ore_aerock"),
 			                                          getTexture("minerals/holium_ore_aerock") }, null)
 			                          .setCreativeTab(tabAeriusBlocks).setStepSound(Block.soundTypeStone);
+
 		metalBlocks = (CustomBlock) new CustomBlock(Material.iron, new String[] { "luminite_block", "white_gold_block",
 			"condaius_block", "holium_block", "pro_block" }, new String[] { getTexture("minerals/luminite_block"),
 			getTexture("minerals/white_gold_block"), getTexture("minerals/condaius_block"),
@@ -142,45 +159,48 @@ public class Aerius
 			                                           getTexture("soil/aerian_mud"), getTexture("ashes") },
 		                                           new CreativeTabs[] { tabAeriusBlocks })
 			                           .setStepSound(Block.soundTypeGravel);
-		grassBlocks = (BlockAeriusGrass) (new BlockAeriusGrass(new String[] { null, "mud_grass", "corrupted_grass",
+		grassBlocks = (BlockAeriusGrass) new BlockAeriusGrass(new String[] { null, "mud_grass", "corrupted_grass",
 			"hallowed_grass", "mushroom_grass" }, new String[] { getTexture("soil/aerian_grass"),
 			getTexture("soil/aerian_mud_grass"), getTexture("soil/corrupted_grass"), getTexture("soil/hallowed_grass"),
-			getTexture("soil/mushroom_grass") }).setCreativeTab(tabAeriusBlocks));
+			getTexture("soil/mushroom_grass") }).setCreativeTab(tabAeriusBlocks);
 
-		logBlocks = (BlockCustomLog) (new BlockCustomLog(woodTypes, new String[] { getTexture("wood/skybark_log_top"),
+		logBlocks = (BlockCustomLog) new BlockCustomLog(woodTypes, new String[] { getTexture("wood/skybark_log_top"),
 			getTexture("wood/dark_skybark_log_top"), getTexture("wood/cloudroot_log_top"),
 			getTexture("wood/gold_wood_log_top") }, new String[] { getTexture("wood/skybark_log_side"),
 			getTexture("wood/dark_skybark_log_side"), getTexture("wood/cloudroot_log_side"),
-			getTexture("wood/gold_wood_log_side") })).setCreativeTab(tabAeriusBlocks);
-		leafBlocks = (BlockCustomLeaves) (new BlockCustomLeaves(woodTypes,
-		                                                        new String[] { getTexture("plants/skybark_leaves"),
-			                                                        getTexture("plants/dark_skybark_leaves"),
-			                                                        getTexture("plants/cloudroot_leaves"),
-			                                                        getTexture("plants/gold_wood_leaves") }))
-			                                 .setHardness(0.2F).setCreativeTab(tabAeriusBlocks);
-		saplingBlocks = (BlockAeriusSapling) (new BlockAeriusSapling(woodTypes, new String[] {
-			getTexture("plants/skybark_sapling"), getTexture("plants/dark_skybark_sapling"),
-			getTexture("plants/cloudroot_sapling"), getTexture("plants/gold_wood_sapling") }))
-			                                     .setCreativeTab(tabAeriusBlocks);
-		plankBlocks = (CustomBlock) (new CustomBlock(Material.wood, woodTypes,
-		                                             new String[] { getTexture("wood/skybark_planks"),
-			                                             getTexture("wood/dark_skybark_planks"),
-			                                             getTexture("wood/cloudroot_planks"),
-			                                             getTexture("wood/gold_wood_planks") }, null)).setHardness(2.0F)
-		                                                                                              .setStepSound(
-			                                                                                              Block.soundTypeWood)
-		                                                                                              .setCreativeTab(
-			                                                                                              tabAeriusBlocks);
+			getTexture("wood/gold_wood_log_side") }).setCreativeTab(tabAeriusBlocks);
 
-		String[] plants = new String[] { "angel_grass", "short_angel_grass", "corrupted_grass", "hallowed_grass",
-			"mushroom_grass", "wanderers_bane", "wanderers_bane_small", "corrupted_vine", "hallowed_vine",
-			"mushroom_vine" };
-		plantBlocks = (CustomBlock) new BlockAeriusPlant(plants, StringUtils.prefixAll(plants, getTexture("plants/")))
-			                            .setHardness(0F).setCreativeTab(tabAeriusBlocks);
+		leafBlocks = (BlockCustomLeaves) new BlockCustomLeaves(woodTypes,
+		                                                       new String[] { getTexture("plants/skybark_leaves"),
+			                                                       getTexture("plants/dark_skybark_leaves"),
+			                                                       getTexture("plants/cloudroot_leaves"),
+			                                                       getTexture("plants/gold_wood_leaves") })
+			                                 .setHardness(0.2F).setCreativeTab(tabAeriusBlocks);
+
+		saplingBlocks = (BlockAeriusSapling) new BlockAeriusSapling(woodTypes,
+		                                                            new String[] { getTexture("plants/skybark_sapling"),
+			                                                            getTexture("plants/dark_skybark_sapling"),
+			                                                            getTexture("plants/cloudroot_sapling"),
+			                                                            getTexture("plants/gold_wood_sapling") })
+			                                     .setCreativeTab(tabAeriusBlocks);
+
+		plankBlocks = (CustomBlock) new CustomBlock(Material.wood, woodTypes,
+		                                            new String[] { getTexture("wood/skybark_planks"),
+			                                            getTexture("wood/dark_skybark_planks"),
+			                                            getTexture("wood/cloudroot_planks"),
+			                                            getTexture("wood/gold_wood_planks") }, null).setHardness(2.0F)
+		                                                                                            .setStepSound(
+			                                                                                            Block.soundTypeWood)
+		                                                                                            .setCreativeTab(
+			                                                                                            tabAeriusBlocks);
+
+		plantBlocks = (CustomBlock) new BlockAeriusPlants(new String[] { "angel_grass", "short_angel_grass",
+			"corrupted_grass", "hallowed_grass", "mushroom_grass", "wanderers_bane", "wanderers_bane_small",
+			"corrupted_vine", "hallowed_vine", "mushroom_vine" }).setHardness(0F).setCreativeTab(tabAeriusBlocks);
 
 		String[] flowers = new String[] { "soulwhisker", "palebloom", "dawnbringer" };
-		flowerBlocks = (CustomBlock) new BlockAeriusFlower(flowers,
-		                                                   StringUtils.prefixAll(flowers, getTexture("plants/")))
+		flowerBlocks = (CustomBlock) new BlockAeriusFlowers(flowers,
+		                                                    StringUtils.prefixAll(flowers, getTexture("plants/")))
 			                             .setCreativeTab(tabAeriusBlocks);
 
 		cloud = (BlockCloud) new BlockCloud(cloudMaterial).setBlockTextureName(getTexture("clouds/cloud"))
@@ -199,7 +219,6 @@ public class Aerius
 		darkSkybarkStick = new ItemStack(stickItems, 1, 1);
 		cloudrootStick = new ItemStack(stickItems, 1, 2);
 		goldWoodStick = new ItemStack(stickItems, 1, 3);
-		iceStick = new ItemStack(stickItems, 1, 4);
 
 		luminiteChunk = new ItemStack(materialItems, 1, 0);
 		whiteGoldIngot = new ItemStack(materialItems, 1, 1);
@@ -207,6 +226,10 @@ public class Aerius
 		holiumIngot = new ItemStack(materialItems, 1, 3);
 		proAlloy = new ItemStack(materialItems, 1, 4);
 		energyOrb = new ItemStack(materialItems, 1, 5);
+
+		iceStick = new ItemStack(lootItems, 1, 0);
+		lifeHeart = new ItemStack(lootItems, 1, 3);
+		manaStar = new ItemStack(lootItems, 1, 6);
 
 		// Block Stacks
 
@@ -262,13 +285,12 @@ public class Aerius
 
 		ECItems.addItem(stickItems, "aerius_sticks");
 		ECItems.addItem(materialItems, "aerius_materials");
+		ECItems.addItem(seedItems, "aerius_seeds");
+		ECItems.addItem(lootItems, "aerius_loot");
 		ECItems.addItem(aerianApple, "aerian_apple");
-		ECItems.addItem(lifeHeart, "life_heart");
 		ECItems.addItem(fireSword, "fire_sword");
 		ECItems.addItem(iceHammer, "ice_hammer");
 		ECItems.addItem(capes, "cape");
-		ECItems.addItem(seedItems, "aerius_seeds");
-		ECItems.addItem(portalActivator, "aerius_portal_activator");
 
 		// Blocks
 
@@ -325,12 +347,6 @@ public class Aerius
 		addStorageBlock(holiumIngot, holiumBlock, 3);
 		addStorageBlock(condaiusDust, condaiusBlock, 3);
 		addStorageBlock(proAlloy, proAlloyBlock, 3);
-
-		addShapelessRecipe(luminiteChunk, luminiteBlock);
-		addShapelessRecipe(whiteGoldIngot, whiteGoldBlock);
-		addShapelessRecipe(condaiusDust, condaiusBlock);
-		addShapelessRecipe(holiumIngot, holiumBlock);
-		addShapelessRecipe(proAlloy, proAlloyBlock);
 	}
 
 	public static void setTabIcons()
@@ -341,6 +357,6 @@ public class Aerius
 
 	public static String getTexture(String name)
 	{
-		return "ed_aerius:" + name;
+		return TEXTURE_DOMAIN + name;
 	}
 }

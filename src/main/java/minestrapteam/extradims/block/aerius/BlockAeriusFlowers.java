@@ -6,9 +6,9 @@ import net.minecraft.block.Block;
 
 import minestrapteam.extracore.block.BlockCustomPlant;
 
-public class BlockAeriusFlower extends BlockCustomPlant
+public class BlockAeriusFlowers extends BlockCustomPlant
 {
-	public BlockAeriusFlower(String[] names, String[] iconNames)
+	public BlockAeriusFlowers(String[] names, String[] iconNames)
 	{
 		super(names, iconNames);
 	}

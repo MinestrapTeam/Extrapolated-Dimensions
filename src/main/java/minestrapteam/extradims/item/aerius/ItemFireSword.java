@@ -20,23 +20,27 @@ public class ItemFireSword extends ItemSword
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		if (side == 0)
+		switch (side)
+		{
+		case 0:
 			--y;
-		
-		if (side == 1)
+			break;
+		case 1:
 			++y;
-		
-		if (side == 2)
+			break;
+		case 2:
 			--z;
-		
-		if (side == 3)
+			break;
+		case 3:
 			++z;
-		
-		if (side == 4)
+			break;
+		case 4:
 			--x;
-		
-		if (side == 5)
+			break;
+		case 5:
 			++x;
+			break;
+		}
 		
 		if (world.isAirBlock(x, y, z))
 		{
@@ -49,16 +53,16 @@ public class ItemFireSword extends ItemSword
 	}
 	
 	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase living, EntityLivingBase living2)
+	public boolean hitEntity(ItemStack stack, EntityLivingBase attacker, EntityLivingBase target)
 	{
-		stack.damageItem(1, living);
-		living2.setFire(10);
+		stack.damageItem(1, attacker);
+		target.setFire(10);
 		return true;
 	}
 	
 	@Override
 	public EnumRarity getRarity(ItemStack stack)
 	{
-		return EnumRarity.epic;
+		return EnumRarity.rare;
 	}
 }

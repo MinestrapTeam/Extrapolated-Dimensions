@@ -36,24 +36,28 @@ public class ItemAeriusSeeds extends CustomItem
 					newBlock = Aerius.grassBlocks;
 					newMetadata = 0;
 				}
+				break;
 			case 1: // Mud Grass Seeds
 				if (block == Aerius.dirtBlocks && metadata == 1)
 				{
 					newBlock = Aerius.grassBlocks;
 					newMetadata = 1;
 				}
+				break;
 			case 2: // Corrupted Grass Seeds
 				if (block == Blocks.dirt)
 				{
 					newBlock = Aerius.grassBlocks;
 					newMetadata = 2;
 				}
+				break;
 			case 3: // Hallowed Grass Seeds
 				if (block == Blocks.dirt)
 				{
 					newBlock = Aerius.grassBlocks;
 					newMetadata = 3;
 				}
+				break;
 			case 4: // Mushroom Grass Seeds
 				if (block == Aerius.dirtBlocks && metadata == 1)
 				{

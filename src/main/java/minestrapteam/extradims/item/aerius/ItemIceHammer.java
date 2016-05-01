@@ -32,7 +32,7 @@ public class ItemIceHammer extends Item
 		{
 			return stack;
 		}
-		return ItemAeriusSticks.tryFreeze(this.getMovingObjectPositionFromPlayer(world, player, true), stack, world, player);
+		return ItemAeriusLoot.tryFreeze(this.getMovingObjectPositionFromPlayer(world, player, true), stack, world);
 	}
 	
 	@Override

@@ -197,27 +197,21 @@ public class ECCrafting
 	 */
 	public static void addStorageBlock(ItemStack material, ItemStack block, int size)
 	{
-		if (size == 1)
+		switch (size)
 		{
+		case 1:
 			addShapelessRecipe(block, material);
 			addShapelessRecipe(material, block);
-		}
-		else if (size == 2)
-		{
-			ItemStack copy = material.copy();
-			copy.stackSize = 4;
-			addShapelessRecipe(copy, block);
+			break;
+		case 2:
+			addShapelessRecipe(ECStacks.withSize(material, 4), block);
 			addRecipe(block, "XX", "XX", 'X', material);
-		}
-		else if (size == 3)
-		{
-			ItemStack copy = material.copy();
-			copy.stackSize = 9;
-			addShapelessRecipe(copy, block);
+			break;
+		case 3:
+			addShapelessRecipe(ECStacks.withSize(material, 9), block);
 			addRecipe(block, "XXX", "XXX", "XXX", 'X', material);
-		}
-		else
-		{
+			break;
+		default:
 			throw new IllegalArgumentException("The size of a storage block recipe should be either 1, 2 or 3");
 		}
 	}

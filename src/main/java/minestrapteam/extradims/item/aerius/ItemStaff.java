@@ -1,4 +1,4 @@
-package minestrapteam.extradims.item.poc;
+package minestrapteam.extradims.item.aerius;
 
 import java.util.ArrayList;
 import java.util.HashMap;
