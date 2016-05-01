@@ -1,11 +1,7 @@
 package minestrapteam.extradims.block.aerius;
 
-import java.util.List;
-import java.util.Random;
-
 import minestrapteam.extracore.block.CustomBlock;
 import minestrapteam.extracore.block.ICustomBlock;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,6 +15,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockCloud extends Block implements ICustomBlock
 {
@@ -105,42 +104,41 @@ public class BlockCloud extends Block implements ICustomBlock
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
 		entity.fallDistance = 0F;
-		if (metadata == 0)
+		switch (metadata)
 		{
+		case 0:
 			// White clouds stop fall damage
 			if (entity.motionY < 0)
 			{
 				entity.motionY *= 0.05D;
 			}
-		}
-		else if (metadata == 3)
-		{
+			break;
+		case 3:
 			// Blue clouds launch entities in the air
 			if (!entity.isSneaking())
 			{
-				if (entity.motionY <= -5D)
+				if (entity.motionY <= -1D)
 				{
 					world.func_147480_a(x, y, z, true);
 					return;
 				}
-				
+
 				if (entity.motionY < 0D)
 				{
 					entity.motionY = -entity.motionY;
 				}
 				entity.motionY *= 2D;
 			}
-		}
-		else if (metadata == 4)
-		{
+			break;
+		case 4:
 			// Green Clouds speed entities up
 			entity.motionX *= 2D;
 			entity.motionZ *= 2D;
-		}
-		else if (metadata == 8)
-		{
+			break;
+		case 8:
 			// Red Clouds damage entities
 			entity.attackEntityFrom(new DamageSource("cloud"), 1F);
+			break;
 		}
 	}
 	
@@ -167,6 +165,7 @@ public class BlockCloud extends Block implements ICustomBlock
 		CustomBlock.addInformation(this, stack, list);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
