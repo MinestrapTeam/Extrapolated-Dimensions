@@ -1,30 +1,43 @@
 package minestrapteam.extradims.lib;
 
-import minestrapteam.extracore.util.math.Point2i;
 import minestrapteam.extracore.api.PlayerInventoryAPI;
 import minestrapteam.extracore.api.SurvivalInventory;
+import minestrapteam.extracore.inventory.ExtendedInventory;
 import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.inventory.ISlotList;
 import minestrapteam.extracore.inventory.slot.SlotCustomArmor;
-import minestrapteam.extracore.inventory.ExtendedInventory;
+import minestrapteam.extracore.util.math.Point2i;
 import minestrapteam.extradims.item.armor.ArmorTypes;
-import minestrapteam.extradims.item.armor.ItemCape;
-import minestrapteam.extradims.item.armor.ItemGloves;
-import minestrapteam.extradims.item.armor.ItemShield;
-
 import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Slot;
+import net.minecraft.util.IIcon;
 
 public class InventoryHandler implements IInventoryHandler
 {
-	public static IInventoryHandler	slotHandler	= new InventoryHandler();
-	
+	public static final IInventoryHandler INSTANCE = new InventoryHandler();
+
+	private static IIcon[] icons = new IIcon[ArmorTypes.SLOT_NAMES.length - ArmorTypes.GOGGLES];
+
+	public static int getSlotIndex(int armorType)
+	{
+		return 64 + armorType - ArmorTypes.GOGGLES;
+	}
+
 	public static void load()
 	{
-		PlayerInventoryAPI.addInventoryHandler(slotHandler);
+		PlayerInventoryAPI.addInventoryHandler(INSTANCE);
 	}
-	
+
+	public static void loadIcons(IIconRegister iconRegister)
+	{
+		final int start = ArmorTypes.GOGGLES;
+		for (int i = start; i < ArmorTypes.SLOT_NAMES.length; i++)
+		{
+			icons[i - start] = iconRegister.registerIcon("extradims:armorslot/" + ArmorTypes.SLOT_NAMES[i]);
+		}
+	}
+
 	@Override
 	public void pre(Point2i[] slots, EntityPlayer player, boolean creative)
 	{
@@ -35,46 +48,31 @@ public class InventoryHandler implements IInventoryHandler
 			SurvivalInventory.setArmor(62, 8);
 		}
 	}
-	
+
 	@Override
 	public void addSlots(ISlotList list, EntityPlayer player, boolean creative)
 	{
-		ExtendedInventory extendedInventory = ExtendedInventory.get(player);
-		SlotCustomArmor glove, shield, cape;
-		
+		final ExtendedInventory extendedInventory = ExtendedInventory.get(player);
+
 		if (creative)
 		{
-			glove = new SlotCustomArmor(player, extendedInventory, 64, 45, 24, ArmorTypes.GLOVE, ItemGloves.slotIcon);
-			shield = new SlotCustomArmor(player, extendedInventory, 65, 63, 24, ArmorTypes.SHIELD, ItemShield.slotIcon);
-			cape = new SlotCustomArmor(player, extendedInventory, 66, 81, 24, ArmorTypes.CAPE, ItemCape.slotIcon);
-		}
-		else
-		{
-			glove = new SlotCustomArmor(player, extendedInventory, 64, 80, 8, ArmorTypes.GLOVE, ItemGloves.slotIcon);
-			shield = new SlotCustomArmor(player, extendedInventory, 65, 80, 26, ArmorTypes.SHIELD, ItemShield.slotIcon);
-			cape = new SlotCustomArmor(player, extendedInventory, 66, 80, 44, ArmorTypes.CAPE, ItemCape.slotIcon);
-		}
-		
-		list.addSlot(glove);
-		list.addSlot(shield);
-		list.addSlot(cape);
-		
-		if (creative)
-		{
-			for (int i = 3; i < 8; i++)
+			for (int i = 0; i < 8; i++)
 			{
-				list.addSlot(new Slot(extendedInventory, 64 + i, 45 + (i * 18), 24));
+				list.addSlot(
+					new SlotCustomArmor(player, extendedInventory, 64 + i, 45 + (i * 18), 24, ArmorTypes.GOGGLES + i,
+					                    icons[i]));
 			}
 		}
 		else
 		{
-			for (int i = 3; i < 8; i++)
+			for (int i = 0; i < 8; i++)
 			{
-				list.addSlot(new Slot(extendedInventory, 64 + i, 80 + (i / 4) * 18, 8 + (i % 4 * 18)));
+				list.addSlot(new SlotCustomArmor(player, extendedInventory, 64 + i, 80 + (i % 2) * 18, 8 + (i / 2 * 18),
+				                                 ArmorTypes.GOGGLES + i, icons[i]));
 			}
 		}
 	}
-	
+
 	@Override
 	public void buttonPressed(GuiButton button, EntityPlayer player, boolean creative)
 	{

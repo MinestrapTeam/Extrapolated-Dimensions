@@ -1,18 +1,19 @@
 package minestrapteam.extradims.common;
 
-import minestrapteam.extracore.ExtraCore;
-import minestrapteam.extracore.world.TeleporterNoPortal;
-import minestrapteam.extracore.inventory.ExtendedInventory;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import minestrapteam.extracore.ExtraCore;
+import minestrapteam.extracore.inventory.ExtendedInventory;
+import minestrapteam.extracore.world.TeleporterNoPortal;
 import minestrapteam.extradims.api.ICape;
 import minestrapteam.extradims.api.IMinableBlock;
 import minestrapteam.extradims.curse.Curse;
 import minestrapteam.extradims.entity.EDEntityProperties;
+import minestrapteam.extradims.item.armor.ArmorTypes;
+import minestrapteam.extradims.lib.InventoryHandler;
 import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.lib.virtious.VItems;
-
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,6 +23,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -34,6 +36,15 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 public class EDEventHandler
 {
 	@SubscribeEvent
+	public void preStitch(TextureStitchEvent.Pre event)
+	{
+		if (event.map.getTextureType() == 1)
+		{
+			InventoryHandler.loadIcons(event.map);
+		}
+	}
+
+	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{
 		ItemStack result = null;
@@ -42,12 +53,12 @@ public class EDEventHandler
 		int z = event.target.blockZ;
 		Block block = event.world.getBlock(x, y, z);
 		int metadata = event.world.getBlockMetadata(x, y, z);
-		
+
 		if (block == VBlocks.virtious_acid && metadata == 0)
 		{
 			result = new ItemStack(VItems.acid_bucket);
 		}
-		
+
 		if (result != null)
 		{
 			event.world.setBlockToAir(x, y, z);
@@ -55,7 +66,7 @@ public class EDEventHandler
 			event.setResult(Result.ALLOW);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void bonemealUsed(BonemealEvent event)
 	{
@@ -65,13 +76,13 @@ public class EDEventHandler
 			((IGrowable) block).func_149853_b(event.world, event.world.rand, event.x, event.y, event.z);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityAttacked(AttackEntityEvent event)
 	{
 		EDEntityProperties.get(event.entityPlayer).addMeleeLevel(0.005F);
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent event)
 	{
@@ -80,7 +91,7 @@ public class EDEventHandler
 			EDEntityProperties.get((EntityPlayer) event.source.getSourceOfDamage()).addSlayerLevel(0.01F);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityHurt(LivingHurtEvent event)
 	{
@@ -89,25 +100,25 @@ public class EDEventHandler
 			EDEntityProperties.get(event.entityLiving).addDefenceLevel(0.01F);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onArrowShot(ArrowLooseEvent event)
 	{
 		EDEntityProperties.get(event.entityPlayer).addRangedLevel(0.05F);
 	}
-	
+
 	@SubscribeEvent
 	public void onHoeUsed(UseHoeEvent event)
 	{
 		EDEntityProperties.get(event.entityPlayer).addFarmingLevel(0.001F);
 	}
-	
+
 	@SubscribeEvent
 	public void onItemTossed(ItemTossEvent event)
 	{
 		EDEntityProperties.get(event.player).addSharingLevel(0.001F);
 	}
-	
+
 	@SubscribeEvent
 	public void onBlockHarvested(HarvestDropsEvent event)
 	{
@@ -116,7 +127,7 @@ public class EDEventHandler
 			EDEntityProperties props = EDEntityProperties.get(event.harvester);
 			Block block = event.block;
 			Material material = block.getMaterial();
-			
+
 			if (material == Material.ground)
 			{
 				props.addDiggingLevel(0.001F);
@@ -170,7 +181,7 @@ public class EDEventHandler
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void entityConstructing(EntityConstructing event)
 	{
@@ -180,7 +191,7 @@ public class EDEventHandler
 			EDEntityProperties.set((EntityPlayer) event.entity, props);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void entityJoinWorld(EntityJoinWorldEvent event)
 	{
@@ -194,18 +205,18 @@ public class EDEventHandler
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void getItemTooltip(ItemTooltipEvent event)
 	{
 		Curse.addTooltip(event.itemStack, event.toolTip);
-		
+
 		if (event.itemStack.stackSize <= 0)
 		{
 			event.toolTip.add(EnumChatFormatting.RED + "" + EnumChatFormatting.ITALIC + "0 Stack Size!");
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event)
 	{
@@ -216,22 +227,26 @@ public class EDEventHandler
 			this.updatePlayerCapes(player);
 		}
 	}
-	
+
 	public void updatePlayerHeight(EntityPlayerMP player)
 	{
 		try
 		{
 			MinecraftServer server = player.mcServer;
-			
+
 			if (player.dimension == WorldManager.AERIUS_ID && player.posY <= -64)
 			{
 				player.setPosition(player.posX, 256, player.posZ);
-				server.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterNoPortal(server.worldServerForDimension(0)));
+				server.getConfigurationManager()
+				      .transferPlayerToDimension(player, 0, new TeleporterNoPortal(server.worldServerForDimension(0)));
 			}
 			else if (player.dimension == 0 && player.posY > 256)
 			{
 				player.setPosition(player.posX, 0, player.posZ);
-				server.getConfigurationManager().transferPlayerToDimension(player, WorldManager.AERIUS_ID, new TeleporterNoPortal(server.worldServerForDimension(WorldManager.AERIUS_ID)));
+				server.getConfigurationManager().transferPlayerToDimension(player, WorldManager.AERIUS_ID,
+				                                                           new TeleporterNoPortal(server
+					                                                                                  .worldServerForDimension(
+						                                                                                  WorldManager.AERIUS_ID)));
 			}
 		}
 		catch (Exception ex)
@@ -239,12 +254,12 @@ public class EDEventHandler
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public void updatePlayerCapes(EntityPlayerMP player)
 	{
 		ExtendedInventory extendedInventory = ExtendedInventory.get(player);
-		ItemStack stack = extendedInventory.getStackInSlot(66);
-		
+		ItemStack stack = extendedInventory.getStackInSlot(InventoryHandler.getSlotIndex(ArmorTypes.CAPE));
+
 		if (stack == null)
 		{
 			ExtraCore.getNetHandler().sendCapePacket(player, "");

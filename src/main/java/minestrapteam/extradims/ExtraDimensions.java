@@ -1,12 +1,5 @@
 package minestrapteam.extradims;
 
-import minestrapteam.extradims.common.EDEventHandler;
-import minestrapteam.extradims.common.EDFuelHandler;
-import minestrapteam.extradims.common.EDProxy;
-import minestrapteam.extradims.lib.*;
-import minestrapteam.extradims.network.EDNetHandler;
-import minestrapteam.extracore.config.ECConfig;
-import minestrapteam.extracore.init.ClashsoftMod;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,6 +7,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import minestrapteam.extracore.config.ECConfig;
+import minestrapteam.extracore.init.ClashsoftMod;
+import minestrapteam.extradims.common.EDEventHandler;
+import minestrapteam.extradims.common.EDFuelHandler;
+import minestrapteam.extradims.common.EDProxy;
+import minestrapteam.extradims.lib.*;
+import minestrapteam.extradims.network.EDNetHandler;
 
 @Mod(modid = ExtraDimensions.MODID, name = ExtraDimensions.NAME, version = ExtraDimensions.VERSION)
 public class ExtraDimensions extends ClashsoftMod

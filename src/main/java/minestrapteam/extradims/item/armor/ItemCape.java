@@ -1,12 +1,9 @@
 package minestrapteam.extradims.item.armor;
 
-import java.util.List;
-
 import minestrapteam.extracore.ExtraCore;
 import minestrapteam.extracore.cape.Capes;
 import minestrapteam.extracore.item.ItemCustomArmor;
 import minestrapteam.extradims.api.ICape;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,21 +14,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.List;
+
 public class ItemCape extends ItemCustomArmor implements ICape
 {
-	public static IIcon		slotIcon;
-	
-	public static String[]	capeNames	= {
-			"pro",
-			"blue",
-			"green",
-			"red",
-			"yellow",
-			"invisibility",
-			"minecon_2011",
-			"minecon_2012",
-			"minecon_2013"			};
-	
+	public static String[] capeNames = { "pro", "blue", "green", "red", "yellow", "invisibility", "minecon_2011",
+		"minecon_2012", "minecon_2013" };
+
 	static
 	{
 		for (String capeName : capeNames)
@@ -40,16 +29,16 @@ public class ItemCape extends ItemCustomArmor implements ICape
 			Capes.addCape(capeName, location);
 		}
 	}
-	
-	public IIcon[]			icons;
-	
+
+	public IIcon[] icons;
+
 	public ItemCape()
 	{
 		super(ArmorMaterial.CLOTH, 0, ArmorTypes.CAPE);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
-	
+
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
@@ -58,25 +47,21 @@ public class ItemCape extends ItemCustomArmor implements ICape
 		{
 			this.icons[i] = iconRegister.registerIcon("ed_aerius:armor/cape_" + capeNames[i]);
 		}
-		
-		if (slotIcon == null)
-		{
-			slotIcon = iconRegister.registerIcon("extradims:armorslot/armorslot_cape");
-		}
 	}
-	
+
 	@Override
 	public IIcon getIcon(ItemStack stack, int pass)
 	{
 		return this.icons[stack.getItemDamage()];
 	}
-	
+
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
 		return "item.cape." + capeNames[stack.getItemDamage() % capeNames.length];
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	@Override
 	public void getSubItems(Item item, CreativeTabs creativeTab, List list)
 	{
@@ -85,14 +70,14 @@ public class ItemCape extends ItemCustomArmor implements ICape
 			list.add(new ItemStack(this, 1, i));
 		}
 	}
-	
+
 	@Override
 	public void updateCape(EntityPlayer player, ItemStack stack)
 	{
 		if (!player.worldObj.isRemote)
 		{
 			int metadata = stack.getItemDamage();
-			
+
 			if (metadata == 5)
 			{
 				player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 2, 0));
