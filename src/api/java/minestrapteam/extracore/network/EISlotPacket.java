@@ -1,13 +1,12 @@
 package minestrapteam.extracore.network;
 
-import java.io.IOException;
-
 import minestrapteam.extracore.inventory.ExtendedInventory;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
 
 public class EISlotPacket extends ECPacket
 {
@@ -41,12 +40,13 @@ public class EISlotPacket extends ECPacket
 	@Override
 	public void handleClient(EntityPlayer player)
 	{
+		ExtendedInventory inventory = ExtendedInventory.get(player);
+		inventory.itemStacks[this.slot] = this.stack;
 	}
 	
 	@Override
 	public void handleServer(EntityPlayerMP player)
 	{
-		ExtendedInventory ei = ExtendedInventory.get(player);
-		ei.itemStacks[this.slot] = this.stack;
+		this.handleClient(player);
 	}
 }

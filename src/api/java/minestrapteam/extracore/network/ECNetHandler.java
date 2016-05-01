@@ -10,12 +10,15 @@ public class ECNetHandler extends BaseNetHandler
 {
 	public ECNetHandler()
 	{
-		super("CSLIB");
+		super("ExtraCore");
 		
 		this.registerPacket(PacketSendTileEntity.class);
 		this.registerPacket(PacketRequestTileEntity.class);
 		this.registerPacket(PacketOpenMUScreen.class);
 		this.registerPacket(CapePacket.class);
+
+		this.registerPacket(EISlotPacket.class);
+		this.registerPacket(EIPacket.class);
 	}
 	
 	public void requestTEData(World world, int x, int y, int z)

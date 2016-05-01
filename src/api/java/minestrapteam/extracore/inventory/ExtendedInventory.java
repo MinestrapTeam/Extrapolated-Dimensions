@@ -23,7 +23,7 @@ import java.util.Arrays;
  */
 public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 {
-	public static final String IDENTIFIER = "PIAPI-EI";
+	public static final String IDENTIFIER = "ExtendedInventory";
 
 	public EntityPlayer entity;
 
@@ -61,11 +61,15 @@ public class ExtendedInventory implements IExtendedEntityProperties, IInventory
 		int len = list.tagCount();
 
 		this.checkSize(len);
+
 		for (int i = 0; i < len; i++)
 		{
-			NBTTagCompound nbt = list.getCompoundTagAt(i);
-			int slot = nbt.getInteger("Slot");
-			ItemStack stack = ItemStack.loadItemStackFromNBT(nbt);
+			final NBTTagCompound nbt = list.getCompoundTagAt(i);
+
+			final int slot = nbt.getInteger("Slot");
+			this.checkSize(slot);
+
+			final ItemStack stack = ItemStack.loadItemStackFromNBT(nbt);
 			this.itemStacks[slot] = stack;
 		}
 	}
