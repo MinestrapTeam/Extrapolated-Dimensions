@@ -1,8 +1,5 @@
 package minestrapteam.extradims.client;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -31,7 +28,6 @@ import minestrapteam.extradims.lib.virtious.VItems;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTable;
 import minestrapteam.extradims.tileentity.TileEntityAlchemyTube;
 import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -39,9 +35,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class EDClientProxy extends EDProxy
 {
-	public Map<String, Integer>	armorFiles	= new HashMap<String, Integer>();
+	public Map<String, Integer>	armorFiles	= new HashMap<>();
 	
 	public RenderPOCBows		bowRenderer;
 	

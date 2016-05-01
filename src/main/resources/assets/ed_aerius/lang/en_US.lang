@@ -4,6 +4,9 @@
 itemGroup.aerius_blocks=Aerius - Blocks
 itemGroup.aerius_items=Aerius - Items
 
+# Button Texts
+button.gameover.aerius=Go To Aerius
+
 # Stone Blocks
 tile.aerock.name=Aerock
 tile.aerock.cobbled.name=Cobbled Aerock

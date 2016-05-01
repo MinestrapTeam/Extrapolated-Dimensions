@@ -1,38 +1,39 @@
 package minestrapteam.extradims.client.gui;
 
-import minestrapteam.extradims.ExtraDimensions;
-
+import minestrapteam.extracore.util.I18n;
+import minestrapteam.extradims.client.gui.button.GuiAeriusButton;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiGameOver;
-import net.minecraft.client.gui.GuiScreen;
 
 public class GuiGameOverAerius extends GuiGameOver
 {
-	public GuiButton	heavenButton;
-	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui()
 	{
 		super.initGui();
-		if (!this.mc.theWorld.getWorldInfo().isHardcoreModeEnabled() && this.mc.thePlayer.dimension == 0)
+		if (!this.mc.theWorld.getWorldInfo().isHardcoreModeEnabled())
 		{
-			this.buttonList.add(this.heavenButton = new GuiButton(3, this.width / 2 - 100, this.height / 4 + 120, "Go to Heaven"));
-			this.heavenButton.enabled = false;
+			final GuiButton aeriusButton = new GuiAeriusButton(3, this.width / 2 - 100, this.height / 4 + 120,
+			                                                   I18n.getString("button.gameover.aerius"));
+			aeriusButton.enabled = false;
+			this.buttonList.add(aeriusButton);
 		}
 	}
-	
+
 	@Override
 	protected void actionPerformed(GuiButton button)
 	{
 		if (button.id == 3)
 		{
 			this.mc.thePlayer.respawnPlayer();
-			this.mc.displayGuiScreen((GuiScreen) null);
-			ExtraDimensions.proxy.sendPlayerToHeaven(this.mc.thePlayer);
+			this.mc.displayGuiScreen(null);
+
+			// TODO send player to Aerius
+
+			return;
 		}
-		else
-		{
-			super.actionPerformed(button);
-		}
+
+		super.actionPerformed(button);
 	}
 }

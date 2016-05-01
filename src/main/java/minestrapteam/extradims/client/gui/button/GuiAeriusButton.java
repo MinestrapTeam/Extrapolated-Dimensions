@@ -1,5 +1,6 @@
 package minestrapteam.extradims.client.gui.button;
 
+import minestrapteam.extradims.client.gui.GuiMainMenuAerius;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
@@ -35,11 +36,11 @@ public class GuiAeriusButton extends GuiButton
             this.drawTexturedModalRect(this.xPosition + this.width / 2, this.yPosition, 200 - this.width / 2, 128 + k * 20, this.width / 2, this.height);
             
             this.mouseDragged(mc, mouseX, mouseY);
-            int l = 0x505050;
-            
-            if (!this.enabled)
+
+	        int l = GuiMainMenuAerius.TEXT_COLOR;
+	        if (!this.enabled)
             {
-                l = -6250336;
+                l = 0xA0A0A0;
             }
             else if (this.field_146123_n)
             {

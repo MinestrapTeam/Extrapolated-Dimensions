@@ -1,10 +1,7 @@
 package minestrapteam.extradims.client.gui;
 
-import org.lwjgl.input.Keyboard;
-
-import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import minestrapteam.extradims.entity.EDEntityProperties;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.EnumChatFormatting;
@@ -12,29 +9,29 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import org.lwjgl.input.Keyboard;
 
 public class GuiPOCIngame extends GuiIngameForge
 {
 	public static ResourceLocation	mana	= new ResourceLocation("moredimensions", "textures/gui/mana.png");
 	
 	private final Minecraft			mc;
-	private ScaledResolution		res;
-	
+
 	public GuiPOCIngame(Minecraft mc)
 	{
 		super(mc);
 		this.mc = mc;
 	}
 	
-	@EventHandler
+	@SubscribeEvent
 	public void onRenderGameOverlay(RenderGameOverlayEvent.Post event)
 	{
 		if (event.type == ElementType.HOTBAR)
 		{
-			this.res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+			ScaledResolution res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 			
-			int width = this.res.getScaledWidth();
-			int height = this.res.getScaledHeight();
+			int width = res.getScaledWidth();
+			int height = res.getScaledHeight();
 			
 			if (event.isCancelable() || event.type != ElementType.EXPERIENCE)
 			{

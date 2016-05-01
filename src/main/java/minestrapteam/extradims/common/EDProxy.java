@@ -54,8 +54,4 @@ public class EDProxy extends BaseProxy
 	{
 		return 0;
 	}
-	
-	public void sendPlayerToHeaven(EntityPlayer player)
-	{
-	}
 }
