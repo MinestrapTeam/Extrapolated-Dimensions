@@ -96,15 +96,14 @@ public class Tools
 	};
 
 	public static CreativeTabs advancedTools = tabTools, advancedArmor = tabTools;
-	public static CreativeTabs heavenTools = Aerius.tabAeriusItems, heavenArmor = Aerius.tabAeriusItems;
-	public static CreativeTabs pocTools = ParadiseOfChaos.tabItems, pocArmor = ParadiseOfChaos.tabItems;
+	public static CreativeTabs aeriusTools = Aerius.tabAeriusItems, aeriusArmor = Aerius.tabAeriusItems;
 
 	public static CreativeTabs[] toolTabs  = new CreativeTabs[] { advancedTools, advancedTools, advancedTools,
-		advancedTools, advancedTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools, heavenTools,
-		heavenTools, pocTools, pocTools };
+		advancedTools, advancedTools, aeriusTools, aeriusTools, aeriusTools, aeriusTools, aeriusTools, aeriusTools,
+		aeriusTools, aeriusTools, aeriusTools };
 	public static CreativeTabs[] armorTabs = new CreativeTabs[] { advancedArmor, advancedArmor, advancedArmor,
-		advancedArmor, advancedArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor, heavenArmor,
-		heavenArmor, pocArmor, pocArmor };
+		advancedArmor, advancedArmor, aeriusArmor, aeriusArmor, aeriusArmor, aeriusArmor, aeriusArmor, aeriusArmor,
+		aeriusArmor, aeriusTools, aeriusTools };
 
 	public static ToolMaterial[] toolMaterials = new ToolMaterial[] { toolWood, toolStone, toolIron, toolGold,
 		toolDiamond, toolHeavenWood, toolHeavenStone, toolShrekite, toolClashium, toolHolyium, toolEnergy, toolPro,

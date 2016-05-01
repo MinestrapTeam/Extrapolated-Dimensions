@@ -2,17 +2,12 @@ package minestrapteam.extradims.lib;
 
 import minestrapteam.extracore.config.ECConfig;
 import minestrapteam.extradims.biome.aerius.*;
-import minestrapteam.extradims.biome.poc.BiomeBloodPlains;
-import minestrapteam.extradims.biome.poc.BiomePOCDesert;
-import minestrapteam.extradims.biome.poc.BiomePOCMountains;
-import minestrapteam.extradims.biome.poc.BiomePOCPlains;
 import minestrapteam.extradims.biome.virtious.*;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.world.WorldTypeTest;
 import minestrapteam.extradims.world.aerius.WorldProviderAerius;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenClouds;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenTemple;
-import minestrapteam.extradims.world.poc.WorldProviderPOC;
 import minestrapteam.extradims.world.virtious.WorldProviderVirtious;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenAmberTree;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenDeepstone;
@@ -52,13 +47,6 @@ public class WorldManager
 
 	public static BiomeGenBase[]	aeriusBiomes;
 	
-	public static BiomeGenBase		biomePOCPlains;
-	public static BiomeGenBase		biomePOCMountains;
-	public static BiomeGenBase		biomePOCDesert;
-	public static BiomeGenBase		biomeBloodPlains;
-	
-	public static BiomeGenBase[]	pocBiomes;
-	
 	public static void load()
 	{
 		testWorldType = new WorldTypeTest("test");
@@ -87,15 +75,7 @@ public class WorldManager
 		biomeCorruption = new BiomeCorruption(ECConfig.getBiome("Corruption", 64)).setBiomeName("Corruption");
 
 		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle, biomeHallow, biomeCorruption };
-		
-		biomePOCPlains = new BiomePOCPlains(ECConfig
-			                                    .getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
-		biomePOCMountains = new BiomePOCMountains(ECConfig.getBiome("Corrupted Mountains", 71)).setBiomeName("Corrupted Mountains");
-		biomePOCDesert = new BiomePOCDesert(ECConfig.getBiome("Desert of Dryness", 72)).setBiomeName("Desert of Dryness");
-		biomeBloodPlains = new BiomeBloodPlains(ECConfig.getBiome("Blood Plains", 73)).setBiomeName("Blood Plains");
-		
-		pocBiomes = new BiomeGenBase[] { biomePOCPlains, biomePOCMountains, biomePOCDesert, biomeBloodPlains };
-		
+
 		// -- Dimensions --
 		
 		// Virtious
@@ -105,10 +85,6 @@ public class WorldManager
 		// Aerius
 		DimensionManager.registerProviderType(AERIUS_ID, WorldProviderAerius.class, true);
 		DimensionManager.registerDimension(AERIUS_ID, AERIUS_ID);
-		
-		// POC
-		DimensionManager.registerProviderType(POC_ID, WorldProviderPOC.class, true);
-		DimensionManager.registerDimension(POC_ID, POC_ID);
 		
 		/*
 		 * // Dreams Dimension DimensionManager.registerProviderType(DREAMS_ID,
