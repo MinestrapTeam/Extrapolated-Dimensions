@@ -35,25 +35,37 @@ tile.aerius_metals.pro_block.name=Pro Alloy Block
 # Wood Blocks
 tile.aerius_logs.skybark.name=Skybark Log
 tile.aerius_logs.dark_skybark.name=Dark Skybark Log
-tile.aerius_logs.cloudroot.name=Cloudroot Log
-tile.aerius_logs.gold_wood.name=Gold Wood Log
+tile.aerius_logs2.cloudroot.name=Cloudroot Log
+tile.aerius_logs2.gold_wood.name=Gold Wood Log
+tile.aerius_logs2.magic_oak.name=Magic Oak Log
+tile.aerius_logs2.willow.name=Willow Log
+
 tile.aerius_leaves.skybark.name=Skybark Leaves
 tile.aerius_leaves.dark_skybark.name=Dark Skybark Leaves
-tile.aerius_leaves.cloudroot.name=Cloudroot Leaves
-tile.aerius_leaves.gold_wood.name=Gold Wood Leaves
+tile.aerius_leaves2.cloudroot.name=Cloudroot Leaves
+tile.aerius_leaves2.gold_wood.name=Gold Wood Leaves
+tile.aerius_leaves2.magic_oak.name=Magic Oak Leaves
+tile.aerius_leaves2.willow.name=Willow Leaves
+
 tile.aerius_saplings.skybark.name=Skybark Sapling
 tile.aerius_saplings.dark_skybark.name=Dark Skybark Sapling
-tile.aerius_saplings.cloudroot.name=Cloudroot Sapling
-tile.aerius_saplings.gold_wood.name=Gold Wood Sapling
+tile.aerius_saplings2.cloudroot.name=Cloudroot Sapling
+tile.aerius_saplings2.gold_wood.name=Gold Wood Sapling
+tile.aerius_saplings2.magic_oak.name=Magic Oak Sapling
+tile.aerius_saplings2.willow.name=Willow Sapling
+
 tile.aerius_planks.skybark.name=Skybark Planks
 tile.aerius_planks.dark_skybark.name=Dark Skybark Planks
-tile.aerius_planks.cloudroot.name=Cloudroot Planks
-tile.aerius_planks.gold_wood.name=Gold Wood Planks
+tile.aerius_planks2.cloudroot.name=Cloudroot Planks
+tile.aerius_planks2.gold_wood.name=Gold Wood Planks
+tile.aerius_planks2.magic_oak.name=Magic Oak Planks
+tile.aerius_planks2.willow.name=Willow Planks
 
 # Plants
 tile.aerius_flowers.soulwhisker.name=Soulwhisker
 tile.aerius_flowers.palebloom.name=Palebloom
 tile.aerius_flowers.dawnbringer.name=Dawnbringer
+tile.aerius_flowers.saf_flower.name=Saf Flower
 
 tile.aerius_plants.angel_grass.name=Angel Grass
 tile.aerius_plants.short_angel_grass.name=Short Angel Grass
@@ -83,6 +95,7 @@ tile.cloud.orange.name=Orange Cloud
 tile.cloud.red.name=Red Cloud
 
 # Materials
+
 item.aerius_materials.luminite.name=Luminite
 item.aerius_materials.white_gold_ingot.name=White Gold Ingot
 item.aerius_materials.condaius_dust.name=Condaius Dust
@@ -90,11 +103,16 @@ item.aerius_materials.holium_ingot.name=Holium Ingot
 item.aerius_materials.pro_ingot.name=Pro Alloy Ingot
 item.aerius_materials.energy_orb.name=Energy Orb
 
+item.aerius_items.ice_stick.name=Ice Stick
+item.aerius_items.mana_star.name=Mana Star
+item.aerius_items.mana_stone.name=Mana Stone
+
 item.aerius_sticks.skybark.name=Skybark Stick
 item.aerius_sticks.dark_skybark.name=Dark Skybark Stick
 item.aerius_sticks.cloudroot.name=Cloudroot Stick
 item.aerius_sticks.gold_wood.name=Gold Wood Stick
-item.aerius_sticks.ice_stick.name=Ice Stick
+item.aerius_sticks.magic_oak.name=Magic Oak Stick
+item.aerius_sticks.willow.name=Willow Stick
 
 item.aerius_seeds.aerian_grass.name=Aerian Grass Seeds
 item.aerius_seeds.mud_grass.name=Mud Grass Seeds
