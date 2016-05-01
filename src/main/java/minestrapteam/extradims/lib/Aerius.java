@@ -13,7 +13,6 @@ import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
@@ -278,7 +277,7 @@ public class Aerius
 		dirtBlocks.setHardnesses(0.5F, 0.6F, 0.5F);
 		grassBlocks.setHardnesses(0.6F, 0.65F, 0.7F, 0.7F, 0.65F);
 
-		grassBlocks.setDirtBlocks(new Block[] { dirtBlocks, dirtBlocks, Blocks.dirt, Blocks.dirt, dirtBlocks },
+		grassBlocks.setDirtBlocks(new Block[] { dirtBlocks, dirtBlocks, dirtBlocks, dirtBlocks, dirtBlocks },
 		                          new int[] { 0, 1, 0, 0, 1 });
 
 		ECBlocks.addBlock(portal, "aerius_portal");

@@ -1,12 +1,7 @@
 package minestrapteam.extradims.lib;
 
-import java.util.Random;
-
 import minestrapteam.extracore.config.ECConfig;
-import minestrapteam.extradims.biome.aerius.BiomeAerius;
-import minestrapteam.extradims.biome.aerius.BiomeAeriusForest;
-import minestrapteam.extradims.biome.aerius.BiomeAeriusJungle;
-import minestrapteam.extradims.biome.aerius.BiomeHallow;
+import minestrapteam.extradims.biome.aerius.*;
 import minestrapteam.extradims.biome.poc.BiomeBloodPlains;
 import minestrapteam.extradims.biome.poc.BiomePOCDesert;
 import minestrapteam.extradims.biome.poc.BiomePOCMountains;
@@ -23,11 +18,12 @@ import minestrapteam.extradims.world.virtious.gen.VirtiousGenAmberTree;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenDeepstone;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenMinable;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenVirtianTree;
-
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
+
+import java.util.Random;
 
 public class WorldManager
 {
@@ -52,7 +48,8 @@ public class WorldManager
 	public static BiomeGenBase		biomeAerianForest;
 	public static BiomeGenBase		biomeAerianJungle;
 	public static BiomeGenBase		biomeHallow;
-	
+	public static BiomeGenBase		biomeCorruption;
+
 	public static BiomeGenBase[]	aeriusBiomes;
 	
 	public static BiomeGenBase		biomePOCPlains;
@@ -87,8 +84,9 @@ public class WorldManager
 		biomeAerianForest = new BiomeAeriusForest(ECConfig.getBiome("Aerian Forest", 61)).setBiomeName("Aerian Forest");
 		biomeAerianJungle = new BiomeAeriusJungle(ECConfig.getBiome("Aerian Jungle", 62)).setBiomeName("Aerian Jungle");
 		biomeHallow = new BiomeHallow(ECConfig.getBiome("Hallow", 63)).setBiomeName("Hallow");
-		
-		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle, biomeHallow };
+		biomeCorruption = new BiomeCorruption(ECConfig.getBiome("Corruption", 64)).setBiomeName("Corruption");
+
+		aeriusBiomes = new BiomeGenBase[] { biomeAerius, biomeAerianForest, biomeAerianJungle, biomeHallow, biomeCorruption };
 		
 		biomePOCPlains = new BiomePOCPlains(ECConfig
 			                                    .getBiome("Plains of Insanity", 70)).setBiomeName("Plains of Insanity");
