@@ -1,16 +1,11 @@
 package minestrapteam.extracore.block;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import minestrapteam.extracore.client.icon.IIconSupplier;
 import minestrapteam.extracore.client.icon.IconSupplier;
 import minestrapteam.extracore.util.I18n;
 import minestrapteam.extracore.util.StringUtils;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -21,64 +16,69 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 /**
  * The Class CustomBlock.
  */
 public class CustomBlock extends Block implements ICustomBlock
 {
-	public static final String[]	DEFAULT_NAMES	= { null };
-	
-	public String[]					names;
-	public IIconSupplier			iconSupplier;
-	
-	public boolean					opaque;
-	public int						renderType;
-	
-	public ItemStack[]				drops;
-	public float[]					hardnesses;
-	public CreativeTabs[]			tabs;
-	public boolean[]				enabled;
-	
+	public static final String[] DEFAULT_NAMES = { null };
+
+	public String[]      names;
+	public IIconSupplier iconSupplier;
+
+	public boolean opaque;
+	public int     renderType;
+
+	public ItemStack[]    drops;
+	public float[]        hardnesses;
+	public CreativeTabs[] tabs;
+	public boolean[]      enabled;
+
 	protected CustomBlock(Material material, String[] names, CreativeTabs[] tabs)
 	{
 		super(material);
 		this.setBlockName(names[0]);
-		
+
 		this.names = names;
 		this.opaque = true;
 		this.lightOpacity = 255;
-		
+
 		this.drops = new ItemStack[this.names.length];
 		this.hardnesses = new float[this.names.length];
 		this.enabled = new boolean[this.names.length];
 		Arrays.fill(this.enabled, true);
-		
+
 		this.tabs = tabs;
 		if (this.tabs != null)
 		{
 			this.setCreativeTab(tabs[0]);
 		}
 	}
-	
+
 	public CustomBlock(Material material, String[] names, Object icons, CreativeTabs[] tabs)
 	{
 		this(material, names, tabs);
 		this.iconSupplier = IconSupplier.create(icons);
 	}
-	
+
 	public CustomBlock(Material material, String name, String iconName, CreativeTabs tab)
 	{
 		this(material, new String[] { name }, new IconSupplier(iconName), null);
 		this.setCreativeTab(tab);
 	}
-	
+
 	// SETTERS SECTION
-	
+
 	/**
 	 * Sets the given metadata to be shown in the creative inventory or not.
-	 * 
+	 *
 	 * @param metadata
-	 *            the metadata
+	 * 	the metadata
+	 *
 	 * @return the custom block
 	 */
 	public CustomBlock setEnabled(int metadata, boolean flag)
@@ -86,40 +86,47 @@ public class CustomBlock extends Block implements ICustomBlock
 		this.enabled[metadata] = flag;
 		return this;
 	}
-	
+
 	/**
-	 * Sets the hardness.
-	 * 
+	 * Sets the hardness for all sub-blocks.
+	 *
 	 * @param hardness
-	 *            the hardness
-	 * @return the custom block
+	 * 	the hardness
+	 *
+	 * @return this custom block
 	 */
 	@Override
 	public CustomBlock setHardness(float hardness)
 	{
-		return this.setHardness(0, hardness);
+		for (int i = 0; i < this.hardnesses.length; i++)
+		{
+			this.hardnesses[i] = hardness;
+		}
+		return this;
 	}
-	
+
 	/**
-	 * Sets the hardness.
-	 * 
+	 * Sets the hardness for the sub-block with the given {@code metadata}.
+	 *
 	 * @param metadata
-	 *            the metadata
+	 * 	the metadata
 	 * @param hardness
-	 *            the hardness
-	 * @return the custom block
+	 * 	the hardness
+	 *
+	 * @return this custom block
 	 */
 	public CustomBlock setHardness(int metadata, float hardness)
 	{
 		this.hardnesses[metadata] = hardness;
 		return this;
 	}
-	
+
 	/**
 	 * Sets the hardnesses.
-	 * 
+	 *
 	 * @param hardnessArray
-	 *            the hardness array
+	 * 	the hardness array
+	 *
 	 * @return the custom block
 	 */
 	public CustomBlock setHardnesses(float... hardnessArray)
@@ -127,14 +134,15 @@ public class CustomBlock extends Block implements ICustomBlock
 		this.hardnesses = hardnessArray;
 		return this;
 	}
-	
+
 	/**
 	 * Sets the drops.
-	 * 
+	 *
 	 * @param metadata
-	 *            the metadata
+	 * 	the metadata
 	 * @param drop
-	 *            the drop
+	 * 	the drop
+	 *
 	 * @return the custom block
 	 */
 	public CustomBlock setDrops(int metadata, ItemStack drop)
@@ -142,12 +150,13 @@ public class CustomBlock extends Block implements ICustomBlock
 		this.drops[metadata] = drop;
 		return this;
 	}
-	
+
 	/**
 	 * Sets the drops.
-	 * 
+	 *
 	 * @param drops
-	 *            the drops
+	 * 	the drops
+	 *
 	 * @return the custom block
 	 */
 	public CustomBlock setDrops(ItemStack... drops)
@@ -155,19 +164,19 @@ public class CustomBlock extends Block implements ICustomBlock
 		this.drops = drops;
 		return this;
 	}
-	
+
 	public CustomBlock setCreativeTab(int metadata, CreativeTabs tab)
 	{
 		this.tabs[metadata] = tab;
 		return this;
 	}
-	
+
 	public CustomBlock setCreativeTabs(CreativeTabs... tabs)
 	{
 		this.tabs = tabs;
 		return this;
 	}
-	
+
 	public CreativeTabs getCreativeTab(int metadata)
 	{
 		if (this.tabs == null)
@@ -176,69 +185,70 @@ public class CustomBlock extends Block implements ICustomBlock
 		}
 		return this.tabs[metadata % this.tabs.length];
 	}
-	
+
 	// RENDER SECTION
-	
+
 	@Override
 	public boolean isOpaqueCube()
 	{
 		return this.opaque;
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock()
 	{
 		return this.renderType == 0;
 	}
-	
+
 	@Override
 	public int getRenderType()
 	{
 		return this.renderType;
 	}
-	
+
 	// ICON SECTION
-	
+
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
 		return this.iconSupplier.getIcon(metadata, side);
 	}
-	
+
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.iconSupplier.registerIcons(iconRegister);
 	}
-	
+
 	// NAME SECTION
-	
+
 	/**
 	 * Gets the names.
-	 * 
+	 *
 	 * @return the names
 	 */
 	public String[] getNames()
 	{
 		return this.names;
 	}
-	
+
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
 		return getUnlocalizedName(this, stack, this.names);
 	}
-	
+
 	/**
-	 * Ensures shared access for all class implementing {@link ICustomBlock}.
-	 * This is usually inlined, so we have a win-win.
-	 * 
+	 * Ensures shared access for all class implementing {@link ICustomBlock}. This is usually inlined, so we have a
+	 * win-win.
+	 *
 	 * @param block
-	 *            the ICustomBlock instance
+	 * 	the ICustomBlock instance
 	 * @param stack
-	 *            the stack
+	 * 	the stack
 	 * @param names
-	 *            the names
+	 * 	the names
+	 *
 	 * @return the unlocalized name
 	 */
 	public static String getUnlocalizedName(Block block, ItemStack stack, String[] names)
@@ -251,13 +261,13 @@ public class CustomBlock extends Block implements ICustomBlock
 		}
 		return block.getUnlocalizedName();
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list)
 	{
 		addInformation(this, stack, list);
 	}
-	
+
 	public static void addInformation(ICustomBlock block, ItemStack stack, List<String> list)
 	{
 		String key = block.getUnlocalizedName(stack) + ".desc";
@@ -271,9 +281,9 @@ public class CustomBlock extends Block implements ICustomBlock
 			}
 		}
 	}
-	
+
 	// OTHER PROPERTIES
-	
+
 	@Override
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
@@ -284,9 +294,9 @@ public class CustomBlock extends Block implements ICustomBlock
 		}
 		return this.blockHardness;
 	}
-	
+
 	// DROP SECTION
-	
+
 	@Override
 	public int quantityDropped(int metadata, int fortune, Random random)
 	{
@@ -296,7 +306,7 @@ public class CustomBlock extends Block implements ICustomBlock
 		}
 		return 1;
 	}
-	
+
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
@@ -306,7 +316,7 @@ public class CustomBlock extends Block implements ICustomBlock
 		}
 		return super.getItemDropped(metadata, random, fortune);
 	}
-	
+
 	@Override
 	public int damageDropped(int metadata)
 	{
@@ -316,15 +326,15 @@ public class CustomBlock extends Block implements ICustomBlock
 		}
 		return metadata;
 	}
-	
+
 	@Override
 	public int getDamageValue(World world, int x, int y, int z)
 	{
 		return world.getBlockMetadata(x, y, z);
 	}
-	
+
 	// SUB BLOCKS
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)

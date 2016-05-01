@@ -197,6 +197,46 @@ public class StringUtils
 	}
 
 	/**
+	 * Concats all Strings in {@code array} with the {@code postfix}
+	 *
+	 * @param array
+	 * 	the array
+	 * @param postfix
+	 * 	the postfix
+	 *
+	 * @return the new array
+	 */
+	public static String[] postfixAll(String[] array, String prefix, String postfix)
+	{
+		final String[] ret = new String[array.length];
+		for (int i = 0; i < ret.length; i++)
+		{
+			ret[i] = array[i] + postfix;
+		}
+		return ret;
+	}
+
+	/**
+	 * Concats all Strings in {@code array} with the {@code prefix}
+	 *
+	 * @param array
+	 * 	the array
+	 * @param prefix
+	 * 	the prefix
+	 *
+	 * @return the new array
+	 */
+	public static String[] prefixAll(String[] array, String prefix)
+	{
+		final String[] ret = new String[array.length];
+		for (int i = 0; i < ret.length; i++)
+		{
+			ret[i] = prefix + array[i];
+		}
+		return ret;
+	}
+
+	/**
 	 * Concats all Strings in {@code array} with the {@code prefix} and the {@code postfix}
 	 *
 	 * @param array
@@ -210,32 +250,10 @@ public class StringUtils
 	 */
 	public static String[] concatAll(String[] array, String prefix, String postfix)
 	{
-		String[] ret = new String[array.length];
-		for (int i = 0; i < ret.length; i++)
+		final String[] ret = new String[array.length];
+		for (int i = 0; i < array.length; i++)
 		{
 			ret[i] = prefix + array[i] + postfix;
-		}
-		return ret;
-	}
-
-	/**
-	 * Concats all Strings in the list {@code list} with the {@code prefix} and the {@code postfix}
-	 *
-	 * @param list
-	 * 	the list
-	 * @param prefix
-	 * 	the prefix
-	 * @param postfix
-	 * 	the postfix
-	 *
-	 * @return the new list
-	 */
-	public static List<String> concatAll(List<String> list, String prefix, String postfix)
-	{
-		List<String> ret = new ArrayList<>(list.size());
-		for (int i = 0; i < ret.size(); i++)
-		{
-			ret.add(prefix + list.get(i) + postfix);
 		}
 		return ret;
 	}

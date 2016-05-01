@@ -1,12 +1,8 @@
 package minestrapteam.extracore.block;
 
-import java.util.List;
-import java.util.Random;
-
-import minestrapteam.extracore.util.StringUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
+import minestrapteam.extracore.util.StringUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
@@ -18,6 +14,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockCustomLeaves extends BlockLeaves implements ICustomBlock
 {
@@ -47,7 +46,7 @@ public class BlockCustomLeaves extends BlockLeaves implements ICustomBlock
 	
 	public BlockCustomLeaves(String[] names, String domain)
 	{
-		this(names, StringUtils.concatAll(names, domain + ":", null));
+		this(names, StringUtils.prefixAll(names, domain + ":"));
 	}
 	
 	public BlockCustomLeaves setAppleStacks(ItemStack... appleStacks)

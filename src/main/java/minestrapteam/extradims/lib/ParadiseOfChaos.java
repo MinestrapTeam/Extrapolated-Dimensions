@@ -88,7 +88,7 @@ public class ParadiseOfChaos
 		
 		dirtBlocks = (CustomBlock) new CustomBlock(Material.ground, new String[] { "altered_dirt", "blood_dirt" }, new String[] { getTexture("soil/altered_dirt"), getTexture("soil/blood_dirt") }, null).setCreativeTab(tabBlocks).setStepSound(Block.soundTypeGravel);
 		grassBlocks = (BlockCustomGrass) new BlockCustomGrass(new String[] { "altered_grass", "blood_grass" }, new String[] { getTexture("soil/altered_grass"), getTexture("soil/blood_grass") }).setCreativeTab(tabBlocks);
-		
+
 		String[] ores1 = new String[] { "copper", "tin", "mithril", "adamantite", "rubium", "novite", "kratonium", "promethium", "fractite" };
 		oreBlocks = (CustomBlock) new CustomBlock(Material.rock, ores1, StringUtils
 			                                                                .concatAll(ores1, "ed_poc:minerals/", "_ore"), null).setCreativeTab(tabBlocks);
@@ -167,7 +167,7 @@ public class ParadiseOfChaos
 		
 		stoneBlocks.setHardness(2.2F);
 		dirtBlocks.setHardness(0.5F);
-		grassBlocks.setDirtBlock(0, dirtBlocks, 0);
+		grassBlocks.setDirtBlocks(new Block[] { dirtBlocks, dirtBlocks }, new int[] { 0, 1 });
 		
 		ECBlocks.addBlock(portal, "poc_portal");
 		ECBlocks.addBlock(portalFrame, "poc_portal_frame");
