@@ -4,8 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.*;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.extracore.api.BrewingAPI;
 import minestrapteam.extracore.api.PlayerInventoryAPI;
@@ -14,7 +12,6 @@ import minestrapteam.extracore.block.ECBlocks;
 import minestrapteam.extracore.block.ore.BlockOre2;
 import minestrapteam.extracore.block.ore.BlockRedstoneOre2;
 import minestrapteam.extracore.block.ore.OreBase;
-import minestrapteam.extracore.cape.Capes;
 import minestrapteam.extracore.command.CommandModUpdate;
 import minestrapteam.extracore.command.CommandPotion;
 import minestrapteam.extracore.config.ECConfig;
@@ -33,6 +30,7 @@ import minestrapteam.extracore.item.stack.StackFactory;
 import minestrapteam.extracore.network.ECNetHandler;
 import minestrapteam.extracore.potion.PotionList;
 import minestrapteam.extracore.potion.util.PotionDispenser;
+import minestrapteam.extracore.proxy.ECEventHandler;
 import minestrapteam.extracore.proxy.ECProxy;
 import minestrapteam.extracore.tileentity.TileEntityBrewingStand2;
 import minestrapteam.extracore.util.Log4JLogger;
@@ -40,7 +38,6 @@ import minestrapteam.extracore.util.logging.ECLog;
 import minestrapteam.extracore.util.update.ECUpdate;
 import minestrapteam.extracore.util.update.reader.SimpleUpdateReader;
 import minestrapteam.extracore.util.update.updater.ModUpdater;
-import minestrapteam.extracore.world.gen.CustomCaveGen;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.command.ServerCommandManager;
@@ -55,10 +52,6 @@ import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.IExtendedEntityProperties;
-import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.terraingen.InitMapGenEvent;
-import net.minecraftforge.event.terraingen.InitMapGenEvent.EventType;
 
 import java.io.File;
 
@@ -169,7 +162,7 @@ public class ExtraCore extends ClashsoftMod
 		super(proxy, MODID, NAME, ACRONYM, VERSION);
 		this.hasConfig = true;
 		this.netHandler = new ECNetHandler();
-		this.eventHandler = this;
+		this.eventHandler = new ECEventHandler();
 		this.url = "https://github.com/Clashsoft/ExtraCore-Minecraft/wiki/";
 		this.description = "Clashsoft's Minecraft Library adds many useful Classes and APIs for modders to use.";
 	}
@@ -318,46 +311,12 @@ public class ExtraCore extends ClashsoftMod
 		super.postInit(event);
 	}
 
-	@EventHandler
+	@Mod.EventHandler
 	public void serverStarted(@SuppressWarnings("UnusedParameters") FMLServerStartedEvent event)
 	{
 		ServerCommandManager manager = (ServerCommandManager) MinecraftServer.getServer().getCommandManager();
 
 		manager.registerCommand(new CommandModUpdate());
 		manager.registerCommand(new CommandPotion());
-	}
-
-	@SubscribeEvent
-	public void entityJoined(EntityJoinWorldEvent event)
-	{
-		if (event.entity instanceof EntityPlayer)
-		{
-			EntityPlayer player = (EntityPlayer) event.entity;
-			Capes.updateCape(player);
-		}
-	}
-
-	@SubscribeEvent
-	public void entityConstructing(EntityConstructing event)
-	{
-		ECEntities.loadProperties(event.entity);
-	}
-
-	@SubscribeEvent
-	public void playerLogin(PlayerEvent.PlayerLoggedInEvent event)
-	{
-		if (proxy.isClient())
-		{
-			ECUpdate.notifyAll(event.player);
-		}
-	}
-
-	@SubscribeEvent
-	public void getModdedMapGen(InitMapGenEvent event)
-	{
-		if (event.type == EventType.CAVE)
-		{
-			event.newGen = new CustomCaveGen();
-		}
 	}
 }

@@ -190,9 +190,9 @@ public class SurvivalInventory implements SlotConstants
 	public static void compactCraftingGrid()
 	{
 		setCraftingGrid(134, 8);
-		setSlot(CRAFTING_OUTPUT, 143, 64);
+		setSlot(CRAFTING_OUTPUT, 143, 62);
 		setCraftLabel(-2000, -2000);
-		setCraftArrow(143, 46, 90F);
+		setCraftArrow(143, 45, 90F);
 	}
 	
 	/**
