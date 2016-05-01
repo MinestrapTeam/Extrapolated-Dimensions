@@ -3,6 +3,10 @@ itemGroup.aerius_blocks=Aerius - Blocks
 itemGroup.aerius_items=Aerius - Items
 
 # Stone Blocks
+tile.aerock.name=Aerock
+tile.aerock.cobbled.name=Cobbled Aerock
+tile.aerock.mossy.name=Mossy Aerock
+tile.aerock.jungle.name=Jungle Aerock
 
 # Soil Blocks
 tile.aerian_dirt.name=Aerian Soil
@@ -16,8 +20,17 @@ tile.aerian_grass.hallowed_grass.name=Hallowed Grass
 tile.aerian_grass.mushroom_grass.name=Mushroom Grass
 
 # Ores
+tile.aerius_ores.luminite_ore.name=Luminite Ore
+tile.aerius_ores.white_gold_ore.name=White Gold Ore
+tile.aerius_ores.condaius_ore.name=Condaius Ore
+tile.aerius_ores.holium_ore.name=Holium Ore
 
 # Ore Blocks
+tile.aerius_metals.luminite_block.name=Luminite Block
+tile.aerius_metals.white_gold_block.name=White Gold Block
+tile.aerius_metals.condaius_block.name=Condaius Block
+tile.aerius_metals.holium_block.name=Holium Block
+tile.aerius_metals.pro_block.name=Pro Alloy Block
 
 # Wood Blocks
 tile.aerius_logs.skybark.name=Skybark Log
@@ -42,16 +55,52 @@ tile.aerius_flowers.soulwhisker.name=Soulwhisker
 tile.aerius_flowers.palebloom.name=Palebloom
 tile.aerius_flowers.dawnbringer.name=Dawnbringer
 
+tile.aerius_plants.angel_grass.name=Angel Grass
+tile.aerius_plants.short_angel_grass.name=Short Angel Grass
+tile.aerius_plants.corrupted_grass.name=Corrupted Grass
+tile.aerius_plants.hallowed_grass.name=Hallowed Grass
+tile.aerius_plants.mushroom_grass.name=Mushroom Grass
+
+tile.aerius_plants.wanderers_bane.name=Wanderer's Bane
+tile.aerius_plants.wanderers_bane_small.name=Small Wanderer's Bane
+tile.aerius_plants.corrupted_vine.name=Corrupted Vine
+tile.aerius_plants.hallowed_vine.name=Hallowed Vine
+tile.aerius_plants.mushroom_vine.name=Mushroom Vine
+
 # Misc Blocks
 tile.aerius_portal.name=Aerius Portal
 tile.aerian_pillar.name=Aerian Pillar
 tile.damnation_table.name=Damnation Table
 
+tile.cloud.white.name=White Cloud
+tile.cloud.black.name=Black Cloud
+tile.cloud.purple.name=Purple Cloud
+tile.cloud.blue.name=Blue Cloud
+tile.cloud.green.name=Green Cloud
+tile.cloud.yellow.name=Yellow Cloud
+tile.cloud.gold.name=Gold Cloud
+tile.cloud.orange.name=Orange Cloud
+tile.cloud.red.name=Red Cloud
+
 # Materials
+item.aerius_materials.luminite.name=Luminite
+item.aerius_materials.white_gold_ingot.name=White Gold Ingot
+item.aerius_materials.condaius_dust.name=Condaius Dust
+item.aerius_materials.holium_ingot.name=Holium Ingot
+item.aerius_materials.pro_ingot.name=Pro Alloy Ingot
+item.aerius_materials.energy_orb.name=Energy Orb
+
 item.aerius_sticks.skybark.name=Skybark Stick
 item.aerius_sticks.dark_skybark.name=Dark Skybark Stick
 item.aerius_sticks.cloudroot.name=Cloudroot Stick
 item.aerius_sticks.gold_wood.name=Gold Wood Stick
+item.aerius_sticks.ice_stick.name=Ice Stick
+
+item.aerius_seeds.aerian_grass.name=Aerian Grass Seeds
+item.aerius_seeds.mud_grass.name=Mud Grass Seeds
+item.aerius_seeds.corrupted_grass.name=Corrupted Grass Seeds
+item.aerius_seeds.hallowed_grass.name=Hallowed Grass Seeds
+item.aerius_seeds.mushroom_grass.name=Mushroom Grass Seeds
 
 # Tools
 item.fire_sword.name=Fire Sword

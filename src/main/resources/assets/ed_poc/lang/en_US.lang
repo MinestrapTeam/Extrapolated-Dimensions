@@ -6,15 +6,15 @@ itemGroup.poc_items=Paradise of Chaos - Items
 tile.poc_portal.name=Paradise of Chaos Portal
 tile.poc_portal_frame.name=Paradise of Chaos Portal Frame
 
-tile.poc_stone.chaos_stone.name=Chaos Stone
-tile.poc_stone.chaos_cobble.name=Chaos Cobblestone
-tile.poc_stone.chaos_stone_dark.name=Dark Chaos Stone
-tile.poc_stone.chaos_cobble_dark.name=Dark Chaos Cobblestone
+tile.chaosstone.name=Chaos Stone
+tile.chaosstone.cobbled.name=Chaos Cobblestone
+tile.chaosstone.dark.name=Dark Chaos Stone
+tile.chaosstone.dark_cobbled.name=Dark Chaos Cobblestone
 
-tile.poc_blood_stone.blood_stone.name=Bleedstone
-tile.poc_blood_stone.blood_cobble.name=Cobble Bleedstone
-tile.poc_blood_stone.blood_cobble_bloody.name=Bloody Bleedstone
-tile.poc_blood_stone.blood_brick.name=Bleedstone Bricks
+tile.bleedstone.name=Bleedstone
+tile.bleedstone.cobbled.name=Cobble Bleedstone
+tile.bleedstone.bloody.name=Bloody Bleedstone
+tile.bleedstone.bricks.name=Bleedstone Bricks
 
 tile.poc_dirt.altered_dirt.name=Altered Dirt
 tile.poc_dirt.blood_dirt.name=Blood Dirt
@@ -50,10 +50,11 @@ tile.poc_planks.willow.name=Willow Planks
 item.mana_star.name=Mana Star
 item.mana_stone.name=Mana Stone
 
-item.poc_items.magic_oak_stick.name=Magic Oak Stick
-item.poc_items.willow_stick.name=Willow Stick
-item.poc_items.promethium_gem.name=Promethium Gem
-item.poc_items.novite_gem.name=Novite Gem
+item.poc_sticks.magic_oak_stick.name=Magic Oak Stick
+item.poc_sticks.willow_stick.name=Willow Stick
+
+item.poc_materials.promethium_gem.name=Promethium Gem
+item.poc_materials.novite_gem.name=Novite Gem
 
 item.poc_materials.kratonium_ingot.name=Kratonium Ingot
 item.poc_materials.whitium_ingot.name=Whitium Ingot
