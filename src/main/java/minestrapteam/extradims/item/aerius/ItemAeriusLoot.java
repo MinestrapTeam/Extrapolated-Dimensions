@@ -62,28 +62,33 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient, IEne
 	@Override
 	public EnumRarity getRarity(ItemStack stack)
 	{
-		return EnumRarity.rare;
+		final int metadata = stack.getItemDamage();
+		return metadata == Aerius.aerwand.getItemDamage() ? EnumRarity.rare : EnumRarity.common;
 	}
 
 	@Override
 	public boolean hasEffect(ItemStack stack, int pass)
 	{
 		final int metadata = stack.getItemDamage();
-		return metadata == Aerius.portalActivator.getItemDamage();
+		return metadata == Aerius.aerwand.getItemDamage();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
-		list.add(I18n.getString("item.aerius_portal_activator.desc"));
+		final int metadata = stack.getItemDamage();
+		if (metadata == Aerius.aerwand.getItemDamage())
+		{
+			list.add(I18n.getString("item.aerius_loot.portal_activator.desc"));
+		}
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		final int metadata = stack.getItemDamage();
-		if (metadata == Aerius.portalActivator.getItemDamage())
+		if (metadata == Aerius.aerwand.getItemDamage())
 		{
 			if (!world.isRemote && Aerius.portal.generatePortal(world, x, y + 1, z))
 			{

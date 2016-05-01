@@ -70,7 +70,7 @@ public class Aerius
 	public static ItemStack skybarkStick, darkSkybarkStick, cloudrootStick, goldWoodStick;
 	// public static ItemStack magicOakStick, willowStick;
 
-	public static ItemStack portalActivator, iceStick, manaStar, lifeHeart;
+	public static ItemStack iceStick, manaStar, lifeHeart, aerwand;
 
 	public static ItemStack luminiteChunk, whiteGoldIngot, condaiusDust, holiumIngot, proAlloy, energyOrb;
 
@@ -112,8 +112,8 @@ public class Aerius
 			                             .setCreativeTab(tabAeriusItems);
 
 		lootItems = (ItemAeriusLoot) new ItemAeriusLoot(new String[] { "ice_stick", "fire_ring", "gold_ball",
-			"life_gem", "life_heart", "mana_gem", "mana_star", "etherical_stone", "bottle_light", "hephaestos_flame",
-			"chains", "amnethite_paragon_gem" }).setCreativeTab(tabAeriusItems);
+			"life_gem", "life_heart", "mana_gem", "mana_star", "aerwand", "etherical_stone", "bottle_light",
+			"hephaestos_flame", "chains", "amnethite_paragon_gem" }).setCreativeTab(tabAeriusItems);
 
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple"))
 		                                                  .setCreativeTab(tabAeriusItems);
@@ -230,6 +230,7 @@ public class Aerius
 		iceStick = new ItemStack(lootItems, 1, 0);
 		lifeHeart = new ItemStack(lootItems, 1, 3);
 		manaStar = new ItemStack(lootItems, 1, 6);
+		aerwand = new ItemStack(lootItems, 1, 7);
 
 		// Block Stacks
 
@@ -297,7 +298,9 @@ public class Aerius
 		stoneBlocks.setHardnesses(1.5F, 2.0F, 2F, 2.2F, 2.1F, 2.5F, 2.5F, 2.7F, 2.6F, 3F);
 		stoneBlocks.setDrops(cobbledAerock, null, luminiteChunk, null, condaiusDust, null, null, null, null, null);
 		dirtBlocks.setHardnesses(0.5F, 0.6F, 0.5F);
+		dirtBlocks.setHarvestLevel("shovel", 0);
 		grassBlocks.setHardnesses(0.6F, 0.65F, 0.7F, 0.7F, 0.65F);
+		grassBlocks.setHarvestLevel("shovel", 0);
 
 		grassBlocks.setDirtBlocks(new Block[] { dirtBlocks, dirtBlocks, dirtBlocks, dirtBlocks, dirtBlocks },
 		                          new int[] { 0, 1, 0, 0, 1 });

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -57,5 +58,11 @@ public class ItemIceHammer extends Item
 	public int getItemEnchantability()
 	{
 		return 15;
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack)
+	{
+		return EnumRarity.rare;
 	}
 }
