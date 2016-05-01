@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
+@SuppressWarnings("unused")
 public class ECStacks
 {
 	public static ItemStack	air						= StackFactory.create(Blocks.air);
@@ -117,7 +118,14 @@ public class ECStacks
 	public static ItemStack	water_bucket			= StackFactory.create(Items.water_bucket);
 	public static ItemStack	wheat					= StackFactory.create(Items.wheat);
 	public static ItemStack	wither_skull			= StackFactory.create(Items.skull, 1, 1);
-	
+
+	public static ItemStack withSize(ItemStack stack, int size)
+	{
+		final ItemStack copy = stack.copy();
+		copy.stackSize = 4;
+		return copy;
+	}
+
 	public static boolean equals(ItemStack input, ItemStack target)
 	{
 		return itemEquals(input, target);

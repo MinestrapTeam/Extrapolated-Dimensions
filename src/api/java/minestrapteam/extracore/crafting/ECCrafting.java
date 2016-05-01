@@ -232,7 +232,7 @@ public class ECCrafting
 	 */
 	public static void addStick(ItemStack output, ItemStack input)
 	{
-		addRecipe(output, "s", "s", 's', input);
+		addRecipe(ECStacks.withSize(output, 4), "s", "s", 's', input);
 	}
 	
 	/**
@@ -245,7 +245,7 @@ public class ECCrafting
 	 */
 	public static void addPlanks(ItemStack output, ItemStack input)
 	{
-		addShapelessRecipe(output, input);
+		addShapelessRecipe(ECStacks.withSize(output, 4), input);
 	}
 	
 	/**
