@@ -80,7 +80,7 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient, IEne
 		final int metadata = stack.getItemDamage();
 		if (metadata == Aerius.aerwand.getItemDamage())
 		{
-			list.add(I18n.getString("item.aerius_loot.portal_activator.desc"));
+			list.add(I18n.getString("item.aerius_loot.aerwand.desc"));
 		}
 	}
 

@@ -117,8 +117,8 @@ item.aerius_loot.bottle_light.name=Bottle of Light
 item.aerius_loot.hephaestos_flame.name=Hephaestos Flame
 item.aerius_loot.chains.name=Chains
 item.aerius_loot.amnethite_paragon_gem.name=Holy Amnethite Parageon Gem
-item.aerius_loot.portal_activator.name=Aerwand
-item.aerius_loot.portal_activator.desc=§aActivates the portal to the Aerius
+item.aerius_loot.aerwand.name=Aerwand
+item.aerius_loot.aerwand.desc=§aActivates the portal to the Aerius
 
 item.aerius_sticks.skybark.name=Skybark Stick
 item.aerius_sticks.dark_skybark.name=Dark Skybark Stick
