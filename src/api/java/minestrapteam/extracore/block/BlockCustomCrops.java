@@ -1,8 +1,5 @@
 package minestrapteam.extracore.block;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,6 +8,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockCustomCrops extends BlockCustomPlant implements IGrowable
 {
@@ -52,7 +52,7 @@ public class BlockCustomCrops extends BlockCustomPlant implements IGrowable
 	}
 	
 	@Override
-	public boolean isValidGround(World world, int x, int y, int z)
+	public boolean isValidGround(int metadata, World world, int x, int y, int z)
 	{
 		return world.getBlock(x, y - 1, z).canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 	}

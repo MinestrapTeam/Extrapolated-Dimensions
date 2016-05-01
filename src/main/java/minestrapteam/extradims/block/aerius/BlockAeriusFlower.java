@@ -16,7 +16,7 @@ public class BlockAeriusFlower extends BlockCustomPlant
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		if (metadata == 2)
+		if (metadata == 2) // Dawnbringer
 		{
 			return (block == Aerius.dirtBlocks || block == Aerius.grassBlocks) && blockMetadata == 1;
 		}
