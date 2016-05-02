@@ -31,12 +31,12 @@ public class GuiMainMenuAerius extends GuiMainMenu
 	public static final  ResourceLocation   minecraftTitleTextures = new ResourceLocation("minecraft",
 	                                                                                         "textures/gui/title/minecraft.png");
 	private static final ResourceLocation[] titlePanoramaPaths     = new ResourceLocation[] {
-		new ResourceLocation("textures/gui/title/background/panorama_0.png"),
-		new ResourceLocation("textures/gui/title/background/panorama_1.png"),
-		new ResourceLocation("textures/gui/title/background/panorama_2.png"),
-		new ResourceLocation("textures/gui/title/background/panorama_3.png"),
-		new ResourceLocation("textures/gui/title/background/panorama_4.png"),
-		new ResourceLocation("textures/gui/title/background/panorama_5.png") };
+		new ResourceLocation("ed_aerius:textures/gui/title/background/north.png"),
+		new ResourceLocation("ed_aerius:textures/gui/title/background/east.png"),
+		new ResourceLocation("ed_aerius:textures/gui/title/background/south.png"),
+		new ResourceLocation("ed_aerius:textures/gui/title/background/west.png"),
+		new ResourceLocation("ed_aerius:textures/gui/title/background/up.png"),
+		new ResourceLocation("ed_aerius:textures/gui/title/background/down.png") };
 	public static final  int                TEXT_COLOR             = 0x00AAFF;
 
 	private ResourceLocation panoramaTextureLocation;
@@ -244,29 +244,23 @@ public class GuiMainMenuAerius extends GuiMainMenu
 			{
 				GL11.glPushMatrix();
 
-				if (l == 1)
+				switch (l)
 				{
+				case 1:
 					GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-				}
-
-				if (l == 2)
-				{
+					break;
+				case 2:
 					GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
-				}
-
-				if (l == 3)
-				{
+					break;
+				case 3:
 					GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
-				}
-
-				if (l == 4)
-				{
+					break;
+				case 4:
 					GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
-				}
-
-				if (l == 5)
-				{
+					break;
+				case 5:
 					GL11.glRotatef(-90.0F, 1.0F, 0.0F, 0.0F);
+					break;
 				}
 
 				this.mc.getTextureManager().bindTexture(titlePanoramaPaths[l]);
