@@ -67,11 +67,15 @@ public class WorldProviderAerius extends CustomWorldProvider
 	public float[] calcSunriseSunsetColors(float celestialAngle, float partialTickTime)
 	{
 		float f = MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
-		this.colorsSunriseSunset[0] = 0F * f;
-		this.colorsSunriseSunset[1] = 0.75F * f;
-		this.colorsSunriseSunset[2] = 1F * f;
-		this.colorsSunriseSunset[3] = 0.5F;
-		return this.colorsSunriseSunset;
+		if (f >= -0.4F && f <= 0.4F)
+		{
+			this.colorsSunriseSunset[0] = 0F * f;
+			this.colorsSunriseSunset[1] = 0.75F * f;
+			this.colorsSunriseSunset[2] = 1F * f;
+			this.colorsSunriseSunset[3] = 1F;
+			return this.colorsSunriseSunset;
+		}
+		return null;
 	}
 	
 	@Override
