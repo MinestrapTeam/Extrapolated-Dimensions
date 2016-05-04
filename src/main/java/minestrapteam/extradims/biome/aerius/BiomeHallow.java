@@ -28,6 +28,6 @@ public class BiomeHallow extends BiomeAerius
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return getTreeGenForTree(random, 3, false);
+		return getTreeGenForTree(random, random.nextBoolean() ? GOLDWOOD : MAGIC_OAK, false);
 	}
 }

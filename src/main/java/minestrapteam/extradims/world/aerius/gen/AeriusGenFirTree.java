@@ -10,11 +10,22 @@ import java.util.Random;
 
 public class AeriusGenFirTree extends CustomTreeGen
 {
-	public AeriusGenFirTree(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
+	public static AeriusGenFirTree create(boolean blockUpdates, int minTreeHeight, int type)
 	{
-		super(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metaWood, metaLeaves);
+		final int metadata = type % 4;
+		if (type >= 4)
+		{
+			return new AeriusGenFirTree(blockUpdates, minTreeHeight, Aerius.logBlocks2, Aerius.leafBlocks2, metadata,
+			                         metadata);
+		}
+		return new AeriusGenFirTree(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metadata, metadata);
 	}
-	
+
+	private AeriusGenFirTree(boolean blockUpdates, int minTreeHeight, Block log, Block leaf, int woodMetadata, int leavesMetadata)
+	{
+		super(blockUpdates, minTreeHeight, log, leaf, woodMetadata, leavesMetadata);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{

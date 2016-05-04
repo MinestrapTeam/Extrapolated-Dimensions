@@ -18,6 +18,13 @@ import java.util.Random;
 
 public class BiomeAerius extends CustomBiome
 {
+	public static final int SKYBARK = 0;
+	public static final int DARK_SKYBARK = 1;
+	public static final int CLOUDROOT = 4;
+	public static final int GOLDWOOD = 5;
+	public static final int MAGIC_OAK = 6;
+	public static final int WILLOW = 7;
+
 	public BiomeAerius(int id)
 	{
 		super(id);
@@ -58,21 +65,21 @@ public class BiomeAerius extends CustomBiome
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		int randInt = random.nextInt(100);
+		final int randInt = random.nextInt(100);
 		if (randInt == 0)
 		{
 			// Gold Wood 1 %
-			return getTreeGenForTree(random, 3, false);
+			return getTreeGenForTree(random, GOLDWOOD, false);
 		}
 		else if (randInt < 20)
 		{
 			// Cloudroot 19 %
-			return getTreeGenForTree(random, 2, false);
+			return getTreeGenForTree(random, CLOUDROOT, false);
 		}
 		else
 		{
 			// Skybark 80 %
-			return getTreeGenForTree(random, 0, false);
+			return getTreeGenForTree(random, SKYBARK, false);
 		}
 	}
 	
@@ -86,35 +93,39 @@ public class BiomeAerius extends CustomBiome
 	{
 		switch (metadata)
 		{
-		case 0: // Skybark
+		case SKYBARK:
 			if (random.nextInt(10) == 0)
 			{
-				return new AeriusGenBigTree(update, 20, 0, 0);
+				return AeriusGenBigTree.create(update, 20, SKYBARK);
 			}
 			else
 			{
-				return new AeriusGenTree(update, 6, 0, 0);
+				return AeriusGenTree.create(update, 6, SKYBARK);
 			}
-		case 1: // Dark Skybark
+		case DARK_SKYBARK:
 			if (random.nextInt(10) == 0)
 			{
-				return new AeriusGenBigTree(update, 20, 1, 1);
+				return AeriusGenBigTree.create(update, 20, DARK_SKYBARK);
 			}
 			else
 			{
-				return new AeriusGenJungleTree(update, 7, 1, 1);
+				return AeriusGenJungleTree.create(update, 7, DARK_SKYBARK);
 			}
-		case 2: // Cloudroot
+		case CLOUDROOT:
 			if (random.nextInt(4) == 0)
 			{
-				return new AeriusGenTree(update, 7, 2, 2);
+				return AeriusGenTree.create(update, 7, CLOUDROOT);
 			}
 			else
 			{
-				return new AeriusGenFirTree(update, 7, 2, 2);
+				return AeriusGenFirTree.create(update, 7, CLOUDROOT);
 			}
-		case 3: // Goldwood
-			return new AeriusGenJungleTree(update, 10, 3, 3);
+		case GOLDWOOD:
+			return AeriusGenJungleTree.create(update, 10, GOLDWOOD);
+		case MAGIC_OAK:
+			return AeriusGenTree.create(update, 6, MAGIC_OAK);
+		case WILLOW:
+			return AeriusGenBigTree.create(update, 16, WILLOW);
 		}
 		return null;
 	}

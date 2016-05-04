@@ -1,14 +1,13 @@
 package minestrapteam.extradims.block.aerius;
 
-import java.util.Random;
-
 import minestrapteam.extracore.block.BlockCustomSapling;
 import minestrapteam.extradims.biome.aerius.BiomeAerius;
 import minestrapteam.extradims.lib.Aerius;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class BlockAeriusSapling extends BlockCustomSapling
 {
@@ -16,19 +15,19 @@ public class BlockAeriusSapling extends BlockCustomSapling
 	{
 		super(names, icons);
 	}
-	
-	public BlockAeriusSapling(String[] names, String domain)
-	{
-		super(names, domain);
-	}
-	
+
 	@Override
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
-		int metadata = world.getBlockMetadata(x, y, z) & 3;
-		return BiomeAerius.getTreeGenForTree(random, metadata, true);
+		int type = world.getBlockMetadata(x, y, z) & 3;
+		if (this == Aerius.saplingBlocks2)
+		{
+			type += 4;
+		}
+
+		return BiomeAerius.getTreeGenForTree(random, type, true);
 	}
-	
+
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{

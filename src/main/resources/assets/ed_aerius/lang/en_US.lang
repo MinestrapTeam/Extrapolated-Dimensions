@@ -74,10 +74,10 @@ tile.aerius_saplings2.willow.name=Willow Sapling
 
 tile.aerius_planks.skybark.name=Skybark Planks
 tile.aerius_planks.dark_skybark.name=Dark Skybark Planks
-tile.aerius_planks2.cloudroot.name=Cloudroot Planks
-tile.aerius_planks2.gold_wood.name=Gold Wood Planks
-tile.aerius_planks2.magic_oak.name=Magic Oak Planks
-tile.aerius_planks2.willow.name=Willow Planks
+tile.aerius_planks.cloudroot.name=Cloudroot Planks
+tile.aerius_planks.gold_wood.name=Gold Wood Planks
+tile.aerius_planks.magic_oak.name=Magic Oak Planks
+tile.aerius_planks.willow.name=Willow Planks
 
 # Plants
 tile.aerius_flowers.soulwhisker.name=Soulwhisker
@@ -130,7 +130,7 @@ item.aerius_loot.gold_ball.name=Gold Ball
 item.aerius_loot.life_gem.name=Life Gem
 item.aerius_loot.life_heart.name=Life Heart
 item.aerius_loot.mana_star.name=Mana Star
-item.aerius_loot.mana_stone.name=Mana Stone
+item.aerius_loot.mana_gem.name=Mana Gem
 item.aerius_loot.etherical_stone.name=Etherical Stone
 item.aerius_loot.bottle_light.name=Bottle of Light
 item.aerius_loot.hephaestos_flame.name=Hephaestos Flame

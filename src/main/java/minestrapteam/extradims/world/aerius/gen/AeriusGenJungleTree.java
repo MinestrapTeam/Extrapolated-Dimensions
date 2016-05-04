@@ -1,23 +1,33 @@
 package minestrapteam.extradims.world.aerius.gen;
 
-import java.util.Random;
-
 import minestrapteam.extracore.world.gen.CustomTreeGen;
 import minestrapteam.extradims.lib.Aerius;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class AeriusGenJungleTree extends CustomTreeGen
 {
 	public int radius = 3;
-	
-	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, int metaWood, int metaLeaves)
+
+	public static AeriusGenJungleTree create(boolean blockUpdates, int minTreeHeight, int type)
 	{
-		super(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metaWood, metaLeaves);
+		final int metadata = type % 4;
+		if (type >= 4)
+		{
+			return new AeriusGenJungleTree(blockUpdates, minTreeHeight, Aerius.logBlocks2, Aerius.leafBlocks2, metadata,
+			                         metadata);
+		}
+		return new AeriusGenJungleTree(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metadata, metadata);
 	}
-	
+
+	public AeriusGenJungleTree(boolean blockUpdates, int minTreeHeight, Block log, Block leaf, int woodMetadata, int leavesMetadata)
+	{
+		super(blockUpdates, minTreeHeight, log, leaf, woodMetadata, leavesMetadata);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{

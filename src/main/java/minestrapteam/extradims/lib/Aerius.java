@@ -54,8 +54,11 @@ public class Aerius
 	public static BlockAeriusGrass grassBlocks;
 
 	public static BlockCustomLog     logBlocks;
+	public static BlockCustomLog     logBlocks2;
 	public static BlockCustomLeaves  leafBlocks;
+	public static BlockCustomLeaves  leafBlocks2;
 	public static BlockCustomSapling saplingBlocks;
+	public static BlockCustomSapling saplingBlocks2;
 	public static CustomBlock        plankBlocks;
 
 	public static CustomBlock plantBlocks;
@@ -67,7 +70,7 @@ public class Aerius
 	// Item Stacks
 
 	public static ItemStack skybarkStick, darkSkybarkStick, cloudrootStick, goldWoodStick;
-	// public static ItemStack magicOakStick, willowStick;
+	public static ItemStack magicOakStick, willowStick;
 
 	public static ItemStack iceStick, manaStar, lifeHeart, aerwand;
 
@@ -81,23 +84,24 @@ public class Aerius
 	public static ItemStack skybarkSapling, darkSkybarkSapling, cloudrootSapling, goldWoodSapling;
 	public static ItemStack skybarkPlanks, darkSkybarkPlanks, cloudrootPlanks, goldWoodPlanks;
 
-	//	public static ItemStack magicOakLog, willowLog;
-	//	public static ItemStack magicOakLeaves, willowLeaves;
-	//	public static ItemStack magicOakSapling, willowSapling;
-	//	public static ItemStack magicOakPlanks, willowPlanks;
+	public static ItemStack magicOakLog, willowLog;
+	public static ItemStack magicOakLeaves, willowLeaves;
+	public static ItemStack magicOakSapling, willowSapling;
+	public static ItemStack magicOakPlanks, willowPlanks;
 
 	public static ItemStack aerock, cobbledAerock, mossyAerock;
+
 	public static ItemStack luminiteOre, copperOre, whiteGoldOre, holiumOre, condaiusOre, amnethiteOre, diamondOre, obsidianOre;
 	public static ItemStack jungleLuminiteOre, jungleCopperOre, jungleWhiteGoldOre, jungleHoliumOre, jungleCondaiusOre, jungleAmnethiteOre, jungleDiamondOre, jungleObsidianOre;
 	public static ItemStack luminiteBlock, whiteGoldBlock, condaiusBlock, holiumBlock, proAlloyBlock;
 
 	public static void init()
 	{
-		String[] woodTypes = new String[] { "skybark", "dark_skybark", "cloudroot", "gold_wood" };
+		String[] woodTypes = { "skybark", "dark_skybark", "cloudroot", "gold_wood", "magic_oak", "willow" };
 
 		// Items
 
-		stickItems = new CustomItem(woodTypes, //
+		stickItems = new CustomItem(woodTypes,
 		                            StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "materials/", "_stick"), null);
 
 		final String[] materialNames = { "luminite", "copper_ingot", "white_gold_ingot", "holium_ingot",
@@ -132,20 +136,7 @@ public class Aerius
 		                              new String[] { getTexture("stone/aerock"), getTexture("stone/aerock_cobbled"),
 			                              getTexture("stone/aerock_mossy"), getTexture("stone/aerock_jungle") }, null);
 
-		final String[] oreNames = { "luminite", "copper", "white_gold", "holium", "condaius", "amnethite", "diamond",
-			"obsidian" };
-		oreBlocks = new CustomBlock(Material.rock, oreNames,
-		                            StringUtils.concatAll(oreNames, TEXTURE_DOMAIN + "minerals/", "_ore_aerock"), null);
-		jungleOreBlocks = new CustomBlock(Material.rock, oreNames,
-		                                  StringUtils.concatAll(oreNames, TEXTURE_DOMAIN + "minerals/", "_ore_jungle"),
-		                                  null);
-
-		metalBlocks = new CustomBlock(Material.iron,
-		                              new String[] { "luminite_block", "white_gold_block", "condaius_block",
-			                              "holium_block", "pro_block" }, new String[] { getTexture("minerals/luminite_block"),
-			                              getTexture("minerals/white_gold_block"),
-			                              getTexture("minerals/condaius_block"), getTexture("minerals/holium_block"),
-			                              getTexture("minerals/pro_block") }, null);
+		initOreBlocks();
 
 		dirtBlocks = new CustomBlock(Material.ground, new String[] { null, "mud", "ashes" },
 		                             new String[] { getTexture("soil/aerian_soil"), getTexture("soil/aerian_mud"),
@@ -155,21 +146,7 @@ public class Aerius
 			"mushroom_grass" }, new String[] { getTexture("soil/aerian_grass"), getTexture("soil/aerian_mud_grass"),
 			getTexture("soil/corrupted_grass"), getTexture("soil/hallowed_grass"), getTexture("soil/mushroom_grass") });
 
-		logBlocks = new BlockCustomLog(woodTypes, new String[] { getTexture("wood/skybark_log_top"),
-			getTexture("wood/dark_skybark_log_top"), getTexture("wood/cloudroot_log_top"),
-			getTexture("wood/gold_wood_log_top") }, new String[] { getTexture("wood/skybark_log_side"),
-			getTexture("wood/dark_skybark_log_side"), getTexture("wood/cloudroot_log_side"),
-			getTexture("wood/gold_wood_log_side") });
-
-		leafBlocks = new BlockCustomLeaves(woodTypes, new String[] { getTexture("plants/skybark_leaves"),
-			getTexture("plants/dark_skybark_leaves"), getTexture("plants/cloudroot_leaves"),
-			getTexture("plants/gold_wood_leaves") });
-
-		saplingBlocks = new BlockAeriusSapling(woodTypes, StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "plants/",
-		                                                                        "_sapling"));
-
-		plankBlocks = new CustomBlock(Material.wood, woodTypes,
-		                              StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "wood/", "_planks"), null);
+		initWoodBlocks(woodTypes);
 
 		plantBlocks = (CustomBlock) new BlockAeriusPlants(new String[] { "angel_grass", "short_angel_grass",
 			"corrupted_grass", "hallowed_grass", "mushroom_grass", "wanderers_bane", "wanderers_bane_small",
@@ -187,6 +164,50 @@ public class Aerius
 		                                                                .setHardness(4F);
 	}
 
+	private static void initOreBlocks()
+	{
+		final String[] oreNames = { "luminite", "copper", "white_gold", "holium", "condaius", "amnethite", "diamond",
+			"obsidian" };
+		oreBlocks = new CustomBlock(Material.rock, oreNames,
+		                            StringUtils.concatAll(oreNames, TEXTURE_DOMAIN + "minerals/", "_ore_aerock"), null);
+		jungleOreBlocks = new CustomBlock(Material.rock, oreNames,
+		                                  StringUtils.concatAll(oreNames, TEXTURE_DOMAIN + "minerals/", "_ore_jungle"),
+		                                  null);
+
+		metalBlocks = new CustomBlock(Material.iron,
+		                              new String[] { "luminite_block", "white_gold_block", "condaius_block",
+			                              "holium_block", "pro_block" }, new String[] { getTexture("minerals/luminite_block"),
+			                              getTexture("minerals/white_gold_block"),
+			                              getTexture("minerals/condaius_block"), getTexture("minerals/holium_block"),
+			                              getTexture("minerals/pro_block") }, null);
+	}
+
+	private static void initWoodBlocks(String[] woodTypes)
+	{
+		String[] woodTypes1 = { "skybark", "dark_skybark" };
+		String[] woodTypes2 = { "cloudroot", "gold_wood", "magic_oak", "willow" };
+
+		logBlocks = new BlockCustomLog(woodTypes1,
+		                               StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "wood/", "_log_top"),
+		                               StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "wood/", "_log_side"));
+		logBlocks2 = new BlockCustomLog(woodTypes2,
+		                                StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "wood/", "_log_top"),
+		                                StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "wood/", "_log_side"));
+
+		leafBlocks = new BlockCustomLeaves(woodTypes1,
+		                                   StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "plants/", "_leaves"));
+		leafBlocks2 = new BlockCustomLeaves(woodTypes2,
+		                                    StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "plants/", "_leaves"));
+
+		saplingBlocks = new BlockAeriusSapling(woodTypes1, StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "plants/",
+		                                                                         "_sapling"));
+		saplingBlocks2 = new BlockAeriusSapling(woodTypes2, StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "plants/",
+		                                                                          "_sapling"));
+
+		plankBlocks = new CustomBlock(Material.wood, woodTypes,
+		                              StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "wood/", "_planks"), null);
+	}
+
 	public static void initStacks()
 	{
 		// Item Stacks
@@ -195,6 +216,8 @@ public class Aerius
 		darkSkybarkStick = new ItemStack(stickItems, 1, 1);
 		cloudrootStick = new ItemStack(stickItems, 1, 2);
 		goldWoodStick = new ItemStack(stickItems, 1, 3);
+		magicOakStick = new ItemStack(stickItems, 1, 4);
+		willowStick = new ItemStack(stickItems, 1, 5);
 
 		luminiteChunk = new ItemStack(materialItems, 1, 0);
 		whiteGoldIngot = new ItemStack(materialItems, 1, 1);
@@ -250,23 +273,31 @@ public class Aerius
 
 		skybarkLog = new ItemStack(logBlocks, 1, 0);
 		darkSkybarkLog = new ItemStack(logBlocks, 1, 1);
-		cloudrootLog = new ItemStack(logBlocks, 1, 2);
-		goldWoodLog = new ItemStack(logBlocks, 1, 3);
+		cloudrootLog = new ItemStack(logBlocks2, 1, 0);
+		goldWoodLog = new ItemStack(logBlocks2, 1, 1);
+		magicOakLog = new ItemStack(logBlocks2, 1, 2);
+		willowLog = new ItemStack(logBlocks2, 1, 3);
 
 		skybarkLeaves = new ItemStack(leafBlocks, 1, 0);
 		darkSkybarkLeaves = new ItemStack(leafBlocks, 1, 1);
-		cloudrootLeaves = new ItemStack(leafBlocks, 1, 2);
-		goldWoodLeaves = new ItemStack(leafBlocks, 1, 3);
+		cloudrootLeaves = new ItemStack(leafBlocks2, 1, 0);
+		goldWoodLeaves = new ItemStack(leafBlocks2, 1, 1);
+		magicOakLeaves = new ItemStack(leafBlocks2, 1, 2);
+		willowLeaves = new ItemStack(leafBlocks2, 1, 3);
 
 		skybarkSapling = new ItemStack(saplingBlocks, 1, 0);
 		darkSkybarkSapling = new ItemStack(saplingBlocks, 1, 1);
-		cloudrootSapling = new ItemStack(saplingBlocks, 1, 2);
-		goldWoodSapling = new ItemStack(saplingBlocks, 1, 3);
+		cloudrootSapling = new ItemStack(saplingBlocks2, 1, 0);
+		goldWoodSapling = new ItemStack(saplingBlocks2, 1, 1);
+		magicOakSapling = new ItemStack(saplingBlocks2, 1, 2);
+		willowSapling = new ItemStack(saplingBlocks2, 1, 3);
 
 		skybarkPlanks = new ItemStack(plankBlocks, 1, 0);
 		darkSkybarkPlanks = new ItemStack(plankBlocks, 1, 1);
 		cloudrootPlanks = new ItemStack(plankBlocks, 1, 2);
 		goldWoodPlanks = new ItemStack(plankBlocks, 1, 3);
+		magicOakPlanks = new ItemStack(plankBlocks, 1, 4);
+		willowPlanks = new ItemStack(plankBlocks, 1, 5);
 	}
 
 	public static void load()
@@ -310,10 +341,12 @@ public class Aerius
 		           .setCreativeTab(tabAeriusBlocks).setHarvestLevel("shovel", 0);
 
 		logBlocks.setCreativeTab(tabAeriusBlocks);
+		logBlocks2.setCreativeTab(tabAeriusBlocks);
 		saplingBlocks.setCreativeTab(tabAeriusBlocks);
-		leafBlocks.setSaplingStacks(skybarkSapling, darkSkybarkSapling, cloudrootSapling, goldWoodSapling)
-		          .setAppleStacks(new ItemStack(aerianApple), null, null, null).setHardness(0.2F)
-		          .setCreativeTab(tabAeriusBlocks);
+		saplingBlocks2.setCreativeTab(tabAeriusBlocks);
+		leafBlocks.setHardness(0.2F).setCreativeTab(tabAeriusBlocks);
+		leafBlocks2.setHardness(0.2F).setCreativeTab(tabAeriusBlocks);
+
 		plankBlocks.setHardness(2.0F).setStepSound(Block.soundTypeWood).setCreativeTab(tabAeriusBlocks);
 
 		ECBlocks.addBlock(portal, "aerius_portal");
@@ -325,8 +358,11 @@ public class Aerius
 		ECBlocks.addBlock(dirtBlocks, "aerian_dirt");
 		ECBlocks.addBlock(grassBlocks, "aerian_grass");
 		ECBlocks.addBlock(logBlocks, "aerius_logs");
+		ECBlocks.addBlock(logBlocks2, "aerius_logs2");
 		ECBlocks.addBlock(leafBlocks, "aerius_leaves");
+		ECBlocks.addBlock(leafBlocks2, "aerius_leaves2");
 		ECBlocks.addBlock(saplingBlocks, "aerius_saplings");
+		ECBlocks.addBlock(saplingBlocks2, "aerius_saplings2");
 		ECBlocks.addBlock(plankBlocks, "aerius_planks");
 		ECBlocks.addBlock(plantBlocks, "aerius_plants");
 		ECBlocks.addBlock(flowerBlocks, "aerius_flowers");
@@ -339,6 +375,10 @@ public class Aerius
 		initStacks();
 		addRecipes();
 		setTabIcons();
+
+		leafBlocks.setSaplingStacks(skybarkSapling, darkSkybarkSapling)
+		          .setAppleStacks(new ItemStack(aerianApple), null, null, null);
+		leafBlocks2.setSaplingStacks(cloudrootSapling, goldWoodSapling, magicOakSapling, willowSapling);
 	}
 
 	public static void addRecipes()
@@ -347,11 +387,15 @@ public class Aerius
 		addPlanks(darkSkybarkPlanks, darkSkybarkLog);
 		addPlanks(cloudrootPlanks, cloudrootLog);
 		addPlanks(goldWoodPlanks, goldWoodLog);
+		addPlanks(magicOakPlanks, magicOakLog);
+		addPlanks(willowPlanks, willowLog);
 
 		addStick(skybarkStick, skybarkPlanks);
 		addStick(darkSkybarkStick, darkSkybarkPlanks);
 		addStick(cloudrootStick, cloudrootPlanks);
 		addStick(goldWoodStick, goldWoodPlanks);
+		addStick(magicOakStick, magicOakPlanks);
+		addStick(willowStick, willowPlanks);
 
 		addFurnaceRecipe(whiteGoldOre, whiteGoldIngot, 0.2F);
 		addFurnaceRecipe(holiumOre, holiumIngot, 2F);
