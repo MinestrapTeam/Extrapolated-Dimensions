@@ -125,17 +125,13 @@ item.aerius_materials.pro_ingot.name=Pro Alloy Ingot
 item.aerius_materials.energy_orb.name=Energy Orb
 
 item.aerius_loot.ice_stick.name=Ice Stick
-item.aerius_loot.fire_ring.name=Fire Ring
 item.aerius_loot.gold_ball.name=Gold Ball
-item.aerius_loot.life_gem.name=Life Gem
 item.aerius_loot.life_heart.name=Life Heart
 item.aerius_loot.mana_star.name=Mana Star
-item.aerius_loot.mana_gem.name=Mana Gem
 item.aerius_loot.etherical_stone.name=Etherical Stone
 item.aerius_loot.bottle_light.name=Bottle of Light
 item.aerius_loot.hephaestos_flame.name=Hephaestos Flame
 item.aerius_loot.chains.name=Chains
-item.aerius_loot.amnethite_paragon_gem.name=Holy Amnethite Parageon Gem
 item.aerius_loot.aerwand.name=Aerwand
 item.aerius_loot.aerwand.desc=§aActivates the portal to the Aerius
 
@@ -156,6 +152,18 @@ item.aerius_seeds.mushroom_grass.name=Mushroom Grass Seeds
 item.fire_sword.name=Fire Sword
 
 # Armor
+item.aerius_accessories.iron_bracelet.name=Iron Bracelet
+item.aerius_accessories.gold_bracelet.name=Gold Bracelet
+item.aerius_accessories.gold_ring.name=Gold Ring
+item.aerius_accessories.gold_necklace.name=Gold Necklace
+item.aerius_accessories.diamond_ring.name=Diamond Ring
+item.aerius_accessories.diamond_necklace.name=Diamond Necklace
+item.aerius_accessories.fire_ring.name=Fire Ring
+
+item.life_gem.name=Life Gem
+item.mana_gem.name=Mana Gem
+item.amnethite_paragon_gem.name=Amnethite Paragon Gem
+
 item.cape.pro.name=Pro Cape
 item.cape.white.name=White Cape
 item.cape.black.name=Black Cape

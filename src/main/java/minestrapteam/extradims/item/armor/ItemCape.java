@@ -2,10 +2,11 @@ package minestrapteam.extradims.item.armor;
 
 import minestrapteam.extracore.ExtraCore;
 import minestrapteam.extracore.cape.Capes;
-import minestrapteam.extracore.item.ItemCustomArmor;
 import minestrapteam.extradims.api.ICape;
+import minestrapteam.extradims.lib.Aerius;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.List;
 
-public class ItemCape extends ItemCustomArmor implements ICape
+public class ItemCape extends Item implements ICape
 {
 	public static final String[] CAPE_NAMES = { "pro", "invisibility", "white", "black", "blue", "green", "red", "yellow",
 		"minecon_2011", "minecon_2012", "minecon_2013", "minecon_2015" };
@@ -34,7 +35,6 @@ public class ItemCape extends ItemCustomArmor implements ICape
 
 	public ItemCape()
 	{
-		super(ArmorMaterial.CLOTH, 0, ArmorTypes.CAPE);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
@@ -44,20 +44,20 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	{
 		for (int i = 0; i < CAPE_NAMES.length; i++)
 		{
-			this.icons[i] = iconRegister.registerIcon("ed_aerius:armor/cape/cape_" + CAPE_NAMES[i]);
+			this.icons[i] = iconRegister.registerIcon(Aerius.TEXTURE_DOMAIN + "armor/cape/cape_" + CAPE_NAMES[i]);
 		}
 	}
 
 	@Override
-	public IIcon getIcon(ItemStack stack, int pass)
+	public IIcon getIconFromDamage(int damage)
 	{
-		return this.icons[stack.getItemDamage()];
+		return this.icons[damage];
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return "item.cape." + CAPE_NAMES[stack.getItemDamage() % CAPE_NAMES.length];
+		return "item.cape." + CAPE_NAMES[stack.getItemDamage()];
 	}
 
 	@SuppressWarnings("unchecked")
@@ -68,6 +68,12 @@ public class ItemCape extends ItemCustomArmor implements ICape
 		{
 			list.add(new ItemStack(this, 1, i));
 		}
+	}
+
+	@Override
+	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity)
+	{
+		return armorType == ArmorTypes.CAPE;
 	}
 
 	@Override

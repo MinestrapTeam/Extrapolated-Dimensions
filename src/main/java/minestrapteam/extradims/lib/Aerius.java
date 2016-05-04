@@ -10,9 +10,11 @@ import minestrapteam.extradims.block.MaterialCloud;
 import minestrapteam.extradims.block.aerius.*;
 import minestrapteam.extradims.item.aerius.*;
 import minestrapteam.extradims.item.armor.ItemCape;
+import minestrapteam.extradims.item.armor.ItemGem;
 import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
@@ -40,6 +42,11 @@ public class Aerius
 	public static ItemAeriusSoul soul;
 	public static ItemCape       capes;
 	public static ItemStaff      staff;
+
+	public static ItemAeriusAccessories accessories;
+	public static ItemGem               lifeGem;
+	public static ItemGem               manaGem;
+	public static ItemGem               amnethiteParagonGem;
 
 	// Blocks
 
@@ -109,9 +116,8 @@ public class Aerius
 		materialItems = new CustomItem(materialNames,
 		                               StringUtils.concatAll(materialNames, TEXTURE_DOMAIN + "minerals/", ""), null);
 
-		lootItems = new ItemAeriusLoot(new String[] { "ice_stick", "fire_ring", "gold_ball", "life_gem", "life_heart",
-			"mana_gem", "mana_star", "aerwand", "etherical_stone", "bottle_light", "hephaestos_flame", "chains",
-			"amnethite_paragon_gem" });
+		lootItems = new ItemAeriusLoot(new String[] { "ice_stick", "gold_ball", "life_heart", "mana_star", "aerwand",
+			"etherical_stone", "bottle_light", "hephaestos_flame", "chains" });
 
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple"))
 		                                                  .setCreativeTab(tabAeriusItems);
@@ -127,6 +133,15 @@ public class Aerius
 		String[] seeds = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass",
 			"mushroom_grass" };
 		seedItems = new ItemAeriusSeeds(seeds, StringUtils.concatAll(seeds, "ed_aerius:food/", "_seeds"));
+
+		accessories = (ItemAeriusAccessories) new ItemAeriusAccessories().setCreativeTab(tabAeriusItems);
+		lifeGem = (ItemGem) new ItemGem(ItemArmor.ArmorMaterial.DIAMOND).setTextureName(getTexture("loot/life_gem"))
+		                                                                .setCreativeTab(tabAeriusItems);
+		manaGem = (ItemGem) new ItemGem(ItemArmor.ArmorMaterial.DIAMOND).setTextureName(getTexture("loot/mana_gem"))
+		                                                                .setCreativeTab(tabAeriusItems);
+		amnethiteParagonGem = (ItemGem) new ItemGem(ItemArmor.ArmorMaterial.DIAMOND)
+			                                .setTextureName(getTexture("loot/amnethite_paragon_gem"))
+			                                .setCreativeTab(tabAeriusItems);
 
 		// Blocks
 
@@ -201,8 +216,9 @@ public class Aerius
 
 		saplingBlocks = new BlockAeriusSapling(woodTypes1, StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "plants/",
 		                                                                         "_sapling"));
-		saplingBlocks2 = new BlockAeriusSapling(woodTypes2, StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "plants/",
-		                                                                          "_sapling"));
+		saplingBlocks2 = new BlockAeriusSapling(woodTypes2, StringUtils
+			                                                    .concatAll(woodTypes2, TEXTURE_DOMAIN + "plants/",
+			                                                               "_sapling"));
 
 		plankBlocks = new CustomBlock(Material.wood, woodTypes,
 		                              StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "wood/", "_planks"), null);
@@ -316,6 +332,10 @@ public class Aerius
 		ECItems.addItem(fireSword, "fire_sword");
 		ECItems.addItem(iceHammer, "ice_hammer");
 		ECItems.addItem(capes, "cape");
+		ECItems.addItem(accessories, "aerius_accessories");
+		ECItems.addItem(lifeGem, "life_gem");
+		ECItems.addItem(manaGem, "mana_gem");
+		ECItems.addItem(amnethiteParagonGem, "amnethite_paragon_gem");
 
 		// Blocks
 
