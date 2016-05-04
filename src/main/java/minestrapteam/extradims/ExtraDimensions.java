@@ -8,15 +8,17 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.extracore.config.ECConfig;
-import minestrapteam.extracore.init.ClashsoftMod;
+import minestrapteam.extracore.init.BaseMod;
 import minestrapteam.extradims.common.EDEventHandler;
 import minestrapteam.extradims.common.EDFuelHandler;
 import minestrapteam.extradims.common.EDProxy;
 import minestrapteam.extradims.lib.*;
 import minestrapteam.extradims.network.EDNetHandler;
 
+import java.util.Arrays;
+
 @Mod(modid = ExtraDimensions.MODID, name = ExtraDimensions.NAME, version = ExtraDimensions.VERSION)
-public class ExtraDimensions extends ClashsoftMod
+public class ExtraDimensions extends BaseMod
 {
 	public static final String		MODID	= "extradims";
 	public static final String		NAME	= "Extrapolated Dimensions";
@@ -31,6 +33,7 @@ public class ExtraDimensions extends ClashsoftMod
 	public ExtraDimensions()
 	{
 		super(proxy, MODID, NAME, ACRONYM, VERSION);
+		this.authors = Arrays.asList("Clashsoft", "Delocuro", "Werty1124", "SoBiohazardous");
 		this.eventHandler = new EDEventHandler();
 		this.netHandlerClass = EDNetHandler.class;
 	}

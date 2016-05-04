@@ -19,7 +19,7 @@ import minestrapteam.extracore.crafting.ECCrafting;
 import minestrapteam.extracore.crafting.loader.FurnaceRecipeLoader;
 import minestrapteam.extracore.entity.ECEntities;
 import minestrapteam.extracore.entity.EntityPotion2;
-import minestrapteam.extracore.init.ClashsoftMod;
+import minestrapteam.extracore.init.BaseMod;
 import minestrapteam.extracore.inventory.ExtendedInventory;
 import minestrapteam.extracore.item.ECItems;
 import minestrapteam.extracore.item.ItemGlassBottle2;
@@ -54,13 +54,14 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 import java.io.File;
+import java.util.Collections;
 
 @Mod(modid = ExtraCore.MODID, name = ExtraCore.NAME, version = ExtraCore.VERSION)
-public class ExtraCore extends ClashsoftMod
+public class ExtraCore extends BaseMod
 {
-	public static final String MODID   = "cslib";
-	public static final String NAME    = "Clashsoft Lib";
-	public static final String ACRONYM = "cslib";
+	public static final String MODID   = "extracore";
+	public static final String NAME    = "ExtraCore";
+	public static final String ACRONYM = "ec";
 	public static final String VERSION = "1.7.10-2.7.3";
 
 	public static boolean workspaceMode;
@@ -74,7 +75,7 @@ public class ExtraCore extends ClashsoftMod
 		if (path.endsWith("run/.") || path.endsWith("assets/."))
 		{
 			workspaceMode = true;
-			ECLog.info("Clashsoft Lib is now running in Dev Workspace mode.");
+			ECLog.info("ExtraCore is now running in Dev Workspace mode.");
 		}
 	}
 
@@ -84,73 +85,23 @@ public class ExtraCore extends ClashsoftMod
 	public static ECProxy proxy = createProxy("minestrapteam.extracore.client.ECClientProxy",
 	                                          "minestrapteam.extracore.proxy.ECProxy");
 
-	public static Block coalOre2        = new BlockOre2(OreBase.TYPE_OVERWORLD).setHardness(1.5F).setResistance(2.5F)
-	                                                                           .setStepSound(Block.soundTypePiston)
-	                                                                           .setBlockName("oreCoal")
-	                                                                           .setBlockTextureName(
-		                                                                           "cslib:coal_overlay");
-	public static Block ironOre2        = new BlockOre2(OreBase.TYPE_OVERWORLD).setHardness(1.5F).setResistance(2.5F)
-	                                                                           .setStepSound(Block.soundTypePiston)
-	                                                                           .setBlockName("oreIron")
-	                                                                           .setBlockTextureName(
-		                                                                           "cslib:iron_overlay");
-	public static Block goldOre2        = new BlockOre2(OreBase.TYPE_OVERWORLD).setHardness(1.5F).setResistance(2.5F)
-	                                                                           .setStepSound(Block.soundTypePiston)
-	                                                                           .setBlockName("oreGold")
-	                                                                           .setBlockTextureName(
-		                                                                           "cslib:gold_overlay");
-	public static Block diamondOre2     = new BlockOre2(OreBase.TYPE_OVERWORLD).setHardness(1.5F).setResistance(2.5F)
-	                                                                           .setStepSound(Block.soundTypePiston)
-	                                                                           .setBlockName("oreDiamond")
-	                                                                           .setBlockTextureName(
-		                                                                           "cslib:diamond_overlay");
-	public static Block emeraldOre2     = new BlockOre2(OreBase.TYPE_OVERWORLD).setHardness(1.5F).setResistance(2.5F)
-	                                                                           .setStepSound(Block.soundTypePiston)
-	                                                                           .setBlockName("oreEmerald")
-	                                                                           .setBlockTextureName(
-		                                                                           "cslib:emerald_overlay");
-	public static Block redstoneOre2    = new BlockRedstoneOre2(OreBase.TYPE_OVERWORLD, false).setHardness(1.5F)
-	                                                                                          .setResistance(2.5F)
-	                                                                                          .setStepSound(
-		                                                                                          Block.soundTypePiston)
-	                                                                                          .setBlockName(
-		                                                                                          "oreRedstone")
-	                                                                                          .setBlockTextureName(
-		                                                                                          "cslib:redstone_overlay");
-	public static Block litRedstoneOre2 = new BlockRedstoneOre2(OreBase.TYPE_OVERWORLD, true).setLightLevel(0.625F)
-	                                                                                         .setHardness(1.5F)
-	                                                                                         .setResistance(2.5F)
-	                                                                                         .setStepSound(
-		                                                                                         Block.soundTypePiston)
-	                                                                                         .setBlockName(
-		                                                                                         "oreRedstone")
-	                                                                                         .setBlockTextureName(
-		                                                                                         "cslib:redstone_overlay");
-	public static Block lapisOre2       = new BlockOre2(OreBase.TYPE_OVERWORLD).setHardness(1.5F).setResistance(2.5F)
-	                                                                           .setStepSound(Block.soundTypePiston)
-	                                                                           .setBlockName("oreLapis")
-	                                                                           .setBlockTextureName(
-		                                                                           "cslib:lapis_overlay");
-	public static Block quartzOre2      = new BlockOre2(OreBase.TYPE_NETHER).setHardness(1.5F).setResistance(2.5F)
-	                                                                        .setStepSound(Block.soundTypePiston)
-	                                                                        .setBlockName("netherquartz")
-	                                                                        .setBlockTextureName(
-		                                                                        "cslib:quartz_overlay");
-
 	public static CreativeTabs multiPotions;
 
-	public static Block brewingStand2     = new BlockBrewingStand2().setBlockName("brewingStand").setHardness(0.5F)
-	                                                                .setLightLevel(0.125F);
-	public static Item  brewingStandItem2 = new ItemReed(brewingStand2).setUnlocalizedName("brewingStand")
-	                                                                   .setTextureName("brewing_stand")
-	                                                                   .setCreativeTab(CreativeTabs.tabBrewing);
+	public static Block coalOre2        = new BlockOre2(OreBase.TYPE_OVERWORLD);
+	public static Block ironOre2        = new BlockOre2(OreBase.TYPE_OVERWORLD);
+	public static Block goldOre2        = new BlockOre2(OreBase.TYPE_OVERWORLD);
+	public static Block diamondOre2     = new BlockOre2(OreBase.TYPE_OVERWORLD);
+	public static Block emeraldOre2     = new BlockOre2(OreBase.TYPE_OVERWORLD);
+	public static Block redstoneOre2    = new BlockRedstoneOre2(OreBase.TYPE_OVERWORLD, false);
+	public static Block litRedstoneOre2 = new BlockRedstoneOre2(OreBase.TYPE_OVERWORLD, true);
+	public static Block lapisOre2       = new BlockOre2(OreBase.TYPE_OVERWORLD);
+	public static Block quartzOre2      = new BlockOre2(OreBase.TYPE_NETHER);
 
-	public static ItemPotion2      potion2      = (ItemPotion2) new ItemPotion2().setUnlocalizedName("potion")
-	                                                                             .setCreativeTab(
-		                                                                             CreativeTabs.tabBrewing);
-	public static ItemGlassBottle2 glassBottle2 = (ItemGlassBottle2) new ItemGlassBottle2()
-		                                                                 .setUnlocalizedName("glassBottle")
-		                                                                 .setTextureName("potion_bottle_empty");
+	public static Block brewingStand2     = new BlockBrewingStand2();
+	public static Item  brewingStandItem2 = new ItemReed(brewingStand2);
+
+	public static ItemPotion2      potion2      = new ItemPotion2();
+	public static ItemGlassBottle2 glassBottle2 = new ItemGlassBottle2();
 
 	public static boolean printUpdateNotes;
 	public static boolean updateCheck;
@@ -160,11 +111,12 @@ public class ExtraCore extends ClashsoftMod
 	public ExtraCore()
 	{
 		super(proxy, MODID, NAME, ACRONYM, VERSION);
+		this.authors = Collections.singletonList("Clashsoft");
 		this.hasConfig = true;
 		this.netHandler = new ECNetHandler();
 		this.eventHandler = new ECEventHandler();
-		this.url = "https://github.com/Clashsoft/ExtraCore-Minecraft/wiki/";
-		this.description = "Clashsoft's Minecraft Library adds many useful Classes and APIs for modders to use.";
+		this.url = "https://github.com/MinestrapTeam/Extrapolated-Dimensions/wiki/ExtraCore";
+		this.description = "The ExtraCore Library adds many useful Classes and APIs for modders to use.";
 	}
 
 	public static ECNetHandler getNetHandler()
@@ -234,6 +186,32 @@ public class ExtraCore extends ClashsoftMod
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
+
+		coalOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston).setBlockName("oreCoal")
+		        .setBlockTextureName("extracore:coal_overlay");
+		ironOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston).setBlockName("oreIron")
+		        .setBlockTextureName("extracore:iron_overlay");
+		goldOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston).setBlockName("oreGold")
+		        .setBlockTextureName("extracore:gold_overlay");
+		diamondOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston).setBlockName("oreDiamond")
+		           .setBlockTextureName("extracore:diamond_overlay");
+		emeraldOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston).setBlockName("oreEmerald")
+		           .setBlockTextureName("extracore:emerald_overlay");
+		redstoneOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston)
+		            .setBlockName("oreRedstone").setBlockTextureName("extracore:redstone_overlay");
+		litRedstoneOre2.setLightLevel(0.625F).setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston)
+		               .setBlockName("oreRedstone").setBlockTextureName("extracore:redstone_overlay");
+		lapisOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston).setBlockName("oreLapis")
+		         .setBlockTextureName("extracore:lapis_overlay");
+		quartzOre2.setHardness(1.5F).setResistance(2.5F).setStepSound(Block.soundTypePiston)
+		          .setBlockName("netherquartz").setBlockTextureName("extracore:quartz_overlay");
+
+		brewingStand2.setBlockName("brewingStand").setHardness(0.5F).setLightLevel(0.125F);
+		brewingStandItem2.setUnlocalizedName("brewingStand").setTextureName("brewing_stand")
+		                 .setCreativeTab(CreativeTabs.tabBrewing);
+
+		potion2.setUnlocalizedName("potion").setCreativeTab(CreativeTabs.tabBrewing);
+		glassBottle2.setUnlocalizedName("glassBottle").setTextureName("potion_bottle_empty");
 
 		ECCrafting.removeRecipe(new ItemStack(Items.brewing_stand));
 		ECCrafting.removeRecipe(new ItemStack(Items.glass_bottle));
