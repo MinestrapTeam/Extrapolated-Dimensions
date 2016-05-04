@@ -18,19 +18,19 @@ import java.util.List;
 
 public class ItemCape extends ItemCustomArmor implements ICape
 {
-	public static String[] capeNames = { "pro", "blue", "green", "red", "yellow", "invisibility", "minecon_2011",
-		"minecon_2012", "minecon_2013" };
+	public static final String[] CAPE_NAMES = { "pro", "invisibility", "white", "black", "blue", "green", "red", "yellow",
+		"minecon_2011", "minecon_2012", "minecon_2013", "minecon_2015" };
 
 	static
 	{
-		for (String capeName : capeNames)
+		for (String capeName : CAPE_NAMES)
 		{
 			ResourceLocation location = new ResourceLocation("ed_aerius", "textures/capes/" + capeName + ".png");
 			Capes.addCape(capeName, location);
 		}
 	}
 
-	public IIcon[] icons;
+	protected final IIcon[] icons = new IIcon[CAPE_NAMES.length];
 
 	public ItemCape()
 	{
@@ -42,10 +42,9 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.icons = new IIcon[capeNames.length];
-		for (int i = 0; i < capeNames.length; i++)
+		for (int i = 0; i < CAPE_NAMES.length; i++)
 		{
-			this.icons[i] = iconRegister.registerIcon("ed_aerius:armor/cape_" + capeNames[i]);
+			this.icons[i] = iconRegister.registerIcon("ed_aerius:armor/cape/cape_" + CAPE_NAMES[i]);
 		}
 	}
 
@@ -58,14 +57,14 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return "item.cape." + capeNames[stack.getItemDamage() % capeNames.length];
+		return "item.cape." + CAPE_NAMES[stack.getItemDamage() % CAPE_NAMES.length];
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void getSubItems(Item item, CreativeTabs creativeTab, List list)
 	{
-		for (int i = 0; i < capeNames.length; i++)
+		for (int i = 0; i < CAPE_NAMES.length; i++)
 		{
 			list.add(new ItemStack(this, 1, i));
 		}
@@ -74,18 +73,19 @@ public class ItemCape extends ItemCustomArmor implements ICape
 	@Override
 	public void updateCape(EntityPlayer player, ItemStack stack)
 	{
-		if (!player.worldObj.isRemote)
+		if (player.worldObj.isRemote)
 		{
-			int metadata = stack.getItemDamage();
+			return;
+		}
 
-			if (metadata == 5)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 2, 0));
-			}
-			else
-			{
-				ExtraCore.getNetHandler().sendCapePacket(player, capeNames[metadata]);
-			}
+		final int metadata = stack.getItemDamage();
+		if (metadata == 1) // Invisibility Cape
+		{
+			player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 2, 0));
+		}
+		else
+		{
+			ExtraCore.getNetHandler().sendCapePacket(player, CAPE_NAMES[metadata]);
 		}
 	}
 }

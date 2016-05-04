@@ -157,6 +157,8 @@ item.fire_sword.name=Fire Sword
 
 # Armor
 item.cape.pro.name=Pro Cape
+item.cape.white.name=White Cape
+item.cape.black.name=Black Cape
 item.cape.blue.name=Blue Cape
 item.cape.green.name=Green Cape
 item.cape.red.name=Red Cape
@@ -165,6 +167,7 @@ item.cape.invisibility.name=Invisibility Cape
 item.cape.minecon_2011.name=Minecon 2011 Cape
 item.cape.minecon_2012.name=Minecon 2012 Cape
 item.cape.minecon_2013.name=Minecon 2013 Cape
+item.cape.minecon_2015.name=Minecon 2015 Cape
 
 # Misc Tools
 item.ice_hammer.name=Ice Hammer
