@@ -7,6 +7,7 @@ import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 
 public class EDClientEvents
 {
@@ -27,5 +28,11 @@ public class EDClientEvents
 		{
 			event.gui = new GuiGameOverAerius();
 		}
+	}
+
+	@SubscribeEvent
+	public void renderPlayer(RenderPlayerEvent.Post event)
+	{
+		EDClientProxy.renderPlayer(event);
 	}
 }
