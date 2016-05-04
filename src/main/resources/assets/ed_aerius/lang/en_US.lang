@@ -25,10 +25,23 @@ tile.aerian_grass.hallowed_grass.name=Hallowed Grass
 tile.aerian_grass.mushroom_grass.name=Mushroom Grass
 
 # Ores
-tile.aerius_ores.luminite_ore.name=Luminite Ore
-tile.aerius_ores.white_gold_ore.name=White Gold Ore
-tile.aerius_ores.condaius_ore.name=Condaius Ore
-tile.aerius_ores.holium_ore.name=Holium Ore
+tile.aerius_ores.luminite.name=Luminite Ore
+tile.aerius_ores.white_gold.name=White Gold Ore
+tile.aerius_ores.condaius.name=Condaius Ore
+tile.aerius_ores.holium.name=Holium Ore
+tile.aerius_ores.copper.name=Aerian Copper Ore
+tile.aerius_ores.diamond.name=Aerian Diamond Ore
+tile.aerius_ores.obsidian.name=Aerian Obsidian Ore
+tile.aerius_ores.amnethite.name=Amnethite Ore
+
+tile.aerius_jungle_ores.luminite.name=Jungle Luminite Ore
+tile.aerius_jungle_ores.white_gold.name=Jungle White Gold Ore
+tile.aerius_jungle_ores.condaius.name=Jungle Condaius Ore
+tile.aerius_jungle_ores.holium.name=Jungle Holium Ore
+tile.aerius_jungle_ores.copper.name=Jungle Copper Ore
+tile.aerius_jungle_ores.diamond.name=Jungle Diamond Ore
+tile.aerius_jungle_ores.obsidian.name=Jungle Obsidian Ore
+tile.aerius_jungle_ores.amnethite.name=Jungle Amnethite Ore
 
 # Ore Blocks
 tile.aerius_metals.luminite_block.name=Luminite Block
@@ -102,9 +115,12 @@ tile.cloud.red.name=Red Cloud
 # Materials
 
 item.aerius_materials.luminite.name=Luminite
+item.aerius_materials.copper_ingot.name=Aerian Copper Ingot
 item.aerius_materials.white_gold_ingot.name=White Gold Ingot
-item.aerius_materials.condaius_dust.name=Condaius Dust
 item.aerius_materials.holium_ingot.name=Holium Ingot
+item.aerius_materials.condaius_dust.name=Condaius Dust
+item.aerius_materials.amnethite_gem.name=Amnethite Gem
+item.aerius_materials.obsidian_ingot.name=Obsidian Ingot
 item.aerius_materials.pro_ingot.name=Pro Alloy Ingot
 item.aerius_materials.energy_orb.name=Energy Orb
 
