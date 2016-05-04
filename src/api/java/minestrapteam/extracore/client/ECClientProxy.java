@@ -45,7 +45,7 @@ public class ECClientProxy extends ECProxy
 		RenderingRegistry.registerBlockHandler(BLOCK2D_RENDER_ID, RenderBlock2D.instance);
 		RenderingRegistry.registerBlockHandler(CUSTOMBUSH_RENDER_ID, RenderBlockBush.instance);
 
-		Capes.setLocalCape("AdrianKunz", new ResourceLocation("cslib", "textures/capes/cape_clashsoft.png"));
+		Capes.setLocalCape("AdrianKunz", new ResourceLocation("extracore", "textures/capes/cape_clashsoft.png"));
 		Capes.noCape = Capes.addCape(new EmptyCape("no_cape"));
 	}
 

@@ -8,10 +8,10 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiBuilder extends Gui
 {
-	public static final ResourceLocation	slots							= new ResourceLocation("cslib", "textures/gui/container/slots.png");
-	public static final ResourceLocation	progress						= new ResourceLocation("cslib", "textures/gui/container/progress.png");
-	public static final ResourceLocation	window							= new ResourceLocation("cslib", "textures/gui/container/window.png");
-	public static final ResourceLocation	widgets							= new ResourceLocation("cslib", "textures/gui/container/widgets.png");
+	public static final ResourceLocation	slots							= new ResourceLocation("extracore", "textures/gui/container/slots.png");
+	public static final ResourceLocation	progress						= new ResourceLocation("extracore", "textures/gui/container/progress.png");
+	public static final ResourceLocation	window							= new ResourceLocation("extracore", "textures/gui/container/window.png");
+	public static final ResourceLocation	widgets							= new ResourceLocation("extracore", "textures/gui/container/widgets.png");
 	
 	public static final GuiBuilder			global							= new GuiBuilder(null);
 	

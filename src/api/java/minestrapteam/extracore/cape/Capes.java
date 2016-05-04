@@ -1,16 +1,15 @@
 package minestrapteam.extracore.cape;
 
+import minestrapteam.extracore.ExtraCore;
+import minestrapteam.extracore.util.logging.ECLog;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
-
-import minestrapteam.extracore.ExtraCore;
-import minestrapteam.extracore.util.logging.ECLog;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 
 public final class Capes
 {
@@ -143,7 +142,7 @@ public final class Capes
 	 * local_cape=local:textures/misc/cape.png
 	 * 
 	 * [capename]=local:[domain]:[resource location]
-	 * local_cape=local:cslib:textures/misc/cape.png
+	 * local_cape=local:extracore:textures/misc/cape.png
 	 * 
 	 * [username]=[capename]
 	 * Clashsoft=local_cape
