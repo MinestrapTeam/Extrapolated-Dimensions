@@ -39,7 +39,7 @@ public class ECProxy extends BaseProxy
 			return (ContainerInventory) player.inventoryContainer;
 		}
 
-		ContainerInventory container = new ContainerInventory(player.inventory, player);
+		ContainerInventory container = new ContainerInventory(player);
 		player.inventoryContainer = player.openContainer = container;
 		return container;
 	}

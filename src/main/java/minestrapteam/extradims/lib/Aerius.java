@@ -243,9 +243,9 @@ public class Aerius
 		energyOrb = new ItemStack(materialItems, 1, 5);
 
 		iceStick = new ItemStack(lootItems, 1, 0);
-		lifeHeart = new ItemStack(lootItems, 1, 3);
-		manaStar = new ItemStack(lootItems, 1, 6);
-		aerwand = new ItemStack(lootItems, 1, 7);
+		lifeHeart = new ItemStack(lootItems, 1, 2);
+		manaStar = new ItemStack(lootItems, 1, 3);
+		aerwand = new ItemStack(lootItems, 1, 4);
 
 		// Block Stacks
 

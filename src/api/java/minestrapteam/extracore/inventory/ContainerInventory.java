@@ -7,7 +7,6 @@ import minestrapteam.extracore.inventory.slot.SlotCustomArmor;
 import minestrapteam.extracore.util.FakeArrayList;
 import minestrapteam.extracore.util.math.Point2i;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -24,7 +23,7 @@ public class ContainerInventory extends Container implements ISlotList
 	public final EntityPlayer thePlayer;
 	public       boolean      isCreative;
 
-	public ContainerInventory(InventoryPlayer inventory, EntityPlayer player)
+	public ContainerInventory(EntityPlayer player)
 	{
 		this.thePlayer = player;
 
@@ -98,43 +97,43 @@ public class ContainerInventory extends Container implements ISlotList
 
 	public List<Slot> createSlots(Point2i[] pos)
 	{
-		List<Slot> slots = new ArrayList<Slot>(pos.length);
+		List<Slot> slots = new ArrayList<>(pos.length);
 		slots
 			.add(new SlotCrafting(this.thePlayer, this.craftMatrix, this.craftResult, 0, pos[0].getX(), pos[0].getY()));
 
-		int i;
-		int j;
-		int k;
+		int x;
+		int y;
+		int slotIndex;
 
-		for (i = 0; i < 2; ++i)
+		for (x = 0; x < 2; x++)
 		{
-			for (j = 0; j < 2; ++j)
+			for (y = 0; y < 2; y++)
 			{
-				k = j + i * 2;
-				slots.add(new Slot(this.craftMatrix, k, pos[k + 1].getX(), pos[k + 1].getY()));
+				slotIndex = y + x * 2;
+				slots.add(new Slot(this.craftMatrix, slotIndex, pos[slotIndex + 1].getX(), pos[slotIndex + 1].getY()));
 			}
 		}
 
-		for (i = 0; i < 4; ++i)
+		for (x = 0; x < 4; x++)
 		{
-			k = 5 + i;
-			slots.add(
-				new SlotCustomArmor(this.thePlayer, this.thePlayer.inventory, 39 - i, pos[k].getX(), pos[k].getY(), i));
+			slotIndex = 5 + x;
+			slots.add(new SlotCustomArmor(this.thePlayer, this.thePlayer.inventory, 39 - x, pos[slotIndex].getX(),
+			                              pos[slotIndex].getY(), x));
 		}
 
-		for (i = 0; i < 3; ++i)
+		for (x = 0; x < 3; x++)
 		{
-			for (j = 0; j < 9; ++j)
+			for (y = 0; y < 9; y++)
 			{
-				k = 9 + j + i * 9;
-				slots.add(new Slot(this.thePlayer.inventory, k, pos[k].getX(), pos[k].getY()));
+				slotIndex = 9 + y + x * 9;
+				slots.add(new Slot(this.thePlayer.inventory, slotIndex, pos[slotIndex].getX(), pos[slotIndex].getY()));
 			}
 		}
 
-		for (i = 0; i < 9; ++i)
+		for (x = 0; x < 9; x++)
 		{
-			k = i + 36;
-			slots.add(new Slot(this.thePlayer.inventory, i, pos[k].getX(), pos[k].getY()));
+			slotIndex = x + 36;
+			slots.add(new Slot(this.thePlayer.inventory, x, pos[slotIndex].getX(), pos[slotIndex].getY()));
 		}
 
 		return slots;
@@ -186,124 +185,125 @@ public class ContainerInventory extends Container implements ISlotList
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotID)
 	{
-		ItemStack itemstack = null;
 		Slot slot = (Slot) this.inventorySlots.get(slotID);
 
-		if (slot != null && slot.getHasStack())
+		if (slot == null || !slot.getHasStack())
 		{
-			ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
-			int size = this.inventorySlots.size();
-
-			if (itemstack.stackSize == 0)
-			{
-				return null;
-			}
-
-			int armorSlotID = -1;
-
-			if (itemstack.getItem() instanceof ItemArmor)
-			{
-				ItemArmor itemArmor = (ItemArmor) itemstack.getItem();
-				int armorType = itemArmor.armorType;
-
-				if (armorType < 4)
-				{
-					Slot armorSlot = (Slot) this.inventorySlots.get(5 + armorType);
-					if (!armorSlot.getHasStack())
-					{
-						armorSlotID = 5 + armorType;
-					}
-				}
-				else
-				{
-					for (int i = 45; i < size; i++)
-					{
-						Slot armorSlot = (Slot) this.inventorySlots.get(i);
-
-						if (!armorSlot.getHasStack() && armorSlot.isItemValid(itemstack1))
-						{
-							armorSlotID = i;
-							break;
-						}
-					}
-				}
-			}
-
-			if (slotID == 0) // Crafting output
-			{
-				if (!this.mergeItemStack(itemstack1, 9, 45, true))
-				{
-					return null;
-				}
-
-				slot.onSlotChange(itemstack1, itemstack);
-			}
-			else if (slotID >= 1 && slotID < 5) // Crafting grid
-			{
-				if (!this.mergeItemStack(itemstack1, 9, 45, false))
-				{
-					return null;
-				}
-			}
-			else if (slotID >= 5 && slotID < 9) // Armor slots
-			{
-				if (!this.mergeItemStack(itemstack1, 9, 45, false))
-				{
-					return null;
-				}
-			}
-			else if (slotID >= 45)
-			{
-				if (!this.mergeItemStack(itemstack1, 9, 45, false))
-				{
-					return null;
-				}
-			}
-			else if (itemstack.getItem() instanceof ItemArmor && armorSlotID != -1) // Armor
-			{
-				if (!this.mergeItemStack(itemstack1, armorSlotID, armorSlotID + 1, false))
-				{
-					return null;
-				}
-			}
-			else if ((slotID >= 9 && slotID < 36)) // Normal inventory
-			{
-				if (!this.mergeItemStack(itemstack1, 36, 45, false))
-				{
-					return null;
-				}
-			}
-			else if (slotID >= 36 && slotID < 45) // Hotbar
-			{
-				if (!this.mergeItemStack(itemstack1, 9, 36, false) && !this.mergeItemStack(itemstack1, 45, size, false))
-				{
-					return null;
-				}
-			}
-			else if (!this.mergeItemStack(itemstack1, 9, 45, false))
-			{
-				return null;
-			}
-
-			if (itemstack1.stackSize == 0)
-			{
-				slot.putStack(null);
-			}
-			else
-			{
-				slot.onSlotChanged();
-			}
-
-			if (itemstack1.stackSize == itemstack.stackSize)
-			{
-				return null;
-			}
-
-			slot.onPickupFromSlot(player, itemstack1);
+			return null;
 		}
 
-		return itemstack;
+		ItemStack stack = slot.getStack();
+		ItemStack copy = stack.copy();
+		int size = this.inventorySlots.size();
+
+		if (copy.stackSize == 0)
+		{
+			return null;
+		}
+
+		final int armorSlotID;
+		if (slotID == 0) // Crafting Output -> Main Inventory
+		{
+			if (!this.mergeItemStack(stack, 9, 45, true))
+			{
+				return null;
+			}
+
+			slot.onSlotChange(stack, copy);
+		}
+		else if (slotID >= 1 && slotID < 5) // Crafting grid -> Main Inventory
+		{
+			if (!this.mergeItemStack(stack, 9, 45, false))
+			{
+				return null;
+			}
+		}
+		else if (slotID >= 5 && slotID < 9) // Armor slots -> Main Inventory
+		{
+			if (!this.mergeItemStack(stack, 9, 45, false))
+			{
+				return null;
+			}
+		}
+		else if (slotID >= 45) // Extra Slots -> Main Inventory
+		{
+			if (!this.mergeItemStack(stack, 9, 45, false))
+			{
+				return null;
+			}
+		}
+		else if ((armorSlotID = this.getArmorSlotID(stack, size)) != -1) // Armor
+		{
+			if (!this.mergeItemStack(stack, armorSlotID, armorSlotID + 1, false))
+			{
+				return null;
+			}
+		}
+		else if (slotID >= 9 && slotID < 36) // Main Inventory -> Hotbar
+		{
+			if (!this.mergeItemStack(stack, 36, 45, false))
+			{
+				return null;
+			}
+		}
+		else if (slotID >= 36 && slotID < 45) // Hotbar -> Main Inventory
+		{
+			if (!this.mergeItemStack(stack, 9, 36, false) && !this.mergeItemStack(stack, 45, size, false))
+			{
+				return null;
+			}
+		}
+		else if (!this.mergeItemStack(stack, 9, 45, false)) // -> Main Inventory
+		{
+			return null;
+		}
+
+		if (stack.stackSize == 0)
+		{
+			slot.putStack(null);
+		}
+		else
+		{
+			slot.onSlotChanged();
+		}
+
+		if (stack.stackSize == copy.stackSize)
+		{
+			return null;
+		}
+
+		slot.onPickupFromSlot(player, stack);
+
+		return copy;
+	}
+
+	private int getArmorSlotID(ItemStack stack, int size)
+	{
+		if (stack.getItem() instanceof ItemArmor)
+		{
+			ItemArmor itemArmor = (ItemArmor) stack.getItem();
+
+			final int armorType = itemArmor.armorType;
+			if (armorType < 4)
+			{
+				final Slot armorSlot = (Slot) this.inventorySlots.get(5 + armorType);
+				if (!armorSlot.getHasStack())
+				{
+					return 5 + armorType;
+				}
+			}
+		}
+
+		// Check Extra Slots
+		for (int i = 45; i < size; i++)
+		{
+			final Slot armorSlot = (Slot) this.inventorySlots.get(i);
+			if (!armorSlot.getHasStack() && armorSlot instanceof SlotCustomArmor && armorSlot.isItemValid(stack))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	@Override
