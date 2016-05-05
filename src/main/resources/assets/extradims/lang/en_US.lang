@@ -1,23 +1,4 @@
-# Creative Tabs
-itemGroup.alchemy=Alchemy
 
 # World Types
 generator.test=Test World
 generator.test.info=Useful for testing mods. Daylight Cycle and Rain are disabled by default.
-
-tile.alchemy_tube.name=Alchemy Tube
-tile.alchemy_table.name=Alchemy Table
-
-elixir.prefix.grenade=Throwable
-elixir.elixirof=Elixir of
-elixir.empty=Water Elixir Bottle
-
-elixir.bottletype=Bottle Type
-elixir.bottletype.0=Square
-elixir.bottletype.1=Triangular
-elixir.bottletype.2=Round
-
-item.elixir.name=Elixir
-item.elixir_bottle.name=Elixir Bottle
-item.alchemy_guide.name=Alchemy Guide
-item.alchemy_guide.desc=Holds all alchemical knowledge
