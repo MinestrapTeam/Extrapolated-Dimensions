@@ -7,7 +7,7 @@ import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.inventory.ISlotList;
 import minestrapteam.extracore.inventory.slot.SlotCustomArmor;
 import minestrapteam.extracore.util.math.Point2i;
-import minestrapteam.extradims.item.armor.ArmorTypes;
+import minestrapteam.extradims.item.ArmorTypes;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;

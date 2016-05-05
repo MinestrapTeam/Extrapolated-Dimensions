@@ -48,13 +48,9 @@ public class ExtraDimensions extends BaseMod
 		
 		Virtious.init();
 		Aerius.init();
-		Alchemy.init();
-		// Tools.init();
 		
 		Virtious.load();
 		Aerius.load();
-		Alchemy.load();
-		// Tools.load();
 		
 		WorldManager.load();
 		InventoryHandler.load();

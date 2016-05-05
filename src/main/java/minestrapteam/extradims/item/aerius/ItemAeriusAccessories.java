@@ -1,6 +1,6 @@
 package minestrapteam.extradims.item.aerius;
 
-import minestrapteam.extradims.item.armor.ArmorTypes;
+import minestrapteam.extradims.item.ArmorTypes;
 import minestrapteam.extradims.lib.Aerius;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

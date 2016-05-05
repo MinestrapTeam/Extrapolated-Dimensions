@@ -86,17 +86,8 @@ public class TileEntityDamnationTable extends TileEntityInventory implements ISi
 	
 	public boolean canCurse()
 	{
-		if (this.itemStacks[3] != null || this.itemStacks[4] != null)
-		{
-			return false;
-		}
-		
-		if (!this.isCurseIngredient(this.getIngredient()) || !this.isCursable(this.getIngredient(), this.getItemToCurse()))
-		{
-			return false;
-		}
-		
-		return true;
+		return !(this.itemStacks[3] != null || this.itemStacks[4] != null) && !(!this.isCurseIngredient(
+			this.getIngredient()) || !this.isCursable(this.getIngredient(), this.getItemToCurse()));
 	}
 	
 	public ItemStack getFuel()

@@ -8,9 +8,9 @@ import minestrapteam.extracore.util.StringUtils;
 import minestrapteam.extradims.block.MaterialCloud;
 import minestrapteam.extradims.block.aerius.*;
 import minestrapteam.extradims.item.aerius.*;
-import minestrapteam.extradims.item.armor.ArmorTypes;
-import minestrapteam.extradims.item.armor.ItemCape;
-import minestrapteam.extradims.item.armor.ItemGem;
+import minestrapteam.extradims.item.ArmorTypes;
+import minestrapteam.extradims.item.aerius.ItemCape;
+import minestrapteam.extradims.item.aerius.ItemGem;
 import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -56,7 +56,6 @@ public class Aerius
 	public static ItemAeriusSoul soul;
 
 	// Weapons
-	public static ItemStaff     staves;
 	public static ItemFireSword fireSword;
 	public static ItemSword     proSword;
 
@@ -166,7 +165,6 @@ public class Aerius
 		                                             .setCreativeTab(tabAeriusTools);
 		fireSword = (ItemFireSword) new ItemFireSword(toolFire).setTextureName(getTexture("weapons/fire_sword"))
 		                                                       .setCreativeTab(tabAeriusTools);
-		staves = (ItemStaff) new ItemStaff().setCreativeTab(tabAeriusTools);
 
 		// Tools
 
@@ -401,7 +399,6 @@ public class Aerius
 		ECItems.addItem(proShovel, "pro_shovel");
 		ECItems.addItem(proAxe, "pro_axe");
 		ECItems.addItem(proHoe, "pro_hoe");
-		ECItems.addItem(staves, "aerius_staves");
 		ECItems.addItem(fireSword, "fire_sword");
 		ECItems.addItem(iceHammer, "ice_hammer");
 

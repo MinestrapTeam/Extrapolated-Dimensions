@@ -1,8 +1,9 @@
-package minestrapteam.extradims.item.armor;
+package minestrapteam.extradims.item.aerius;
 
 import minestrapteam.extracore.ExtraCore;
 import minestrapteam.extracore.cape.Capes;
 import minestrapteam.extradims.api.ICape;
+import minestrapteam.extradims.item.ArmorTypes;
 import minestrapteam.extradims.lib.Aerius;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

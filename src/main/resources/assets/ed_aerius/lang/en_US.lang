@@ -197,3 +197,14 @@ item.aerian_apple.name=Aerian Apple
 
 # Entities
 entity.Lich.name=Lich
+
+# Staves and Spells
+item.staff.name=Staff
+
+staff.explosive.name=Explosive Staff
+
+staff.origin.generic=Origin: %s
+staff.origin.creativeTab=Origin: Creative Inventory
+
+spell.estuansInterius.name=Estuans Interius
+

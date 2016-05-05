@@ -1,6 +1,7 @@
-package minestrapteam.extradims.item.armor;
+package minestrapteam.extradims.item.aerius;
 
 import minestrapteam.extracore.item.ItemCustomArmor;
+import minestrapteam.extradims.item.ArmorTypes;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 

@@ -1,4 +1,4 @@
-package minestrapteam.extradims.item.armor;
+package minestrapteam.extradims.item;
 
 public class ArmorTypes
 {
