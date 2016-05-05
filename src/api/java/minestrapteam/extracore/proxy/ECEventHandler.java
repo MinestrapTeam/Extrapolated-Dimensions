@@ -68,6 +68,12 @@ public class ECEventHandler
 	}
 
 	@SubscribeEvent
+	public void playerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event)
+	{
+		ECEntities.copyProperties(event.original, event.entityPlayer);
+	}
+
+	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
 		if (event.phase == Phase.START)
@@ -79,10 +85,18 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void onDeath(LivingDeathEvent event)
 	{
-		if (event.entityLiving instanceof EntityPlayer)
+		if (!(event.entityLiving instanceof EntityPlayer))
 		{
-			ExtendedInventory.get((EntityPlayer) event.entityLiving).dropAllItems();
+			return;
 		}
+
+		final EntityPlayer player = (EntityPlayer) event.entityLiving;
+		if (player.worldObj.isRemote || player.worldObj.getGameRules().getGameRuleBooleanValue("keepInventory"))
+		{
+			// Don't drop items when keepInventory is on
+			return;
+		}
+		ExtendedInventory.get(player).dropAllItems();
 	}
 
 	@SubscribeEvent

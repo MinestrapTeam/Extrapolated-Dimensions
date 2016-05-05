@@ -7,6 +7,7 @@ import minestrapteam.extracore.util.logging.ECLog;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 import java.lang.reflect.Constructor;
@@ -137,6 +138,24 @@ public class ECEntities
 			{
 				ep.loadProperties(entity);
 			}
+		}
+	}
+
+	public static void copyProperties(Entity original, Entity target)
+	{
+		for (EntityProperties ep : properties)
+		{
+			if (!ep.canApply(target))
+			{
+				continue;
+			}
+
+			IExtendedEntityProperties originalProperties = ep.loadProperties(original);
+			IExtendedEntityProperties targetProperties = ep.loadProperties(target);
+
+			NBTTagCompound nbt = new NBTTagCompound();
+			originalProperties.saveNBTData(nbt);
+			targetProperties.loadNBTData(nbt);
 		}
 	}
 
