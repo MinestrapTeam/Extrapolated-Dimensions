@@ -1,21 +1,20 @@
 package minestrapteam.extradims.block.virtious;
 
-import java.util.Random;
-
 import minestrapteam.extracore.block.BlockCustomPortalBase;
-import minestrapteam.extradims.lib.WorldManager;
+import minestrapteam.extradims.lib.virtious.Virtious;
 import minestrapteam.extradims.world.virtious.TeleporterVirtious;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
+import java.util.Random;
+
 public class BlockVirtiousPortal extends BlockCustomPortalBase
 {
 	public BlockVirtiousPortal(String iconName)
 	{
-		super(iconName, WorldManager.VIRTIOUS_ID);
+		super(iconName, Virtious.VIRTIOUS_ID);
 	}
 	
 	@Override

@@ -1,9 +1,8 @@
 package minestrapteam.extradims.block.aerius;
 
 import minestrapteam.extracore.block.BlockCustomPortal;
-import minestrapteam.extradims.lib.WorldManager;
+import minestrapteam.extradims.lib.aerius.Aerius;
 import minestrapteam.extradims.world.aerius.TeleporterAerius;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
@@ -13,7 +12,7 @@ public class BlockAeriusPortal extends BlockCustomPortal
 {
 	public BlockAeriusPortal(String iconName)
 	{
-		super(iconName, WorldManager.AERIUS_ID);
+		super(iconName, Aerius.AERIUS_ID);
 		this.frameBlock = Blocks.glowstone;
 	}
 

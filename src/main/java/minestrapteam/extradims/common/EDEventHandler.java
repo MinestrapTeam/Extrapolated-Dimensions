@@ -9,9 +9,9 @@ import minestrapteam.extradims.api.ICape;
 import minestrapteam.extradims.api.IMinableBlock;
 import minestrapteam.extradims.curse.Curse;
 import minestrapteam.extradims.entity.EDEntityProperties;
-import minestrapteam.extradims.item.armor.ArmorTypes;
-import minestrapteam.extradims.lib.InventoryHandler;
-import minestrapteam.extradims.lib.WorldManager;
+import minestrapteam.extradims.item.ArmorTypes;
+import minestrapteam.extradims.lib.aerius.AInventory;
+import minestrapteam.extradims.lib.aerius.Aerius;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.lib.virtious.VItems;
 import net.minecraft.block.*;
@@ -40,7 +40,7 @@ public class EDEventHandler
 	{
 		if (event.map.getTextureType() == 1)
 		{
-			InventoryHandler.loadIcons(event.map);
+			AInventory.loadIcons(event.map);
 		}
 	}
 
@@ -234,7 +234,7 @@ public class EDEventHandler
 		{
 			MinecraftServer server = player.mcServer;
 
-			if (player.dimension == WorldManager.AERIUS_ID && player.posY <= -64)
+			if (player.dimension == Aerius.AERIUS_ID && player.posY <= -64)
 			{
 				player.setPosition(player.posX, 256, player.posZ);
 				server.getConfigurationManager()
@@ -243,10 +243,10 @@ public class EDEventHandler
 			else if (player.dimension == 0 && player.posY > 256)
 			{
 				player.setPosition(player.posX, 0, player.posZ);
-				server.getConfigurationManager().transferPlayerToDimension(player, WorldManager.AERIUS_ID,
-				                                                           new TeleporterNoPortal(server
-					                                                                                  .worldServerForDimension(
-						                                                                                  WorldManager.AERIUS_ID)));
+				final TeleporterNoPortal teleporter = new TeleporterNoPortal(server.worldServerForDimension(
+					Aerius.AERIUS_ID));
+				server.getConfigurationManager().transferPlayerToDimension(player, Aerius.AERIUS_ID,
+				                                                           teleporter);
 			}
 		}
 		catch (Exception ex)
@@ -258,7 +258,7 @@ public class EDEventHandler
 	public void updatePlayerCapes(EntityPlayerMP player)
 	{
 		ExtendedInventory extendedInventory = ExtendedInventory.get(player);
-		ItemStack stack = extendedInventory.getStackInSlot(InventoryHandler.getSlotIndex(ArmorTypes.CAPE));
+		ItemStack stack = extendedInventory.getStackInSlot(AInventory.getSlotIndex(ArmorTypes.CAPE));
 
 		if (stack == null)
 		{

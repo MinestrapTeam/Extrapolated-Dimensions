@@ -3,7 +3,7 @@ package minestrapteam.extradims.block.virtious;
 import java.util.Random;
 
 import minestrapteam.extracore.block.BlockCustomPlant;
-import minestrapteam.extradims.lib.Virtious;
+import minestrapteam.extradims.lib.virtious.Virtious;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.lib.virtious.VItems;
 

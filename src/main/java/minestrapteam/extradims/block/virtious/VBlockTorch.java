@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.virtious;
 
 import java.util.Random;
 
-import minestrapteam.extradims.lib.Virtious;
+import minestrapteam.extradims.lib.virtious.Virtious;
 
 import net.minecraft.block.BlockTorch;
 import net.minecraft.world.World;

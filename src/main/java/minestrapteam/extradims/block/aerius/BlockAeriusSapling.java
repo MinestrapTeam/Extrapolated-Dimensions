@@ -2,7 +2,7 @@ package minestrapteam.extradims.block.aerius;
 
 import minestrapteam.extracore.block.BlockCustomSapling;
 import minestrapteam.extradims.biome.aerius.BiomeAerius;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -20,7 +20,7 @@ public class BlockAeriusSapling extends BlockCustomSapling
 	public WorldGenerator getWorldGen(World world, int x, int y, int z, Random random)
 	{
 		int type = world.getBlockMetadata(x, y, z) & 3;
-		if (this == Aerius.saplingBlocks2)
+		if (this == ABlocks.saplingBlocks2)
 		{
 			type += 4;
 		}
@@ -31,6 +31,6 @@ public class BlockAeriusSapling extends BlockCustomSapling
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		return (block == Aerius.grassBlocks || block == Aerius.dirtBlocks) && blockMetadata == 0;
+		return (block == ABlocks.grassBlocks || block == ABlocks.dirtBlocks) && blockMetadata == 0;
 	}
 }

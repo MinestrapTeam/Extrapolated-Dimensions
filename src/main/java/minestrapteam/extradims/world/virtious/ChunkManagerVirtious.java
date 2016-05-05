@@ -1,14 +1,14 @@
 package minestrapteam.extradims.world.virtious;
 
-import java.util.List;
-
 import minestrapteam.extracore.world.CustomChunkManager;
-import minestrapteam.extradims.lib.WorldManager;
-
+import minestrapteam.extradims.lib.virtious.Virtious;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
+
+import java.util.Collections;
+import java.util.List;
 
 public class ChunkManagerVirtious extends CustomChunkManager
 {
@@ -16,21 +16,18 @@ public class ChunkManagerVirtious extends CustomChunkManager
 	{
 		super(world);
 	}
-	
+
 	public ChunkManagerVirtious(long seed, WorldType worldType)
 	{
 		super(seed, worldType);
 	}
-	
+
 	@Override
 	public void addBiomes(List<BiomeGenBase> list)
 	{
-		for (BiomeGenBase biome : WorldManager.virtiousBiomes)
-		{
-			list.add(biome);
-		}
+		Collections.addAll(list, Virtious.virtiousBiomes);
 	}
-	
+
 	@Override
 	public GenLayer[] getGenLayers(long seed, WorldType worldType)
 	{

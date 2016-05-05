@@ -1,21 +1,18 @@
 package minestrapteam.extradims.biome.virtious;
 
-import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FLOWERS;
-import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS;
-import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.SHROOM;
-
-import java.util.Random;
-
 import minestrapteam.extracore.world.gen.WorldGenRanged;
-import minestrapteam.extradims.lib.WorldManager;
 import minestrapteam.extradims.lib.virtious.VBlocks;
-
+import minestrapteam.extradims.lib.virtious.Virtious;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
+import java.util.Random;
+
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.*;
 
 public class VirtiousBiomeDecorator extends BiomeDecorator
 {
@@ -73,6 +70,6 @@ public class VirtiousBiomeDecorator extends BiomeDecorator
 			shrooms.generate(world, random, x1, y1, z1);
 		}
 		
-		WorldManager.generateVirtious(world, random, chunkX, chunkZ);
+		Virtious.generateVirtious(world, random, chunkX, chunkZ);
 	}
 }

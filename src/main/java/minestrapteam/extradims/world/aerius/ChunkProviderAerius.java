@@ -2,7 +2,7 @@ package minestrapteam.extradims.world.aerius;
 
 import minestrapteam.extracore.world.CustomChunkProvider;
 import minestrapteam.extracore.world.gen.CustomCaveGen;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
@@ -69,7 +69,7 @@ public class ChunkProviderAerius extends CustomChunkProvider
 							{
 								if (d15 > 0.0D)
 								{
-									blocks[index] = Aerius.stoneBlocks;
+									blocks[index] = ABlocks.stoneBlocks;
 								}
 								index += 256;
 								d15 += d16;

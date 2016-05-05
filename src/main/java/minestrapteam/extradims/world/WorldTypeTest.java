@@ -12,25 +12,25 @@ public class WorldTypeTest extends WorldType
 	{
 		super(name);
 	}
-	
+
 	@Override
 	public boolean showWorldInfoNotice()
 	{
 		return true;
 	}
-	
+
 	@Override
 	public WorldChunkManager getChunkManager(World world)
 	{
 		GameRules rules = world.getGameRules();
 		WorldInfo info = world.getWorldInfo();
-		
+
 		rules.setOrCreateGameRule("keepInventory", "true");
 		rules.setOrCreateGameRule("doDaylightCycle", "false");
-		
+
 		info.setWorldTime(6000L);
 		info.setRainTime(Integer.MAX_VALUE);
-		
+
 		return super.getChunkManager(world);
 	}
 }

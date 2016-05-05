@@ -2,7 +2,7 @@ package minestrapteam.extradims.biome.aerius;
 
 import minestrapteam.extracore.world.biome.CustomBiome;
 import minestrapteam.extracore.world.gen.WorldGenRanged;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenBigTree;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenFirTree;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenJungleTree;
@@ -36,15 +36,15 @@ public class BiomeAerius extends CustomBiome
 		this.rootHeight = 0F;
 		this.heightVariation = 1.9F;
 
-		this.topBlock = Aerius.grassBlocks;
-		this.fillerBlock = Aerius.dirtBlocks;
-		this.stoneBlock = Aerius.stoneBlocks;
+		this.topBlock = ABlocks.grassBlocks;
+		this.fillerBlock = ABlocks.dirtBlocks;
+		this.stoneBlock = ABlocks.stoneBlocks;
 	}
 
 	@Override
 	public BiomeDecorator createBiomeDecorator()
 	{
-		return this.getModdedBiomeDecorator(new AeriusBiomeDecorator(Aerius.oreBlocks));
+		return this.getModdedBiomeDecorator(new AeriusBiomeDecorator(ABlocks.oreBlocks));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -92,7 +92,7 @@ public class BiomeAerius extends CustomBiome
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return new WorldGenRanged(Aerius.plantBlocks, 0);
+		return new WorldGenRanged(ABlocks.plantBlocks, 0);
 	}
 	
 	public static WorldGenAbstractTree getTreeGenForTree(Random random, int metadata, boolean update)

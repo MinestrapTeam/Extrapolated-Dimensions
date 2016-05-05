@@ -1,11 +1,8 @@
 package minestrapteam.extradims.client.renderer;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.extradims.lib.WorldManager;
-
+import minestrapteam.extradims.lib.virtious.Virtious;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.RenderHelper;
@@ -14,34 +11,33 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IRenderHandler;
+import org.lwjgl.opengl.GL11;
 
 public class VirtiousSkyRenderer extends IRenderHandler
 {
-	public static VirtiousSkyRenderer		instance		= new VirtiousSkyRenderer();
-	
-	private static final ResourceLocation	TEXTURE_MOON	= new ResourceLocation("virtious:textures/environment/Earth.png");
-	private static final ResourceLocation	TEXTURE_SUN		= new ResourceLocation("virtious:textures/environment/Sun.png");
-	private static final ResourceLocation	TEXTURE_CLOUDS	= new ResourceLocation("textures/environment/clouds.png");
-	private static final ResourceLocation	TEXTURE_SKY		= new ResourceLocation("virtious:textures/environment/nightsky.png");
-	private static final ResourceLocation	TEXTURE_SKY2	= new ResourceLocation("virtious:textures/environment/nightsky_2.png");
-	
+	public static final VirtiousSkyRenderer INSTANCE = new VirtiousSkyRenderer();
+
+	private static final ResourceLocation TEXTURE_MOON = new ResourceLocation("virtious:textures/environment/Earth.png");
+	private static final ResourceLocation TEXTURE_SUN  = new ResourceLocation("virtious:textures/environment/Sun.png");
+	private static final ResourceLocation TEXTURE_SKY  = new ResourceLocation("virtious:textures/environment/nightsky.png");
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void render(float partialTicks, WorldClient world, Minecraft mc)
 	{
-		if (mc.theWorld.provider.dimensionId != WorldManager.VIRTIOUS_ID)
+		if (mc.theWorld.provider.dimensionId != Virtious.VIRTIOUS_ID)
 		{
 			return;
 		}
-		
+
 		Tessellator tessellator = Tessellator.instance;
 		float opacity = world.getStarBrightness(partialTicks) * (1.0F - world.getRainStrength(partialTicks));
 		if (opacity > 0.0F)
 		{
 			GL11.glColor4f(opacity, opacity, opacity, opacity);
-			renderNightSky(partialTicks, mc);
+			this.renderNightSky(mc);
 		}
-		
+
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		Vec3 vec3 = world.getSkyColor(mc.renderViewEntity, partialTicks);
 		float f1 = (float) vec3.xCoord;
@@ -73,13 +69,14 @@ public class VirtiousSkyRenderer extends IRenderHandler
 			GL11.glShadeModel(GL11.GL_SMOOTH);
 			GL11.glPushMatrix();
 			GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
-			GL11.glRotatef(MathHelper.sin(world.getCelestialAngleRadians(partialTicks)) < 0.0F ? 180.0F : 0.0F, 0.0F, 0.0F, 1.0F);
+			GL11.glRotatef(MathHelper.sin(world.getCelestialAngleRadians(partialTicks)) < 0.0F ? 180.0F : 0.0F, 0.0F,
+			               0.0F, 1.0F);
 			GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
 			f4 = afloat[0];
 			f7 = afloat[1];
 			f8 = afloat[2];
 			float f11;
-			
+
 			if (mc.gameSettings.anaglyph)
 			{
 				f9 = (f4 * 30.0F + f7 * 59.0F + f8 * 11.0F) / 100.0F;
@@ -89,13 +86,13 @@ public class VirtiousSkyRenderer extends IRenderHandler
 				f7 = f10;
 				f8 = f11;
 			}
-			
+
 			tessellator.startDrawing(6);
 			tessellator.setColorRGBA_F(f4, f7, f8, afloat[3]);
 			tessellator.addVertex(0.0D, 100.0D, 0.0D);
 			byte b0 = 16;
 			tessellator.setColorRGBA_F(afloat[0], afloat[1], afloat[2], 0.0F);
-			
+
 			for (int j = 0; j <= b0; ++j)
 			{
 				f11 = j * (float) Math.PI * 2.0F / b0;
@@ -103,7 +100,7 @@ public class VirtiousSkyRenderer extends IRenderHandler
 				float f13 = MathHelper.cos(f11);
 				tessellator.addVertex(f12 * 120.0F, f13 * 120.0F, -f13 * 40.0F * afloat[3]);
 			}
-			
+
 			tessellator.draw();
 			GL11.glPopMatrix();
 			GL11.glShadeModel(GL11.GL_FLAT);
@@ -128,8 +125,8 @@ public class VirtiousSkyRenderer extends IRenderHandler
 		int k = world.getMoonPhase();
 		int l = k % 4;
 		int i1 = k / 4 % 2;
-		float f14 = (l + 0) / 4.0F;
-		float f15 = (i1 + 0) / 2.0F;
+		float f14 = l / 4.0F;
+		float f15 = i1 / 2.0F;
 		float f16 = (l + 1) / 4.0F;
 		float f17 = (i1 + 1) / 2.0F;
 		tessellator.startDrawingQuads();
@@ -157,10 +154,9 @@ public class VirtiousSkyRenderer extends IRenderHandler
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glDepthMask(true);
 	}
-	
-	private void renderNightSky(float partialTicks, Minecraft mc)
+
+	private void renderNightSky(Minecraft mc)
 	{
-		
 		GL11.glDisable(GL11.GL_FOG);
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 		GL11.glEnable(GL11.GL_BLEND);
@@ -168,39 +164,33 @@ public class VirtiousSkyRenderer extends IRenderHandler
 		RenderHelper.disableStandardItemLighting();
 		GL11.glDepthMask(false);
 		mc.renderEngine.bindTexture(TEXTURE_SKY);
-		
+
 		Tessellator tessellator = Tessellator.instance;
-		
+
 		for (int i = 0; i < 6; ++i)
 		{
 			GL11.glPushMatrix();
-			
-			if (i == 1)
+
+			switch (i)
 			{
+			case 1:
 				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
-			}
-			
-			if (i == 2)
-			{
+				break;
+			case 2:
 				GL11.glRotatef(-90.0F, 1.0F, 0.0F, 0.0F);
-			}
-			
-			if (i == 3)
-			{
+				break;
+			case 3:
 				GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
-			}
-			
-			if (i == 4)
-			{
+				break;
+			case 4:
 				GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
-			}
-			
-			if (i == 5)
-			{
+				break;
+			case 5:
 				mc.renderEngine.bindTexture(TEXTURE_SKY);
 				GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
+				break;
 			}
-			
+
 			tessellator.startDrawingQuads();
 			tessellator.addVertexWithUV(-100.0D, -100.0D, -100.0D, 0.0D, 0.0D);
 			tessellator.addVertexWithUV(-100.0D, -100.0D, 100.0D, 0.0D, 2.0D);
@@ -209,7 +199,7 @@ public class VirtiousSkyRenderer extends IRenderHandler
 			tessellator.draw();
 			GL11.glPopMatrix();
 		}
-		
+
 		GL11.glDepthMask(true);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);

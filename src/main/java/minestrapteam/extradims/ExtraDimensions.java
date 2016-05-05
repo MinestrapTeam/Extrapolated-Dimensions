@@ -12,8 +12,11 @@ import minestrapteam.extracore.init.BaseMod;
 import minestrapteam.extradims.common.EDEventHandler;
 import minestrapteam.extradims.common.EDFuelHandler;
 import minestrapteam.extradims.common.EDProxy;
-import minestrapteam.extradims.lib.*;
+import minestrapteam.extradims.lib.aerius.Aerius;
+import minestrapteam.extradims.lib.virtious.Virtious;
 import minestrapteam.extradims.network.EDNetHandler;
+import minestrapteam.extradims.world.WorldTypeTest;
+import net.minecraft.world.WorldType;
 
 import java.util.Arrays;
 
@@ -29,7 +32,9 @@ public class ExtraDimensions extends BaseMod
 	public static ExtraDimensions	instance;
 	
 	public static EDProxy			proxy	= createProxy("minestrapteam.extradims.client.EDClientProxy", "minestrapteam.extradims.common.EDProxy");
-	
+
+	public static WorldType testWorldType;
+
 	public ExtraDimensions()
 	{
 		super(proxy, MODID, NAME, ACRONYM, VERSION);
@@ -48,12 +53,8 @@ public class ExtraDimensions extends BaseMod
 		
 		Virtious.init();
 		Aerius.init();
-		
-		Virtious.load();
-		Aerius.load();
-		
-		WorldManager.load();
-		InventoryHandler.load();
+
+		testWorldType = new WorldTypeTest("test");
 		
 		ECConfig.saveConfig();
 	}

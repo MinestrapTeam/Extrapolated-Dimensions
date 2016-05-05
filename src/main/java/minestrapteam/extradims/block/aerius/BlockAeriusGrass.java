@@ -3,8 +3,8 @@ package minestrapteam.extradims.block.aerius;
 import java.util.Random;
 
 import minestrapteam.extracore.block.BlockCustomGrass;
-import minestrapteam.extradims.lib.Aerius;
 
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import net.minecraft.world.World;
 
 public class BlockAeriusGrass extends BlockCustomGrass
@@ -23,9 +23,9 @@ public class BlockAeriusGrass extends BlockCustomGrass
 		if (randInt < 2)
 		{
 			int metadata = world.getBlockMetadata(x, y, z) + (5 * randInt);
-			if (world.isAirBlock(x, y, z) && Aerius.plantBlocks.canPlaceBlockAt(world, x, y + 1, z))
+			if (world.isAirBlock(x, y, z) && ABlocks.plantBlocks.canPlaceBlockAt(world, x, y + 1, z))
 			{
-				world.setBlock(x, y + 1, z, Aerius.plantBlocks, metadata, 2);
+				world.setBlock(x, y + 1, z, ABlocks.plantBlocks, metadata, 2);
 			}
 		}
 	}

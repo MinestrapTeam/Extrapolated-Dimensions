@@ -1,6 +1,6 @@
 package minestrapteam.extradims.block.virtious;
 
-import minestrapteam.extradims.lib.Virtious;
+import minestrapteam.extradims.lib.virtious.Virtious;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

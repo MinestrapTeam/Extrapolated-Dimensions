@@ -1,32 +1,47 @@
-package minestrapteam.extradims.lib;
+package minestrapteam.extradims.lib.aerius;
 
 import minestrapteam.extracore.api.PlayerInventoryAPI;
 import minestrapteam.extracore.api.SurvivalInventory;
 import minestrapteam.extracore.inventory.ExtendedInventory;
 import minestrapteam.extracore.inventory.IInventoryHandler;
 import minestrapteam.extracore.inventory.ISlotList;
+import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
 import minestrapteam.extracore.inventory.slot.SlotCustomArmor;
 import minestrapteam.extracore.util.math.Point2i;
 import minestrapteam.extradims.item.ArmorTypes;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class InventoryHandler implements IInventoryHandler
+public class AInventory implements IInventoryHandler
 {
-	public static final IInventoryHandler INSTANCE = new InventoryHandler();
+	public static final IInventoryHandler INSTANCE = new AInventory();
+
+	// Creative Tabs
+
+	public static CustomCreativeTab tabAeriusBlocks    = new CustomCreativeTab("aerius_blocks");
+	public static CustomCreativeTab tabAeriusItems     = new CustomCreativeTab("aerius_items");
+	public static CustomCreativeTab tabAeriusTools     = new CustomCreativeTab("aerius_tools");
+	public static CustomCreativeTab tabAeriusEquipment = new CustomCreativeTab("aerius_equipment");
+
+	// Armor Slot Icons
 
 	private static IIcon[] icons = new IIcon[ArmorTypes.SLOT_NAMES.length - ArmorTypes.GOGGLES];
-
-	public static int getSlotIndex(int armorType)
-	{
-		return 64 + armorType - ArmorTypes.GOGGLES;
-	}
 
 	public static void load()
 	{
 		PlayerInventoryAPI.addInventoryHandler(INSTANCE);
+		setTabIcons();
+	}
+
+	private static void setTabIcons()
+	{
+		tabAeriusBlocks.setIconItemStack(ABlocks.aerianGrass);
+		tabAeriusItems.setIconItemStack(AItems.condaiusDust);
+		tabAeriusTools.setIconItemStack(new ItemStack(AItems.iceHammer));
+		tabAeriusEquipment.setIconItemStack(new ItemStack(AItems.accessories, 1, 7)); // Diamond Ring
 	}
 
 	public static void loadIcons(IIconRegister iconRegister)
@@ -34,7 +49,7 @@ public class InventoryHandler implements IInventoryHandler
 		final int start = ArmorTypes.GOGGLES;
 		for (int i = start; i < ArmorTypes.SLOT_NAMES.length; i++)
 		{
-			icons[i - start] = iconRegister.registerIcon("extradims:armorslot/" + ArmorTypes.SLOT_NAMES[i]);
+			icons[i - start] = iconRegister.registerIcon("ed_aerius:armorslot/" + ArmorTypes.SLOT_NAMES[i]);
 		}
 	}
 
@@ -76,5 +91,10 @@ public class InventoryHandler implements IInventoryHandler
 	@Override
 	public void buttonPressed(GuiButton button, EntityPlayer player, boolean creative)
 	{
+	}
+
+	public static int getSlotIndex(int armorType)
+	{
+		return 64 + armorType - ArmorTypes.GOGGLES;
 	}
 }

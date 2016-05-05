@@ -5,7 +5,9 @@ import minestrapteam.extracore.util.I18n;
 import minestrapteam.extradims.api.curse.ICurseIngredient;
 import minestrapteam.extradims.curse.Curse;
 import minestrapteam.extradims.entity.EDEntityProperties;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
+import minestrapteam.extradims.lib.aerius.AItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -37,7 +39,7 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 	@Override
 	public boolean isCurseIngredient(ItemStack stack)
 	{
-		return stack.getItemDamage() == Aerius.iceStick.getItemDamage();
+		return stack.getItemDamage() == AItems.iceStick.getItemDamage();
 	}
 
 	@Override
@@ -50,14 +52,14 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 	public EnumRarity getRarity(ItemStack stack)
 	{
 		final int metadata = stack.getItemDamage();
-		return metadata == Aerius.aerwand.getItemDamage() ? EnumRarity.rare : EnumRarity.common;
+		return metadata == AItems.aerwand.getItemDamage() ? EnumRarity.rare : EnumRarity.common;
 	}
 
 	@Override
 	public boolean hasEffect(ItemStack stack, int pass)
 	{
 		final int metadata = stack.getItemDamage();
-		return metadata == Aerius.aerwand.getItemDamage();
+		return metadata == AItems.aerwand.getItemDamage();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -65,7 +67,7 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag)
 	{
 		final int metadata = stack.getItemDamage();
-		if (metadata == Aerius.aerwand.getItemDamage())
+		if (metadata == AItems.aerwand.getItemDamage())
 		{
 			list.add(I18n.getString("item.aerius_loot.aerwand.desc"));
 		}
@@ -75,9 +77,9 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		final int metadata = stack.getItemDamage();
-		if (metadata == Aerius.aerwand.getItemDamage())
+		if (metadata == AItems.aerwand.getItemDamage())
 		{
-			if (!world.isRemote && Aerius.portal.generatePortal(world, x, y + 1, z))
+			if (!world.isRemote && ABlocks.portal.generatePortal(world, x, y + 1, z))
 			{
 				return true;
 			}
@@ -90,7 +92,7 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
 		final int metadata = stack.getItemDamage();
-		if (metadata == Aerius.manaStar.getItemDamage())
+		if (metadata == AItems.manaStar.getItemDamage())
 		{
 			// Mana Star Behaviour
 
@@ -105,7 +107,7 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 			return stack;
 		}
 
-		if (metadata == Aerius.lifeHeart.getItemDamage())
+		if (metadata == AItems.lifeHeart.getItemDamage())
 		{
 			// Life Heart Behaviour
 
@@ -122,7 +124,7 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 			return stack;
 		}
 
-		if (metadata == Aerius.iceStick.getItemDamage())
+		if (metadata == AItems.iceStick.getItemDamage())
 		{
 			if (!player.capabilities.isCreativeMode)
 			{

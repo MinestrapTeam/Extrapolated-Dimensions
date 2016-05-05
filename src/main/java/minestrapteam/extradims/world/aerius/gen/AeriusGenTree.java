@@ -1,7 +1,7 @@
 package minestrapteam.extradims.world.aerius.gen;
 
 import minestrapteam.extracore.world.gen.CustomTreeGen;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -15,10 +15,10 @@ public class AeriusGenTree extends CustomTreeGen
 		final int metadata = type % 4;
 		if (type >= 4)
 		{
-			return new AeriusGenTree(blockUpdates, minTreeHeight, Aerius.logBlocks2, Aerius.leafBlocks2, metadata,
+			return new AeriusGenTree(blockUpdates, minTreeHeight, ABlocks.logBlocks2, ABlocks.leafBlocks2, metadata,
 			                         metadata);
 		}
-		return new AeriusGenTree(blockUpdates, minTreeHeight, Aerius.logBlocks, Aerius.leafBlocks, metadata, metadata);
+		return new AeriusGenTree(blockUpdates, minTreeHeight, ABlocks.logBlocks, ABlocks.leafBlocks, metadata, metadata);
 	}
 
 	private AeriusGenTree(boolean blockUpdates, int minTreeHeight, Block log, Block leaf, int woodMetadata, int leavesMetadata)
@@ -31,7 +31,7 @@ public class AeriusGenTree extends CustomTreeGen
 	{
 		Block soil = world.getBlock(x, y - 1, z);
 
-		return (soil == Aerius.dirtBlocks || soil == Aerius.grassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
+		return (soil == ABlocks.dirtBlocks || soil == ABlocks.grassBlocks || soil == Blocks.grass || soil == Blocks.dirt)
 			       && super.generate(world, random, x, y, z);
 	}
 }

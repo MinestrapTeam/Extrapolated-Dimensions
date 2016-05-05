@@ -1,14 +1,13 @@
 package minestrapteam.extradims.block.virtious;
 
-import java.util.Random;
-
-import minestrapteam.extradims.lib.Virtious;
 import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.lib.virtious.VItems;
-
+import minestrapteam.extradims.lib.virtious.Virtious;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+
+import java.util.Random;
 
 public class VBlock extends Block
 {

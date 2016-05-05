@@ -1,7 +1,9 @@
 package minestrapteam.extradims.block.aerius;
 
 import minestrapteam.extracore.block.BlockCustomPlant;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
+import minestrapteam.extradims.lib.aerius.AItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -29,7 +31,7 @@ public class BlockAeriusPlants extends BlockCustomPlant
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return (random.nextInt(20) == 0 && metadata < 10) ? Aerius.seedItems : null;
+		return (random.nextInt(20) == 0 && metadata < 10) ? AItems.seedItems : null;
 	}
 
 	@Override
@@ -47,8 +49,8 @@ public class BlockAeriusPlants extends BlockCustomPlant
 	@Override
 	public boolean isValidGround(int metadata, Block block, int blockMetadata)
 	{
-		boolean heavenDirtID = block == Aerius.dirtBlocks;
-		boolean heavenGrassID = block == Aerius.grassBlocks;
+		boolean heavenDirtID = block == ABlocks.dirtBlocks;
+		boolean heavenGrassID = block == ABlocks.grassBlocks;
 		boolean vanillaDirtID = block == Blocks.dirt;
 		boolean vanillaGrassID = block == Blocks.grass;
 		switch (metadata)

@@ -1,7 +1,7 @@
 package minestrapteam.extradims.biome.aerius;
 
 import minestrapteam.extracore.world.gen.WorldGenRanged;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -22,7 +22,7 @@ public class BiomeHallow extends BiomeAerius
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return new WorldGenRanged(Aerius.plantBlocks, 3);
+		return new WorldGenRanged(ABlocks.plantBlocks, 3);
 	}
 	
 	@Override

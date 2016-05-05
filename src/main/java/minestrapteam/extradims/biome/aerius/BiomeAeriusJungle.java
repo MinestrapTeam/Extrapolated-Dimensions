@@ -1,7 +1,7 @@
 package minestrapteam.extradims.biome.aerius;
 
 import minestrapteam.extracore.world.gen.WorldGenRanged;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -25,7 +25,7 @@ public class BiomeAeriusJungle extends BiomeAerius
 	@Override
 	public BiomeDecorator createBiomeDecorator()
 	{
-		return this.getModdedBiomeDecorator(new AeriusBiomeDecorator(Aerius.jungleOreBlocks));
+		return this.getModdedBiomeDecorator(new AeriusBiomeDecorator(ABlocks.jungleOreBlocks));
 	}
 
 	@Override
@@ -37,6 +37,6 @@ public class BiomeAeriusJungle extends BiomeAerius
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return new WorldGenRanged(Aerius.plantBlocks, 1);
+		return new WorldGenRanged(ABlocks.plantBlocks, 1);
 	}
 }

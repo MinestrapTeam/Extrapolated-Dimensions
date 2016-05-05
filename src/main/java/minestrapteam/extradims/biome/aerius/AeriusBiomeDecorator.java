@@ -1,7 +1,7 @@
 package minestrapteam.extradims.biome.aerius;
 
 import minestrapteam.extracore.world.gen.WorldGenRanged;
-import minestrapteam.extradims.lib.Aerius;
+import minestrapteam.extradims.lib.aerius.ABlocks;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenClouds;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenMinable;
 import net.minecraft.block.Block;
@@ -16,9 +16,9 @@ import java.util.Random;
 
 public class AeriusBiomeDecorator extends BiomeDecorator
 {
-	private WorldGenerator soulwhiskerGen = new WorldGenRanged(Aerius.flowerBlocks, 0);
-	private WorldGenerator palebloomGen   = new WorldGenRanged(Aerius.flowerBlocks, 1);
-	private WorldGenerator dawnbringerGen = new WorldGenRanged(Aerius.flowerBlocks, 2);
+	private WorldGenerator soulwhiskerGen = new WorldGenRanged(ABlocks.flowerBlocks, 0);
+	private WorldGenerator palebloomGen   = new WorldGenRanged(ABlocks.flowerBlocks, 1);
+	private WorldGenerator dawnbringerGen = new WorldGenRanged(ABlocks.flowerBlocks, 2);
 
 	private WorldGenerator luminiteGen;
 	private WorldGenerator copperGen;
@@ -37,7 +37,7 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 		this.vinesPerChunk = 5;
 		this.flowersPerChunk = 5;
 
-		this.dirtGen = new AeriusGenMinable(Aerius.dirtBlocks, 20);
+		this.dirtGen = new AeriusGenMinable(ABlocks.dirtBlocks, 20);
 
 		this.luminiteGen = new AeriusGenMinable(oreBlock, 0, 18);
 		this.copperGen = new AeriusGenMinable(oreBlock, 1, 10);
@@ -118,7 +118,7 @@ public class AeriusBiomeDecorator extends BiomeDecorator
 
 		int count = 10 + random.nextInt(5);
 		boolean flat = random.nextInt(8) == 0;
-		new AeriusGenClouds(false, count, Aerius.cloud, Aerius.cloud.getRandomType(random), flat)
+		new AeriusGenClouds(false, count, ABlocks.cloud, ABlocks.cloud.getRandomType(random), flat)
 			.generate(world, random, x, y, z);
 	}
 

@@ -1,7 +1,6 @@
 package minestrapteam.extradims.world.virtious;
 
 import minestrapteam.extracore.world.CustomChunkProvider;
-
 import net.minecraft.world.World;
 
 public class ChunkProviderVirtious extends CustomChunkProvider

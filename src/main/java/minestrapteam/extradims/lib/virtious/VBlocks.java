@@ -4,10 +4,11 @@ import minestrapteam.extracore.block.*;
 import minestrapteam.extracore.item.block.ItemCustomSlab;
 import minestrapteam.extracore.item.stack.StackFactory;
 import minestrapteam.extradims.block.virtious.*;
-import minestrapteam.extradims.lib.Virtious;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
+
+import static minestrapteam.extradims.lib.virtious.Virtious.getTexture;
 
 public class VBlocks
 {
@@ -73,7 +74,7 @@ public class VBlocks
 	public static BlockCustomLamp cytoid_lamp_on;
 	public static Block           cytoid_lightstrip;
 	
-	public static void init()
+	public static void initBlocks()
 	{
 		virtious_portal = new BlockVirtiousPortal(null).setHardness(5.0F).setStepSound(Block.soundTypeStone);
 		
@@ -153,7 +154,7 @@ public class VBlocks
 		deep_tak_ore.setHarvestLevel("pickaxe", 2);
 	}
 	
-	public static void load()
+	public static void registerBlocks()
 	{
 		ECBlocks.addBlock(virtious_portal, "virtious_portal");
 		
@@ -218,10 +219,5 @@ public class VBlocks
 		ECBlocks.addBlock(cytoid_lightstrip, "cytoid_lightstrip");
 		
 		veer_crops.setSeed(StackFactory.create(VItems.veer_seeds)).setCrop(StackFactory.create(VItems.veer_dye));
-	}
-	
-	public static String getTexture(String name)
-	{
-		return "virtious:" + name;
 	}
 }
