@@ -21,7 +21,7 @@ public class BlockAeriusPlants extends BlockCustomPlant
 		final String[] res = new String[names.length];
 		for (int i = 0; i < names.length; i++)
 		{
-			res[i] = Aerius.TEXTURE_DOMAIN + "plants/" + names[i];
+			res[i] = Aerius.TEXTURE_PREFIX + "plants/" + names[i];
 		}
 		return res;
 	}

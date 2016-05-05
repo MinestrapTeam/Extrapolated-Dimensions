@@ -8,7 +8,7 @@ public class ItemGem extends ItemCustomArmor
 {
 	public ItemGem(ArmorMaterial material)
 	{
-		super(material, 0, ArmorTypes.CRYSTAL);
+		super(material, "minecraft", "gem", ArmorTypes.CRYSTAL);
 	}
 
 	@Override

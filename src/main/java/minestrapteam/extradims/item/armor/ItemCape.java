@@ -44,7 +44,7 @@ public class ItemCape extends Item implements ICape
 	{
 		for (int i = 0; i < CAPE_NAMES.length; i++)
 		{
-			this.icons[i] = iconRegister.registerIcon(Aerius.TEXTURE_DOMAIN + "armor/cape/cape_" + CAPE_NAMES[i]);
+			this.icons[i] = iconRegister.registerIcon(Aerius.TEXTURE_PREFIX + "armor/cape/cape_" + CAPE_NAMES[i]);
 		}
 	}
 

@@ -2,7 +2,6 @@ package minestrapteam.extradims.item.aerius;
 
 import minestrapteam.extracore.item.CustomItem;
 import minestrapteam.extracore.util.I18n;
-import minestrapteam.extradims.api.alchemy.IEnergyFuel;
 import minestrapteam.extradims.api.curse.ICurseIngredient;
 import minestrapteam.extradims.curse.Curse;
 import minestrapteam.extradims.entity.EDEntityProperties;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemAeriusLoot extends CustomItem implements ICurseIngredient, IEnergyFuel
+public class ItemAeriusLoot extends CustomItem implements ICurseIngredient
 {
 	public ItemAeriusLoot(String[] names)
 	{
@@ -30,21 +29,9 @@ public class ItemAeriusLoot extends CustomItem implements ICurseIngredient, IEne
 		final String[] res = new String[names.length];
 		for (int i = 0; i < names.length; i++)
 		{
-			res[i] = Aerius.TEXTURE_DOMAIN + "loot/" + names[i];
+			res[i] = Aerius.TEXTURE_PREFIX + "loot/" + names[i];
 		}
 		return res;
-	}
-
-	@Override
-	public boolean isEnergyFuel(ItemStack stack)
-	{
-		return stack.getItemDamage() == Aerius.energyOrb.getItemDamage();
-	}
-
-	@Override
-	public int getEnergyValue(ItemStack stack)
-	{
-		return this.isEnergyFuel(stack) ? 2000 : 0;
 	}
 
 	@Override

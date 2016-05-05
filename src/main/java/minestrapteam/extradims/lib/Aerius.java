@@ -3,31 +3,47 @@ package minestrapteam.extradims.lib;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.extracore.block.*;
 import minestrapteam.extracore.inventory.creativetab.CustomCreativeTab;
-import minestrapteam.extracore.item.CustomItem;
-import minestrapteam.extracore.item.ECItems;
+import minestrapteam.extracore.item.*;
 import minestrapteam.extracore.util.StringUtils;
 import minestrapteam.extradims.block.MaterialCloud;
 import minestrapteam.extradims.block.aerius.*;
 import minestrapteam.extradims.item.aerius.*;
+import minestrapteam.extradims.item.armor.ArmorTypes;
 import minestrapteam.extradims.item.armor.ItemCape;
 import minestrapteam.extradims.item.armor.ItemGem;
 import minestrapteam.extradims.tileentity.TileEntityDamnationTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
+import net.minecraftforge.common.util.EnumHelper;
 
 import static minestrapteam.extracore.crafting.ECCrafting.*;
 
 public class Aerius
 {
-	public static final String TEXTURE_DOMAIN = "ed_aerius:";
+	public static final String TEXTURE_DOMAIN = "ed_aerius";
+	public static final String TEXTURE_PREFIX = TEXTURE_DOMAIN + ":";
 
-	public static CustomCreativeTab tabAeriusBlocks = new CustomCreativeTab("aerius_blocks");
-	public static CustomCreativeTab tabAeriusItems  = new CustomCreativeTab("aerius_items");
+	public static CustomCreativeTab tabAeriusBlocks    = new CustomCreativeTab("aerius_blocks");
+	public static CustomCreativeTab tabAeriusItems     = new CustomCreativeTab("aerius_items");
+	public static CustomCreativeTab tabAeriusTools     = new CustomCreativeTab("aerius_tools");
+	public static CustomCreativeTab tabAeriusEquipment = new CustomCreativeTab("aerius_equipment");
+
+	// Block Materials
 
 	public static Material cloudMaterial = new MaterialCloud();
+
+	// Tool and Armor Materials
+
+	//	public static Item.ToolMaterial toolHeavenWood  = EnumHelper.addToolMaterial("HEAVENWOOD", 0, 64, 1F, 1F, 14);
+	//	public static Item.ToolMaterial toolHeavenStone = EnumHelper.addToolMaterial("HEAVENSTONE", 1, 64, 2F, 2, 12);
+	public static Item.ToolMaterial toolPro  = EnumHelper.addToolMaterial("PRO", 3, 4096, 10F, 10F, 10);
+	public static Item.ToolMaterial toolFire = EnumHelper.addToolMaterial("FIRE", 2, 416, 3.5F, 4F, 8);
+	//	public static Item.ToolMaterial toolWillow      = EnumHelper.addToolMaterial("WILLOW", 0, 100, 1.2F, 1.5F, 16);
+	//	public static Item.ToolMaterial toolGoldwood    = Item.ToolMaterial.GOLD;
+
+	public static ItemArmor.ArmorMaterial armorPro = EnumHelper
+		                                                 .addArmorMaterial("PRO", 512, new int[] { 7, 18, 14, 7 }, 10);
 
 	// Items
 
@@ -37,12 +53,28 @@ public class Aerius
 	public static ItemAeriusSeeds seedItems;
 
 	public static ItemFood       aerianApple;
-	public static ItemFireSword  fireSword;
-	public static ItemIceHammer  iceHammer;
 	public static ItemAeriusSoul soul;
-	public static ItemCape       capes;
-	public static ItemStaff      staff;
 
+	// Weapons
+	public static ItemStaff     staves;
+	public static ItemFireSword fireSword;
+	public static ItemSword     proSword;
+
+	// Tools
+	public static ItemIceHammer iceHammer;
+	public static ItemPickaxe   proPickaxe;
+	public static ItemSpade     proShovel;
+	public static ItemAxe       proAxe;
+	public static ItemHoe       proHoe;
+
+	// Accessories
+	public static ItemCustomArmor proHelmet;
+	public static ItemCustomArmor proChestplate;
+	public static ItemCustomArmor proLeggings;
+	public static ItemCustomArmor proBoots;
+	public static ItemCustomArmor proGloves;
+
+	public static ItemCape              capes;
 	public static ItemAeriusAccessories accessories;
 	public static ItemGem               lifeGem;
 	public static ItemGem               manaGem;
@@ -81,7 +113,7 @@ public class Aerius
 
 	public static ItemStack iceStick, manaStar, lifeHeart, aerwand;
 
-	public static ItemStack luminiteChunk, whiteGoldIngot, condaiusDust, holiumIngot, proAlloy, energyOrb;
+	public static ItemStack luminiteChunk, whiteGoldIngot, condaiusDust, holiumIngot, proAlloy;
 
 	public static ItemStack aerianSoil, mudDirt, ashes;
 	public static ItemStack aerianGrass, mudGrass, corruptedGrass, hallowedGrass, mushroomGrass;
@@ -96,7 +128,7 @@ public class Aerius
 	public static ItemStack magicOakSapling, willowSapling;
 	public static ItemStack magicOakPlanks, willowPlanks;
 
-	public static ItemStack aerock, cobbledAerock, mossyAerock;
+	public static ItemStack aerock, cobbledAerock, jungleAerock, mossyAerock;
 
 	public static ItemStack luminiteOre, copperOre, whiteGoldOre, holiumOre, condaiusOre, amnethiteOre, diamondOre, obsidianOre;
 	public static ItemStack jungleLuminiteOre, jungleCopperOre, jungleWhiteGoldOre, jungleHoliumOre, jungleCondaiusOre, jungleAmnethiteOre, jungleDiamondOre, jungleObsidianOre;
@@ -109,39 +141,73 @@ public class Aerius
 		// Items
 
 		stickItems = new CustomItem(woodTypes,
-		                            StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "materials/", "_stick"), null);
+		                            StringUtils.concatAll(woodTypes, TEXTURE_PREFIX + "materials/", "_stick"), null);
 
 		final String[] materialNames = { "luminite", "copper_ingot", "white_gold_ingot", "holium_ingot",
-			"condaius_dust", "amnethite_gem", "energy_orb", "obsidian_ingot", "pro_ingot" };
+			"condaius_dust", "amnethite_gem", "obsidian_ingot", "pro_ingot" };
 		materialItems = new CustomItem(materialNames,
-		                               StringUtils.concatAll(materialNames, TEXTURE_DOMAIN + "minerals/", ""), null);
+		                               StringUtils.concatAll(materialNames, TEXTURE_PREFIX + "minerals/", ""), null);
 
 		lootItems = new ItemAeriusLoot(new String[] { "ice_stick", "gold_ball", "life_heart", "mana_star", "aerwand",
 			"etherical_stone", "bottle_light", "hephaestos_flame", "chains" });
 
 		aerianApple = (ItemFood) new ItemFood(2, 0, false).setTextureName(getTexture("food/aerian_apple"))
 		                                                  .setCreativeTab(tabAeriusItems);
-		staff = (ItemStaff) new ItemStaff().setCreativeTab(tabAeriusItems);
 
-		fireSword = (ItemFireSword) new ItemFireSword().setTextureName(getTexture("weapons/fire_sword"))
-		                                               .setCreativeTab(tabAeriusItems);
-		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName(getTexture("tools/ice_hammer"))
-		                                               .setCreativeTab(tabAeriusItems);
 		soul = (ItemAeriusSoul) new ItemAeriusSoul().setCreativeTab(tabAeriusItems);
-		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabAeriusItems);
 
 		String[] seeds = new String[] { "aerian_grass", "mud_grass", "corrupted_grass", "hallowed_grass",
 			"mushroom_grass" };
 		seedItems = new ItemAeriusSeeds(seeds, StringUtils.concatAll(seeds, "ed_aerius:food/", "_seeds"));
 
-		accessories = (ItemAeriusAccessories) new ItemAeriusAccessories().setCreativeTab(tabAeriusItems);
+		// Weapons
+
+		proSword = (ItemSword) new ItemSword(toolPro).setTextureName(getTexture("weapons/pro/pro_sword"))
+		                                             .setCreativeTab(tabAeriusTools);
+		fireSword = (ItemFireSword) new ItemFireSword(toolFire).setTextureName(getTexture("weapons/fire_sword"))
+		                                                       .setCreativeTab(tabAeriusTools);
+		staves = (ItemStaff) new ItemStaff().setCreativeTab(tabAeriusTools);
+
+		// Tools
+
+		iceHammer = (ItemIceHammer) new ItemIceHammer().setTextureName(getTexture("tools/ice_hammer"))
+		                                               .setCreativeTab(tabAeriusTools);
+		proPickaxe = (ItemPickaxe) new ItemCustomPickaxe(toolPro).setTextureName(getTexture("tools/pro/pro_pickaxe"))
+		                                                         .setCreativeTab(tabAeriusTools);
+		proShovel = (ItemSpade) new ItemSpade(toolPro).setTextureName(getTexture("tools/pro/pro_shovel"))
+		                                              .setCreativeTab(tabAeriusTools);
+		proAxe = (ItemAxe) new ItemCustomAxe(toolPro).setTextureName(getTexture("tools/pro/pro_axe"))
+		                                             .setCreativeTab(tabAeriusTools);
+		proHoe = (ItemHoe) new ItemHoe(toolPro).setTextureName(getTexture("tools/pro/pro_hoe"))
+		                                       .setCreativeTab(tabAeriusTools);
+
+		// Accessories
+
+		proHelmet = (ItemCustomArmor) new ItemCustomArmor(armorPro, TEXTURE_DOMAIN, "pro", ArmorTypes.HELMET)
+			                              .setTextureName(getTexture("armor/pro/pro_helmet"))
+			                              .setCreativeTab(tabAeriusEquipment);
+		proChestplate = (ItemCustomArmor) new ItemCustomArmor(armorPro, TEXTURE_DOMAIN, "pro", ArmorTypes.CHESTPLATE)
+			                                  .setTextureName(getTexture("armor/pro/pro_chestplate"))
+			                                  .setCreativeTab(tabAeriusEquipment);
+		proLeggings = (ItemCustomArmor) new ItemCustomArmor(armorPro, TEXTURE_DOMAIN, "pro", ArmorTypes.LEGGINGS)
+			                                .setTextureName(getTexture("armor/pro/pro_leggings"))
+			                                .setCreativeTab(tabAeriusEquipment);
+		proBoots = (ItemCustomArmor) new ItemCustomArmor(armorPro, TEXTURE_DOMAIN, "pro", ArmorTypes.BOOTS)
+			                             .setTextureName(getTexture("armor/pro/pro_boots"))
+			                             .setCreativeTab(tabAeriusEquipment);
+		proGloves = (ItemCustomArmor) new ItemCustomArmor(armorPro, TEXTURE_DOMAIN, "pro", ArmorTypes.GLOVES)
+			                              .setTextureName(getTexture("armor/pro/pro_gloves"))
+			                              .setCreativeTab(tabAeriusEquipment);
+
+		capes = (ItemCape) new ItemCape().setUnlocalizedName("cape").setCreativeTab(tabAeriusEquipment);
+		accessories = (ItemAeriusAccessories) new ItemAeriusAccessories().setCreativeTab(tabAeriusEquipment);
 		lifeGem = (ItemGem) new ItemGem(ItemArmor.ArmorMaterial.DIAMOND).setTextureName(getTexture("loot/life_gem"))
-		                                                                .setCreativeTab(tabAeriusItems);
+		                                                                .setCreativeTab(tabAeriusEquipment);
 		manaGem = (ItemGem) new ItemGem(ItemArmor.ArmorMaterial.DIAMOND).setTextureName(getTexture("loot/mana_gem"))
-		                                                                .setCreativeTab(tabAeriusItems);
+		                                                                .setCreativeTab(tabAeriusEquipment);
 		amnethiteParagonGem = (ItemGem) new ItemGem(ItemArmor.ArmorMaterial.DIAMOND)
 			                                .setTextureName(getTexture("loot/amnethite_paragon_gem"))
-			                                .setCreativeTab(tabAeriusItems);
+			                                .setCreativeTab(tabAeriusEquipment);
 
 		// Blocks
 
@@ -184,9 +250,9 @@ public class Aerius
 		final String[] oreNames = { "luminite", "copper", "white_gold", "holium", "condaius", "amnethite", "diamond",
 			"obsidian" };
 		oreBlocks = new CustomBlock(Material.rock, oreNames,
-		                            StringUtils.concatAll(oreNames, TEXTURE_DOMAIN + "minerals/", "_ore_aerock"), null);
+		                            StringUtils.concatAll(oreNames, TEXTURE_PREFIX + "minerals/", "_ore_aerock"), null);
 		jungleOreBlocks = new CustomBlock(Material.rock, oreNames,
-		                                  StringUtils.concatAll(oreNames, TEXTURE_DOMAIN + "minerals/", "_ore_jungle"),
+		                                  StringUtils.concatAll(oreNames, TEXTURE_PREFIX + "minerals/", "_ore_jungle"),
 		                                  null);
 
 		metalBlocks = new CustomBlock(Material.iron,
@@ -203,25 +269,25 @@ public class Aerius
 		String[] woodTypes2 = { "cloudroot", "gold_wood", "magic_oak", "willow" };
 
 		logBlocks = new BlockCustomLog(woodTypes1,
-		                               StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "wood/", "_log_top"),
-		                               StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "wood/", "_log_side"));
+		                               StringUtils.concatAll(woodTypes1, TEXTURE_PREFIX + "wood/", "_log_top"),
+		                               StringUtils.concatAll(woodTypes1, TEXTURE_PREFIX + "wood/", "_log_side"));
 		logBlocks2 = new BlockCustomLog(woodTypes2,
-		                                StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "wood/", "_log_top"),
-		                                StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "wood/", "_log_side"));
+		                                StringUtils.concatAll(woodTypes2, TEXTURE_PREFIX + "wood/", "_log_top"),
+		                                StringUtils.concatAll(woodTypes2, TEXTURE_PREFIX + "wood/", "_log_side"));
 
 		leafBlocks = new BlockCustomLeaves(woodTypes1,
-		                                   StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "plants/", "_leaves"));
+		                                   StringUtils.concatAll(woodTypes1, TEXTURE_PREFIX + "plants/", "_leaves"));
 		leafBlocks2 = new BlockCustomLeaves(woodTypes2,
-		                                    StringUtils.concatAll(woodTypes2, TEXTURE_DOMAIN + "plants/", "_leaves"));
+		                                    StringUtils.concatAll(woodTypes2, TEXTURE_PREFIX + "plants/", "_leaves"));
 
-		saplingBlocks = new BlockAeriusSapling(woodTypes1, StringUtils.concatAll(woodTypes1, TEXTURE_DOMAIN + "plants/",
+		saplingBlocks = new BlockAeriusSapling(woodTypes1, StringUtils.concatAll(woodTypes1, TEXTURE_PREFIX + "plants/",
 		                                                                         "_sapling"));
 		saplingBlocks2 = new BlockAeriusSapling(woodTypes2, StringUtils
-			                                                    .concatAll(woodTypes2, TEXTURE_DOMAIN + "plants/",
+			                                                    .concatAll(woodTypes2, TEXTURE_PREFIX + "plants/",
 			                                                               "_sapling"));
 
 		plankBlocks = new CustomBlock(Material.wood, woodTypes,
-		                              StringUtils.concatAll(woodTypes, TEXTURE_DOMAIN + "wood/", "_planks"), null);
+		                              StringUtils.concatAll(woodTypes, TEXTURE_PREFIX + "wood/", "_planks"), null);
 	}
 
 	public static void initStacks()
@@ -236,11 +302,10 @@ public class Aerius
 		willowStick = new ItemStack(stickItems, 1, 5);
 
 		luminiteChunk = new ItemStack(materialItems, 1, 0);
-		whiteGoldIngot = new ItemStack(materialItems, 1, 1);
-		condaiusDust = new ItemStack(materialItems, 1, 2);
+		whiteGoldIngot = new ItemStack(materialItems, 1, 2);
 		holiumIngot = new ItemStack(materialItems, 1, 3);
-		proAlloy = new ItemStack(materialItems, 1, 4);
-		energyOrb = new ItemStack(materialItems, 1, 5);
+		condaiusDust = new ItemStack(materialItems, 1, 4);
+		proAlloy = new ItemStack(materialItems, 1, 7);
 
 		iceStick = new ItemStack(lootItems, 1, 0);
 		lifeHeart = new ItemStack(lootItems, 1, 2);
@@ -252,6 +317,7 @@ public class Aerius
 		aerock = new ItemStack(stoneBlocks, 1, 0);
 		cobbledAerock = new ItemStack(stoneBlocks, 1, 1);
 		mossyAerock = new ItemStack(stoneBlocks, 1, 2);
+		jungleAerock = new ItemStack(stoneBlocks, 1, 3);
 
 		luminiteOre = new ItemStack(oreBlocks, 1, 0);
 		copperOre = new ItemStack(oreBlocks, 1, 1);
@@ -329,8 +395,22 @@ public class Aerius
 		ECItems.addItem(seedItems, "aerius_seeds");
 		ECItems.addItem(lootItems, "aerius_loot");
 		ECItems.addItem(aerianApple, "aerian_apple");
+
+		ECItems.addItem(proSword, "pro_sword");
+		ECItems.addItem(proPickaxe, "pro_pickaxe");
+		ECItems.addItem(proShovel, "pro_shovel");
+		ECItems.addItem(proAxe, "pro_axe");
+		ECItems.addItem(proHoe, "pro_hoe");
+		ECItems.addItem(staves, "aerius_staves");
 		ECItems.addItem(fireSword, "fire_sword");
 		ECItems.addItem(iceHammer, "ice_hammer");
+
+		ECItems.addItem(proHelmet, "pro_helmet");
+		ECItems.addItem(proChestplate, "pro_chestplate");
+		ECItems.addItem(proLeggings, "pro_leggings");
+		ECItems.addItem(proBoots, "pro_boots");
+		ECItems.addItem(proGloves, "pro_gloves");
+
 		ECItems.addItem(capes, "cape");
 		ECItems.addItem(accessories, "aerius_accessories");
 		ECItems.addItem(lifeGem, "life_gem");
@@ -403,6 +483,26 @@ public class Aerius
 
 	public static void addRecipes()
 	{
+		registerOre(logBlocks, "logWood");
+		registerOre(logBlocks2, "logWood");
+		registerOre(plankBlocks, "plankWood");
+		registerOre(aerock, "stone");
+		registerOre(jungleAerock, "stone");
+		registerOre(cobbledAerock, "cobblestone");
+		registerOre(stickItems, "stickWood");
+		registerOre(stickItems, "stickAerius");
+
+		addSwordRecipe(new ItemStack(proSword), proAlloy, "stickAerius");
+		addPickaxeRecipe(new ItemStack(proPickaxe), proAlloy, "stickAerius");
+		addAxeRecipe(new ItemStack(proAxe), proAlloy, "stickAerius");
+		addShovelRecipe(new ItemStack(proShovel), proAlloy, "stickAerius");
+		addHoeRecipe(new ItemStack(proHoe), proAlloy, "stickAerius");
+		addHelmetRecipe(new ItemStack(proHelmet), proAlloy);
+		addChestplateRecipe(new ItemStack(proChestplate), proAlloy);
+		addLeggingsRecipe(new ItemStack(proLeggings), proAlloy);
+		addBootsRecipe(new ItemStack(proBoots), proAlloy);
+		addGlovesRecipe(new ItemStack(proGloves), proAlloy);
+
 		addPlanks(skybarkPlanks, skybarkLog);
 		addPlanks(darkSkybarkPlanks, darkSkybarkLog);
 		addPlanks(cloudrootPlanks, cloudrootLog);
@@ -431,10 +531,12 @@ public class Aerius
 	{
 		tabAeriusBlocks.setIconItemStack(aerianGrass);
 		tabAeriusItems.setIconItemStack(condaiusDust);
+		tabAeriusTools.setIconItemStack(new ItemStack(iceHammer));
+		tabAeriusEquipment.setIconItemStack(new ItemStack(accessories, 1, 7)); // Diamond Ring
 	}
 
 	public static String getTexture(String name)
 	{
-		return TEXTURE_DOMAIN + name;
+		return TEXTURE_PREFIX + name;
 	}
 }

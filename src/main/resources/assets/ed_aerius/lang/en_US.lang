@@ -3,6 +3,8 @@
 # Creative Tabs
 itemGroup.aerius_blocks=Aerius - Blocks
 itemGroup.aerius_items=Aerius - Items
+itemGroup.aerius_tools=Aerius - Tools
+itemGroup.aerius_equipment=Aerius - Equipment
 
 # Button Texts
 button.gameover.aerius=Go To Aerius
@@ -122,7 +124,6 @@ item.aerius_materials.condaius_dust.name=Condaius Dust
 item.aerius_materials.amnethite_gem.name=Amnethite Gem
 item.aerius_materials.obsidian_ingot.name=Obsidian Ingot
 item.aerius_materials.pro_ingot.name=Pro Alloy Ingot
-item.aerius_materials.energy_orb.name=Energy Orb
 
 item.aerius_loot.ice_stick.name=Ice Stick
 item.aerius_loot.gold_ball.name=Gold Ball
@@ -150,8 +151,20 @@ item.aerius_seeds.mushroom_grass.name=Mushroom Grass Seeds
 
 # Tools
 item.fire_sword.name=Fire Sword
+item.ice_hammer.name=Ice Hammer
+item.pro_sword.name=Pro Sword
+item.pro_pickaxe.name=Pro Pickaxe
+item.pro_axe.name=Pro Axe
+item.pro_shovel.name=Pro Shovel
+item.pro_hoe.name=Pro Hoe
 
-# Armor
+# Accessories
+item.pro_helmet.name=Pro Helmet
+item.pro_chestplate.name=Pro Chestplate
+item.pro_leggings.name=Pro Leggings
+item.pro_boots.name=Pro Boots
+item.pro_gloves.name=Pro Gloves
+
 item.aerius_accessories.iron_bracelet.name=Iron Bracelet
 item.aerius_accessories.gold_bracelet.name=Gold Bracelet
 item.aerius_accessories.gold_ring.name=Gold Ring
@@ -176,9 +189,6 @@ item.cape.minecon_2011.name=Minecon 2011 Cape
 item.cape.minecon_2012.name=Minecon 2012 Cape
 item.cape.minecon_2013.name=Minecon 2013 Cape
 item.cape.minecon_2015.name=Minecon 2015 Cape
-
-# Misc Tools
-item.ice_hammer.name=Ice Hammer
 
 # Food Items
 item.aerian_apple.name=Aerian Apple

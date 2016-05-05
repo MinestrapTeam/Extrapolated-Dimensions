@@ -35,7 +35,7 @@ public class ItemAeriusAccessories extends Item
 			final String iconName = ICON_NAMES[i];
 			if (iconName != null)
 			{
-				this.icons[i] = iconRegister.registerIcon(Aerius.TEXTURE_DOMAIN + iconName);
+				this.icons[i] = iconRegister.registerIcon(Aerius.TEXTURE_PREFIX + iconName);
 			}
 		}
 	}

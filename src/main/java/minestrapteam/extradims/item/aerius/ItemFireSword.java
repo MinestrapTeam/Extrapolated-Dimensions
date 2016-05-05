@@ -1,7 +1,5 @@
 package minestrapteam.extradims.item.aerius;
 
-import minestrapteam.extradims.lib.Tools;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -12,9 +10,9 @@ import net.minecraft.world.World;
 
 public class ItemFireSword extends ItemSword
 {
-	public ItemFireSword()
+	public ItemFireSword(ToolMaterial material)
 	{
-		super(Tools.toolFire);
+		super(material);
 	}
 	
 	@Override
