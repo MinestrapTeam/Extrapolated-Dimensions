@@ -11,6 +11,7 @@ import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -34,14 +35,19 @@ public class BiomeAerius extends CustomBiome
 		
 		this.rootHeight = 0F;
 		this.heightVariation = 1.9F;
-		
-		this.theBiomeDecorator = this.getModdedBiomeDecorator(new AeriusBiomeDecorator());
-		
+
 		this.topBlock = Aerius.grassBlocks;
 		this.fillerBlock = Aerius.dirtBlocks;
 		this.stoneBlock = Aerius.stoneBlocks;
 	}
-	
+
+	@Override
+	public BiomeDecorator createBiomeDecorator()
+	{
+		return this.getModdedBiomeDecorator(new AeriusBiomeDecorator(Aerius.oreBlocks));
+	}
+
+	@SuppressWarnings("unchecked")
 	@Override
 	public void addSpawnEntries()
 	{

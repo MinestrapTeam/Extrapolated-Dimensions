@@ -1,12 +1,12 @@
 package minestrapteam.extradims.biome.aerius;
 
-import java.util.Random;
-
 import minestrapteam.extracore.world.gen.WorldGenRanged;
 import minestrapteam.extradims.lib.Aerius;
-
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class BiomeAeriusJungle extends BiomeAerius
 {
@@ -21,7 +21,13 @@ public class BiomeAeriusJungle extends BiomeAerius
 		this.theBiomeDecorator.treesPerChunk = 8;
 		this.theBiomeDecorator.flowersPerChunk = 0;
 	}
-	
+
+	@Override
+	public BiomeDecorator createBiomeDecorator()
+	{
+		return this.getModdedBiomeDecorator(new AeriusBiomeDecorator(Aerius.jungleOreBlocks));
+	}
+
 	@Override
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{

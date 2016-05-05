@@ -7,7 +7,6 @@ import minestrapteam.extradims.lib.virtious.VBlocks;
 import minestrapteam.extradims.world.WorldTypeTest;
 import minestrapteam.extradims.world.aerius.WorldProviderAerius;
 import minestrapteam.extradims.world.aerius.gen.AeriusGenClouds;
-import minestrapteam.extradims.world.aerius.gen.AeriusGenTemple;
 import minestrapteam.extradims.world.virtious.WorldProviderVirtious;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenAmberTree;
 import minestrapteam.extradims.world.virtious.gen.VirtiousGenDeepstone;
@@ -178,22 +177,5 @@ public class WorldManager
 				treeAmber.generate(world, random, Xcoord, i, Zcoord);
 			}
 		}
-	}
-	
-	public static void generateAerius(World world, Random random, int chunkX, int chunkZ)
-	{
-		BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
-		if (random.nextInt(64) == 0 && biome == biomeAerius)
-		{
-			new AeriusGenTemple(false).generate(world, random, chunkX, 96, chunkZ);
-		}
-		
-		int x = chunkX + random.nextInt(16);
-		int y = 64 + random.nextInt(128);
-		int z = chunkZ + random.nextInt(16);
-		
-		int count = 10 + random.nextInt(5);
-		boolean flat = random.nextInt(8) == 0;
-		new AeriusGenClouds(false, count, Aerius.cloud, Aerius.cloud.getRandomType(random), flat).generate(world, random, x, y, z);
 	}
 }
