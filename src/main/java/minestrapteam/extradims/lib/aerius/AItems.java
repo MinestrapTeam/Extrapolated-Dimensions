@@ -83,7 +83,7 @@ public class AItems
 		stickItems = new CustomItem(woodTypes,
 		                            StringUtils.concatAll(woodTypes, TEXTURE_PREFIX + "materials/", "_stick"), null);
 
-		final String[] materialNames = { "luminite", "copper_ingot", "white_gold_ingot", "holium_ingot",
+		final String[] materialNames = { "luminite", "white_gold_ingot", "holium_ingot",
 			"condaius_dust", "amnethite_gem", "obsidian_ingot", "pro_ingot" };
 		materialItems = new CustomItem(materialNames,
 		                               StringUtils.concatAll(materialNames, TEXTURE_PREFIX + "minerals/", ""), null);
@@ -193,10 +193,10 @@ public class AItems
 		willowStick = new ItemStack(stickItems, 1, 5);
 
 		luminiteChunk = new ItemStack(materialItems, 1, 0);
-		whiteGoldIngot = new ItemStack(materialItems, 1, 2);
-		holiumIngot = new ItemStack(materialItems, 1, 3);
-		condaiusDust = new ItemStack(materialItems, 1, 4);
-		proAlloy = new ItemStack(materialItems, 1, 7);
+		whiteGoldIngot = new ItemStack(materialItems, 1, 1);
+		holiumIngot = new ItemStack(materialItems, 1, 2);
+		condaiusDust = new ItemStack(materialItems, 1, 3);
+		proAlloy = new ItemStack(materialItems, 1, 6);
 
 		iceStick = new ItemStack(lootItems, 1, 0);
 		lifeHeart = new ItemStack(lootItems, 1, 2);

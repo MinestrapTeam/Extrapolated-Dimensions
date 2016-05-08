@@ -84,22 +84,23 @@ public class ABlocks
 	public static ItemStack cobbledAerock;
 	public static ItemStack jungleAerock;
 	public static ItemStack mossyAerock;
+
 	public static ItemStack luminiteOre;
-	public static ItemStack copperOre;
 	public static ItemStack whiteGoldOre;
 	public static ItemStack holiumOre;
 	public static ItemStack condaiusOre;
 	public static ItemStack amnethiteOre;
 	public static ItemStack diamondOre;
 	public static ItemStack obsidianOre;
+
 	public static ItemStack jungleLuminiteOre;
-	public static ItemStack jungleCopperOre;
 	public static ItemStack jungleWhiteGoldOre;
 	public static ItemStack jungleHoliumOre;
 	public static ItemStack jungleCondaiusOre;
 	public static ItemStack jungleAmnethiteOre;
 	public static ItemStack jungleDiamondOre;
 	public static ItemStack jungleObsidianOre;
+
 	public static ItemStack luminiteBlock;
 	public static ItemStack whiteGoldBlock;
 	public static ItemStack condaiusBlock;
@@ -143,7 +144,7 @@ public class ABlocks
 
 	private static void initOreBlocks()
 	{
-		final String[] oreNames = { "luminite", "copper", "white_gold", "holium", "condaius", "amnethite", "diamond",
+		final String[] oreNames = { "luminite", "white_gold", "holium", "condaius", "amnethite", "diamond",
 			"obsidian" };
 		oreBlocks = new CustomBlock(Material.rock, oreNames,
 		                            StringUtils.concatAll(oreNames, Aerius.TEXTURE_PREFIX + "minerals/", "_ore_aerock"),
@@ -261,22 +262,20 @@ public class ABlocks
 		jungleAerock = new ItemStack(stoneBlocks, 1, 3);
 
 		luminiteOre = new ItemStack(oreBlocks, 1, 0);
-		copperOre = new ItemStack(oreBlocks, 1, 1);
-		whiteGoldOre = new ItemStack(oreBlocks, 1, 2);
-		holiumOre = new ItemStack(oreBlocks, 1, 3);
-		condaiusOre = new ItemStack(oreBlocks, 1, 4);
-		amnethiteOre = new ItemStack(oreBlocks, 1, 5);
-		diamondOre = new ItemStack(oreBlocks, 1, 6);
-		obsidianOre = new ItemStack(oreBlocks, 1, 7);
+		whiteGoldOre = new ItemStack(oreBlocks, 1, 1);
+		holiumOre = new ItemStack(oreBlocks, 1, 2);
+		condaiusOre = new ItemStack(oreBlocks, 1, 3);
+		amnethiteOre = new ItemStack(oreBlocks, 1, 4);
+		diamondOre = new ItemStack(oreBlocks, 1, 5);
+		obsidianOre = new ItemStack(oreBlocks, 1, 6);
 
 		jungleLuminiteOre = new ItemStack(jungleOreBlocks, 1, 0);
-		jungleCopperOre = new ItemStack(jungleOreBlocks, 1, 1);
-		jungleWhiteGoldOre = new ItemStack(jungleOreBlocks, 1, 2);
-		jungleHoliumOre = new ItemStack(jungleOreBlocks, 1, 3);
-		jungleCondaiusOre = new ItemStack(jungleOreBlocks, 1, 4);
-		jungleAmnethiteOre = new ItemStack(jungleOreBlocks, 1, 5);
-		jungleDiamondOre = new ItemStack(jungleOreBlocks, 1, 6);
-		jungleObsidianOre = new ItemStack(jungleOreBlocks, 1, 7);
+		jungleWhiteGoldOre = new ItemStack(jungleOreBlocks, 1, 1);
+		jungleHoliumOre = new ItemStack(jungleOreBlocks, 1, 2);
+		jungleCondaiusOre = new ItemStack(jungleOreBlocks, 1, 3);
+		jungleAmnethiteOre = new ItemStack(jungleOreBlocks, 1, 4);
+		jungleDiamondOre = new ItemStack(jungleOreBlocks, 1, 5);
+		jungleObsidianOre = new ItemStack(jungleOreBlocks, 1, 6);
 
 		luminiteBlock = new ItemStack(metalBlocks, 1, 0);
 		whiteGoldBlock = new ItemStack(metalBlocks, 1, 1);
