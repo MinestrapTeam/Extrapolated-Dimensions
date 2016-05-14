@@ -1,10 +1,10 @@
 package minestrapteam.extracore.cape;
 
-import static minestrapteam.extracore.cape.Capes.capeNameToCape;
-import static minestrapteam.extracore.cape.Capes.usernameToCapeName;
-
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.player.EntityPlayer;
+
+import static minestrapteam.extracore.cape.Capes.capeNameToCape;
+import static minestrapteam.extracore.cape.Capes.usernameToCapeName;
 
 public class CapeHelper
 {
@@ -14,7 +14,7 @@ public class CapeHelper
 	
 	public static Cape getCape(EntityPlayer player)
 	{
-		String group = usernameToCapeName.get(player.getCommandSenderName());
+		String group = usernameToCapeName.get(player.getName());
 		Cape cape = capeNameToCape.get(group);
 		return cape == null ? (Cape) Capes.noCape : cape;
 	}

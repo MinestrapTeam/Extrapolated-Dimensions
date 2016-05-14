@@ -1,6 +1,5 @@
 package minestrapteam.extracore.api;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import minestrapteam.extracore.potion.IPotionEffectHandler;
 import minestrapteam.extracore.potion.IPotionList;
 import minestrapteam.extracore.potion.PotionList;
@@ -8,8 +7,9 @@ import minestrapteam.extracore.potion.type.IPotionType;
 import minestrapteam.extracore.util.logging.ECLog;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,10 +17,10 @@ import java.util.List;
 
 public class BrewingAPI
 {
-	public static String  goodEffectColor1      = EnumChatFormatting.GRAY.toString();
-	public static String  goodEffectColor2      = EnumChatFormatting.WHITE.toString();
-	public static String  badEffectColor1       = EnumChatFormatting.RED.toString();
-	public static String  badEffectColor2       = EnumChatFormatting.GOLD.toString();
+	public static String  goodEffectColor1      = TextFormatting.GRAY.toString();
+	public static String  goodEffectColor2      = TextFormatting.WHITE.toString();
+	public static String  badEffectColor1       = TextFormatting.RED.toString();
+	public static String  badEffectColor2       = TextFormatting.GOLD.toString();
 	public static boolean multiPotions          = false;
 	public static boolean advancedPotionInfo    = false;
 	public static boolean showAllBaseTypes      = false;
@@ -51,7 +51,7 @@ public class BrewingAPI
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event)
 	{
-		EntityLivingBase living = event.entityLiving;
+		EntityLivingBase living = event.getEntityLiving();
 		if (living == null || living.worldObj.isRemote)
 		{
 			return;

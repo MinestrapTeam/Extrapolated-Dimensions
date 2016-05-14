@@ -1,20 +1,18 @@
 package minestrapteam.extracore.cape;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.renderer.IImageBuffer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 @SideOnly(Side.CLIENT)
 public class CapeImageBuffer implements IImageBuffer
 {
-	private int	imageWidth;
-	private int	imageHeight;
-	
+	private int imageWidth;
+	private int imageHeight;
+
 	@Override
 	public BufferedImage parseUserSkin(BufferedImage bufferedImage)
 	{
@@ -34,19 +32,19 @@ public class CapeImageBuffer implements IImageBuffer
 			{
 				this.imageHeight = 32;
 			}
-			
+
 			BufferedImage capeImage = new BufferedImage(this.imageWidth, this.imageHeight, 2);
-			
+
 			Graphics graphics = capeImage.getGraphics();
 			graphics.drawImage(bufferedImage, 0, 0, null);
 			graphics.dispose();
-			
+
 			return capeImage;
 		}
 	}
-	
+
 	@Override
-	public void func_152634_a()
+	public void skinAvailable()
 	{
 	}
 }

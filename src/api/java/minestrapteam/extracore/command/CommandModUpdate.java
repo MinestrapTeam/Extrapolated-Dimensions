@@ -3,9 +3,12 @@ package minestrapteam.extracore.command;
 import minestrapteam.extracore.ExtraCore;
 import minestrapteam.extracore.util.update.ECUpdate;
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.List;
 
@@ -16,21 +19,21 @@ public class CommandModUpdate extends CommandBase
 	{
 		return "modupdates";
 	}
-	
+
 	@Override
 	public String getCommandUsage(ICommandSender sender)
 	{
 		return "/modupdates [view|update|updateall]";
 	}
-	
+
 	@Override
-	public void processCommand(ICommandSender sender, String[] args)
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
 	{
 		if (!(sender instanceof EntityPlayerMP))
 		{
 			return;
 		}
-		
+
 		if (args.length >= 1)
 		{
 			if ("update".equals(args[0]))
@@ -55,16 +58,10 @@ public class CommandModUpdate extends CommandBase
 			ExtraCore.getNetHandler().sendOpenMUScreen((EntityPlayerMP) sender);
 		}
 	}
-	
+
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args)
+	public List<String> getTabCompletionOptions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos)
 	{
 		return getListOfStringsMatchingLastWord(args, "update", "updateall", "view");
-	}
-	
-	@Override
-	public int compareTo(Object o)
-	{
-		return 0;
 	}
 }
