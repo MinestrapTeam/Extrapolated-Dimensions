@@ -1,13 +1,12 @@
 package minestrapteam.extracore.network;
 
-import java.io.IOException;
-
 import minestrapteam.extracore.inventory.ExtendedInventory;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
 
 public class EIPacket extends ECPacket
 {
@@ -27,9 +26,8 @@ public class EIPacket extends ECPacket
 	{
 		int len = this.stacks.length;
 		buf.writeInt(len);
-		for (int i = 0; i < len; i++)
+		for (ItemStack stack : this.stacks)
 		{
-			ItemStack stack = this.stacks[i];
 			writeItemStack(buf, stack);
 		}
 	}

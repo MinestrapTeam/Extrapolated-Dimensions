@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ECNetHandler extends BaseNetHandler
@@ -11,7 +12,7 @@ public class ECNetHandler extends BaseNetHandler
 	public ECNetHandler()
 	{
 		super("ExtraCore");
-		
+
 		this.registerPacket(PacketSendTileEntity.class);
 		this.registerPacket(PacketRequestTileEntity.class);
 		this.registerPacket(PacketOpenMUScreen.class);
@@ -20,15 +21,15 @@ public class ECNetHandler extends BaseNetHandler
 		this.registerPacket(EISlotPacket.class);
 		this.registerPacket(EIPacket.class);
 	}
-	
+
 	public void requestTEData(World world, int x, int y, int z)
 	{
 		this.sendToServer(new PacketRequestTileEntity(world, x, y, z));
 	}
-	
+
 	public void sendTEData(World world, int x, int y, int z, EntityPlayerMP player)
 	{
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 		if (te != null)
 		{
 			NBTTagCompound data = new NBTTagCompound();
@@ -36,12 +37,12 @@ public class ECNetHandler extends BaseNetHandler
 			this.sendTo(new PacketSendTileEntity(world, x, y, z, data), player);
 		}
 	}
-	
+
 	public void sendOpenMUScreen(EntityPlayerMP sender)
 	{
 		this.sendTo(new PacketOpenMUScreen(), sender);
 	}
-	
+
 	public void sendCapePacket(EntityPlayer player, String capeName)
 	{
 		this.sendToAll(new CapePacket(player, capeName));

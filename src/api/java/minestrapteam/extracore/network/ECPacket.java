@@ -83,7 +83,7 @@ public abstract class ECPacket
 	 */
 	public static void writeWorld(PacketBuffer buf, World world)
 	{
-		buf.writeInt(world.provider.dimensionId);
+		buf.writeInt(world.provider.getDimension());
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public abstract class ECPacket
 	 *            the buffer
 	 * @return the stack
 	 */
-	public static final ItemStack readItemStack(PacketBuffer buf) throws IOException
+	public static ItemStack readItemStack(PacketBuffer buf) throws IOException
 	{
 		return buf.readItemStackFromBuffer();
 	}
@@ -194,6 +194,6 @@ public abstract class ECPacket
 	public static TileEntity readTileEntity(PacketBuffer buf) throws IOException
 	{
 		NBTTagCompound nbt1 = buf.readNBTTagCompoundFromBuffer();
-		return nbt1 == null ? null : TileEntity.createAndLoadEntity(nbt1);
+		return nbt1 == null ? null : TileEntity.createTileEntity(null, nbt1);
 	}
 }
