@@ -1,11 +1,10 @@
 package minestrapteam.extracore.crafting;
 
 import minestrapteam.extracore.item.stack.ECStacks;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class ShapedBigRecipe extends ShapedRecipes

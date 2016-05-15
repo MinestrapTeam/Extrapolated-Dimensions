@@ -1,22 +1,20 @@
 package minestrapteam.extracore.crafting.loader;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.commons.io.FileUtils;
+
 import java.io.*;
 import java.util.Arrays;
 
-import org.apache.commons.io.FileUtils;
-
-import cpw.mods.fml.common.registry.GameData;
-
-import net.minecraft.item.Item;
-
 public abstract class CustomRecipeLoader
 {
-	public static File	customPluginsDir	= new File("custom-plugins");
-	
+	public static File customPluginsDir = new File("custom-plugins");
+
 	static
 	{
 		customPluginsDir.mkdirs();
-		
+
 		File readme = new File(customPluginsDir, "readme.txt");
 		try
 		{
@@ -27,29 +25,34 @@ public abstract class CustomRecipeLoader
 		{
 		}
 	}
-	
-	public String		type;
-	
+
+	public String type;
+
 	public CustomRecipeLoader(String type)
 	{
 		this.type = type;
 	}
-	
+
 	public void load()
 	{
 		try
 		{
 			File[] files = customPluginsDir.listFiles();
-			
-			for (File file : files)
+
+			if (files != null)
 			{
-				if (file.getName().startsWith(this.type))
+				for (File file : files)
 				{
+					if (!file.getName().startsWith(this.type))
+					{
+						continue;
+					}
+
 					FileInputStream stream = new FileInputStream(file);
 					DataInputStream in = new DataInputStream(stream);
 					BufferedReader br = new BufferedReader(new InputStreamReader(in));
 					System.out.println("Loading " + this.type + " recipes from: " + file);
-					
+
 					String line;
 					while ((line = br.readLine()) != null)
 					{
@@ -64,27 +67,27 @@ public abstract class CustomRecipeLoader
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void processLine(String line)
 	{
 		line = line.toLowerCase().replaceAll(" ", "");
-		
-		Item input = null;
-		int inputMeta = 0;
-		Item output = null;
-		int outputMeta = 0;
-		int amount = 1;
-		float exp = 1F;
-		
+
 		if (!line.isEmpty())
 		{
-			String[] split = line.split(";");
-			
+			String[] split = line.split("\\s*;\\s*");
+
+			String input = null;
+			int inputMeta = 0;
+			String output = null;
+			int outputMeta = 0;
+			int amount = 1;
+			float exp = 1F;
+
 			for (String s : split)
 			{
 				if (s.startsWith("input="))
 				{
-					input = GameData.getItemRegistry().getObject(s.substring(6));
+					input = s.substring(6);
 				}
 				else if (s.startsWith("input_meta="))
 				{
@@ -92,7 +95,7 @@ public abstract class CustomRecipeLoader
 				}
 				else if (s.startsWith("output="))
 				{
-					output = GameData.getItemRegistry().getObject(s.substring(7));
+					output = s.substring(7);
 				}
 				else if (s.startsWith("output_meta="))
 				{
@@ -107,9 +110,14 @@ public abstract class CustomRecipeLoader
 					exp = Float.parseFloat(s.substring(4));
 				}
 			}
-			this.addRecipe(input, inputMeta, output, outputMeta, amount, exp);
+
+			if (input != null && output != null)
+			{
+				this.addRecipe(GameRegistry.makeItemStack(input, inputMeta, 1, null),
+				               GameRegistry.makeItemStack(output, outputMeta, amount, null), exp);
+			}
 		}
 	}
-	
-	public abstract void addRecipe(Item input, int inputMeta, Item output, int outputMeta, int amount, float exp);
+
+	public abstract void addRecipe(ItemStack input, ItemStack output, float exp);
 }

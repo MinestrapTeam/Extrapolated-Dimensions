@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 
-import java.util.List;
 import java.util.UUID;
 
 public class ECProxy extends BaseProxy
@@ -115,12 +114,9 @@ public class ECProxy extends BaseProxy
 
 	public EntityPlayer findPlayer(World world, String username)
 	{
-		List<EntityPlayer> players = world.playerEntities;
-		EntityPlayer player = null;
-		for (int i = 0; i < players.size(); i++)
+		for (EntityPlayer player : world.playerEntities)
 		{
-			player = players.get(i);
-			if (player.getCommandSenderName().equals(username))
+			if (player.getName().equals(username))
 			{
 				return player;
 			}
@@ -143,11 +139,8 @@ public class ECProxy extends BaseProxy
 
 	public EntityPlayer findPlayer(World world, UUID uuid)
 	{
-		List<EntityPlayer> players = world.playerEntities;
-		EntityPlayer player = null;
-		for (int i = 0; i < players.size(); i++)
+		for (EntityPlayer player : world.playerEntities)
 		{
-			player = players.get(i);
 			if (player.getUniqueID().equals(uuid))
 			{
 				return player;

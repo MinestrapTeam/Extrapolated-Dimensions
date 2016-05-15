@@ -1,10 +1,5 @@
 package minestrapteam.extracore.proxy;
 
-import cpw.mods.fml.common.eventhandler.Event.Result;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import minestrapteam.extracore.ExtraCore;
 import minestrapteam.extracore.cape.Capes;
 import minestrapteam.extracore.entity.ECEntities;
@@ -19,22 +14,26 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerOpenContainerEvent;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
+import net.minecraftforge.fml.common.eventhandler.Event;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class ECEventHandler
 {
 	@SubscribeEvent
 	public void getModdedMapGen(InitMapGenEvent event)
 	{
-		if (event.type == InitMapGenEvent.EventType.CAVE)
+		if (event.getType() == InitMapGenEvent.EventType.CAVE)
 		{
-			event.newGen = new CustomCaveGen();
+			event.setNewGen(new CustomCaveGen());
 		}
 	}
 
 	@SubscribeEvent
 	public void entityConstructing(EntityEvent.EntityConstructing event)
 	{
-		ECEntities.loadProperties(event.entity);
+		ECEntities.loadProperties(event.getEntity());
 	}
 
 	@SubscribeEvent
@@ -49,18 +48,18 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void entityJoinWorld(EntityJoinWorldEvent event)
 	{
-		if (!(event.entity instanceof EntityPlayer))
+		if (!(event.getEntity() instanceof EntityPlayer))
 		{
 			return;
 		}
 
-		EntityPlayer player = (EntityPlayer) event.entity;
+		EntityPlayer player = (EntityPlayer) event.getEntity();
 
 		ExtraCore.proxy.replaceInventory(player);
 
 		Capes.updateCape(player);
 
-		if (!event.world.isRemote)
+		if (!event.getWorld().isRemote)
 		{
 			ExtendedInventory ei = ExtendedInventory.get(player);
 			ei.sync();
@@ -70,13 +69,13 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void playerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event)
 	{
-		ECEntities.copyProperties(event.original, event.entityPlayer);
+		ECEntities.copyProperties(event.getOriginal(), event.getEntityPlayer());
 	}
 
 	@SubscribeEvent
 	public void onTick(TickEvent.PlayerTickEvent event)
 	{
-		if (event.phase == Phase.START)
+		if (event.phase == TickEvent.Phase.START)
 		{
 			ExtendedInventory.get(event.player).onUpdate();
 		}
@@ -85,13 +84,13 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void onDeath(LivingDeathEvent event)
 	{
-		if (!(event.entityLiving instanceof EntityPlayer))
+		if (!(event.getEntityLiving() instanceof EntityPlayer))
 		{
 			return;
 		}
 
-		final EntityPlayer player = (EntityPlayer) event.entityLiving;
-		if (player.worldObj.isRemote || player.worldObj.getGameRules().getGameRuleBooleanValue("keepInventory"))
+		final EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+		if (player.worldObj.isRemote || player.worldObj.getGameRules().getBoolean("keepInventory"))
 		{
 			// Don't drop items when keepInventory is on
 			return;
@@ -102,18 +101,18 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void onContainerOpened(PlayerOpenContainerEvent event)
 	{
-		ExtraCore.proxy.replaceInventory(event.entityPlayer);
+		ExtraCore.proxy.replaceInventory(event.getEntityPlayer());
 	}
 
 	@SubscribeEvent
 	public void onItemPickup(EntityItemPickupEvent event)
 	{
-		EntityPlayer player = event.entityPlayer;
-		ItemStack stack = event.item.getEntityItem();
+		EntityPlayer player = event.getEntityPlayer();
+		ItemStack stack = event.getItem().getEntityItem();
 
 		if (player.inventory.getFirstEmptyStack() == -1 && !ExtendedInventory.get(player).addItemStack(stack))
 		{
-			event.setResult(Result.DENY);
+			event.setResult(Event.Result.DENY);
 		}
 	}
 }

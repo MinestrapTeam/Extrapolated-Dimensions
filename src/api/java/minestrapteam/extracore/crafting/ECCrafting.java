@@ -1,12 +1,12 @@
 package minestrapteam.extracore.crafting;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.extracore.item.stack.ECStacks;
 import minestrapteam.extracore.util.logging.ECLog;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -26,7 +26,7 @@ public class ECCrafting
 {
 	public static final List<IRecipe>             RECIPES        = (List<IRecipe>) CraftingManager.getInstance()
 	                                                                                              .getRecipeList();
-	public static final Map<ItemStack, ItemStack> SMELTINGMAP    = (Map<ItemStack, ItemStack>) FurnaceRecipes.smelting()
+	public static final Map<ItemStack, ItemStack> SMELTINGMAP    = (Map<ItemStack, ItemStack>) FurnaceRecipes.instance()
 	                                                                                                         .getSmeltingList();
 	public static final int                       WILDCARD_VALUE = OreDictionary.WILDCARD_VALUE;
 
@@ -43,14 +43,14 @@ public class ECCrafting
 				ShapedRecipes sr = (ShapedRecipes) r;
 
 				stack = sr.getRecipeOutput();
-				stack.func_150996_a(stack.getItem());
+				stack.setItem(stack.getItem());
 				count++;
 
 				for (ItemStack is : sr.recipeItems)
 				{
 					if (is != null)
 					{
-						is.func_150996_a(is.getItem());
+						is.setItem(is.getItem());
 						count++;
 					}
 				}
@@ -58,15 +58,15 @@ public class ECCrafting
 			else if (r instanceof ShapelessRecipes)
 			{
 				ShapelessRecipes sr = (ShapelessRecipes) r;
-				List<ItemStack> list = (List<ItemStack>) sr.recipeItems;
+				List<ItemStack> list = sr.recipeItems;
 
 				stack = sr.getRecipeOutput();
-				stack.func_150996_a(stack.getItem());
+				stack.setItem(stack.getItem());
 				count++;
 
 				for (ItemStack is : list)
 				{
-					is.func_150996_a(is.getItem());
+					is.setItem(is.getItem());
 					count++;
 				}
 			}
@@ -75,9 +75,9 @@ public class ECCrafting
 		for (Entry<ItemStack, ItemStack> entry : SMELTINGMAP.entrySet())
 		{
 			stack = entry.getKey();
-			stack.func_150996_a(stack.getItem());
+			stack.setItem(stack.getItem());
 			stack = entry.getValue();
-			stack.func_150996_a(stack.getItem());
+			stack.setItem(stack.getItem());
 			count += 2;
 		}
 
@@ -175,7 +175,7 @@ public class ECCrafting
 	 */
 	public static void addFurnaceRecipe(ItemStack input, ItemStack output, float experience)
 	{
-		FurnaceRecipes.smelting().func_151394_a(input, output, experience);
+		FurnaceRecipes.instance().addSmeltingRecipe(input, output, experience);
 	}
 
 	/**
